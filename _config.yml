@@ -23,6 +23,8 @@ links:
 
 # Build settings
 markdown: kramdown
+kramdown:
+        input: GFM  # Supports github flavored markdown
 theme: minima
 plugins:
   - jekyll-feed
