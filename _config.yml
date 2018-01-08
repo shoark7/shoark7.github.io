@@ -3,13 +3,12 @@ title: Stonehead Park's on the way
 email: shoark7@gmail.com
 description: Blog for dev, knowledge, expressing my thoughts. Managed by Stonehead Park. 
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://ok.com" # the base hostname & protocol for your site, e.g. http://example.com
+#url: "http://ok.com" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: ""
 github_username:  shoark7
 google_username: shoark7
 
-#permalink: /:categories/:title
-permalink: none
+permalink: /:categories/:title
 
 links:
   - title: about
