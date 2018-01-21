@@ -24,6 +24,8 @@ sass:
   style: compressed
 
 
+# customized variable
+all: all
 
 
 

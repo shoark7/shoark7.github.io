@@ -1,11 +1,49 @@
 ---
+all: true
 ---
-
 {% include header.html %}
+
 	<img id="landing-page-logo" class="d-block" src="http://lorempixel.com/1600/400/sports/" alt="landing-page-logo">
 
-	<script>
-		console.log('hi');	
-	</script>
+	<div class="mt-4 text-light">.</div>
+	<div class="container">
+		<h2 class="text-center m-5">About me</h3>
+		
+		<div class="row m-2">
+			<div class="col-sm-4">
+				<img class="general-image" alt="" src="http://lorempixel.com/400/400/sports/" >
+			</div>
+			<div class="offset-sm-1 col-sm-7 p-4">
+				<h3 class="text-center">A me</h4>
+				<br>
+				<p>lsdfasdfasdfasdfasdfasdfasdforem</p>
+			</div>
+		</div>
+		<div class="mt-4 text-light">.</div>
+		<div class="row m-2">
+			<div class="col-sm-7 p-4">
+				<h3 class="text-center">A me</h4>
+				<br>
+				<p>lsdfasdfasdfasdfasdfasdfasdforem</p>
+			</div>
+			<div class="col-sm-4 offset-sm-1">
+				<img class="general-image" alt="" src="http://lorempixel.com/400/400/sports/" >
+			</div>
+		</div>
+		<div class="row my-5">
+			<a href="" class="m-auto">
+				<div class="btn btn-primary">Know more about me :)</div>
+			</a>
+		</div>
+	</div>
+
+	{% comment %}
+	{% for post in site.posts %}
+		<p>
+			<a href="{{ post.url }}">{{ post.title }}</a>
+		</p>
+	{% endfor %}
+	{% endcomment %}
+
 	
 {% include footer.html %}

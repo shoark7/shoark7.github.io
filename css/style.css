@@ -4,6 +4,14 @@
 	border: 1px solid black;
 }
 
+.general-image {
+	width: 100%;
+}
+
+
+
+/*id setting*/
+
 #layout-wrapper {
 	margin-top: 56px;
 }
@@ -11,3 +19,4 @@
 #landing-page-logo {
 	width: 100%;
 }
+
