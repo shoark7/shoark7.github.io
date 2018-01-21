@@ -1,0 +1,13 @@
+.look {
+	background-color: red;
+	color: white;
+	border: 1px solid black;
+}
+
+#layout-wrapper {
+	margin-top: 56px;
+}
+
+#landing-page-logo {
+	width: 100%;
+}
