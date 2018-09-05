@@ -1,6 +1,15 @@
 ---
 layout: main
 ---
+<p>
+{% for item in site.data.navigation %}
+	{{ item.name }} <!--
+		<a href="{{ item.link }}" {% if page.url == item.link %}style="color: red;"{% endif %}>
+					{{ item.name }}
+							</a>
+	-->
+{% endfor %}
+<p>
 {% for post in paginator.posts %}
 <article class="post">
   {% if post.img %}
