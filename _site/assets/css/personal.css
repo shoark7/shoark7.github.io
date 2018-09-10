@@ -1,0 +1,15 @@
+#nav {
+	position: fixed;
+	min-width: 100%;
+	z-index: 999;
+}
+
+aside.sidebar {
+	position: fixed;
+	top: 10%;
+}
+
+.articles {
+	position: absolute;
+	top: 70%;
+}

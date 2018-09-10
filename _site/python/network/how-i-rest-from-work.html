@@ -17,16 +17,18 @@
     <meta content="You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes." property="og:description">
   
   
-    <meta content="/how-i-rest-from-work/" property="og:url">
+    <meta content="http://localhost:4000/python/network/how-i-rest-from-work.html" property="og:url">
   
   
     <meta content="2017-09-12T19:32:20+09:00" property="article:published_time">
-    <meta content="/about/" property="article:author">
+    <meta content="http://localhost:4000/about/" property="article:author">
   
   
-    <meta content="/assets/img/i-rest.jpg" property="og:image">
+    <meta content="http://localhost:4000/assets/img/i-rest.jpg" property="og:image">
   
   
+    
+    <meta content="Python" property="article:section">
     
   
   
@@ -44,13 +46,13 @@
     <meta name="twitter:title" content="How I Rest From Work">
   
   
-    <meta name="twitter:url" content="/how-i-rest-from-work/">
+    <meta name="twitter:url" content="http://localhost:4000/python/network/how-i-rest-from-work.html">
   
   
     <meta name="twitter:description" content="You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes.">
   
   
-    <meta name="twitter:image:src" content="/assets/img/i-rest.jpg">
+    <meta name="twitter:image:src" content="http://localhost:4000/assets/img/i-rest.jpg">
   
 
 	<meta name="description" content="You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes.">
@@ -68,22 +70,65 @@
 	<!-- iOS Safari -->
 	<meta name="apple-mobile-web-app-status-bar-style" content="#263959">
 	<!-- Google Fonts -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 	<link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+	<link rel="stylesheet" href="/assets/css/personal.css">
+	
 	<!-- Font Awesome -->
 	<link rel="stylesheet" href="/assets/fonts/font-awesome/css/font-awesome.min.css">
 	<!-- Styles -->
 	<link rel="stylesheet" href="/assets/css/main.css">
 </head>
 
-<body>
-
+<body style='position: relative'>
   <div class="wrapper">
+	<nav id="nav" class="navbar navbar-expand-lg navbar-light bg-light">
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+			<a class="navbar-brand" href="#">Parkito's on the way</a>
+			<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+				
+				<li class="nav-item ml-4 mr-2">
+					<a class="nav-link" href="">
+						about 
+					</a>
+				</li>
+				
+				
+				<li class="nav-item ml-4 mr-2">
+					<a class="nav-link" href="">
+						programming 
+					</a>
+				</li>
+				
+				
+				<li class="nav-item ml-4 mr-2">
+					<a class="nav-link" href="">
+						insight 
+					</a>
+				</li>
+				
+				
+				<li class="nav-item ml-4 mr-2">
+					<a class="nav-link" href="">
+						projects 
+					</a>
+				</li>
+				
+				
+			<form class="form-inline my-2 my-lg-0">
+				<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+			</form>
+		</nav>
     <aside class="sidebar">
   <header>
     <div class="about">
       <div class="cover-author-image">
-        <a href="/"><img src="/assets/img/david-freeman.jpg" alt="Sunghwan Park"></a>
+        <a href="/"><img src="/assets/img/1536558558520.jpg" alt="Sunghwan Park"></a>
       </div>
       <div class="author-name">Sunghwan Park</div>
       <p>I'm Parkito.</p>
@@ -93,20 +138,22 @@
     <section class="contact">
       <h3 class="contact-title">Contact me</h3>
       <ul>
+				<!--
         
           <li><a href="https://twitter.com/artemsheludko_" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
         
         
           <li><a href="https://facebook.com/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
         
+				-->
         
-          <li class="github"><a href="http://github.com/artemsheludko" target="_blank"><i class="fa fa-github"></i></a></li>
-        
-        
-          <li class="linkedin"><a href="https://in.linkedin.com/" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+          <li class="github"><a href="http://github.com/shoark7" target="_blank"><i class="fa fa-github"></i></a></li>
         
         
-          <li class="email"><a href="mailto:example.david@blog.com"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
+          <li class="linkedin"><a href="https://in.linkedin.com/in/sunghwan-park-3773b8154" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+        
+        
+          <li class="email"><a href="mailto:shoark7@gmail.com"><i class="fa fa-envelope-o"></i></a></li>
         
       </ul>
     </section> <!-- End Section Contact -->
@@ -115,6 +162,7 @@
     </div>
   </footer> <!-- End Footer -->
 </aside> <!-- End Sidebar -->
+
 <div class="content-box clearfix">
   <article class="article-page">
   <div class="page-content">
@@ -167,9 +215,9 @@
 
       <div class="page-footer">
         <div class="page-share">
-          <a href="https://twitter.com/intent/tweet?text=How I Rest From Work&url=/how-i-rest-from-work/" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
-          <a href="https://facebook.com/sharer.php?u=/how-i-rest-from-work/" title="Share on Facebook" rel="nofollow" target="_blank">Facebook</a>
-          <a href="https://plus.google.com/share?url=/how-i-rest-from-work/" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>
+          <a href="https://twitter.com/intent/tweet?text=How I Rest From Work&url=http://localhost:4000/python/network/how-i-rest-from-work.html" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
+          <a href="https://facebook.com/sharer.php?u=http://localhost:4000/python/network/how-i-rest-from-work.html" title="Share on Facebook" rel="nofollow" target="_blank">Facebook</a>
+          <a href="https://plus.google.com/share?url=http://localhost:4000/python/network/how-i-rest-from-work.html" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>
         </div>
         <div class="page-tag">
           
@@ -179,28 +227,13 @@
           
         </div>
       </div>
-      <section class="comment-area">
-  <div class="comment-wrapper">
-    
-    <div id="disqus_thread" class="article-comments"></div>
-    <script>
-      (function() {
-          var d = document, s = d.createElement('script');
-          s.src = '//mr-brown.disqus.com/embed.js';
-          s.setAttribute('data-timestamp', +new Date());
-          (d.head || d.body).appendChild(s);
-      })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    
-  </div>
-</section> <!-- End Comment Area -->
-
+		
     </div> <!-- End Wrap Content -->
   </div> <!-- End Page Content -->
 </article> <!-- End Article Page -->
 
 </div>
+
 
   </div>
   

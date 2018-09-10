@@ -16,6 +16,7 @@ layout: default
     <section class="contact">
       <h3 class="contact-title">Contact me</h3>
       <ul>
+				<!--
         {% if site.social-twitter %}
           <li><a href="https://twitter.com/{{ site.social-twitter }}" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
         {% else %}
@@ -26,6 +27,7 @@ layout: default
         {% else %}
           <li><a href="https://facebook.com/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
         {% endif %}
+				-->
         {% if site.social-github %}
           <li class="github"><a href="http://github.com/{{site.social-github}}" target="_blank"><i class="fa fa-github"></i></a></li>
         {% else %}
@@ -44,10 +46,12 @@ layout: default
       </ul>
     </section> <!-- End Section Contact -->
     <div class="copyright">
-      <p>{{site.time | date: '%Y'}} &copy; {{site.author}}</p>
+      <p>{{ site.time | date: '%Y' }} &copy; {{ site.author }}</p>
     </div>
   </footer> <!-- End Footer -->
 </aside> <!-- End Sidebar -->
+
 <div class="content-box clearfix">
   {{ content }}
 </div>
+
