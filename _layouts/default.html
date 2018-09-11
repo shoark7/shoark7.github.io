@@ -8,13 +8,14 @@
 			<span class="navbar-toggler-icon"></span>
 		</button>
 		<div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-			<a class="navbar-brand" href="/">{{ site.title }}</a>
+			<a class="navbar-brand" style="margin-right: 2em; margin-left: 1em;" href="/">{{ site.title }}</a>
 			<ul class="dropdown navbar-nav mr-auto mt-2 mt-lg-0">
+				<li class="ml-4 mr-2"> <a href="/about.me" class="nav-link">about me</a> </li>
+				
 				{% for item in site.data.navigation %}
-				<script>console.log({{item}});</script>
 
 					{% if item.name == "programming" %}
-
+						<li class="ml-4 mr-2">	
 						<!--<li class="dropdown-toggle nav-item ml-4 mr-2">-->
 						<!--<div class="dropdown-menu">-->
 							<!--<button class="dropdown-item" type="button">Action</button>-->
@@ -27,15 +28,16 @@
 						</li>
 
 					{% else %}
-						<li class="nav-item ml-4 mr-2"></li>
+						<li class="nav-item ml-4 mr-2">
 							<a class="nav-link" href="/category{{ item.link }}">
 								{{ item.name }}
 							</a>
+						</li>
 							
 					{% endif %}
 
 				{% endfor %}
-			<form class="form-inline my-2 my-lg-0">
+			<form class="form-inline my-2 my-lg-0" id="search-section">
 				<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
 				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 			</form>
