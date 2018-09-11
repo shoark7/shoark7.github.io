@@ -1,8 +1,8 @@
-- name : about
-  link : /about
-- name : programming
-  link : /programming
-- name : insight
-  link : /insight
-- name : projects
-  link : /projects
+- name: about
+  link: /about
+- name: programming
+  link: /programming
+- name: insight
+  link: /insight
+- name: projects
+  link: /projects

@@ -17,18 +17,18 @@
     <meta content="You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes." property="og:description">
   
   
-    <meta content="/python/network/how-i-rest-from-work.html" property="og:url">
+    <meta content="http://localhost:4000/programming/network/how-i-rest-from-work.html" property="og:url">
   
   
     <meta content="2017-09-12T19:32:20+09:00" property="article:published_time">
-    <meta content="/about/" property="article:author">
+    <meta content="http://localhost:4000/about/" property="article:author">
   
   
-    <meta content="/assets/img/i-rest.jpg" property="og:image">
+    <meta content="http://localhost:4000/assets/img/i-rest.jpg" property="og:image">
   
   
     
-    <meta content="Python" property="article:section">
+    <meta content="Programming" property="article:section">
     
   
   
@@ -46,13 +46,13 @@
     <meta name="twitter:title" content="How I Rest From Work">
   
   
-    <meta name="twitter:url" content="/python/network/how-i-rest-from-work.html">
+    <meta name="twitter:url" content="http://localhost:4000/programming/network/how-i-rest-from-work.html">
   
   
     <meta name="twitter:description" content="You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes.">
   
   
-    <meta name="twitter:image:src" content="/assets/img/i-rest.jpg">
+    <meta name="twitter:image:src" content="http://localhost:4000/assets/img/i-rest.jpg">
   
 
 	<meta name="description" content="You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes.">
@@ -88,36 +88,59 @@
 			<span class="navbar-toggler-icon"></span>
 		</button>
 		<div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-			<a class="navbar-brand" href="#">Parkito's on the way</a>
-			<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+			<a class="navbar-brand" href="/">Parkito's on the way</a>
+			<ul class="dropdown navbar-nav mr-auto mt-2 mt-lg-0">
 				
-				<li class="nav-item ml-4 mr-2">
-					<a class="nav-link" href="">
-						about 
-					</a>
-				</li>
+				<script>console.log({"name"=>"about", "link"=>"/about"});</script>
+
+					
+						<li class="nav-item ml-4 mr-2"></li>
+							<a class="nav-link" href="/category/about">
+								about
+							</a>
+							
+					
+
 				
+				<script>console.log({"name"=>"programming", "link"=>"/programming"});</script>
+
+					
+
+						<!--<li class="dropdown-toggle nav-item ml-4 mr-2">-->
+						<!--<div class="dropdown-menu">-->
+							<!--<button class="dropdown-item" type="button">Action</button>-->
+							<!--<button class="dropdown-item" type="button">Action</button>-->
+							<!--<button class="dropdown-item" type="button">Action</button>-->
+						<!--</div>-->
+							<a class="nav-link" href="/category/programming">
+								programming 
+							</a>
+						</li>
+
+					
+
 				
-				<li class="nav-item ml-4 mr-2">
-					<a class="nav-link" href="">
-						programming 
-					</a>
-				</li>
+				<script>console.log({"name"=>"insight", "link"=>"/insight"});</script>
+
+					
+						<li class="nav-item ml-4 mr-2"></li>
+							<a class="nav-link" href="/category/insight">
+								insight
+							</a>
+							
+					
+
 				
-				
-				<li class="nav-item ml-4 mr-2">
-					<a class="nav-link" href="">
-						insight 
-					</a>
-				</li>
-				
-				
-				<li class="nav-item ml-4 mr-2">
-					<a class="nav-link" href="">
-						projects 
-					</a>
-				</li>
-				
+				<script>console.log({"name"=>"projects", "link"=>"/projects"});</script>
+
+					
+						<li class="nav-item ml-4 mr-2"></li>
+							<a class="nav-link" href="/category/projects">
+								projects
+							</a>
+							
+					
+
 				
 			<form class="form-inline my-2 my-lg-0">
 				<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -215,9 +238,9 @@
 
       <div class="page-footer">
         <div class="page-share">
-          <a href="https://twitter.com/intent/tweet?text=How I Rest From Work&url=/python/network/how-i-rest-from-work.html" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
-          <a href="https://facebook.com/sharer.php?u=/python/network/how-i-rest-from-work.html" title="Share on Facebook" rel="nofollow" target="_blank">Facebook</a>
-          <a href="https://plus.google.com/share?url=/python/network/how-i-rest-from-work.html" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>
+          <a href="https://twitter.com/intent/tweet?text=How I Rest From Work&url=http://localhost:4000/programming/network/how-i-rest-from-work.html" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
+          <a href="https://facebook.com/sharer.php?u=http://localhost:4000/programming/network/how-i-rest-from-work.html" title="Share on Facebook" rel="nofollow" target="_blank">Facebook</a>
+          <a href="https://plus.google.com/share?url=http://localhost:4000/programming/network/how-i-rest-from-work.html" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>
         </div>
         <div class="page-tag">
           

@@ -8,15 +8,32 @@
 			<span class="navbar-toggler-icon"></span>
 		</button>
 		<div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-			<a class="navbar-brand" href="#">{{ site.title }}</a>
-			<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+			<a class="navbar-brand" href="/">{{ site.title }}</a>
+			<ul class="dropdown navbar-nav mr-auto mt-2 mt-lg-0">
 				{% for item in site.data.navigation %}
-				<li class="nav-item ml-4 mr-2">
-					<a class="nav-link" href="">
-						{{ item.name }} 
-					</a>
-				</li>
-				
+				<script>console.log({{item}});</script>
+
+					{% if item.name == "programming" %}
+
+						<!--<li class="dropdown-toggle nav-item ml-4 mr-2">-->
+						<!--<div class="dropdown-menu">-->
+							<!--<button class="dropdown-item" type="button">Action</button>-->
+							<!--<button class="dropdown-item" type="button">Action</button>-->
+							<!--<button class="dropdown-item" type="button">Action</button>-->
+						<!--</div>-->
+							<a class="nav-link" href="/category{{ item.link }}">
+								{{ item.name }} 
+							</a>
+						</li>
+
+					{% else %}
+						<li class="nav-item ml-4 mr-2"></li>
+							<a class="nav-link" href="/category{{ item.link }}">
+								{{ item.name }}
+							</a>
+							
+					{% endif %}
+
 				{% endfor %}
 			<form class="form-inline my-2 my-lg-0">
 				<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">

@@ -17,11 +17,11 @@
     <meta content="Parkito's page for programming, other studies, sharing insights!" property="og:description">
   
   
-    <meta content="/tags/" property="og:url">
+    <meta content="http://localhost:4000/tags/" property="og:url">
   
   
   
-    <meta content="/assets/img/1536558558520.jpg" property="og:image">
+    <meta content="http://localhost:4000/assets/img/1536558558520.jpg" property="og:image">
   
   
   
@@ -33,13 +33,13 @@
     <meta name="twitter:title" content="Tags">
   
   
-    <meta name="twitter:url" content="/tags/">
+    <meta name="twitter:url" content="http://localhost:4000/tags/">
   
   
     <meta name="twitter:description" content="Parkito's page for programming, other studies, sharing insights!">
   
   
-    <meta name="twitter:image:src" content="/assets/img/1536558558520.jpg">
+    <meta name="twitter:image:src" content="http://localhost:4000/assets/img/1536558558520.jpg">
   
 
 	<meta name="description" content="">
@@ -75,36 +75,59 @@
 			<span class="navbar-toggler-icon"></span>
 		</button>
 		<div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-			<a class="navbar-brand" href="#">Parkito's on the way</a>
-			<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+			<a class="navbar-brand" href="/">Parkito's on the way</a>
+			<ul class="dropdown navbar-nav mr-auto mt-2 mt-lg-0">
 				
-				<li class="nav-item ml-4 mr-2">
-					<a class="nav-link" href="">
-						about 
-					</a>
-				</li>
+				<script>console.log({"name"=>"about", "link"=>"/about"});</script>
+
+					
+						<li class="nav-item ml-4 mr-2"></li>
+							<a class="nav-link" href="/category/about">
+								about
+							</a>
+							
+					
+
 				
+				<script>console.log({"name"=>"programming", "link"=>"/programming"});</script>
+
+					
+
+						<!--<li class="dropdown-toggle nav-item ml-4 mr-2">-->
+						<!--<div class="dropdown-menu">-->
+							<!--<button class="dropdown-item" type="button">Action</button>-->
+							<!--<button class="dropdown-item" type="button">Action</button>-->
+							<!--<button class="dropdown-item" type="button">Action</button>-->
+						<!--</div>-->
+							<a class="nav-link" href="/category/programming">
+								programming 
+							</a>
+						</li>
+
+					
+
 				
-				<li class="nav-item ml-4 mr-2">
-					<a class="nav-link" href="">
-						programming 
-					</a>
-				</li>
+				<script>console.log({"name"=>"insight", "link"=>"/insight"});</script>
+
+					
+						<li class="nav-item ml-4 mr-2"></li>
+							<a class="nav-link" href="/category/insight">
+								insight
+							</a>
+							
+					
+
 				
-				
-				<li class="nav-item ml-4 mr-2">
-					<a class="nav-link" href="">
-						insight 
-					</a>
-				</li>
-				
-				
-				<li class="nav-item ml-4 mr-2">
-					<a class="nav-link" href="">
-						projects 
-					</a>
-				</li>
-				
+				<script>console.log({"name"=>"projects", "link"=>"/projects"});</script>
+
+					
+						<li class="nav-item ml-4 mr-2"></li>
+							<a class="nav-link" href="/category/projects">
+								projects
+							</a>
+							
+					
+
 				
 			<form class="form-inline my-2 my-lg-0">
 				<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -160,7 +183,7 @@
 <!--  cycles through tag list and creates header row of all tags used in site with accompanying per-tag counts...-->
   
     
-    <li ><a href="#Conference" class="tag">Conference <span>(1)</span></a></li>
+    <li ><a href="#Conference" class="tag">Conference <span>(2)</span></a></li>
   
     
     <li ><a href="#Hawaii" class="tag">Hawaii <span>(1)</span></a></li>
@@ -169,19 +192,16 @@
     <li ><a href="#Holidays" class="tag">Holidays <span>(1)</span></a></li>
   
     
-    <li ><a href="#Js" class="tag">Js <span>(1)</span></a></li>
+    <li ><a href="#Js" class="tag">Js <span>(2)</span></a></li>
   
     
-    <li ><a href="#Learn" class="tag">Learn <span>(1)</span></a></li>
+    <li ><a href="#Learn" class="tag">Learn <span>(2)</span></a></li>
   
     
-    <li ><a href="#Productivity" class="tag">Productivity <span>(2)</span></a></li>
+    <li ><a href="#Productivity" class="tag">Productivity <span>(1)</span></a></li>
   
     
-    <li ><a href="#Programming" class="tag">Programming <span>(1)</span></a></li>
-  
-    
-    <li ><a href="#Software" class="tag">Software <span>(1)</span></a></li>
+    <li ><a href="#Programming" class="tag">Programming <span>(2)</span></a></li>
   
     
     <li ><a href="#Workflow" class="tag">Workflow <span>(1)</span></a></li>
@@ -194,7 +214,12 @@
 <!--  lists all posts corresponding to specific tag...-->
     
     <div class="tag-list">
-        <span><a href="/python/network/conference-on-javascript.html">Conference on Javascript</a></span>
+        <span><a href="/programming/python/ctest.html">Conference on Javascript</a></span>
+        <small><span>| 10 Sep 2017</span></small>
+    </div>
+    
+    <div class="tag-list">
+        <span><a href="/heyhey.html">Conference on Javascript</a></span>
         <small><span>| 10 Sep 2017</span></small>
     </div>
     
@@ -204,7 +229,7 @@
 <!--  lists all posts corresponding to specific tag...-->
     
     <div class="tag-list">
-        <span><a href="/python/network/how-i-rest-from-work.html">How I Rest From Work</a></span>
+        <span><a href="/programming/network/how-i-rest-from-work.html">How I Rest From Work</a></span>
         <small><span>| 12 Sep 2017</span></small>
     </div>
     
@@ -214,7 +239,7 @@
 <!--  lists all posts corresponding to specific tag...-->
     
     <div class="tag-list">
-        <span><a href="/python/network/how-i-rest-from-work.html">How I Rest From Work</a></span>
+        <span><a href="/programming/network/how-i-rest-from-work.html">How I Rest From Work</a></span>
         <small><span>| 12 Sep 2017</span></small>
     </div>
     
@@ -224,7 +249,12 @@
 <!--  lists all posts corresponding to specific tag...-->
     
     <div class="tag-list">
-        <span><a href="/python/network/conference-on-javascript.html">Conference on Javascript</a></span>
+        <span><a href="/programming/python/ctest.html">Conference on Javascript</a></span>
+        <small><span>| 10 Sep 2017</span></small>
+    </div>
+    
+    <div class="tag-list">
+        <span><a href="/heyhey.html">Conference on Javascript</a></span>
         <small><span>| 10 Sep 2017</span></small>
     </div>
     
@@ -234,7 +264,12 @@
 <!--  lists all posts corresponding to specific tag...-->
     
     <div class="tag-list">
-        <span><a href="/python/network/how-to-start-programming.html">How To Start Programming</a></span>
+        <span><a href="/no-way.html">How To Start Programming</a></span>
+        <small><span>| 12 Sep 2017</span></small>
+    </div>
+    
+    <div class="tag-list">
+        <span><a href="/how-to-start-programming.html">How To Start Programming</a></span>
         <small><span>| 12 Sep 2017</span></small>
     </div>
     
@@ -244,12 +279,7 @@
 <!--  lists all posts corresponding to specific tag...-->
     
     <div class="tag-list">
-        <span><a href="/python/network/the-best-organizer-software.html">The Best Organizer Software</a></span>
-        <small><span>| 12 Sep 2017</span></small>
-    </div>
-    
-    <div class="tag-list">
-        <span><a href="/python/network/10-tips-to-improve-your-workflow.html">10 Tips To Improve Your Workflow</a></span>
+        <span><a href="/10-tips-to-improve-your-workflow.html">10 Tips To Improve Your Workflow</a></span>
         <small><span>| 12 Sep 2017</span></small>
     </div>
     
@@ -259,17 +289,12 @@
 <!--  lists all posts corresponding to specific tag...-->
     
     <div class="tag-list">
-        <span><a href="/python/network/how-to-start-programming.html">How To Start Programming</a></span>
+        <span><a href="/no-way.html">How To Start Programming</a></span>
         <small><span>| 12 Sep 2017</span></small>
     </div>
     
-  
-    
-  <h2 id="Software">Software</h2>
-<!--  lists all posts corresponding to specific tag...-->
-    
     <div class="tag-list">
-        <span><a href="/python/network/the-best-organizer-software.html">The Best Organizer Software</a></span>
+        <span><a href="/how-to-start-programming.html">How To Start Programming</a></span>
         <small><span>| 12 Sep 2017</span></small>
     </div>
     
@@ -279,7 +304,7 @@
 <!--  lists all posts corresponding to specific tag...-->
     
     <div class="tag-list">
-        <span><a href="/python/network/10-tips-to-improve-your-workflow.html">10 Tips To Improve Your Workflow</a></span>
+        <span><a href="/10-tips-to-improve-your-workflow.html">10 Tips To Improve Your Workflow</a></span>
         <small><span>| 12 Sep 2017</span></small>
     </div>
     

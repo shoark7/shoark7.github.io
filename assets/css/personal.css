@@ -9,7 +9,38 @@ aside.sidebar {
 	top: 10%;
 }
 
-.articles {
-	position: absolute;
-	top: 70%;
+
+.articles:first-child {
+	margin-top: 50px;
+}
+
+.category-wrapper {
+	width: 95%;
+	margin: auto;
+}
+
+.category {
+	margin-top: 10%;
+}
+
+.category-name {
+	text-align: center;
+	font-weight: 900;
+	border-radius: 5px;
+	padding: 0.5em 0 0.5em 0;
+	font-size: 2em;
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+
+.category-subname {
+	font-size: 1.5em;
+	text-align: center;
+	font-weight: 800;
+	padding: 0.2em 0 0.2em 0;
+}
+
+.category-item {
+	text-align: center;
+	font-size: 1.3em;
 }
