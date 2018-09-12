@@ -1,9 +1,3 @@
-#nav {
-	position: fixed;
-	min-width: 100%;
-	z-index: 999;
-}
-
 aside.sidebar {
 	position: fixed;
 	top: 10%;
@@ -14,6 +8,8 @@ aside.sidebar {
 	margin-top: 50px;
 }
 
+
+/* !_Category section */
 .category-wrapper {
 	width: 95%;
 	margin: auto;
@@ -45,6 +41,103 @@ aside.sidebar {
 	font-size: 1.3em;
 }
 
-#search-section {
-	
+/* !-Category ends */
+
+
+
+
+/* !_Navigation Bar */
+
+/* !__Menu section__ */
+#nav {
+	width: 100%;
+	position: fixed;
+	min-width: 100%;
+	z-index: 999;
+	padding: 0.5em 2em 0.5em 2em;
+	display: flex;
+	justify-content: space-between;
+	background: gray;
+
 }
+
+#menus {
+	display: flex;
+	align-items: center; /* align-items가 세로로 정렬 */
+	flex-wrap: wrap;
+}
+
+#menus ul {
+	display: flex;
+	list-style: none;
+}
+
+#menus ul li {
+	padding: 0 0 0 1em;
+	align-items: center; /* align-items가 세로로 정렬 */
+}
+
+#nav * {
+	margin-bottom: 0;
+	text-decoration: none;
+}
+
+.menu {
+	padding: 0.5em 1em 0.5em 1em;
+	min-width: 160px;
+	text-align: center;
+	font-size: 1.2em;
+	position: relative;
+	display: block;
+}
+
+.menu span {
+	color: #ccc;
+}
+
+.menu:hover span,
+.menu-wrapper:hover span{
+	color: white;
+	font-weight: 800;
+}
+
+.menu-item {
+	display: none;
+	position: absolute;
+	background: #ddd;
+	text-align: center;
+	min-width: 150px;
+	border-radius: 3px;
+}
+
+.menu-item a {
+	display: block;
+	padding: 5px;
+	color: #666;
+	border-radius: 3px;
+	border: 1px solid #aaa;
+	border-top: 0;
+}
+
+.menu-item a:hover {
+	color: black;
+	font-weight: 800;
+}
+
+.menu-wrapper {
+	display: relative;
+}
+
+.menu-wrapper:hover .menu-item {
+	display: block;
+}
+/* !--Navigation Bar ends */
+
+
+/* !__Search section */
+#search-section {
+	display: flex;
+	align-items: center; /* align-items가 세로로 정렬 */
+	flex-wrap: wrap;
+}
+/* !--Search section ends */
