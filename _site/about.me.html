@@ -125,8 +125,8 @@
 			</div>
 
 			<div id="search-section">
-		
-		
+				<input type="text" id="search-input" placeholder="Please input specific keyword :)" size="30">
+				<div id="results-container"></div>
 			</div>
 		</nav>
 
@@ -144,6 +144,18 @@
   ga('send', 'pageview');
 </script> <!-- End Analytics -->
 
+	<script src="https://unpkg.com/simple-jekyll-search@1.5.0/dest/simple-jekyll-search.min.js"></script>
+
+<script>
+var sjs = SimpleJekyllSearch({
+  searchInput: document.querySelector('#search-input'),
+  resultsContainer: document.getElementById('results-container'),
+  json: '/search.json',
+  searchResultTemplate: '<li class="search-results-item"><a href="{url}">{title}</a></li>',
+	limit: 9,
+	noResultsText: '<li class="search-results-item"><a href="#">No results found...</a></li>'
+})
+</script>
 
 </body>
 </html>

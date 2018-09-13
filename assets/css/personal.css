@@ -150,5 +150,38 @@ aside.sidebar {
 	display: flex;
 	align-items: center; /* align-items가 세로로 정렬 */
 	flex-wrap: wrap;
+	position: relative;
+}
+
+#search-input {
+	padding: 5px 5px;
+	border-radius: 3px;
+	border: 2px solid lightblue;
+}
+
+#results-container {
+	position: absolute;
+	top: 2.5em;
+	border-radius: 5px;
+	border: 1px solid gray;
+}
+
+.search-results-item {
+	list-style: none;
+}
+
+
+.search-results-item a {
+	text-decoration: none;
+	display: block;
+	width: 280px;
+	background-color: #aaa;
+	padding: 0.3em;
+	color: white
+}
+
+.search-results-item a:hover {
+	color: yellow;
+	font-weight: 800;
 }
 /* !--Search section ends */
