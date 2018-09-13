@@ -34,10 +34,12 @@ I think you can understand it when you look around my blog. :grin:
 #### :telephone_receiver: Contact
 
 * :e-mail: E-mail	
-  - shoark7[@]gmail.com
-  - shoark7[@]naver.com
+  - shoark7[@]gmail.com  
+  - shoark7[@]naver.com  
 * :chart_with_upwards_trend: github
-  - [My github link](https://github.com/shoark7)
+  - [My github link](https://github.com/shoark7)  
+* :mag_right: LinkedIn
+	- [My LinkedIn account](https://linkedin.com/in/sunghwan-park-3773b8154/?originalSubdomain=in). Please, I'm looking for a job.
 
 
 <br>

@@ -5,13 +5,13 @@ layout: main
 <div class="category-wrapper">
 	<div class="category">
 		<p class="category-name">{{ page.category }}</p>
-		<p class="category-subname"></p>
 		{% assign posts = site.posts | where: "categories", page.category %}
+		<hr>
 
 		{% for post in posts %}
-		<p class="category-item">
-			<a href="{{ post.url }}">{{ post.title }}</a>
-		</p>
+			<p class="category-item">
+				<a href="{{ post.url }}">{{ post.title }}</a>
+			</p>
 		{% endfor %}
 		{{ content }}
 	</div>

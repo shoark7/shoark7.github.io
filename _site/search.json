@@ -1,49 +1,9 @@
 [
   
     {
-      "title"    : "How I Rest From Work",
-      "category" : "",
-      "tags"     : "Holidays, Hawaii",
-      "url"      : "/programming/network/how-i-rest-from-work.html",
-      "date"     : "2017-09-12 19:32:20 +0900"
-    } ,
-  
-    {
-      "title"    : "How To Start Programming",
-      "category" : "",
-      "tags"     : "Programming, Learn",
-      "url"      : "/no-way.html",
-      "date"     : "2017-09-12 06:00:00 +0900"
-    } ,
-  
-    {
-      "title"    : "How To Start Programming",
-      "category" : "",
-      "tags"     : "Programming, Learn",
-      "url"      : "/how-to-start-programming.html",
-      "date"     : "2017-09-12 06:00:00 +0900"
-    } ,
-  
-    {
-      "title"    : "10 Tips To Improve Your Workflow",
-      "category" : "",
-      "tags"     : "Productivity, Workflow",
-      "url"      : "/10-tips-to-improve-your-workflow.html",
-      "date"     : "2017-09-12 06:00:00 +0900"
-    } ,
-  
-    {
-      "title"    : "Conference on Javascript",
-      "category" : "",
-      "tags"     : "Js, Conference",
-      "url"      : "/heyhey.html",
-      "date"     : "2017-09-10 06:00:00 +0900"
-    } ,
-  
-    {
       "title"    : "Python Decorator &amp; OOP",
       "category" : "",
-      "tags"     : "",
+      "tags"     : "Python, Decorator, OOP",
       "url"      : "/programming/python/Python-Decorator-OOP.html",
       "date"     : "2016-10-02 00:00:00 +0900"
     } ,
@@ -51,7 +11,7 @@
     {
       "title"    : "Python packing &amp; unpacking and list comprehension",
       "category" : "",
-      "tags"     : "",
+      "tags"     : "Python, list comprehension, packing & unpacking, args & kwargs",
       "url"      : "/programming/python/Python-packing-list-comprehension.html",
       "date"     : "2016-09-25 00:00:00 +0900"
     } ,
@@ -59,7 +19,7 @@
     {
       "title"    : "Python&#39;s very basic",
       "category" : "",
-      "tags"     : "",
+      "tags"     : "Python, Python data structure, Python file handling",
       "url"      : "/programming/python/Python-Basic.html",
       "date"     : "2016-09-25 00:00:00 +0900"
     } 
