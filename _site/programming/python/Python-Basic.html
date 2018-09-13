@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Python's very basic - Parkito's on the way</title>
+
+  <!-- Edit site and author settings in `_config.yml` to make the social details your own -->
+
+    <meta content="Parkito's on the way" property="og:site_name">
+  
+    <meta content="Python's very basic" property="og:title">
+  
+  
+    <meta content="article" property="og:type">
+  
+  
+    <meta content="Very basic introduction to Python" property="og:description">
+  
+  
+    <meta content="/programming/python/Python-Basic.html" property="og:url">
+  
+  
+    <meta content="2016-09-25T00:00:00+09:00" property="article:published_time">
+    <meta content="/about/" property="article:author">
+  
+  
+    <meta content="/assets/img/1536558558520.jpg" property="og:image">
+  
+  
+    
+    <meta content="Programming" property="article:section">
+    
+  
+  
+    
+  
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@">
+    <meta name="twitter:creator" content="@">
+  
+    <meta name="twitter:title" content="Python's very basic">
+  
+  
+    <meta name="twitter:url" content="/programming/python/Python-Basic.html">
+  
+  
+    <meta name="twitter:description" content="Very basic introduction to Python">
+  
+  
+    <meta name="twitter:image:src" content="/assets/img/1536558558520.jpg">
+  
+
+	<meta name="description" content="Very basic introduction to Python">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta property="og:image" content="">
+	<link rel="shortcut icon" href="/assets/img/favicon/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" href="/assets/img/favicon/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/assets/img/favicon/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/assets/img/favicon/apple-touch-icon-144x144.png">
+	<!-- Chrome, Firefox OS and Opera -->
+	<meta name="theme-color" content="#263959">
+	<!-- Windows Phone -->
+	<meta name="msapplication-navbutton-color" content="#263959">
+	<!-- iOS Safari -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="#263959">
+	<!-- Google Fonts -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+	<link rel="stylesheet" href="/assets/css/personal.css">
+	
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="/assets/fonts/font-awesome/css/font-awesome.min.css">
+	<!-- Styles -->
+	<link rel="stylesheet" href="/assets/css/main.css">
+</head>
+
+<body>
+  <div class="wrapper">
+
+		<nav id="nav">
+			<div id="menus">
+			<p><a class="navbar-brand text-white" href="/">Parkito's on the way!</a></p>
+				<ul>
+					<li>
+						<a href="/about.me">
+							<div class="menu">
+								<span> About </span>
+							</div>
+						</a>
+					</li>
+				
+					<li>
+						<div class="menu-wrapper">
+								<a href="/category/programming">
+									<div class="menu">
+										<span> Programming </span>
+									</div>
+								</a>
+							<div class="menu-item">
+								<a href="/category/network">Network</a>
+								<a href="/category/programming/python">Python</a>
+							</div>
+						</div>
+					</li>
+				
+					<li>
+						<div class="menu-wrapper">
+								<a href="/category/insight">
+									<div class="menu">
+										<span> Insight </span>
+									</div>
+								</a>
+						</div>
+					</li>
+
+					<li>
+						<div class="menu-wrapper">
+								<a href="/category/projects">
+									<div class="menu">
+										<span> Projects </span>
+									</div>
+								</a>
+							<div class="menu-item">
+								<a href="/category/network">Network</a>
+								<a href="/category/Python">Python</a>
+							</div>
+						</div>
+					</li>
+
+				</ul>
+			</div>
+
+			<div id="search-section">
+		
+		
+			</div>
+		</nav>
+
+
+    <aside class="sidebar">
+  <header>
+    <div class="about">
+      <div class="cover-author-image">
+        <a href="/"><img src="/assets/img/1536558558520.jpg" alt="Sunghwan Park"></a>
+      </div>
+      <div class="author-name">Sunghwan Park</div>
+      <p>I'm Parkito.</p>
+    </div>
+  </header> <!-- End Header -->
+  <footer>
+    <section class="contact">
+      <h3 class="contact-title">Contact me</h3>
+      <ul>
+				<!--
+        
+          <li><a href="https://twitter.com/artemsheludko_" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+        
+        
+          <li><a href="https://facebook.com/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+        
+				-->
+        
+          <li class="github"><a href="http://github.com/shoark7" target="_blank"><i class="fa fa-github"></i></a></li>
+        
+        
+          <li class="linkedin"><a href="https://in.linkedin.com/in/sunghwan-park-3773b8154" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+        
+        
+          <li class="email"><a href="mailto:shoark7@gmail.com"><i class="fa fa-envelope-o"></i></a></li>
+        
+      </ul>
+    </section> <!-- End Section Contact -->
+    <div class="copyright">
+      <p>2018 © Sunghwan Park</p>
+    </div>
+  </footer> <!-- End Footer -->
+</aside> <!-- End Sidebar -->
+
+<div class="content-box clearfix">
+  <article class="article-page">
+  <div class="page-content">
+    
+    
+    <div class="wrap-content">
+      <header class="header-page">
+        <h1 class="page-title">Python's very basic</h1>
+        <div class="page-date"><span>2016, Sep 25    </span></div>
+      </header>
+      <h1 id="--python">◈  Python</h1>
+
+<h2 id="1-파이썬">1. 파이썬?</h2>
+<blockquote>
+  <p>파이썬이란 1990년 암스테르담의 귀도 반 로섬(Guido Van Rossum)에 의해 만들어진 인터프리터 언어이다. 귀도는 이 파이썬이라는 이름을 본인이 좋아하는 _“Monty Python’s Flying Circus”_라는 코미디 쇼에서 따왔다고 한다.</p>
+  <ul>
+    <li>
+<a href="https://www.google.co.kr/webhp?sourceid=chrome-instant&amp;ion=1&amp;espv=2&amp;ie=UTF-8#q=%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8+%EC%96%B8%EC%96%B4">Google</a>.</li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <p>파이썬 쉘에서 <code class="highlighter-rouge">license()</code>함수를 써보면 더 알 수 있다. 파이썬은 스크립트 언어로서 컴파일 언어와 달리 언어의 Syntax에 맞는 파일을 <strong>인터프리터가 라인마다 해석을 해서 실행한다.</strong> 그래서 작성 및 디버깅이 상대적으로 간편하다는 장점이 있다.</p>
+</blockquote>
+
+<blockquote>
+  <p>인터프리터 언어(스크립트 언어)의 쉘을 <code class="highlighter-rouge">REPL</code>이라고도 한다. <code class="highlighter-rouge">REPL</code>은 _‘Read-Eval-Print-Loop’_의 약자로서 <strong>interactive하게 사용자의 단일 명령을 받아들이고, 그것을 평가해서 그 값을 사용자게 반환하는 역할을 한다.</strong> 이 <code class="highlighter-rouge">REPL</code>에서는 명령이 줄 단위(piecewise)로 실행된다. <code class="highlighter-rouge">REPL</code>의 마지막에 왜 L(loop)이 들어갈까 고민했는데 한 줄을 실행하고 파일의 끝까지 반복해서 읽어들이기 때문이라고 생각된다.</p>
+  <ul>
+    <li><a href="https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop">Wikipedia</a></li>
+  </ul>
+</blockquote>
+
+<h2 id="2-파이썬의-자료타입">2. 파이썬의 자료타입</h2>
+<hr>
+
+<p>자바를 공부했을 당시 기본 타입 8개(숫자, 문자, 부울 값 등)를 먼저 배우고 배열 등을 배운 기억이 있다. 그러나 파이썬은 모든 것이 클래스의 인스턴스라고 한다. 정수, 문자열도 마찬가지다. 천천히 살펴본다.</p>
+
+<h3 id="21-int">2.1 int</h3>
+<p>말 그대로 정수이다. <code class="highlighter-rouge">ok = 2</code>라고 하면 정수 2를 ok라는 변수에 대입하는 것이 된다.</p>
+
+<h3 id="22-str">2.2 str</h3>
+<p>문자열이다. 파이썬은 문자와 문자열에 대한 구분이 없다. 모두 문자열이다. <code class="highlighter-rouge">'ㅁㄴㅇㄹ'</code>와 같이 <code class="highlighter-rouge">''</code>나 <code class="highlighter-rouge">""</code>안에 적는 것은 문자열이 된다.(둘은 구분하지 않는다. 다만 열고 닫을 때는 통일해야 한다.)</p>
+
+<h3 id="23-bool">2.3 bool</h3>
+<p><code class="highlighter-rouge">True</code>(참), <code class="highlighter-rouge">False</code>(거짓)을 나타내는 부울값이다. 조건식에서 많이 활용한다. <code class="highlighter-rouge">help(bool)</code>을 보면 신기하게도 <strong>정수를 상속받는다.</strong> <code class="highlighter-rouge">True</code>는 1과 같고 <code class="highlighter-rouge">False</code>는 0과 같다. 따라서 <code class="highlighter-rouge">True * 3</code>이 에러 없이 <code class="highlighter-rouge">3</code>이라고 출력된다.</p>
+
+<h3 id="24-list">2.4 list</h3>
+<p>파이썬에서의 리스트는 배열이라고 번역되지만 정확히는 <code class="highlighter-rouge">linked-list</code>라고 한다. 그 안에는 무엇이든 들어갈 수 있고 <strong>순서가 지켜져야 한다. 그리고 중복을 허용한다.</strong> <code class="highlighter-rouge">[ ]</code>안에 값이 들어간다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">animals</span> <span class="o">=</span> <span class="p">[</span><span class="s">"dog"</span><span class="p">,</span> <span class="s">"cat"</span><span class="p">,</span> <span class="s">"fish"</span><span class="p">,</span> <span class="s">"monkey"</span><span class="p">,</span> <span class="s">"dog"</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">animals</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="p">[</span><span class="s">'dog'</span><span class="p">,</span> <span class="s">'cat'</span><span class="p">,</span> <span class="s">'fish'</span><span class="p">,</span> <span class="s">'monkey'</span><span class="p">,</span> <span class="s">'dog'</span><span class="p">]</span>
+</code></pre></div></div>
+<p>위와 같이 정의한다. 첫 번째 인자(‘dog’)부터 <code class="highlighter-rouge">0</code>번째 인자로 계산되고(indexing) 만약 인수의 개수가 n개이면 마지막 인수는 <code class="highlighter-rouge">n-1</code>번째 인자가 된다.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">animals</span> <span class="o">=</span> <span class="p">[</span><span class="s">"dog"</span><span class="p">,</span> <span class="s">"cat"</span><span class="p">,</span> <span class="s">"fish"</span><span class="p">,</span> <span class="s">"monkey"</span><span class="p">,</span> <span class="s">"dog"</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">animals</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">animals</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">animals</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="s">'dog'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="s">'monkey'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="s">'dog'</span>
+</code></pre></div></div>
+
+<p><br></p>
+
+<p>위와 같이 리스트 안의 원소에 접근할 수 있다.</p>
+
+<p>또한 리스트는 슬라이싱(<code class="highlighter-rouge">list[start:end:stride]</code>처럼 구간 인덱싱)이 가능하다. <code class="highlighter-rouge">start</code>는 시작 위치로 안 적으면 0이 기본값이다. <code class="highlighter-rouge">end</code>는 끝 위치로 안 적으면 리스트의 끝이 기본이다. <strong>여기서 주의할 것은 list[:4]와 같이 적으면 <code class="highlighter-rouge">4</code>의 인덱스를 갖는 값이 아니라 그 전 값인 <code class="highlighter-rouge">3</code>의 인덱스를 갖는 값을 가진다는 것을 알아야 한다.</strong> 마지막으로 <code class="highlighter-rouge">stride</code>는 건너띄는 정도를 의미한다. 기본값은 <code class="highlighter-rouge">1</code>로 그 다음 값을 찾는다. 그런데 만약 <code class="highlighter-rouge">2</code>가 된다면 슬라이딩할 때 하나 건너뛰고 값을 찾는다.</p>
+
+<p><br></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">animals</span> <span class="o">=</span> <span class="p">[</span><span class="s">"dog"</span><span class="p">,</span> <span class="s">"cat"</span><span class="p">,</span> <span class="s">"fish"</span><span class="p">,</span> <span class="s">"monkey"</span><span class="p">,</span> <span class="s">"dog"</span><span class="p">]</span>
+<span class="n">animals</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">animals</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
+<span class="n">animals</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="p">[</span><span class="s">'cat'</span><span class="p">,</span> <span class="s">'fish'</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="p">[</span><span class="s">'fish'</span><span class="p">,</span> <span class="s">'monkey'</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="p">[</span><span class="s">'cat'</span><span class="p">,</span> <span class="s">'monkey'</span><span class="p">,</span> <span class="s">'dog'</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p><br></p>
+
+<p>위에서 기억할 건 <strong><code class="highlighter-rouge">end</code>위치의 숫자 전까지 슬라이싱 했다는 것과 <code class="highlighter-rouge">stride</code>에 2를 넣음으로써 하나씩 건너뛰고 슬라이싱</strong>했다는 것이다. 중요하다.</p>
+
+<p><br></p>
+
+<h3 id="25-tuple">2.5 tuple</h3>
+<p>튜플은 순서가 있고 중복을 허용한다는 점에서 리스트와 많이 비슷하다. 그러나 <code class="highlighter-rouge">( )</code> 안에 값이 들어가고 무엇보다 <strong>값이 불변이라는 점이 큰 차이점</strong>이다. 원소를 추가하거나 지우거나, 원소 값을 지울 수 없다. 하나의 값이 아닌 여러 값을 반환하는 함수들은 그 값을 튜플 안에 넣어 반환한다.</p>
+
+<p><br></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tuple1</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">tuple2</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">tuple3</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span>
+<span class="n">tuple4</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,)</span>
+</code></pre></div></div>
+
+<p><br></p>
+
+<p>위와 같이 다양한 방법으로 튜플을 정의할 수 있는데 <code class="highlighter-rouge">tuple4</code>의 경우 하나의 원소를 갖는 튜플을 만들 때는 <code class="highlighter-rouge">','</code>를 붙여준다는 것이 특이하다. 그리고 <code class="highlighter-rouge">tuple3</code>처럼 여러 값을 하나의 변수에 담으면 그 값들 역시 튜플이 된다.</p>
+
+<p><br></p>
+
+<h3 id="26-set">2.6 set</h3>
+<p>말 그대로 집합이다. 중고등학교 때 정상적인 수학과정을 이수했다면, 그 집합개념과 연결시키면 매우 쉽다. <code class="highlighter-rouge">{ }</code>안에 그 값이 들어가고 이 값들은 **순서가 없고, 중복을 허용하지 않는다. **</p>
+
+<p>중복을 허용하지 않는다는 점에서 리스트 등에서 중복된 값을 없애는 데 사용될 수 있다.</p>
+
+<p><br></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">k</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">new_set</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">k</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">new_set</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p><br></p>
+
+<p>이 방법을 쓰는 데는 조심해야 한다. <strong>이 리스트 <code class="highlighter-rouge">4, 3, 2, 1</code>이라는 순서를 갖고 있는 값인데 <code class="highlighter-rouge">set</code>이라는 함수를 사용함으로써 순서가 사라졌다는 것이다.</strong> 이런 활용에는 주의를 요한다.</p>
+
+<p>그리고 집합에서 파생되는 차집합, 합집합, 곱집합 등이 함수로 구현되어 있고 연산자로까지 구현이 된다는 것도 중요한 특징이다. 이건 같이 더 공부하자.</p>
+
+<p><br></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 차집합 구하기</span>
+<span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">}</span>
+<span class="n">b</span> <span class="o">=</span> <span class="p">{</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">}</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="o">-</span><span class="n">b</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span>
+</code></pre></div></div>
+
+<p><br></p>
+
+<h3 id="27-dict">2.7 dict</h3>
+
+<p><br></p>
+
+<p>한국말로 하면 ‘사전’이다. 영한사전을 생각하자. <strong>내가 ‘snow’이라는 단어를 주면 ‘눈’이라는 단어를 내게 알려줄 것이다.</strong> 하나의 사전에서 ‘dream’이라는 단어는 굳이 두 개 이상 존재하지 않을 것이다.(다의어는 하나로 보자) 하지만 ‘eye’라는 단어도 ‘눈’이라는 같은 값을 가질 수는 있다. 여기서 착안된 것이 dict 자료구조이다. dict는 하나의 원소를 key(ex ‘snow’):value(ex ‘눈’), 즉 키:값 쌍으로 저장하는 구조이다. 키는 값에 도달하는 방법이 된다. <strong>키는 여러 값에 대응하면 안 되기 때문에 중복을 허용하지 않지만 값은 중복될 수는 있다. 그리고 원소간 순서가 없다.</strong></p>
+
+<p><br></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">english_dict</span> <span class="o">=</span> <span class="p">{</span>
+	<span class="s">'snow'</span><span class="p">:</span><span class="s">'눈'</span><span class="p">,</span>
+	<span class="s">'eye'</span><span class="p">:</span><span class="s">'눈'</span><span class="p">,</span>
+	<span class="s">'english'</span><span class="p">:</span><span class="s">'영어'</span>
+<span class="p">}</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">english_dict</span><span class="p">[</span><span class="s">'snow'</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">english_dict</span><span class="p">[</span><span class="s">'english'</span><span class="p">])</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="err">눈</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="err">영어</span>
+</code></pre></div></div>
+
+<p><br></p>
+
+<p>위와 같이 키를 인덱싱함으로써 값에 접근할 수 있다.</p>
+
+<p>list, tuple, set, dict를 비교하면 다음과 같다.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>자료구조</th>
+      <th>순서</th>
+      <th>중복</th>
+      <th>사용 괄호</th>
+      <th>예시</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>list</strong></td>
+      <td>O</td>
+      <td>O</td>
+      <td><code class="highlighter-rouge">[]</code></td>
+      <td><code class="highlighter-rouge">[1,2,3]</code></td>
+    </tr>
+    <tr>
+      <td><strong>tuple</strong></td>
+      <td>O</td>
+      <td>O</td>
+      <td><code class="highlighter-rouge">()</code></td>
+      <td><code class="highlighter-rouge">(1,2,3)</code></td>
+    </tr>
+    <tr>
+      <td><strong>set</strong></td>
+      <td>X</td>
+      <td>X</td>
+      <td><code class="highlighter-rouge">{}</code></td>
+      <td><code class="highlighter-rouge">{1,2,3}</code></td>
+    </tr>
+    <tr>
+      <td><strong>dict</strong></td>
+      <td>X</td>
+      <td>key만</td>
+      <td><code class="highlighter-rouge">{}</code></td>
+      <td><code class="highlighter-rouge">{'a':1, 'b':2, 'c':3}</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br>
+<br></p>
+
+<h2 id="3-조건문-반복문">3. 조건문, 반복문</h2>
+
+<p><br></p>
+
+<h3 id="31-조건문">3.1. 조건문</h3>
+
+<p><br></p>
+
+<h4 id="311-if">3.1.1 if</h4>
+<p>기본적으로 <code class="highlighter-rouge">if 조건: 참일때의 실행문</code>으로 구현할 수 있다.조건은 <code class="highlighter-rouge">True</code> 또는 <code class="highlighter-rouge">False</code> 값 중 하나를 반드시 가져야 하며,  <code class="highlighter-rouge">False</code>일 때는 실행되지 않는다. <code class="highlighter-rouge">else</code>를 넣으면 조건이 거짓일 때 실행되는 실행문을 넣을 수 있다.</p>
+
+<p>여러 언어에서 유명한 <code class="highlighter-rouge">if else</code>등은 파이썬에서는 줄여서 <code class="highlighter-rouge">elif</code>으로 표현되며 하나의 조건문에서 여러 개 들어갈 수도 있다. 다만 조건의 마지막은 언제나 <code class="highlighter-rouge">else</code>가 되어야 한다.</p>
+
+<p><br></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">grade</span> <span class="o">=</span> <span class="mi">80</span>
+<span class="k">if</span> <span class="n">grade</span> <span class="o">&gt;=</span> <span class="mi">90</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"학점 : A!!"</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">grade</span> <span class="o">&gt;=</span> <span class="mi">80</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"학점 : B"</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">grade</span> <span class="o">&gt;=</span> <span class="mi">70</span><span class="p">:</span>
+	<span class="k">print</span><span class="p">(</span><span class="s">"학점 : C.."</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+	<span class="k">print</span><span class="p">(</span><span class="s">"장원 낙제요!"</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="err">학점</span> <span class="p">:</span> <span class="n">B</span>
+</code></pre></div></div>
+
+<p><br></p>
+
+<p>많은 프로그래밍 언어 책에서 쓰는 고전 같은 예 중 하나이다. 성적을 받아 그에 맞는 학점을 준다고 할 때, <strong>90점 이상이면 ‘‘A’, 90점 이하일 때 90점 이상이면 ‘B’, 80점 이하일 때 70점 이상이면 ‘C’</strong>와 같이 조건문을 만들 수 있다.</p>
+
+<p><br></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="n">grade</span> <span class="o">&gt;=</span> <span class="mi">90</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"학점 : A!!"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+	<span class="k">if</span> <span class="n">grade</span> <span class="o">&gt;=</span> <span class="mi">80</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"학점 : B"</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+	    <span class="k">if</span> <span class="n">grade</span> <span class="o">&gt;=</span> <span class="mi">70</span><span class="p">:</span>
+		<span class="k">print</span><span class="p">(</span><span class="s">"학점 : C.."</span><span class="p">)</span>
+		<span class="k">else</span><span class="p">:</span>
+			<span class="k">print</span><span class="p">(</span><span class="s">"장원 낙제요!"</span><span class="p">)</span>
+
+</code></pre></div></div>
+
+<p><br></p>
+
+<p>같은 내용을 위와 같이 <code class="highlighter-rouge">if</code>을 중첩해서 할 수도 있을 것이다. 그러나 <code class="highlighter-rouge">import this</code>에서 볼 수 있는 유려한 시 ‘Zen of Python’은 중첩(nested)은 지양해야 한다고 말하고 있다. <del>보기에도 안 이쁘다.</del></p>
+
+<p><br></p>
+
+<h3 id="32-반복문">3.2. 반복문</h3>
+
+<p>많은 프로그래밍에서 반복문은 기본적으로 for, while을 지원한다.</p>
+
+<p><br></p>
+
+<h4 id="321-for">3.2.1. for</h4>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">k</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">k</span><span class="p">:</span>
+  <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+<span class="mi">1</span>
+<span class="mi">2</span>
+<span class="mi">3</span>
+<span class="mi">4</span>
+<span class="mi">5</span>
+</code></pre></div></div>
+
+<p><br></p>
+
+<p>위 와 같이 <code class="highlighter-rouge">for value in iterable</code> 밑에 실행 블록을 적으면 iterable 안의 value 하나씩을 반복해서 실행할 수 있다.</p>
+
+<p><br></p>
+
+<h4 id="322-while">3.2.2. while</h4>
+<p>경험적으로 <code class="highlighter-rouge">while</code>은 <code class="highlighter-rouge">for</code>보다 적게 쓰이는 것 같기는 하다. <code class="highlighter-rouge">for</code>문은 주로 반복을 몇 번 실행할지 알 때 사용하고,
+while은 확실하지 않을 때 사용한다.</p>
+
+<p><br></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">random</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">n</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">:</span>
+  <span class="k">print</span><span class="p">(</span><span class="s">'Hellow World!'</span><span class="p">)</span>
+  <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+
+</code></pre></div></div>
+
+<p><br></p>
+
+<p>다음과 같이 <code class="highlighter-rouge">while</code>을 사용하면 n의 값이 얼마이든지 간에 문제없이 반복문을 실행할 수 있다.</p>
+
+<p><br>
+<br></p>
+
+<h2 id="4-배운-것을-활용해보자">4. 배운 것을 활용해보자!</h2>
+
+<p><br></p>
+
+<h3 id="41-palindrome">4.1. Palindrome</h3>
+<p>Palindrome이란 ‘기러기’처럼 원본과 글자들을 거꾸로 배열한 문자열이 같은 문자열을 의미한다.
+<code class="highlighter-rouge">for</code>와 <code class="highlighter-rouge">while</code>을 활용해 입력된 문자열이 palindrome인지 검사하자.</p>
+
+<p><br></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">is_palindrome</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
+    <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">string</span><span class="p">)):</span>
+        <span class="n">left</span> <span class="o">=</span> <span class="n">string</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">right</span> <span class="o">=</span> <span class="n">string</span><span class="p">[</span><span class="n">length</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">i</span><span class="p">]</span>
+        
+        <span class="k">if</span> <span class="n">left</span> <span class="o">!=</span> <span class="n">right</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">False</span>
+    <span class="k">return</span> <span class="bp">True</span>
+</code></pre></div></div>
+
+<p><br></p>
+
+<p>와 같이 작성할 수도 있고,</p>
+
+<p><br></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">is_palindrome</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">string</span> <span class="o">==</span> <span class="n">string</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</code></pre></div></div>
+<p>처럼 작성할 수도 있다. 여기서 밑에가 더 짧다고 무조건 좋지 않을 수도 있다. 문자열이 매우 길 경우, 중간에라도 값이 출력되는 위의 버전이 더 좋을 수
+있기 때문이다. 또한 조금 더 customization한다면 <code class="highlighter-rouge">for</code>의 범위를 문자열의 절반까지만 할 수도 있을 것이다.</p>
+
+<p><br>
+<br></p>
+
+<h2 id="5-파이썬의-입출력">5. 파이썬의 입출력</h2>
+<p>파이썬에서 텍스트 파일 등을 열고 문장을 작성하거나 할 수 있다. 이 때 <code class="highlighter-rouge">open</code> 함수를 사용한다.</p>
+
+<p><br></p>
+
+<h3 id="51-파일을-열고-작성할-때-open을">5.1 파일을 열고 작성할 때 open을!</h3>
+
+<p><br></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">fp</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">"hello.txt"</span><span class="p">,</span> <span class="s">"w"</span><span class="p">)</span>    <span class="c"># 1.</span>
+<span class="n">fp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">"hello world"</span><span class="p">)</span>        <span class="c"># 2. </span>
+<span class="n">fp</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>                     <span class="c"># 3. </span>
+</code></pre></div></div>
+
+<p><br></p>
+
+<p>‘1. open함수는 인자를 두 개 받는다.</p>
+<blockquote>
+  <ol>
+    <li>하나는 파일이다.
+위에서는 ‘hello.txt’를 받고 있다. 이 때 알아야 할 것은 저기에는 경로가 들어간다는 것이다.
+<strong>경로에는 절대경로와 상대경로가 있는데, 위의 경우는 상대경로다. 해당 파이썬 파일이 있는 곳에 같이 있는 <code class="highlighter-rouge">hello.txt</code> 파일을 읽는다는 것이다.</strong>
+절대 경로는 <code class="highlighter-rouge">'C:\Users\darkboy\크큭암흑룡이.txt'</code>와 같이 절대적으로 해당 파일이 존재하는 곳을 명시할 때 사용한다.</li>
+  </ol>
+</blockquote>
+
+<blockquote>
+  <ol>
+    <li>두 번째는 여는 모드이다.
+<code class="highlighter-rouge">'w'</code>는 해당 파일에 내가 입력하겠다는 뜻이다. <code class="highlighter-rouge">'a'</code>와 구별해야 하는데, <code class="highlighter-rouge">'w'</code>는 파일에 다른 내용이 있을 때 완전히 지우고 내용을 적는다면,
+‘a’는 기존 내용 뒤에 추가되는 ‘append’모드다. <code class="highlighter-rouge">'r'</code>는 ‘read’모드로 파일을 읽을 수만 있다. <code class="highlighter-rouge">open</code>함수에는 ‘r’가 디폴트 값이다. ‘r+’와 같이 적으면 읽고 쓰는 것을 동시에 할 수 있다.</li>
+  </ol>
+</blockquote>
+
+<p>참고로 <code class="highlighter-rouge">fp</code>는 ‘file pointer’의 약자로 어떤 파일을 가리키는지 명시할 때 관습적으로 사용된다. <code class="highlighter-rouge">fp</code>를 <code class="highlighter-rouge">print</code>에서도 사용가능하니 <code class="highlighter-rouge">help(print)</code>를 찾아보자
+<code class="highlighter-rouge">pickle</code>, <code class="highlighter-rouge">json</code> 등 파일 입출력 모듈을 파이썬 공식문서에서 찾을 때 많이 등장한다.</p>
+
+<p>‘2. <code class="highlighter-rouge">fp</code>를 ‘w’모드에서 열었으니 <code class="highlighter-rouge">write</code>함수로 파일 안에 내용을 적을 수 있다.</p>
+
+<p>‘3. 파일을 열었으면 꼭 닫아야 한다. 텍스트 파일을 파이썬으로 열고, 동시에 윈도우에서 같이 열었다고 하면 혼선이 생긴다. 재수 없으면 모든 내용이
+삭제될 수도 있으니 꼭 사용 후 닫아줘야 한다.</p>
+
+<p><br></p>
+
+<h3 id="52-파일을-열고-읽을-때">5.2. 파일을 열고 읽을 때</h3>
+
+<p><br></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">fp2</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">"./hello.txt"</span><span class="p">)</span> <span class="c"># 1.</span>
+<span class="n">lines</span> <span class="o">=</span> <span class="n">fp2</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>        <span class="c"># 2. </span>
+<span class="n">fp2</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>               <span class="c"># 3. </span>
+</code></pre></div></div>
+
+<p><br></p>
+
+<p>‘1. <code class="highlighter-rouge">open</code>함수의 두 번째 인자에 아무 값도 주지 않았다. 디폴트로 ‘r’모드가 되었고 읽는다는 것이 된다.<br>
+‘2. <code class="highlighter-rouge">read</code>함수를 통해 내용을 전부 읽었다. 줄을 기준으로 각 줄이 리스트의 원소로 들어간다. 한 줄씩 읽는 <code class="highlighter-rouge">readline</code> 함수도 존재한다.<br>
+‘3. 닫아주는 센스..</p>
+
+<p><br></p>
+
+<h3 id="53-with를-사용해서-열자">5.3. <code class="highlighter-rouge">with</code>를 사용해서 열자.</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">"hello.txt"</span><span class="p">,</span> <span class="s">"r"</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>     <span class="c"># 1.</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">fp</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="c"># 현재 Code Block 내에서만 fp 라는 변수가 존재 </span>
+    <span class="c"># Indent 가 끝나면</span>
+<span class="c"># 여기로 나오면 =&gt; 자동으로 fp.close() 실행</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'my babe'</span>
+</code></pre></div></div>
+
+<p><br></p>
+
+<p>‘1. <code class="highlighter-rouge">with</code>문을 사용하면 입출력을 더 편하게 사용할 수 있다. 사람은 닫는 것을 까먹는 실수를 할 수도 있는 것이 아닌가.
+이 때 <code class="highlighter-rouge">with</code>를 사용하면 쉽게 열고 닫을 수 있다. 파일을 원하는 모드로 열고 <code class="highlighter-rouge">as</code>를 통해 변수를 지정할 수 있다.
+그 안에서 블록을 indent해서 작성하면 블록 내 모든 코드는 파일이 열렸을 때 적용되고 with문을 나오면(indent를 없애면)
+자동으로 닫아진다.</p>
+
+<p><br>
+<br></p>
+
+<h2 id="6-심화-문법-조금">6. 심화 문법 조금..</h2>
+<p>위에서 설명 안 했지만 많은 기본자료형이 본인만의 특수한 메소드를 지원한다. 이 중 중요하고 유용한 기능을 조금만 살펴본다.</p>
+
+<p><br></p>
+
+<h3 id="61-str">6.1. <code class="highlighter-rouge">str</code>
+</h3>
+
+<p><br></p>
+
+<h4 id="611-split">6.1.1 <code class="highlighter-rouge">split</code>
+</h4>
+<p>문자열에서 특정 문자열을 기준으로 나눠 리스트로 반환한다.</p>
+
+<p><br></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">k</span> <span class="o">=</span> <span class="s">"나는 밥을 먹었다.</span><span class="se">\n</span><span class="s">메뉴는 후라이드 옥수수.</span><span class="se">\n</span><span class="s">맛있었다.</span><span class="se">\n</span><span class="s">그 맛은 뭐랄까, 강냉이 몇 개 나가는 느낌?"</span>
+<span class="o">**</span><span class="n">k</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span><span class="o">**</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="p">[</span><span class="s">'나는 밥을 먹었다.'</span><span class="p">,</span> <span class="s">'메뉴는 후라이드 옥수수.'</span><span class="p">,</span> <span class="s">'맛있었다.'</span><span class="p">,</span> <span class="s">'그 맛은 뭐랄까, 강냉이 몇 개 나가는 느낌?'</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p><br></p>
+
+<h4 id="612-isnumeric">6.1.2. <code class="highlighter-rouge">isnumeric</code>
+</h4>
+<p>문자열이 숫자인지 증명한다. 숫자를 입력받아서 연산 등을 해야할 때 필요할 것 같다.
+숫자면 <code class="highlighter-rouge">True</code>, 아니면 <code class="highlighter-rouge">False</code>를 반환한다.</p>
+
+<p><br></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">string</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">'숫자를 입력해주시죠 : '</span><span class="p">)</span>
+<span class="o">**</span><span class="k">if</span> <span class="n">string</span><span class="o">.</span><span class="n">isnumeric</span><span class="p">():</span> <span class="o">**</span>
+    <span class="k">print</span><span class="p">(</span> <span class="nb">int</span><span class="p">(</span><span class="n">string</span><span class="p">)</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'숫자가 아니네요..'</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="err">숫자를</span> <span class="err">입력해주시죠</span> <span class="p">:</span> <span class="sb">`33`</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="mi">36</span>
+
+<span class="err">입력받은</span> <span class="err">문자열이</span> <span class="err">숫자가</span> <span class="err">아니면</span> <span class="err">더하기</span> <span class="err">연산이</span> <span class="err">안</span> <span class="err">될</span> <span class="err">것이다</span><span class="o">.</span>
+<span class="err">이런</span> <span class="err">상황처럼</span> <span class="err">인풋이</span> <span class="err">숫자인지</span> <span class="err">검증할</span> <span class="err">때</span> <span class="err">꽤</span> <span class="err">유용하다</span><span class="o">.</span> <span class="sb">`isalpha`</span><span class="p">,</span> <span class="sb">`isupper`</span><span class="p">,</span> <span class="sb">`islower`</span> <span class="err">등</span> <span class="err">유사한</span> <span class="err">버전이</span> <span class="err">많다</span><span class="o">.</span> <span class="err">꼭</span> <span class="err">살펴보자</span><span class="o">.</span>
+</code></pre></div></div>
+
+<p><br></p>
+
+<h4 id="613-join">6.1.3. <code class="highlighter-rouge">join</code>
+</h4>
+<p>리스트 등 <code class="highlighter-rouge">iterable</code>한 객체들을 해당 문자열로 이어붙인다. 문자열을 출력한다.</p>
+
+<p><br></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">**</span> <span class="s">'+'</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s">'1'</span><span class="p">,</span><span class="s">'2'</span><span class="p">,</span><span class="s">'3'</span><span class="p">,</span><span class="s">'4'</span><span class="p">,</span><span class="s">'5'</span><span class="p">])</span> <span class="o">**</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="s">'1+2+3+4+5'</span>
+</code></pre></div></div>
+
+<p><br></p>
+
+<h3 id="62-list">6.2. <code class="highlighter-rouge">list</code>
+</h3>
+<p>파이썬에서 가장 많이 사용하는 기본 자료구조는 아마 <code class="highlighter-rouge">list</code>일 것이다. 그래서 메소드도 정말 많다. 몇 개만 보자.</p>
+
+<h4 id="621-append">6.2.1. <code class="highlighter-rouge">append</code>
+</h4>
+<p>리스트 끝에 원소를 추가한다.</p>
+
+<p><br></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">k</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,]</span>
+<span class="o">**</span> <span class="n">k</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">**</span>
+<span class="k">print</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p><br></p>
+
+<h4 id="622-sort">6.2.2. <code class="highlighter-rouge">sort</code>
+</h4>
+<p>리스트를 정렬할 때 사용한다. 디폴트는 오름차순이다. None을 반환한다.(따로 출력되는 값이 없이 변하기만 한다.)</p>
+
+<p><br></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">k</span>  <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,]</span>
+<span class="o">**</span> <span class="n">k</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span> <span class="o">**</span>
+<span class="k">print</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,]</span>
+</code></pre></div></div>
+
+<p>정렬하는 방법을 지정해줄 수도 있다.</p>
+
+<p><br></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">l</span> <span class="o">=</span> <span class="p">[(</span><span class="s">'a'</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="s">'b'</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="p">(</span><span class="s">'c'</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="s">'d'</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">)]</span>
+<span class="o">**</span> <span class="n">l</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">**</span>
+<span class="k">print</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="p">[(</span><span class="s">'d'</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="s">'c'</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="s">'a'</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="s">'b'</span><span class="p">,</span> <span class="mi">7</span><span class="p">)]</span> <span class="c"># 각 인자의 숫자 값을 기준으로 정렬되었다.</span>
+<span class="err">내림차순하고</span> <span class="err">싶다면</span> <span class="sb">`reverse=True`</span> <span class="n">keyword</span> <span class="n">argument</span><span class="err">를</span> <span class="err">추가로</span> <span class="err">넣어준다</span><span class="o">.</span>
+
+<span class="c"># help(list.sort)을 찾아보자</span>
+</code></pre></div></div>
+
+<p><br></p>
+
+
+      <div class="page-footer">
+        <div class="page-share">
+          <a href="https://twitter.com/intent/tweet?text=Python's%20very%20basic&amp;url=/programming/python/Python-Basic.html" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
+          <a href="https://facebook.com/sharer.php?u=/programming/python/Python-Basic.html" title="Share on Facebook" rel="nofollow" target="_blank">Facebook</a>
+          <a href="https://plus.google.com/share?url=/programming/python/Python-Basic.html" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>
+        </div>
+        <div class="page-tag">
+          
+        </div>
+      </div>
+		
+    </div> <!-- End Wrap Content -->
+  </div> <!-- End Page Content -->
+</article> <!-- End Article Page -->
+
+</div>
+
+
+  </div>
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', '', 'auto');
+  ga('send', 'pageview');
+</script> <!-- End Analytics -->
+
+
+</body>
+</html>

@@ -4,8 +4,8 @@ layout: main
 
 <div class="category-wrapper">
 	<div class="category">
-	<p class="category-name">{{ page.category }}</p>
-	<p class="category-subname"></p>
+		<p class="category-name">{{ page.category }}</p>
+		<p class="category-subname"></p>
 		{% assign posts = site.posts | where: "categories", page.category %}
 
 		{% for post in posts %}
