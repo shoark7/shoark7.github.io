@@ -3,7 +3,7 @@ layout: post
 title: Python Decorator & OOP
 date: 2016-10-02
 description: Python Decorator and OOP
-img:  # Add image post (optional)
+img:  /python/python-logo.png
 categories: [Programming, Python]
 tags: [Python, Decorator, OOP]
 ---

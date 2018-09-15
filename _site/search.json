@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "왜 우리는 OOP를 사용해야 할까?",
+      "category" : "",
+      "tags"     : "Python, OOP",
+      "url"      : "/programming/python/OOP-in-Python.html",
+      "date"     : "2018-09-15 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "Python Decorator &amp; OOP",
       "category" : "",
       "tags"     : "Python, Decorator, OOP",

@@ -3,7 +3,7 @@ layout: post
 title: Python packing & unpacking and list comprehension
 date: 2016-09-25
 description: Python's packing & unpacking, list comprehension, args & kwargs, functions for functional programming
-img:  # Add image post (optional)
+img:  /python/python-logo.png
 categories: [Programming, Python]
 tags: [Python, list comprehension, packing & unpacking, args & kwargs]
 ---

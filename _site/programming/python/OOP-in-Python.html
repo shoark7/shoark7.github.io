@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>왜 우리는 OOP를 사용해야 할까? - Parkito's on the way</title>
+
+  <!-- Edit site and author settings in `_config.yml` to make the social details your own -->
+
+    <meta content="Parkito's on the way" property="og:site_name">
+  
+    <meta content="왜 우리는 OOP를 사용해야 할까?" property="og:title">
+  
+  
+    <meta content="article" property="og:type">
+  
+  
+    <meta content="우리가 왜 OOP를 사용하면 좋은지 실제 예시를 사용해 알아보자." property="og:description">
+  
+  
+    <meta content="/programming/python/OOP-in-Python.html" property="og:url">
+  
+  
+    <meta content="2018-09-15T00:00:00+09:00" property="article:published_time">
+    <meta content="/about/" property="article:author">
+  
+  
+    <meta content="/assets/img//python/python-logo.png" property="og:image">
+  
+  
+    
+    <meta content="Programming" property="article:section">
+    
+  
+  
+    
+    <meta content="Python" property="article:tag">
+    
+    <meta content="OOP" property="article:tag">
+    
+  
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@">
+    <meta name="twitter:creator" content="@">
+  
+    <meta name="twitter:title" content="왜 우리는 OOP를 사용해야 할까?">
+  
+  
+    <meta name="twitter:url" content="/programming/python/OOP-in-Python.html">
+  
+  
+    <meta name="twitter:description" content="우리가 왜 OOP를 사용하면 좋은지 실제 예시를 사용해 알아보자.">
+  
+  
+    <meta name="twitter:image:src" content="/assets/img//python/python-logo.png">
+  
+
+	<meta name="description" content="우리가 왜 OOP를 사용하면 좋은지 실제 예시를 사용해 알아보자.">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta property="og:image" content="">
+	<link rel="shortcut icon" href="/assets/img/favicon/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" href="/assets/img/favicon/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/assets/img/favicon/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/assets/img/favicon/apple-touch-icon-144x144.png">
+	<!-- Chrome, Firefox OS and Opera -->
+	<meta name="theme-color" content="#263959">
+	<!-- Windows Phone -->
+	<meta name="msapplication-navbutton-color" content="#263959">
+	<!-- iOS Safari -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="#263959">
+	<!-- Google Fonts -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+	<link rel="stylesheet" href="/assets/css/personal.css">
+	
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="/assets/fonts/font-awesome/css/font-awesome.min.css">
+	<!-- Styles -->
+	<link rel="stylesheet" href="/assets/css/main.css">
+</head>
+
+<body>
+  <div class="wrapper">
+
+		<nav id="nav">
+			<div id="menus">
+			<p><a class="navbar-brand text-white" href="/">Parkito's on the way!</a></p>
+				<ul>
+					<li>
+						<a href="/about.me">
+							<div class="menu">
+								<span> About </span>
+							</div>
+						</a>
+					</li>
+				
+					<li>
+						<div class="menu-wrapper">
+								<a href="/category/programming">
+									<div class="menu">
+										<span> Programming </span>
+									</div>
+								</a>
+							<div class="menu-item">
+								<a href="/category/network">Network</a>
+								<a href="/category/programming/python">Python</a>
+							</div>
+						</div>
+					</li>
+				
+					<li>
+						<div class="menu-wrapper">
+								<a href="/category/insight">
+									<div class="menu">
+										<span> Insight </span>
+									</div>
+								</a>
+						</div>
+					</li>
+
+					<li>
+						<div class="menu-wrapper">
+								<a href="/category/projects">
+									<div class="menu">
+										<span> Projects </span>
+									</div>
+								</a>
+							<!--<div class="menu-item">-->
+								<!--<a href="/category/network">Network</a>-->
+								<!--<a href="/category/Python">Python</a>-->
+							<!--</div>-->
+						</div>
+					</li>
+
+				</ul>
+			</div>
+
+			<div id="search-section">
+				<div class="input-wrapper">
+					<span class="fa fa-search"></span>
+					<input type="text" id="search-input" placeholder="Please input specific keyword :)" size="30">
+				</div>
+				<div id="results-container"></div>
+			</div>
+		</nav>
+
+
+    <aside class="sidebar">
+  <header>
+    <div class="about">
+      <div class="cover-author-image">
+        <a href="/"><img src="/assets/img/1536558558520.jpg" alt="Sunghwan Park"></a>
+      </div>
+      <div class="author-name">Sunghwan Park</div>
+      <p>I'm Parkito. A Python lover. Interested in Python, Automation, Algorithm. Please give me insights. I'll teach you tambien! :)</p>
+    </div>
+  </header> <!-- End Header -->
+  <footer>
+    <section class="contact">
+      <h3 class="contact-title">Contact me</h3>
+      <ul>
+				<!--
+        
+          <li><a href="https://twitter.com/artemsheludko_" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+        
+        
+          <li><a href="https://facebook.com/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+        
+				-->
+        
+          <li class="github"><a href="http://github.com/shoark7" target="_blank"><i class="fa fa-github"></i></a></li>
+        
+        
+          <li class="linkedin"><a href="https://in.linkedin.com/in/sunghwan-park-3773b8154" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+        
+        
+          <li class="email"><a href="mailto:shoark7@gmail.com"><i class="fa fa-envelope-o"></i></a></li>
+        
+      </ul>
+    </section> <!-- End Section Contact -->
+    <div class="copyright">
+      <p>2018 © Sunghwan Park</p>
+    </div>
+  </footer> <!-- End Footer -->
+</aside> <!-- End Sidebar -->
+
+<div class="content-box clearfix">
+  <article class="article-page">
+  <div class="page-content">
+    
+    <div class="page-cover-image">
+      <figure>
+        <img class="page-image" src="/assets/img//python/python-logo.png" alt="왜 우리는 OOP를 사용해야 할까?">
+        
+      </figure>
+    </div> <!-- End Page Cover Image -->
+    
+    <div class="wrap-content">
+      <header class="header-page">
+        <h1 class="page-title">왜 우리는 OOP를 사용해야 할까?</h1>
+        <div class="page-date"><span>2018, Sep 15    </span></div>
+      </header>
+      <p><br>
+<br>
+<br></p>
+
+<h2 id="1-우리는-왜-클래스를-써야하는가">1. 우리는 왜 클래스를 써야하는가</h2>
+
+<p><br></p>
+
+<p>질문한다. 우리는 왜 클래스를 써야 하냐고. 난 그런거 모른다고.<br>
+그러면 현실의 문제를 해결하면서, 클래스 사용의 당위성을 생각해보면 어떨까?<br>
+이번 내용은 그것에 초점이 맞추어져 있다.</p>
+
+<p>우선, 난 아무개 고등학교의 ‘교사’가 되었다고 생각하자.<br>
+교사의 주요 업무 중 하나는 학생들의 성적을 확인하고 관리하는 일인데,<br>
+이 일을 클래스를 쓰지 않고 해보고, 클래스를 써서 리팩토링 해가며 개선해보는 작업을 해보자.</p>
+
+<p><br>
+<br></p>
+
+<h2 id="2-리팩토링-안-쓰고-해보기">2. 리팩토링 안 쓰고 해보기</h2>
+
+<p><br></p>
+
+<p>먼저, 이 작업을 클래스를 안 쓰고 리스트 등 기본 자료구조를 써가면서 한다고 해보자.<br>
+내가 할 일은 학생들의 성적을 개개인별로 관리하고, 그것을 반 단위의 학생부로 관리하고 싶은 것이라고 하자.</p>
+
+<p>일단 내가 관리하는 반에는 5명의 학생이 있고 그들의 정보를 딕셔너리에 담는다고 하자.<br>
+그리고 그들의 정보를 학생부에 추가한다. 추가 순서는 그들의 번호 오름차순이다.</p>
+
+<p>내 작업폴더에 gradebook.py라는 모듈에 이 정보들을 추가하고 있다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">gradebook</span> <span class="o">=</span> <span class="p">[</span><span class="s">'3반'</span><span class="p">]</span> <span class="c"># 학생들의 정보를 담는 학생부 변수이다. 첫 원소에는 학급의 이름을 담는다고 생각하자.</span>
+
+<span class="n">students_1</span> <span class="o">=</span> <span class="p">{</span><span class="s">'name'</span><span class="p">:</span> <span class="s">'Nayeon'</span><span class="p">,</span> <span class="s">'Math'</span><span class="p">:</span> <span class="mi">90</span><span class="p">,</span> <span class="s">'English'</span><span class="p">:</span> <span class="mi">70</span><span class="p">,</span> <span class="s">'Korean'</span><span class="p">:</span> <span class="mi">100</span><span class="p">}</span>
+<span class="n">students_2</span> <span class="o">=</span> <span class="p">{</span><span class="s">'name'</span><span class="p">:</span> <span class="s">'Dahyeon'</span><span class="p">,</span> <span class="s">'Math'</span><span class="p">:</span> <span class="mi">40</span><span class="p">,</span> <span class="s">'English'</span><span class="p">:</span> <span class="mi">65</span><span class="p">,</span> <span class="s">'Korean'</span><span class="p">:</span> <span class="mi">70</span><span class="p">}</span>
+<span class="n">students_3</span> <span class="o">=</span> <span class="p">{</span><span class="s">'name'</span><span class="p">:</span> <span class="s">'Momo'</span><span class="p">,</span> <span class="s">'Math'</span><span class="p">:</span> <span class="mi">89</span><span class="p">,</span> <span class="s">'English'</span><span class="p">:</span> <span class="mi">82</span><span class="p">,</span> <span class="s">'Korean'</span><span class="p">:</span> <span class="mi">92</span><span class="p">}</span>
+<span class="n">students_4</span> <span class="o">=</span> <span class="p">{</span><span class="s">'name'</span><span class="p">:</span> <span class="s">'Jyeongyeon'</span><span class="p">,</span> <span class="s">'Math'</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span> <span class="s">'English'</span><span class="p">:</span> <span class="mi">62</span><span class="p">,</span> <span class="s">'Korean'</span><span class="p">:</span> <span class="mi">31</span><span class="p">}</span>
+<span class="n">students_5</span> <span class="o">=</span> <span class="p">{</span><span class="s">'name'</span><span class="p">:</span> <span class="s">'Chaeyoung'</span><span class="p">,</span> <span class="s">'Math'</span><span class="p">:</span> <span class="mi">88</span><span class="p">,</span> <span class="s">'English'</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s">'Korean'</span><span class="p">:</span> <span class="mi">60</span><span class="p">}</span>
+
+<span class="n">gradebook</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">students_1</span><span class="p">)</span>
+<span class="n">gradebook</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">students_2</span><span class="p">)</span>
+<span class="n">gradebook</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">students_3</span><span class="p">)</span>
+<span class="n">gradebook</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">students_4</span><span class="p">)</span>
+<span class="n">gradebook</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">students_5</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><br></p>
+
+<p>일단 여기까지는 무난무난해 보인다.<br>
+현실의 학생 5명을 모델링해서 학생부에 필요 없는 별자리 같은 정보를 지우고 필요한 정보만 남겨 놓았다. <br>
+이 짓을 하는 이유는 당연히 모으는 게 목적이 아닐테고, 슬슬 ‘관리’에 대한 필요도 생긴다.</p>
+
+<p>먼저 학생들의 성적을</p>
+<ol>
+  <li>학급의 과목별로,</li>
+  <li>학생 개개인별로<br>
+구해야 한다고 하자.</li>
+</ol>
+
+<p>난 프로그래밍을 열심히 배웠기 때문에 이런 작업에는 함수를 쓰는 것이 바람직하다고 알고 있다.<br>
+왜 바람직하지 않은지 잘 모르겠으면 그건 모듈화, 재사용성, 가독성, 전문화, 관리의 용이함 등의 장점을 모르는 것과 같다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">### 1. 학급의 과목별로 평균 구하기</span>
+
+<span class="k">def</span> <span class="nf">grade_average</span><span class="p">(</span><span class="n">gradebook</span><span class="p">,</span> <span class="n">subject</span><span class="p">):</span>
+    <span class="n">name</span><span class="p">,</span> <span class="n">gradebook</span> <span class="o">=</span> <span class="n">gradebook</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">gradebook</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>  <span class="c"># packing이 들어갔다.</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">gradebook</span><span class="p">)</span>  <span class="c"># 학생수 구하기</span>
+    <span class="n">average</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="n">x</span><span class="p">[</span><span class="n">subject</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">gradebook</span><span class="p">])</span>  <span class="o">/</span> <span class="n">n</span> <span class="c"># list comprehension이 쓰였지???? 이거 한 줄이면 된다.</span>
+    <span class="k">return</span> <span class="n">name</span> <span class="o">+</span> <span class="s">'의 '</span> <span class="o">+</span> <span class="n">subject</span> <span class="o">+</span> <span class="s">' 평균은 '</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">average</span><span class="p">)</span>
+    
+<span class="k">print</span><span class="p">(</span><span class="n">grade_average</span><span class="p">(</span><span class="n">gradebook</span><span class="p">,</span> <span class="s">'Math'</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">grade_average</span><span class="p">(</span><span class="n">gradebook</span><span class="p">,</span> <span class="s">'Korean'</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">grade_average</span><span class="p">(</span><span class="n">gradebook</span><span class="p">,</span> <span class="s">'English'</span><span class="p">))</span>
+
+<span class="o">&gt;&gt;&gt;</span>    <span class="mi">3</span><span class="err">반의</span> <span class="n">Math</span> <span class="err">평균은</span> <span class="mf">71.4</span>
+<span class="o">&gt;&gt;&gt;</span>    <span class="mi">3</span><span class="err">반의</span> <span class="n">Korean</span> <span class="err">평균은</span> <span class="mf">70.6</span>
+<span class="o">&gt;&gt;&gt;</span>    <span class="mi">3</span><span class="err">반의</span> <span class="n">English</span> <span class="err">평균은</span> <span class="mf">59.8</span>
+</code></pre></div></div>
+
+<p><br></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">### 2. 학생 개개인 별로 성적 구하기</span>
+<span class="k">def</span> <span class="nf">student_average</span><span class="p">(</span><span class="n">gradebook</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">stu</span> <span class="ow">in</span> <span class="n">gradebook</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+        <span class="k">if</span> <span class="n">stu</span><span class="p">[</span><span class="s">'name'</span><span class="p">]</span> <span class="o">==</span> <span class="n">name</span><span class="p">:</span>
+            <span class="n">student</span> <span class="o">=</span> <span class="n">stu</span>
+            <span class="k">break</span>
+    <span class="n">math</span> <span class="o">=</span> <span class="n">student</span><span class="p">[</span><span class="s">'Math'</span><span class="p">]</span>
+    <span class="n">korean</span> <span class="o">=</span> <span class="n">student</span><span class="p">[</span><span class="s">'Korean'</span><span class="p">]</span>
+    <span class="n">english</span> <span class="o">=</span> <span class="n">student</span><span class="p">[</span><span class="s">'English'</span><span class="p">]</span>
+    <span class="n">avg</span> <span class="o">=</span> <span class="p">(</span><span class="n">math</span> <span class="o">+</span> <span class="n">korean</span> <span class="o">+</span> <span class="n">english</span><span class="p">)</span> <span class="o">/</span> <span class="mi">3</span>
+    <span class="k">return</span> <span class="n">avg</span>
+
+<span class="n">student_average</span><span class="p">(</span><span class="n">gradebook</span><span class="p">,</span> <span class="s">'Nayeon'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><br></p>
+
+<p>여기까지는 그래, 할만 하겠다 싶다.<br>
+지금의 우리의 데이터 구조는 어떻게 되는가?</p>
+
+<p>gradebook은 <code class="highlighter-rouge">list</code>로, 첫 원소를 학급 이름을, 나머지 원소를 <code class="highlighter-rouge">dict</code>인 학생들을 담고 있다.<br>
+학생이 dict 특성상 순서가 없다고는 하지만 전체 구조를 2차원이라고 잡을 수 있다.</p>
+
+<p>우리는 2차원에 익숙하다. 엑셀, 데이터베이스 테이블 등을 2차원 등으로 표현하고 보여주는 것은 다 이유가 있는 것.</p>
+
+<p>조금 더 나아가서, 반에 ‘Sana’라는 흐뭇해 지는 학생이 전학 왔다고 하자. 학생부에 정보를 추가해야 한다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">### 3. 학생 추가하기</span>
+<span class="k">def</span> <span class="nf">add_student</span><span class="p">(</span><span class="n">gradebook</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">math</span><span class="p">,</span> <span class="n">korean</span><span class="p">,</span> <span class="n">english</span><span class="p">):</span>
+    <span class="n">newbie</span> <span class="o">=</span> <span class="p">{</span><span class="s">'name'</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span> <span class="s">'Math'</span><span class="p">:</span> <span class="n">math</span><span class="p">,</span> <span class="s">'Korean'</span><span class="p">:</span> <span class="n">korean</span><span class="p">,</span> <span class="s">'English'</span><span class="p">:</span> <span class="n">english</span><span class="p">}</span>
+    <span class="n">gradebook</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">newbie</span><span class="p">)</span>
+    
+<span class="n">add_student</span><span class="p">(</span><span class="n">gradebook</span><span class="p">,</span> <span class="s">'Sana'</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">)</span>
+
+<span class="n">gradebook</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="p">[</span><span class="s">'3반'</span><span class="p">,</span>
+     <span class="p">{</span><span class="s">'English'</span><span class="p">:</span> <span class="mi">70</span><span class="p">,</span> <span class="s">'Korean'</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="s">'Math'</span><span class="p">:</span> <span class="mi">90</span><span class="p">,</span> <span class="s">'name'</span><span class="p">:</span> <span class="s">'Nayeon'</span><span class="p">},</span>
+     <span class="p">{</span><span class="s">'English'</span><span class="p">:</span> <span class="mi">65</span><span class="p">,</span> <span class="s">'Korean'</span><span class="p">:</span> <span class="mi">70</span><span class="p">,</span> <span class="s">'Math'</span><span class="p">:</span> <span class="mi">40</span><span class="p">,</span> <span class="s">'name'</span><span class="p">:</span> <span class="s">'Dahyeon'</span><span class="p">},</span>
+     <span class="p">{</span><span class="s">'English'</span><span class="p">:</span> <span class="mi">82</span><span class="p">,</span> <span class="s">'Korean'</span><span class="p">:</span> <span class="mi">92</span><span class="p">,</span> <span class="s">'Math'</span><span class="p">:</span> <span class="mi">89</span><span class="p">,</span> <span class="s">'name'</span><span class="p">:</span> <span class="s">'Momo'</span><span class="p">},</span>
+     <span class="p">{</span><span class="s">'English'</span><span class="p">:</span> <span class="mi">62</span><span class="p">,</span> <span class="s">'Korean'</span><span class="p">:</span> <span class="mi">31</span><span class="p">,</span> <span class="s">'Math'</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span> <span class="s">'name'</span><span class="p">:</span> <span class="s">'Jyeongyeon'</span><span class="p">},</span>
+     <span class="p">{</span><span class="s">'English'</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s">'Korean'</span><span class="p">:</span> <span class="mi">60</span><span class="p">,</span> <span class="s">'Math'</span><span class="p">:</span> <span class="mi">88</span><span class="p">,</span> <span class="s">'name'</span><span class="p">:</span> <span class="s">'Chaeyoung'</span><span class="p">},</span>
+     <span class="p">{</span><span class="s">'English'</span><span class="p">:</span> <span class="mi">70</span><span class="p">,</span> <span class="s">'Korean'</span><span class="p">:</span> <span class="mi">60</span><span class="p">,</span> <span class="s">'Math'</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span> <span class="s">'name'</span><span class="p">:</span> <span class="s">'Sana'</span><span class="p">},</span>
+ <span class="p">]</span>
+</code></pre></div></div>
+
+<p><br></p>
+
+<p>좋다. 그런데 더 나아가야 한다. 학생들을 관리하는 일은 복잡하다.<br>
+고등학교 학생들은 모의고사를 본다. 그런데 우리 학생부는 최신 정보만 반영하고 있기 때문에<br>
+학생의 발전 모습 등 변화 추이를 관찰할 수 없다.<br>
+따라서 이제는 전국연합학력평가를 치르는 3, 4, 7, 10월 정보를 같이 담는다고 하자.</p>
+
+<p>또한 학생에 대한 정보를 성적만 담는다는 것은 너무 잔인하다. 취미 등 다양한 정보를 담는다고 하자.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">### 학생 정보 Renewal!</span>
+
+<span class="n">gradebook</span> <span class="o">=</span> <span class="p">[</span><span class="s">'3반'</span><span class="p">,</span>
+ <span class="p">{</span><span class="s">'English'</span><span class="p">:</span> <span class="p">[</span><span class="mi">45</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">67</span><span class="p">,</span> <span class="mi">70</span><span class="p">],</span> <span class="s">'Korean'</span><span class="p">:</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">97</span><span class="p">,</span> <span class="mi">97</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span> <span class="s">'Math'</span><span class="p">:</span> <span class="p">[</span><span class="mi">65</span><span class="p">,</span> <span class="mi">74</span><span class="p">,</span> <span class="mi">87</span><span class="p">,</span> <span class="mi">54</span><span class="p">],</span> <span class="s">'name'</span><span class="p">:</span> <span class="s">'Nayeon'</span><span class="p">,</span>
+   <span class="s">'hobbies'</span><span class="p">:</span> <span class="p">[</span><span class="s">'dance'</span><span class="p">,</span> <span class="s">'sing'</span><span class="p">],</span> <span class="s">'favorite_movies'</span><span class="p">:</span> <span class="p">[</span><span class="s">'Begin again'</span><span class="p">,</span> <span class="s">'Chicken run'</span><span class="p">]},</span>
+ <span class="p">{</span><span class="s">'English'</span><span class="p">:</span> <span class="p">[</span><span class="mi">54</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">65</span><span class="p">],</span> <span class="s">'Korean'</span><span class="p">:</span> <span class="p">[</span><span class="mi">70</span><span class="p">,</span> <span class="mi">87</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">76</span><span class="p">],</span> <span class="s">'Math'</span><span class="p">:</span> <span class="p">[</span><span class="mi">40</span><span class="p">,</span> <span class="mi">54</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mi">65</span><span class="p">],</span> <span class="s">'name'</span><span class="p">:</span> <span class="s">'Dahyeon'</span><span class="p">,</span>
+   <span class="s">'hobbies'</span><span class="p">:</span> <span class="p">[</span><span class="s">'read'</span><span class="p">,</span> <span class="s">'dringking beer'</span><span class="p">],</span> <span class="s">'favorite_movies'</span><span class="p">:</span> <span class="p">[</span><span class="s">'mugando'</span><span class="p">,</span> <span class="s">'sinsegye'</span><span class="p">,</span> <span class="s">'money ball'</span><span class="p">]},</span>
+ <span class="p">{</span><span class="s">'English'</span><span class="p">:</span> <span class="p">[</span><span class="mi">82</span><span class="p">,</span> <span class="mi">93</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">95</span><span class="p">],</span> <span class="s">'Korean'</span><span class="p">:</span> <span class="p">[</span><span class="mi">67</span><span class="p">,</span> <span class="mi">76</span><span class="p">,</span> <span class="mi">78</span><span class="p">,</span> <span class="mi">82</span><span class="p">],</span> <span class="s">'Math'</span><span class="p">:</span> <span class="p">[</span><span class="mi">67</span><span class="p">,</span> <span class="mi">87</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mi">87</span><span class="p">],</span> <span class="s">'name'</span><span class="p">:</span> <span class="s">'Momo'</span><span class="p">,</span>
+   <span class="s">'hobbies'</span><span class="p">:</span> <span class="p">[</span><span class="s">'dance'</span><span class="p">,</span> <span class="s">'Programming'</span><span class="p">],</span> <span class="s">'favorite_movies'</span><span class="p">:</span> <span class="p">[</span><span class="s">'Zootopia'</span><span class="p">,</span> <span class="s">'Search'</span><span class="p">,</span> <span class="s">'99 homes'</span><span class="p">]},</span>
+ <span class="p">{</span><span class="s">'English'</span><span class="p">:</span> <span class="p">[</span><span class="mi">87</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="mi">54</span><span class="p">,</span> <span class="mi">76</span><span class="p">],</span> <span class="s">'Korean'</span><span class="p">:</span> <span class="p">[</span><span class="mi">54</span><span class="p">,</span> <span class="mi">54</span><span class="p">,</span> <span class="mi">67</span><span class="p">,</span> <span class="mi">76</span><span class="p">],</span> <span class="s">'Math'</span><span class="p">:</span> <span class="p">[</span><span class="mi">34</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">54</span><span class="p">,</span> <span class="mi">45</span><span class="p">],</span> <span class="s">'name'</span><span class="p">:</span> <span class="s">'Jyeongyeon'</span><span class="p">,</span>
+   <span class="s">'hobbies'</span><span class="p">:</span> <span class="p">[</span><span class="s">'trip'</span><span class="p">],</span> <span class="s">'favorite_movies'</span><span class="p">:</span> <span class="p">[</span><span class="s">'Mother'</span><span class="p">]},</span>
+ <span class="p">{</span><span class="s">'English'</span><span class="p">:</span> <span class="p">[</span><span class="mi">82</span><span class="p">,</span> <span class="mi">81</span><span class="p">,</span> <span class="mi">61</span><span class="p">,</span> <span class="mi">79</span><span class="p">],</span> <span class="s">'Korean'</span><span class="p">:</span> <span class="p">[</span><span class="mi">72</span><span class="p">,</span> <span class="mi">88</span><span class="p">,</span> <span class="mi">78</span><span class="p">,</span> <span class="mi">98</span><span class="p">],</span> <span class="s">'Math'</span><span class="p">:</span> <span class="p">[</span><span class="mi">67</span><span class="p">,</span> <span class="mi">78</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">45</span><span class="p">],</span> <span class="s">'name'</span><span class="p">:</span> <span class="s">'Chaeyoung'</span><span class="p">,</span>
+   <span class="s">'hobbies'</span><span class="p">:</span> <span class="p">[</span><span class="s">'Movie'</span><span class="p">],</span> <span class="s">'favorite_movies'</span><span class="p">:</span> <span class="p">[</span><span class="s">'Your name...'</span><span class="p">]},</span>
+<span class="p">]</span>
+</code></pre></div></div>
+
+<p><br></p>
+
+<p>아예 student에 대한 구조 자체를 바꿔서 추가했다.<br>
+<strong>정상적인 사람이라면 보기 불편해야 하는데 그 이유는 이제 차원이 3차원으로 넘어 갔기 때문이다.</strong><br>
+이때, 다양한 정보를 표현하는 함수를 만들텐데 괴로움을 맛보도록 하자.</p>
+
+<ol>
+  <li>원하는 시험의 특정 과목의 학생들 평균 알아보기</li>
+  <li>특정 학생의 특정 분기 특정 과목 성적 알아내기</li>
+  <li>학생들이 가장 좋아하는 취미가 뭔지 출력하기</li>
+</ol>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 1. 원하는 시험의 특정 과목의 학생들 평균 알아보기</span>
+<span class="k">def</span> <span class="nf">students_grades_average</span><span class="p">(</span><span class="n">gradebook</span><span class="p">,</span> <span class="n">which_exam</span><span class="p">,</span> <span class="n">subject</span><span class="p">):</span>
+    <span class="n">avg</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">gradebook</span> <span class="o">=</span> <span class="n">gradebook</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+    <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">gradebook</span><span class="p">)</span>
+    
+    <span class="k">for</span> <span class="n">stu</span> <span class="ow">in</span> <span class="n">gradebook</span><span class="p">:</span>
+        <span class="n">avg</span> <span class="o">+=</span> <span class="n">stu</span><span class="p">[</span><span class="n">subject</span><span class="p">][</span><span class="n">which_exam</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">avg</span> <span class="o">/</span> <span class="n">length</span>
+
+
+<span class="c"># 2. 특정 학생의 특정 분기 특정 성적 알아보기</span>
+<span class="k">def</span> <span class="nf">get_specific_score</span><span class="p">(</span><span class="n">gradebook</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">which</span><span class="p">,</span> <span class="n">subject</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">stu</span> <span class="ow">in</span> <span class="n">gradebook</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+        <span class="k">if</span> <span class="n">stu</span><span class="p">[</span><span class="s">'name'</span><span class="p">]</span> <span class="o">==</span> <span class="n">name</span><span class="p">:</span>
+            <span class="n">student</span> <span class="o">=</span> <span class="n">stu</span>
+            <span class="k">break</span>
+    
+    <span class="n">student</span><span class="p">[</span><span class="n">subject</span><span class="p">][</span><span class="n">which</span><span class="p">]</span>
+    
+
+<span class="c"># 3. 학생들이 좋아하는 1순위 취미들을 모아 집합으로 반환하기</span>
+<span class="k">def</span> <span class="nf">what_are_favorite_hobbies</span><span class="p">(</span><span class="n">gradebook</span><span class="p">):</span>
+    <span class="n">hobbies</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">stu</span> <span class="ow">in</span> <span class="n">gradebook</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+        <span class="n">hobbies</span> <span class="o">=</span> <span class="n">hobbies</span><span class="o">.</span><span class="n">union</span><span class="p">([</span><span class="n">stu</span><span class="p">[</span><span class="s">'hobbies'</span><span class="p">][</span><span class="mi">0</span><span class="p">]])</span>
+    <span class="k">return</span> <span class="n">hobbies</span>
+    
+    
+<span class="k">print</span><span class="p">(</span><span class="n">students_grades_average</span><span class="p">(</span><span class="n">gradebook</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s">'Math'</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">what_are_favorite_hobbies</span><span class="p">(</span><span class="n">gradebook</span><span class="p">))</span>
+
+
+<span class="o">&gt;&gt;&gt;</span>    <span class="mf">54.6</span>
+<span class="o">&gt;&gt;&gt;</span>    <span class="p">{</span><span class="s">'read'</span><span class="p">,</span> <span class="s">'dance'</span><span class="p">,</span> <span class="s">'trip'</span><span class="p">}</span>
+</code></pre></div></div>
+
+<p><br></p>
+
+<p>나오기는 나오는데, 불편함을 감추지 않을 수 없다.<br>
+3차원이 되면서 위 2 함수에는 뭔가 불편함이 감돌고 있다.</p>
+
+<p>위에까지를 하나의 모듈로 만들어 학생부 파일로 쓴다고 하자.<br>
+순수하게 파이썬의 기본 데이터 구조만을 사용해 만들었다. 그리고 같은 필요를 느끼는 동료들에게<br>
+잘 쓰라고 파일을 메일로 보내준다. 하지만 많은 경우 이들은 불편함을 느낄 것인데, 그 이유는 다음과 같다.</p>
+
+<ol>
+  <li>
+<strong>모든 함수와 변수가 전역(global) 처리되어 있다.</strong>
+    <ul>
+      <li>이게 크다. <strong>스코프는(namespace라고도 한다.) 정말 꼭 필요한 경우가 아니면 범위를 한정짓는 게 맞다.</strong> <br>
+ 예기치 못한 오염의 위험이 있으며, 모든 변수가 한 스코프에 있기 때문에 관리하기도 힘들다. <br>
+ 삼성에서 모든 직원을 하나의 부서에 때려 박지 않고, 각종 부서로 나눠 배치하는 것과 같은 이치다.<br>
+ 규모가 너무 작은 회사가 아닌 이상, 아무리 수형, 평등을 지향하는 회사라도 부서는 나뉘어져 있다.<br>
+<br>
+</li>
+    </ul>
+  </li>
+  <li>
+<strong>코드 가독성이 떨어진다.</strong>
+    <ul>
+      <li>자료가 3차원 이상이 되면서 원하는 함수를 만드는데 코드에 매직넘버가 들어가는 등 어려워졌다.
+ 아까 정의한 새 gradebook만 봐도 가슴이 편치 않음을 느낄 수 있다.
+ 애초에 <strong>자료구조가 3차원 이상으로 넘어가기 시작하면, 클래스 사용을 진지하게 고려해야 한다.</strong>
+</li>
+    </ul>
+  </li>
+  <li>
+<strong>전문화가 어렵다.</strong>
+    <ul>
+      <li>
+<strong>모든 변수와 함수가 같은 스코프에 있기 때문에 가령 학생 전문 함수를 만들기가 더 어렵다.</strong><br>
+ 아마 새 함수가 기존의 학생 함수들을 쓸 수도 있는데(의존할 수도 있는데) 함수들이 너무 많아 학생부 변수들도 봐야 한다.<br>
+<br>
+</li>
+    </ul>
+  </li>
+  <li>
+<strong>재사용성이 떨어진다.</strong>
+    <ul>
+      <li>지금은 한 파일에 학생과 관련된 정보, 학생부와 관련된 정보가 혼잡하게 섞여 있어 원하는 정보를 찾기 어렵다. <br>
+ 만약 동료 교사가 이것을 사용하려 하면, 원하는 기능 하나를 찾기 위해 이리 저리 함수를 돌아다녀야 한다.<br>
+</li>
+    </ul>
+  </li>
+  <li>커스터마이제이션이 어려워진다. 가령 기존의 함수에서 조금씩을 바꿔 쓰고자 한다고 하자.</li>
+</ol>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">### 1. 학급의 과목별로 평균 구하기</span>
+
+<span class="k">def</span> <span class="nf">grade_average</span><span class="p">(</span><span class="n">gradebook</span><span class="p">,</span> <span class="n">subject</span><span class="p">):</span>
+    <span class="n">name</span><span class="p">,</span> <span class="o">*</span><span class="n">gradebook</span> <span class="o">=</span> <span class="n">gradebook</span>  <span class="c"># packing이 들어갔다.</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">gradebook</span><span class="p">)</span>  <span class="c"># 학생수 구하기</span>
+    <span class="n">average</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="n">x</span><span class="p">[</span><span class="n">subject</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">gradebook</span><span class="p">])</span>  <span class="o">/</span> <span class="n">n</span> <span class="c"># list comprehension이 쓰였지???? 이거 한 줄이면 된다.</span>
+    <span class="k">return</span> <span class="n">name</span> <span class="o">+</span> <span class="s">'의 '</span> <span class="o">+</span> <span class="n">subject</span> <span class="o">+</span> <span class="s">' 평균은 '</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">average</span><span class="p">)</span>
+    
+<span class="k">print</span><span class="p">(</span><span class="n">grade_average</span><span class="p">(</span><span class="n">gradebook</span><span class="p">,</span> <span class="s">'Math'</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">grade_average</span><span class="p">(</span><span class="n">gradebook</span><span class="p">,</span> <span class="s">'Korean'</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">grade_average</span><span class="p">(</span><span class="n">gradebook</span><span class="p">,</span> <span class="s">'English'</span><span class="p">))</span>
+
+
+<span class="o">&gt;&gt;&gt;</span> <span class="mi">3</span><span class="err">반의</span> <span class="n">Math</span> <span class="err">평균은</span> <span class="mf">71.4</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="mi">3</span><span class="err">반의</span> <span class="n">Korean</span> <span class="err">평균은</span> <span class="mf">70.6</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="mi">3</span><span class="err">반의</span> <span class="n">English</span> <span class="err">평균은</span> <span class="mf">59.8</span>
+</code></pre></div></div>
+
+<p><br></p>
+
+<ul>
+  <li>
+    <p>아까 만든 함수다. 근데 나는 저렇게 문자열이 아니라 가령 수학 과목의 평균을 숫자로 바꾸고 싶으면,<br>
+조금 바꿔야 한다. 그러면 모듈을 열고 실제 함수를 찾아 코드를 조금 바꿀 것이다.</p>
+  </li>
+  <li>
+    <p>이렇게 여러 사람이 만든 코드가 섞이면??? grade_average라는 같은 이름의 함수가 여러 버전으로 존재하게 된다.</p>
+  </li>
+</ul>
+
+<p><br>
+<br></p>
+
+<h4 id="그러니까-클래스를-쓰면-이것들을-적어도-완화할-수-있다-가보자">그러니까, 클래스를 쓰면 이것들을 적어도 완화할 수 있다. 가보자.</h4>
+
+<p><br>
+<br></p>
+<hr>
+
+<p><br></p>
+
+<h2 id="3-exclamation-클래스로-해보기">3. <img class="emoji" title=":exclamation:" alt=":exclamation:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/2757.png" height="20" width="20"> 클래스로 해보기.</h2>
+
+<p>난 애초에 만들 때부터 다른 교사들의 사용을 염두해 두고 있다.<br>
+이들은 분명 나와 다른 기능을 원할 수도 있고 해서, 내 생각에 정말 필요한 기능만을 일부 구현해 놓으려고 한다.</p>
+
+<p>그래서 학생부와 학생 클래스를 만드는데 기본이 되는 BaseGradebook, BaseSudent 클래스를 만들고,<br>
+내가 직접 사용하는 클래스를 그것을 상속해서 쓴다고 하자. 베이스 클래스들은 다음과 같다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">BaseGradebook</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">students</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">length</span> <span class="o">=</span> <span class="mi">0</span>
+        
+    <span class="c"># gradebook['momo']와 같이 이름을 키로 받았을 때 특정 학생 반환하도록 반환</span>
+    <span class="k">def</span> <span class="nf">__get__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">stu</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">students</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">stu</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">name</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">stu</span>
+        
+    <span class="c"># 학생 추가하기</span>
+    <span class="k">def</span> <span class="nf">add_student</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">student</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">students</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">student</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">length</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="c"># 학급의 특정 시험의 특정 과목 평균 출력</span>
+    <span class="k">def</span> <span class="nf">average_of_subject_which_exam</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">subject</span><span class="p">,</span> <span class="n">which_exam</span><span class="p">):</span>
+        <span class="n">tmp_sum</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">stu</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">students</span><span class="p">:</span>
+            <span class="n">tmp_sum</span> <span class="o">+=</span> <span class="n">stu</span><span class="p">[</span><span class="n">subject</span><span class="p">][</span><span class="n">which_exam</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">tmp_sum</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">length</span>
+    
+
+<span class="k">class</span> <span class="nc">BaseStudent</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">sex</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_math</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_korean</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_english</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_sex</span> <span class="o">=</span> <span class="n">sex</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_hobbies</span> <span class="o">=</span> <span class="p">[]</span>
+        
+    <span class="k">def</span> <span class="nf">add_exam_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">math</span><span class="p">,</span> <span class="n">korean</span><span class="p">,</span> <span class="n">english</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="nb">NotImplementedError</span><span class="p">(</span><span class="s">""</span><span class="p">)</span>
+
+    <span class="c"># 학생의 특정 과목 점수의 평균 반환</span>
+    <span class="k">def</span> <span class="nf">average_grade_of</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">subject</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="bp">self</span><span class="p">[</span><span class="n">subject</span><span class="p">])</span>
+
+    <span class="k">def</span> <span class="nf">fill_hobbies</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="nb">NotImplementedError</span><span class="p">(</span><span class="s">""</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">print_hobby</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="nb">NotImplementedError</span><span class="p">(</span><span class="s">""</span><span class="p">)</span>
+        
+<span class="n">test_student</span> <span class="o">=</span> <span class="n">BaseStudent</span><span class="p">(</span><span class="s">'na'</span><span class="p">,</span> <span class="s">'f'</span><span class="p">)</span>
+<span class="n">test_student</span><span class="p">[</span><span class="s">'math'</span><span class="p">]</span>
+
+
+<span class="o">&gt;&gt;&gt;</span> <span class="p">[]</span>
+</code></pre></div></div>
+
+<p><br></p>
+
+<p>기본이 되는 클래스들을 선언했다.<br>
+<strong>이 함수들은 클래스를 만들 때 ‘이것들은 꼭 필요하겠지?’라는 마인드로 만든 것들이다.</strong><br>
+많은 경우, 교사들은 이 클래스를 상속해 사용하면 편할 것이다.</p>
+
+<p>그중에서도 <strong>‘이것만큼은 이대로 쓰겠다’ 싶은 것들은 직접 완성까지 했고,</strong><br>
+<strong>교사마다 쓰임이 다를 것이라고 생각한 함수는 NotImplementedError(““)를 뱉도록 했다.</strong><br>
+이는 교사가 받아 쓰면서 만들어 써야 한다.</p>
+
+<p>이때 <code class="highlighter-rouge">__get__</code>를 볼 수 있는데 이 메소드는 우리가 <code class="highlighter-rouge">dict</code>에 <code class="highlighter-rouge">[ ]</code> 연산으로 키에 맞는 값을 뽑아 내듯이,<br>
+<strong>인스턴스에 [ ] 연산으로 값이 들어왔을 때 어떻게 처리하는지 명령하는 함수다.</strong><br>
+위와 같이 선언에서 gradebook[‘Momo’]와 같이 사용하면 학생을 바로 뽑아낼 수 있다.</p>
+
+<p><br></p>
+
+<p>이제 나 박성환이 쓸 학생부, 학생 클래스를 만들어 보자.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">SunghwanGradebook</span><span class="p">(</span><span class="n">BaseGradebook</span><span class="p">):</span>
+    <span class="s">"""Store gradebook of a class
+    
+    In functions in this class, you can see 'which_exam' variable a lot of times.
+    if which_exam == 0: it's March's exam,
+    if which_exam == 1: it's March's exam,
+    if which_exam == 2: it's March's exam,
+    if which_exam == 3: it's March's exam,
+    
+    Variables:
+        * self.length:  int | number of the students in a class
+    
+    Functions:
+        *  __init__(self, name, teacehr_name):
+            :input:
+                str | name:  Name of the class
+                str | teacher_name: Name of the teacher of the class
+            :return:
+                instance |  A new instance of a Gradebook
+                
+        *  get_specific_score(name, subject, which_exam):
+            :input:
+                str | name: Name of a student wanted.
+                str | subject: Name of a subject which belongs to one of math, english, korean
+                int | which_exam: exam number
+            :return:
+                int |  Score of a specific exam of the subject of the student.
+    """</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">teacher_name</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">teacher_name</span> <span class="o">=</span> <span class="n">teacher_name</span>
+        <span class="c"># 기존에 생성자에 교사 이름까지 저장할 수 있도록 확장했다.</span>
+    
+    <span class="c"># 특정 학생의 특정 학생의 특정 시험 점수를 반환</span>
+    <span class="k">def</span> <span class="nf">get_specific_score</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">subject</span><span class="p">,</span> <span class="n">which_exam</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="n">name</span><span class="p">][</span><span class="n">subject</span><span class="p">][</span><span class="n">which_exam</span><span class="p">]</span>
+    
+    
+<span class="k">class</span> <span class="nc">Student</span><span class="p">(</span><span class="n">BaseStudent</span><span class="p">):</span>
+    <span class="c"># 시험을 볼 때마다 수학, 국어, 영어 점수를 추가</span>
+    <span class="k">def</span> <span class="nf">add_exam_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">math</span><span class="p">,</span> <span class="n">korean</span><span class="p">,</span> <span class="n">english</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_math</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">math</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_korean</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">korean</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_english</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">english</span><span class="p">)</span>
+
+    <span class="c"># student['math'] 처럼 썼을 때 해당 과목 성적을 담은 리스트를 반환</span>
+    <span class="k">def</span> <span class="nf">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">subject</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s">'_'</span> <span class="o">+</span> <span class="n">subject</span><span class="p">)</span>
+        
+
+    <span class="c"># 새 취미 추가하기</span>
+    <span class="k">def</span> <span class="nf">fill_hobbies</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hobby</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_hobbies</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">hobby</span><span class="p">)</span>
+
+    <span class="c"># 학생들의 취미를 한 줄로 출력하기</span>
+    <span class="k">def</span> <span class="nf">print_hobby</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s">', '</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_hobbies</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><br></p>
+
+<p>기존의 베이스에서 내가 필요한 것들만 추가했다. 여기서 눈 여겨볼 점은</p>
+
+<ul>
+  <li>먼저 <code class="highlighter-rouge">super()</code>의 사용.</li>
+</ul>
+
+<p>super는 상속 받은 상위 클래스를 불러오는 함수이다. 난 이 함수의 생성자를 확장하고 싶기 때문에<br>
+먼저 기존 클래스의 생성자를 먼저 실행하고, 그 후에 내가 원하는 기능을 추가했다.<br>
+여기서는 학생부에 교사 이름을 넣고 있다.</p>
+
+<ul>
+  <li>
+<code class="highlighter-rouge">__get__</code>의 사용
+<strong>return self[name][subject][which_exam]</strong>. 이 구문을 살펴보자.</li>
+</ul>
+
+<p>여기서 <code class="highlighter-rouge">self</code>는 학생부다.
+<code class="highlighter-rouge">self[name]</code>으로 학생을 뽑아내고,<br>
+<code class="highlighter-rouge">self[name][subject]</code>로 학생의 성적을 담은 리스트를 뽑아냈으며,<br>
+<code class="highlighter-rouge">self[name][subject][which_exam]</code>로 인덱싱해 특정 시험의 성적을 뽑아낼 수 있었다.</p>
+
+<p>음 어떤가? 실제로 써보자.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">gradebook</span> <span class="o">=</span> <span class="n">SunghwanGradebook</span><span class="p">(</span><span class="s">'3반'</span><span class="p">,</span> <span class="s">'박성환'</span><span class="p">)</span>
+<span class="n">stu</span> <span class="o">=</span> <span class="n">Student</span><span class="p">(</span><span class="s">'모모'</span><span class="p">,</span> <span class="s">'f'</span><span class="p">)</span>
+<span class="n">stu</span><span class="o">.</span><span class="n">add_exam_result</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,])</span>
+<span class="n">gradebook</span><span class="o">.</span><span class="n">add_student</span><span class="p">(</span><span class="n">stu</span><span class="p">)</span>
+
+<span class="n">stu</span> <span class="o">=</span> <span class="n">Student</span><span class="p">(</span><span class="s">'나연'</span><span class="p">,</span> <span class="s">'f'</span><span class="p">)</span>
+<span class="n">stu</span><span class="o">.</span><span class="n">add_exam_result</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+<span class="n">gradebook</span><span class="o">.</span><span class="n">add_student</span><span class="p">(</span><span class="n">stu</span><span class="p">)</span>
+
+<span class="n">stu</span> <span class="o">=</span> <span class="n">Student</span><span class="p">(</span><span class="s">'정연'</span><span class="p">,</span> <span class="s">'f'</span><span class="p">)</span>
+<span class="n">stu</span><span class="o">.</span><span class="n">add_exam_result</span><span class="p">([</span><span class="mi">7</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">9</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">9</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">7</span><span class="p">])</span>
+<span class="n">gradebook</span><span class="o">.</span><span class="n">add_student</span><span class="p">(</span><span class="n">stu</span><span class="p">)</span>
+
+
+<span class="n">gradebook</span><span class="o">.</span><span class="n">average_of_subject_which_exam</span><span class="p">(</span><span class="s">'math'</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+
+
+<span class="o">&gt;&gt;&gt;</span> <span class="mf">2.6666666666666665</span>
+</code></pre></div></div>
+
+<p><br>
+아까 클래스 밑에 이상한 문자열을 쑤셔 박은 것을 기억하는가?<br>
+그것의 사용처는 다음과 같다.
+<br></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">help</span><span class="p">(</span><span class="n">SunghwanGradebook</span><span class="p">)</span>
+
+    <span class="n">Help</span> <span class="n">on</span> <span class="k">class</span> <span class="nc">SunghwanGradebook</span> <span class="ow">in</span> <span class="n">module</span> <span class="n">__main__</span><span class="p">:</span>
+    
+    <span class="k">class</span> <span class="nc">SunghwanGradebook</span><span class="p">(</span><span class="n">BaseGradebook</span><span class="p">)</span>
+     <span class="o">|</span>  <span class="n">Store</span> <span class="n">gradebook</span> <span class="n">of</span> <span class="n">a</span> <span class="k">class</span>
+     <span class="err">|  
+     |  </span><span class="nc">In</span> <span class="n">functions</span> <span class="ow">in</span> <span class="n">this</span> <span class="n">class</span><span class="p">,</span> <span class="n">you</span> <span class="n">can</span> <span class="n">see</span> <span class="s">'which_exam'</span> <span class="n">variable</span> <span class="n">a</span> <span class="n">lot</span> <span class="n">of</span> <span class="n">times</span><span class="o">.</span>
+     <span class="o">|</span>  <span class="k">if</span> <span class="n">which_exam</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> <span class="n">it</span><span class="s">'s March'</span><span class="n">s</span> <span class="n">exam</span><span class="p">,</span>
+     <span class="o">|</span>  <span class="k">if</span> <span class="n">which_exam</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span> <span class="n">it</span><span class="s">'s March'</span><span class="n">s</span> <span class="n">exam</span><span class="p">,</span>
+     <span class="o">|</span>  <span class="k">if</span> <span class="n">which_exam</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span> <span class="n">it</span><span class="s">'s March'</span><span class="n">s</span> <span class="n">exam</span><span class="p">,</span>
+     <span class="o">|</span>  <span class="k">if</span> <span class="n">which_exam</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span> <span class="n">it</span><span class="s">'s March'</span><span class="n">s</span> <span class="n">exam</span><span class="p">,</span>
+     <span class="o">|</span>  
+     <span class="o">|</span>  <span class="n">Variables</span><span class="p">:</span>
+     <span class="o">|</span>      <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">length</span><span class="p">:</span>  <span class="nb">int</span> <span class="o">|</span> <span class="n">number</span> <span class="n">of</span> <span class="n">the</span> <span class="n">students</span> <span class="ow">in</span> <span class="n">a</span> <span class="k">class</span>
+     <span class="err">|  
+     |  </span><span class="nc">Functions</span><span class="p">:</span>
+     <span class="o">|</span>      <span class="o">*</span>  <span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">teacehr_name</span><span class="p">):</span>
+     <span class="o">|</span>          <span class="p">:</span><span class="nb">input</span><span class="p">:</span>
+     <span class="o">|</span>              <span class="nb">str</span> <span class="o">|</span> <span class="n">name</span><span class="p">:</span>  <span class="n">Name</span> <span class="n">of</span> <span class="n">the</span> <span class="k">class</span>
+     <span class="err">|              </span><span class="nc">str</span> <span class="o">|</span> <span class="n">teacher_name</span><span class="p">:</span> <span class="n">Name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">teacher</span> <span class="n">of</span> <span class="n">the</span> <span class="k">class</span>
+     <span class="err">|          :</span><span class="nc">return</span><span class="p">:</span>
+     <span class="o">|</span>              <span class="n">instance</span> <span class="o">|</span>  <span class="n">A</span> <span class="n">new</span> <span class="n">instance</span> <span class="n">of</span> <span class="n">a</span> <span class="n">Gradebook</span>
+     <span class="o">|</span>              
+     <span class="o">|</span>      <span class="o">*</span>  <span class="n">get_specific_score</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">subject</span><span class="p">,</span> <span class="n">which_exam</span><span class="p">):</span>
+     <span class="o">|</span>          <span class="p">:</span><span class="nb">input</span><span class="p">:</span>
+     <span class="o">|</span>              <span class="nb">str</span> <span class="o">|</span> <span class="n">name</span><span class="p">:</span> <span class="n">Name</span> <span class="n">of</span> <span class="n">a</span> <span class="n">student</span> <span class="n">wanted</span><span class="o">.</span>
+     <span class="o">|</span>              <span class="nb">str</span> <span class="o">|</span> <span class="n">subject</span><span class="p">:</span> <span class="n">Name</span> <span class="n">of</span> <span class="n">a</span> <span class="n">subject</span> <span class="n">which</span> <span class="n">belongs</span> <span class="n">to</span> <span class="n">one</span> <span class="n">of</span> <span class="n">math</span><span class="p">,</span> <span class="n">english</span><span class="p">,</span> <span class="n">korean</span>
+     <span class="o">|</span>              <span class="nb">int</span> <span class="o">|</span> <span class="n">which_exam</span><span class="p">:</span> <span class="n">exam</span> <span class="n">number</span>
+     <span class="o">|</span>          <span class="p">:</span><span class="k">return</span><span class="p">:</span>
+     <span class="o">|</span>              <span class="nb">int</span> <span class="o">|</span>  <span class="n">Score</span> <span class="n">of</span> <span class="n">a</span> <span class="n">specific</span> <span class="n">exam</span> <span class="n">of</span> <span class="n">the</span> <span class="n">subject</span> <span class="n">of</span> <span class="n">the</span> <span class="n">student</span><span class="o">.</span>
+     <span class="o">|</span>  
+     <span class="o">|</span>  <span class="n">Method</span> <span class="n">resolution</span> <span class="n">order</span><span class="p">:</span>
+     <span class="o">|</span>      <span class="n">SunghwanGradebook</span>
+     <span class="o">|</span>      <span class="n">BaseGradebook</span>
+     <span class="o">|</span>      <span class="n">builtins</span><span class="o">.</span><span class="nb">object</span>
+     <span class="o">|</span>  
+     <span class="o">|</span>  <span class="n">Methods</span> <span class="n">defined</span> <span class="n">here</span><span class="p">:</span>
+     <span class="o">|</span>  
+     <span class="o">|</span>  <span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">teacher_name</span><span class="p">)</span>
+     <span class="o">|</span>      <span class="n">Initialize</span> <span class="bp">self</span><span class="o">.</span>  <span class="n">See</span> <span class="n">help</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span> <span class="k">for</span> <span class="n">accurate</span> <span class="n">signature</span><span class="o">.</span>
+     <span class="o">|</span>  
+     <span class="o">|</span>  <span class="n">get_specific_score</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">subject</span><span class="p">,</span> <span class="n">which_exam</span><span class="p">)</span>
+     <span class="o">|</span>  
+     <span class="o">|</span>  <span class="o">----------------------------------------------------------------------</span>
+     <span class="o">|</span>  <span class="n">Methods</span> <span class="n">inherited</span> <span class="k">from</span> <span class="n">BaseGradebook</span><span class="p">:</span>
+     <span class="o">|</span>  
+     <span class="o">|</span>  <span class="n">__get__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+     <span class="o">|</span>  
+     <span class="o">|</span>  <span class="n">add_student</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">student</span><span class="p">)</span>
+     <span class="o">|</span>  
+     <span class="o">|</span>  <span class="n">average_of_subject_which_exam</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">subject</span><span class="p">,</span> <span class="n">which_exam</span><span class="p">)</span>
+     <span class="o">|</span>  
+     <span class="o">|</span>  <span class="o">----------------------------------------------------------------------</span>
+     <span class="o">|</span>  <span class="n">Data</span> <span class="n">descriptors</span> <span class="n">inherited</span> <span class="k">from</span> <span class="n">BaseGradebook</span><span class="p">:</span>
+     <span class="o">|</span>  
+     <span class="o">|</span>  <span class="n">__dict__</span>
+     <span class="o">|</span>      <span class="n">dictionary</span> <span class="k">for</span> <span class="n">instance</span> <span class="n">variables</span> <span class="p">(</span><span class="k">if</span> <span class="n">defined</span><span class="p">)</span>
+     <span class="o">|</span>  
+     <span class="o">|</span>  <span class="n">__weakref__</span>
+     <span class="o">|</span>      <span class="nb">list</span> <span class="n">of</span> <span class="n">weak</span> <span class="n">references</span> <span class="n">to</span> <span class="n">the</span> <span class="nb">object</span> <span class="p">(</span><span class="k">if</span> <span class="n">defined</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><br></p>
+
+<p>어떤가? 이런 구분은 적어도 맨 처음에 무식한 방법보다 몇 가지는 낫다.</p>
+
+<ol>
+  <li>
+<strong>특정 학생부와 학생이 자신 고유의 범위 안에 있다. 따라서 오염 등의 문제가 없다.</strong>
+    <ul>
+      <li>아까와 비교해보자. 아까는 <code class="highlighter-rouge">add_student(gradebook, name, math, korean, english):</code>처럼  <strong>함수가 학생부를 받았다.</strong>
+ 하지만 이번에는 <code class="highlighter-rouge">gradebook.add_student(student)</code>처럼 **학생부가 자신의 함수를 호출해 쓴다.
+ 오염의 문제가 없을 뿐만 아니라, 함수 실행 시 잘못 된 입력을 넣을 가능성도 줄어든다.</li>
+    </ul>
+  </li>
+  <li>
+<strong>전문화가 보다 쉽다.</strong>
+    <ul>
+      <li>코드가 학생과 학생부로 나뉘어 좀더 그 클래스에 특화된 함수를 만들 수 있다.
+ 그러니까 코드의 책임영역이 나뉘었다.</li>
+    </ul>
+  </li>
+  <li>
+<strong>재사용성이 좋다.(가독성이 좋다.)</strong>
+    <ul>
+      <li>사용할 때 더 쉽지 않은가? 가독성도 더 좋다고 말해달라.</li>
+    </ul>
+  </li>
+  <li>
+<strong>customization이 매우 쉬워졌다.</strong>
+    <ul>
+      <li>Base 클래스를 만들어 좀더 초반부터 닦고 싶은 사람은 이 클래스를 상속 받아 기능을 구현할 수 있고,<br>
+ 누구는 SunghwanGradebook를 그대로 가져다 쓸 수도 있으며,<br>
+ 또 SunghwanGradebook를 상속해서 쓸 수도 있을 것이다. 이렇게 되면<br>
+ 이름이 충돌해 문제가 생길리 없다.</li>
+    </ul>
+  </li>
+  <li>
+<strong>문서화가 더 쉬워졌다.</strong>
+    <ul>
+      <li>언제 어디서나 문서화는 좋은 관리 방안이다.<br>
+ 클래스 선언 바로 밑에 파이썬에서 <code class="highlighter-rouge">docstring</code>이라고 부르는 문자열을 추가했다.<br>
+ 그러면 <strong><code class="highlighter-rouge">help(SunghwanGradebook)</code>과 같이 쓰면 그 문자열이 출력되어</strong><br>
+ <strong>사용시 유용한 문자열을 확인할 수 있다.</strong>
+</li>
+      <li>그러니까 클래스에는 다루는 클래스에 대한 무수한 정보가 있지만,<br>
+ <strong>클래스를 감싸고 자신의 메소드라는 인터페이스만 남기고,</strong><br>
+ <strong>이를 문서화해 사용하는 사람은 클래스에 대한 무수하고 잡스러운 정보를 기억할 필요 없이</strong><br>
+ 클래스를 사용할 수 있게 되었다.</li>
+    </ul>
+  </li>
+</ol>
+
+<p><br>
+<br></p>
+
+<hr>
+
+<p><br></p>
+
+<h1 id="4-마치며">4. 마치며</h1>
+
+<p><br></p>
+
+<p>이 예시는 어떤 경우에는 OOP를 쓰는 것이 더 낫다는 것을 설득하기 위해 만들었다.<br>
+함수를 짜다 만 것도 있고, 꼭 필요한 함수를 적지 않기도 했다.<br>
+하지만 요지는 파악 되었을 것이라 생각한다.</p>
+
+<p>기억하자.</p>
+
+<p><strong>쓰는 데이터구조가 3차원 이상으로 넘어가게 되면,</strong><br>
+<strong>우리가 익숙한 인지 구조를 넘어서기 때문에 클래스를 사용해 인터페이스를 편하게 하는 것이 낫다.</strong></p>
+
+      <div class="page-footer">
+        <div class="page-share">
+          <a href="https://twitter.com/intent/tweet?text=%EC%99%9C%20%EC%9A%B0%EB%A6%AC%EB%8A%94%20OOP%EB%A5%BC%20%EC%82%AC%EC%9A%A9%ED%95%B4%EC%95%BC%20%ED%95%A0%EA%B9%8C?&amp;url=/programming/python/OOP-in-Python.html" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
+          <a href="https://facebook.com/sharer.php?u=/programming/python/OOP-in-Python.html" title="Share on Facebook" rel="nofollow" target="_blank">Facebook</a>
+          <a href="https://plus.google.com/share?url=/programming/python/OOP-in-Python.html" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>
+        </div>
+        <div class="page-tag">
+          
+            <a href="/tags#Python" class="tag"># Python</a>
+          
+            <a href="/tags#OOP" class="tag"># OOP</a>
+          
+        </div>
+      </div>
+		
+    </div> <!-- End Wrap Content -->
+  </div> <!-- End Page Content -->
+</article> <!-- End Article Page -->
+
+</div>
+
+
+  </div>
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', '', 'auto');
+  ga('send', 'pageview');
+</script> <!-- End Analytics -->
+
+	<script src="https://unpkg.com/simple-jekyll-search@1.5.0/dest/simple-jekyll-search.min.js"></script>
+
+<script>
+var sjs = SimpleJekyllSearch({
+  searchInput: document.querySelector('#search-input'),
+  resultsContainer: document.getElementById('results-container'),
+  json: '/search.json',
+  searchResultTemplate: '<li class="search-results-item"><a href="{url}">{title}</a></li>',
+	limit: 9,
+	noResultsText: '<li class="search-results-item"><a href="#">No results found...</a></li>'
+})
+</script>
+
+</body>
+</html>

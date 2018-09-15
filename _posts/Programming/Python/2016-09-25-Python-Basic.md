@@ -3,7 +3,7 @@ layout: post
 title: Python's very basic
 date: 2016-09-25
 description: Very basic introduction to Python
-img:  # Add image post (optional)
+img:  /python/python-logo.png
 categories: [Programming, Python]
 tags: [Python, Python data structure, Python file handling] 
 ---
