@@ -83,13 +83,25 @@
 	<link rel="stylesheet" href="/assets/css/main.css">
 </head>
 
-<body>
+<body style="position: relative">
+	<div id="toggler-wrapper">
+		<div data-toggle="collapse" aria-expanded="false" data-target="#category-list" aria-controls="category-list" id="menu-toggler">
+			<img src="/assets/img/nav-off.png" alt="" width="35px" height="35px">
+		</div>
+	</div>
+
+<script type="text/javascript">
+
+</script>
+
+
+
   <div class="wrapper">
 
 		<nav id="nav">
 			<div id="menus">
-			<p><a class="navbar-brand text-white" href="/">Parkito's on the way!</a></p>
-				<ul>
+			<p><a class="navbar-brand text-white" href="/">&nbsp;&nbsp;&nbsp;Parkito's on the way!&nbsp;&nbsp;&nbsp;</a></p>
+				<ul id="category-list">
 					<li>
 						<a href="/about.me">
 							<div class="menu">
@@ -100,11 +112,11 @@
 				
 					<li>
 						<div class="menu-wrapper">
-								<a href="/category/programming">
-									<div class="menu">
-										<span> Programming </span>
-									</div>
-								</a>
+							<a href="/category/programming">
+								<div class="menu">
+									<span> Programming </span>
+								</div>
+							</a>
 							<div class="menu-item">
 								<a href="/category/network">Network</a>
 								<a href="/category/programming/python">Python</a>
@@ -139,13 +151,23 @@
 				</ul>
 			</div>
 
-			<div id="search-section">
-				<div class="input-wrapper">
-					<span class="fa fa-search"></span>
-					<input type="text" id="search-input" placeholder="Please input specific keyword :)" size="30">
+			<div id="menus-right">
+				<div id="search-section">
+					<div class="input-wrapper">
+						<span class="fa fa-search"></span>
+						<input type="text" id="search-input" placeholder="Please input specific keyword :)" size="30">
+					</div>
+					<div id="results-container"></div>
 				</div>
-				<div id="results-container"></div>
+
+				<!--<div id="toggler-wrapper">-->
+					<!--<div id="menu-toggler">-->
+						<!--<img src="/assets/img/nav-off.png" alt="" width="35px" height="35px">-->
+					<!--</div>-->
+				<!--</div>-->
+				
 			</div>
+			
 		</nav>
 
 
