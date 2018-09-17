@@ -65,7 +65,7 @@ aside.sidebar {
 	min-width: 100%;
 	z-index: 999;
 	/*padding: 0.5em 2em 0.5em 2em;*/
-	padding: 0.2em 2em 0.2em 2em;
+	padding: 0em 2em 0em 1em;
 	display: flex;
 	justify-content: space-between;
 	background: gray;
@@ -78,13 +78,18 @@ aside.sidebar {
 	flex-wrap: wrap;
 }
 
+#menus p,
+#menus li {
+	text-align: center;
+}
+
 #menus ul {
 	display: flex;
 	list-style: none;
 }
 
 #menus ul li {
-	padding: 0 0 0 1em;
+	padding: 0 0 0 0;
 	align-items: center; /* align-items가 세로로 정렬 */
 }
 
@@ -95,7 +100,8 @@ aside.sidebar {
 
 .menu {
 	padding: 0.5em 1em 0.5em 1em;
-	min-width: 160px;
+	min-width: 80px;
+	max-width: 150px;
 	text-align: center;
 	font-size: 1.2em;
 	position: relative;
@@ -109,7 +115,6 @@ aside.sidebar {
 .menu:hover span,
 .menu-wrapper:hover span{
 	color: white;
-	font-weight: 800;
 }
 
 .menu-item {
@@ -119,6 +124,7 @@ aside.sidebar {
 	text-align: center;
 	min-width: 150px;
 	border-radius: 3px;
+	top: 46.5px;
 }
 
 .menu-item a {
@@ -132,12 +138,15 @@ aside.sidebar {
 
 .menu-item a:hover {
 	color: black;
-	font-weight: 800;
 }
 
 .menu-wrapper {
-	display: relative;
+	position: relative;
+}
 
+#menus-right {
+	display: flex;
+	align-items: center;
 }
 
 .menu-wrapper:hover .menu-item {
@@ -152,6 +161,7 @@ aside.sidebar {
 	align-items: center; /* align-items가 세로로 정렬 */
 	flex-wrap: wrap;
 	position: relative;
+	margin-right: 1.5em;
 }
 
 #search-input {
@@ -159,6 +169,10 @@ aside.sidebar {
 	border-radius: 3px;
 	border: 2px solid lightblue;
 	text-indent: 32px;
+}
+
+#input-wrapper {
+	position: relative;
 }
 
 #results-container {
@@ -184,15 +198,38 @@ aside.sidebar {
 
 .search-results-item a:hover {
 	color: yellow;
-	font-weight: 800;
 }
 
 .fa-search {
 	position: absolute;
-	top: 1em;
+	top: .5em;
 	left: 10px
 }
 /* !--Search section ends */
+
+
+/* !-Toggler - */
+#menu-toggler {
+	width: 40px;
+	height: 40px;
+	position: relative;
+}
+#menu-toggler img {
+	position: absolute;
+	top: 7px;
+	left: 5px;
+	width: 30px;
+	height: 30px;	
+}
+#toggler-wrapper {
+	position: fixed;
+	/*top: .5em;*/
+	right: 0.5em;
+	z-index: 1000;
+	display: none;
+}
+/* !-toggler ends - */
+
 
 
 
@@ -220,4 +257,84 @@ aside.sidebar {
 .pagination p {
 	display: inline-block;
 	margin: 0.5em;
+}
+
+
+
+
+
+
+
+
+/* !-Media query section */
+
+/* - - - - - - - - - - Media Styles - - - - - - - - - - */
+/* Big devices */
+@media only screen and (max-width: 1100px) {
+	#search-section {
+		display: none;
+	}
+}
+
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width: 992px) {
+	#category-list {
+		padding-left : 0.5em;
+
+	}
+	.navbar-brand {
+		margin-right: 0;
+		font-weight: 800;
+	}
+	.post {
+		width: 100%;
+	}
+
+}
+
+
+
+
+/* Small Devices, Tablets */
+@media only screen and (max-width: 768px) {
+	aside.sidebar {
+		display: none;
+	}
+	#toggler-wrapper {
+		display: block;
+	}
+	#category-list {
+		flex-direction: column;
+	}
+	p:nth-child(1) {
+		width: 100%;
+	}
+	#menus {
+		width: 100%;
+		justify-content: space-between;
+	}
+	#category-list {
+		width: 100%;
+		align-items: center;
+	}
+	.menu {
+		text-align: center;
+		width: 150px;
+	}
+	.menu-item {
+		left: 150px;
+		top: 0;
+	}
+
+}
+
+
+
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width: 480px) {
+	.menu-wrapper:hover .menu-item {
+		display: none;
+	}
 }
