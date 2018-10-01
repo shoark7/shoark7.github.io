@@ -209,8 +209,8 @@
 
 
 </p>
-			<span class="post-date">2018, Sep 20&nbsp;&nbsp;&nbsp;—&nbsp;</span>
-			<span class="post-words">1 minute read</span>
+			<span class="post-date">&nbsp;&nbsp;&nbsp;—&nbsp;2018, Sep 20&nbsp;&nbsp;&nbsp;—&nbsp;</span>
+			
 		</div>
 	</article>
 	
@@ -220,9 +220,19 @@
 		
 		<div class="post-content">
 			<h2 class="post-title"><a href="/programming/python/OOP-in-Python.html">왜 우리는 OOP를 사용해야 할까?</a></h2>
-			<p>1. 우리는 왜 클래스를 써야하는가 질문한다. 우리는 왜 클래스를 써야 하냐고. 난 그런거 모른다고. 그러면...</p>
-			<span class="post-date">2018, Sep 15&nbsp;&nbsp;&nbsp;—&nbsp;</span>
-			<span class="post-words">18 minute read</span>
+			<p>
+
+
+
+1. 우리는 왜 클래스를 써야하는가
+
+
+
+질문한다. 우리는 왜 클래스를 써야 하냐고. 난 그런거 모른다고.
+그러면 현실의 문제를 해결하면서, 클래스 사용의 당위성을 생각해보면 어떨까?
+이번 내용은 그것에...</p>
+			<span class="post-date">&nbsp;&nbsp;&nbsp;—&nbsp;2018, Sep 15&nbsp;&nbsp;&nbsp;—&nbsp;</span>
+			
 		</div>
 	</article>
 	
@@ -232,9 +242,15 @@
 		
 		<div class="post-content">
 			<h2 class="post-title"><a href="/programming/python/Python-Decorator-OOP.html">Python Decorator & OOP</a></h2>
-			<p>◈ Python 1. Decorator 1.1 Introduction 파이썬에는 Decorator(이하 데코레이터)라는 개념이 있다. 나같은 경우에는 공부할 적에...</p>
-			<span class="post-date">2016, Oct 02&nbsp;&nbsp;&nbsp;—&nbsp;</span>
-			<span class="post-words">9 minute read</span>
+			<p>◈  Python
+
+1. Decorator
+
+1.1 Introduction
+파이썬에는 Decorator(이하 데코레이터)라는 개념이 있다.
+나같은 경우에는 공부할 적에 메소드를 만들 때 객체 안에 @classm...</p>
+			<span class="post-date">&nbsp;&nbsp;&nbsp;—&nbsp;2016, Oct 02&nbsp;&nbsp;&nbsp;—&nbsp;</span>
+			
 		</div>
 	</article>
 	
@@ -244,9 +260,16 @@
 		
 		<div class="post-content">
 			<h2 class="post-title"><a href="/programming/python/Python-packing-list-comprehension.html">Python packing & unpacking and list comprehension</a></h2>
-			<p>◈ Python 0. 파이썬에서의 삼항연산자. 자바 등에서 삼항 연산자(ternary operator)을 본 적이 있을 것이다. a...</p>
-			<span class="post-date">2016, Sep 25&nbsp;&nbsp;&nbsp;—&nbsp;</span>
-			<span class="post-words">19 minute read</span>
+			<p>◈  Python
+
+
+
+0. 파이썬에서의 삼항연산자.
+자바 등에서 삼항 연산자(ternary operator)을 본 적이 있을 것이다.  a ? a&gt;b : b
+
+저것의 뜻은 a가 b보다 크면 a를 쓰고, ...</p>
+			<span class="post-date">&nbsp;&nbsp;&nbsp;—&nbsp;2016, Sep 25&nbsp;&nbsp;&nbsp;—&nbsp;</span>
+			
 		</div>
 	</article>
 	
@@ -256,9 +279,15 @@
 		
 		<div class="post-content">
 			<h2 class="post-title"><a href="/programming/python/Python-Basic.html">Python's very basic</a></h2>
-			<p>◈ Python 1. 파이썬? 파이썬이란 1990년 암스테르담의 귀도 반 로섬(Guido Van Rossum)에 의해 만들어진 인터프리터...</p>
-			<span class="post-date">2016, Sep 25&nbsp;&nbsp;&nbsp;—&nbsp;</span>
-			<span class="post-words">12 minute read</span>
+			<p>◈  Python
+
+1. 파이썬?
+
+
+파이썬이란 1990년 암스테르담의 귀도 반 로섬(Guido Van Rossum)에 의해 만들어진 인터프리터 언어이다.
+귀도는 이 파이썬이라는 이름을 본인이 좋아하는 “Mon...</p>
+			<span class="post-date">&nbsp;&nbsp;&nbsp;—&nbsp;2016, Sep 25&nbsp;&nbsp;&nbsp;—&nbsp;</span>
+			
 		</div>
 	</article>
 	
@@ -312,12 +341,14 @@ console.log(2222222);
 
 <script>
 	let menus = $("#category-list");
-	console.log(menus);
+	let image = $("#menu-toggler img");
 	$("#toggler-wrapper").click(function() {
 		if(menus.css("display") === "none") {
+			image.attr("src", "/assets/img/close-button.png");
 			menus.css("display", "flex");
 		}
 		else {
+			image.attr("src", "/assets/img/nav-off.png");
 			menus.css("display", "none");
 		}
 	});

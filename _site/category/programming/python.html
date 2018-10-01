@@ -254,12 +254,14 @@ console.log(2222222);
 
 <script>
 	let menus = $("#category-list");
-	console.log(menus);
+	let image = $("#menu-toggler img");
 	$("#toggler-wrapper").click(function() {
 		if(menus.css("display") === "none") {
+			image.attr("src", "/assets/img/close-button.png");
 			menus.css("display", "flex");
 		}
 		else {
+			image.attr("src", "/assets/img/nav-off.png");
 			menus.css("display", "none");
 		}
 	});

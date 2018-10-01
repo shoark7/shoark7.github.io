@@ -110,6 +110,7 @@ aside.sidebar {
 
 .menu span {
 	color: #ccc;
+	transition-duration: 0.5s;
 }
 
 .menu:hover span,
