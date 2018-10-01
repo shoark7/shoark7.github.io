@@ -85,16 +85,10 @@
 
 <body style="position: relative">
 	<div id="toggler-wrapper">
-		<div data-toggle="collapse" aria-expanded="false" data-target="#category-list" aria-controls="category-list" id="menu-toggler">
+		<div id="menu-toggler">
 			<img src="/assets/img/nav-off.png" alt="Menu collapse image">
 		</div>
 	</div>
-
-<script type="text/javascript">
-
-</script>
-
-
 
   <div class="wrapper">
 
@@ -623,7 +617,6 @@ C언어 등이 해당된다고 할 수 있다.</p>
 </script> <!-- End Analytics -->
 
 	<script src="https://unpkg.com/simple-jekyll-search@1.5.0/dest/simple-jekyll-search.min.js"></script>
-
 <script>
 var sjs = SimpleJekyllSearch({
   searchInput: document.querySelector('#search-input'),
@@ -633,6 +626,33 @@ var sjs = SimpleJekyllSearch({
 	limit: 9,
 	noResultsText: '<li class="search-results-item"><a href="#">No results found...</a></li>'
 })
+console.log(2222222);
+</script>
+
+	<!-- Main Js -->
+<!--<script src="/assets/js/main.js"></script>-->
+
+<!-- JQuery 3.x min -->
+<script src="/assets/js/jquery.js"></script>
+
+<script>
+	let menus = $("#category-list");
+	console.log(menus);
+	$("#toggler-wrapper").click(function() {
+		if(menus.css("display") === "none") {
+			menus.css("display", "flex");
+		}
+		else {
+			menus.css("display", "none");
+		}
+	});
+
+
+
+
+
+
+
 </script>
 
 </body>

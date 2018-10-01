@@ -216,7 +216,7 @@ aside.sidebar {
 }
 #menu-toggler img {
 	position: absolute;
-	top: 7px;
+	top: 5px;
 	left: 5px;
 	width: 30px;
 	height: 30px;	
@@ -304,9 +304,6 @@ aside.sidebar {
 	#toggler-wrapper {
 		display: block;
 	}
-	#category-list {
-		flex-direction: column;
-	}
 	p:nth-child(1) {
 		width: 100%;
 	}
@@ -314,9 +311,11 @@ aside.sidebar {
 		width: 100%;
 		justify-content: space-between;
 	}
-	#category-list {
+	ul#category-list {
 		width: 100%;
+		display: none;
 		align-items: center;
+		flex-direction: column;
 	}
 	.menu {
 		text-align: center;

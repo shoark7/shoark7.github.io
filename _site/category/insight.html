@@ -70,16 +70,10 @@
 
 <body style="position: relative">
 	<div id="toggler-wrapper">
-		<div data-toggle="collapse" aria-expanded="false" data-target="#category-list" aria-controls="category-list" id="menu-toggler">
+		<div id="menu-toggler">
 			<img src="/assets/img/nav-off.png" alt="Menu collapse image">
 		</div>
 	</div>
-
-<script type="text/javascript">
-
-</script>
-
-
 
   <div class="wrapper">
 
@@ -205,6 +199,10 @@
 		<hr>
 
 		
+			<p class="category-item">
+				<a href="/insight/%EA%B2%B0%EC%A0%95%EC%9E%A5%EC%95%A0-%EC%8B%9C-%EC%A2%8B%EC%9D%80-%ED%95%B4%EA%B2%B0%EB%B0%A9%EB%B2%95-%EB%82%98%EB%A8%B8%EC%A7%80-%EC%97%B0%EC%82%B0.html">결정장애 시 좋은 해결방법: 나머지 연산 활용하기</a>
+			</p>
+		
 		
 	</div>
 </div>
@@ -224,7 +222,6 @@
 </script> <!-- End Analytics -->
 
 	<script src="https://unpkg.com/simple-jekyll-search@1.5.0/dest/simple-jekyll-search.min.js"></script>
-
 <script>
 var sjs = SimpleJekyllSearch({
   searchInput: document.querySelector('#search-input'),
@@ -234,6 +231,33 @@ var sjs = SimpleJekyllSearch({
 	limit: 9,
 	noResultsText: '<li class="search-results-item"><a href="#">No results found...</a></li>'
 })
+console.log(2222222);
+</script>
+
+	<!-- Main Js -->
+<!--<script src="/assets/js/main.js"></script>-->
+
+<!-- JQuery 3.x min -->
+<script src="/assets/js/jquery.js"></script>
+
+<script>
+	let menus = $("#category-list");
+	console.log(menus);
+	$("#toggler-wrapper").click(function() {
+		if(menus.css("display") === "none") {
+			menus.css("display", "flex");
+		}
+		else {
+			menus.css("display", "none");
+		}
+	});
+
+
+
+
+
+
+
 </script>
 
 </body>

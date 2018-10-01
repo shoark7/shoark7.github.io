@@ -1,2 +1,25 @@
 <!-- Main Js -->
-<script src="{{site.baseurl}}/assets/js/main.js"></script>
+<!--<script src="{{site.baseurl}}/assets/js/main.js"></script>-->
+
+<!-- JQuery 3.x min -->
+<script src="/assets/js/jquery.js"></script>
+
+<script>
+	let menus = $("#category-list");
+	console.log(menus);
+	$("#toggler-wrapper").click(function() {
+		if(menus.css("display") === "none") {
+			menus.css("display", "flex");
+		}
+		else {
+			menus.css("display", "none");
+		}
+	});
+
+
+
+
+
+
+
+</script>
