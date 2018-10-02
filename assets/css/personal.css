@@ -1,6 +1,7 @@
 aside.sidebar {
 	position: fixed;
 	top: 10%;
+	height: 90%;
 }
 
 
@@ -46,6 +47,7 @@ aside.sidebar {
 .category-item a {
 	text-decoration: none;
 	color: black;
+	transition: 0.5s;
 }
 
 .category-item a:hover {
@@ -299,6 +301,12 @@ aside.sidebar {
 
 /* Small Devices, Tablets */
 @media only screen and (max-width: 768px) {
+	.wrap-content {
+		padding: 1em;
+	}
+	pre.highlight {
+		padding: 1em 1em;
+	}
 	aside.sidebar {
 		display: none;
 	}
