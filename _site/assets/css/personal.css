@@ -38,10 +38,10 @@ aside.sidebar {
 }
 
 .category-item {
-	/*text-align: center;*/
+	text-align: center;
 	font-size: 1.3em;
-	margin-bottom: 5px;
-	margin-left: 20%;
+	margin: 0;
+	margin-top: 10px;
 }
 
 .category-item a {
