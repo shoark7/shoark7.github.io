@@ -5,7 +5,7 @@ date: 2018-10-03
 description: 실수 배열에서 원소들의 곱을 구하는 방법을 파이썬식으로 해보자!
 img:  /python/python-logo.png
 categories: [Programming, Algorithm]
-tags: [Python]
+tags: [Python, Algorithm]
 ---
 
 
@@ -304,9 +304,11 @@ eval('1 * 2 * 3 * 4 * 5')   !!!
 # 1.
 ' / '.join(['a', 'b', 'c', 'd', 'e'])
 
-# 2. ''.join(['가', '나', '다', '라', '마'])
+# 2.
+''.join(['가', '나', '다', '라', '마'])
 
-# 3. '*'.join(['1', '2', '3', '4', '5'])   !!!
+# 3. 
+'*'.join(['1', '2', '3', '4', '5'])   !!!
 
 
 >>> 'a / b / c / d / e'

@@ -71,7 +71,7 @@ aside.sidebar {
 	display: flex;
 	justify-content: space-between;
 	background: gray;
-
+	opacity: 0.9;
 }
 
 #menus {
@@ -172,10 +172,45 @@ aside.sidebar {
 	border-radius: 3px;
 	border: 2px solid lightblue;
 	text-indent: 32px;
+	background-color: #444;
+	color: beige;
+}
+::-webkit-input-placeholder { /* Chrome */
+  color: beige;
+  transition: opacity 250ms ease-in-out;
+}
+:focus::-webkit-input-placeholder {
+  opacity: 0.5;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: beige;
+  transition: opacity 250ms ease-in-out;
+}
+:focus:-ms-input-placeholder {
+  opacity: 0.5;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: beige;
+  opacity: 1;
+  transition: opacity 250ms ease-in-out;
+}
+:focus::-moz-placeholder {
+  opacity: 0.5;
+}
+:-moz-placeholder { /* Firefox 4 - 18 */
+  color: beige;
+  opacity: 1;
+  transition: opacity 250ms ease-in-out;
+}
+:focus:-moz-placeholder {
+  opacity: 0.5;
 }
 
-#input-wrapper {
+.input-wrapper {
 	position: relative;
+}
+.input-wrapper .fa {
+	color: beige;
 }
 
 #results-container {

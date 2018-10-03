@@ -17,7 +17,7 @@
     <meta content="실수 배열에서 원소들의 곱을 구하는 방법을 파이썬식으로 해보자!" property="og:description">
   
   
-    <meta content="http://localhost:4000/programming/algorithm/Python-Basic.html" property="og:url">
+    <meta content="http://localhost:4000/programming/algorithm/3ways-to-get-multiplication-in-a-list-in-python.html" property="og:url">
   
   
     <meta content="2018-10-03T00:00:00+09:00" property="article:published_time">
@@ -35,6 +35,8 @@
     
     <meta content="Python" property="article:tag">
     
+    <meta content="Algorithm" property="article:tag">
+    
   
 
     <meta name="twitter:card" content="summary">
@@ -44,7 +46,7 @@
     <meta name="twitter:title" content="파이썬에서 배열의 원소의 곱을 구하는 3가지 방법">
   
   
-    <meta name="twitter:url" content="http://localhost:4000/programming/algorithm/Python-Basic.html">
+    <meta name="twitter:url" content="http://localhost:4000/programming/algorithm/3ways-to-get-multiplication-in-a-list-in-python.html">
   
   
     <meta name="twitter:description" content="실수 배열에서 원소들의 곱을 구하는 방법을 파이썬식으로 해보자!">
@@ -111,7 +113,7 @@
 								</div>
 							</a>
 							<div class="menu-item">
-								<a href="/category/network">Network</a>
+								<a href="/category/programming/algorithm">Algorithm</a>
 								<a href="/category/programming/python">Python</a>
 							</div>
 						</div>
@@ -490,9 +492,11 @@
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 1.</span>
 <span class="s">' / '</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s">'a'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">,</span> <span class="s">'c'</span><span class="p">,</span> <span class="s">'d'</span><span class="p">,</span> <span class="s">'e'</span><span class="p">])</span>
 
-<span class="c"># 2. ''.join(['가', '나', '다', '라', '마'])</span>
+<span class="c"># 2.</span>
+<span class="s">''</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s">'가'</span><span class="p">,</span> <span class="s">'나'</span><span class="p">,</span> <span class="s">'다'</span><span class="p">,</span> <span class="s">'라'</span><span class="p">,</span> <span class="s">'마'</span><span class="p">])</span>
 
-<span class="c"># 3. '*'.join(['1', '2', '3', '4', '5'])   !!!</span>
+<span class="c"># 3. </span>
+<span class="s">'*'</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s">'1'</span><span class="p">,</span> <span class="s">'2'</span><span class="p">,</span> <span class="s">'3'</span><span class="p">,</span> <span class="s">'4'</span><span class="p">,</span> <span class="s">'5'</span><span class="p">])</span>   <span class="err">!!!</span>
 
 
 <span class="o">&gt;&gt;&gt;</span> <span class="s">'a / b / c / d / e'</span>
@@ -537,13 +541,15 @@
 
       <div class="page-footer">
         <div class="page-share">
-          <a href="https://twitter.com/intent/tweet?text=파이썬에서 배열의 원소의 곱을 구하는 3가지 방법&url=http://localhost:4000/programming/algorithm/Python-Basic.html" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
-          <a href="https://facebook.com/sharer.php?u=http://localhost:4000/programming/algorithm/Python-Basic.html" title="Share on Facebook" rel="nofollow" target="_blank">Facebook</a>
-          <a href="https://plus.google.com/share?url=http://localhost:4000/programming/algorithm/Python-Basic.html" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>
+          <a href="https://twitter.com/intent/tweet?text=파이썬에서 배열의 원소의 곱을 구하는 3가지 방법&url=http://localhost:4000/programming/algorithm/3ways-to-get-multiplication-in-a-list-in-python.html" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
+          <a href="https://facebook.com/sharer.php?u=http://localhost:4000/programming/algorithm/3ways-to-get-multiplication-in-a-list-in-python.html" title="Share on Facebook" rel="nofollow" target="_blank">Facebook</a>
+          <a href="https://plus.google.com/share?url=http://localhost:4000/programming/algorithm/3ways-to-get-multiplication-in-a-list-in-python.html" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>
         </div>
         <div class="page-tag">
           
             <a href="/tags#Python" class="tag">&#35; Python</a>
+          
+            <a href="/tags#Algorithm" class="tag">&#35; Algorithm</a>
           
         </div>
       </div>
@@ -559,7 +565,7 @@
 
   <!-- Your share button code -->
   <div class="fb-share-button" 
-    data-href="http://localhost:4000/programming/algorithm/Python-Basic.html" 
+    data-href="http://localhost:4000/programming/algorithm/3ways-to-get-multiplication-in-a-list-in-python.html" 
     data-layout="button_count">
   </div>
 
@@ -569,12 +575,6 @@
 </article> <!-- End Article Page -->
 
 </div>
-	<script>
-		console.log('site.url: ', http://localhost:4000);
-		console.log('page.url: ', /programming/algorithm/Python-Basic.html);
-		console.log('site.baseurl: ', );
-	</script>
-
 
   </div>
 
@@ -597,7 +597,6 @@ var sjs = SimpleJekyllSearch({
 	limit: 9,
 	noResultsText: '<li class="search-results-item"><a href="#">No results found...</a></li>'
 })
-console.log(2222222);
 </script>
 
 	<!-- Main Js -->
@@ -619,11 +618,6 @@ console.log(2222222);
 			menus.css("display", "none");
 		}
 	});
-
-
-
-
-
 
 
 </script>
