@@ -17,11 +17,11 @@
     <meta content="Parkito's page for programming, other studies, sharing insights!" property="og:description">
   
   
-    <meta content="/" property="og:url">
+    <meta content="http://localhost:4000/" property="og:url">
   
   
   
-    <meta content="/assets/img/1536558558520.jpg" property="og:image">
+    <meta content="http://localhost:4000/assets/img/1536558558520.jpg" property="og:image">
   
   
   
@@ -33,13 +33,13 @@
     <meta name="twitter:title" content="Parkito's on the way">
   
   
-    <meta name="twitter:url" content="/">
+    <meta name="twitter:url" content="http://localhost:4000/">
   
   
     <meta name="twitter:description" content="Parkito's page for programming, other studies, sharing insights!">
   
   
-    <meta name="twitter:image:src" content="/assets/img/1536558558520.jpg">
+    <meta name="twitter:image:src" content="http://localhost:4000/assets/img/1536558558520.jpg">
   
 
 	<meta name="description" content="">
@@ -197,6 +197,20 @@
 	
 	<article class="post">
 		
+			<a class="post-thumbnail" style="background-image: url(/assets/img//python/python-logo.png)" href="/programming/algorithm/Python-Basic.html"></a>
+		
+		<div class="post-content">
+			<h2 class="post-title"><a href="/programming/algorithm/Python-Basic.html">파이썬에서 배열의 원소의 곱을 구하는 3가지 방법</a></h2>
+			<p>들어가며
+
+대부분의 프로그래밍 언어에서 ‘배열’을 내장하고 있다. 확실히 프로그래밍 입문 책을 보면 가장 먼저 접하는 자료구조 중 하나가 배열로, C나 자바 등은 Array로, 파이썬에서는 ‘linked arr...</p>
+			<span class="post-date">&nbsp;&nbsp;&nbsp;—&nbsp;2018, Oct 03&nbsp;&nbsp;&nbsp;—&nbsp;</span>
+			
+		</div>
+	</article>
+	
+	<article class="post">
+		
 			<a class="post-thumbnail" style="background-image: url(/assets/img//insight/decision-problem.jpg)" href="/insight/%EA%B2%B0%EC%A0%95%EC%9E%A5%EC%95%A0-%EC%8B%9C-%EC%A2%8B%EC%9D%80-%ED%95%B4%EA%B2%B0%EB%B0%A9%EB%B2%95-%EB%82%98%EB%A8%B8%EC%A7%80-%EC%97%B0%EC%82%B0.html"></a>
 		
 		<div class="post-content">
@@ -308,6 +322,11 @@
 
 
 </div>
+	<script>
+		console.log('site.url: ', http://localhost:4000);
+		console.log('page.url: ', /);
+		console.log('site.baseurl: ', );
+	</script>
 
 
   </div>
@@ -327,7 +346,7 @@ var sjs = SimpleJekyllSearch({
   searchInput: document.querySelector('#search-input'),
   resultsContainer: document.getElementById('results-container'),
   json: '/search.json',
-  searchResultTemplate: '<li class="search-results-item"><a href="{url}">{title}</a></li>',
+  searchResultTemplate: '<li class="search-results-item"><a href="http://localhost:4000{url}">{title}</a></li>',
 	limit: 9,
 	noResultsText: '<li class="search-results-item"><a href="#">No results found...</a></li>'
 })

@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "파이썬에서 배열의 원소의 곱을 구하는 3가지 방법",
+      "category" : "",
+      "tags"     : "Python",
+      "url"      : "/programming/algorithm/Python-Basic.html",
+      "date"     : "2018-10-03 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "결정장애 시 좋은 해결방법: 나머지 연산 결정법",
       "category" : "",
       "tags"     : "Indecisiveness",
