@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "졸업을 앞두고 느끼는 생각",
+      "category" : "",
+      "tags"     : "Graduation",
+      "url"      : "/insight/%EC%A1%B8%EC%97%85%EC%9D%84-%EC%95%9E%EB%91%90%EA%B3%A0-%EB%8A%90%EB%81%BC%EB%8A%94-%EC%83%9D%EA%B0%81.html",
+      "date"     : "2018-10-06 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "파이썬에서 배열의 원소의 곱을 구하는 3가지 방법",
       "category" : "",
       "tags"     : "Python, Algorithm",

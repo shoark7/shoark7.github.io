@@ -8,6 +8,9 @@ aside.sidebar {
 .articles:first-child {
 	margin-top: 50px;
 }
+article.article-page {
+	margin: 0 auto;
+}
 
 
 /* !_Category section */
