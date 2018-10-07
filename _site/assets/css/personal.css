@@ -336,11 +336,17 @@ article.article-page {
 /* ETC */
 .pagination p {
 	display: inline-block;
-	margin: 0.5em;
+	margin: 0 1em;
 }
-
-
-
+nav.pagination ul {
+	width: 80%;
+	margin: 0 auto;
+	padding: 0;
+}
+#pagination-wrapper {
+	display: flex;
+	justify-content: center;
+}
 
 
 
