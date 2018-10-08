@@ -334,7 +334,7 @@ article.article-page {
 /* !-About page ends */
 
 /* ETC */
-.pagination p {
+#pagination-wrapper p {
 	display: inline-block;
 	margin: 0 1em;
 }
@@ -395,9 +395,6 @@ nav.pagination ul {
 	}
 	#toggler-wrapper {
 		display: block;
-	}
-	p:nth-child(1) {
-		width: 100%;
 	}
 	#menus {
 		width: 100%;
