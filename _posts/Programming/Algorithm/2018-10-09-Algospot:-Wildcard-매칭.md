@@ -5,11 +5,11 @@ date: 2018-10-10
 description: '와일드카드 패턴과 문자열이 주어질 때 둘이 매칭되는지 확인하는 알고리즘을 짜보자!'
 img:  /algorithm/wildcard.png
 categories: [Programming, Algorithm]
-tags: [Algorithm, wildcard]
+tags: [Algorithm, wildcard, Algospot]
 ---
 
 
-#### 문제 소스 : [WILDCARD](https://algospot.com/judge/problem/read/WILDCARD)
+#### 문제 소스 : [WILDCARD](https://algospot.com/judge/problem/read/WILDCARD) 
 
 
 ## 0. 와일드카드란?

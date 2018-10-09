@@ -1,3 +1,7 @@
+.wrapper {
+	max-width: 100%;	
+}
+
 aside.sidebar {
 	position: fixed;
 	top: 10%;
