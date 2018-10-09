@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>[Algospot] 와일드카드 패턴 매칭 알고리즘 - Parkito's on the way</title>
+
+  <!-- Edit site and author settings in `_config.yml` to make the social details your own -->
+
+    <meta content="Parkito's on the way" property="og:site_name">
+  
+    <meta content="[Algospot] 와일드카드 패턴 매칭 알고리즘" property="og:title">
+  
+  
+    <meta content="article" property="og:type">
+  
+  
+    <meta content="와일드카드 패턴과 문자열이 주어질 때 둘이 매칭되는지 확인하는 알고리즘을 짜보자!" property="og:description">
+  
+  
+    <meta content="http://localhost:4000/programming/algorithm/Algospot-Wildcard-%EB%A7%A4%EC%B9%AD.html" property="og:url">
+  
+  
+    <meta content="2018-10-10T00:00:00+09:00" property="article:published_time">
+    <meta content="http://localhost:4000/about/" property="article:author">
+  
+  
+    <meta content="http://localhost:4000/assets/img/algorithm/wildcard.png" property="og:image">
+  
+  
+    
+    <meta content="Programming" property="article:section">
+    
+  
+  
+    
+    <meta content="Algorithm" property="article:tag">
+    
+    <meta content="wildcard" property="article:tag">
+    
+  
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@">
+    <meta name="twitter:creator" content="@">
+  
+    <meta name="twitter:title" content="[Algospot] 와일드카드 패턴 매칭 알고리즘">
+  
+  
+    <meta name="twitter:url" content="http://localhost:4000/programming/algorithm/Algospot-Wildcard-%EB%A7%A4%EC%B9%AD.html">
+  
+  
+    <meta name="twitter:description" content="와일드카드 패턴과 문자열이 주어질 때 둘이 매칭되는지 확인하는 알고리즘을 짜보자!">
+  
+  
+    <meta name="twitter:image:src" content="http://localhost:4000/assets/img//algorithm/wildcard.png">
+  
+
+	<meta name="description" content="와일드카드 패턴과 문자열이 주어질 때 둘이 매칭되는지 확인하는 알고리즘을 짜보자!">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta property="og:image" content="">
+	<link rel="shortcut icon" href="/assets/img/favicon/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" href="/assets/img/favicon/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/assets/img/favicon/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/assets/img/favicon/apple-touch-icon-144x144.png">
+	<!-- Chrome, Firefox OS and Opera -->
+	<meta name="theme-color" content="#263959">
+	<!-- Windows Phone -->
+	<meta name="msapplication-navbutton-color" content="#263959">
+	<!-- iOS Safari -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="#263959">
+	<!-- Google Fonts -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+	
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="/assets/fonts/font-awesome/css/font-awesome.min.css">
+	<!-- Styles -->
+	<link rel="stylesheet" href="/assets/css/main.css">
+	<link rel="stylesheet" href="/assets/css/personal.css">
+	<link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Nanum+Gothic:400,700,800&amp;subset=korean" rel="stylesheet">
+</head>
+
+<body style="position: relative">
+	<div id="toggler-wrapper">
+		<div id="menu-toggler">
+			<img src="/assets/img/nav-off.png" alt="Menu collapse image">
+		</div>
+	</div>
+
+  <div class="wrapper">
+
+		<nav id="nav">
+			<div id="menus">
+				<p>
+					<a class="navbar-brand text-white" href="/">&nbsp;&nbsp;&nbsp;Parkito's on the way!&nbsp;&nbsp;&nbsp;</a>
+				</p>
+				<ul id="category-list">
+					<li>
+						<a href="/about.me">
+							<div class="menu">
+								<span> About </span>
+							</div>
+						</a>
+					</li>
+				
+					<li>
+						<div class="menu-wrapper">
+							<a href="/category/programming">
+								<div class="menu">
+									<span> Programming </span>
+								</div>
+							</a>
+							<div class="menu-item">
+								<a href="/category/programming/algorithm">Algorithm</a>
+								<a href="/category/programming/python">Python</a>
+							</div>
+						</div>
+					</li>
+				
+					<li>
+						<div class="menu-wrapper">
+								<a href="/category/insight">
+									<div class="menu">
+										<span> Insight </span>
+									</div>
+								</a>
+						</div>
+					</li>
+
+					<li>
+						<div class="menu-wrapper">
+								<a href="/category/projects">
+									<div class="menu">
+										<span> Projects </span>
+									</div>
+								</a>
+							<!--<div class="menu-item">-->
+								<!--<a href="/category/network">Network</a>-->
+								<!--<a href="/category/Python">Python</a>-->
+							<!--</div>-->
+						</div>
+					</li>
+
+				</ul>
+			</div>
+
+			<div id="menus-right">
+				<div id="search-section">
+					<div class="input-wrapper">
+						<span class="fa fa-search"></span>
+						<input type="text" id="search-input" placeholder="Please input specific keyword :)" size="30">
+					</div>
+					<div id="results-container"></div>
+				</div>
+
+				<!--<div id="toggler-wrapper">-->
+					<!--<div id="menu-toggler">-->
+						<!--<img src="/assets/img/nav-off.png" alt="" width="35px" height="35px">-->
+					<!--</div>-->
+				<!--</div>-->
+				
+			</div>
+			
+		</nav>
+
+
+    <aside class="sidebar">
+  <header>
+    <div class="about">
+      <div class="cover-author-image">
+        <a href="/"><img src="/assets/img/1536558558520.jpg" alt="Sunghwan Park"></a>
+      </div>
+      <div class="author-name">Sunghwan Park</div>
+      <p>I'm Parkito. A Python lover. Interested in Python, Automation, Algorithm. Please give me insights. I'll teach you tambien! :)</p>
+    </div>
+  </header> <!-- End Header -->
+  <footer>
+    <section class="contact">
+      <h3 class="contact-title">Contact me</h3>
+      <ul>
+				<!--
+        
+          <li><a href="https://twitter.com/artemsheludko_" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+        
+        
+          <li><a href="https://facebook.com/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+        
+				-->
+        
+          <li class="github"><a href="http://github.com/shoark7" target="_blank"><i class="fa fa-github"></i></a></li>
+        
+        
+          <li class="linkedin"><a href="https://in.linkedin.com/in/sunghwan-park-3773b8154" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+        
+        
+          <li class="email"><a href="mailto:shoark7@gmail.com"><i class="fa fa-envelope-o"></i></a></li>
+        
+      </ul>
+    </section> <!-- End Section Contact -->
+    <div class="copyright">
+      <p>2018 &copy; Sunghwan Park</p>
+    </div>
+  </footer> <!-- End Footer -->
+</aside> <!-- End Sidebar -->
+
+<div class="content-box clearfix">
+  <article class="article-page">
+  <div class="page-content">
+    
+    <div class="page-cover-image">
+      <figure>
+        <img class="page-image" src=/assets/img//algorithm/wildcard.png alt="[Algospot] 와일드카드 패턴 매칭 알고리즘">
+        
+      </figure>
+    </div> <!-- End Page Cover Image -->
+    
+    <div class="wrap-content">
+      <header class="header-page">
+        <h1 class="page-title">[Algospot] 와일드카드 패턴 매칭 알고리즘</h1>
+        <div class="page-date"><span>2018, Oct 10&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+      </header>
+      <h4 id="문제-소스--wildcard">문제 소스 : <a href="https://algospot.com/judge/problem/read/WILDCARD">WILDCARD</a></h4>
+
+<h2 id="0-와일드카드란">0. 와일드카드란?</h2>
+
+<h3 id="01-와일드카드">0.1. 와일드카드</h3>
+
+<p>프로그래밍에서 <strong>와일드카드(wildcard)는 여러 문자열을 상징할 수 있는 ‘*’, ‘?’ 등의 단일 문자를 가리킨다.</strong> 보통 이 문자들은 ‘가’, ‘a’ 처럼 단순한 문자로 취급 당하지 않고, 조건에 맞는 문자열로 해석된다.</p>
+
+<p>예를 들어보자. 맨 윗 사진은 배쉬 쉘 화면을 찍은 사진인데 ‘echo’, ‘ls’ 등 기본적인 유닉스 커맨드를 활용한 예제를 보여준다.</p>
+
+<p>그 중에서 <code class="highlighter-rouge">echo *</code>를 주목하자. 쉘을 많이 다뤄보지 않은 사람은 <em>echo</em> 를 인자로 받은 문자열을 그대로 화면에 출력하는 기능으로 알고 있는 경우가 많은데 <strong>이 예제에서는 <em>echo</em> 가 <code class="highlighter-rouge">*</code>를 그대로 반환하지 않고 긴 문자열을 출력했다.</strong> 자세히 살펴 보면 밑의 <em>ls</em> 명령과 같은 결과물을 반환했음을 알 수 있다.</p>
+
+<p>이렇게 출력된 이유는, <strong>’*‘는 일반 문자와 다른 와일드카드 문자로서 유닉스에서는 ‘\’ 등으로 escape하지 않으면 0개 이상의 임의의 문자열과 매칭되는 특징을 가지고 있다.</strong> 0개 이상의 임의의 문자열은 사실상 모든 문자열을 의미하는데 쉘 프로그램은 <code class="highlighter-rouge">echo *</code>을 그대로 실행하기 전에 해석해서 현재 디렉토리의 모든 파일을 문자열로 출력한 것이다.</p>
+
+<p>와일드카드는 이외에도 많은데 대표적으로는 임의의 1개 문자와 매칭되는 ‘?’ 등이 있다.</p>
+
+<p><br /></p>
+
+<p>그러면 <strong>와일드카드가 포함된 문자열과 일반 문자열이 매칭되는지 확인할 수 있다.</strong><br />
+가령 ‘b*‘는 b로 시작하는 모든 문자열과 매칭될 수 있다. ‘b’, ‘bear’, ‘benbrode’ 등등. ‘*‘는 0개 이상의 모든 문자열과 매칭될 수 있으니까. 그러면 ‘*‘는 빈 문자열 ‘‘과도 매칭되는 것이다.</p>
+
+<p><strong>’?’는 임의의 1개의 문자와 매칭된다고 했다. 그러면 ‘be?r’는 ‘bear’, ‘beer’ 등과 매칭될 수 있다.</strong></p>
+
+<h3 id="02-쓰임새">0.2 쓰임새</h3>
+
+<p>이걸 뭘 어떻게 하라는건가? 와일드카드의 쓰임새는 뭘까? 와일드카드는 대표적으로 파일(폴더) 이름을 매칭하는 데 쓰인다.</p>
+
+<p><strong>파일 이름에 와일드카드를 매칭하는 것은 내가 생각하건데 UNIX 쉘 같은 CLI(Command Line Interface) 환경을 매우 강력하게 하는 기능 중 하나</strong>로 파일을 찾거나, ‘D로 시작하는 파일만을 가져와라’ 등의 명령을 내릴 때 사용될 수 있다.</p>
+
+<p>바로 예를 살펴보자.</p>
+
+<p>유닉스 환경에서 파일 이름이 ‘ . ‘으로 시작하는 파일은 숨김 파일의 역할을 한다. 유닉스 쉘에서 <em>ls</em> 를 입력하면 현재 디렉토리의 모든 파일이 나오는데 그게 파일의 전부는 아니다. ‘ . ‘으로 시작하는 파일 또는 디렉토리가 숨어 있으며 보통 유저가 실제로 실행할 일이 없는 설정파일 등을 저장할 때 이런 이름을 준다.</p>
+
+<p>그렇다면, 현재 폴더에서 이름이 ‘ . ‘으로 시작하는 파일들을 모두 찾으려면 어떻게 해야 할까?<br />
+조건은 분명하다. <strong>’ . ‘으로 시작하는 것. ‘ . ‘으로 시작하는 모든 문자열을 와일드카드로 표현하면 ‘ .*‘가 된다.</strong></p>
+
+<p>이 와일드카드 패턴을 <em>ls</em> 에 사용하면 된다.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">ls</span> .<span class="k">*</span>
+
+<span class="o">&gt;&gt;&gt;</span> 
+...
+
+.lesshst
+.mysql_history
+.netrc
+.node_repl_history
+.pam_environment
+.profile
+.python-version
+.sudo_as_admin_successful
+.tmux.conf
+.viminfo
+.viminfo.tmp
+.viminfw.tmp
+.viminfx.tmp
+.viminfy.tmp
+.viminfz.tmp
+.vimrc
+.vimrc.bak
+
+...
+</code></pre></div></div>
+
+<p>내 우분투 환경에서 홈 디렉토리에서 명령어를 실행했을 때의 결과 중 일부이다. ‘ . ‘으로 시작하는 파일들의 목록이 출력되었고 역시 보이는 게 다가 아니었다. <strong>파일들의 면면을 보면 확실히 ‘.vimrc’ 등의 설정파일이나, ‘.bak’ 과 같은 백업 파일 등이 숨김파일로 지정되어 있음을 알 수 있다.</strong></p>
+
+<p>좀더 실용적인 활용을 원하는가? 그렇다면 내가 배시 쉘에서 사랑해 마지않는 프로그램을 와일드카드를 사용해서 써보도록 하자.</p>
+
+<p><code class="highlighter-rouge">find</code>라는 프로그램이 있다. 말 그대로 ‘파일이나 폴더를 찾는’ 기능으로 비슷한 역할을 하는 다양한 프로그램 중에서 좀더 복잡하고 자유도가 높다.</p>
+
+<p>이 프로그램에도 아까와 같은 와일드카드 패턴을 조건으로 주고 검색할 수 있는데 추가로 소유자, 파일의 생성날짜 등등 보다 더 복잡한 조건을 줄 수 있다. 일단 ‘find’ 소개 시간이 아니기 때문에 와일드카드 패턴으로 검색해보자.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>find ~ <span class="nt">-name</span> <span class="s2">"*.md"</span>
+
+<span class="o">&gt;&gt;&gt;</span>
+...
+/home/sunghwanpark/archive-directory/arduino-1.8.0/hardware/arduino/avr/bootloaders/caterina-Arduino_Robot/README.md
+/home/sunghwanpark/archive-directory/arduino-1.8.0/hardware/arduino/avr/bootloaders/gemma/README.md
+...
+</code></pre></div></div>
+
+<p><strong>이 식은 내 홈디렉토리(~) 안에서 파일 이름이(‘-name’) 마크다운 파일(확장자가 ‘.md’)을 모두 찾는 식이다.</strong> <strong><code class="highlighter-rouge">find</code>는 주어진 경로 안의 모든 디렉토리를 샅샅이 훑으면서 와일드카드 패턴에 매칭되는 폴더를 모두 콘솔에 출력한다.</strong> 콘솔 출력이 기본 조건이며 파일을 삭제하거나 커스터마이즈된 커맨드를 <em>map</em> 하듯이 적용할 수도 있다.</p>
+
+<p>어떤가, CLI의 강력함에 매료되지 않는가? 더 많은 와일드카드 종류는 <a href="https://support.office.com/en-us/article/examples-of-wildcard-characters-939e153f-bd30-47e4-a763-61897c87b3f4">여기</a>서 확인할 수 있다.</p>
+
+<p>와일드카드에 대한 설명에 시간이 많이 소요됐다. 이제 문제를 풀어보자.</p>
+
+<h2 id="1-문제-분석">1. 문제 분석</h2>
+
+<h3 id="11-문제-개괄">1.1 문제 개괄</h3>
+
+<p>맨 위의 ‘WILDCARD’ 링크를 클릭해 문제를 확인해보면 이 문제는 <strong>와일드카드 패턴과 test할 문자열이 주어질 때 이 둘이 매칭되는지 여부를 반환하는 문제이다.</strong> 우리가 앞서 살펴보았던 와일드카드 활용 예제에서 컴퓨터가 직접 하던 매칭 알고리즘을 대신 우리가 직접 짜보는 것이다.  다만 이 문제에서는 주어지는 와일드카드를 ‘?’와 ‘*‘로 한정한다. ‘?’는 단 한 개의 임의의 문자와 매칭되고, ‘*‘는 0개 이상의 모든 문자열과 매칭된다.</p>
+
+<p>이 문제를 직관적으로 살펴보면 패턴과 문자열을 처음부터 한 글자씩 맞춰보면서 다르다면 거짓을 반환하면 되지 않을까 싶다. 가령 ‘abc’와 ‘abe’가 주어지면 ‘a’와 ‘b’까지는 같기 때문에 <strong>반복하며</strong> ‘c’와 ‘e’가 되는 지점에서 같지 않기 때문에 거짓이 반환된다.</p>
+
+<p>만약 패턴의 문자가 와일드카드가 되면 어떻게 될까? ‘?’일 때는 어렵지 않다. ‘?’는 임의의 문자이기 때문에 test 문자열이 끝나지 않았다면 그냥 넘어가면 된다.</p>
+
+<p><strong>진짜 문제는 ‘*‘로, ‘*‘는 최소 0개에서 최대 무한개의 문자열을 포함할 수 있기 때문에 골치 아파진다. 그렇지만 주어지는 문자열의 길이가 무한일리는 없기 때문에 우리는 ‘*‘가 포함하는 문자열을 0개부터 시작해서 문자열이 끝날 때까지 하나씩 늘리면서 테스트하면 될 것이다. 매칭되는 순간 참을 반환하며, test 문자열이 끝났는데도 매칭이 안 되면 거짓을 반환하면 된다.</strong></p>
+
+<h3 id="12-문제-명세">1.2. 문제 명세</h3>
+
+<p>우리는 ‘*‘가 문자를 하나도 안 포함할 때와 text 문자열의 나머지를 전부 매칭되는 경우까지 모두를 살펴야 한다. 이때 적절한 방법인 완전탐색과 만약 부분문제가 중복된다면 동적계획법을 사용해 문제를 해결하고자 한다.</p>
+
+<p>그전에, 문제를 명세하자. 문제 정의 없이 문제 해결할 수 없지.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+문제 : 주어진 와일드카드 패턴과 임의의 문자열이 매칭되는지의 참/거짓 여부를 반환하라.
+
+:입력:
+	pattern | str : 와일드카드 패턴
+	word    | str : 테스트할 문자열
+:출력:
+	매칭 여부 | bool : 패턴과 문자열이 매칭되는지 여부	
+
+
+<span class="c"># 출력이 반환되는 기저 사례 또는 조건</span>
+
+	1. pattern의 n번째 글자가 <span class="s1">'?'</span> 또는 <span class="s1">'*'</span>가 아닌데 pattern과 word의 n번째 글자가 다르다. -&gt; 거짓
+	2. pattern이 끝났는데 word가 남았다. -&gt; 무조건 거짓
+	3. word가 끝났는데 pattern이 남았다. -&gt; pattern의 나머지가 <span class="s1">'*'</span>의 연속이면 참, 아니면 거짓
+	4. pattern의 n번째 글자가 <span class="s1">'*'</span>이다. -&gt; 복잡해진다. <span class="s1">'*'</span>이 포함하는 글자를 0개부터 하나씩 추가해 하나라도 매칭되면 참을 반환한다. 다 실패하면 거짓 반환
+	5. 위 조건에 매칭이 안 된다. -&gt; 무조건 거짓
+</code></pre></div></div>
+
+<p>이를 바탕으로 문제를 해결해보자.</p>
+
+<h2 id="2-완전탐색">2. 완전탐색</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">wildcard_exhaustive</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">word</span><span class="p">):</span>
+    <span class="n">len_p</span><span class="p">,</span> <span class="n">len_w</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">pattern</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="c"># 각 문자열의 길이를 구한다.</span>
+    <span class="n">nth</span> <span class="o">=</span> <span class="mi">0</span>  			           <span class="c"># 확인할 문자의 위치 변수. 0으로 초기화한다.</span>
+
+    <span class="c"># 첫 번째 조건</span>
+    <span class="k">while</span> <span class="n">nth</span> <span class="o">&lt;</span> <span class="n">len_p</span> <span class="ow">and</span> <span class="n">nth</span> <span class="o">&lt;</span> <span class="n">len_w</span> <span class="ow">and</span> <span class="p">(</span><span class="n">pattern</span><span class="p">[</span><span class="n">nth</span><span class="p">]</span> <span class="o">==</span> <span class="s">'?'</span> <span class="ow">or</span> <span class="n">pattern</span><span class="p">[</span><span class="n">nth</span><span class="p">]</span> <span class="o">==</span> <span class="n">word</span><span class="p">[</span><span class="n">nth</span><span class="p">]):</span> 
+        <span class="n">nth</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="c"># 두 번째 조건</span>
+    <span class="k">if</span> <span class="n">len_p</span> <span class="o">==</span> <span class="n">nth</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">nth</span> <span class="o">==</span> <span class="n">len_w</span>
+
+    <span class="c"># 네 번째 조건</span>
+    <span class="k">if</span> <span class="n">pattern</span><span class="p">[</span><span class="n">nth</span><span class="p">]</span> <span class="o">==</span> <span class="s">'*'</span><span class="p">:</span>
+        <span class="n">skip</span> <span class="o">=</span> <span class="mi">0</span>
+	<span class="k">while</span> <span class="n">skip</span> <span class="o">+</span> <span class="n">nth</span> <span class="o">&lt;=</span> <span class="n">len_w</span><span class="p">:</span>
+	    <span class="k">if</span> <span class="n">wildcard_exhaustive</span><span class="p">(</span><span class="n">pattern</span><span class="p">[</span><span class="n">nth</span><span class="o">+</span><span class="mi">1</span><span class="p">:],</span> <span class="n">word</span><span class="p">[</span><span class="n">skip</span><span class="o">+</span><span class="n">nth</span><span class="p">:]):</span>
+                <span class="k">return</span> <span class="bp">True</span>
+	    <span class="n">skip</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="c"># 다섯 번째 조건</span>
+    <span class="k">return</span> <span class="bp">False</span>
+
+
+<span class="n">wildcard_exhaustive</span><span class="p">(</span><span class="s">'abc?'</span><span class="p">,</span> <span class="s">'abcd'</span><span class="p">)</span>
+<span class="n">wildcard_exhaustive</span><span class="p">(</span><span class="s">'*'</span><span class="p">,</span> <span class="s">'asdf'</span><span class="p">)</span>
+<span class="n">wildcard_exhaustive</span><span class="p">(</span><span class="s">'*'</span><span class="p">,</span> <span class="s">''</span><span class="p">)</span>
+
+
+<span class="o">&gt;&gt;&gt;</span> <span class="bp">True</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="bp">True</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="bp">True</span>
+</code></pre></div></div>
+
+<p>각 코드를 뜯어보자.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="n">len_p</span><span class="p">,</span> <span class="n">len_w</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">pattern</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="c"># 각 문자열의 길이를 구한다.</span>
+    <span class="n">nth</span> <span class="o">=</span> <span class="mi">0</span>  			           <span class="c"># 확인할 문자의 위치 변수. 0으로 초기화한다.</span>
+</code></pre></div></div>
+
+<p>len_p, len_w로 패턴과 문자열의 길이를 담은 변수를 만든다.<br />
+문자열의 위치를 비교할 <em>nth</em> 라는 변수를 만든다. <em>nth</em> 라는 이름은 ‘6th’, ‘9th’ 처럼 서수를 만들 때 ‘th’를 붙인다는 데서 착안했다.</p>
+
+<hr />
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="c"># 첫 번째 조건</span>
+    <span class="k">while</span> <span class="n">nth</span> <span class="o">&lt;</span> <span class="n">len_p</span> <span class="ow">and</span> <span class="n">nth</span> <span class="o">&lt;</span> <span class="n">len_w</span> <span class="ow">and</span> <span class="p">(</span><span class="n">pattern</span><span class="p">[</span><span class="n">nth</span><span class="p">]</span> <span class="o">==</span> <span class="s">'?'</span> <span class="ow">or</span> <span class="n">pattern</span><span class="p">[</span><span class="n">nth</span><span class="p">]</span> <span class="o">==</span> <span class="n">word</span><span class="p">[</span><span class="n">nth</span><span class="p">]):</span> 
+        <span class="n">nth</span> <span class="o">+=</span> <span class="mi">1</span>
+</code></pre></div></div>
+
+<p>본격적인 조건 검사식이다. 앞서 정의한 첫 번째 조건은 <em>nth</em> 번째 글자가 다를 때이다. 이를 뒤집으면 <em>nth</em> 번째 글자가 같다면 그냥 넘어가면 된다. while로 글자가 달라지거나 패턴이나 문자열이 끝날 때까지 <em>nth</em> 를 하나씩 올린다.<br />
+이 while문을 빠져 나왔다면 나머지 조건을 확인하면 된다.</p>
+
+<hr />
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="c"># 두 번째 조건</span>
+    <span class="k">if</span> <span class="n">len_p</span> <span class="o">==</span> <span class="n">nth</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">nth</span> <span class="o">==</span> <span class="n">len_w</span>
+</code></pre></div></div>
+
+<p>두 번째 조건이다. 패턴이 끝났다면 문자열도 끝났는지 확인한다. <em>nth</em> 가 <em>len_w</em> 와 같다면 패턴과 문자열의 길이가 같다는 것이 된다.</p>
+
+<hr />
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="c"># 네 번째 조건</span>
+    <span class="k">if</span> <span class="n">pattern</span><span class="p">[</span><span class="n">nth</span><span class="p">]</span> <span class="o">==</span> <span class="s">'*'</span><span class="p">:</span>
+        <span class="n">skip</span> <span class="o">=</span> <span class="mi">0</span>
+	<span class="k">while</span> <span class="n">skip</span> <span class="o">+</span> <span class="n">nth</span> <span class="o">&lt;=</span> <span class="n">len_w</span><span class="p">:</span>
+	    <span class="k">if</span> <span class="n">wildcard_exhaustive</span><span class="p">(</span><span class="n">pattern</span><span class="p">[</span><span class="n">nth</span><span class="o">+</span><span class="mi">1</span><span class="p">:],</span> <span class="n">word</span><span class="p">[</span><span class="n">skip</span><span class="o">+</span><span class="n">nth</span><span class="p">:]):</span>
+                <span class="k">return</span> <span class="bp">True</span>
+	    <span class="n">skip</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="c"># 다섯 번째 조건</span>
+    <span class="k">return</span> <span class="bp">False</span>
+</code></pre></div></div>
+
+<p>마지막으로 가장 중요한 패턴의 글자가 ‘*‘일 때이다.</p>
+
+<p>’*‘가 포함할 글자 수를 담을 변수를 <em>skip</em> 로 저장하고 그 개수를 0개부터 시작한다. 여기서 1개씩 글자를 더 포함하면서 문자열이 매칭되는지 확인할 것이다.</p>
+
+<p><strong>지금 네 번째 조건까지 왔다는 것은 상황이 1, 2, 3번째 조건들에 맞지 않았다는 것이고 따라서 현재 문자열은 패턴과 테스트 문자열이 끝나지도 않았고, <em>pattern[nth]</em> 는 현재 ‘*‘인 상황이다.</strong></p>
+
+<p><br /></p>
+
+<p>그렇다면 <strong>test 문자열이 끝나지 않을 때까지(while <em>skip</em> + <em>nth</em> &lt;= <em>len_w</em>:),</strong><br />
+<strong>’*’ 다음의 패턴의 남은 문자열(<em>pattern[nth+1:]</em>)과</strong><br />
+<strong>test 문자열의 나머지 부분(<em>word[skip+nth:]</em>)이 매칭되는지 점진적으로 확인한다.</strong></p>
+
+<p>당연히 <em>skip</em> 은 문자열의 끝까지 확인해야 하기 때문에 1씩 키운다.</p>
+
+<p>그리고 네 번째까지 확인이 안 됐으면 무조건 틀리게 한다.</p>
+
+<p><br /></p>
+
+<p>여기서 짚고 넘어갈 것. <strong><code class="highlighter-rouge">while skip + nth &lt;= len_w:</code>에서 왜 <code class="highlighter-rouge">&lt;</code>가 아닌 <code class="highlighter-rouge">&lt;=</code>가 쓰였을까??</strong><br />
+이건 ‘*‘과 빈 문자열 ‘‘을 매칭한다면 쉽게 이해할 수 있다. 매칭 결과는 참이 된다. 
+<em>skip</em> 도 0, <em>nth</em> 도 0, <em>len_w</em> 도 0이 되는데 여기서 ‘&lt;=’를 주지 않으면 반복문 자체를 들어갈 수 없다. <br />
+그래서 참도 반환되지 않겠지.</p>
+
+<p>또 이것이 위에서 세 번째 조건을 살피지 않은 이유와 같다. 세 번째 조건은
+<code class="highlighter-rouge">test 문자열이 끝났는데 pattern이 끝나지 않았을 때</code>인데 이게 네 번째에서 걸러진다.</p>
+
+<p>이것이 완전탐색을 활용한 방법이다.</p>
+
+<h2 id="3-동적계획법">3. 동적계획법</h2>
+
+<h3 id="31-부분문제의-존재">3.1. 부분문제의 존재</h3>
+
+<p>위의 완전탐색 방법은 훌륭하지만, 부분문제를 중복해서 계산한다는 문제가 있다.<br />
+가령 다음과 같은 패턴이 있다고 하자. <code class="highlighter-rouge">123*abc*def*ghi</code>
+<strong>이 패턴에는 ‘*‘가 세 개 있는데 이때 <code class="highlighter-rouge">def*ghi</code> 부분이 <code class="highlighter-rouge">123*...</code>과 <code class="highlighter-rouge">abc*...</code>를 해결할 때 중복된다.</strong></p>
+
+<p>그렇다면 우리는 동적계획법을 적용해볼 수 있다.</p>
+
+<h3 id="32-구현-아이디어">3.2. 구현 아이디어</h3>
+
+<p>행에는 패턴의 길이만큼 열에는 test 문자열의 길이만큼의 크기의 2차원 배열을 만들자.</p>
+
+<p>가령 <strong><em>cache[p][w]</em> 는 패턴의 p번째에서 끝까지의 부분 문자열부터, 문자열의 w번째에서 끝까지의 부분 문자열이 매칭되는지의 여부를 담는다.</strong></p>
+
+<p><br /></p>
+
+<p>그런데 <strong>cache의 크기를 잡을 때 패턴의 길이와 문자열의 길이에 1을 더해서 해야 한다.</strong> 이걸 또 이해하는 게 중요한데 이것도 빈 문자열 때문이다.</p>
+
+<p>가령 <strong>패턴이 길이가 3인 <code class="highlighter-rouge">abc</code>로 주어진다고 하자. 그러면 <code class="highlighter-rouge">abc</code>의 부분 문자열은 <code class="highlighter-rouge">'abc'</code>, <code class="highlighter-rouge">'bc'</code>, <code class="highlighter-rouge">'c'</code>, <code class="highlighter-rouge">''</code> 이렇게 4가지가 나온다. 즉, 길이에 +1을 해야 문자열의 모든 문자열에 대한 커버를 할 수 있다.</strong></p>
+
+<p>이제 실제 구현을 해보자.</p>
+
+<h3 id="33-구현">3.3 구현</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">wildcard</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">word</span><span class="p">):</span>
+    <span class="n">len_p</span><span class="p">,</span> <span class="n">len_w</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">pattern</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+    <span class="n">cache</span> <span class="o">=</span> <span class="p">[[</span><span class="o">-</span><span class="mi">1</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">len_w</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">len_p</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
+
+    <span class="k">def</span> <span class="nf">match</span><span class="p">(</span><span class="n">nth_p</span><span class="p">,</span> <span class="n">nth_w</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">cache</span><span class="p">[</span><span class="n">nth_p</span><span class="p">][</span><span class="n">nth_w</span><span class="p">]</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">cache</span><span class="p">[</span><span class="n">nth_p</span><span class="p">][</span><span class="n">nth_w</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">nth_p</span> <span class="o">&lt;</span> <span class="n">len_p</span> <span class="ow">and</span> <span class="n">nth_w</span> <span class="o">&lt;</span> <span class="n">len_w</span> <span class="ow">and</span> <span class="p">(</span><span class="n">pattern</span><span class="p">[</span><span class="n">nth_p</span><span class="p">]</span> <span class="o">==</span> <span class="s">'?'</span> <span class="ow">or</span> <span class="n">pattern</span><span class="p">[</span><span class="n">nth_p</span><span class="p">]</span> <span class="o">==</span>
+                                                <span class="n">word</span><span class="p">[</span><span class="n">nth_w</span><span class="p">]):</span>
+            <span class="n">cache</span><span class="p">[</span><span class="n">nth_p</span><span class="p">][</span><span class="n">nth_w</span><span class="p">]</span> <span class="o">=</span> <span class="n">match</span><span class="p">(</span><span class="n">nth_p</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">nth_w</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">cache</span><span class="p">[</span><span class="n">nth_p</span><span class="p">][</span><span class="n">nth_w</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">nth_p</span> <span class="o">==</span> <span class="n">len_p</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">nth_w</span> <span class="o">==</span> <span class="n">len_w</span>
+
+        <span class="k">if</span> <span class="n">pattern</span><span class="p">[</span><span class="n">nth_p</span><span class="p">]</span> <span class="o">==</span> <span class="s">'*'</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">match</span><span class="p">(</span><span class="n">nth_p</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">nth_w</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">nth_w</span> <span class="o">&lt;</span> <span class="n">len_w</span> <span class="ow">and</span> <span class="n">match</span><span class="p">(</span><span class="n">nth_p</span><span class="p">,</span> <span class="n">nth_w</span><span class="o">+</span><span class="mi">1</span><span class="p">)):</span>
+                <span class="n">cache</span><span class="p">[</span><span class="n">nth_p</span><span class="p">][</span><span class="n">nth_w</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
+                <span class="k">return</span> <span class="bp">True</span>
+
+        <span class="n">cache</span><span class="p">[</span><span class="n">nth_p</span><span class="p">][</span><span class="n">nth_w</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
+        <span class="k">return</span> <span class="bp">False</span>
+
+    <span class="k">return</span> <span class="n">match</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>위 코드는 앞서 살펴 본 완전탐색 방법과 조금 다르지만 조건만은 거의 동일하다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="n">len_p</span><span class="p">,</span> <span class="n">len_w</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">pattern</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+    <span class="n">cache</span> <span class="o">=</span> <span class="p">[[</span><span class="o">-</span><span class="mi">1</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">len_w</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">len_p</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
+</code></pre></div></div>
+
+<p>길이를 담은 변수를 설정하고 캐쉬를 만든다. 이때 캐쉬의 크기를 문자열의 크기보다 1 크게 해준다.<br />
+-1로 초기화하는 것은 값이 -1일 때 아직 계산이 안 됐다는 것을 알게 하기 위해 임의의 숫자를 선택했다.</p>
+
+<hr />
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>        <span class="k">if</span> <span class="n">cache</span><span class="p">[</span><span class="n">nth_p</span><span class="p">][</span><span class="n">nth_w</span><span class="p">]</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">cache</span><span class="p">[</span><span class="n">nth_p</span><span class="p">][</span><span class="n">nth_w</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p>캐시 값이 -1이 아니면 계산을 이미 했다는 것이기 때문에 그 값을 그대로 반환한다.<br />
+우리가 동적계획법을 쓰는 이유이다.</p>
+
+<hr />
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>        <span class="k">if</span> <span class="n">nth_p</span> <span class="o">&lt;</span> <span class="n">len_p</span> <span class="ow">and</span> <span class="n">nth_w</span> <span class="o">&lt;</span> <span class="n">len_w</span> <span class="ow">and</span> <span class="p">(</span><span class="n">pattern</span><span class="p">[</span><span class="n">nth_p</span><span class="p">]</span> <span class="o">==</span> <span class="s">'?'</span> <span class="ow">or</span> <span class="n">pattern</span><span class="p">[</span><span class="n">nth_p</span><span class="p">]</span> <span class="o">==</span>
+                                                <span class="n">word</span><span class="p">[</span><span class="n">nth_w</span><span class="p">]):</span>
+            <span class="n">cache</span><span class="p">[</span><span class="n">nth_p</span><span class="p">][</span><span class="n">nth_w</span><span class="p">]</span> <span class="o">=</span> <span class="n">match</span><span class="p">(</span><span class="n">nth_p</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">nth_w</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">cache</span><span class="p">[</span><span class="n">nth_p</span><span class="p">][</span><span class="n">nth_w</span><span class="p">]</span>
+</code></pre></div></div>
+<p>아까 <em>nth</em> 를 증가시키던 식과 원칙적으로 똑같다. 다만, 값이 같을 때 <em>match</em> 함수를 반복 실행함으로써 캐쉬에 값을 꾸준히 채운다. 그리고 값을 반환한다.</p>
+
+<hr />
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>        <span class="k">if</span> <span class="n">nth_p</span> <span class="o">==</span> <span class="n">len_p</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">nth_w</span> <span class="o">==</span> <span class="n">len_w</span>
+</code></pre></div></div>
+
+<p>두 번째 조건이다. 패턴이 끝났을 때 문자열도 끝났는지 판단해 값을 반환한다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>        <span class="k">if</span> <span class="n">pattern</span><span class="p">[</span><span class="n">nth_p</span><span class="p">]</span> <span class="o">==</span> <span class="s">'*'</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">match</span><span class="p">(</span><span class="n">nth_p</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">nth_w</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">nth_w</span> <span class="o">&lt;</span> <span class="n">len_w</span> <span class="ow">and</span> <span class="n">match</span><span class="p">(</span><span class="n">nth_p</span><span class="p">,</span> <span class="n">nth_w</span><span class="o">+</span><span class="mi">1</span><span class="p">)):</span>
+                <span class="n">cache</span><span class="p">[</span><span class="n">nth_p</span><span class="p">][</span><span class="n">nth_w</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
+                <span class="k">return</span> <span class="bp">True</span>
+
+        <span class="n">cache</span><span class="p">[</span><span class="n">nth_p</span><span class="p">][</span><span class="n">nth_w</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
+        <span class="k">return</span> <span class="bp">False</span>
+</code></pre></div></div>
+
+<p>패턴의 <em>nth_p</em> 번째 글자가 ‘*‘일 때를 확인한다.</p>
+
+<p>재밌는 if 문 중첩이 나오는데 이것이 핵심인 것 같다.<br />
+<strong>’*‘가 글자를 하나씩 흡수해나가는 것은 결국 ‘*‘가 글자를 흡수하지 않을 때와 하나 흡수할 때를 반복실행해 ‘or’ 연산해 참이 되면 값이 참이 되는 것이다.</strong></p>
+
+<p>이때 <code class="highlighter-rouge">nth_w &lt; len_w</code> 일 때까지 조건을 주고 계속 키워나가 하나라도 매칭이 되면 참을 반환하게 하면 된다.</p>
+
+<p>이 식은 여러 번 쳐다보자.</p>
+
+<p><br /></p>
+
+<p>조건을 하나도 만족시키지 못했다면 거짓을 반환한다.</p>
+
+<hr />
+
+<p><br /></p>
+
+<p>이렇게 와일드카드 문제를 완전탐색과 동적 계획법을 통해 해결해보았다.</p>
+
+      <div class="page-footer">
+        <div class="page-share">
+          <a href="https://twitter.com/intent/tweet?text=[Algospot] 와일드카드 패턴 매칭 알고리즘&url=http://localhost:4000/programming/algorithm/Algospot-Wildcard-%EB%A7%A4%EC%B9%AD.html" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
+          <a href="https://facebook.com/sharer.php?u=http://localhost:4000/programming/algorithm/Algospot-Wildcard-%EB%A7%A4%EC%B9%AD.html" title="Share on Facebook" rel="nofollow" target="_blank">Facebook</a>
+          <a href="https://plus.google.com/share?url=http://localhost:4000/programming/algorithm/Algospot-Wildcard-%EB%A7%A4%EC%B9%AD.html" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>
+        </div>
+        <div class="page-tag">
+          
+            <a href="/tags#Algorithm" class="tag">&#35; Algorithm</a>
+          
+            <a href="/tags#wildcard" class="tag">&#35; wildcard</a>
+          
+        </div>
+      </div>
+		  <!-- Load Facebook SDK for JavaScript -->
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+
+  <!-- Your share button code -->
+  <div class="fb-share-button" 
+    data-href="http://localhost:4000/programming/algorithm/Algospot-Wildcard-%EB%A7%A4%EC%B9%AD.html" 
+    data-layout="button_count">
+  </div>
+
+		
+    </div> <!-- End Wrap Content -->
+  </div> <!-- End Page Content -->
+</article> <!-- End Article Page -->
+
+</div>
+
+  </div>
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', '', 'auto');
+  ga('send', 'pageview');
+</script> <!-- End Analytics -->
+
+	<script src="https://unpkg.com/simple-jekyll-search@1.5.0/dest/simple-jekyll-search.min.js"></script>
+<script>
+var sjs = SimpleJekyllSearch({
+  searchInput: document.querySelector('#search-input'),
+  resultsContainer: document.getElementById('results-container'),
+  json: '/search.json',
+  searchResultTemplate: '<li class="search-results-item"><a href="http://localhost:4000{url}">{title}</a></li>',
+	limit: 9,
+	noResultsText: '<li class="search-results-item"><a href="#">No results found...</a></li>'
+})
+</script>
+
+	<!-- Main Js -->
+<!--<script src="/assets/js/main.js"></script>-->
+
+<!-- JQuery 3.x min -->
+<script src="/assets/js/jquery.js"></script>
+
+<script>
+	let menus = $("#category-list");
+	let image = $("#menu-toggler img");
+	$("#toggler-wrapper").click(function() {
+		if(menus.css("display") === "none") {
+			image.attr("src", "/assets/img/close-button.png");
+			menus.css("display", "flex");
+		}
+		else {
+			image.attr("src", "/assets/img/nav-off.png");
+			menus.css("display", "none");
+		}
+	});
+
+
+</script>
+
+</body>
+</html>
