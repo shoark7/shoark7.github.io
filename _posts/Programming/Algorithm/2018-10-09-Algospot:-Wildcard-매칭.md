@@ -9,7 +9,7 @@ tags: [Algorithm, wildcard, Algospot]
 ---
 
 
-#### 문제 소스 : [WILDCARD](https://algospot.com/judge/problem/read/WILDCARD) 
+#### 문제 소스 : [WILDCARD](https://algospot.com/judge/problem/read/WILDCARD){:target="_blank"}
 
 
 ## 0. 와일드카드란?

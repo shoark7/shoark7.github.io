@@ -17,11 +17,11 @@
     <meta content="Parkito's dev blog for programming, Python, Algorithm, Automation and insights." property="og:description">
   
   
-    <meta content="https://shoark7.github.io/" property="og:url">
+    <meta content="http://localhost:4000/" property="og:url">
 	
   
   
-    <meta content="https://shoark7.github.io/assets/img/1536558558520.jpg" property="og:image">
+    <meta content="http://localhost:4000/assets/img/1536558558520.jpg" property="og:image">
   
   
   
@@ -33,13 +33,13 @@
     <meta name="twitter:title" content="Parkito's on the way">
   
   
-    <meta name="twitter:url" content="https://shoark7.github.io/">
+    <meta name="twitter:url" content="http://localhost:4000/">
   
   
     <meta name="twitter:description" content="Parkito's dev blog for programming, Python, Algorithm, Automation and insights.">
   
   
-    <meta name="twitter:image:src" content="https://shoark7.github.io/assets/img/1536558558520.jpg">
+    <meta name="twitter:image:src" content="http://localhost:4000/assets/img/1536558558520.jpg">
   
 
   
@@ -286,15 +286,13 @@
 			<h2 class="post-title"><a href="/programming/python/OOP-in-Python.html">왜 우리는 OOP를 사용해야 할까?</a></h2>
 			<p>
 
-
-
 1. 우리는 왜 클래스를 써야하는가
 
 
 
 질문한다. 우리는 왜 클래스를 써야 하냐고. 난 그런거 모른다고.
 그러면 현실의 문제를 해결하면서, 클래스 사용의 당위성을 생각해보면 어떨까?
-이번 내용은 그것에...</p>
+이번 내용은 그것에 초...</p>
 			<span class="post-date">&nbsp;&nbsp;&nbsp;—&nbsp;2018, Sep 15&nbsp;&nbsp;&nbsp;—&nbsp;</span>
 			
 		</div>
@@ -339,7 +337,7 @@ var sjs = SimpleJekyllSearch({
   searchInput: document.querySelector('#search-input'),
   resultsContainer: document.getElementById('results-container'),
   json: '/search.json',
-  searchResultTemplate: '<li class="search-results-item"><a href="https://shoark7.github.io{url}">{title}</a></li>',
+  searchResultTemplate: '<li class="search-results-item"><a href="http://localhost:4000{url}">{title}</a></li>',
 	limit: 9,
 	noResultsText: '<li class="search-results-item"><a href="#">No results found...</a></li>'
 })
@@ -366,6 +364,16 @@ var sjs = SimpleJekyllSearch({
 	});
 
 
+</script>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-127149179-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-127149179-1');
 </script>
 
 </body>

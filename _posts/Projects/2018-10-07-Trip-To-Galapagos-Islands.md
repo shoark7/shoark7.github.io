@@ -65,10 +65,11 @@ tags: [Galapagos, 갈라파고스]
 
 남미 여행을 생각하는 분들이여, 갈라파고스를 여행지에서 제외하지 말아주세요. 제 글이 조금이라도 도움이 되기를...
 
-* [갈라파고스 군도 개요](https://cafe.naver.com/nammisarang/159383)
-* [산타크루즈 - 갈라파고스의 경제 중심지](https://cafe.naver.com/nammisarang/159601)
-* [산크리스토발 - 갈라파고스의 행정 중심지](https://cafe.naver.com/nammisarang/159646)
-* [이사벨라 - 적적함과 다양성의 섬](https://cafe.naver.com/nammisarang/159672)
+* [갈라파고스 군도 개요](https://cafe.naver.com/nammisarang/159383){:target="_blank"}
+* [산타크루즈 - 갈라파고스의 경제 중심지](https://cafe.naver.com/nammisarang/159601){:target="_blank"}
+* [산크리스토발 - 갈라파고스의 행정 중심지](https://cafe.naver.com/nammisarang/159646){:target="_blank"}
+* [이사벨라 - 적적함과 다양성의 섬](https://cafe.naver.com/nammisarang/159672){:target="_blank"}
+
 
 
 갈라파고스에서 제일 유명한 동물인 '푸른발부비새'와 함께, 갈라파고스 여행기 프로젝트를 마칩니다.
