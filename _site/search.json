@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "핵심 Shell 커맨드 10개 살펴보기",
+      "category" : "",
+      "tags"     : "Python, shell, shell_command",
+      "url"      : "/programming/shell%20programming/Top-basic-unix-shell-command.html",
+      "date"     : "2018-10-12 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "[Algospot] 와일드카드 패턴 매칭 알고리즘",
       "category" : "",
       "tags"     : "Algorithm, wildcard, Algospot",
