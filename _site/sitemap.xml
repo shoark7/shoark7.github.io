@@ -37,7 +37,7 @@
 <lastmod>2018-10-10T00:00:00+09:00</lastmod>
 </url>
 <url>
-<loc>http://localhost:4000/programming/shell%20programming/Top-basic-unix-shell-command.html</loc>
+<loc>http://localhost:4000/programming/shell-programming/Top-basic-unix-shell-command.html</loc>
 <lastmod>2018-10-12T00:00:00+09:00</lastmod>
 </url>
 <url>
@@ -60,6 +60,9 @@
 </url>
 <url>
 <loc>http://localhost:4000/category/programming/python.html</loc>
+</url>
+<url>
+<loc>http://localhost:4000/category/programming/shell-programming.html</loc>
 </url>
 <url>
 <loc>http://localhost:4000/tags/</loc>

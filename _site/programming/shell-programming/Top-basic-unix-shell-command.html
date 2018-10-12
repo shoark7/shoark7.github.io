@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>핵심 Shell 커맨드 9개 살펴보기 - Parkito's on the way</title>
+
+  <!-- Edit site and author settings in `_config.yml` to make the social details your own -->
+
+    <meta content="Parkito's on the way" property="og:site_name">
+  
+    <meta content="핵심 Shell 커맨드 9개 살펴보기" property="og:title">
+  
+  
+    <meta content="article" property="og:type">
+  
+  
+    <meta content="유닉스 쉘을 쓸 때 핵심적인 기본 커맨드 9개를 알아보자!" property="og:description">
+  
+  
+    <meta content="http://localhost:4000/programming/shell-programming/Top-basic-unix-shell-command.html" property="og:url">
+	
+  
+    <meta content="2018-10-12T00:00:00+09:00" property="article:published_time">
+    <meta content="http://localhost:4000/about/" property="article:author">
+  
+  
+    <meta content="http://localhost:4000/assets/img/shell-programming/shell-logo.png" property="og:image">
+  
+  
+    
+    <meta content="Programming" property="article:section">
+    
+  
+  
+    
+    <meta content="Python" property="article:tag">
+    
+    <meta content="shell" property="article:tag">
+    
+    <meta content="top_9_shell_commands" property="article:tag">
+    
+  
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@">
+    <meta name="twitter:creator" content="@">
+  
+    <meta name="twitter:title" content="핵심 Shell 커맨드 9개 살펴보기">
+  
+  
+    <meta name="twitter:url" content="http://localhost:4000/programming/shell-programming/Top-basic-unix-shell-command.html">
+  
+  
+    <meta name="twitter:description" content="유닉스 쉘을 쓸 때 핵심적인 기본 커맨드 9개를 알아보자!">
+  
+  
+    <meta name="twitter:image:src" content="http://localhost:4000/assets/img//shell-programming/shell-logo.png">
+  
+
+  
+    <meta content="유닉스 쉘을 쓸 때 핵심적인 기본 커맨드 9개를 알아보자!" name="description">
+  
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="shortcut icon" href="/assets/img/favicon/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" href="/assets/img/favicon/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/assets/img/favicon/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/assets/img/favicon/apple-touch-icon-144x144.png">
+	<!-- Chrome, Firefox OS and Opera -->
+	<meta name="theme-color" content="#263959">
+	<!-- Windows Phone -->
+	<meta name="msapplication-navbutton-color" content="#263959">
+	<!-- iOS Safari -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="#263959">
+	<!-- Google Fonts -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+	
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="/assets/fonts/font-awesome/css/font-awesome.min.css">
+	<!-- Styles -->
+	<link rel="stylesheet" href="/assets/css/main.css">
+	<link rel="stylesheet" href="/assets/css/personal.css">
+	<link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Nanum+Gothic:400,700,800&amp;subset=korean" rel="stylesheet">
+</head>
+
+<body style="position: relative">
+	<div id="toggler-wrapper">
+		<div id="menu-toggler">
+			<img src="/assets/img/nav-off.png" alt="Menu collapse image">
+		</div>
+	</div>
+
+  <div class="wrapper">
+
+		<nav id="nav">
+			<div id="menus">
+				<p>
+					<a class="navbar-brand text-white" href="/">&nbsp;&nbsp;&nbsp;Parkito's on the way!&nbsp;&nbsp;&nbsp;</a>
+				</p>
+				<ul id="category-list">
+					<li>
+						<a href="/about.me">
+							<div class="menu">
+								<span> About </span>
+							</div>
+						</a>
+					</li>
+				
+					<li>
+						<div class="menu-wrapper">
+							<a href="/category/programming">
+								<div class="menu">
+									<span> Programming </span>
+								</div>
+							</a>
+							<div class="menu-item">
+								<a href="/category/programming/algorithm">Algorithm</a>
+								<a href="/category/programming/python">Python</a>
+								<a href="/category/programming/shell-programming">Shell programming</a>
+							</div>
+						</div>
+					</li>
+				
+					<li>
+						<div class="menu-wrapper">
+								<a href="/category/insight">
+									<div class="menu">
+										<span> Insight </span>
+									</div>
+								</a>
+						</div>
+					</li>
+
+					<li>
+						<div class="menu-wrapper">
+								<a href="/category/projects">
+									<div class="menu">
+										<span> Projects </span>
+									</div>
+								</a>
+							<!--<div class="menu-item">-->
+								<!--<a href="/category/network">Network</a>-->
+								<!--<a href="/category/Python">Python</a>-->
+							<!--</div>-->
+						</div>
+					</li>
+
+				</ul>
+			</div>
+
+			<div id="menus-right">
+				<div id="search-section">
+					<div class="input-wrapper">
+						<span class="fa fa-search"></span>
+						<input type="text" id="search-input" placeholder="Please input specific keyword :)" size="30">
+					</div>
+					<div id="results-container"></div>
+				</div>
+
+				<!--<div id="toggler-wrapper">-->
+					<!--<div id="menu-toggler">-->
+						<!--<img src="/assets/img/nav-off.png" alt="" width="35px" height="35px">-->
+					<!--</div>-->
+				<!--</div>-->
+				
+			</div>
+			
+		</nav>
+
+
+    <aside class="sidebar">
+  <header>
+    <div class="about">
+      <div class="cover-author-image">
+        <a href="/"><img src="/assets/img/1536558558520.jpg" alt="Sunghwan Park"></a>
+      </div>
+      <div class="author-name">Sunghwan Park</div>
+      <p>I'm Parkito. A Python lover. Interested in Python, Automation, Algorithm. Please give me insights. I'll teach you tambien! :)</p>
+    </div>
+  </header> <!-- End Header -->
+  <footer>
+    <section class="contact">
+      <h3 class="contact-title">Contact me</h3>
+      <ul>
+				<!--
+        
+          <li><a href="https://twitter.com/artemsheludko_" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+        
+        
+          <li><a href="https://facebook.com/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+        
+				-->
+        
+          <li class="github"><a href="http://github.com/shoark7" target="_blank"><i class="fa fa-github"></i></a></li>
+        
+        
+          <li class="linkedin"><a href="https://in.linkedin.com/in/sunghwan-park-3773b8154" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+        
+        
+          <li class="email"><a href="mailto:shoark7@gmail.com"><i class="fa fa-envelope-o"></i></a></li>
+        
+      </ul>
+    </section> <!-- End Section Contact -->
+    <div class="copyright">
+      <p>2018 &copy; Sunghwan Park</p>
+    </div>
+  </footer> <!-- End Footer -->
+</aside> <!-- End Sidebar -->
+
+<div class="content-box clearfix">
+  <article class="article-page">
+  <div class="page-content">
+    
+    <div class="page-cover-image">
+      <figure>
+        <img class="page-image" src=/assets/img//shell-programming/shell-logo.png alt="핵심 Shell 커맨드 9개 살펴보기">
+        
+      </figure>
+    </div> <!-- End Page Cover Image -->
+    
+    <div class="wrap-content">
+      <header class="header-page">
+        <h1 class="page-title">핵심 Shell 커맨드 9개 살펴보기</h1>
+        <div class="page-date"><span>2018, Oct 12&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+      </header>
+      <h2 id="들어가며">들어가며</h2>
+
+<hr />
+
+<p>우리는 컴퓨터를 사용할 때 윈도우즈 운영체제와 같은 GUI(Graphic User Inferface)에 익숙하다. 윈도우즈 안에서는 우리는 시각적인 폴더를 클릭하고 마우스로 끌어서 휴지통에 갖다 박으며 시각적인 프로그램 아이콘을 더블클릭해 프로세스를 시작시킨다.<br />
+시각적인 요소는 호소력이 짙고 두 눈을 잘 때 빼고는 뜨고 다니는 우리에게 익숙하기 때문에 GUI는 인류의 성공적인 컴퓨터 생활 인터페이스로 자리잡았으며 윈도우 성공의 한 축을 담당했다고 생각한다.</p>
+
+<p>하지만 개발을 한다면 Unix Shell(유닉스 쉘)에 익숙해져야 한다고 생각한다.</p>
+
+<p>이 글은 <strong>개발을 공부하기 위해 유닉스의 계열인 iOS를 구매했거나, 나처럼 비애플 계열 제품에 우분투 등 리눅스 운영체제를 갓 이식한 사용층을 대상으로 기본적인 쉘 활용을 위한 핵심 커맨드 9가지를 소개하고자 한다.</strong></p>
+
+<p>쉘은 사실 거대한 프로그램으로서 그 기능이 무궁무진하다. 나만의 기능을 만들거나, 쉘 프로그래밍을 통해 변수 설정, 조건문, 반복문 등 일반 프로그래밍에서 했던 코딩을 그대로 해볼 수 있다.</p>
+
+<p>하지만 전문 리눅스 개발자가 될 것이 아닌 이상 이 모든 것을 공부하며 살 수는 없고, 그럴 이유도 없다. 그때그때 필요한 기능을 검색하고 사용하면 되기 때문이다.</p>
+
+<p>그러나 <strong>이 핵심 9가지 기능 없이는 윈도우즈에서 영위했던 기본적인 컴퓨터 운영이 불가능하다고 단언할 수 있다. 즉, 이 명령들은 쉘 활용의 기본이다.</strong> 잘해보자구!</p>
+
+<p><br /></p>
+
+<p>난 이 9가지 명령어를 크게 경로 커맨드와 CRUD 커맨드로 구분했다. 경로 커맨드는 경로를 확인, 이동 등 하는 명령어 집합이며 CRUD 커맨드는 정보의 생성, 읽기, 수정, 삭제 등과 관련이 있다. 각 챕터에서 보다 구체적으로 확인해보자.</p>
+
+<h2 id="경로-커맨드">경로 커맨드</h2>
+
+<hr />
+
+<p>경로(path) 커맨드는 현재 경로를 확인하거나 작업할 경로를 이동하는 등의 작업을 수행하는 명령어를 포함했다. 예를 들면 윈도우즈에서 우리는 폴더를 더블클릭해가면서 원하는 파일이 있는 곳까지 이동하는 작업을 하는데 이런 작업들을 일컫는다.</p>
+
+<p><img src="/assets/img/shell-programming/root.png" alt="file-system" /></p>
+
+<p><strong>유닉스에서는 경로가 ‘/’인 루트 디렉토리(윈도우즈에서는 폴더)에서 시작해서 더 많은 디렉토리와 파일들로 파일 시스템이 구성된다.</strong> 가령 ‘/sys/dev’라는 경로가 있다면 이는 ‘/’ 디렉토리 안의 ‘sys’ 디렉토리 안의 ‘dev’라는 파일을 가리키게 된다.</p>
+
+<p>CLI을 사용할 때 원하는 작업을 할, 또는 원하는 파일이 있는 곳을 확인하고 이동하는 것은 중요하다.<br />
+이 포스트에서 경로 커맨드는 pwd, ls, cd를 살펴본다.</p>
+
+<h3 id="1-pwd">1. pwd</h3>
+
+<p><strong><code class="highlighter-rouge">pwd</code>는 ‘print working directory’의 약자로 현재 쉘 상에서 내가 위치한 디렉토리 경로를 보여준다.</strong> 본격적인 작업에 앞서 내가 현재 속한 경로를 확인해야 할 필요가 있을 때 사용한다.</p>
+
+<p>이후 설명할 다른 기능들과 달리 인자(argument)도 받지 않아서 매우 단순한 기능이다.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">pwd</span>
+
+<span class="o">&gt;</span> /home/sunghwanpark
+</code></pre></div></div>
+
+<p>‘/home’ 디렉토리는 시스템의 각 유저들의 사용공간인데, 지금은 ‘sunghwanpark’라는 유저의 사용공간에 커서가 위치하고 있다는 것을 알려준다.</p>
+
+<hr />
+
+<h3 id="2-ls">2. ls</h3>
+
+<p><code class="highlighter-rouge">ls</code>는 아마 쉘을 쓰면서 가장 많이 쓰는 기능이 될 것이다. <strong>이 기능은 <code class="highlighter-rouge">list</code>의 약자로 디렉토리 안의 파일과 디렉토리의 목록을 화면에 출력한다.</strong></p>
+
+<p><strong>활용법은 <code class="highlighter-rouge">ls 경로</code>가 기본인데, 이는 내가 입력한 디렉토리 안의 모든 파일과 디렉토리 목록을 출력한다는 것을 뜻한다. ‘ls’에 인자를 주지 않고 쓰면 현재 위치가 <code class="highlighter-rouge">경로</code>로 쓰이도록 되어 있고 현재 내가 속한 디렉토리 안의 파일 목록을 보여준다.</strong></p>
+
+<p>사용예는 다음과 같다.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">ls</span>
+
+<span class="o">&gt;</span> 0906study.md   data-science-pandas  shell-scripts   다운로드
+  Downloads      gitrepo              바탕화면
+  archive-directory  image            <span class="nb">test
+  </span>bin                ipython-dir
+</code></pre></div></div>
+
+<p>현재 내가 속한 디렉토리 안의 파일들을 모두 보여준다. 명시적으로 <code class="highlighter-rouge">경로</code>를 입력해주면 지금 내가 속한 경로가 아닌 입력된 경로의 파일들을 보여준다.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">ls</span> /
+
+<span class="o">&gt;</span> bin    dev    initrd.img.old  media  root  srv  var
+boot     etc    lib     mnt    run   sys  vmlinuz
+cdrom    home   lib64   opt    sbin  tmp  vmlinuz.old
+custom-backup  initrd.img  lost+found      proc   snap  usr
+</code></pre></div></div>
+
+<p><strong>이 기능은 중요한 기능답게 수많은 옵션 인자를 갖고 있다. 이때 옵션이란 사용하는 기능에 영향을 미치는 추가적인 설정을 유저가 주는 것을 말한다.</strong> 따라서 옵션이란 커맨드에 종속적이다. 커맨드마다 쓰는 옵션이 특수하다는 것을 뜻한다.</p>
+
+<p>이때 <strong>옵션은 기능과 함께 뒤에 공백을 사이에 두고 ‘-옵션명’나 ‘–옵션명’를 붙여서 값을 준다.</strong></p>
+
+<p>바로 예를 살펴보자.</p>
+
+<p>가령 이런 경우가 있을 수 있다. ‘ls’를 써서 파일을 확인하되 숨김파일까지 전부 보고 싶다면?<br />
+아, 유닉스에서는 숨김파일은 파일 이름 앞에 <code class="highlighter-rouge">.</code>을 붙여서 지정한다. 그러면 일반 ‘ls’로는 그 파일이 경로에 존재해도 출력되지 않는다.</p>
+
+<p>숨김파일까지 포함해서 목록을 보고 싶다면 ‘ls’에 ‘-a’ 인자를 주면 된다.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">ls</span> <span class="nt">-a</span>
+
+<span class="o">&gt;</span> ...
+.jssc            bin
+.jupyter         data-science-pandas
+.lesshst         gitrepo
+.local           image
+.mozilla         ipython-dir
+.mysql_histor    shell-scripts
+.nano            study_pl
+...
+
+</code></pre></div></div>
+
+<p>여기서 ‘a’는 ‘all’의 약자로, 경로를 바꾸지 않았는데도 숨긴파일들이 모두 화면에 나왔다. 보통 보호해야 할 파일이나 설정파일 등이 숨김파일로 많이 지정된다.</p>
+
+<p>위와 같이 자주 쓰이는 ‘ls’의 인자들은 다음과 같다.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">-a</span> : 숨김파일까지 포함해 디렉토리 안의 모든 파일이 출력된다.
+<span class="nt">-t</span> : 목록을 출력할 때, 수정 시간 순으로 정렬해서 출력한다.
+<span class="nt">-l</span> : 단순히 파일의 이름만 아니라 이들에 대한 자세한 정보를 출력한다.
+</code></pre></div></div>
+
+<p>이때 눈여겨 볼 것이 ‘-l’ 인자인데 ‘l’은 ‘long’의 약자로 <strong>‘ls -l’을 실제로 실행해보면 파일의 이름뿐 아니라 파일과 관련한 수많은 정보가 같이 출력되는 것</strong>을 확인할 수 있다. 이 정보들도 가치 있는데, 나중에 추가적인 포스트에서 살펴보도록 한다.</p>
+
+<p>그리고 옵션을 여기서는 3개만 소개했지만 실제로는 이것보다 훨씬 많다. 추가적인 공부가 필요하다.</p>
+
+<p>또한 옵션을 두 개 이상 같이 쓰고 싶으면 붙여써주면 된다.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">ls</span> <span class="nt">-alt</span>
+
+<span class="nt">-rw-------</span>   1 sunghwanpark sunghwanpark 418879 10월 11 23:44 .zsh_history
+<span class="nt">-rw-rw-r--</span>   1 sunghwanpark sunghwanpark  39475 10월 11 23:37 .viminfo
+<span class="nt">-rw-------</span>   1 sunghwanpark sunghwanpark 129138 10월 11 22:01 .ICEauthority
+</code></pre></div></div>
+
+<p>복잡해보이지만 한 열 한 열은 그렇게 까다롭지는 않다… 이건 나중에…</p>
+
+<p><br /></p>
+
+<p>그리고 커맨드 옵션은 이 기능뿐만 아니라 수많은 다른 유닉스 커맨드에서 설정값을 줄 때 사용된다. 이번 포스트뿐만 아니라 다른 기능들을 소개할 때도 필수적인 옵션은 같이 설명하고자 한다.</p>
+
+<hr />
+
+<h3 id="3-cd">3. cd</h3>
+
+<p><strong><code class="highlighter-rouge">cd</code>는 원하는 경로로 커서(working directory)를 이동한다.</strong> 이또한 쉘을 활용하면서 무수히 사용하게 될 것이다.</p>
+
+<p>가령 내가 ‘/var’ 경로로 커서를 이동하고 싶다면 이렇게 사용하면 된다.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd</span> /var
+</code></pre></div></div>
+
+<p>입력된 경로가 실제 존재하는 경로이고 접근이 가능하다면 커서가 이동한다. 추가적인 옵션은 받지 않는다.</p>
+
+<p><strong>대신 이 커맨드를 사용할 때는 경로를 하드코딩하는 것보다도 가급적이면  유닉스에서 파일 시스템에 사용하는 명칭(alias)를 대신 사용하면 유용하다.</strong> 이 명칭들은 일종의 별명과 같아서 명칭을 입력하면 쉘이 실제 이름으로 확장한다. 이 확장은 쉘에서 중요한 개념으고, 향후 상세하게 다룰 예정이다.</p>
+
+<p>이 명칭들을 활용하면 cd를 비롯한 쉘 커맨드 활용을 좀더 효율적으로 할 수 있는데 구체적인 활용을 하기 전에 명칭들의 예를 몇 가지 살펴보자.</p>
+
+<h4 id="경로-별칭-1-">경로 별칭 1: <code class="highlighter-rouge">~</code></h4>
+
+<p><strong><code class="highlighter-rouge">~</code>(tilde)라고 하는데 이것은 사용자의 홈 디렉토리를 의미한다.</strong> 유닉스의 파일시스템에서는 ‘사용자’만을 위해 할당된 공간은 ‘/home’ 디렉토리이고 이곳에 다수의 사용자들의 디렉토리가 각각 존재한다. 각 사용자는 자신의 홈디렉토리에 필요한 작업을 모두 하며 그 바깥은 시스템 관리자의 영역으로 손대지 않는 것이 좋다.</p>
+
+<p>가령 내 홈 디렉토리는 ‘/home/sunghwanpark’으로 내가 작업하는 모든 내용물들이 이 안에 있다. 이는 당신도 마찬가지다.</p>
+
+<p>자, 이제 내가 임의의 어떤 위치에 있다가 내 홈 디렉토리로 이동하고 싶다고 하자. 이때 ‘cd /home/sunghwanpark’는 이 커맨드의 중요성에 비해 너무나 길고 무겁다. 대신,</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd</span> ~
+<span class="nv">$ </span><span class="nb">pwd</span>
+
+-&gt; /home/sunghwanpark
+</code></pre></div></div>
+
+<p>이와 같이 손쉽게 홈 디렉토리에 접근할 수 있다.</p>
+
+<h4 id="경로-별칭-2-">경로 별칭 2: <code class="highlighter-rouge">.</code></h4>
+<p><strong><code class="highlighter-rouge">.</code>은 내가 위치한 현재 경로를 가리킨다.</strong> 경로에는 절대경로와 상대경로라는 것이 있는데 이 <code class="highlighter-rouge">.</code>은 상대경로의 출발점으로 내가 속한 현재 경로를 가리키게 된다.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd</span> <span class="nb">.</span>
+</code></pre></div></div>
+
+<p>현재 위치에서 현재 위치로 경로를 수정했다… 음.. 이건 아무런 쓸모도 없어보인다. 대신, 이런 활용을 해볼 수 있다.<br />
+내 현재 경로에 있는 ‘movie’라는 디렉토리에 이동하고 싶을 때 다음 두 식은 완전히 똑같다.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nv">$ </span><span class="nb">cd </span>movie
+<span class="nv">$ </span><span class="nb">cd</span> ./movie
+</code></pre></div></div>
+
+<p>둘 다 현재 경로에 있는 ‘movie’ 라는 디렉토리로 이동한다. <strong>대신 두 번째 식은 확실히 ‘내가 위치한 디렉토리에 있는 movie’를 명시적으로 표현해서 경우에 따라 가독성을 높일 수 있다.</strong></p>
+
+<p>이 현재 경로를 뜻하는 <code class="highlighter-rouge">.</code>은 cd 보다는 다른 커맨드에서 더 빛을 발한다.(그래서 중요하다.)</p>
+
+<h4 id="경로-별칭-3-">경로 별칭 3: <code class="highlighter-rouge">..</code></h4>
+<p><strong><code class="highlighter-rouge">..</code>은 현재 디렉토리의 상위 디렉토리(parent directory)를 의미한다.</strong> 가령 내가 현재 속한 경로가 ‘/home/sunghwanpark’라면 <code class="highlighter-rouge">..</code>로 cd를 사용하면 다음과 같이 이동한다.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">pwd</span>
+<span class="nv">$ </span><span class="nb">cd</span> ..
+<span class="nv">$ </span><span class="nb">pwd</span>
+
+-&gt; /home/sunghwanpark
+-&gt; /home
+</code></pre></div></div>
+
+<p>우리가 윈도우즈에서 폴더를 이동하다가 ‘뒤로 가기’ 버튼을 누르는 것과 같은 동작을 취한다.</p>
+
+<p><br /></p>
+
+<p>말했듯이 이 명칭들은 cd에서만 쓰이는 것이 아니고, 유닉스에서 경로를 표현해야 할 때마다 쓰일 수 있기 때문에 중요하다. 특히 이 3개는 반드시 기억하고 필요할 때는 사용하는 것을 추천한다.</p>
+
+<h2 id="crud-커맨드">CRUD 커맨드</h2>
+
+<hr />
+
+<h3 id="crud란">CRUD란?</h3>
+
+<p><strong>CRUD는 Create, Read(or Retrieve), Update, Delete, 이렇게 4 단어의 약자로 UI의 관점에서는 사용자가 데이터를 처리하는 가장 기본적인 4가지 기능을 뜻한다. 사용자는 데이터를 이리 볶고, 저리 볶고 할 수 있지만 사용자의 모든 작업은 데이터를 생성하고, 읽고(출력하고), 수정하고, 삭제하는 이 4가지 기능 가운데 속한다.</strong></p>
+
+<p>우리가 윈도우 운영체제를 쓸 때도 마찬가지이다. 난 윈도우에서 폴더를 열고(Read), 엑셀 파일을 하나 만든 뒤(Create), 파일 안에 데이터를 입력하고(Update), 필요 없어지면 가차없이 휴지통으로 보낼 수 있다.(Delete) 파일이나 폴더는 비트의 집합으로 곧 데이터다. 우리는 우리가 하는 모든 컴퓨터 생활에서 CRUD를 사용하고 있다.</p>
+
+<p><br /></p>
+
+<p>예상했겠지만 CRUD는 리눅스 인터페이스에서도 핵심이다! 우리는 파일을 만들고 읽고 수정하며 지운다. <strong>이번에는 리눅스에서 CRUD에 핵심적인 기능들을 알아보겠다.</strong> 이 내용들도 너무나 중요해서 쉘을 쓴다고 하면 몰라서는 안 된다.</p>
+
+<hr />
+
+<h3 id="4-mkdirtouch">4. mkdir(touch)</h3>
+
+<p><strong>mkdir는 ‘make directory’의 약자로 디렉토리를 만든다.</strong> 윈도우즈의 ‘새 폴더’와 정확히 같은 기능을 한다.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">mkdir</span> ./new-directory
+<span class="nv">$ </span><span class="nb">ls</span>
+
+-&gt; new-directory old-directory old-school
+...
+</code></pre></div></div>
+
+<p>mkdir가 받는 옵션 인자 중 내가 좋아하는 것은 이것이다.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">-p</span> : parent directory가 존재하지 않으면 같이 만든다.
+</code></pre></div></div>
+
+<p>이 인자의 뜻은 무엇일까? 가령 내가 현재 위치에서 ‘a’라는 디렉토리를 만들고 그 안에 ‘b’라는 디렉토리를 만들고 싶다고 하자. 그럴 때 위와 같이 입력하면 문제가 발생한다.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">mkdir</span> ./a/b
+
+<span class="nb">mkdir</span>: <span class="sb">`</span>./a/b<span class="s1">' 디렉토리를 만들 수 없습니다: 그런 파일이나 디렉터리가 없습니다
+</span></code></pre></div></div>
+
+<p>없으니까 만들려고 하는데 이게 뭔소린가?? 이 오류 메시지의 뜻은 ‘b’라는 디렉토리를 만들려는데 ‘a’가 없어서 못 만들겠다는 뜻이다. 그러면 한 번에 ‘a’도 만들고 ‘b’도 만들면 될 것이고 <code class="highlighter-rouge">-p</code>는 그 일을 한다.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">mkdir</span> <span class="nt">-p</span> ./a/b
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>‘디렉토리를 만드는 기능이 있으면 파일을 만드는 기능도 있어야 하지 않느냐?’고 묻는다면 생각을 하고 사는 것이다. 맞다. 그런데 ‘mkdir’와 달리 함수를 만드는 용도만을 위한 기능은 없다. 대신 파일을 만들 수 있는 다양한 방법이 있는데 그중 가장 쉬운 것만 소개하겠다.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">ls</span>
+
+-&gt; a b c
+
+<span class="nv">$ </span><span class="nb">touch </span>ok
+<span class="nv">$ </span><span class="nb">ls</span>
+
+-&gt; a b c ok
+</code></pre></div></div>
+
+<p>‘touch’라는 기능을 사용해 ‘ok’라는 빈 파일을 만들었다. 원래 이 ‘touch’는 파일의 접근, 최근 수정 날짜를 최신으로 업데이트하는 함수이다. 모든 파일에는 파일명 이외에도 일반적으로 드러나지는 않지만 파일과 관련된 메타데이터들이 많이 존재하는데 그중 하나가 최근 수정 날짜다. 이 변수는 ‘이 파일보다 예전에 사용한 파일들은 삭제해라’, ‘파일들을 사용한 최신순으로 정렬해라’ 등과 같은 연산에 요긴히 쓰일 수 있다. 근데 <strong>이 ‘touch’의 특징은 만약 인자로 받은 파일이나 폴더가 존재하지 않으면 같은 이름의 빈 파일을 하나 만든다.</strong> 그래서 예제에서는 이 특성을 사용해 빈 파일을 만든 것이다.</p>
+
+<p>사실 빈 디렉토리를 만들 일은 있는데 빈 파일을 만들 일은 없다. 빈 디렉토리를 만들 이유는 파일을 담는다는 뚜렷한 목적이 있는데 반해 빈 파일을 만드는 이유는 딱히 없기 때문이다. 단순히 참고용으로만 적었다.</p>
+
+<h3 id="5-echo">5. echo</h3>
+
+<p><strong>echo는 받은 인자들을 화면으로 출력하는 기능이다.</strong></p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">echo</span> <span class="s2">"I'm back!"</span>
+
+-&gt; I<span class="s1">'m back!
+</span></code></pre></div></div>
+
+<p>이것만 보면 뭐하는건가 싶다. echo를 이렇게만 쓰면 무기력하고 다시 쓸 일 없는 기능처럼 보이는데 사실 echo는 아직 설명하지 못한 쉘의 다양한 기능과 조합할 때 매우 강력해지는 기능이다. 하나만 예를 들어보자.<br />
+앞서 쉘에서도 우리가 일반적인 프로그래밍에서 하는 기능들을 모두 가능하다고 했다. 그중에는 변수 할당도 있을 것이다. 가령 내가 ‘a’라는 변수에 3을 할당하고 그 값을 확인하고 싶다고 하자. 이때 echo를 써볼 수 있다.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">a</span><span class="o">=</span>3
+<span class="nb">echo</span> <span class="nv">$a</span>
+
+-&gt; 3
+</code></pre></div></div>
+
+<p>유닉스에서는 변수 할당 시 일반적인 대입 연산자(=)를 쓰되, 양 피연산자 사이에 공백이 있으면 안 된다. 그것도 이유가 있는데 일단 넘어가겠다. 그리고 그 값을 확인할 때 a가 문자 리터럴 ‘a’가 아닌 변수명 a를 나타내기 위해서는 유닉스에서는 변수명 앞에 ‘$’를 붙여줘야 한다. <code class="highlighter-rouge">echo $a</code>와 같은 식을 통해 변수 a의 값을 확인할 수 있었다.</p>
+
+<p>이것말고도 <code class="highlighter-rouge">echo</code>의 활용은 다른 기능과 조합하면 쓸모 있어진다. 이것들은 향후 반드시 다루도록 하겠다.</p>
+
+<hr />
+
+<h3 id="6-cat">6. cat</h3>
+
+<p><strong>cat은 하나 이상의 파일 이름을 입력으로 받아 화면에 그 내용들을 출력하는 기능이다.</strong> 정말 정통적인 Read 기능이라고 할 수 있겠다.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cat </span>README.md
+
+-&gt; Parkito<span class="s1">'s on the way
+...
+</span></code></pre></div></div>
+
+<p>이 기능은 매우 단순한데 간단하게 파일의 내용을 확인하고 싶다든지 할 때 유용하다. 왜 이 기능이 이름이 고양이(cat)일지 궁금하지?? 궁금했을거야. 사실 ‘cat’은 고양이가 아니라 ‘concatenate’의 약자로 뜻은 ‘사슬같이 잇다’, ‘연결시키다’라고 한다. <strong>cat은 2개 이상의 파일 이름을 같이 입력하면 파일들을 모두 읽어 한 번에 출력한다.</strong> 이런 활용은 파일의 내용을 확인할 때보다는 다수의 파일을 하나의 파일로 묶는다든지 하는 기능을 수행할 때 유용하다. 향후 표준 입출력과 관련한 포스트 이후에 서술하도록 하겠다.</p>
+
+<p>이 기능에도 몇 가지 옵션이 있다.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">-s</span> : 줄 사이에 빈 칸이 반복되면 이를 한 줄로 줄인다.
+<span class="nt">-n</span> : 줄에 IDE처럼 숫자를 부여한다.
+</code></pre></div></div>
+
+<hr />
+
+<h3 id="7-cp">7. cp</h3>
+
+<p><strong>cp는 ‘copy’의 약자로 파일이나 디렉토리를 복사한다.</strong> 윈도우즈의 파일이나 폴더에도 같은 기능을 할 수 있기 때문에 아마 익숙할 것이다. cp에는 다음과 같이 인자를 순서대로 넣어줘야 한다.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cp</span> <span class="o">[</span>옵션] 복사할대상<span class="o">(</span>src<span class="o">)</span> 복사된대상<span class="o">(</span>dest<span class="o">)</span>
+</code></pre></div></div>
+
+<p>이 기능에는 <em>src</em> 와 <em>dest</em> 를 꼭 붙여주어야 한다.(옵션은 당연히 선택적으로 함수나 기능의 사용설명서에 ‘[]’ 안에 있는 것들은 선택적이라는 뜻이다.) 가령 내가 /home/sunghwanpark/a/b/c/d/e라는 파일을 단순히 홈 디렉토리로 복사하고 싶으면 다음과 같이 입력하면 된다.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cp</span> ~/a/b/c/d/e ~
+</code></pre></div></div>
+
+<p>아까 설명한 <code class="highlighter-rouge">~</code>를 잘 활용했다. 이렇게 입력하면 파일을 복사해 홈 디렉토리에 둠으로써 2개 존재하게 되었다.</p>
+
+<p>조심할 것은 ‘cp’는 <em>dest</em> 에서 기존의 파일의 존재 여부를 확인하지 않기 때문에 기존의 파일을 덮어쓸 수 있다. 유의하기 바란다.</p>
+
+<hr />
+
+<h3 id="8-mv">8. mv</h3>
+
+<p><strong>mv는 ‘move’의 약자로 파일이나 폴더를 다른 곳으로 이동시킨다.</strong> 윈도우즈 운영체제에서 마우스로 폴더를 끌어 옮기거나 ‘잘라내기’ 후 ‘붙여넣기’ 할 때와 유사하다. 인자는 ‘cp’ 때와 같다.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">mv</span> <span class="o">[</span>옵션] 복사할대상<span class="o">(</span>src<span class="o">)</span> 복사된대상<span class="o">(</span>dest<span class="o">)</span>
+</code></pre></div></div>
+
+<p><strong>cp와 비슷하지만 결정적인 차이가 있다. cp는 ‘복사’기 때문에 실행 후에 파일이 <em>src</em> 와 <em>dest</em> 두 군데 존재하게 되고, ‘mv’는 ‘이동’이기 때문에 실행 후 파일이 <em>dest</em> 에만 있으며 <em>src</em> 에는 없다.</strong> 아까의 예제에서 <code class="highlighter-rouge">mv ~/a/b/c/d/e/ ~</code>라고 입력하면 ‘e’ 파일은 원 위치인 ‘~/a/b/c/d’에는 없고 ‘~’에만 있게 될 것이다.</p>
+
+<p><br /></p>
+
+<p><strong>mv는 또한 파일이나 디렉토리의 이름을 바꿀 때 사용한다.</strong> 윈도우즈에는 파일을 오른쪽 버튼으로 클릭하면 ‘이름 바꾸기’가 있지만 유닉스에는 ‘이름을 바꾸는 것만을 위한’ 기능은 없는데 ‘mv’를 사용하면 가능하다.</p>
+
+<p>가령 내가 현재 폴더의 ‘v1.txt’를 ‘v2.txt’로 이름을 바꾸고 싶다고 하자. <em>src</em> 가 사라진다는 ‘mv’의 특성을 활용하면 이름을 바꿀 수 있다.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">mv</span> ./v1.txt ./v2.txt
+</code></pre></div></div>
+
+<h3 id="9-rm">9. rm</h3>
+
+<p><strong>rm는 ‘remove’, 즉 ‘지우다’의 약자로 파일이나 디렉토리를 삭제한다.</strong> 인자로 삭제할 폴더나 디렉토리의 이름을 주면 된다.</p>
+
+<p>‘cp’나 ‘mv’에서도 그렇지만 유닉스에서는 기존 파일을 덮어씌우거나 할 때 경고를 주지 않고 바로 실행한다. 이것은 유닉스의 “We all agree we’re grown-ups” 정신 때문인데, 내가 입력한 코드에 대해서는 내가 책임지겠다는 것이다. 그런데 ‘rm’는 ‘cp’나 ‘mv’와 달리 특히 더 조심해서 써야 한다. 지우는 것은 절대 되돌릴 수 없기 때문이다. 그래서 ‘rm’을 입력하기 전에는 인자명을 정확히 확인하고 사용하는 것이 중요하다.</p>
+
+<p>‘rm’는 꼭 써야할 수도 있는 중요한 옵션이 있는데 다음과 같다.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">-r</span> : <span class="s1">'recursive'</span>의 약자로, 디렉토리를 삭제할 때 그 안의 있는 파일이나 디렉토리까지 재귀적으로 모두 삭제할 것을 지정함.
+<span class="nt">-f</span> : <span class="s1">'force'</span>의 약자. 지우는 것은 신중해야 하기 때문에 사용자가 파일이 많은 디렉토리를 삭제할 때는 실수로 중요한 파일을 지울 수도 있음. 따라서 <span class="s1">'rm'</span>는 디렉토리 안의 파일마다 삭제할 것인지 <span class="nb">yes</span>/no 로 묻는데 이 옵션을 쓰면 묻지 않고 강제로 전부 삭제함.
+</code></pre></div></div>
+
+<p><strong>디렉토리를 삭제할 때는 <code class="highlighter-rouge">-rf</code> 옵션을 꼭 같이 써줘야 한다.</strong> 그렇지 않으면 삭제 실행이 안 된다.</p>
+
+<p>가끔 생활코딩에 정신나간 놈들이 ‘님들 개꿀임 ㅋㅋ 커맨드에 <code class="highlighter-rouge">rm -rf /</code> 해보셈 ㅋㅋㅋ’하는데 이 코드는 절대 실행해서는 안 되는 코드다.</p>
+
+<p>위 코드는 루트 디렉토리(‘/’)를 삭제하라는 의미로 전통적인 유닉스는 그 중요성을 고려하지 않고 정말로 입력받은 대로 삭제한다. 이는 치명적으로 절대 실행해서는 안 되는 코드이다. 장난으로라도 저런 것을 올렸다가 입문자들이 한 명이라도 실행해보면 어쩌려고 저러는지… 사실 현대적인 리눅스 배포판들에서는 저런 치명적인 경로를 삭제하는 코드는 실행하지 않도록 되어 있기는 하다.</p>
+
+<hr />
+
+<h2 id="마치며">마치며</h2>
+
+<hr />
+
+<p>이상으로 유닉스 쉘에 핵심적인 커맨드 9개를 살펴보았다. 이 9개는 유닉스를 사용할 때 정말 필수적인 커맨드로 이들 없이는 정상적인 컴퓨터 생활을 하기 힘들다. 그렇기 때문에 이 9개는 꼭 여러 번 써보고 체득할 것을 권장한다.</p>
+
+<p>또한 난 이 기능들에 대해 다 설명하지도 않았다. 이들은 확인해보면 내가 제시한 것보다 더 많은 옵션과 활용방법을 가지고 있는데 그중 중요한 것과 내가 아는 것의 교집합만 추려서 설명했다. 하지만 가능한 다른 옵션들이나 활용법을 알면 손해볼 것은 없다. 그만큼 자주 쓰기 때문이다.</p>
+
+<p><strong>내가 프로그래밍 언어나 쉘 커맨드를 공부할 때 항상 추천하는 방법은 헬핑(helping)을 생활화하는 것이다. 헬핑은 내가 만든 단어인데 CLI 환경에서 명령어와 함께 <code class="highlighter-rouge">--help</code>를 같이 입력해보는 것이다.</strong> 전부는 아니지만 대다수의 경우 해당 기능의 사용서가 출력된다. 이 기능들은 사실 누가 만든 ‘프로그램’이고 이런 프로그램들은 다른 사람들을 위한 ‘사용설명서’를 가지고 있다. 그래야 사람들이 잘 쓸 것 아닌가? 나도 이 포스트를 적을 때 위 커맨드마다 헬핑 해보고 다시 한 번 확인했다. <strong>내가 처음 보는 함수나 기능을 만난다면 먼저 헬핑을 하자.</strong> 이것이 습관이 되어야 한다. 인터넷 검색은 다음이다.</p>
+
+<p>쉘의 세계는 정말로 방대한 세계이다. 이 포스트는 그 첫 발걸음을 떼는 시작이라고 할 수 있다. 앞으로 나도 더 공부할건데 더 공부해서 쉘 스크립트로 자동화까지 해보는 경지에 이르러보자. 아마 될 것 같다.</p>
+
+      <div class="page-footer">
+        <div class="page-share">
+          <a href="https://twitter.com/intent/tweet?text=핵심 Shell 커맨드 9개 살펴보기&url=http://localhost:4000/programming/shell-programming/Top-basic-unix-shell-command.html" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
+          <a href="https://facebook.com/sharer.php?u=http://localhost:4000/programming/shell-programming/Top-basic-unix-shell-command.html" title="Share on Facebook" rel="nofollow" target="_blank">Facebook</a>
+          <a href="https://plus.google.com/share?url=http://localhost:4000/programming/shell-programming/Top-basic-unix-shell-command.html" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>
+        </div>
+        <div class="page-tag">
+          
+            <a href="/tags#Python" class="tag">&#35; Python</a>
+          
+            <a href="/tags#shell" class="tag">&#35; shell</a>
+          
+            <a href="/tags#top_9_shell_commands" class="tag">&#35; top_9_shell_commands</a>
+          
+        </div>
+      </div>
+		  <!-- Load Facebook SDK for JavaScript -->
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+
+  <!-- Your share button code -->
+  <div class="fb-share-button" 
+    data-href="http://localhost:4000/programming/shell-programming/Top-basic-unix-shell-command.html" 
+    data-layout="button_count">
+  </div>
+
+		
+    </div> <!-- End Wrap Content -->
+  </div> <!-- End Page Content -->
+</article> <!-- End Article Page -->
+
+</div>
+
+  </div>
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', '', 'auto');
+  ga('send', 'pageview');
+</script> <!-- End Analytics -->
+
+	<script src="https://unpkg.com/simple-jekyll-search@1.5.0/dest/simple-jekyll-search.min.js"></script>
+<script>
+var sjs = SimpleJekyllSearch({
+  searchInput: document.querySelector('#search-input'),
+  resultsContainer: document.getElementById('results-container'),
+  json: '/search.json',
+  searchResultTemplate: '<li class="search-results-item"><a href="http://localhost:4000{url}">{title}</a></li>',
+	limit: 9,
+	noResultsText: '<li class="search-results-item"><a href="#">No results found...</a></li>'
+})
+</script>
+
+	<!-- Main Js -->
+<!--<script src="/assets/js/main.js"></script>-->
+
+<!-- JQuery 3.x min -->
+<script src="/assets/js/jquery.js"></script>
+
+<script>
+	let menus = $("#category-list");
+	let image = $("#menu-toggler img");
+	$("#toggler-wrapper").click(function() {
+		if(menus.css("display") === "none") {
+			image.attr("src", "/assets/img/close-button.png");
+			menus.css("display", "flex");
+		}
+		else {
+			image.attr("src", "/assets/img/nav-off.png");
+			menus.css("display", "none");
+		}
+	});
+
+
+</script>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-127149179-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-127149179-1');
+</script>
+
+</body>
+</html>

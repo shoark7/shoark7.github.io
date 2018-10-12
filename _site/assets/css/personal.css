@@ -249,6 +249,9 @@ article.article-page {
 /* !--Search section ends */
 
 /* !--article */
+.article-page p {
+	text-indent: 1em;
+}
 .article-page a {
 	target: "_blank";
 }
@@ -263,20 +266,27 @@ article.article-page {
 }
 
 .article-page h2 {
-	margin-top: 2em;
+	margin-top: 3em;
 	margin-bottom: 1em;
 }
 .article-page h3 {
-	font-size: 1.5em;
 	margin-top: 1.5em;
 	margin-bottom: 1em;
+}
+.article-page h4 {
+	margin-top: 1.5em;
+	margin-bottom: 0.5em;
 }
 .header-page {
 	margin-bottom: 5em;
 }
 .highlighter-rouge {
-	margin-top: 1.5em;
-	margin-bottom: 2em;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	color: crimson;
+}
+.language-sh {
+	padding: 3px;
 }
 .wrap-content > p > img.emoji {
 	display: inline-block;
