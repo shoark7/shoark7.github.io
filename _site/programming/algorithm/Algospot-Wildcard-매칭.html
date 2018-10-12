@@ -512,8 +512,8 @@
 
 <p>위 코드는 앞서 살펴 본 완전탐색 방법과 조금 다르지만 조건만은 거의 동일하다.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="n">len_p</span><span class="p">,</span> <span class="n">len_w</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">pattern</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
-    <span class="n">cache</span> <span class="o">=</span> <span class="p">[[</span><span class="o">-</span><span class="mi">1</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">len_w</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">len_p</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">len_p</span><span class="p">,</span> <span class="n">len_w</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">pattern</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+<span class="n">cache</span> <span class="o">=</span> <span class="p">[[</span><span class="o">-</span><span class="mi">1</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">len_w</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">len_p</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
 </code></pre></div></div>
 
 <p>길이를 담은 변수를 설정하고 캐쉬를 만든다. 이때 캐쉬의 크기를 문자열의 크기보다 1 크게 해준다.<br />
@@ -521,8 +521,8 @@
 
 <hr />
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>        <span class="k">if</span> <span class="n">cache</span><span class="p">[</span><span class="n">nth_p</span><span class="p">][</span><span class="n">nth_w</span><span class="p">]</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">cache</span><span class="p">[</span><span class="n">nth_p</span><span class="p">][</span><span class="n">nth_w</span><span class="p">]</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="n">cache</span><span class="p">[</span><span class="n">nth_p</span><span class="p">][</span><span class="n">nth_w</span><span class="p">]</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">cache</span><span class="p">[</span><span class="n">nth_p</span><span class="p">][</span><span class="n">nth_w</span><span class="p">]</span>
 </code></pre></div></div>
 
 <p>캐시 값이 -1이 아니면 계산을 이미 했다는 것이기 때문에 그 값을 그대로 반환한다.<br />
@@ -530,28 +530,28 @@
 
 <hr />
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>        <span class="k">if</span> <span class="n">nth_p</span> <span class="o">&lt;</span> <span class="n">len_p</span> <span class="ow">and</span> <span class="n">nth_w</span> <span class="o">&lt;</span> <span class="n">len_w</span> <span class="ow">and</span> <span class="p">(</span><span class="n">pattern</span><span class="p">[</span><span class="n">nth_p</span><span class="p">]</span> <span class="o">==</span> <span class="s">'?'</span> <span class="ow">or</span> <span class="n">pattern</span><span class="p">[</span><span class="n">nth_p</span><span class="p">]</span> <span class="o">==</span>
-                                                <span class="n">word</span><span class="p">[</span><span class="n">nth_w</span><span class="p">]):</span>
-            <span class="n">cache</span><span class="p">[</span><span class="n">nth_p</span><span class="p">][</span><span class="n">nth_w</span><span class="p">]</span> <span class="o">=</span> <span class="n">match</span><span class="p">(</span><span class="n">nth_p</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">nth_w</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-            <span class="k">return</span> <span class="n">cache</span><span class="p">[</span><span class="n">nth_p</span><span class="p">][</span><span class="n">nth_w</span><span class="p">]</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="n">nth_p</span> <span class="o">&lt;</span> <span class="n">len_p</span> <span class="ow">and</span> <span class="n">nth_w</span> <span class="o">&lt;</span> <span class="n">len_w</span> <span class="ow">and</span> <span class="p">(</span><span class="n">pattern</span><span class="p">[</span><span class="n">nth_p</span><span class="p">]</span> <span class="o">==</span> <span class="s">'?'</span> <span class="ow">or</span> <span class="n">pattern</span><span class="p">[</span><span class="n">nth_p</span><span class="p">]</span> <span class="o">==</span>
+                                        <span class="n">word</span><span class="p">[</span><span class="n">nth_w</span><span class="p">]):</span>
+    <span class="n">cache</span><span class="p">[</span><span class="n">nth_p</span><span class="p">][</span><span class="n">nth_w</span><span class="p">]</span> <span class="o">=</span> <span class="n">match</span><span class="p">(</span><span class="n">nth_p</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">nth_w</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">cache</span><span class="p">[</span><span class="n">nth_p</span><span class="p">][</span><span class="n">nth_w</span><span class="p">]</span>
 </code></pre></div></div>
 <p>아까 <em>nth</em> 를 증가시키던 식과 원칙적으로 똑같다. 다만, 값이 같을 때 <em>match</em> 함수를 반복 실행함으로써 캐쉬에 값을 꾸준히 채운다. 그리고 값을 반환한다.</p>
 
 <hr />
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>        <span class="k">if</span> <span class="n">nth_p</span> <span class="o">==</span> <span class="n">len_p</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">nth_w</span> <span class="o">==</span> <span class="n">len_w</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="n">nth_p</span> <span class="o">==</span> <span class="n">len_p</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">nth_w</span> <span class="o">==</span> <span class="n">len_w</span>
 </code></pre></div></div>
 
 <p>두 번째 조건이다. 패턴이 끝났을 때 문자열도 끝났는지 판단해 값을 반환한다.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>        <span class="k">if</span> <span class="n">pattern</span><span class="p">[</span><span class="n">nth_p</span><span class="p">]</span> <span class="o">==</span> <span class="s">'*'</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">match</span><span class="p">(</span><span class="n">nth_p</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">nth_w</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">nth_w</span> <span class="o">&lt;</span> <span class="n">len_w</span> <span class="ow">and</span> <span class="n">match</span><span class="p">(</span><span class="n">nth_p</span><span class="p">,</span> <span class="n">nth_w</span><span class="o">+</span><span class="mi">1</span><span class="p">)):</span>
-                <span class="n">cache</span><span class="p">[</span><span class="n">nth_p</span><span class="p">][</span><span class="n">nth_w</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
-                <span class="k">return</span> <span class="bp">True</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="n">pattern</span><span class="p">[</span><span class="n">nth_p</span><span class="p">]</span> <span class="o">==</span> <span class="s">'*'</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">match</span><span class="p">(</span><span class="n">nth_p</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">nth_w</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">nth_w</span> <span class="o">&lt;</span> <span class="n">len_w</span> <span class="ow">and</span> <span class="n">match</span><span class="p">(</span><span class="n">nth_p</span><span class="p">,</span> <span class="n">nth_w</span><span class="o">+</span><span class="mi">1</span><span class="p">)):</span>
+        <span class="n">cache</span><span class="p">[</span><span class="n">nth_p</span><span class="p">][</span><span class="n">nth_w</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
+        <span class="k">return</span> <span class="bp">True</span>
 
-        <span class="n">cache</span><span class="p">[</span><span class="n">nth_p</span><span class="p">][</span><span class="n">nth_w</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
-        <span class="k">return</span> <span class="bp">False</span>
+<span class="n">cache</span><span class="p">[</span><span class="n">nth_p</span><span class="p">][</span><span class="n">nth_w</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
+<span class="k">return</span> <span class="bp">False</span>
 </code></pre></div></div>
 
 <p>패턴의 <em>nth_p</em> 번째 글자가 ‘*‘일 때를 확인한다.</p>

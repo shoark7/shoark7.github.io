@@ -329,8 +329,8 @@ def wildcard(pattern, word):
 
 
 ```python
-    len_p, len_w = len(pattern), len(word)
-    cache = [[-1 for _ in range(len_w+1)] for _ in range(len_p+1)]
+len_p, len_w = len(pattern), len(word)
+cache = [[-1 for _ in range(len_w+1)] for _ in range(len_p+1)]
 ```
 
 길이를 담은 변수를 설정하고 캐쉬를 만든다. 이때 캐쉬의 크기를 문자열의 크기보다 1 크게 해준다.  
@@ -340,8 +340,8 @@ def wildcard(pattern, word):
 
 
 ```python
-        if cache[nth_p][nth_w] != -1:
-            return cache[nth_p][nth_w]
+if cache[nth_p][nth_w] != -1:
+    return cache[nth_p][nth_w]
 ```
 
 캐시 값이 -1이 아니면 계산을 이미 했다는 것이기 때문에 그 값을 그대로 반환한다.  
@@ -350,10 +350,10 @@ def wildcard(pattern, word):
 ---
 
 ```python
-        if nth_p < len_p and nth_w < len_w and (pattern[nth_p] == '?' or pattern[nth_p] ==
-                                                word[nth_w]):
-            cache[nth_p][nth_w] = match(nth_p+1, nth_w+1)
-            return cache[nth_p][nth_w]
+if nth_p < len_p and nth_w < len_w and (pattern[nth_p] == '?' or pattern[nth_p] ==
+                                        word[nth_w]):
+    cache[nth_p][nth_w] = match(nth_p+1, nth_w+1)
+    return cache[nth_p][nth_w]
 ```
 아까 _nth_ 를 증가시키던 식과 원칙적으로 똑같다. 다만, 값이 같을 때 _match_ 함수를 반복 실행함으로써 캐쉬에 값을 꾸준히 채운다. 그리고 값을 반환한다.
 
@@ -361,21 +361,21 @@ def wildcard(pattern, word):
 
 
 ```python
-        if nth_p == len_p:
-            return nth_w == len_w
+if nth_p == len_p:
+    return nth_w == len_w
 ```
 
 두 번째 조건이다. 패턴이 끝났을 때 문자열도 끝났는지 판단해 값을 반환한다.
 
 
 ```python
-        if pattern[nth_p] == '*':
-            if match(nth_p+1, nth_w) or (nth_w < len_w and match(nth_p, nth_w+1)):
-                cache[nth_p][nth_w] = True
-                return True
+if pattern[nth_p] == '*':
+    if match(nth_p+1, nth_w) or (nth_w < len_w and match(nth_p, nth_w+1)):
+        cache[nth_p][nth_w] = True
+        return True
 
-        cache[nth_p][nth_w] = False
-        return False
+cache[nth_p][nth_w] = False
+return False
 ```
 
 패턴의 _nth\_p_ 번째 글자가 '\*'일 때를 확인한다.  
