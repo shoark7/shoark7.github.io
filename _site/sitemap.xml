@@ -29,7 +29,7 @@
 <lastmod>2018-10-06T00:00:00+09:00</lastmod>
 </url>
 <url>
-<loc>http://localhost:4000/projects/Trip-To-Galapagos-Islands.html</loc>
+<loc>http://localhost:4000/projects/etc/Trip-To-Galapagos-Islands.html</loc>
 <lastmod>2018-10-07T00:00:00+09:00</lastmod>
 </url>
 <url>
@@ -45,6 +45,12 @@
 </url>
 <url>
 <loc>http://localhost:4000/category/programming/algorithm.html</loc>
+</url>
+<url>
+<loc>http://localhost:4000/category/projects/dev-related.html</loc>
+</url>
+<url>
+<loc>http://localhost:4000/category/projects/etc.html</loc>
 </url>
 <url>
 <loc>http://localhost:4000/</loc>

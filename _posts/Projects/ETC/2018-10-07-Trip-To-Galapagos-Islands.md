@@ -4,7 +4,7 @@ title: 갈라파고스 여행 후기, 정보!
 date: 2018-10-07
 description: My experience to Galapagos islands and advice for Koreans.
 img:  /projects/galapagos-logo.jpg
-categories: [projects]
+categories: [Projects, ETC]
 tags: [Galapagos, 갈라파고스]
 ---
 

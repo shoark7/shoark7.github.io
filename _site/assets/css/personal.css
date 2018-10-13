@@ -431,6 +431,10 @@ nav.pagination ul {
 		width: 100%;
 		justify-content: space-between;
 	}
+	#menus > p {
+		width: 100%;
+		text-align: center;
+	}
 	ul#category-list {
 		width: 100%;
 		display: none;
