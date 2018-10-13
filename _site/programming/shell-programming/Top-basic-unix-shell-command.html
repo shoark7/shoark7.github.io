@@ -130,6 +130,10 @@
 										<span> Insight </span>
 									</div>
 								</a>
+								<div class="menu-item">
+									<a href="/category/insight/sensitivity">&nbsp;&nbsp;Sensitivity&nbsp;&nbsp;</a>
+									<a href="/category/insight/rationality">&nbsp;&nbsp;Rationality&nbsp;&nbsp;</a>
+								</div>
 						</div>
 					</li>
 
@@ -530,7 +534,6 @@ custom-backup  initrd.img  lost+found      proc   snap  usr
 <h3 id="7-cp">7. cp</h3>
 
 <p><strong>cp는 ‘copy’의 약자로 파일이나 디렉토리를 복사한다.</strong> 윈도우즈의 파일이나 폴더에도 같은 기능을 할 수 있기 때문에 아마 익숙할 것이다. cp에는 다음과 같이 인자를 순서대로 넣어줘야 한다.</p>
-
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cp</span> <span class="o">[</span>옵션] 복사할대상<span class="o">(</span>src<span class="o">)</span> 복사된대상<span class="o">(</span>dest<span class="o">)</span>
 </code></pre></div></div>
 
@@ -563,9 +566,11 @@ custom-backup  initrd.img  lost+found      proc   snap  usr
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">mv</span> ./v1.txt ./v2.txt
 </code></pre></div></div>
 
+<hr />
+
 <h3 id="9-rm">9. rm</h3>
 
-<p><strong>rm는 ‘remove’, 즉 ‘지우다’의 약자로 파일이나 디렉토리를 삭제한다.</strong> 인자로 삭제할 폴더나 디렉토리의 이름을 주면 된다.</p>
+<p><strong>rm는 ‘remove’, 즉 ‘지우다’의 약자로 파일이나 디렉토리를 삭제한다.</strong> 인자로 삭제할 파일이나 디렉토리의 이름을 주면 된다.</p>
 
 <p>‘cp’나 ‘mv’에서도 그렇지만 유닉스에서는 기존 파일을 덮어씌우거나 할 때 경고를 주지 않고 바로 실행한다. 이것은 유닉스의 “We all agree we’re grown-ups” 정신 때문인데, 내가 입력한 코드에 대해서는 내가 책임지겠다는 것이다. 그런데 ‘rm’는 ‘cp’나 ‘mv’와 달리 특히 더 조심해서 써야 한다. 지우는 것은 절대 되돌릴 수 없기 때문이다. 그래서 ‘rm’을 입력하기 전에는 인자명을 정확히 확인하고 사용하는 것이 중요하다.</p>
 

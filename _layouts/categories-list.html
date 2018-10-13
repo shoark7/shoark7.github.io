@@ -1,0 +1,22 @@
+---
+layout: main
+---
+
+<div class="category-wrapper">
+	<div class="category">
+		<h1 class="category-header">{{ page.category }}</h1>
+		{% for sub_category in page.sub_categories %}
+		{% assign posts = site.posts | where: "categories", sub_category %}
+			<h2 class="category-name"><a href="/category/{{ page.category | downcase }}/{{ sub_category | downcase }}">{{ sub_category }}</a></h2>
+			<hr>
+			{% for post in posts %}
+				<p class="category-item">
+					<a href="{{ post.url }}">{{ post.title }}</a>
+				</p>
+			{% endfor %}
+			<br>
+			<br>
+			<br>
+		{% endfor %}
+	</div>
+</div>
