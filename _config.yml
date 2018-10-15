@@ -14,7 +14,8 @@ social-linkedin: sunghwan-park-3773b8154
 social-email: shoark7@gmail.com
 
 # Disqus
-discus-identifier: mr-brown # add your discus identifier
+discus-identifier: # mr-brown # add your discus identifier
+# discus-identifier: mr-brown # add your discus identifier
 
 # Tracker
 analytics: # Google Analytics
@@ -28,7 +29,7 @@ plugins:
 
 
 # Paginate
-paginate: 6
+paginate: 10
 paginate_path: "/page/:num"
 
 exclude: ["node_modules", "gulpfile.js", "package.json", "yarn.lock"]
