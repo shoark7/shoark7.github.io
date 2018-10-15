@@ -41,6 +41,10 @@
 <lastmod>2018-10-12T00:00:00+09:00</lastmod>
 </url>
 <url>
+<loc>http://localhost:4000/programming/knowledge/what-is-standard-stream.html</loc>
+<lastmod>2018-10-15T00:00:00+09:00</lastmod>
+</url>
+<url>
 <loc>http://localhost:4000/about.me.html</loc>
 </url>
 <url>
@@ -57,6 +61,9 @@
 </url>
 <url>
 <loc>http://localhost:4000/category/insight.html</loc>
+</url>
+<url>
+<loc>http://localhost:4000/category/programming/knowledge.html</loc>
 </url>
 <url>
 <loc>http://localhost:4000/category/programming.html</loc>
