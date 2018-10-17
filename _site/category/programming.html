@@ -69,9 +69,20 @@
 	<link rel="stylesheet" href="/assets/css/personal.css">
 	<link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Nanum+Gothic:400,700,800&amp;subset=korean" rel="stylesheet">
 	<!-- Mathjax Support -->
-	<script type="text/javascript" async
-		src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
-	</script>
+<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+	MathJax.Hub.Config({
+  showProcessingMessages: false,
+  jax: ["input/TeX", "output/HTML-CSS"],
+  TeX: {
+    TagSide: "left",
+    Macros: {
+      RR: '{\\bf R}',
+      bold: ['{\\bf #1}',1]
+    }
+  }
+});
+</script>
+
 </head>
 
 <body style="position: relative">
@@ -266,6 +277,10 @@
 		
 			<h2 class="category-name"><a href="/category/programming/shell-programming">Shell-programming</a></h2>
 			<hr>
+			
+				<p class="category-item">
+					<a href="/programming/shell-programming/ways-to-search-information-for-linux-commands.html">새로운 리눅스 Shell 커맨드를 만났을 때 대처법</a>
+				</p>
 			
 				<p class="category-item">
 					<a href="/programming/shell-programming/Top-basic-unix-shell-command.html">핵심 Shell 커맨드 9개 살펴보기</a>

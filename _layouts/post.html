@@ -33,12 +33,9 @@ layout: main
         </div>
       </div>
 		{% include page-share.html %}
-		{% include disqus.html %}
-					{% comment %}
-					{% if jekyll.environment == "production" %}
-						{% include disqus.html %}
-					{% endif %}
-					{% endcomment %}
+		{% if jekyll.environment == "production" %}
+			{% include disqus.html %}
+		{% endif %}
     </div> <!-- End Wrap Content -->
   </div> <!-- End Page Content -->
 </article> <!-- End Article Page -->

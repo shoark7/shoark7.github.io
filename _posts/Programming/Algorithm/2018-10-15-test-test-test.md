@@ -7,9 +7,16 @@ img:  /algorithm/wildcard.png
 categories: [Programming, Algorithm]
 tags: [Algorithm]
 ---
+MathJax는 몇 가지 요소로 구성되는데:
+  * page preprocessor
+  * input preprocessor
+  * output preprocessor
+  * MathJax Hub
+  
+MathJax는 나머지 요소를 구성하고 연결하는 역할을 하며, input & output preprocessor는 jax라고 부른다.      
 
 $$
-\begin{align*}
+\begin{align} \label{x1}
   & \phi(x,y) = \phi \left(\sum_{i=1}^n x_ie_i, \sum_{j=1}^n y_je_j \right)
   = \sum_{i=1}^n \sum_{j=1}^n x_i y_j \phi(e_i, e_j) = \\
   & (x_1, \ldots, x_n) \left( \begin{array}{ccc}
@@ -22,5 +29,16 @@ $$
       \vdots \\
       y_n
     \end{array} \right)
-\end{align*}
+\end{align}
+$$
+
+
+LaTeX 수학 문법
+
+
+$$ 
+\begin{align}
+x &= a + b, \label{x3} \\
+y &= c + d + e + f, \label{y3}
+\end{align}
 $$

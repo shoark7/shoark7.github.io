@@ -69,9 +69,20 @@
 	<link rel="stylesheet" href="/assets/css/personal.css">
 	<link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Nanum+Gothic:400,700,800&amp;subset=korean" rel="stylesheet">
 	<!-- Mathjax Support -->
-	<script type="text/javascript" async
-		src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
-	</script>
+<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+	MathJax.Hub.Config({
+  showProcessingMessages: false,
+  jax: ["input/TeX", "output/HTML-CSS"],
+  TeX: {
+    TagSide: "left",
+    Macros: {
+      RR: '{\\bf R}',
+      bold: ['{\\bf #1}',1]
+    }
+  }
+});
+</script>
+
 </head>
 
 <body style="position: relative">
@@ -233,7 +244,7 @@
     <li ><a href="#OOP" class="tag">OOP <span>(2)</span></a></li>
   
     
-    <li ><a href="#Python" class="tag">Python <span>(6)</span></a></li>
+    <li ><a href="#Python" class="tag">Python <span>(7)</span></a></li>
   
     
     <li ><a href="#Python+data+structure" class="tag">Python data structure <span>(1)</span></a></li>
@@ -251,7 +262,10 @@
     <li ><a href="#packing+%26+unpacking" class="tag">packing & unpacking <span>(1)</span></a></li>
   
     
-    <li ><a href="#shell" class="tag">shell <span>(1)</span></a></li>
+    <li ><a href="#shell" class="tag">shell <span>(2)</span></a></li>
+  
+    
+    <li ><a href="#shell_commands" class="tag">shell_commands <span>(1)</span></a></li>
   
     
     <li ><a href="#standard_IO" class="tag">standard_IO <span>(1)</span></a></li>
@@ -361,6 +375,11 @@
 <!--  lists all posts corresponding to specific tag...-->
     
     <div class="tag-list">
+        <span><a href="/programming/shell-programming/ways-to-search-information-for-linux-commands.html">새로운 리눅스 Shell 커맨드를 만났을 때 대처법</a></span>
+        <small><span>| 16 Oct 2018</span></small>
+    </div>
+    
+    <div class="tag-list">
         <span><a href="/programming/shell-programming/Top-basic-unix-shell-command.html">핵심 Shell 커맨드 9개 살펴보기</a></span>
         <small><span>| 12 Oct 2018</span></small>
     </div>
@@ -446,8 +465,23 @@
 <!--  lists all posts corresponding to specific tag...-->
     
     <div class="tag-list">
+        <span><a href="/programming/shell-programming/ways-to-search-information-for-linux-commands.html">새로운 리눅스 Shell 커맨드를 만났을 때 대처법</a></span>
+        <small><span>| 16 Oct 2018</span></small>
+    </div>
+    
+    <div class="tag-list">
         <span><a href="/programming/shell-programming/Top-basic-unix-shell-command.html">핵심 Shell 커맨드 9개 살펴보기</a></span>
         <small><span>| 12 Oct 2018</span></small>
+    </div>
+    
+  
+    
+  <h2 id="shell_commands">shell_commands</h2>
+<!--  lists all posts corresponding to specific tag...-->
+    
+    <div class="tag-list">
+        <span><a href="/programming/shell-programming/ways-to-search-information-for-linux-commands.html">새로운 리눅스 Shell 커맨드를 만났을 때 대처법</a></span>
+        <small><span>| 16 Oct 2018</span></small>
     </div>
     
   
