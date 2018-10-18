@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "꿈꾸는 데이터 디자이너 프로젝트: DATA 1988",
+      "category" : "",
+      "tags"     : "꿈꾸는_데이터_디자이너, DATA_1988, 응답하라__1988",
+      "url"      : "/projects/dev-related/data-designer-projects.html",
+      "date"     : "2018-10-18 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "코드 단위, Expression과 Statement를 알아보자.",
       "category" : "",
       "tags"     : "Expression, Statement, expression-vs-statement",

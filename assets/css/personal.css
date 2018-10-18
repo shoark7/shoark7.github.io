@@ -304,15 +304,15 @@ article.article-page {
 .language-sh {
 	padding: 3px;
 }
-.wrap-content > p > img.emoji {
+img.emoji {
 	display: inline-block;
 	margin: 0px 5px 5px 5px;
+}
+.wrap-content > p > img.emoji {
 	width: 2em;
 	height: 2em;
 }
 .wrap-content > h2 > img.emoji {
-	display: inline-block;
-	margin: 0px 5px 5px 5px;
 	width: 1.25em;
 	height: 1.25em;
 }
