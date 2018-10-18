@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "코드 단위, Expression과 Statement를 알아보자.",
+      "category" : "",
+      "tags"     : "Expression, Statement, expression-vs-statement",
+      "url"      : "/programming/knowledge/expression-vs-statement.html",
+      "date"     : "2018-10-18 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "새로운 리눅스 Shell 커맨드를 만났을 때 대처법",
       "category" : "",
       "tags"     : "Python, shell, shell_commands",
