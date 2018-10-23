@@ -7,6 +7,7 @@ img:  /algorithm/wildcard.png
 categories: [Programming, Algorithm]
 tags: [Algorithm]
 ---
+
 MathJax는 몇 가지 요소로 구성되는데:
   * page preprocessor
   * input preprocessor

@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "[조합론] 이항계수를 구하는 3가지 알고리즘",
+      "category" : "",
+      "tags"     : "Algorithm, binomial_coefficient",
+      "url"      : "/programming/algorithm/3-ways-to-get-binomial-coefficients.html",
+      "date"     : "2018-10-19 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "꿈꾸는 데이터 디자이너 프로젝트: DATA 1988",
       "category" : "",
       "tags"     : "꿈꾸는_데이터_디자이너, DATA_1988, 응답하라__1988",
@@ -9,7 +17,7 @@
     } ,
   
     {
-      "title"    : "코드 단위, Expression과 Statement를 알아보자.",
+      "title"    : "코드 단위, Expression과 Statement를 알아보자",
       "category" : "",
       "tags"     : "Expression, Statement, expression-vs-statement",
       "url"      : "/programming/knowledge/expression-vs-statement.html",
