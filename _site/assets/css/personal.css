@@ -3,6 +3,10 @@ aside.sidebar {
 	top: 10%;
 	height: 90%;
 }
+article.post {
+	margin: 0;
+	margin-bottom: 1em;
+}
 
 
 .articles:first-child {
