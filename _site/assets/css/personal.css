@@ -1,5 +1,6 @@
 .content-box {
 	padding: 0;
+	padding-left: 260px;
 }
 aside.sidebar {
 	position: fixed;
