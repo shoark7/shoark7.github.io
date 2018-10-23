@@ -1,7 +1,7 @@
 ---
 layout: post
 title: '[조합론] 이항계수를 구하는 3가지 알고리즘'
-date: 2018-10-19
+date: 2018-10-23
 description: 'I introduce 3 algorithms to get binomial coefficient.'
 img:  /algorithm/logo-binomial-coefficient.png
 categories: [Programming, Algorithm]
