@@ -141,15 +141,19 @@ def bino_coef(n, k):
 
 ```python
 def bino_coef(n, r):
-    cache = [[0 for _ in range(r+1)] for _ in range(n+1)]			# 1.
-    for i in range(n+1):									# 2.
+    # 1.
+    cache = [[0 for _ in range(r+1)] for _ in range(n+1)]
+
+    # 2.
+    for i in range(n+1):
         cache[i][0] = 1
     for i in range(r+1):
         cache[i][i] = 1
 
+    # 3.
     for i in range(1, n+1):
         for j in range(1, r+1):
-            cache[i][j] = cache[i-1][j] + cache[i-1][j-1]				# 3.
+            cache[i][j] = cache[i-1][j] + cache[i-1][j-1]
 
     return cache[n][r]
 ```
@@ -213,19 +217,25 @@ def bino_coef(n, k):
     if k > n:
         return 0
 
-    cache = [[-1 for _ in range(n+1)] for _ in range(n+1)]				# 1.
+    # 1.
+    cache = [[-1 for _ in range(n+1)] for _ in range(n+1)]
 
-    def choose(times, got):										# 2.
-        if times == n:											# 3.
+    # 2.
+    def choose(times, got):
+        # 3.
+        if times == n:
 	    return got == k
 
-	if cache[times][got] != -1:									# 4.
+	# 4.
+	if cache[times][got] != -1:
 	    return cache[times][got]
 
-	cache[times][got] = choose(times+1, got) + choose(times+1, got+1)	# 5.
+	# 5.
+	cache[times][got] = choose(times+1, got) + choose(times+1, got+1)
 	return cache[times][got]
 
-    return choose(0, 0)										# 6.
+    # 6.
+    return choose(0, 0)
 ```
 
 1. _n_ 개의 품목 중 _k_ 개를 선택하는 조합의 수를 반환하는 'bino\_coef' 함수를 정의하고 캐쉬를 초기화한다.  
@@ -293,19 +303,25 @@ def bino_coef_prob(n, k):
     if k > n:
         return 0
 
-    cache = [[-1 for _ in range(n+1)] for _ in range(n+1)]				# 1.
+    # 1.
+    cache = [[-1 for _ in range(n+1)] for _ in range(n+1)]
 
-    def choose(times, got):										# 2.
-        if times == n:											# 3.
+    # 2.
+    def choose(times, got):
+        # 3.
+        if times == n:
 	    return got >= k
 
-	if cache[times][got] != -1:									# 4.
+	# 4.
+	if cache[times][got] != -1:
 	    return cache[times][got]
 
-	cache[times][got] = 0.5 * choose(times+1, got) + 0.5 * choose(times+1, got+1)	# 5.
+	# 5.
+	cache[times][got] = 0.5 * choose(times+1, got) + 0.5 * choose(times+1, got+1)
 	return cache[times][got]
 
-    return choose(0, 0)										# 6.
+    # 6.
+    return choose(0, 0)
 
 
 >>> bino_coef_prob(10, 8)
@@ -337,16 +353,21 @@ def bino_coef(n, k):
     if k > n:
         return 0
 
-    cache = [[-1 for _ in range(n+1)] for _ in range(n+1)]				# 1.
+    # 1.
+    cache = [[-1 for _ in range(n+1)] for _ in range(n+1)]
 
-    def choose(times, left):										# 2.
-        if times == 0:											# 3.
+    # 2.
+    def choose(times, left):
+        # 3.
+        if times == 0:
 	    return left == 0
 
-	if cache[times][left] != -1:									# 4.
+	# 4.
+	if cache[times][left] != -1:
 	    return cache[times][left]
 
-	cache[times][left] = choose(times-1, left) + choose(times-1, left-1)	# 5.
+	# 5.
+	cache[times][left] = choose(times-1, left) + choose(times-1, left-1)
 	return cache[times][left]
 
     return choose(n, n-k)									

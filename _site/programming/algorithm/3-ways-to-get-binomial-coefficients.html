@@ -358,15 +358,19 @@
 <p>실제 코드는 다음과 같다.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">bino_coef</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">r</span><span class="p">):</span>
-    <span class="n">cache</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">r</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>			<span class="c"># 1.</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>									<span class="c"># 2.</span>
+    <span class="c"># 1.</span>
+    <span class="n">cache</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">r</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
+
+    <span class="c"># 2.</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
         <span class="n">cache</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">r</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
         <span class="n">cache</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
 
+    <span class="c"># 3.</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">r</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
-            <span class="n">cache</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">cache</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">cache</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>				<span class="c"># 3.</span>
+            <span class="n">cache</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">cache</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">cache</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 
     <span class="k">return</span> <span class="n">cache</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="n">r</span><span class="p">]</span>
 </code></pre></div></div>
@@ -425,19 +429,25 @@
     <span class="k">if</span> <span class="n">k</span> <span class="o">&gt;</span> <span class="n">n</span><span class="p">:</span>
         <span class="k">return</span> <span class="mi">0</span>
 
-    <span class="n">cache</span> <span class="o">=</span> <span class="p">[[</span><span class="o">-</span><span class="mi">1</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>				<span class="c"># 1.</span>
+    <span class="c"># 1.</span>
+    <span class="n">cache</span> <span class="o">=</span> <span class="p">[[</span><span class="o">-</span><span class="mi">1</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
 
-    <span class="k">def</span> <span class="nf">choose</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">got</span><span class="p">):</span>										<span class="c"># 2.</span>
-        <span class="k">if</span> <span class="n">times</span> <span class="o">==</span> <span class="n">n</span><span class="p">:</span>											<span class="c"># 3.</span>
+    <span class="c"># 2.</span>
+    <span class="k">def</span> <span class="nf">choose</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">got</span><span class="p">):</span>
+        <span class="c"># 3.</span>
+        <span class="k">if</span> <span class="n">times</span> <span class="o">==</span> <span class="n">n</span><span class="p">:</span>
 	    <span class="k">return</span> <span class="n">got</span> <span class="o">==</span> <span class="n">k</span>
 
-	<span class="k">if</span> <span class="n">cache</span><span class="p">[</span><span class="n">times</span><span class="p">][</span><span class="n">got</span><span class="p">]</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>									<span class="c"># 4.</span>
+	<span class="c"># 4.</span>
+	<span class="k">if</span> <span class="n">cache</span><span class="p">[</span><span class="n">times</span><span class="p">][</span><span class="n">got</span><span class="p">]</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
 	    <span class="k">return</span> <span class="n">cache</span><span class="p">[</span><span class="n">times</span><span class="p">][</span><span class="n">got</span><span class="p">]</span>
 
-	<span class="n">cache</span><span class="p">[</span><span class="n">times</span><span class="p">][</span><span class="n">got</span><span class="p">]</span> <span class="o">=</span> <span class="n">choose</span><span class="p">(</span><span class="n">times</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">got</span><span class="p">)</span> <span class="o">+</span> <span class="n">choose</span><span class="p">(</span><span class="n">times</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">got</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>	<span class="c"># 5.</span>
+	<span class="c"># 5.</span>
+	<span class="n">cache</span><span class="p">[</span><span class="n">times</span><span class="p">][</span><span class="n">got</span><span class="p">]</span> <span class="o">=</span> <span class="n">choose</span><span class="p">(</span><span class="n">times</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">got</span><span class="p">)</span> <span class="o">+</span> <span class="n">choose</span><span class="p">(</span><span class="n">times</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">got</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
 	<span class="k">return</span> <span class="n">cache</span><span class="p">[</span><span class="n">times</span><span class="p">][</span><span class="n">got</span><span class="p">]</span>
 
-    <span class="k">return</span> <span class="n">choose</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>										<span class="c"># 6.</span>
+    <span class="c"># 6.</span>
+    <span class="k">return</span> <span class="n">choose</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 </code></pre></div></div>
 
 <ol>
@@ -502,19 +512,25 @@
     <span class="k">if</span> <span class="n">k</span> <span class="o">&gt;</span> <span class="n">n</span><span class="p">:</span>
         <span class="k">return</span> <span class="mi">0</span>
 
-    <span class="n">cache</span> <span class="o">=</span> <span class="p">[[</span><span class="o">-</span><span class="mi">1</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>				<span class="c"># 1.</span>
+    <span class="c"># 1.</span>
+    <span class="n">cache</span> <span class="o">=</span> <span class="p">[[</span><span class="o">-</span><span class="mi">1</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
 
-    <span class="k">def</span> <span class="nf">choose</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">got</span><span class="p">):</span>										<span class="c"># 2.</span>
-        <span class="k">if</span> <span class="n">times</span> <span class="o">==</span> <span class="n">n</span><span class="p">:</span>											<span class="c"># 3.</span>
+    <span class="c"># 2.</span>
+    <span class="k">def</span> <span class="nf">choose</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">got</span><span class="p">):</span>
+        <span class="c"># 3.</span>
+        <span class="k">if</span> <span class="n">times</span> <span class="o">==</span> <span class="n">n</span><span class="p">:</span>
 	    <span class="k">return</span> <span class="n">got</span> <span class="o">&gt;=</span> <span class="n">k</span>
 
-	<span class="k">if</span> <span class="n">cache</span><span class="p">[</span><span class="n">times</span><span class="p">][</span><span class="n">got</span><span class="p">]</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>									<span class="c"># 4.</span>
+	<span class="c"># 4.</span>
+	<span class="k">if</span> <span class="n">cache</span><span class="p">[</span><span class="n">times</span><span class="p">][</span><span class="n">got</span><span class="p">]</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
 	    <span class="k">return</span> <span class="n">cache</span><span class="p">[</span><span class="n">times</span><span class="p">][</span><span class="n">got</span><span class="p">]</span>
 
-	<span class="n">cache</span><span class="p">[</span><span class="n">times</span><span class="p">][</span><span class="n">got</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">choose</span><span class="p">(</span><span class="n">times</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">got</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">choose</span><span class="p">(</span><span class="n">times</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">got</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>	<span class="c"># 5.</span>
+	<span class="c"># 5.</span>
+	<span class="n">cache</span><span class="p">[</span><span class="n">times</span><span class="p">][</span><span class="n">got</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">choose</span><span class="p">(</span><span class="n">times</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">got</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">choose</span><span class="p">(</span><span class="n">times</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">got</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
 	<span class="k">return</span> <span class="n">cache</span><span class="p">[</span><span class="n">times</span><span class="p">][</span><span class="n">got</span><span class="p">]</span>
 
-    <span class="k">return</span> <span class="n">choose</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>										<span class="c"># 6.</span>
+    <span class="c"># 6.</span>
+    <span class="k">return</span> <span class="n">choose</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 
 
 <span class="o">&gt;&gt;&gt;</span> <span class="n">bino_coef_prob</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
@@ -543,16 +559,21 @@
     <span class="k">if</span> <span class="n">k</span> <span class="o">&gt;</span> <span class="n">n</span><span class="p">:</span>
         <span class="k">return</span> <span class="mi">0</span>
 
-    <span class="n">cache</span> <span class="o">=</span> <span class="p">[[</span><span class="o">-</span><span class="mi">1</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>				<span class="c"># 1.</span>
+    <span class="c"># 1.</span>
+    <span class="n">cache</span> <span class="o">=</span> <span class="p">[[</span><span class="o">-</span><span class="mi">1</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
 
-    <span class="k">def</span> <span class="nf">choose</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">left</span><span class="p">):</span>										<span class="c"># 2.</span>
-        <span class="k">if</span> <span class="n">times</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>											<span class="c"># 3.</span>
+    <span class="c"># 2.</span>
+    <span class="k">def</span> <span class="nf">choose</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">left</span><span class="p">):</span>
+        <span class="c"># 3.</span>
+        <span class="k">if</span> <span class="n">times</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
 	    <span class="k">return</span> <span class="n">left</span> <span class="o">==</span> <span class="mi">0</span>
 
-	<span class="k">if</span> <span class="n">cache</span><span class="p">[</span><span class="n">times</span><span class="p">][</span><span class="n">left</span><span class="p">]</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>									<span class="c"># 4.</span>
+	<span class="c"># 4.</span>
+	<span class="k">if</span> <span class="n">cache</span><span class="p">[</span><span class="n">times</span><span class="p">][</span><span class="n">left</span><span class="p">]</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
 	    <span class="k">return</span> <span class="n">cache</span><span class="p">[</span><span class="n">times</span><span class="p">][</span><span class="n">left</span><span class="p">]</span>
 
-	<span class="n">cache</span><span class="p">[</span><span class="n">times</span><span class="p">][</span><span class="n">left</span><span class="p">]</span> <span class="o">=</span> <span class="n">choose</span><span class="p">(</span><span class="n">times</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">left</span><span class="p">)</span> <span class="o">+</span> <span class="n">choose</span><span class="p">(</span><span class="n">times</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">left</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>	<span class="c"># 5.</span>
+	<span class="c"># 5.</span>
+	<span class="n">cache</span><span class="p">[</span><span class="n">times</span><span class="p">][</span><span class="n">left</span><span class="p">]</span> <span class="o">=</span> <span class="n">choose</span><span class="p">(</span><span class="n">times</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">left</span><span class="p">)</span> <span class="o">+</span> <span class="n">choose</span><span class="p">(</span><span class="n">times</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">left</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 	<span class="k">return</span> <span class="n">cache</span><span class="p">[</span><span class="n">times</span><span class="p">][</span><span class="n">left</span><span class="p">]</span>
 
     <span class="k">return</span> <span class="n">choose</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="o">-</span><span class="n">k</span><span class="p">)</span>									
