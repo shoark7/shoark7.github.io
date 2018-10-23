@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "꿈꾸는 데이터 디자이너 프로젝트: DATA 1988"
-date: 2018-10-18
+date: 2016-05-01
 description: "I introduce result of our final project: DATA 1988"
 img:  /dev-related/logo-data-designer1.png
 categories: [Projects, Dev-related]
