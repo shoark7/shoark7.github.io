@@ -326,8 +326,13 @@ span.MJXc-display {
 	margin: 4em auto;
 }
 	/* !-mathjax ends */
+.article-page ol {
+	margin: 1.75em 0;
+}
+
 .article-page ol li {
-	margin-top: 1em;
+	margin-top: 0.5em;
+
 }
 
 
