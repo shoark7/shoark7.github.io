@@ -324,12 +324,12 @@ Where am I now, water? non-water? Who cares
 
 <p>이를 이용하면 파일에 간단하게 한 줄 입력하고 싶을 때 <code class="highlighter-rouge">vim</code> 등 기타 에디터를 열지 않고도 파일을 쉽게 만들 수 있다.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cat &gt; test.txt
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cat</span> <span class="o">&gt;</span> test.txt
 
-Go away!!        # 파일의 내용이 아닌 내가 입력하는 내용임
-(&lt;CTRL+D&gt; 입력)
+Go away!!        <span class="c"># 파일의 내용이 아닌 내가 입력하는 내용임</span>
+<span class="o">(</span>&lt;CTRL+D&gt; 입력<span class="o">)</span>
 
-$ cat test.txt
+<span class="nv">$ </span><span class="nb">cat </span>test.txt
 
 Go away!!
 </code></pre></div></div>
@@ -380,12 +380,12 @@ Go away!!
 
 <p>먼저 내 데이터를 data.txt에 저장하자.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cat &gt; data.txt
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cat</span> <span class="o">&gt;</span> data.txt
 
 박성환
 shoark7@naver.com
 백수
-(&lt;CTRL+D&gt; 입력)
+<span class="o">(</span>&lt;CTRL+D&gt; 입력<span class="o">)</span>
 </code></pre></div></div>
 
 <p>그 다음 모듈을 실행하되 입력을 이 데이터 파일로 돌려주면!</p>

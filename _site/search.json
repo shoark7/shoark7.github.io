@@ -49,14 +49,6 @@
     } ,
   
     {
-      "title"    : "Test test test",
-      "category" : "",
-      "tags"     : "Algorithm",
-      "url"      : "/programming/algorithm/test-test-test.html",
-      "date"     : "2018-10-10 00:00:00 +0900"
-    } ,
-  
-    {
       "title"    : "[Algospot] 와일드카드 패턴 매칭 알고리즘",
       "category" : "",
       "tags"     : "Algorithm, wildcard, Algospot",

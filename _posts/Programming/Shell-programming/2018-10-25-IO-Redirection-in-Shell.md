@@ -96,7 +96,7 @@ Where am I now, water? non-water? Who cares
 
 이를 이용하면 파일에 간단하게 한 줄 입력하고 싶을 때 `vim` 등 기타 에디터를 열지 않고도 파일을 쉽게 만들 수 있다.
 
-```
+```sh
 $ cat > test.txt
 
 Go away!!        # 파일의 내용이 아닌 내가 입력하는 내용임
@@ -159,7 +159,7 @@ $ python test.py
 
 먼저 내 데이터를 data.txt에 저장하자.
 
-```
+```sh
 $ cat > data.txt
 
 박성환
