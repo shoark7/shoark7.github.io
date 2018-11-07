@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "유용한 쉘 함수 소개 Part 1",
+      "category" : "",
+      "tags"     : "Python, shell, useful_shell_commands",
+      "url"      : "/programming/shell-programming/Useful-shell-commands-1.html",
+      "date"     : "2018-11-07 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "Shell 사용의 핵심: I/O Redirection에 대하여",
       "category" : "",
       "tags"     : "Python, shell, Redirection, IO_Redirection, Pipe_operator",

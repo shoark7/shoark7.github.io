@@ -297,6 +297,9 @@ article.article-page {
 	margin-top: 1.5em;
 	margin-bottom: 0.5em;
 }
+.article-page table {
+	margin: 1em 0;
+}
 .header-page {
 	margin-bottom: 5em;
 }
