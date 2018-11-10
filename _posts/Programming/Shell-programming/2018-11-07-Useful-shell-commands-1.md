@@ -5,7 +5,7 @@ date: 2018-11-07
 description: "Let me introduce some useful shell commands to you. Part 1."
 img:  /shell-programming/shell-logo.png
 categories: [Programming, Shell-programming]
-tags: [Python, shell, useful_shell_commands]
+tags: [shell, useful_shell_commands]
 ---
 
 ## 들어가며

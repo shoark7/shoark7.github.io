@@ -5,7 +5,7 @@ date: 2018-10-25
 description: '리눅스 쉘을 활용하는 데 필수적인 Redirection 개념에 대해 자세히 살펴봅니다.'
 img:  /shell-programming/logo-redirection.jpg
 categories: [Programming, Shell-programming]
-tags: [Python, shell, Redirection, IO_Redirection, Pipe_operator]
+tags: [shell, Redirection, IO_Redirection, Pipe_operator]
 ---
 
 

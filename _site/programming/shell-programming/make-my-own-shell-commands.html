@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>alias: 나만의 쉘 커맨드 만들기 - Parkito's on the way</title>
+
+  <!-- Edit site and author settings in `_config.yml` to make the social details your own -->
+
+    <meta content="Parkito's on the way" property="og:site_name">
+  
+    <meta content="alias: 나만의 쉘 커맨드 만들기" property="og:title">
+  
+  
+    <meta content="article" property="og:type">
+  
+  
+    <meta content="Let's make our own shell commands with alias!" property="og:description">
+  
+  
+    <meta content="http://localhost:4000/programming/shell-programming/make-my-own-shell-commands.html" property="og:url">
+	
+  
+    <meta content="2018-11-10T00:00:00+09:00" property="article:published_time">
+    <meta content="http://localhost:4000/about/" property="article:author">
+  
+  
+    <meta content="http://localhost:4000/assets/img/shell-programming/shell-logo.png" property="og:image">
+  
+  
+    
+    <meta content="Programming" property="article:section">
+    
+  
+  
+    
+    <meta content="shell" property="article:tag">
+    
+    <meta content="alias" property="article:tag">
+    
+    <meta content=".bashrc" property="article:tag">
+    
+  
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@">
+    <meta name="twitter:creator" content="@">
+  
+    <meta name="twitter:title" content="alias: 나만의 쉘 커맨드 만들기">
+  
+  
+    <meta name="twitter:url" content="http://localhost:4000/programming/shell-programming/make-my-own-shell-commands.html">
+  
+  
+    <meta name="twitter:description" content="Let's make our own shell commands with alias!">
+  
+  
+    <meta name="twitter:image:src" content="http://localhost:4000/assets/img//shell-programming/shell-logo.png">
+  
+
+  
+    <meta content="Let's make our own shell commands with alias!" name="description">
+  
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="shortcut icon" href="/assets/img/favicon/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" href="/assets/img/favicon/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/assets/img/favicon/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/assets/img/favicon/apple-touch-icon-144x144.png">
+	<!-- Chrome, Firefox OS and Opera -->
+	<meta name="theme-color" content="#263959">
+	<!-- Windows Phone -->
+	<meta name="msapplication-navbutton-color" content="#263959">
+	<!-- iOS Safari -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="#263959">
+	<!-- Google Fonts -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+	
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="/assets/fonts/font-awesome/css/font-awesome.min.css">
+	<!-- Styles -->
+	<!-- Mathjax Support -->
+<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+	MathJax.Hub.Config({
+  showProcessingMessages: false,
+  jax: ["input/TeX", "output/HTML-CSS"],
+  TeX: {
+    TagSide: "left",
+    Macros: {
+      RR: '{\\bf R}',
+      bold: ['{\\bf #1}',1]
+    }
+  }
+});
+</script>
+
+	<link rel="stylesheet" href="/assets/css/main.css">
+	<link rel="stylesheet" href="/assets/css/personal.css">
+	<link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Nanum+Gothic:400,700,800&amp;subset=korean" rel="stylesheet">
+</head>
+
+<body style="position: relative">
+	<div id="toggler-wrapper">
+		<div id="menu-toggler">
+			<img src="/assets/img/nav-off.png" alt="Menu collapse image">
+		</div>
+	</div>
+
+  <div class="wrapper">
+
+		<nav id="nav">
+			<div id="menus">
+				<p>
+					<a class="navbar-brand text-white" href="/">&nbsp;&nbsp;&nbsp;Parkito's on the way!&nbsp;&nbsp;&nbsp;</a>
+				</p>
+				<ul id="category-list">
+					<li>
+						<a href="/about.me">
+							<div class="menu">
+								<span> About </span>
+							</div>
+						</a>
+					</li>
+				
+					<li>
+						<div class="menu-wrapper">
+							<a href="/category/programming">
+								<div class="menu">
+									<span> Programming </span>
+								</div>
+							</a>
+							<div class="menu-item">
+								<a href="/category/programming/knowledge">Knowledge</a>
+								<a href="/category/programming/algorithm">Algorithm</a>
+								<a href="/category/programming/python">Python</a>
+								<a href="/category/programming/shell-programming">Shell programming</a>
+							</div>
+						</div>
+					</li>
+				
+					<li>
+						<div class="menu-wrapper">
+								<a href="/category/insight">
+									<div class="menu">
+										<span> Insight </span>
+									</div>
+								</a>
+								<div class="menu-item">
+									<a href="/category/insight/sensitivity">&nbsp;&nbsp;Sensitivity&nbsp;&nbsp;</a>
+									<a href="/category/insight/rationality">&nbsp;&nbsp;Rationality&nbsp;&nbsp;</a>
+								</div>
+						</div>
+					</li>
+
+					<li>
+						<div class="menu-wrapper">
+								<a href="/category/projects">
+									<div class="menu">
+										<span> Projects </span>
+									</div>
+								</a>
+							<div class="menu-item">
+								<a href="/category/projects/dev-related">&nbsp;&nbsp;Dev related&nbsp;&nbsp;</a>
+								<a href="/category/projects/etc">&nbsp;&nbsp;ETC&nbsp;&nbsp;</a>
+							</div>
+						</div> </li>
+
+				</ul>
+			</div>
+
+			<div id="menus-right">
+				<div id="search-section">
+					<div class="input-wrapper">
+						<span class="fa fa-search"></span>
+						<input type="text" id="search-input" placeholder="Please input specific keyword :)" size="30">
+					</div>
+					<div id="results-container"></div>
+				</div>
+
+				<!--<div id="toggler-wrapper">-->
+					<!--<div id="menu-toggler">-->
+						<!--<img src="/assets/img/nav-off.png" alt="" width="35px" height="35px">-->
+					<!--</div>-->
+				<!--</div>-->
+				
+			</div>
+			
+		</nav>
+
+
+    <aside class="sidebar">
+  <header>
+    <div class="about">
+      <div class="cover-author-image">
+        <a href="/"><img src="/assets/img/1536558558520.jpg" alt="Sunghwan Park"></a>
+      </div>
+      <div class="author-name">Sunghwan Park</div>
+      <p>I'm Parkito. A Python lover. Interested in Python, Automation, Algorithm. Please give me insights. I'll teach you tambien! :)</p>
+    </div>
+  </header> <!-- End Header -->
+  <footer>
+    <section class="contact">
+      <h3 class="contact-title">Contact me</h3>
+      <ul>
+				<!--
+        
+          <li><a href="https://twitter.com/artemsheludko_" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+        
+        
+          <li><a href="https://facebook.com/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+        
+				-->
+        
+          <li class="github"><a href="http://github.com/shoark7" target="_blank"><i class="fa fa-github"></i></a></li>
+        
+        
+          <li class="linkedin"><a href="https://in.linkedin.com/in/sunghwan-park-3773b8154" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+        
+        
+          <li class="email"><a href="mailto:shoark7@gmail.com"><i class="fa fa-envelope-o"></i></a></li>
+        
+      </ul>
+    </section> <!-- End Section Contact -->
+    <div class="copyright">
+      <p>2018 &copy; Sunghwan Park</p>
+    </div>
+  </footer> <!-- End Footer -->
+</aside> <!-- End Sidebar -->
+
+<div class="content-box clearfix">
+  <article class="article-page">
+  <div class="page-content">
+    
+    <div class="page-cover-image">
+      <figure>
+        <img class="page-image" src=/assets/img//shell-programming/shell-logo.png alt="alias: 나만의 쉘 커맨드 만들기">
+        
+      </figure>
+    </div> <!-- End Page Cover Image -->
+    
+    <div class="wrap-content">
+      <header class="header-page">
+        <h1 class="page-title">alias: 나만의 쉘 커맨드 만들기</h1>
+        <div class="page-date"><span>2018, Nov 10&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+      </header>
+      <h2 id="들어가며">들어가며</h2>
+
+<p>쉘 프로그래밍 카테고리의 지난 포스트들에서 기존에 정의되어 있던 많은 명령어들을 살펴봤다. 지금까지 살펴 본 영역은 그 많은 쉘 커맨드들의 빙산의 일각에 불과하지만 중요성만큼은 T.O.P인 기능들 위주로 다루려고 했다. 실제로 어느 정도 성공했고 더 살펴봐야 할 기능들이 많지만 지금까지 다룬 부분만 알아도 기본적인 CLI 컴퓨터 생활은 영위할 수 있다.</p>
+
+<p>하지만 인간의 욕심은 끝이 없고, 할 수 있는 것보다 더 많은 것을 알고 싶어하고 하고 싶어한다. 지금까지는 정해진 기능들만 썼는데 <strong>내가 기능을 만들어볼 수는 없을까? 즉, 쉘 커맨드에서도 Customization이 가능할까?</strong> 물론, 가능하다. CLI는 GUI에 비해 훨씬 어렵지만, 항상 말하듯이 <strong>난이도와 자유도는 같이 가는 것 아닌가?</strong> 어려운 대신 당신이 상상하는 그 이상을 가능케한다. 그러니까 <strong>결론은 나만의 기능을 만들 수 있다.</strong> 오늘 포스트는 그것에 대한 것이다.</p>
+
+<p><br /></p>
+
+<p>쉘에서 나만의 기능을 만든다는 것은 구현할 수 있는 기능의 범위가 상상을 초월한다. 이후에 쉘 스크립트를 배운다면 ‘실제 정교한 프로그램’ 수준의 커맨드를 만들 수도 있다. 하지만 우리는 지금 그 정도 실력은 안 되기 때문에 그보다는 쉬운, 대신 제한적인 방법을 배울 것이다. 그 기능이 제한적이지만 매우 쉽기 때문에 매우 유용하다는 것을 알게 될 것이다.</p>
+
+<h2 id="alias-나만의-명령-만들기">alias: 나만의 명령 만들기</h2>
+
+<p>쉘 커맨드에는 <code class="highlighter-rouge">alias</code>라는 명령이 있다. <strong><code class="highlighter-rouge">alias</code>는 ‘일명’, ‘가명’이라는 뜻으로 다른 명령어(들)의 별칭을 만들 수 있다.</strong> 다시 말해, 다른 다수의 명령어 조각을 하나의 명령어 조각으로 별칭을 만드는 역할을 할 수 있다. 이게 무슨 말이냐. 예를 들어보자.<br />
+git을 쓴다면 커밋을 만들기 위해 ‘git add’와 ‘git commit’을 기계적으로 쓰고 있을 것이다. 물론 각 명령에는 중요한 의미가 있지만 게으른 개발자라면 <strong>항상 같이 쓰이는 저 두 명령어를 한 명령어로 처리한다든가, ‘git add’는 7바이트나 써야 하기 때문에 ‘ga’와 같이 줄여 쓸 수 있을까를 고민할 수 있다.</strong> 위 두 경우에 모두 <em>alias</em> 를 사용하기 딱 좋은 경우다.</p>
+
+<p><em>alias</em> 의 사용 방법은 다음과 같다.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">alias </span>명령어이름<span class="o">=</span><span class="s1">'줄일 코드조각'</span>
+</code></pre></div></div>
+
+<p><strong><em>alias</em> 명령어에 빈칸을 두고 새로 만들 명령어 이름을 입력한다. 그리고 ‘=’를 입력하고 따옴표 안에 줄일 코드 조각을 입력한다. 이때 코드 조각이 여러 개라면 ‘;’를 구분자로 입력한다.</strong> 이때 ‘=’ 양 옆에는 빈 칸이 있으면 안 된다.</p>
+
+<p>바로 예를 살펴보자.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">alias </span><span class="nv">ll</span><span class="o">=</span><span class="s1">'ls -l'</span>	<span class="c"># 1.</span>
+<span class="nv">$ </span><span class="nb">alias </span><span class="nv">ga</span><span class="o">=</span><span class="s1">'git add'</span>	<span class="c"># 2.</span>
+<span class="nv">$ </span><span class="nb">alias </span><span class="nv">gg</span><span class="o">=</span><span class="s1">'git add; git commit'</span>	<span class="c"># 3.</span>
+</code></pre></div></div>
+
+<p>1번과 2번은 한 명령어를 짧게 줄인 경우를 보여준다. ‘ls -l’은 파일의 정보를 자세하게 살펴볼 때 사용하는데 그대로 입력하면 빈칸을 포함해 5바이트를 써야 한다. 이 명령어의 사용빈도와 중요성을 생각할 때 적지 않은 데이터 소비이고, 이때 위와 같이 줄이면 5바이트 대신 ‘ll’, 2바이트만으로 기능을 실행할 수 있다. 2번도 마찬가지이다.</p>
+
+<p>3번은 두 개 이상의 명령어를 한 개로 줄인 경우이다. <strong>명령어들은 ‘;’로 구분되는데, 쉘은 한 줄로 명령어를 구분하기도 하지만 동시에 한 줄 내에서 ‘;’ 구분자의 양옆을 독립된 명령어로도 처리한다.</strong> 확인하고 싶다면 쉘에 ‘ls; echo hi; whoami’를 한 줄에 입력해보자.</p>
+
+<p>위와 같이 해서 두 개 이상의 명령어도 쉽게 2바이트의 명령어로 줄일 수 있었다. 기계적으로 반복작업하는 명령어를 간편화할 때 좋다.</p>
+
+<p><br /></p>
+
+<p>위와 비슷한 예제를 만들어서 실제로 활용해보자. 아마 놀랍도록 쉽다는 것을 알 수 있을 것이다. 여기에 파이프라인 연산자 등까지 사용하면 더욱 강력해질 것이다. 내가 자주 반복적으로, 연속적으로 사용하는 명령어들이 있다면 <em>alias</em> 를 사용해서 별칭을 만드는 것을 추천한다.</p>
+
+<p><em>alias</em> 를 사용할 때 주의할 점이 있다. 그것은 <strong>내가 만든 별칭이 기존의 명령어를 뒤집어 쓰지 않도록 주의하라는 것이다.</strong> 쉘에는 우리가 다 알 수 없는 정말 많은 명령어가 있기 때문에 아무 생각없이 별칭을 만들면 그것을 뒤집어 쓰기 쉽다. 그러면 그 기능이 만약 필요해질 때 내가 만든 엉뚱한 기능이 등장할 수 있다. 예를 들어, 쉘에는 ‘y’를 끊임없이 출력하는 <em>yes</em> 라는 프로그램이 있는데 어쩌면 이런 프로그램이 있다는 것을 생각 못하고 내 기능이 뒤집어 씌울 수도 있다. 이때 내가 추천하는 것은 내가 만들려는 이름에 <a href="https://shoark7.github.io/programming/shell-programming/ways-to-search-information-for-linux-commands.html" target="_blank">이 포스트</a>에서 다룬 <em>type</em> 명령어로 이 이름의 명령어가 존재하는지 미리 확인하라는 것이다. 원하는 이름의 명령어가 이미 존재한다면 다른 이름을 정하고, 없으면 그 이름을 그대로 쓰면 될 것이다.</p>
+
+<p><br /></p>
+
+<p>아까 이 방법은 기능이 제한적이라고 했다. 그럴 수밖에 없는 것이 <strong><em>alias</em> 는 ‘별칭’이기 때문에 정말 새로운 기능을 만든다기 보다는 명령어의 연속된 조합을 짧게 줄이는 의미가 강하기 때문이다.</strong> 기존의 쉘 명령어의 영역을 벗어나는 것은 아니기 때문에 극한의 Customization을 할 수 없다. 진짜 골 때리는 기능은 나중에 쉘 프로그래밍을 배우면 할 수 있다. 일단은 여기에 만족하도록 하자.</p>
+
+<h2 id="내-명령-항시-적용하기">내 명령 항시 적용하기</h2>
+
+<p>지금 당장은 배운 <em>alias</em> 로 나만의 별칭을 만들어 기분이 좋을 수 있지만, 당장 내일 컴퓨터를 다시 키기만해도 분노가 치밀어오를 것이다. <strong>그 이유는 내가 지금 쉘로 만든 이 명령어는 이 쉘 프로세스에만 적용되기 때문에 다른 쉘 프로세스에는 적용되지 않기 때문이다.</strong> 확인하고 싶다면 새로 쉘을 다시 켜서 다른 쉘에서 만든 내 명령을 쓸 수 있는지 확인해보기 바란다. 그런 명령은 없을 것이다.</p>
+
+<p>이건 예상한 바가 아니다. 우리는 당연히 만든 명령어를 앞으로도 쭉 쓸 수 있기를 바랄 것이다. 우리는 하루살이가 아니니까. 그렇다면 <strong>만든 명령어를 모든 쉘 프로세스에 적용되게 만드는 것이 필요하다.</strong>  이때는 쉘 설정파일에 우리 명령어를 입력하면 된다.</p>
+
+<p>쉘도 프로그램이고 우리는 잘 모르지만 사실 다양한 쉘 프로그램이 존재한다. 하지만 <strong>따로 다른 쉘을 쓰지 않는다면 대부분의 유닉스 배포판에서는 ‘Bash Shell’(이하 배쉬 쉘)이라는 유서 깊은 쉘 프로그램을 사용한다.</strong> 기본으로 설치되어 있기 때문에 웬만하면 우리는 배쉬 쉘을 사용하고 있다. 그리고 <strong>이 배쉬 쉘은 처음 프로세스가 실행될 때, 그러니까 우리가 쉘을 킬 때, 유저 홈 디렉토리에 있는 ‘.bashrc’ 라는 설정파일의 설정목록을 적용해서 실행되는데 이 설정파일에 우리의 명령어를 입력하면 언제나 이 명령어를 사용할 수 있다.</strong></p>
+
+<p>이건 전혀 어려운 작업이 아니고, <strong>우리가 쉘에 입력했던 <em>alias</em> 명령을 ‘.bashrc’ 라는 숨김파일에 입력만 하면 된다.</strong> 어떤 에디터를 쓰는지 모르겠지만, 에디터를 쓰지 않고 표준 출력을 전환해 파일에 붙여 쓰는 ‘&gt;&gt;’ 연산자를 사용하자. 이 내용은 <a href="https://shoark7.github.io/programming/shell-programming/IO-Redirection-in-Shell.html" target="_blank">쉘 Redirection</a> 포스트에서 자세히 다루었다.</p>
+
+<p>가령 위의 3번 코드를 모든 쉘 프로세스에 항시 적용하고 싶다면</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">echo</span> <span class="s2">"alias gg='git add; git commit'"</span> <span class="o">&gt;&gt;</span> ~/.bashrc
+</code></pre></div></div>
+
+<p>와 같이 입력하면 된다. <code class="highlighter-rouge">~</code>는 홈 디렉토리를 뜻하는 확장문자로 보통은 ‘/home/유저명’을 뜻하게 되어 있다. 내 홈 디렉토리를 확인하고 싶다면 쉘에 ‘echo ~’을 입력해보자. 그리고 홈 디렉토리 안의 ‘.bashrc’라는 숨김파일에 <em>alias</em> 를 맨 뒤에 붙인다. <strong>이때 ‘&gt;&gt;’ 대신 ‘&gt;’를 쓰지 않도록 조심하자.</strong> 잘못하면 기존의 설정이 모두 지워질 수 있다.</p>
+
+<p>이렇게 입력하면 내 명령어를 쓸 수 있을 것 같지만 바로 써지지 않는데, <strong>그 이유는 쉘은 처음 실행될 때만 ‘.bashrc’ 파일을 읽기 때문에 이미 켜진 쉘에서는 수정 내용이 적용되지 않기 때문이다.</strong> 이때 쉘 스크립트 파일을 실행하는 <em>source</em> 라는 명령어를 사용해서 쉘이 ‘.bashrc’ 파일을 실행하도록 하자.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">source</span> ~/.bashrc
+</code></pre></div></div>
+
+<p>이제!! 우리가 만든 명령어를 써볼 수 있을 뿐 아니라 반영구적으로 사용할 수 있다!</p>
+
+<h2 id="마치며">마치며</h2>
+
+<p>오늘 포스트에서는 <em>alias</em> 를 사용해 나만의 별칭을 만드는 방법을 살펴보았다. 이는 꽤나 유용하기 때문에 자기가 봤을 때 자주 사용하면서 옵션을 포함해 좀 길다 싶은 명령어는 적극적으로 <em>alias</em> 로 별칭을 만들어보자. 나도 매일 사용하는 내용들이다.</p>
+
+<p>이 포스트는 내가 지금까지 다룬 쉘 관련 포스트 중에서 제일 가벼운 내용인 것 같다. 리디렉션과 같이 엄중한 중요성의 포스트을 작성할 때는 느끼지 못하는 편안함을 느낄 수 있었다.</p>
+
+<p>이제 또다시 고비가 찾아오는데 바로 <code class="highlighter-rouge">확장</code>을 다룰 것이다. 여기는 진짜 ‘공부’가 필요하기 때문에 까다롭다. 하지만 정말정말 재밌다. 기대하자, 곧 광명을 찾을지니 :)</p>
+
+      <div class="page-footer">
+        <div class="page-share">
+          <a href="https://twitter.com/intent/tweet?text=alias: 나만의 쉘 커맨드 만들기&url=http://localhost:4000/programming/shell-programming/make-my-own-shell-commands.html" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
+          <a href="https://facebook.com/sharer.php?u=http://localhost:4000/programming/shell-programming/make-my-own-shell-commands.html" title="Share on Facebook" rel="nofollow" target="_blank">Facebook</a>
+          <a href="https://plus.google.com/share?url=http://localhost:4000/programming/shell-programming/make-my-own-shell-commands.html" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>
+        </div>
+        <div class="page-tag">
+          
+            <a href="/tags#shell" class="tag">&#35; shell</a>
+          
+            <a href="/tags#alias" class="tag">&#35; alias</a>
+          
+            <a href="/tags#.bashrc" class="tag">&#35; .bashrc</a>
+          
+        </div>
+      </div>
+		  <!-- Load Facebook SDK for JavaScript -->
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+
+  <!-- Your share button code -->
+  <div class="fb-share-button" 
+    data-href="http://localhost:4000/programming/shell-programming/make-my-own-shell-commands.html" 
+    data-layout="button_count">
+  </div>
+
+		
+    </div> <!-- End Wrap Content -->
+  </div> <!-- End Page Content -->
+</article> <!-- End Article Page -->
+
+</div>
+
+  </div>
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', '', 'auto');
+  ga('send', 'pageview');
+</script> <!-- End Analytics -->
+
+	<script src="https://unpkg.com/simple-jekyll-search@1.5.0/dest/simple-jekyll-search.min.js"></script>
+<script>
+var sjs = SimpleJekyllSearch({
+  searchInput: document.querySelector('#search-input'),
+  resultsContainer: document.getElementById('results-container'),
+  json: '/search.json',
+  searchResultTemplate: '<li class="search-results-item"><a href="http://localhost:4000{url}">{title}</a></li>',
+	limit: 9,
+	noResultsText: '<li class="search-results-item"><a href="#">No results found...</a></li>'
+})
+</script>
+
+	<!-- Main Js -->
+<!--<script src="/assets/js/main.js"></script>-->
+
+<!-- JQuery 3.x min -->
+<script src="/assets/js/jquery.js"></script>
+
+<script>
+	let menus = $("#category-list");
+	let image = $("#menu-toggler img");
+	$("#toggler-wrapper").click(function() {
+		if(menus.css("display") === "none") {
+			image.attr("src", "/assets/img/close-button.png");
+			menus.css("display", "flex");
+		}
+		else {
+			image.attr("src", "/assets/img/nav-off.png");
+			menus.css("display", "none");
+		}
+	});
+
+
+</script>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-127149179-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-127149179-1');
+</script>
+
+</body>
+</html>

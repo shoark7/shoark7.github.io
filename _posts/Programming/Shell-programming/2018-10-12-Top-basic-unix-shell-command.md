@@ -5,7 +5,7 @@ date: 2018-10-12
 description: 유닉스 쉘을 쓸 때 핵심적인 기본 커맨드 9개를 알아보자!
 img:  /shell-programming/shell-logo.png
 categories: [Programming, Shell-programming]
-tags: [Python, shell, top_9_shell_commands]
+tags: [shell, top_9_shell_commands]
 ---
 
 ## 들어가며

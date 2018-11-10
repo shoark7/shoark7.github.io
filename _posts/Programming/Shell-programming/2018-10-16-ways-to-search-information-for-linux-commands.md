@@ -5,7 +5,7 @@ date: 2018-10-16
 description: 수없이 많이 접하게 되는 새로운 쉘 커맨드를 빠르게 파악하는 방법을 몇 가지 소개합니다.
 img:  /shell-programming/shell-logo.png
 categories: [Programming, Shell-programming]
-tags: [Python, shell, shell_commands]
+tags: [shell, shell_commands]
 ---
 
 ## 들어가며
