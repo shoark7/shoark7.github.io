@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "[중요] Shell 확장",
+      "category" : "",
+      "tags"     : "shell, expansion",
+      "url"      : "/programming/shell-programming/shell-expansions.html",
+      "date"     : "2018-11-18 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "반려견 - 견주 산책갈등론",
       "category" : "",
       "tags"     : "dog, walk",
