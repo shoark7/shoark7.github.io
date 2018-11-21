@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>피보나치 수열 알고리즘을 해결하는 5가지 방법 - Parkito's on the way</title>
+
+  <!-- Edit site and author settings in `_config.yml` to make the social details your own -->
+
+    <meta content="Parkito's on the way" property="og:site_name">
+  
+    <meta content="피보나치 수열 알고리즘을 해결하는 5가지 방법" property="og:title">
+  
+  
+    <meta content="article" property="og:type">
+  
+  
+    <meta content="Let me introduce 5 different ways to solve fibonacci algorithm" property="og:description">
+  
+  
+    <meta content="http://localhost:4000/programming/algorithm/%ED%94%BC%EB%B3%B4%EB%82%98%EC%B9%98-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%84-%ED%95%B4%EA%B2%B0%ED%95%98%EB%8A%94-5%EA%B0%80%EC%A7%80-%EB%B0%A9%EB%B2%95.html" property="og:url">
+	
+  
+    <meta content="2018-11-25T00:00:00+09:00" property="article:published_time">
+    <meta content="http://localhost:4000/about/" property="article:author">
+  
+  
+    <meta content="http://localhost:4000/assets/img/algorithm/fibonacci-logo.png" property="og:image">
+  
+  
+    
+    <meta content="Programming" property="article:section">
+    
+  
+  
+    
+    <meta content="Algorithm" property="article:tag">
+    
+    <meta content="Fibonacci_sequence" property="article:tag">
+    
+    <meta content="Fibonacci" property="article:tag">
+    
+  
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@">
+    <meta name="twitter:creator" content="@">
+  
+    <meta name="twitter:title" content="피보나치 수열 알고리즘을 해결하는 5가지 방법">
+  
+  
+    <meta name="twitter:url" content="http://localhost:4000/programming/algorithm/%ED%94%BC%EB%B3%B4%EB%82%98%EC%B9%98-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%84-%ED%95%B4%EA%B2%B0%ED%95%98%EB%8A%94-5%EA%B0%80%EC%A7%80-%EB%B0%A9%EB%B2%95.html">
+  
+  
+    <meta name="twitter:description" content="Let me introduce 5 different ways to solve fibonacci algorithm">
+  
+  
+    <meta name="twitter:image:src" content="http://localhost:4000/assets/img//algorithm/fibonacci-logo.png">
+  
+
+  
+    <meta content="Let me introduce 5 different ways to solve fibonacci algorithm" name="description">
+  
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="shortcut icon" href="/assets/img/favicon/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" href="/assets/img/favicon/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/assets/img/favicon/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/assets/img/favicon/apple-touch-icon-144x144.png">
+	<!-- Chrome, Firefox OS and Opera -->
+	<meta name="theme-color" content="#263959">
+	<!-- Windows Phone -->
+	<meta name="msapplication-navbutton-color" content="#263959">
+	<!-- iOS Safari -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="#263959">
+	<!-- Google Fonts -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+	
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="/assets/fonts/font-awesome/css/font-awesome.min.css">
+	<!-- Styles -->
+	<!-- Mathjax Support -->
+<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+	MathJax.Hub.Config({
+  showProcessingMessages: false,
+  jax: ["input/TeX", "output/HTML-CSS"],
+  TeX: {
+    TagSide: "left",
+    Macros: {
+      RR: '{\\bf R}',
+      bold: ['{\\bf #1}',1]
+    }
+  }
+});
+</script>
+
+	<link rel="stylesheet" href="/assets/css/main.css">
+	<link rel="stylesheet" href="/assets/css/personal.css">
+	<link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Nanum+Gothic:400,700,800&amp;subset=korean" rel="stylesheet">
+</head>
+
+<body style="position: relative">
+	<div id="toggler-wrapper">
+		<div id="menu-toggler">
+			<img src="/assets/img/nav-off.png" alt="Menu collapse image">
+		</div>
+	</div>
+
+  <div class="wrapper">
+
+		<nav id="nav">
+			<div id="menus">
+				<p>
+					<a class="navbar-brand text-white" href="/">&nbsp;&nbsp;&nbsp;Parkito's on the way!&nbsp;&nbsp;&nbsp;</a>
+				</p>
+				<ul id="category-list">
+					<li>
+						<a href="/about.me">
+							<div class="menu">
+								<span> About </span>
+							</div>
+						</a>
+					</li>
+				
+					<li>
+						<div class="menu-wrapper">
+							<a href="/category/programming">
+								<div class="menu">
+									<span> Programming </span>
+								</div>
+							</a>
+							<div class="menu-item">
+								<a href="/category/programming/knowledge">Knowledge</a>
+								<a href="/category/programming/algorithm">Algorithm</a>
+								<a href="/category/programming/python">Python</a>
+								<a href="/category/programming/shell-programming">Shell programming</a>
+							</div>
+						</div>
+					</li>
+				
+					<li>
+						<div class="menu-wrapper">
+								<a href="/category/insight">
+									<div class="menu">
+										<span> Insight </span>
+									</div>
+								</a>
+								<div class="menu-item">
+									<a href="/category/insight/sensitivity">&nbsp;&nbsp;Sensitivity&nbsp;&nbsp;</a>
+									<a href="/category/insight/rationality">&nbsp;&nbsp;Rationality&nbsp;&nbsp;</a>
+								</div>
+						</div>
+					</li>
+
+					<li>
+						<div class="menu-wrapper">
+								<a href="/category/projects">
+									<div class="menu">
+										<span> Projects </span>
+									</div>
+								</a>
+							<div class="menu-item">
+								<a href="/category/projects/dev-related">&nbsp;&nbsp;Dev related&nbsp;&nbsp;</a>
+								<a href="/category/projects/etc">&nbsp;&nbsp;ETC&nbsp;&nbsp;</a>
+							</div>
+						</div> </li>
+
+				</ul>
+			</div>
+
+			<div id="menus-right">
+				<div id="search-section">
+					<div class="input-wrapper">
+						<span class="fa fa-search"></span>
+						<input type="text" id="search-input" placeholder="Please input specific keyword :)" size="30">
+					</div>
+					<div id="results-container"></div>
+				</div>
+
+				<!--<div id="toggler-wrapper">-->
+					<!--<div id="menu-toggler">-->
+						<!--<img src="/assets/img/nav-off.png" alt="" width="35px" height="35px">-->
+					<!--</div>-->
+				<!--</div>-->
+				
+			</div>
+			
+		</nav>
+
+
+    <aside class="sidebar">
+  <header>
+    <div class="about">
+      <div class="cover-author-image">
+        <a href="/"><img src="/assets/img/1536558558520.jpg" alt="Sunghwan Park"></a>
+      </div>
+      <div class="author-name">Sunghwan Park</div>
+      <p>I'm Parkito. A Python lover. Interested in Python, Automation, Algorithm. Please give me insights. I'll teach you tambien! :)</p>
+    </div>
+  </header> <!-- End Header -->
+  <footer>
+    <section class="contact">
+      <h3 class="contact-title">Contact me</h3>
+      <ul>
+				<!--
+        
+          <li><a href="https://twitter.com/artemsheludko_" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+        
+        
+          <li><a href="https://facebook.com/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+        
+				-->
+        
+          <li class="github"><a href="http://github.com/shoark7" target="_blank"><i class="fa fa-github"></i></a></li>
+        
+        
+          <li class="linkedin"><a href="https://in.linkedin.com/in/sunghwan-park-3773b8154" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+        
+        
+          <li class="email"><a href="mailto:shoark7@gmail.com"><i class="fa fa-envelope-o"></i></a></li>
+        
+      </ul>
+    </section> <!-- End Section Contact -->
+    <div class="copyright">
+      <p>2018 &copy; Sunghwan Park</p>
+    </div>
+  </footer> <!-- End Footer -->
+</aside> <!-- End Sidebar -->
+
+<div class="content-box clearfix">
+  <article class="article-page">
+  <div class="page-content">
+    
+    <div class="page-cover-image">
+      <figure>
+        <img class="page-image" src=/assets/img//algorithm/fibonacci-logo.png alt="피보나치 수열 알고리즘을 해결하는 5가지 방법">
+        
+      </figure>
+    </div> <!-- End Page Cover Image -->
+    
+    <div class="wrap-content">
+      <header class="header-page">
+        <h1 class="page-title">피보나치 수열 알고리즘을 해결하는 5가지 방법</h1>
+        <div class="page-date"><span>2018, Nov 25&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+      </header>
+      <h2 id="들어가며">들어가며</h2>
+
+<hr />
+
+<p>오랜만에 알고리즘 포스트다. 오늘 포스트는 피보나치 수열 알고리즘을 해결하는 5가지 방법에 대해 살펴보고자 한다. 이 포스트는 해야지 해야지 하고 미루다 이제야 하게 되었다. 결국 하게 됐는데 사실 쉽지 않을 것 같다. 최소 6시간 정도 잡고 있는데 짬짬이 시간 내서 만들어야겠다. 언제나 말하지만, 한 문제를 해결하는 방법을 여러 개 알고 있는 것은 언제나 좋다. 그래야 행복하기 때문이다. 한 번 시작해봅시다.</p>
+
+<h2 id="피보나치-수열이란">피보나치 수열이란?</h2>
+
+<hr />
+
+<p>피보나치 수열(Fibonacci Sequence)은 너무나 유명한 수열로 수학을 공부하지 않은 이들에게도 상식으로 통할 정도로 잘 알려져 있다. 피보나치는 12~13세기에 살았던 이탈리아 수학자로 토끼 번식에 대한 글을 쓰면서 피보나치 수열을 소개했다고 한다. 재밌게도 피보나치는 본명이 아니라고 하는데, 피보나치의 본명은 ‘Leonardo Pisano Bigollo’ 또는 ‘Leonardo Bonacci’라고 한다. 어떻게 읽어도 ‘피보나치’로 읽히지는 않는데, 그가 이 단어로 알려진 것은 후대 역사가가 그의 아들 이름 ‘Filius Bonacci’를 잘못 읽어 ‘피보나치’로 소개하면서 부터라고 한다. 피보나치는 피보나치 수열로 너무나 유명해졌지만 서양 세계에 현재 우리가 쓰는 아랍 숫자를 소개한 책인 ‘Liber Abaci’의 저자로도 알려져 있다고 한다.</p>
+
+<p><strong>피보나치 수열은 상당히 단순한 순증가(strictly increasing) 수열로 첫 항은 0, 두 번째 항은 1, 그 외 항은 전번, 전전번 항의 합으로 표현된다.</strong></p>
+
+<p><img src="/assets/img/algorithm/fibonacci-example.png" alt="Fibonacci sequence example" /></p>
+
+<p>위 그림은 피보나치 수열의 첫 10항 정도를 보여주고 있다. 13, 21, 34, 55는 유명한 피보나치 수이다. 여기서 재밌는 것을 하나 발견할 수 있는데 1부터 10까지의 자연수의 합과 10번째 피보나치 수가 55로 같다.</p>
+
+<p><br /></p>
+
+<p><strong>우리가 해결하고자 하는 문제는, 양의 정수 <em>n</em> 이 주어질 때 <em>n</em> 번째 피보나치 수를 구하는 것이다.</strong>
+<em>n</em> 번째 피보나치 수를 구하는 <em>fibo</em> 함수는 다음과 같이 정의할 수 있을 것이다.</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align}  \label{x1}
+	fibo(n) =
+	  \begin{cases}
+	    0  & \quad \text{if } n \text{ is 0,} \\
+	    1  & \quad \text{if } n \text{ is 1,} \\
+	    fibo(n-1) + fibo(n-2) & \quad \text{otherwise.}
+	  \end{cases}
+\end{align} %]]></script>
+
+<p>이 기본 함수를 바탕으로 피보나치 수를 구하는 다양한 알고리즘을 살펴보자.</p>
+
+<h2 id="알고리즘-소개">알고리즘 소개</h2>
+
+<hr />
+
+<p>피보나치 수열은 재귀함수의 활용이나 동적 계획법을 연습하는 데 흔히 쓰인다. 그 방법들을 포함해 후에 조금 까다로운 방법까지 모두 살펴보도록 하자. 5가지 알고리즘을 소개하는데, 대체로 뒤로 갈수록 시간 복잡도가 낮아지는 풀이가 된다.</p>
+
+<p>참고로, 여기서의 <em>n</em> 은 0 이상의 정수로 한정한다. 그래서 Input validation은 따로 하지 않겠다.</p>
+
+<h3 id="기본-재귀적-풀이">기본 재귀적 풀이</h3>
+
+<p>가장 구현하기 쉬운 풀이가 그 정의에 충실한 재귀적 풀이이다. 앞서 우리는 <em>n</em> 번째 피보나치 수를 구하는 <em>fibo</em> 함수를 만들었다. 이를 그대로 구현하면 된다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">fibo</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">fibo</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fibo</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span> <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;=</span> <span class="mi">2</span> <span class="k">else</span> <span class="n">n</span>
+
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">fibo</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>워낙 간단한 로직이라 삼항 연산자 한 줄로 깔끔하게 구현됐다. <em>n</em> 이 0이나 1일 때는 값도 0, 1이기 때문에 그대로 반환하면 되고, 2 이상일 때만 재귀 함수 두개로 분기해 값을 반환한다.</p>
+
+<p>시간 복잡도는 함수가 한 번 호출되면 다시 두 번 호출되기 때문에 지수적으로 증가해 O(<script type="math/tex">2^n</script>)이 된다.</p>
+
+<hr />
+
+<h3 id="반복적-풀이">반복적 풀이</h3>
+
+<p>위의 그림을 다시 보자. 가령 내가 10번째 피보나치 수를 찾고 싶다면 첫 번째(1), 두 번째(1) 피보나치 수부터 계속 반복적으로 더해나가며 앞으로 한 발씩 전진하며 최종적으로 10번째에 도달할 수 있다. 그러니까, 피보나치 알고리즘을 재귀적으로도 풀 수 있지만 <strong><em>for</em> 를 활용한 반복문을 통해서도 해결할 수 있는 여지가 있다.</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">fibo</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">n</span>
+
+    <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+
+    <span class="k">return</span> <span class="n">b</span>
+
+
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">fibo</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+</code></pre></div></div>
+<p><em>n</em> 이 2 미만일 때는 아까와 같이 그대로 반환한다. 그 다음이 재밌는데 <strong><em>n</em> 이 2 이상일 때는 <em>n-1</em> 번만큼 반복문을 시행한다.</strong> 그 이유는 우리가 0번째 값 <em>a</em> 와 첫 번째 값 <em>b</em> 를 계속 반복하면서 원하는 값을 만들텐데, <em>n</em> 이 2일 때는 단 한 번(<em>n-1</em>)만 계산하면 원하는 값을 만들 수 있기 때문이다.</p>
+
+<p>그리고 한 번의 반복마다 ‘a, b = b, a + b’를 시행한다. 파이썬에서 이와 같이 대입을 사용하면, ‘a = b’, ‘b = a + b’와 같이 대입이 이루어지는데 이는 파이썬의 packing &amp; unpacking과 관련이 있다. 새로 만든 <em>b</em> 에 이전의 <em>a</em>, <em>b</em> 값을 더해 새로운 피보나치 값을 만들어 나간다. 반복문이 끝나면 <em>b</em> 가 우리가 고대하던 <em>n</em> 번째 피보나치 수가 되며 이를 반환하면 된다.</p>
+
+<p>앞선 <strong>재귀에 비해 매우 효율적인 방법이며 시간 복잡도는 O(<em>n</em>)이 된다.</strong></p>
+
+<p>참고로 이 코드는 <a href="www.python.org">파이썬 공식 홈페이지</a>의 피보나치 함수를 조금 수정했다.</p>
+
+<hr />
+
+<h3 id="동적-계획법을-사용한-풀이">동적 계획법을 사용한 풀이</h3>
+
+<p>앞서 말했듯, 피보나치 수 알고리즘은 동적 계획법을 연습하는 예제로 자주 쓰인다. <strong>피보나치 알고리즘에서 동적 계획법이 쓰이는 이유는 기본적인 피보나치 수 알고리즘이 너무나 비효율적이기 때문이다.</strong> 우리가 첫 번째로 작성한 재귀적 알고리즘을 살펴보자. 일단 이 식은 매우 간단하고 기본 정의에 충실하다는 장점이 있지만 효율은 극악을 달리는데, 작성한 함수를 통해 100번째 피보나치 수를 구해보자. 아마 일반적인 컴퓨터로는 우리에게 긍정적인 시간 내로는 답이 나오지 않을 것이다. 그 이유는 피보나치 수열의 재귀적 특성에 있다.</p>
+
+<p><img src="/assets/img/algorithm/fibbonacci-recurisive.png" alt="피보나치의 부분 문제 중복 사례" /></p>
+
+<p>위 그림은 7번째 피보나치 수를 구할 때의 값을 구하는 과정을 표현하고 있다. 7번째 값을 구하기 위해서는 5, 6번째 값을 구해야 한다. 그 둘을 더해야 하기 때문이다. <strong>알고리즘에서는 이와 같이 원 문제를 해결하기 위해 원 문제보다 작은 5, 6번째 같은 값을 구하는 것을 부분문제(subproblem)를 푼다</strong>고 한다. 이 부분문제를 풀기 위해 우리는 함수의 재귀 호출을 사용했다.</p>
+
+<p>문제는 이 부분문제들이 <em>fib(0)</em>, <em>fib(1)</em> 를 만나기 전까지 계속 쪼개지며 부분문제가 너무나 많이 등장한다는 것이다. <strong>정확히는 부분문제가 많은 것보다도 부분문제가 중복(overlapping subproblems)된다는 것이 문제다.</strong> 그림에서  7번째 값을 구하기 위해 <em>fib(3)</em> 이 얼마나 많이 등장하는가? 직접 세보니 5번이나 등장한다. 이는 <em>n</em> 이 커질수록 기하급수적으로 커지는데 그래서 아까 100번째 값을 구해야 할 때 프로세스가 멈춘 것이다. 아까 재귀적 풀이의 시간 복잡도가 <script type="math/tex">O(2^n)</script>이라고 말했는데 <em>n</em> 이 100만 되어도 10진수로 대략 30자리 수다. 이는 조에 조를 곱하고 거기에 백만을 곱해야 하는 큰 수이다(12+12+6). 무진장이라는 단어가 부처의 다함 없는 자비로움을 표현하는 불교 용어라고 하는데, 바로 이런 수가 무진장 큰 수가 아니면 무엇이란 말인가?</p>
+
+<p><br /></p>
+
+<p>그러면 이를 조금만 영리하게 풀어보자. 지금 문제가 <strong>부분문제가 너무 많이 중복되는 것이 문제라면, 각 부분문제를 해결할 때마다 그것을 저장하고 필요할 때마다 가져다 쓰면 되는 것이 아닌가?</strong> 예를 들면, 아까 7번째 피보나치 수를 구하기 위해서 3번째 피보나치 수 부분문제를 5번 해결한다고 했는데, 애초에 처음 구했을 때, 그것을 어딘가에 저장해둔다면 그 값이 또 필요할 때 반복계산할 이유가 사라진다. 동적 계획법이 쓰일 이유가 충분하다!</p>
+
+<p>동적 계획법 풀이에서는 부분문제들을 해결할 때마다 값을 저장하는 캐시를 만든다. <strong>이런 동적 계획법 문제를 풀 때 해결할 수 있는 방법이 크게 반복문을 사용하는 반복적 풀이(iterative)와 재귀적 풀이(recursive)가 있는데 둘 다 살펴보자.</strong> 먼저 반복문을 활용한 반복적 풀이로 풀어보자.</p>
+
+<h4 id="반복적-동적-계획법-풀이">반복적 동적 계획법 풀이</h4>
+
+<p><strong>부분문제의 답을 계산할 캐시의 형태나 타입은 문제의 특성에 따라 다양하게 설정할 수 있는데, 이렇게 쉬운 문제에서는 <em>n</em> 번째 피보나치 수를 <em>n</em> 인덱스에 저장하는 1차원 배열이면 충분해 보인다.</strong> 거의 모든 언어에서 통용될 수 있을 법한 풀이로 풀어보자.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># n을 100이라고 하자.</span>
+<span class="n">cache</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
+<span class="n">cache</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">100</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">cache</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">cache</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">cache</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">cache</span><span class="p">[</span><span class="mi">100</span><span class="p">])</span>
+
+<span class="mi">354224848179261915075</span>
+</code></pre></div></div>
+
+<p>아까와 달리 1초도 안 돼서 답이 나온다. <em>cache</em> 의 크기를 100이 아닌 100+1로 한 것은 크기를 100으로 하면 캐시의 마지막 인덱스가 99가 되기 때문이다. 그래서 1을 키워주어서 우리가 원하는 100번째 값을 저장할 수 있도록 한다.</p>
+
+<p>부분문제의 값을 저장하고 그 부분문제를 해결해 나가며 최종적으로 답을 구한다. 사실 저 풀이는 아까 봤던 반복적 풀이와 원리적으로 같다. 둘을 굳이 분류한 것은 아까처럼 두 변수를 반복할 수 있는 것은 피보나치 알고리즘의 특수한 특성일 뿐이며 지금처럼 푸는 것이 동적 계획법의 정석이기 때문이다.</p>
+
+<p>그리고 사실 위의 풀이는 참 더러운 코드다. <em>cache</em> 가 전역 공간을 낭비하고 있으며, 이 알고리즘을 사용할 유저에게 제시하는 인터페이스가 너무 구린 상태다. 이 두 문제를 해결하기 위해 코드를 함수로 감싸자.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">fibo</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">n</span>
+    <span class="n">cache</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
+    <span class="n">cache</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">100</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">cache</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">cache</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">cache</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">cache</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">fibo</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
+
+<span class="mi">354224848179261915075</span>
+</code></pre></div></div>
+
+<p><strong>코드를 <em>fibo</em> 라는 이름의 함수로 감쌌다. 그래서 아까는 원하는 값을 구하기 위해 10줄 가까이를 복붙해 실행해야 했다면 이제는 함수에 인자 하나만 넘겨 실행하면 끝이다. 즉,  유저 인터페이스가 매우 간결해졌다. 기능이 모듈화되어 재사용성도 향상됐다. 또 전역 공간을 낭비하지 않는다. 캐시가 함수가 끝날 때마다 삭제된다.</strong></p>
+
+<p>이때 눈여겨 볼 점은 <em>n</em> 이 2보다 작을 때는 그 값을 바로 반환하도록 하는 것인데 이것을 안 하면 <em>n</em> 에 0이 들어왔을 때 ‘cache[1] = 1’에서 인덱스 에러가 발생한다.</p>
+
+<h4 id="재귀적-동적-계획법-풀이">재귀적 동적 계획법 풀이</h4>
+
+<p>반복적 동적 계획법 풀이도 훌륭하지만, 재귀적인 동적 계획법 풀이도 존재한다. <strong>앞서 재귀적 풀이의 비효율성을 언급하면서 ‘동적 계획법을 도입해 첫 부분문제를 해결하고 다시 필요할 때마다 가져다 쓰자’고 했는데 그 느낌을 살리기에는 이 방법이 더 괜찮다.</strong></p>
+
+<p>앞의 이 방법은 재귀적 풀이와 비슷하다. <strong>차이가 있다면 캐시를 만들고, 그 캐시에서 부분문제의 답을 찾고 없으면 직접 계산한다는 정도이다.</strong> 먼저 많은 언어에서 통용될 법한 방법으로 코드를 짜보자.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">fibo</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">cache</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
+
+    <span class="k">def</span> <span class="nf">iterate</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    	<span class="c"># 기저사례 1.</span>
+    	<span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+	    <span class="k">return</span> <span class="n">i</span>
+
+	<span class="c"># 기저사례 2.</span>
+        <span class="k">if</span> <span class="n">cache</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+	    <span class="k">return</span> <span class="n">cache</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
+
+	<span class="c"># 기저사례 충족 못할 시 값을 실제로 구함</span>
+	<span class="n">cache</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">iterate</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">iterate</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+	<span class="k">return</span> <span class="n">cache</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">iterate</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    
+
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">fibo</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p><strong>함수를 재귀적으로 풀 때 언제나 염두에 두어야 할 것은 함수가 더 이상 재귀 호출하지 않고 끝날 조건을 설정해줘야 하는 것이다.</strong> 그렇지 않으면 함수 스택이 넘치게 된다. 재귀 함수가 끝나도록 하는 조건을 <code class="highlighter-rouge">기저사례(base case)</code>라고 하는데, 단어가 딱딱해서 나는 그냥 내 마음대로 ‘탈출조건’이라고 부르기도 한다.</p>
+
+<p><strong>피보나치 알고리즘에서 기저사례는 n이 2 미만일 때다.(n은 0 이상의 정수로 이미 한정했다) 그리고 우리의 알고리즘에서는 기저사례가 하나 더 추가되는데, 그것은 원하는 부분문제를 이미 해결했을 때이다.</strong> 5번째 피보나치 수를 구하는 부분문제를 해결했다면, 다시 그 수가 필요할 때 그대로 가져다 쓰면 된다. 위 함수에서는 기저사례 2.에 해당한다.<br />
+난 캐시의 모든 인덱스를 ‘-1’로 초기화했다. 꼭 ‘-1’일 필요는 없는데, 모든 피보나치 수는 0 이상의 정수이기 때문에 캐시 값이 ‘-1’이라는 것은 <em>n</em> 번째 피보나치 수를 아직 계산 안 했다는 것이 된다. 캐시의 <em>n</em> 번째 인덱스의 값이 ‘-1’이 아니면 <em>n</em> 번째 피보나치 수를 구하는 부분문제를 이미 해결다는 뜻이기에 그대로 값을 반환한다.</p>
+
+<p><strong>두 기저사례를 하나라도 만족하지 못하면 재귀함수를 호출해 값을 구한다. 이때, 새로 구한 <em>n</em> 번째 값을 캐시에 저장함으로써 향후 이 값이 필요할 때 다시 사용한다.</strong></p>
+
+<p><br /></p>
+
+<p>많은 동적 계획법 문제의 경우, 소개한 재귀적, 반복적 동적 계획법을 모두 사용할 수 있다. 무엇을 쓸지는 취향의 문제인데 난 재귀적 동적 계획법을 선호한다. 그 이유는 재귀적인 방법이 현실의 큐에 익숙한 우리에게 상대적으로 반직관적이며 그 동작을 따라가보는 재미가 있기 때문이다. <strong>다만 재귀적인 방법은 함수를 계속 호출하는 데 따르는 오버헤드가 발생하기 때문에 절대적으로는 반복적 동적 계획법 풀이에 비해 시간이 오래 걸린다. 그렇지만 둘 다 시간복잡도는 <script type="math/tex">O(n)</script>으로 효율에 있어 극적인 차이가 발생할 정도로 비효율적이지는 않으니(우리가 <script type="math/tex">BigO</script> 표기법에서 상수를 무시하는 것과 같은 이치다) 너무 걱정하지 않아도 된다.</strong></p>
+
+<p><br /></p>
+
+<p>마지막으로, 재귀적 동적 계획법 풀이를 Pythonic하게 풀어보자. 파이썬 함수의 동작방식을 활용한 방법으로 바로 코드부터 확인해보자.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">fibo</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">__cache</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="mi">1</span><span class="p">}):</span>
+    <span class="s">"""Get nth fibonacci number"""</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">__cache</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">__cache</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
+
+    <span class="n">__cache</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">fibo</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fibo</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">__cache</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
+
+
+<span class="n">fibo</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>코드 동작 방식은 일반적인 재귀적 동적 계획법 방법과 같다. 여기서 눈여겨 볼 것은 ‘__cache’ 변수이다. 파이썬의 기본 자료구조인 <em>dict</em> 를 사용했는데 <em>dict</em> 는 배열에 비해 자료구조의 크기가 유동적으로 커질 수 있다는 장점이 있기에 <em>dict</em> 를 사용했다. 그보다도 더 의미가 있는 것은 <strong>캐시 자료구조가 함수 내부가 아닌 정의부에 선언되었다는 것이다.</strong></p>
+
+<p>일반적으로 함수 안에 선언한 데이터는 함수가 호출될 때 생성되며 함수가 종료될 때 폐기되고 자원이 회수된다. 그런데 <strong>위와 같이 원하는 데이터를 함수 정의부에 적으면 그 자료구조는 함수가 정의될 때 생성되어 함수가 호출될 때나, 종료될 때나 상관없이 함수 자체가 메모리에서 지워지기 전까지는 값이 유지된다.</strong> 우리의 함수에서는 실행 시에 캐시에 변화를 가하는데, 그 변화까지도 유지된다.</p>
+
+<p>함수 정의 시에 ‘__cache’를 미리 선언했기 때문에, 함수 실행 시에는 <em>n</em> 만 인자로 넘기면 된다. 그것을 알리기 위해서 캐시 이름 앞에 ‘__‘를 불였다. 알다시피 파이썬에서 변수명을 정할 때 ‘_‘와 ‘__‘를 붙이는 것은 특별한 의미가 있는데, 그 중에서도 ‘__‘는 미약한 ‘private’의 의미로 ‘이 값은 사용자가 건드리지 말라’는 의미를 함축한다. 실제로 여기서는 캐시를 건드릴 이유가 없고 건드려서도 안 된다.</p>
+
+<p>위와 같이 쓰는 것은 상당한 주의를 요한다. <strong>함수 실행 시에 캐시가 꾸준히 변화하고 그 값이 보존되기에 함수가 계속 실행되면서 예기치 못한 에러를 맞닥뜨릴 수도 있기 때문이다.(지적해주신 규영 형 감사드립니다)</strong> 조심해야 하지만, 이 함수를 써야할 때는 크게 문제가 없다. 파이썬의 내부 동작방식을 활용하기 때문에 Pythonic하다고 할 수 있는 방법이다.</p>
+
+<p><strong>이 방법을 쓸 때는 몇 가지 단점이 있는데, 먼저 Pythonic하기 때문에 다른 언어 사용자들에게 가독성이 떨어질 수 있으며, 사랑받는 프로그램이 되기 위한 필수적인 조건인 프로그램의 설명문서가 비대진다는 것이다.</strong> 위의 저 100번째 값을 구하는 코드를 실행한뒤 ‘help(fibo)’를 실행해보면 그 의미를 알 수 있다.</p>
+
+<p><br /></p>
+
+<p>이상 동적 계획법을 통한 피보나치 수를 구하는 알고리즘을 살펴보았다.</p>
+
+<hr />
+
+<h3 id="행렬-곱셈-활용">행렬 곱셈 활용</h3>
+
+<hr />
+
+<h3 id="일반항-사용">일반항 사용</h3>
+
+<p>마지막으로 <em>n</em> 번째 피보나치 수를 구하는 일반항이 있다.</p>
+
+<script type="math/tex; mode=display">\begin{align}  \label{x2}
+	a_{n} = \frac{1}{\sqrt{5}}\left(\left(\frac{1 + \sqrt{5}}{2}\right)^n - \left(\frac{1 - \sqrt{5}}{2}\right)^n\right)
+\end{align}</script>
+
+<p>피보나치 수열의 일반항이 있다는 것이 신기했는데, 유도 방법은 밑의 2번째 출처에서 확인할 수 있다. 일단 진짜로 값이 나오는지 확인부터 하자.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">fibo</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">sqrt_5</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">**</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">ans</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">sqrt_5</span> <span class="o">*</span> <span class="p">(</span> <span class="p">((</span><span class="mi">1</span> <span class="o">+</span> <span class="n">sqrt_5</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">**</span> <span class="n">n</span>  <span class="o">-</span> <span class="p">((</span><span class="mi">1</span> <span class="o">-</span> <span class="n">sqrt_5</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">**</span> <span class="n">n</span> <span class="p">)</span>
+    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">ans</span><span class="p">)</span>
+
+
+<span class="n">fibo</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>답이 나온다. 이게 무슨 알고리즘이냐고 물을 수 있지만, 알고리즘이 ‘문제를 해결하는 일련의 절차나 방법’이라는 것을 감안할 때 이 정의에 딱 부합한다.</p>
+
+<p>이 알고리즘의 장점은 뭐니뭐니 해도 시간 복잡도로, 꿈에서나 볼듯한 <script type="math/tex">O(1)</script>가 된다. 행렬을 사용한 알고리즘의  <script type="math/tex">O(log_{2}n)</script>도 물론 충분히 훌륭하지만 만약 고객에게 제품으로 내놓을 실제 제품이라면 난 심각하게 이 알고리즘 사용을 고려해보겠다.</p>
+
+<p>가령 어떤 위대한 사업의 목표를 성취하기 위해 <script type="math/tex">2^{32}</script> 번째 피보나치 수를 구해야 하는 니즈가 있는 고객이 있을 수 있다. 그런 사람들에게 어쩌면 32번의 계산은 사치스러운 효율일 수 있지 않을까??</p>
+
+<p>물론 위와 같은 가정이 오버라는 것은 나도 안다. 하지만 내가 이 알고리즘을 소개한 것은 나같은 학생이 알고리즘을 공부하고 문제를 푸는 데만 집중하느라 실제 적용가능한 또 다른 방법들을 인지하지 못하는 경우가 충분히 있을 수 있다고 느꼈기 때문이다. 우리는 눈을 크게 뜰 필요가 있다.</p>
+
+<hr />
+
+<h2 id="마치며">마치며</h2>
+
+<hr />
+
+<h2 id="출저">출저</h2>
+<ul>
+  <li><a href="https://www.express.co.uk/life-style/top10facts/621378/10-things-FIBONACCI">10 things you never know about FIBONACCI</a></li>
+  <li><a href="http://suhak.tistory.com/81">피보나치 수 일반항</a></li>
+</ul>
+
+      <div class="page-footer">
+        <div class="page-share">
+          <a href="https://twitter.com/intent/tweet?text=피보나치 수열 알고리즘을 해결하는 5가지 방법&url=http://localhost:4000/programming/algorithm/%ED%94%BC%EB%B3%B4%EB%82%98%EC%B9%98-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%84-%ED%95%B4%EA%B2%B0%ED%95%98%EB%8A%94-5%EA%B0%80%EC%A7%80-%EB%B0%A9%EB%B2%95.html" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
+          <a href="https://facebook.com/sharer.php?u=http://localhost:4000/programming/algorithm/%ED%94%BC%EB%B3%B4%EB%82%98%EC%B9%98-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%84-%ED%95%B4%EA%B2%B0%ED%95%98%EB%8A%94-5%EA%B0%80%EC%A7%80-%EB%B0%A9%EB%B2%95.html" title="Share on Facebook" rel="nofollow" target="_blank">Facebook</a>
+          <a href="https://plus.google.com/share?url=http://localhost:4000/programming/algorithm/%ED%94%BC%EB%B3%B4%EB%82%98%EC%B9%98-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%84-%ED%95%B4%EA%B2%B0%ED%95%98%EB%8A%94-5%EA%B0%80%EC%A7%80-%EB%B0%A9%EB%B2%95.html" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>
+        </div>
+        <div class="page-tag">
+          
+            <a href="/tags#Algorithm" class="tag">&#35; Algorithm</a>
+          
+            <a href="/tags#Fibonacci_sequence" class="tag">&#35; Fibonacci_sequence</a>
+          
+            <a href="/tags#Fibonacci" class="tag">&#35; Fibonacci</a>
+          
+        </div>
+      </div>
+		  <!-- Load Facebook SDK for JavaScript -->
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+
+  <!-- Your share button code -->
+  <div class="fb-share-button" 
+    data-href="http://localhost:4000/programming/algorithm/%ED%94%BC%EB%B3%B4%EB%82%98%EC%B9%98-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%84-%ED%95%B4%EA%B2%B0%ED%95%98%EB%8A%94-5%EA%B0%80%EC%A7%80-%EB%B0%A9%EB%B2%95.html" 
+    data-layout="button_count">
+  </div>
+
+		
+    </div> <!-- End Wrap Content -->
+  </div> <!-- End Page Content -->
+</article> <!-- End Article Page -->
+
+</div>
+
+  </div>
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', '', 'auto');
+  ga('send', 'pageview');
+</script> <!-- End Analytics -->
+
+	<script src="https://unpkg.com/simple-jekyll-search@1.5.0/dest/simple-jekyll-search.min.js"></script>
+<script>
+var sjs = SimpleJekyllSearch({
+  searchInput: document.querySelector('#search-input'),
+  resultsContainer: document.getElementById('results-container'),
+  json: '/search.json',
+  searchResultTemplate: '<li class="search-results-item"><a href="http://localhost:4000{url}">{title}</a></li>',
+	limit: 9,
+	noResultsText: '<li class="search-results-item"><a href="#">No results found...</a></li>'
+})
+</script>
+
+	<!-- Main Js -->
+<!--<script src="/assets/js/main.js"></script>-->
+
+<!-- JQuery 3.x min -->
+<script src="/assets/js/jquery.js"></script>
+
+<script>
+	let menus = $("#category-list");
+	let image = $("#menu-toggler img");
+	$("#toggler-wrapper").click(function() {
+		if(menus.css("display") === "none") {
+			image.attr("src", "/assets/img/close-button.png");
+			menus.css("display", "flex");
+		}
+		else {
+			image.attr("src", "/assets/img/nav-off.png");
+			menus.css("display", "none");
+		}
+	});
+
+
+</script>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-127149179-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-127149179-1');
+</script>
+
+</body>
+</html>
