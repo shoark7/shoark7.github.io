@@ -20,7 +20,7 @@
     <meta content="http://localhost:4000/programming/algorithm/%ED%94%BC%EB%B3%B4%EB%82%98%EC%B9%98-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%84-%ED%95%B4%EA%B2%B0%ED%95%98%EB%8A%94-5%EA%B0%80%EC%A7%80-%EB%B0%A9%EB%B2%95.html" property="og:url">
 	
   
-    <meta content="2018-11-25T00:00:00+09:00" property="article:published_time">
+    <meta content="2018-11-22T00:00:00+09:00" property="article:published_time">
     <meta content="http://localhost:4000/about/" property="article:author">
   
   
@@ -242,7 +242,7 @@
     <div class="wrap-content">
       <header class="header-page">
         <h1 class="page-title">피보나치 수열 알고리즘을 해결하는 5가지 방법</h1>
-        <div class="page-date"><span>2018, Nov 25&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+        <div class="page-date"><span>2018, Nov 22&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
       </header>
       <h3 id="목차">목차</h3>
 
@@ -254,9 +254,12 @@
       <ul>
         <li>3.1. 기본 재귀적 풀이</li>
         <li>3.2. 반복적 풀이</li>
-        <li>3.3. 동적 계획법을 사용한 풀이<br />
-  3.3.1. 반복적 동적 계획법 풀이  <br />
-  3.3.2. 재귀적 동적 계획법 풀이</li>
+        <li>3.3. 동적 계획법을 사용한 풀이
+          <ul>
+            <li>3.3.1. 반복적 동적 계획법 풀이</li>
+            <li>3.3.2. 재귀적 동적 계획법 풀이</li>
+          </ul>
+        </li>
         <li>3.4. 행렬 곱셈을 활용한 풀이</li>
         <li>3.5. 일반항 사용</li>
       </ul>
@@ -503,7 +506,7 @@
    1 & 0
  \end{pmatrix}^n %]]></script>
 
-<p>이를 유도하는 과정은 <a href="" target="_blank">여기</a>를 참고하자. 이 포스트에서는 이 식이 맞다고 가정하고 계속 진행한다.</p>
+<p>이를 유도하는 과정은 <a href="http://algorithms.cf/entry/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B3%B5%EB%B6%80-%ED%94%BC%EB%B3%B4%EB%82%98%EC%B9%98-%EC%88%98%EC%97%B4" target="_blank">여기</a>를 참고하자. 이 포스트에서는 이 식이 맞다고 가정하고 계속 진행한다.</p>
 
 <p>이 식을 통하면 오른쪽 행렬을 <em>n</em> 번 제곱하면 나오는 행렬의 [0, 1] 또는 [1, 0] 값이 <script type="math/tex">F{n}</script>이 된다. 즉 우리는 행렬 곱셈을 통해 피보나치 수를 구할 것이다.</p>
 
