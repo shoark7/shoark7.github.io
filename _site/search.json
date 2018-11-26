@@ -1,11 +1,11 @@
 [
   
     {
-      "title"    : "[부록] 피보나치 수열 행렬 곱 증명",
+      "title"    : "조합과 순열 알고리즘, 파이썬으로 구현하기",
       "category" : "",
-      "tags"     : "Algorithm, Fibonacci_sequence, Fibonacci",
-      "url"      : "/programming/knowledge/25-Proof-of-Fibonacci-sequence-matrix-multipliaction.html",
-      "date"     : "2018-11-25 00:00:00 +0900"
+      "tags"     : "Algorithm, Combination, Permutation",
+      "url"      : "/programming/algorithm/Permutations-and-Combinations.html",
+      "date"     : "2018-11-26 00:00:00 +0900"
     } ,
   
     {
