@@ -7,14 +7,20 @@ article.post {
 	margin: 0;
 	margin-bottom: 1em;
 }
-
-
 .articles:first-child {
 	margin-top: 50px;
 }
 article.article-page {
 	margin: 0 auto;
 }
+article td {
+	padding: 5px 10px;
+}
+article th {
+	text-align: center;
+}
+
+
 
 
 /* !_Category section */

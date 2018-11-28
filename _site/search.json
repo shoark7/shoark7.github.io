@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "유용한 쉘 함수 소개 Part 2: find",
+      "category" : "",
+      "tags"     : "shell, useful_shell_commands",
+      "url"      : "/programming/shell-programming/Useful-shell-commands-2-find.html",
+      "date"     : "2018-11-29 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "조합과 순열 알고리즘, 파이썬으로 구현하기",
       "category" : "",
       "tags"     : "Algorithm, Combination, Permutation",
