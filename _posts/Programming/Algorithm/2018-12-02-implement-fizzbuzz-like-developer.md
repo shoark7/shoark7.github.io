@@ -184,7 +184,7 @@ length = len(str(N))
 for i in range(1, N+1):
     # Python string formatting: 다수의 출력을 깔끔하게 처리하기 위해 사용함.
     print(f'{i:<{length}} : {scalable_fizzbuzz(i, ((3, "Fizz"), (5, "Buzz"), (7, "Sizz"))):<20}', end='')
-    if i % 4 == 0:
+    if i % 3 == 0:
         print()
 
 
