@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "FizzBuzz를 &#39;개발자답게&#39; 구현해보자",
+      "category" : "",
+      "tags"     : "Algorithm, Combination, Permutation",
+      "url"      : "/programming/algorithm/implement-fizzbuzz-like-developer.html",
+      "date"     : "2018-12-02 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "유용한 쉘 함수 소개 Part 2: find",
       "category" : "",
       "tags"     : "shell, useful_shell_commands",
