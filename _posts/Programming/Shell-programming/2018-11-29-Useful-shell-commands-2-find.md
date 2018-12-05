@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '유용한 쉘 함수 소개 Part 2: find'
+title: '유용한 쉘 명령어 소개 Part 2: find'
 date: 2018-11-29
 description: "Let's get used to one of the most fabulous shell programs: find"
 img:  /shell-programming/shell-logo.png

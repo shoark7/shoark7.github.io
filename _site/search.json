@@ -9,7 +9,7 @@
     } ,
   
     {
-      "title"    : "유용한 쉘 함수 소개 Part 2: find",
+      "title"    : "유용한 쉘 명령어 소개 Part 2: find",
       "category" : "",
       "tags"     : "shell, useful_shell_commands",
       "url"      : "/programming/shell-programming/Useful-shell-commands-2-find.html",
@@ -57,7 +57,7 @@
     } ,
   
     {
-      "title"    : "유용한 쉘 함수 소개 Part 1",
+      "title"    : "유용한 쉘 명령어 소개 Part 1",
       "category" : "",
       "tags"     : "shell, useful_shell_commands",
       "url"      : "/programming/shell-programming/Useful-shell-commands-1.html",

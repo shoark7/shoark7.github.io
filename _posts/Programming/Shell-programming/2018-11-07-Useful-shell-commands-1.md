@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '유용한 쉘 함수 소개 Part 1'
+title: '유용한 쉘 명령어 소개 Part 1'
 date: 2018-11-07
 description: "Let me introduce some useful shell commands to you. Part 1."
 img:  /shell-programming/shell-logo.png
