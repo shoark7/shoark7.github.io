@@ -17,14 +17,14 @@
     <meta content="Very basic introduction to Python" property="og:description">
   
   
-    <meta content="https://shoark7.github.io/programming/python/Python-Basic.html" property="og:url">
+    <meta content="http://localhost:4000/programming/python/Python-Basic.html" property="og:url">
 	
   
     <meta content="2016-09-25T00:00:00+09:00" property="article:published_time">
-    <meta content="https://shoark7.github.io/about/" property="article:author">
+    <meta content="http://localhost:4000/about/" property="article:author">
   
   
-    <meta content="https://shoark7.github.io/assets/img/python/python-logo.png" property="og:image">
+    <meta content="http://localhost:4000/assets/img/python/python-logo.png" property="og:image">
   
   
     
@@ -48,13 +48,13 @@
     <meta name="twitter:title" content="Python's very basic">
   
   
-    <meta name="twitter:url" content="https://shoark7.github.io/programming/python/Python-Basic.html">
+    <meta name="twitter:url" content="http://localhost:4000/programming/python/Python-Basic.html">
   
   
     <meta name="twitter:description" content="Very basic introduction to Python">
   
   
-    <meta name="twitter:image:src" content="https://shoark7.github.io/assets/img//python/python-logo.png">
+    <meta name="twitter:image:src" content="http://localhost:4000/assets/img//python/python-logo.png">
   
 
   
@@ -374,8 +374,8 @@
 
 <p>그리고 집합에서 파생되는 차집합, 합집합, 곱집합 등이 함수로 구현되어 있고 연산자로까지 구현이 된다는 것도 중요한 특징이다. 이건 같이 더 공부하자.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 차집합 구하기</span>
-<span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">}</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 차집합 구하기
+</span><span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">}</span>
 <span class="n">b</span> <span class="o">=</span> <span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">}</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span>
@@ -599,10 +599,10 @@
 
 <p><br></p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">fp</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">"hello.txt"</span><span class="p">,</span> <span class="s">"w"</span><span class="p">)</span>    <span class="c"># 1.</span>
-<span class="n">fp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">"hello world"</span><span class="p">)</span>          <span class="c"># 2. </span>
-<span class="n">fp</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>                            <span class="c"># 3. </span>
-</code></pre></div></div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">fp</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">"hello.txt"</span><span class="p">,</span> <span class="s">"w"</span><span class="p">)</span>    <span class="c1"># 1.
+</span><span class="n">fp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">"hello world"</span><span class="p">)</span>          <span class="c1"># 2. 
+</span><span class="n">fp</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>                            <span class="c1"># 3. 
+</span></code></pre></div></div>
 
 <p><br></p>
 
@@ -636,10 +636,10 @@
 
 <p><br></p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">fp2</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">"./hello.txt"</span><span class="p">)</span> <span class="c"># 1.</span>
-<span class="n">lines</span> <span class="o">=</span> <span class="n">fp2</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>         <span class="c"># 2. </span>
-<span class="n">fp2</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>                  <span class="c"># 3. </span>
-</code></pre></div></div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">fp2</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">"./hello.txt"</span><span class="p">)</span> <span class="c1"># 1.
+</span><span class="n">lines</span> <span class="o">=</span> <span class="n">fp2</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>         <span class="c1"># 2. 
+</span><span class="n">fp2</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>                  <span class="c1"># 3. 
+</span></code></pre></div></div>
 
 <p><br></p>
 
@@ -655,13 +655,13 @@
 <p><br></p>
 
 <h3 id="53-with를-사용해서-열자">5.3. <code class="highlighter-rouge">with</code>를 사용해서 열자.</h3>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">"hello.txt"</span><span class="p">,</span> <span class="s">"r"</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>     <span class="c"># 1.</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="n">fp</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">"hello.txt"</span><span class="p">,</span> <span class="s">"r"</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>     <span class="c1"># 1.
+</span>    <span class="n">data</span> <span class="o">=</span> <span class="n">fp</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
     <span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-    <span class="c"># 현재 Code Block 내에서만 fp 라는 변수가 존재 </span>
-    <span class="c"># Indent 가 끝나면</span>
-<span class="c"># 여기로 나오면 =&gt; 자동으로 fp.close() 실행</span>
-<span class="k">print</span><span class="p">(</span><span class="s">'my babe'</span><span class="p">)</span>
+    <span class="c1"># 현재 Code Block 내에서만 fp 라는 변수가 존재 
+</span>    <span class="c1"># Indent 가 끝나면
+# 여기로 나오면 =&gt; 자동으로 fp.close() 실행
+</span><span class="k">print</span><span class="p">(</span><span class="s">'my babe'</span><span class="p">)</span>
 </code></pre></div></div>
 
 <p><br></p>
@@ -764,20 +764,20 @@
 <span class="n">l</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 <span class="k">print</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="p">[(</span><span class="s">'d'</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="s">'c'</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="s">'a'</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="s">'b'</span><span class="p">,</span> <span class="mi">7</span><span class="p">)]</span> <span class="c"># 각 인자의 숫자 값을 기준으로 정렬되었다.</span>
-<span class="err">내림차순하고</span> <span class="err">싶다면</span> <span class="sb">`reverse=True`</span> <span class="n">keyword</span> <span class="n">argument</span><span class="err">를</span> <span class="err">추가로</span> <span class="err">넣어준다</span><span class="o">.</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="p">[(</span><span class="s">'d'</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="s">'c'</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="s">'a'</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="s">'b'</span><span class="p">,</span> <span class="mi">7</span><span class="p">)]</span> <span class="c1"># 각 인자의 숫자 값을 기준으로 정렬되었다.
+</span><span class="err">내림차순하고</span> <span class="err">싶다면</span> <span class="sb">`reverse=True`</span> <span class="n">keyword</span> <span class="n">argument</span><span class="err">를</span> <span class="err">추가로</span> <span class="err">넣어준다</span><span class="o">.</span>
 
-<span class="c"># help(list.sort)을 찾아보자</span>
-</code></pre></div></div>
+<span class="c1"># help(list.sort)을 찾아보자
+</span></code></pre></div></div>
 
 <p><br>
 <br></p>
 
       <div class="page-footer">
         <div class="page-share">
-          <a href="https://twitter.com/intent/tweet?text=Python's%20very%20basic&amp;url=https://shoark7.github.io/programming/python/Python-Basic.html" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
-          <a href="https://facebook.com/sharer.php?u=https://shoark7.github.io/programming/python/Python-Basic.html" title="Share on Facebook" rel="nofollow" target="_blank">Facebook</a>
-          <a href="https://plus.google.com/share?url=https://shoark7.github.io/programming/python/Python-Basic.html" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>
+          <a href="https://twitter.com/intent/tweet?text=Python's%20very%20basic&amp;url=http://localhost:4000/programming/python/Python-Basic.html" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
+          <a href="https://facebook.com/sharer.php?u=http://localhost:4000/programming/python/Python-Basic.html" title="Share on Facebook" rel="nofollow" target="_blank">Facebook</a>
+          <a href="https://plus.google.com/share?url=http://localhost:4000/programming/python/Python-Basic.html" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>
         </div>
         <div class="page-tag">
           
@@ -800,7 +800,7 @@
   }(document, 'script', 'facebook-jssdk'));</script>
 
   <!-- Your share button code -->
-  <div class="fb-share-button" data-href="https://shoark7.github.io/programming/python/Python-Basic.html" data-layout="button_count">
+  <div class="fb-share-button" data-href="http://localhost:4000/programming/python/Python-Basic.html" data-layout="button_count">
   </div>
 
 		
@@ -827,7 +827,7 @@ var sjs = SimpleJekyllSearch({
   searchInput: document.querySelector('#search-input'),
   resultsContainer: document.getElementById('results-container'),
   json: '/search.json',
-  searchResultTemplate: '<li class="search-results-item"><a href="https://shoark7.github.io{url}">{title}</a></li>',
+  searchResultTemplate: '<li class="search-results-item"><a href="http://localhost:4000{url}">{title}</a></li>',
 	limit: 9,
 	noResultsText: '<li class="search-results-item"><a href="#">No results found...</a></li>'
 })

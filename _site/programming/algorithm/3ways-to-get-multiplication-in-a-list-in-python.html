@@ -17,14 +17,14 @@
     <meta content="실수 배열에서 원소들의 곱을 구하는 방법을 파이썬식으로 해보자!" property="og:description">
   
   
-    <meta content="https://shoark7.github.io/programming/algorithm/3ways-to-get-multiplication-in-a-list-in-python.html" property="og:url">
+    <meta content="http://localhost:4000/programming/algorithm/3ways-to-get-multiplication-in-a-list-in-python.html" property="og:url">
 	
   
     <meta content="2018-10-03T00:00:00+09:00" property="article:published_time">
-    <meta content="https://shoark7.github.io/about/" property="article:author">
+    <meta content="http://localhost:4000/about/" property="article:author">
   
   
-    <meta content="https://shoark7.github.io/assets/img/python/python-logo.png" property="og:image">
+    <meta content="http://localhost:4000/assets/img/python/python-logo.png" property="og:image">
   
   
     
@@ -46,13 +46,13 @@
     <meta name="twitter:title" content="파이썬에서 배열의 원소의 곱을 구하는 3가지 방법">
   
   
-    <meta name="twitter:url" content="https://shoark7.github.io/programming/algorithm/3ways-to-get-multiplication-in-a-list-in-python.html">
+    <meta name="twitter:url" content="http://localhost:4000/programming/algorithm/3ways-to-get-multiplication-in-a-list-in-python.html">
   
   
     <meta name="twitter:description" content="실수 배열에서 원소들의 곱을 구하는 방법을 파이썬식으로 해보자!">
   
   
-    <meta name="twitter:image:src" content="https://shoark7.github.io/assets/img//python/python-logo.png">
+    <meta name="twitter:image:src" content="http://localhost:4000/assets/img//python/python-logo.png">
   
 
   
@@ -479,15 +479,15 @@
 
 <p>이 함수를 간단하게 사용해보자.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 1.</span>
-<span class="nb">eval</span><span class="p">(</span><span class="s">'1+2+3'</span><span class="p">)</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 1.
+</span><span class="nb">eval</span><span class="p">(</span><span class="s">'1+2+3'</span><span class="p">)</span>
 
-<span class="c"># 2.</span>
-<span class="n">name</span> <span class="o">=</span> <span class="s">"Parkito"</span>
+<span class="c1"># 2.
+</span><span class="n">name</span> <span class="o">=</span> <span class="s">"Parkito"</span>
 <span class="n">sentence</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="n">name</span> <span class="o">+</span> <span class="s">', what is your hobby?'</span><span class="p">)</span>
 
-<span class="c"># 3.</span>
-<span class="nb">eval</span><span class="p">(</span><span class="s">'1 * 2 * 3 * 4 * 5'</span><span class="p">)</span>   <span class="err">!!!</span>
+<span class="c1"># 3.
+</span><span class="nb">eval</span><span class="p">(</span><span class="s">'1 * 2 * 3 * 4 * 5'</span><span class="p">)</span>   <span class="err">!!!</span>
 
 
 <span class="o">&gt;&gt;&gt;</span> <span class="mi">6</span>
@@ -510,14 +510,14 @@
 <p>내장 <code class="highlighter-rouge">str</code> 클래스의 <code class="highlighter-rouge">join</code> 메소드는 <strong>인자로 받은 리스트 사이에 자신을 뀌워넣어 하나의 문자열로 반환하는 함수이다.</strong><br />
 이건 보면 바로 이해가 가능하니 바로 예제를 살펴보자.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 1.</span>
-<span class="s">' / '</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s">'a'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">,</span> <span class="s">'c'</span><span class="p">,</span> <span class="s">'d'</span><span class="p">,</span> <span class="s">'e'</span><span class="p">])</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 1.
+</span><span class="s">' / '</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s">'a'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">,</span> <span class="s">'c'</span><span class="p">,</span> <span class="s">'d'</span><span class="p">,</span> <span class="s">'e'</span><span class="p">])</span>
 
-<span class="c"># 2.</span>
-<span class="s">''</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s">'가'</span><span class="p">,</span> <span class="s">'나'</span><span class="p">,</span> <span class="s">'다'</span><span class="p">,</span> <span class="s">'라'</span><span class="p">,</span> <span class="s">'마'</span><span class="p">])</span>
+<span class="c1"># 2.
+</span><span class="s">''</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s">'가'</span><span class="p">,</span> <span class="s">'나'</span><span class="p">,</span> <span class="s">'다'</span><span class="p">,</span> <span class="s">'라'</span><span class="p">,</span> <span class="s">'마'</span><span class="p">])</span>
 
-<span class="c"># 3. </span>
-<span class="s">'*'</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s">'1'</span><span class="p">,</span> <span class="s">'2'</span><span class="p">,</span> <span class="s">'3'</span><span class="p">,</span> <span class="s">'4'</span><span class="p">,</span> <span class="s">'5'</span><span class="p">])</span>   <span class="err">!!!</span>
+<span class="c1"># 3. 
+</span><span class="s">'*'</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s">'1'</span><span class="p">,</span> <span class="s">'2'</span><span class="p">,</span> <span class="s">'3'</span><span class="p">,</span> <span class="s">'4'</span><span class="p">,</span> <span class="s">'5'</span><span class="p">])</span>   <span class="err">!!!</span>
 
 
 <span class="o">&gt;&gt;&gt;</span> <span class="s">'a / b / c / d / e'</span>
@@ -562,9 +562,9 @@
 
       <div class="page-footer">
         <div class="page-share">
-          <a href="https://twitter.com/intent/tweet?text=파이썬에서 배열의 원소의 곱을 구하는 3가지 방법&url=https://shoark7.github.io/programming/algorithm/3ways-to-get-multiplication-in-a-list-in-python.html" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
-          <a href="https://facebook.com/sharer.php?u=https://shoark7.github.io/programming/algorithm/3ways-to-get-multiplication-in-a-list-in-python.html" title="Share on Facebook" rel="nofollow" target="_blank">Facebook</a>
-          <a href="https://plus.google.com/share?url=https://shoark7.github.io/programming/algorithm/3ways-to-get-multiplication-in-a-list-in-python.html" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>
+          <a href="https://twitter.com/intent/tweet?text=파이썬에서 배열의 원소의 곱을 구하는 3가지 방법&url=http://localhost:4000/programming/algorithm/3ways-to-get-multiplication-in-a-list-in-python.html" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
+          <a href="https://facebook.com/sharer.php?u=http://localhost:4000/programming/algorithm/3ways-to-get-multiplication-in-a-list-in-python.html" title="Share on Facebook" rel="nofollow" target="_blank">Facebook</a>
+          <a href="https://plus.google.com/share?url=http://localhost:4000/programming/algorithm/3ways-to-get-multiplication-in-a-list-in-python.html" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>
         </div>
         <div class="page-tag">
           
@@ -586,7 +586,7 @@
 
   <!-- Your share button code -->
   <div class="fb-share-button" 
-    data-href="https://shoark7.github.io/programming/algorithm/3ways-to-get-multiplication-in-a-list-in-python.html" 
+    data-href="http://localhost:4000/programming/algorithm/3ways-to-get-multiplication-in-a-list-in-python.html" 
     data-layout="button_count">
   </div>
 
@@ -614,7 +614,7 @@ var sjs = SimpleJekyllSearch({
   searchInput: document.querySelector('#search-input'),
   resultsContainer: document.getElementById('results-container'),
   json: '/search.json',
-  searchResultTemplate: '<li class="search-results-item"><a href="https://shoark7.github.io{url}">{title}</a></li>',
+  searchResultTemplate: '<li class="search-results-item"><a href="http://localhost:4000{url}">{title}</a></li>',
 	limit: 9,
 	noResultsText: '<li class="search-results-item"><a href="#">No results found...</a></li>'
 })

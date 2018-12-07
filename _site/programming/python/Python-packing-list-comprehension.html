@@ -17,14 +17,14 @@
     <meta content="Python's packing & unpacking, list comprehension, args & kwargs, functions for functional programming" property="og:description">
   
   
-    <meta content="https://shoark7.github.io/programming/python/Python-packing-list-comprehension.html" property="og:url">
+    <meta content="http://localhost:4000/programming/python/Python-packing-list-comprehension.html" property="og:url">
 	
   
     <meta content="2016-09-25T00:00:00+09:00" property="article:published_time">
-    <meta content="https://shoark7.github.io/about/" property="article:author">
+    <meta content="http://localhost:4000/about/" property="article:author">
   
   
-    <meta content="https://shoark7.github.io/assets/img/python/python-logo.png" property="og:image">
+    <meta content="http://localhost:4000/assets/img/python/python-logo.png" property="og:image">
   
   
     
@@ -50,13 +50,13 @@
     <meta name="twitter:title" content="Python packing & unpacking and list comprehension">
   
   
-    <meta name="twitter:url" content="https://shoark7.github.io/programming/python/Python-packing-list-comprehension.html">
+    <meta name="twitter:url" content="http://localhost:4000/programming/python/Python-packing-list-comprehension.html">
   
   
     <meta name="twitter:description" content="Python's packing & unpacking, list comprehension, args & kwargs, functions for functional programming">
   
   
-    <meta name="twitter:image:src" content="https://shoark7.github.io/assets/img//python/python-logo.png">
+    <meta name="twitter:image:src" content="http://localhost:4000/assets/img//python/python-logo.png">
   
 
   
@@ -294,8 +294,8 @@ if, else를 사용해서 할 수 있는 식인데 워낙 많이 사용되므로 
     <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
 <span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">)</span> <span class="o">==</span> <span class="n">n</span>
 
-<span class="c"># --- 이것을 함수로 만들자.</span>
-
+<span class="c1"># --- 이것을 함수로 만들자.
+</span>
 <span class="k">def</span> <span class="nf">get_even_list</span><span class="p">(</span><span class="n">n</span><span class="p">):</span> 
     <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
@@ -310,25 +310,25 @@ if, else를 사용해서 할 수 있는 식인데 워낙 많이 사용되므로 
 <p>100 =&gt; [0, …, 98]</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">n</span> <span class="o">=</span> <span class="mi">100</span>          <span class="c"># result = [0, ..., 98] (len(result) == 50)</span>
-
+<span class="n">n</span> <span class="o">=</span> <span class="mi">100</span>          <span class="c1"># result = [0, ..., 98] (len(result) == 50)
+</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> <span class="c"># i를 2로 나눈 나머지가 0이라면, 즉 짝수라면!</span>
-        <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> <span class="c1"># i를 2로 나눈 나머지가 0이라면, 즉 짝수라면!
+</span>        <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 
-<span class="c"># --- 이것을 함수를 사용해서도 만들어보자.</span>
-
+<span class="c1"># --- 이것을 함수를 사용해서도 만들어보자.
+</span>
 <span class="k">def</span> <span class="nf">is_even</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span>
-    <span class="c"># even =&gt; True</span>
-    <span class="c"># odd =&gt; False</span>
-
+    <span class="c1"># even =&gt; True
+</span>    <span class="c1"># odd =&gt; False
+</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">is_even</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
         <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 
-<span class="c"># 사용자가 만든 함수를 사용해 좀 더 간단하게 구했다.</span>
-</code></pre></div></div>
+<span class="c1"># 사용자가 만든 함수를 사용해 좀 더 간단하게 구했다.
+</span></code></pre></div></div>
 <p><br /></p>
 
 <h3 id="13-fizzbuzz">1.3. FizzBuzz</h3>
@@ -339,13 +339,13 @@ if, else를 사용해서 할 수 있는 식인데 워낙 많이 사용되므로 
 기본적으로는 1부터 100까지 숫자가 3의 배수이면 ‘Fizz’를 출력하고, 5의 배수일 땐 ‘Buzz’를 출력하며 15의 배수일 땐 ‘FizzBuzz’를 출력하는 것이다.<br />
 아무것도 해당 안되면 빈 값을 출력한다. 해보자.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># list #1: ["", "", "fast", "", "", "fast", ]</span>
-<span class="c"># list #2: ["", "", "", "", "campus", ]</span>
-
-<span class="c"># -------------------------------------------</span>
-
-<span class="c"># list =&gt; ["", "", "fast", "", "campus", "fast", ... "fastcampus", ...]</span>
-</code></pre></div></div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># list #1: ["", "", "fast", "", "", "fast", ]
+# list #2: ["", "", "", "", "campus", ]
+</span>
+<span class="c1"># -------------------------------------------
+</span>
+<span class="c1"># list =&gt; ["", "", "fast", "", "campus", "fast", ... "fastcampus", ...]
+</span></code></pre></div></div>
 
 <p><br /></p>
 
@@ -357,9 +357,9 @@ if, else를 사용해서 할 수 있는 식인데 워낙 많이 사용되므로 
 <span class="n">n</span> <span class="o">=</span> <span class="mi">100</span>
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="n">element</span> <span class="o">=</span> <span class="p">(</span><span class="s">"fast"</span> <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">3</span><span class="o">==</span><span class="mi">0</span> <span class="k">else</span> <span class="s">""</span><span class="p">)</span>     <span class="c"># 1.</span>
-               <span class="o">+</span> <span class="p">(</span><span class="s">"campus"</span> <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span><span class="o">%</span> <span class="mi">5</span><span class="o">==</span><span class="mi">0</span> <span class="k">else</span> <span class="s">""</span><span class="p">)</span> <span class="c"># 2.</span>
-    <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+    <span class="n">element</span> <span class="o">=</span> <span class="p">(</span><span class="s">"fast"</span> <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">3</span><span class="o">==</span><span class="mi">0</span> <span class="k">else</span> <span class="s">""</span><span class="p">)</span>     <span class="c1"># 1.
+</span>               <span class="o">+</span> <span class="p">(</span><span class="s">"campus"</span> <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span><span class="o">%</span> <span class="mi">5</span><span class="o">==</span><span class="mi">0</span> <span class="k">else</span> <span class="s">""</span><span class="p">)</span> <span class="c1"># 2.
+</span>    <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
 </code></pre></div></div>
 
 <p><br /></p>
@@ -380,13 +380,13 @@ if, else를 사용해서 할 수 있는 식인데 워낙 많이 사용되므로 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">get_list</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">rule1</span><span class="p">,</span> <span class="n">rule2</span><span class="p">):</span>
     <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-        <span class="n">element</span> <span class="o">=</span> <span class="s">""</span>          <span class="c"># 1.</span>
-<span class="c"># --------------------------------------</span>
-        <span class="k">for</span> <span class="n">rule</span> <span class="ow">in</span> <span class="p">[</span><span class="n">rule1</span><span class="p">,</span> <span class="n">rule2</span><span class="p">]:</span>  
+        <span class="n">element</span> <span class="o">=</span> <span class="s">""</span>          <span class="c1"># 1.
+# --------------------------------------
+</span>        <span class="k">for</span> <span class="n">rule</span> <span class="ow">in</span> <span class="p">[</span><span class="n">rule1</span><span class="p">,</span> <span class="n">rule2</span><span class="p">]:</span>  
             <span class="n">div</span><span class="p">,</span> <span class="n">text</span> <span class="o">=</span> <span class="n">rule</span>
-            <span class="n">element</span> <span class="o">+=</span> <span class="n">text</span> <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">div</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="s">""</span> <span class="c"># 2.</span>
-<span class="c"># --------------------------------------</span>
-        <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+            <span class="n">element</span> <span class="o">+=</span> <span class="n">text</span> <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">div</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="s">""</span> <span class="c1"># 2.
+# --------------------------------------
+</span>        <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">result</span>
 
 <span class="k">print</span><span class="p">(</span><span class="k">def</span> <span class="nf">get_list</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s">'Fizz'</span><span class="p">,</span> <span class="s">'Buzz'</span><span class="p">)))</span>
@@ -464,8 +464,8 @@ if, else를 사용해서 할 수 있는 식인데 워낙 많이 사용되므로 
 <p><br /></p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">get_sum</span><span class="p">(</span><span class="n">elements</span><span class="p">):</span>
     <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="c"># -------------------------------------</span>
-    <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">elements</span><span class="p">:</span>
+    <span class="c1"># -------------------------------------
+</span>    <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">elements</span><span class="p">:</span>
         <span class="n">result</span> <span class="o">+=</span> <span class="n">element</span>
     <span class="k">return</span> <span class="n">result</span>
 </code></pre></div></div>
@@ -477,8 +477,8 @@ if, else를 사용해서 할 수 있는 식인데 워낙 많이 사용되므로 
 
 <h3 id="17-입력-받은-숫자들-중-최대값을-출력하는-함수를-만들자">1.7. 입력 받은 숫자들 중 최대값을 출력하는 함수를 만들자.</h3>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">get_max</span><span class="p">(</span><span class="n">elements</span><span class="p">):</span>
-    <span class="n">result</span> <span class="o">=</span> <span class="n">elements</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>   <span class="c"># 초기값!</span>
-    <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">elements</span><span class="p">:</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">elements</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>   <span class="c1"># 초기값!
+</span>    <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">elements</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">element</span> <span class="o">&gt;</span> <span class="n">result</span><span class="p">:</span>
             <span class="n">result</span> <span class="o">=</span> <span class="n">element</span>
     <span class="k">return</span> <span class="n">result</span>
@@ -508,16 +508,16 @@ if, else를 사용해서 할 수 있는 식인데 워낙 많이 사용되므로 
 
 <p>예를 들어보자.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 숫자를 받아서 2배해 반환하는 함수를 만들자.</span>
-<span class="k">def</span> <span class="nf">double_maker_def</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 숫자를 받아서 2배해 반환하는 함수를 만들자.
+</span><span class="k">def</span> <span class="nf">double_maker_def</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="mi">2</span>
 
-<span class="c"># 위처럼 만들 수도 있다. lambda를 써보면</span>
-<span class="n">double_maker_lambda</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span>
+<span class="c1"># 위처럼 만들 수도 있다. lambda를 써보면
+</span><span class="n">double_maker_lambda</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span>
 
-<span class="c"># 람다를 해석해보자. 람다 함수를 정의할 땐 lambda 키워드를 앞에 놓고, 받는 인자를 'x' 처럼 값을 넣는다.</span>
-<span class="c"># ':' 뒤에 오는 내용은 반환값이 된다. ':'를 일반 함수의 'return'과 비교하면 좋을 것 같다.</span>
-
+<span class="c1"># 람다를 해석해보자. 람다 함수를 정의할 땐 lambda 키워드를 앞에 놓고, 받는 인자를 'x' 처럼 값을 넣는다.
+# ':' 뒤에 오는 내용은 반환값이 된다. ':'를 일반 함수의 'return'과 비교하면 좋을 것 같다.
+</span>
 </code></pre></div></div>
 
 <p><br /></p>
@@ -755,8 +755,8 @@ if, else를 사용해서 할 수 있는 식인데 워낙 많이 사용되므로 
 <span class="n">argl</span> <span class="o">=</span> <span class="k">print</span><span class="p">(</span><span class="s">'a'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">,</span> <span class="s">'c'</span><span class="p">,</span> <span class="s">' </span><span class="err">\</span><span class="s"> '</span><span class="p">,</span> <span class="s">''</span><span class="p">,</span> <span class="n">fp</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span>
 <span class="n">kwargl</span> <span class="o">=</span> <span class="k">print</span><span class="p">(</span><span class="s">'a'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">,</span> <span class="s">'c'</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">' </span><span class="err">\</span><span class="s"> '</span><span class="p">)</span>
 
-<span class="c"># 여기서 `()`안에 들어가는 모든 것이 인자이다.</span>
-</code></pre></div></div>
+<span class="c1"># 여기서 `()`안에 들어가는 모든 것이 인자이다.
+</span></code></pre></div></div>
 
 <p><br /></p>
 
@@ -821,8 +821,8 @@ kwargs를 사용할 때의 장점은 함수가 받는 인자의 순서를 무시
         <span class="k">print</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
 
 <span class="nb">list</span> <span class="o">=</span> <span class="p">[</span><span class="s">'철수'</span><span class="p">,</span> <span class="s">'영희'</span><span class="p">,</span> <span class="s">'불금'</span><span class="p">,</span> <span class="s">'함께 보냈다.'</span><span class="p">]</span>
-<span class="n">myprint</span><span class="p">(</span><span class="o">*</span><span class="nb">list</span><span class="p">)</span> <span class="c">## !!!!!! 중요!</span>
-
+<span class="n">myprint</span><span class="p">(</span><span class="o">*</span><span class="nb">list</span><span class="p">)</span> <span class="c1">## !!!!!! 중요!
+</span>
 <span class="err">철수</span>
 <span class="err">영희</span>
 <span class="err">불금</span>
@@ -908,8 +908,8 @@ myprint(‘철수’, ‘영희’, ‘불금’, ‘함께 보냈다.’) 와 �
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">get_awesome_list</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
     <span class="n">args</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
     <span class="n">args</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="c"># ------------------------------------------</span>
-
+<span class="c1"># ------------------------------------------
+</span>
 <span class="s">"""
 위의 두 식은 다음을 위한 것이다. 우리가 받는 args안의 튜플들의 숫자 순서가 (3,5,7,9)으로 이쁜 순서로 받아들였지만,
 세상에는 저 순서를 바꿔서 넣을 불한당들도 존재하기 때문에 위와 같은 식을 썼다.
@@ -920,15 +920,15 @@ sort식을 사용해서 (3, 5, 7, 9) 오름차순으로 정렬되도록 바꾼 �
 그것을 고민하면 분명 더 좋은 함수가 나온다고 혹자는 말한 적이 있다.
 """</span>
 
-<span class="c"># --------------------------------------------</span>
-
-<span class="c"># list comprehension 버전 </span>
-    <span class="k">return</span> <span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s">''</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">arg</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="n">i</span><span class="o">%</span><span class="n">arg</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span> <span class="k">else</span> <span class="s">''</span> <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">args</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)])</span>
-<span class="c"># -------------------------------------------</span>
-
-<span class="c"># --------------------------------------------</span>
-<span class="c"># 람다 버전.</span>
-    <span class="k">return</span> <span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">i</span><span class="p">:</span> <span class="s">''</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">arg</span><span class="p">:</span> <span class="n">arg</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="n">i</span><span class="o">%</span><span class="n">arg</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="s">''</span> <span class="p">,</span><span class="n">args</span><span class="p">))</span>
+<span class="c1"># --------------------------------------------
+</span>
+<span class="c1"># list comprehension 버전 
+</span>    <span class="k">return</span> <span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s">''</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">arg</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="n">i</span><span class="o">%</span><span class="n">arg</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span> <span class="k">else</span> <span class="s">''</span> <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">args</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)])</span>
+<span class="c1"># -------------------------------------------
+</span>
+<span class="c1"># --------------------------------------------
+# 람다 버전.
+</span>    <span class="k">return</span> <span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">i</span><span class="p">:</span> <span class="s">''</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">arg</span><span class="p">:</span> <span class="n">arg</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="n">i</span><span class="o">%</span><span class="n">arg</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="s">''</span> <span class="p">,</span><span class="n">args</span><span class="p">))</span>
     <span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)))</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">get_awesome_list</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s">'Fizz'</span><span class="p">),</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="s">'Buzz'</span><span class="p">),</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="s">'Ok!'</span><span class="p">),</span> <span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="s">'Too long'</span><span class="p">)))</span>
@@ -944,9 +944,9 @@ sort식을 사용해서 (3, 5, 7, 9) 오름차순으로 정렬되도록 바꾼 �
 
       <div class="page-footer">
         <div class="page-share">
-          <a href="https://twitter.com/intent/tweet?text=Python packing & unpacking and list comprehension&url=https://shoark7.github.io/programming/python/Python-packing-list-comprehension.html" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
-          <a href="https://facebook.com/sharer.php?u=https://shoark7.github.io/programming/python/Python-packing-list-comprehension.html" title="Share on Facebook" rel="nofollow" target="_blank">Facebook</a>
-          <a href="https://plus.google.com/share?url=https://shoark7.github.io/programming/python/Python-packing-list-comprehension.html" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>
+          <a href="https://twitter.com/intent/tweet?text=Python packing & unpacking and list comprehension&url=http://localhost:4000/programming/python/Python-packing-list-comprehension.html" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
+          <a href="https://facebook.com/sharer.php?u=http://localhost:4000/programming/python/Python-packing-list-comprehension.html" title="Share on Facebook" rel="nofollow" target="_blank">Facebook</a>
+          <a href="https://plus.google.com/share?url=http://localhost:4000/programming/python/Python-packing-list-comprehension.html" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>
         </div>
         <div class="page-tag">
           
@@ -972,7 +972,7 @@ sort식을 사용해서 (3, 5, 7, 9) 오름차순으로 정렬되도록 바꾼 �
 
   <!-- Your share button code -->
   <div class="fb-share-button" 
-    data-href="https://shoark7.github.io/programming/python/Python-packing-list-comprehension.html" 
+    data-href="http://localhost:4000/programming/python/Python-packing-list-comprehension.html" 
     data-layout="button_count">
   </div>
 
@@ -1000,7 +1000,7 @@ var sjs = SimpleJekyllSearch({
   searchInput: document.querySelector('#search-input'),
   resultsContainer: document.getElementById('results-container'),
   json: '/search.json',
-  searchResultTemplate: '<li class="search-results-item"><a href="https://shoark7.github.io{url}">{title}</a></li>',
+  searchResultTemplate: '<li class="search-results-item"><a href="http://localhost:4000{url}">{title}</a></li>',
 	limit: 9,
 	noResultsText: '<li class="search-results-item"><a href="#">No results found...</a></li>'
 })

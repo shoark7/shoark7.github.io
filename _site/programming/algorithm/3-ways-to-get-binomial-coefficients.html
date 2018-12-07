@@ -17,14 +17,14 @@
     <meta content="I introduce 3 algorithms to get binomial coefficient." property="og:description">
   
   
-    <meta content="https://shoark7.github.io/programming/algorithm/3-ways-to-get-binomial-coefficients.html" property="og:url">
+    <meta content="http://localhost:4000/programming/algorithm/3-ways-to-get-binomial-coefficients.html" property="og:url">
 	
   
     <meta content="2018-10-23T00:00:00+09:00" property="article:published_time">
-    <meta content="https://shoark7.github.io/about/" property="article:author">
+    <meta content="http://localhost:4000/about/" property="article:author">
   
   
-    <meta content="https://shoark7.github.io/assets/img/algorithm/logo-binomial-coefficient.png" property="og:image">
+    <meta content="http://localhost:4000/assets/img/algorithm/logo-binomial-coefficient.png" property="og:image">
   
   
     
@@ -46,13 +46,13 @@
     <meta name="twitter:title" content="[조합론] 이항계수를 구하는 3가지 알고리즘">
   
   
-    <meta name="twitter:url" content="https://shoark7.github.io/programming/algorithm/3-ways-to-get-binomial-coefficients.html">
+    <meta name="twitter:url" content="http://localhost:4000/programming/algorithm/3-ways-to-get-binomial-coefficients.html">
   
   
     <meta name="twitter:description" content="I introduce 3 algorithms to get binomial coefficient.">
   
   
-    <meta name="twitter:image:src" content="https://shoark7.github.io/assets/img//algorithm/logo-binomial-coefficient.png">
+    <meta name="twitter:image:src" content="http://localhost:4000/assets/img//algorithm/logo-binomial-coefficient.png">
   
 
   
@@ -358,17 +358,17 @@
 <p>실제 코드는 다음과 같다.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">bino_coef</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">r</span><span class="p">):</span>
-    <span class="c"># 1.</span>
-    <span class="n">cache</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">r</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
+    <span class="c1"># 1.
+</span>    <span class="n">cache</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">r</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
 
-    <span class="c"># 2.</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+    <span class="c1"># 2.
+</span>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
         <span class="n">cache</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">r</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
         <span class="n">cache</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
 
-    <span class="c"># 3.</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+    <span class="c1"># 3.
+</span>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">r</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
             <span class="n">cache</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">cache</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">cache</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 
@@ -429,25 +429,25 @@
     <span class="k">if</span> <span class="n">k</span> <span class="o">&gt;</span> <span class="n">n</span><span class="p">:</span>
         <span class="k">return</span> <span class="mi">0</span>
 
-    <span class="c"># 1.</span>
-    <span class="n">cache</span> <span class="o">=</span> <span class="p">[[</span><span class="o">-</span><span class="mi">1</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
+    <span class="c1"># 1.
+</span>    <span class="n">cache</span> <span class="o">=</span> <span class="p">[[</span><span class="o">-</span><span class="mi">1</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
 
-    <span class="c"># 2.</span>
-    <span class="k">def</span> <span class="nf">choose</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">got</span><span class="p">):</span>
-        <span class="c"># 3.</span>
-        <span class="k">if</span> <span class="n">times</span> <span class="o">==</span> <span class="n">n</span><span class="p">:</span>
+    <span class="c1"># 2.
+</span>    <span class="k">def</span> <span class="nf">choose</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">got</span><span class="p">):</span>
+        <span class="c1"># 3.
+</span>        <span class="k">if</span> <span class="n">times</span> <span class="o">==</span> <span class="n">n</span><span class="p">:</span>
 	    <span class="k">return</span> <span class="n">got</span> <span class="o">==</span> <span class="n">k</span>
 
-	<span class="c"># 4.</span>
-	<span class="k">if</span> <span class="n">cache</span><span class="p">[</span><span class="n">times</span><span class="p">][</span><span class="n">got</span><span class="p">]</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+	<span class="c1"># 4.
+</span>	<span class="k">if</span> <span class="n">cache</span><span class="p">[</span><span class="n">times</span><span class="p">][</span><span class="n">got</span><span class="p">]</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
 	    <span class="k">return</span> <span class="n">cache</span><span class="p">[</span><span class="n">times</span><span class="p">][</span><span class="n">got</span><span class="p">]</span>
 
-	<span class="c"># 5.</span>
-	<span class="n">cache</span><span class="p">[</span><span class="n">times</span><span class="p">][</span><span class="n">got</span><span class="p">]</span> <span class="o">=</span> <span class="n">choose</span><span class="p">(</span><span class="n">times</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">got</span><span class="p">)</span> <span class="o">+</span> <span class="n">choose</span><span class="p">(</span><span class="n">times</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">got</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+	<span class="c1"># 5.
+</span>	<span class="n">cache</span><span class="p">[</span><span class="n">times</span><span class="p">][</span><span class="n">got</span><span class="p">]</span> <span class="o">=</span> <span class="n">choose</span><span class="p">(</span><span class="n">times</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">got</span><span class="p">)</span> <span class="o">+</span> <span class="n">choose</span><span class="p">(</span><span class="n">times</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">got</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
 	<span class="k">return</span> <span class="n">cache</span><span class="p">[</span><span class="n">times</span><span class="p">][</span><span class="n">got</span><span class="p">]</span>
 
-    <span class="c"># 6.</span>
-    <span class="k">return</span> <span class="n">choose</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="c1"># 6.
+</span>    <span class="k">return</span> <span class="n">choose</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 </code></pre></div></div>
 
 <ol>
@@ -483,8 +483,8 @@
 
 <p>이때에는 3번 코드를 한 줄만 바꿔주면 된다. 가령 최종적으로 <em>k</em> 개 이상 선택된 경우의 수는 3번 코드의 3번 부분을 살짝 손봐주면 된다.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="n">times</span> <span class="o">==</span> <span class="n">n</span><span class="p">:</span>											<span class="c"># 3.</span>
-    <span class="k">return</span> <span class="n">got</span> <span class="o">&gt;=</span> <span class="n">k</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="n">times</span> <span class="o">==</span> <span class="n">n</span><span class="p">:</span>											<span class="c1"># 3.
+</span>    <span class="k">return</span> <span class="n">got</span> <span class="o">&gt;=</span> <span class="n">k</span>
 </code></pre></div></div>
 
 <p><strong>아까는 <code class="highlighter-rouge">got == k</code>로 마지막에 선택한 개수가 <em>k</em> 개인 경우만 1을 반환했다. 이때는 <em>got</em> 이 <em>k</em> 보다 커도 0이 나왔는데 위와 같이 바꾸면서 <em>k</em> 개 이상이면 모두 1을 반환한다.</strong> 이하는 부호만 반대로 바꿔줘면 된다.</p>
@@ -494,13 +494,13 @@
 <p>또한 다음 확장은 위를 확률을 구하는 함수로도 바꿀 수 있다는 것이다. <br />
 가령 이번에는 동전을 <em>n</em> 번 던질 때 앞면이 <em>k</em> 개가 나오는 <code class="highlighter-rouge">확률</code>을 계산하는 문제를 살펴보자. 이 문제는 단순한 3번식을 ‘2 ^ n’으로 나눠주면 구할 수 있지만 <strong>3번식의 5번 부분을 살짝만 바꿔줘도 구할 수 있다.</strong></p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">cache</span><span class="p">[</span><span class="n">times</span><span class="p">][</span><span class="n">got</span><span class="p">]</span> <span class="o">=</span> <span class="n">choose</span><span class="p">(</span><span class="n">times</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">got</span><span class="p">)</span> <span class="o">+</span> <span class="n">choose</span><span class="p">(</span><span class="n">times</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">got</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>	<span class="c"># 5.</span>
-</code></pre></div></div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">cache</span><span class="p">[</span><span class="n">times</span><span class="p">][</span><span class="n">got</span><span class="p">]</span> <span class="o">=</span> <span class="n">choose</span><span class="p">(</span><span class="n">times</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">got</span><span class="p">)</span> <span class="o">+</span> <span class="n">choose</span><span class="p">(</span><span class="n">times</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">got</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>	<span class="c1"># 5.
+</span></code></pre></div></div>
 
 <p>원식의 5번 부분이다. 다음 단계로 함수를 진전시키는데 이를 확률로 확장하려면 각 <em>choose</em> 식 앞에 확률을 곱해주면 된다.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">cache</span><span class="p">[</span><span class="n">times</span><span class="p">][</span><span class="n">got</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">choose</span><span class="p">(</span><span class="n">times</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">got</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">choose</span><span class="p">(</span><span class="n">times</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">got</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>	<span class="c"># 5.</span>
-</code></pre></div></div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">cache</span><span class="p">[</span><span class="n">times</span><span class="p">][</span><span class="n">got</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">choose</span><span class="p">(</span><span class="n">times</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">got</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">choose</span><span class="p">(</span><span class="n">times</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">got</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>	<span class="c1"># 5.
+</span></code></pre></div></div>
 
 <p>동전 던지는 예제라고 한다면 <strong>동전을 던져서 앞이 나오는 확률, 뒤가 나오는 확률 모두 0.5이다. 그래서 각 경우의 수에 단위확률을 곱해줌으로써 두 기대값을 구하고 더해줌으로써 확률을 구할 수 있다.</strong></p>
 
@@ -512,25 +512,25 @@
     <span class="k">if</span> <span class="n">k</span> <span class="o">&gt;</span> <span class="n">n</span><span class="p">:</span>
         <span class="k">return</span> <span class="mi">0</span>
 
-    <span class="c"># 1.</span>
-    <span class="n">cache</span> <span class="o">=</span> <span class="p">[[</span><span class="o">-</span><span class="mi">1</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
+    <span class="c1"># 1.
+</span>    <span class="n">cache</span> <span class="o">=</span> <span class="p">[[</span><span class="o">-</span><span class="mi">1</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
 
-    <span class="c"># 2.</span>
-    <span class="k">def</span> <span class="nf">choose</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">got</span><span class="p">):</span>
-        <span class="c"># 3.</span>
-        <span class="k">if</span> <span class="n">times</span> <span class="o">==</span> <span class="n">n</span><span class="p">:</span>
+    <span class="c1"># 2.
+</span>    <span class="k">def</span> <span class="nf">choose</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">got</span><span class="p">):</span>
+        <span class="c1"># 3.
+</span>        <span class="k">if</span> <span class="n">times</span> <span class="o">==</span> <span class="n">n</span><span class="p">:</span>
 	    <span class="k">return</span> <span class="n">got</span> <span class="o">&gt;=</span> <span class="n">k</span>
 
-	<span class="c"># 4.</span>
-	<span class="k">if</span> <span class="n">cache</span><span class="p">[</span><span class="n">times</span><span class="p">][</span><span class="n">got</span><span class="p">]</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+	<span class="c1"># 4.
+</span>	<span class="k">if</span> <span class="n">cache</span><span class="p">[</span><span class="n">times</span><span class="p">][</span><span class="n">got</span><span class="p">]</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
 	    <span class="k">return</span> <span class="n">cache</span><span class="p">[</span><span class="n">times</span><span class="p">][</span><span class="n">got</span><span class="p">]</span>
 
-	<span class="c"># 5.</span>
-	<span class="n">cache</span><span class="p">[</span><span class="n">times</span><span class="p">][</span><span class="n">got</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">choose</span><span class="p">(</span><span class="n">times</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">got</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">choose</span><span class="p">(</span><span class="n">times</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">got</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+	<span class="c1"># 5.
+</span>	<span class="n">cache</span><span class="p">[</span><span class="n">times</span><span class="p">][</span><span class="n">got</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">choose</span><span class="p">(</span><span class="n">times</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">got</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">choose</span><span class="p">(</span><span class="n">times</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">got</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
 	<span class="k">return</span> <span class="n">cache</span><span class="p">[</span><span class="n">times</span><span class="p">][</span><span class="n">got</span><span class="p">]</span>
 
-    <span class="c"># 6.</span>
-    <span class="k">return</span> <span class="n">choose</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="c1"># 6.
+</span>    <span class="k">return</span> <span class="n">choose</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 
 
 <span class="o">&gt;&gt;&gt;</span> <span class="n">bino_coef_prob</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
@@ -559,21 +559,21 @@
     <span class="k">if</span> <span class="n">k</span> <span class="o">&gt;</span> <span class="n">n</span><span class="p">:</span>
         <span class="k">return</span> <span class="mi">0</span>
 
-    <span class="c"># 1.</span>
-    <span class="n">cache</span> <span class="o">=</span> <span class="p">[[</span><span class="o">-</span><span class="mi">1</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
+    <span class="c1"># 1.
+</span>    <span class="n">cache</span> <span class="o">=</span> <span class="p">[[</span><span class="o">-</span><span class="mi">1</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
 
-    <span class="c"># 2.</span>
-    <span class="k">def</span> <span class="nf">choose</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">left</span><span class="p">):</span>
-        <span class="c"># 3.</span>
-        <span class="k">if</span> <span class="n">times</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="c1"># 2.
+</span>    <span class="k">def</span> <span class="nf">choose</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">left</span><span class="p">):</span>
+        <span class="c1"># 3.
+</span>        <span class="k">if</span> <span class="n">times</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
 	    <span class="k">return</span> <span class="n">left</span> <span class="o">==</span> <span class="mi">0</span>
 
-	<span class="c"># 4.</span>
-	<span class="k">if</span> <span class="n">cache</span><span class="p">[</span><span class="n">times</span><span class="p">][</span><span class="n">left</span><span class="p">]</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+	<span class="c1"># 4.
+</span>	<span class="k">if</span> <span class="n">cache</span><span class="p">[</span><span class="n">times</span><span class="p">][</span><span class="n">left</span><span class="p">]</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
 	    <span class="k">return</span> <span class="n">cache</span><span class="p">[</span><span class="n">times</span><span class="p">][</span><span class="n">left</span><span class="p">]</span>
 
-	<span class="c"># 5.</span>
-	<span class="n">cache</span><span class="p">[</span><span class="n">times</span><span class="p">][</span><span class="n">left</span><span class="p">]</span> <span class="o">=</span> <span class="n">choose</span><span class="p">(</span><span class="n">times</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">left</span><span class="p">)</span> <span class="o">+</span> <span class="n">choose</span><span class="p">(</span><span class="n">times</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">left</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+	<span class="c1"># 5.
+</span>	<span class="n">cache</span><span class="p">[</span><span class="n">times</span><span class="p">][</span><span class="n">left</span><span class="p">]</span> <span class="o">=</span> <span class="n">choose</span><span class="p">(</span><span class="n">times</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">left</span><span class="p">)</span> <span class="o">+</span> <span class="n">choose</span><span class="p">(</span><span class="n">times</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">left</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 	<span class="k">return</span> <span class="n">cache</span><span class="p">[</span><span class="n">times</span><span class="p">][</span><span class="n">left</span><span class="p">]</span>
 
     <span class="k">return</span> <span class="n">choose</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="o">-</span><span class="n">k</span><span class="p">)</span>									
@@ -593,9 +593,9 @@
 
       <div class="page-footer">
         <div class="page-share">
-          <a href="https://twitter.com/intent/tweet?text=[조합론] 이항계수를 구하는 3가지 알고리즘&url=https://shoark7.github.io/programming/algorithm/3-ways-to-get-binomial-coefficients.html" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
-          <a href="https://facebook.com/sharer.php?u=https://shoark7.github.io/programming/algorithm/3-ways-to-get-binomial-coefficients.html" title="Share on Facebook" rel="nofollow" target="_blank">Facebook</a>
-          <a href="https://plus.google.com/share?url=https://shoark7.github.io/programming/algorithm/3-ways-to-get-binomial-coefficients.html" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>
+          <a href="https://twitter.com/intent/tweet?text=[조합론] 이항계수를 구하는 3가지 알고리즘&url=http://localhost:4000/programming/algorithm/3-ways-to-get-binomial-coefficients.html" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
+          <a href="https://facebook.com/sharer.php?u=http://localhost:4000/programming/algorithm/3-ways-to-get-binomial-coefficients.html" title="Share on Facebook" rel="nofollow" target="_blank">Facebook</a>
+          <a href="https://plus.google.com/share?url=http://localhost:4000/programming/algorithm/3-ways-to-get-binomial-coefficients.html" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>
         </div>
         <div class="page-tag">
           
@@ -617,7 +617,7 @@
 
   <!-- Your share button code -->
   <div class="fb-share-button" 
-    data-href="https://shoark7.github.io/programming/algorithm/3-ways-to-get-binomial-coefficients.html" 
+    data-href="http://localhost:4000/programming/algorithm/3-ways-to-get-binomial-coefficients.html" 
     data-layout="button_count">
   </div>
 
@@ -645,7 +645,7 @@ var sjs = SimpleJekyllSearch({
   searchInput: document.querySelector('#search-input'),
   resultsContainer: document.getElementById('results-container'),
   json: '/search.json',
-  searchResultTemplate: '<li class="search-results-item"><a href="https://shoark7.github.io{url}">{title}</a></li>',
+  searchResultTemplate: '<li class="search-results-item"><a href="http://localhost:4000{url}">{title}</a></li>',
 	limit: 9,
 	noResultsText: '<li class="search-results-item"><a href="#">No results found...</a></li>'
 })

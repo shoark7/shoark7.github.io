@@ -17,14 +17,14 @@
     <meta content="Python Decorator and OOP" property="og:description">
   
   
-    <meta content="https://shoark7.github.io/programming/python/Python-Decorator-OOP.html" property="og:url">
+    <meta content="http://localhost:4000/programming/python/Python-Decorator-OOP.html" property="og:url">
 	
   
     <meta content="2016-10-02T00:00:00+09:00" property="article:published_time">
-    <meta content="https://shoark7.github.io/about/" property="article:author">
+    <meta content="http://localhost:4000/about/" property="article:author">
   
   
-    <meta content="https://shoark7.github.io/assets/img/python/python-logo.png" property="og:image">
+    <meta content="http://localhost:4000/assets/img/python/python-logo.png" property="og:image">
   
   
     
@@ -48,13 +48,13 @@
     <meta name="twitter:title" content="Python Decorator & OOP">
   
   
-    <meta name="twitter:url" content="https://shoark7.github.io/programming/python/Python-Decorator-OOP.html">
+    <meta name="twitter:url" content="http://localhost:4000/programming/python/Python-Decorator-OOP.html">
   
   
     <meta name="twitter:description" content="Python Decorator and OOP">
   
   
-    <meta name="twitter:image:src" content="https://shoark7.github.io/assets/img//python/python-logo.png">
+    <meta name="twitter:image:src" content="http://localhost:4000/assets/img//python/python-logo.png">
   
 
   
@@ -269,7 +269,7 @@
 <span class="n">hello</span><span class="p">(</span><span class="s">"안수찬"</span><span class="p">)</span>
 <span class="n">end_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
 <span class="n">exec_time</span> <span class="o">=</span> <span class="n">end_time</span> <span class="o">-</span> <span class="n">start_time</span>
-<span class="k">print</span><span class="p">(</span><span class="s">"Execute Time: {time}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="n">exec_time</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Execute Time: {time}"</span><span class="o">.</span><span class="nb">format</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="n">exec_time</span><span class="p">))</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="err">안녕하세요</span><span class="p">,</span> <span class="err">저는</span> <span class="err">안수찬입니다</span><span class="o">.</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">Execute</span> <span class="n">Time</span><span class="p">:</span> <span class="mf">8.893013000488281e-05</span>
@@ -287,7 +287,7 @@
     <span class="n">hello</span><span class="p">()</span>                                       
     <span class="n">end_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
     <span class="n">exec_time</span> <span class="o">=</span> <span class="n">end_time</span> <span class="o">-</span> <span class="n">start_time</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"Execute Time: {time}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="n">exec_time</span><span class="p">))</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"Execute Time: {time}"</span><span class="o">.</span><span class="nb">format</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="n">exec_time</span><span class="p">))</span>
 
 <span class="n">new_hello</span><span class="p">(</span><span class="s">'박군'</span><span class="p">)</span>
 
@@ -311,8 +311,8 @@
     <span class="k">def</span> <span class="nf">return_function</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">n</span>
     <span class="k">return</span> <span class="n">return_function</span>
-<span class="n">the_function</span> <span class="o">=</span> <span class="n">get_multiply_by</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="c">#!!!</span>
-<span class="k">print</span><span class="p">(</span><span class="n">the_function</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">the_function</span> <span class="o">=</span> <span class="n">get_multiply_by</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="c1">#!!!
+</span><span class="k">print</span><span class="p">(</span><span class="n">the_function</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="mi">50</span>
 </code></pre></div></div>
@@ -335,16 +335,16 @@
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">hello</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
     <span class="k">print</span><span class="p">(</span><span class="s">"안녕하세요, 저는 "</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s">" 입니다."</span><span class="p">)</span>
 
-<span class="c"># decorator =&gt; 함수를 input 으로 받아서 =&gt; 새로운 함수를 만들어서 리턴하자.</span>
-<span class="c"># 함수를 받아 새로운 함수를 리턴하는 함수</span>
-
+<span class="c1"># decorator =&gt; 함수를 input 으로 받아서 =&gt; 새로운 함수를 만들어서 리턴하자.
+# 함수를 받아 새로운 함수를 리턴하는 함수
+</span>
 <span class="mf">1.</span> <span class="k">def</span> <span class="nf">track_time</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>               
 <span class="mf">2.</span>    <span class="k">def</span> <span class="nf">new_func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="mf">3.</span>        <span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
 <span class="mf">4.</span>        <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 <span class="mf">5.</span>        <span class="n">end_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
 <span class="mf">6.</span>        <span class="n">exec_time</span> <span class="o">=</span> <span class="n">end_time</span> <span class="o">-</span> <span class="n">start_time</span>
-<span class="mf">7.</span>        <span class="k">print</span><span class="p">(</span><span class="s">"Execute Time: {time}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="n">exec_time</span><span class="p">))</span>
+<span class="mf">7.</span>        <span class="k">print</span><span class="p">(</span><span class="s">"Execute Time: {time}"</span><span class="o">.</span><span class="nb">format</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="n">exec_time</span><span class="p">))</span>
 <span class="mf">8.</span>    <span class="k">return</span> <span class="n">new_func</span>
 
 <span class="mf">9.</span> <span class="n">hello</span> <span class="o">=</span> <span class="n">track_time</span><span class="p">(</span><span class="n">hello</span><span class="p">)</span>
@@ -374,8 +374,8 @@
 <p>위에서 우리는 <code class="highlighter-rouge">hello = track_time(hello)</code> 라는 식으로 함수를 뒤집어 썼는데 파이썬에서는 이것을 ‘@’기호로 지원하고 있다.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-<span class="nd">@track_time</span>  <span class="c"># &lt;- 데코레이터 기호!</span>
-<span class="k">def</span> <span class="nf">hello</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+<span class="o">@</span><span class="n">track_time</span>  <span class="c1"># &lt;- 데코레이터 기호!
+</span><span class="k">def</span> <span class="nf">hello</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
     <span class="k">print</span><span class="p">(</span><span class="s">"안녕하세요, 저는 "</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s">" 입니다."</span><span class="p">)</span>
 </code></pre></div></div>
 
@@ -412,9 +412,9 @@
 
 <p><br /></p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@track_time</span>
-<span class="nd">@finish_func</span>
-<span class="nd">@start_func</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">@</span><span class="n">track_time</span>
+<span class="o">@</span><span class="n">finish_func</span>
+<span class="o">@</span><span class="n">start_func</span>
 <span class="k">def</span> <span class="nf">hello</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
     <span class="k">print</span><span class="p">(</span><span class="s">"안녕하세요, 저는 "</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s">" 입니다."</span><span class="p">)</span>
 
@@ -494,7 +494,7 @@ n이 100만 되어도 fibonacci 계산이 몇 번이 중복되는지 모른다.<
             <span class="k">return</span> <span class="n">result</span>
     <span class="k">return</span> <span class="n">wrapper</span>
         
-<span class="nd">@cache_memoization</span>
+<span class="o">@</span><span class="n">cache_memoization</span>
 <span class="k">def</span> <span class="nf">fibo</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">n</span> <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="k">else</span> <span class="n">fibo</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fibo</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
 
@@ -519,8 +519,8 @@ n이 100만 되어도 fibonacci 계산이 몇 번이 중복되는지 모른다.<
     <span class="k">return</span> <span class="k">lambda</span> <span class="o">*</span><span class="n">arg</span><span class="p">:</span> <span class="n">__cache</span><span class="p">[</span><span class="n">arg</span><span class="p">]</span> <span class="k">if</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">__cache</span> <span class="k">else</span> <span class="n">__cache</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">arg</span><span class="p">:</span><span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">arg</span><span class="p">)})</span> <span class="ow">or</span> <span class="n">__cache</span><span class="p">[</span><span class="n">arg</span><span class="p">]</span>
 
 
-<span class="c"># 설명이 필요하면 박성환을 찾아오자</span>
-</code></pre></div></div>
+<span class="c1"># 설명이 필요하면 박성환을 찾아오자
+</span></code></pre></div></div>
 
 <p><br />
 <br /></p>
@@ -605,9 +605,9 @@ C언어 등이 해당된다고 할 수 있다.</p>
 
       <div class="page-footer">
         <div class="page-share">
-          <a href="https://twitter.com/intent/tweet?text=Python Decorator & OOP&url=https://shoark7.github.io/programming/python/Python-Decorator-OOP.html" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
-          <a href="https://facebook.com/sharer.php?u=https://shoark7.github.io/programming/python/Python-Decorator-OOP.html" title="Share on Facebook" rel="nofollow" target="_blank">Facebook</a>
-          <a href="https://plus.google.com/share?url=https://shoark7.github.io/programming/python/Python-Decorator-OOP.html" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>
+          <a href="https://twitter.com/intent/tweet?text=Python Decorator & OOP&url=http://localhost:4000/programming/python/Python-Decorator-OOP.html" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
+          <a href="https://facebook.com/sharer.php?u=http://localhost:4000/programming/python/Python-Decorator-OOP.html" title="Share on Facebook" rel="nofollow" target="_blank">Facebook</a>
+          <a href="https://plus.google.com/share?url=http://localhost:4000/programming/python/Python-Decorator-OOP.html" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>
         </div>
         <div class="page-tag">
           
@@ -631,7 +631,7 @@ C언어 등이 해당된다고 할 수 있다.</p>
 
   <!-- Your share button code -->
   <div class="fb-share-button" 
-    data-href="https://shoark7.github.io/programming/python/Python-Decorator-OOP.html" 
+    data-href="http://localhost:4000/programming/python/Python-Decorator-OOP.html" 
     data-layout="button_count">
   </div>
 
@@ -659,7 +659,7 @@ var sjs = SimpleJekyllSearch({
   searchInput: document.querySelector('#search-input'),
   resultsContainer: document.getElementById('results-container'),
   json: '/search.json',
-  searchResultTemplate: '<li class="search-results-item"><a href="https://shoark7.github.io{url}">{title}</a></li>',
+  searchResultTemplate: '<li class="search-results-item"><a href="http://localhost:4000{url}">{title}</a></li>',
 	limit: 9,
 	noResultsText: '<li class="search-results-item"><a href="#">No results found...</a></li>'
 })

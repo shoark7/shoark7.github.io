@@ -17,14 +17,14 @@
     <meta content="와일드카드 패턴과 문자열이 주어질 때 둘이 매칭되는지 확인하는 알고리즘을 짜보자!" property="og:description">
   
   
-    <meta content="https://shoark7.github.io/programming/algorithm/Algospot-Wildcard-%EB%A7%A4%EC%B9%AD.html" property="og:url">
+    <meta content="http://localhost:4000/programming/algorithm/Algospot-Wildcard-%EB%A7%A4%EC%B9%AD.html" property="og:url">
 	
   
     <meta content="2018-10-10T00:00:00+09:00" property="article:published_time">
-    <meta content="https://shoark7.github.io/about/" property="article:author">
+    <meta content="http://localhost:4000/about/" property="article:author">
   
   
-    <meta content="https://shoark7.github.io/assets/img/algorithm/wildcard.png" property="og:image">
+    <meta content="http://localhost:4000/assets/img/algorithm/wildcard.png" property="og:image">
   
   
     
@@ -48,13 +48,13 @@
     <meta name="twitter:title" content="[Algospot] 와일드카드 패턴 매칭 알고리즘">
   
   
-    <meta name="twitter:url" content="https://shoark7.github.io/programming/algorithm/Algospot-Wildcard-%EB%A7%A4%EC%B9%AD.html">
+    <meta name="twitter:url" content="http://localhost:4000/programming/algorithm/Algospot-Wildcard-%EB%A7%A4%EC%B9%AD.html">
   
   
     <meta name="twitter:description" content="와일드카드 패턴과 문자열이 주어질 때 둘이 매칭되는지 확인하는 알고리즘을 짜보자!">
   
   
-    <meta name="twitter:image:src" content="https://shoark7.github.io/assets/img//algorithm/wildcard.png">
+    <meta name="twitter:image:src" content="http://localhost:4000/assets/img//algorithm/wildcard.png">
   
 
   
@@ -373,27 +373,27 @@
 <h2 id="2-완전탐색">2. 완전탐색</h2>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">wildcard_exhaustive</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">word</span><span class="p">):</span>
-    <span class="n">len_p</span><span class="p">,</span> <span class="n">len_w</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">pattern</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="c"># 각 문자열의 길이를 구한다.</span>
-    <span class="n">nth</span> <span class="o">=</span> <span class="mi">0</span>  			           <span class="c"># 확인할 문자의 위치 변수. 0으로 초기화한다.</span>
-
-    <span class="c"># 첫 번째 조건</span>
-    <span class="k">while</span> <span class="n">nth</span> <span class="o">&lt;</span> <span class="n">len_p</span> <span class="ow">and</span> <span class="n">nth</span> <span class="o">&lt;</span> <span class="n">len_w</span> <span class="ow">and</span> <span class="p">(</span><span class="n">pattern</span><span class="p">[</span><span class="n">nth</span><span class="p">]</span> <span class="o">==</span> <span class="s">'?'</span> <span class="ow">or</span> <span class="n">pattern</span><span class="p">[</span><span class="n">nth</span><span class="p">]</span> <span class="o">==</span> <span class="n">word</span><span class="p">[</span><span class="n">nth</span><span class="p">]):</span> 
+    <span class="n">len_p</span><span class="p">,</span> <span class="n">len_w</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">pattern</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="c1"># 각 문자열의 길이를 구한다.
+</span>    <span class="n">nth</span> <span class="o">=</span> <span class="mi">0</span>  			           <span class="c1"># 확인할 문자의 위치 변수. 0으로 초기화한다.
+</span>
+    <span class="c1"># 첫 번째 조건
+</span>    <span class="k">while</span> <span class="n">nth</span> <span class="o">&lt;</span> <span class="n">len_p</span> <span class="ow">and</span> <span class="n">nth</span> <span class="o">&lt;</span> <span class="n">len_w</span> <span class="ow">and</span> <span class="p">(</span><span class="n">pattern</span><span class="p">[</span><span class="n">nth</span><span class="p">]</span> <span class="o">==</span> <span class="s">'?'</span> <span class="ow">or</span> <span class="n">pattern</span><span class="p">[</span><span class="n">nth</span><span class="p">]</span> <span class="o">==</span> <span class="n">word</span><span class="p">[</span><span class="n">nth</span><span class="p">]):</span> 
         <span class="n">nth</span> <span class="o">+=</span> <span class="mi">1</span>
 
-    <span class="c"># 두 번째 조건</span>
-    <span class="k">if</span> <span class="n">len_p</span> <span class="o">==</span> <span class="n">nth</span><span class="p">:</span>
+    <span class="c1"># 두 번째 조건
+</span>    <span class="k">if</span> <span class="n">len_p</span> <span class="o">==</span> <span class="n">nth</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">nth</span> <span class="o">==</span> <span class="n">len_w</span>
 
-    <span class="c"># 네 번째 조건</span>
-    <span class="k">if</span> <span class="n">pattern</span><span class="p">[</span><span class="n">nth</span><span class="p">]</span> <span class="o">==</span> <span class="s">'*'</span><span class="p">:</span>
+    <span class="c1"># 네 번째 조건
+</span>    <span class="k">if</span> <span class="n">pattern</span><span class="p">[</span><span class="n">nth</span><span class="p">]</span> <span class="o">==</span> <span class="s">'*'</span><span class="p">:</span>
         <span class="n">skip</span> <span class="o">=</span> <span class="mi">0</span>
 	<span class="k">while</span> <span class="n">skip</span> <span class="o">+</span> <span class="n">nth</span> <span class="o">&lt;=</span> <span class="n">len_w</span><span class="p">:</span>
 	    <span class="k">if</span> <span class="n">wildcard_exhaustive</span><span class="p">(</span><span class="n">pattern</span><span class="p">[</span><span class="n">nth</span><span class="o">+</span><span class="mi">1</span><span class="p">:],</span> <span class="n">word</span><span class="p">[</span><span class="n">skip</span><span class="o">+</span><span class="n">nth</span><span class="p">:]):</span>
                 <span class="k">return</span> <span class="bp">True</span>
 	    <span class="n">skip</span> <span class="o">+=</span> <span class="mi">1</span>
 
-    <span class="c"># 다섯 번째 조건</span>
-    <span class="k">return</span> <span class="bp">False</span>
+    <span class="c1"># 다섯 번째 조건
+</span>    <span class="k">return</span> <span class="bp">False</span>
 
 
 <span class="n">wildcard_exhaustive</span><span class="p">(</span><span class="s">'abc?'</span><span class="p">,</span> <span class="s">'abcd'</span><span class="p">)</span>
@@ -408,17 +408,17 @@
 
 <p>각 코드를 뜯어보자.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="n">len_p</span><span class="p">,</span> <span class="n">len_w</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">pattern</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="c"># 각 문자열의 길이를 구한다.</span>
-    <span class="n">nth</span> <span class="o">=</span> <span class="mi">0</span>  			           <span class="c"># 확인할 문자의 위치 변수. 0으로 초기화한다.</span>
-</code></pre></div></div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="n">len_p</span><span class="p">,</span> <span class="n">len_w</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">pattern</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="c1"># 각 문자열의 길이를 구한다.
+</span>    <span class="n">nth</span> <span class="o">=</span> <span class="mi">0</span>  			           <span class="c1"># 확인할 문자의 위치 변수. 0으로 초기화한다.
+</span></code></pre></div></div>
 
 <p>len_p, len_w로 패턴과 문자열의 길이를 담은 변수를 만든다.<br />
 문자열의 위치를 비교할 <em>nth</em> 라는 변수를 만든다. <em>nth</em> 라는 이름은 ‘6th’, ‘9th’ 처럼 서수를 만들 때 ‘th’를 붙인다는 데서 착안했다.</p>
 
 <hr />
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="c"># 첫 번째 조건</span>
-    <span class="k">while</span> <span class="n">nth</span> <span class="o">&lt;</span> <span class="n">len_p</span> <span class="ow">and</span> <span class="n">nth</span> <span class="o">&lt;</span> <span class="n">len_w</span> <span class="ow">and</span> <span class="p">(</span><span class="n">pattern</span><span class="p">[</span><span class="n">nth</span><span class="p">]</span> <span class="o">==</span> <span class="s">'?'</span> <span class="ow">or</span> <span class="n">pattern</span><span class="p">[</span><span class="n">nth</span><span class="p">]</span> <span class="o">==</span> <span class="n">word</span><span class="p">[</span><span class="n">nth</span><span class="p">]):</span> 
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="c1"># 첫 번째 조건
+</span>    <span class="k">while</span> <span class="n">nth</span> <span class="o">&lt;</span> <span class="n">len_p</span> <span class="ow">and</span> <span class="n">nth</span> <span class="o">&lt;</span> <span class="n">len_w</span> <span class="ow">and</span> <span class="p">(</span><span class="n">pattern</span><span class="p">[</span><span class="n">nth</span><span class="p">]</span> <span class="o">==</span> <span class="s">'?'</span> <span class="ow">or</span> <span class="n">pattern</span><span class="p">[</span><span class="n">nth</span><span class="p">]</span> <span class="o">==</span> <span class="n">word</span><span class="p">[</span><span class="n">nth</span><span class="p">]):</span> 
         <span class="n">nth</span> <span class="o">+=</span> <span class="mi">1</span>
 </code></pre></div></div>
 
@@ -427,8 +427,8 @@
 
 <hr />
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="c"># 두 번째 조건</span>
-    <span class="k">if</span> <span class="n">len_p</span> <span class="o">==</span> <span class="n">nth</span><span class="p">:</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="c1"># 두 번째 조건
+</span>    <span class="k">if</span> <span class="n">len_p</span> <span class="o">==</span> <span class="n">nth</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">nth</span> <span class="o">==</span> <span class="n">len_w</span>
 </code></pre></div></div>
 
@@ -436,16 +436,16 @@
 
 <hr />
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="c"># 네 번째 조건</span>
-    <span class="k">if</span> <span class="n">pattern</span><span class="p">[</span><span class="n">nth</span><span class="p">]</span> <span class="o">==</span> <span class="s">'*'</span><span class="p">:</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="c1"># 네 번째 조건
+</span>    <span class="k">if</span> <span class="n">pattern</span><span class="p">[</span><span class="n">nth</span><span class="p">]</span> <span class="o">==</span> <span class="s">'*'</span><span class="p">:</span>
         <span class="n">skip</span> <span class="o">=</span> <span class="mi">0</span>
 	<span class="k">while</span> <span class="n">skip</span> <span class="o">+</span> <span class="n">nth</span> <span class="o">&lt;=</span> <span class="n">len_w</span><span class="p">:</span>
 	    <span class="k">if</span> <span class="n">wildcard_exhaustive</span><span class="p">(</span><span class="n">pattern</span><span class="p">[</span><span class="n">nth</span><span class="o">+</span><span class="mi">1</span><span class="p">:],</span> <span class="n">word</span><span class="p">[</span><span class="n">skip</span><span class="o">+</span><span class="n">nth</span><span class="p">:]):</span>
                 <span class="k">return</span> <span class="bp">True</span>
 	    <span class="n">skip</span> <span class="o">+=</span> <span class="mi">1</span>
 
-    <span class="c"># 다섯 번째 조건</span>
-    <span class="k">return</span> <span class="bp">False</span>
+    <span class="c1"># 다섯 번째 조건
+</span>    <span class="k">return</span> <span class="bp">False</span>
 </code></pre></div></div>
 
 <p>마지막으로 가장 중요한 패턴의 글자가 ‘*‘일 때이다.</p>
@@ -594,9 +594,9 @@
 
       <div class="page-footer">
         <div class="page-share">
-          <a href="https://twitter.com/intent/tweet?text=[Algospot] 와일드카드 패턴 매칭 알고리즘&url=https://shoark7.github.io/programming/algorithm/Algospot-Wildcard-%EB%A7%A4%EC%B9%AD.html" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
-          <a href="https://facebook.com/sharer.php?u=https://shoark7.github.io/programming/algorithm/Algospot-Wildcard-%EB%A7%A4%EC%B9%AD.html" title="Share on Facebook" rel="nofollow" target="_blank">Facebook</a>
-          <a href="https://plus.google.com/share?url=https://shoark7.github.io/programming/algorithm/Algospot-Wildcard-%EB%A7%A4%EC%B9%AD.html" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>
+          <a href="https://twitter.com/intent/tweet?text=[Algospot] 와일드카드 패턴 매칭 알고리즘&url=http://localhost:4000/programming/algorithm/Algospot-Wildcard-%EB%A7%A4%EC%B9%AD.html" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
+          <a href="https://facebook.com/sharer.php?u=http://localhost:4000/programming/algorithm/Algospot-Wildcard-%EB%A7%A4%EC%B9%AD.html" title="Share on Facebook" rel="nofollow" target="_blank">Facebook</a>
+          <a href="https://plus.google.com/share?url=http://localhost:4000/programming/algorithm/Algospot-Wildcard-%EB%A7%A4%EC%B9%AD.html" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>
         </div>
         <div class="page-tag">
           
@@ -620,7 +620,7 @@
 
   <!-- Your share button code -->
   <div class="fb-share-button" 
-    data-href="https://shoark7.github.io/programming/algorithm/Algospot-Wildcard-%EB%A7%A4%EC%B9%AD.html" 
+    data-href="http://localhost:4000/programming/algorithm/Algospot-Wildcard-%EB%A7%A4%EC%B9%AD.html" 
     data-layout="button_count">
   </div>
 
@@ -648,7 +648,7 @@ var sjs = SimpleJekyllSearch({
   searchInput: document.querySelector('#search-input'),
   resultsContainer: document.getElementById('results-container'),
   json: '/search.json',
-  searchResultTemplate: '<li class="search-results-item"><a href="https://shoark7.github.io{url}">{title}</a></li>',
+  searchResultTemplate: '<li class="search-results-item"><a href="http://localhost:4000{url}">{title}</a></li>',
 	limit: 9,
 	noResultsText: '<li class="search-results-item"><a href="#">No results found...</a></li>'
 })

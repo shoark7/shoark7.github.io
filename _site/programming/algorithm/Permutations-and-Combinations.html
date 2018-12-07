@@ -17,14 +17,14 @@
     <meta content="I implement combination and permutation algorithm in Python" property="og:description">
   
   
-    <meta content="https://shoark7.github.io/programming/algorithm/Permutations-and-Combinations.html" property="og:url">
+    <meta content="http://localhost:4000/programming/algorithm/Permutations-and-Combinations.html" property="og:url">
 	
   
     <meta content="2018-11-26T00:00:00+09:00" property="article:published_time">
-    <meta content="https://shoark7.github.io/about/" property="article:author">
+    <meta content="http://localhost:4000/about/" property="article:author">
   
   
-    <meta content="https://shoark7.github.io/assets/img/algorithm/comb-perm-logo.jpg" property="og:image">
+    <meta content="http://localhost:4000/assets/img/algorithm/comb-perm-logo.jpg" property="og:image">
   
   
     
@@ -48,13 +48,13 @@
     <meta name="twitter:title" content="조합과 순열 알고리즘, 파이썬으로 구현하기">
   
   
-    <meta name="twitter:url" content="https://shoark7.github.io/programming/algorithm/Permutations-and-Combinations.html">
+    <meta name="twitter:url" content="http://localhost:4000/programming/algorithm/Permutations-and-Combinations.html">
   
   
     <meta name="twitter:description" content="I implement combination and permutation algorithm in Python">
   
   
-    <meta name="twitter:image:src" content="https://shoark7.github.io/assets/img//algorithm/comb-perm-logo.jpg">
+    <meta name="twitter:image:src" content="http://localhost:4000/assets/img//algorithm/comb-perm-logo.jpg">
   
 
   
@@ -265,18 +265,18 @@
 <p><strong>우리는 코드로 리스트와 같은 어떤 순회할 수 있는 <em>Iterable</em> 자료형과 선택할 개수 <em>r</em> 이 들어왔을 때 각 순열을 출력하는 알고리즘을 구현하자.</strong></p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">permutation</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">r</span><span class="p">):</span>
-    <span class="c"># 1.</span>
-    <span class="n">arr</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+    <span class="c1"># 1.
+</span>    <span class="n">arr</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
     <span class="n">used</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">))]</span>
 
     <span class="k">def</span> <span class="nf">generate</span><span class="p">(</span><span class="n">chosen</span><span class="p">,</span> <span class="n">used</span><span class="p">):</span>
-        <span class="c"># 2.</span>
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">chosen</span><span class="p">)</span> <span class="o">==</span> <span class="n">r</span><span class="p">:</span>
+        <span class="c1"># 2.
+</span>        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">chosen</span><span class="p">)</span> <span class="o">==</span> <span class="n">r</span><span class="p">:</span>
             <span class="k">print</span><span class="p">(</span><span class="n">chosen</span><span class="p">)</span>
             <span class="k">return</span>
 	
-	<span class="c"># 3.</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)):</span>
+	<span class="c1"># 3.
+</span>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)):</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="n">used</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
                 <span class="n">chosen</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
                 <span class="n">used</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
@@ -314,17 +314,17 @@
 <p>이를 코드로 구현해보자.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">combination</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">r</span><span class="p">):</span>
-    <span class="c"># 1.</span>
-    <span class="n">arr</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+    <span class="c1"># 1.
+</span>    <span class="n">arr</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
 
-    <span class="c"># 2.</span>
-    <span class="k">def</span> <span class="nf">generate</span><span class="p">(</span><span class="n">chosen</span><span class="p">):</span>
+    <span class="c1"># 2.
+</span>    <span class="k">def</span> <span class="nf">generate</span><span class="p">(</span><span class="n">chosen</span><span class="p">):</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">chosen</span><span class="p">)</span> <span class="o">==</span> <span class="n">r</span><span class="p">:</span>
             <span class="k">print</span><span class="p">(</span><span class="n">chosen</span><span class="p">)</span>
             <span class="k">return</span>
 
-    	<span class="c"># 3.</span>
-        <span class="n">start</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">chosen</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">chosen</span> <span class="k">else</span> <span class="mi">0</span>
+    	<span class="c1"># 3.
+</span>        <span class="n">start</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">chosen</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">chosen</span> <span class="k">else</span> <span class="mi">0</span>
         <span class="k">for</span> <span class="n">nxt</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)):</span>
             <span class="n">chosen</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">nxt</span><span class="p">])</span>
             <span class="n">generate</span><span class="p">(</span><span class="n">chosen</span><span class="p">)</span>
@@ -373,19 +373,19 @@
 <p>이때는 어떻게 해야 할까? <strong>중복되는 원소에 등장하는 순서를 정하는 것이 답이다. 예제에서 ‘A’가 두 개면, ‘A’에 보이지 않는 0, 1의 인덱스를 줘서 순서를 지켜서 등장하게 하면 중복이 나오지 않는다.</strong> 순열 함수에 이를 적용해보면 다음과 같다.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">permutation</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">r</span><span class="p">):</span>
-    <span class="c"># 1.</span>
-    <span class="n">arr</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+    <span class="c1"># 1.
+</span>    <span class="n">arr</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
     <span class="n">used</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">))]</span>
 
     <span class="k">def</span> <span class="nf">generate</span><span class="p">(</span><span class="n">chosen</span><span class="p">,</span> <span class="n">used</span><span class="p">):</span>
-        <span class="c"># 2.</span>
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">chosen</span><span class="p">)</span> <span class="o">==</span> <span class="n">r</span><span class="p">:</span>
+        <span class="c1"># 2.
+</span>        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">chosen</span><span class="p">)</span> <span class="o">==</span> <span class="n">r</span><span class="p">:</span>
             <span class="k">print</span><span class="p">(</span><span class="n">chosen</span><span class="p">)</span>
             <span class="k">return</span>
 	
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)):</span>
-	    <span class="c"># 3.</span>
-            <span class="k">if</span> <span class="ow">not</span> <span class="n">used</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">and</span> <span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">or</span> <span class="n">used</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]):</span>
+	    <span class="c1"># 3.
+</span>            <span class="k">if</span> <span class="ow">not</span> <span class="n">used</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">and</span> <span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">or</span> <span class="n">used</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]):</span>
                 <span class="n">chosen</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
                 <span class="n">used</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
                 <span class="n">generate</span><span class="p">(</span><span class="n">chosen</span><span class="p">,</span> <span class="n">used</span><span class="p">)</span>
@@ -432,18 +432,18 @@
 <p>조합일 때도 같은 코드를 만들어준다.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">combination</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">r</span><span class="p">):</span>
-    <span class="c"># 1.</span>
-    <span class="n">arr</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+    <span class="c1"># 1.
+</span>    <span class="n">arr</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
     <span class="n">used</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">))]</span>
 
-    <span class="c"># 2.</span>
-    <span class="k">def</span> <span class="nf">generate</span><span class="p">(</span><span class="n">chosen</span><span class="p">):</span>
+    <span class="c1"># 2.
+</span>    <span class="k">def</span> <span class="nf">generate</span><span class="p">(</span><span class="n">chosen</span><span class="p">):</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">chosen</span><span class="p">)</span> <span class="o">==</span> <span class="n">r</span><span class="p">:</span>
             <span class="k">print</span><span class="p">(</span><span class="n">chosen</span><span class="p">)</span>
             <span class="k">return</span>
 
-    	<span class="c"># 3.</span>
-        <span class="n">start</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">chosen</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">chosen</span> <span class="k">else</span> <span class="mi">0</span>
+    	<span class="c1"># 3.
+</span>        <span class="n">start</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">chosen</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">chosen</span> <span class="k">else</span> <span class="mi">0</span>
         <span class="k">for</span> <span class="n">nxt</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)):</span>
             <span class="k">if</span> <span class="n">used</span><span class="p">[</span><span class="n">nxt</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="p">(</span><span class="n">nxt</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">arr</span><span class="p">[</span><span class="n">nxt</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="n">arr</span><span class="p">[</span><span class="n">nxt</span><span class="p">]</span> <span class="ow">or</span> <span class="n">used</span><span class="p">[</span><span class="n">nxt</span><span class="o">-</span><span class="mi">1</span><span class="p">]):</span>
                 <span class="n">chosen</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">nxt</span><span class="p">])</span>
@@ -464,9 +464,9 @@
 
       <div class="page-footer">
         <div class="page-share">
-          <a href="https://twitter.com/intent/tweet?text=조합과 순열 알고리즘, 파이썬으로 구현하기&url=https://shoark7.github.io/programming/algorithm/Permutations-and-Combinations.html" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
-          <a href="https://facebook.com/sharer.php?u=https://shoark7.github.io/programming/algorithm/Permutations-and-Combinations.html" title="Share on Facebook" rel="nofollow" target="_blank">Facebook</a>
-          <a href="https://plus.google.com/share?url=https://shoark7.github.io/programming/algorithm/Permutations-and-Combinations.html" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>
+          <a href="https://twitter.com/intent/tweet?text=조합과 순열 알고리즘, 파이썬으로 구현하기&url=http://localhost:4000/programming/algorithm/Permutations-and-Combinations.html" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
+          <a href="https://facebook.com/sharer.php?u=http://localhost:4000/programming/algorithm/Permutations-and-Combinations.html" title="Share on Facebook" rel="nofollow" target="_blank">Facebook</a>
+          <a href="https://plus.google.com/share?url=http://localhost:4000/programming/algorithm/Permutations-and-Combinations.html" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>
         </div>
         <div class="page-tag">
           
@@ -490,7 +490,7 @@
 
   <!-- Your share button code -->
   <div class="fb-share-button" 
-    data-href="https://shoark7.github.io/programming/algorithm/Permutations-and-Combinations.html" 
+    data-href="http://localhost:4000/programming/algorithm/Permutations-and-Combinations.html" 
     data-layout="button_count">
   </div>
 
@@ -518,7 +518,7 @@ var sjs = SimpleJekyllSearch({
   searchInput: document.querySelector('#search-input'),
   resultsContainer: document.getElementById('results-container'),
   json: '/search.json',
-  searchResultTemplate: '<li class="search-results-item"><a href="https://shoark7.github.io{url}">{title}</a></li>',
+  searchResultTemplate: '<li class="search-results-item"><a href="http://localhost:4000{url}">{title}</a></li>',
 	limit: 9,
 	noResultsText: '<li class="search-results-item"><a href="#">No results found...</a></li>'
 })

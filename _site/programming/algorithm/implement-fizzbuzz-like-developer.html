@@ -17,14 +17,14 @@
     <meta content="Let's implement fizzbuzz problem like a real developer" property="og:description">
   
   
-    <meta content="https://shoark7.github.io/programming/algorithm/implement-fizzbuzz-like-developer.html" property="og:url">
+    <meta content="http://localhost:4000/programming/algorithm/implement-fizzbuzz-like-developer.html" property="og:url">
 	
   
     <meta content="2018-12-02T00:00:00+09:00" property="article:published_time">
-    <meta content="https://shoark7.github.io/about/" property="article:author">
+    <meta content="http://localhost:4000/about/" property="article:author">
   
   
-    <meta content="https://shoark7.github.io/assets/img/algorithm/fizzbuzz-logo.png" property="og:image">
+    <meta content="http://localhost:4000/assets/img/algorithm/fizzbuzz-logo.png" property="og:image">
   
   
     
@@ -48,13 +48,13 @@
     <meta name="twitter:title" content="FizzBuzz를 '개발자답게' 구현해보자">
   
   
-    <meta name="twitter:url" content="https://shoark7.github.io/programming/algorithm/implement-fizzbuzz-like-developer.html">
+    <meta name="twitter:url" content="http://localhost:4000/programming/algorithm/implement-fizzbuzz-like-developer.html">
   
   
     <meta name="twitter:description" content="Let's implement fizzbuzz problem like a real developer">
   
   
-    <meta name="twitter:image:src" content="https://shoark7.github.io/assets/img//algorithm/fizzbuzz-logo.png">
+    <meta name="twitter:image:src" content="http://localhost:4000/assets/img//algorithm/fizzbuzz-logo.png">
   
 
   
@@ -385,32 +385,32 @@
 	If none of divisors works, just return n in int.
     """</span>
 
-    <span class="c"># 0.</span>
-    <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)</span>
+    <span class="c1"># 0.
+</span>    <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">generate</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">tmp_str</span><span class="p">):</span>
-        <span class="c"># 1.</span>
-        <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="n">N</span><span class="p">:</span>
+        <span class="c1"># 1.
+</span>        <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="n">N</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">tmp_str</span> <span class="k">if</span> <span class="n">tmp_str</span> <span class="k">else</span> <span class="n">n</span>
 
         <span class="n">divisor</span><span class="p">,</span> <span class="n">word</span> <span class="o">=</span> <span class="n">items</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
 
-        <span class="c"># 2.</span>
-        <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="n">divisor</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="c1"># 2.
+</span>        <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="n">divisor</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
             <span class="n">ans</span> <span class="o">=</span> <span class="n">generate</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">tmp_str</span><span class="o">+</span><span class="n">word</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">ans</span> <span class="o">=</span> <span class="n">generate</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">tmp_str</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">ans</span>
 
-    <span class="c"># 3.</span>
-    <span class="k">return</span> <span class="n">generate</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s">''</span><span class="p">)</span>
+    <span class="c1"># 3.
+</span>    <span class="k">return</span> <span class="n">generate</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s">''</span><span class="p">)</span>
 
 
 <span class="n">N</span> <span class="o">=</span> <span class="mi">200</span>
 <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">N</span><span class="p">))</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
-    <span class="c"># Python string formatting: 다수의 출력을 깔끔하게 처리하기 위해 사용함.</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s">'{i:&lt;{length}} : {scalable_fizzbuzz(i, ((3, "Fizz"), (5, "Buzz"), (7, "Sizz"))):&lt;20}'</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">''</span><span class="p">)</span>
+    <span class="c1"># Python string formatting: 다수의 출력을 깔끔하게 처리하기 위해 사용함.
+</span>    <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s">'{i:&lt;{length}} : {scalable_fizzbuzz(i, ((3, "Fizz"), (5, "Buzz"), (7, "Sizz"))):&lt;20}'</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">''</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">print</span><span class="p">()</span>
 
@@ -469,9 +469,9 @@
 
       <div class="page-footer">
         <div class="page-share">
-          <a href="https://twitter.com/intent/tweet?text=FizzBuzz를 '개발자답게' 구현해보자&url=https://shoark7.github.io/programming/algorithm/implement-fizzbuzz-like-developer.html" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
-          <a href="https://facebook.com/sharer.php?u=https://shoark7.github.io/programming/algorithm/implement-fizzbuzz-like-developer.html" title="Share on Facebook" rel="nofollow" target="_blank">Facebook</a>
-          <a href="https://plus.google.com/share?url=https://shoark7.github.io/programming/algorithm/implement-fizzbuzz-like-developer.html" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>
+          <a href="https://twitter.com/intent/tweet?text=FizzBuzz를 '개발자답게' 구현해보자&url=http://localhost:4000/programming/algorithm/implement-fizzbuzz-like-developer.html" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
+          <a href="https://facebook.com/sharer.php?u=http://localhost:4000/programming/algorithm/implement-fizzbuzz-like-developer.html" title="Share on Facebook" rel="nofollow" target="_blank">Facebook</a>
+          <a href="https://plus.google.com/share?url=http://localhost:4000/programming/algorithm/implement-fizzbuzz-like-developer.html" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>
         </div>
         <div class="page-tag">
           
@@ -495,7 +495,7 @@
 
   <!-- Your share button code -->
   <div class="fb-share-button" 
-    data-href="https://shoark7.github.io/programming/algorithm/implement-fizzbuzz-like-developer.html" 
+    data-href="http://localhost:4000/programming/algorithm/implement-fizzbuzz-like-developer.html" 
     data-layout="button_count">
   </div>
 
@@ -523,7 +523,7 @@ var sjs = SimpleJekyllSearch({
   searchInput: document.querySelector('#search-input'),
   resultsContainer: document.getElementById('results-container'),
   json: '/search.json',
-  searchResultTemplate: '<li class="search-results-item"><a href="https://shoark7.github.io{url}">{title}</a></li>',
+  searchResultTemplate: '<li class="search-results-item"><a href="http://localhost:4000{url}">{title}</a></li>',
 	limit: 9,
 	noResultsText: '<li class="search-results-item"><a href="#">No results found...</a></li>'
 })

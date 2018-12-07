@@ -17,14 +17,14 @@
     <meta content="우리가 왜 OOP를 사용하면 좋은지 실제 예시를 사용해 알아보자." property="og:description">
   
   
-    <meta content="https://shoark7.github.io/programming/python/OOP-in-Python.html" property="og:url">
+    <meta content="http://localhost:4000/programming/python/OOP-in-Python.html" property="og:url">
 	
   
     <meta content="2018-09-15T00:00:00+09:00" property="article:published_time">
-    <meta content="https://shoark7.github.io/about/" property="article:author">
+    <meta content="http://localhost:4000/about/" property="article:author">
   
   
-    <meta content="https://shoark7.github.io/assets/img/python/python-logo.png" property="og:image">
+    <meta content="http://localhost:4000/assets/img/python/python-logo.png" property="og:image">
   
   
     
@@ -46,13 +46,13 @@
     <meta name="twitter:title" content="왜 우리는 OOP를 사용해야 할까?">
   
   
-    <meta name="twitter:url" content="https://shoark7.github.io/programming/python/OOP-in-Python.html">
+    <meta name="twitter:url" content="http://localhost:4000/programming/python/OOP-in-Python.html">
   
   
     <meta name="twitter:description" content="우리가 왜 OOP를 사용하면 좋은지 실제 예시를 사용해 알아보자.">
   
   
-    <meta name="twitter:image:src" content="https://shoark7.github.io/assets/img//python/python-logo.png">
+    <meta name="twitter:image:src" content="http://localhost:4000/assets/img//python/python-logo.png">
   
 
   
@@ -268,8 +268,8 @@
 
 <p>내 작업폴더에 gradebook.py라는 모듈에 이 정보들을 추가하고 있다.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">gradebook</span> <span class="o">=</span> <span class="p">[</span><span class="s">'3반'</span><span class="p">]</span> <span class="c"># 학생들의 정보를 담는 학생부 변수이다. 첫 원소에는 학급의 이름을 담는다고 생각하자.</span>
-
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">gradebook</span> <span class="o">=</span> <span class="p">[</span><span class="s">'3반'</span><span class="p">]</span> <span class="c1"># 학생들의 정보를 담는 학생부 변수이다. 첫 원소에는 학급의 이름을 담는다고 생각하자.
+</span>
 <span class="n">students_1</span> <span class="o">=</span> <span class="p">{</span><span class="s">'name'</span><span class="p">:</span> <span class="s">'Nayeon'</span><span class="p">,</span> <span class="s">'Math'</span><span class="p">:</span> <span class="mi">90</span><span class="p">,</span> <span class="s">'English'</span><span class="p">:</span> <span class="mi">70</span><span class="p">,</span> <span class="s">'Korean'</span><span class="p">:</span> <span class="mi">100</span><span class="p">}</span>
 <span class="n">students_2</span> <span class="o">=</span> <span class="p">{</span><span class="s">'name'</span><span class="p">:</span> <span class="s">'Dahyeon'</span><span class="p">,</span> <span class="s">'Math'</span><span class="p">:</span> <span class="mi">40</span><span class="p">,</span> <span class="s">'English'</span><span class="p">:</span> <span class="mi">65</span><span class="p">,</span> <span class="s">'Korean'</span><span class="p">:</span> <span class="mi">70</span><span class="p">}</span>
 <span class="n">students_3</span> <span class="o">=</span> <span class="p">{</span><span class="s">'name'</span><span class="p">:</span> <span class="s">'Momo'</span><span class="p">,</span> <span class="s">'Math'</span><span class="p">:</span> <span class="mi">89</span><span class="p">,</span> <span class="s">'English'</span><span class="p">:</span> <span class="mi">82</span><span class="p">,</span> <span class="s">'Korean'</span><span class="p">:</span> <span class="mi">92</span><span class="p">}</span>
@@ -299,13 +299,13 @@
 <p>난 프로그래밍을 열심히 배웠기 때문에 이런 작업에는 함수를 쓰는 것이 바람직하다고 알고 있다.<br>
 왜 바람직하지 않은지 잘 모르겠으면 그건 모듈화, 재사용성, 가독성, 전문화, 관리의 용이함 등의 장점을 모르는 것과 같다.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">### 1. 학급의 과목별로 평균 구하기</span>
-
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">### 1. 학급의 과목별로 평균 구하기
+</span>
 <span class="k">def</span> <span class="nf">grade_average</span><span class="p">(</span><span class="n">gradebook</span><span class="p">,</span> <span class="n">subject</span><span class="p">):</span>
-    <span class="n">name</span><span class="p">,</span> <span class="n">gradebook</span> <span class="o">=</span> <span class="n">gradebook</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">gradebook</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>  <span class="c"># packing이 들어갔다.</span>
-    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">gradebook</span><span class="p">)</span>  <span class="c"># 학생수 구하기</span>
-    <span class="n">average</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="n">x</span><span class="p">[</span><span class="n">subject</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">gradebook</span><span class="p">])</span>  <span class="o">/</span> <span class="n">n</span> <span class="c"># list comprehension이 쓰였지???? 이거 한 줄이면 된다.</span>
-    <span class="k">return</span> <span class="n">name</span> <span class="o">+</span> <span class="s">'의 '</span> <span class="o">+</span> <span class="n">subject</span> <span class="o">+</span> <span class="s">' 평균은 '</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">average</span><span class="p">)</span>
+    <span class="n">name</span><span class="p">,</span> <span class="n">gradebook</span> <span class="o">=</span> <span class="n">gradebook</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">gradebook</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>  <span class="c1"># packing이 들어갔다.
+</span>    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">gradebook</span><span class="p">)</span>  <span class="c1"># 학생수 구하기
+</span>    <span class="n">average</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="n">x</span><span class="p">[</span><span class="n">subject</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">gradebook</span><span class="p">])</span>  <span class="o">/</span> <span class="n">n</span> <span class="c1"># list comprehension이 쓰였지???? 이거 한 줄이면 된다.
+</span>    <span class="k">return</span> <span class="n">name</span> <span class="o">+</span> <span class="s">'의 '</span> <span class="o">+</span> <span class="n">subject</span> <span class="o">+</span> <span class="s">' 평균은 '</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">average</span><span class="p">)</span>
     
 <span class="k">print</span><span class="p">(</span><span class="n">grade_average</span><span class="p">(</span><span class="n">gradebook</span><span class="p">,</span> <span class="s">'Math'</span><span class="p">))</span>
 <span class="k">print</span><span class="p">(</span><span class="n">grade_average</span><span class="p">(</span><span class="n">gradebook</span><span class="p">,</span> <span class="s">'Korean'</span><span class="p">))</span>
@@ -318,8 +318,8 @@
 
 <p><br></p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">### 2. 학생 개개인 별로 성적 구하기</span>
-<span class="k">def</span> <span class="nf">student_average</span><span class="p">(</span><span class="n">gradebook</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">### 2. 학생 개개인 별로 성적 구하기
+</span><span class="k">def</span> <span class="nf">student_average</span><span class="p">(</span><span class="n">gradebook</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">stu</span> <span class="ow">in</span> <span class="n">gradebook</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
         <span class="k">if</span> <span class="n">stu</span><span class="p">[</span><span class="s">'name'</span><span class="p">]</span> <span class="o">==</span> <span class="n">name</span><span class="p">:</span>
             <span class="n">student</span> <span class="o">=</span> <span class="n">stu</span>
@@ -345,8 +345,8 @@
 
 <p>조금 더 나아가서, 반에 ‘Sana’라는 흐뭇해 지는 학생이 전학 왔다고 하자. 학생부에 정보를 추가해야 한다.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">### 3. 학생 추가하기</span>
-<span class="k">def</span> <span class="nf">add_student</span><span class="p">(</span><span class="n">gradebook</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">math</span><span class="p">,</span> <span class="n">korean</span><span class="p">,</span> <span class="n">english</span><span class="p">):</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">### 3. 학생 추가하기
+</span><span class="k">def</span> <span class="nf">add_student</span><span class="p">(</span><span class="n">gradebook</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">math</span><span class="p">,</span> <span class="n">korean</span><span class="p">,</span> <span class="n">english</span><span class="p">):</span>
     <span class="n">newbie</span> <span class="o">=</span> <span class="p">{</span><span class="s">'name'</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span> <span class="s">'Math'</span><span class="p">:</span> <span class="n">math</span><span class="p">,</span> <span class="s">'Korean'</span><span class="p">:</span> <span class="n">korean</span><span class="p">,</span> <span class="s">'English'</span><span class="p">:</span> <span class="n">english</span><span class="p">}</span>
     <span class="n">gradebook</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">newbie</span><span class="p">)</span>
     
@@ -373,8 +373,8 @@
 
 <p>또한 학생에 대한 정보를 성적만 담는다는 것은 너무 잔인하다. 취미 등 다양한 정보를 담는다고 하자.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">### 학생 정보 Renewal!</span>
-
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">### 학생 정보 Renewal!
+</span>
 <span class="n">gradebook</span> <span class="o">=</span> <span class="p">[</span><span class="s">'3반'</span><span class="p">,</span>
  <span class="p">{</span><span class="s">'English'</span><span class="p">:</span> <span class="p">[</span><span class="mi">45</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">67</span><span class="p">,</span> <span class="mi">70</span><span class="p">],</span> <span class="s">'Korean'</span><span class="p">:</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">97</span><span class="p">,</span> <span class="mi">97</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span> <span class="s">'Math'</span><span class="p">:</span> <span class="p">[</span><span class="mi">65</span><span class="p">,</span> <span class="mi">74</span><span class="p">,</span> <span class="mi">87</span><span class="p">,</span> <span class="mi">54</span><span class="p">],</span> <span class="s">'name'</span><span class="p">:</span> <span class="s">'Nayeon'</span><span class="p">,</span>
    <span class="s">'hobbies'</span><span class="p">:</span> <span class="p">[</span><span class="s">'dance'</span><span class="p">,</span> <span class="s">'sing'</span><span class="p">],</span> <span class="s">'favorite_movies'</span><span class="p">:</span> <span class="p">[</span><span class="s">'Begin again'</span><span class="p">,</span> <span class="s">'Chicken run'</span><span class="p">]},</span>
@@ -401,8 +401,8 @@
   <li>학생들이 가장 좋아하는 취미가 뭔지 출력하기</li>
 </ol>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 1. 원하는 시험의 특정 과목의 학생들 평균 알아보기</span>
-<span class="k">def</span> <span class="nf">students_grades_average</span><span class="p">(</span><span class="n">gradebook</span><span class="p">,</span> <span class="n">which_exam</span><span class="p">,</span> <span class="n">subject</span><span class="p">):</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 1. 원하는 시험의 특정 과목의 학생들 평균 알아보기
+</span><span class="k">def</span> <span class="nf">students_grades_average</span><span class="p">(</span><span class="n">gradebook</span><span class="p">,</span> <span class="n">which_exam</span><span class="p">,</span> <span class="n">subject</span><span class="p">):</span>
     <span class="n">avg</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">gradebook</span> <span class="o">=</span> <span class="n">gradebook</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
     <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">gradebook</span><span class="p">)</span>
@@ -412,8 +412,8 @@
     <span class="k">return</span> <span class="n">avg</span> <span class="o">/</span> <span class="n">length</span>
 
 
-<span class="c"># 2. 특정 학생의 특정 분기 특정 성적 알아보기</span>
-<span class="k">def</span> <span class="nf">get_specific_score</span><span class="p">(</span><span class="n">gradebook</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">which</span><span class="p">,</span> <span class="n">subject</span><span class="p">):</span>
+<span class="c1"># 2. 특정 학생의 특정 분기 특정 성적 알아보기
+</span><span class="k">def</span> <span class="nf">get_specific_score</span><span class="p">(</span><span class="n">gradebook</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">which</span><span class="p">,</span> <span class="n">subject</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">stu</span> <span class="ow">in</span> <span class="n">gradebook</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
         <span class="k">if</span> <span class="n">stu</span><span class="p">[</span><span class="s">'name'</span><span class="p">]</span> <span class="o">==</span> <span class="n">name</span><span class="p">:</span>
             <span class="n">student</span> <span class="o">=</span> <span class="n">stu</span>
@@ -422,8 +422,8 @@
     <span class="n">student</span><span class="p">[</span><span class="n">subject</span><span class="p">][</span><span class="n">which</span><span class="p">]</span>
     
 
-<span class="c"># 3. 학생들이 좋아하는 1순위 취미들을 모아 집합으로 반환하기</span>
-<span class="k">def</span> <span class="nf">what_are_favorite_hobbies</span><span class="p">(</span><span class="n">gradebook</span><span class="p">):</span>
+<span class="c1"># 3. 학생들이 좋아하는 1순위 취미들을 모아 집합으로 반환하기
+</span><span class="k">def</span> <span class="nf">what_are_favorite_hobbies</span><span class="p">(</span><span class="n">gradebook</span><span class="p">):</span>
     <span class="n">hobbies</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
     <span class="k">for</span> <span class="n">stu</span> <span class="ow">in</span> <span class="n">gradebook</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
         <span class="n">hobbies</span> <span class="o">=</span> <span class="n">hobbies</span><span class="o">.</span><span class="n">union</span><span class="p">([</span><span class="n">stu</span><span class="p">[</span><span class="s">'hobbies'</span><span class="p">][</span><span class="mi">0</span><span class="p">]])</span>
@@ -489,13 +489,13 @@
   <li>커스터마이제이션이 어려워진다. 가령 기존의 함수에서 조금씩을 바꿔 쓰고자 한다고 하자.</li>
 </ol>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">### 1. 학급의 과목별로 평균 구하기</span>
-
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">### 1. 학급의 과목별로 평균 구하기
+</span>
 <span class="k">def</span> <span class="nf">grade_average</span><span class="p">(</span><span class="n">gradebook</span><span class="p">,</span> <span class="n">subject</span><span class="p">):</span>
-    <span class="n">name</span><span class="p">,</span> <span class="o">*</span><span class="n">gradebook</span> <span class="o">=</span> <span class="n">gradebook</span>  <span class="c"># packing이 들어갔다.</span>
-    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">gradebook</span><span class="p">)</span>  <span class="c"># 학생수 구하기</span>
-    <span class="n">average</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="n">x</span><span class="p">[</span><span class="n">subject</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">gradebook</span><span class="p">])</span>  <span class="o">/</span> <span class="n">n</span> <span class="c"># list comprehension이 쓰였지???? 이거 한 줄이면 된다.</span>
-    <span class="k">return</span> <span class="n">name</span> <span class="o">+</span> <span class="s">'의 '</span> <span class="o">+</span> <span class="n">subject</span> <span class="o">+</span> <span class="s">' 평균은 '</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">average</span><span class="p">)</span>
+    <span class="n">name</span><span class="p">,</span> <span class="o">*</span><span class="n">gradebook</span> <span class="o">=</span> <span class="n">gradebook</span>  <span class="c1"># packing이 들어갔다.
+</span>    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">gradebook</span><span class="p">)</span>  <span class="c1"># 학생수 구하기
+</span>    <span class="n">average</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="n">x</span><span class="p">[</span><span class="n">subject</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">gradebook</span><span class="p">])</span>  <span class="o">/</span> <span class="n">n</span> <span class="c1"># list comprehension이 쓰였지???? 이거 한 줄이면 된다.
+</span>    <span class="k">return</span> <span class="n">name</span> <span class="o">+</span> <span class="s">'의 '</span> <span class="o">+</span> <span class="n">subject</span> <span class="o">+</span> <span class="s">' 평균은 '</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">average</span><span class="p">)</span>
     
 <span class="k">print</span><span class="p">(</span><span class="n">grade_average</span><span class="p">(</span><span class="n">gradebook</span><span class="p">,</span> <span class="s">'Math'</span><span class="p">))</span>
 <span class="k">print</span><span class="p">(</span><span class="n">grade_average</span><span class="p">(</span><span class="n">gradebook</span><span class="p">,</span> <span class="s">'Korean'</span><span class="p">))</span>
@@ -544,19 +544,19 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">students</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">length</span> <span class="o">=</span> <span class="mi">0</span>
         
-    <span class="c"># gradebook['momo']와 같이 이름을 키로 받았을 때 특정 학생 반환하도록 반환</span>
-    <span class="k">def</span> <span class="nf">__get__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+    <span class="c1"># gradebook['momo']와 같이 이름을 키로 받았을 때 특정 학생 반환하도록 반환
+</span>    <span class="k">def</span> <span class="nf">__get__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">stu</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">students</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">stu</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">name</span><span class="p">:</span>
                 <span class="k">return</span> <span class="n">stu</span>
         
-    <span class="c"># 학생 추가하기</span>
-    <span class="k">def</span> <span class="nf">add_student</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">student</span><span class="p">):</span>
+    <span class="c1"># 학생 추가하기
+</span>    <span class="k">def</span> <span class="nf">add_student</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">student</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">students</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">student</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">length</span> <span class="o">+=</span> <span class="mi">1</span>
 
-    <span class="c"># 학급의 특정 시험의 특정 과목 평균 출력</span>
-    <span class="k">def</span> <span class="nf">average_of_subject_which_exam</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">subject</span><span class="p">,</span> <span class="n">which_exam</span><span class="p">):</span>
+    <span class="c1"># 학급의 특정 시험의 특정 과목 평균 출력
+</span>    <span class="k">def</span> <span class="nf">average_of_subject_which_exam</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">subject</span><span class="p">,</span> <span class="n">which_exam</span><span class="p">):</span>
         <span class="n">tmp_sum</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="k">for</span> <span class="n">stu</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">students</span><span class="p">:</span>
             <span class="n">tmp_sum</span> <span class="o">+=</span> <span class="n">stu</span><span class="p">[</span><span class="n">subject</span><span class="p">][</span><span class="n">which_exam</span><span class="p">]</span>
@@ -575,8 +575,8 @@
     <span class="k">def</span> <span class="nf">add_exam_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">math</span><span class="p">,</span> <span class="n">korean</span><span class="p">,</span> <span class="n">english</span><span class="p">):</span>
         <span class="k">raise</span> <span class="nb">NotImplementedError</span><span class="p">(</span><span class="s">""</span><span class="p">)</span>
 
-    <span class="c"># 학생의 특정 과목 점수의 평균 반환</span>
-    <span class="k">def</span> <span class="nf">average_grade_of</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">subject</span><span class="p">):</span>
+    <span class="c1"># 학생의 특정 과목 점수의 평균 반환
+</span>    <span class="k">def</span> <span class="nf">average_grade_of</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">subject</span><span class="p">):</span>
         <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="bp">self</span><span class="p">[</span><span class="n">subject</span><span class="p">])</span>
 
     <span class="k">def</span> <span class="nf">fill_hobbies</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -641,31 +641,31 @@
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">teacher_name</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">teacher_name</span> <span class="o">=</span> <span class="n">teacher_name</span>
-        <span class="c"># 기존에 생성자에 교사 이름까지 저장할 수 있도록 확장했다.</span>
-    
-    <span class="c"># 특정 학생의 특정 학생의 특정 시험 점수를 반환</span>
-    <span class="k">def</span> <span class="nf">get_specific_score</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">subject</span><span class="p">,</span> <span class="n">which_exam</span><span class="p">):</span>
+        <span class="c1"># 기존에 생성자에 교사 이름까지 저장할 수 있도록 확장했다.
+</span>    
+    <span class="c1"># 특정 학생의 특정 학생의 특정 시험 점수를 반환
+</span>    <span class="k">def</span> <span class="nf">get_specific_score</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">subject</span><span class="p">,</span> <span class="n">which_exam</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="n">name</span><span class="p">][</span><span class="n">subject</span><span class="p">][</span><span class="n">which_exam</span><span class="p">]</span>
     
     
 <span class="k">class</span> <span class="nc">Student</span><span class="p">(</span><span class="n">BaseStudent</span><span class="p">):</span>
-    <span class="c"># 시험을 볼 때마다 수학, 국어, 영어 점수를 추가</span>
-    <span class="k">def</span> <span class="nf">add_exam_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">math</span><span class="p">,</span> <span class="n">korean</span><span class="p">,</span> <span class="n">english</span><span class="p">):</span>
+    <span class="c1"># 시험을 볼 때마다 수학, 국어, 영어 점수를 추가
+</span>    <span class="k">def</span> <span class="nf">add_exam_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">math</span><span class="p">,</span> <span class="n">korean</span><span class="p">,</span> <span class="n">english</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_math</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">math</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_korean</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">korean</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_english</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">english</span><span class="p">)</span>
 
-    <span class="c"># student['math'] 처럼 썼을 때 해당 과목 성적을 담은 리스트를 반환</span>
-    <span class="k">def</span> <span class="nf">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">subject</span><span class="p">):</span>
+    <span class="c1"># student['math'] 처럼 썼을 때 해당 과목 성적을 담은 리스트를 반환
+</span>    <span class="k">def</span> <span class="nf">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">subject</span><span class="p">):</span>
         <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s">'_'</span> <span class="o">+</span> <span class="n">subject</span><span class="p">)</span>
         
 
-    <span class="c"># 새 취미 추가하기</span>
-    <span class="k">def</span> <span class="nf">fill_hobbies</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hobby</span><span class="p">):</span>
+    <span class="c1"># 새 취미 추가하기
+</span>    <span class="k">def</span> <span class="nf">fill_hobbies</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hobby</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_hobbies</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">hobby</span><span class="p">)</span>
 
-    <span class="c"># 학생들의 취미를 한 줄로 출력하기</span>
-    <span class="k">def</span> <span class="nf">print_hobby</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c1"># 학생들의 취미를 한 줄로 출력하기
+</span>    <span class="k">def</span> <span class="nf">print_hobby</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="s">', '</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_hobbies</span><span class="p">)</span>
 </code></pre></div></div>
 
@@ -856,9 +856,9 @@
 
       <div class="page-footer">
         <div class="page-share">
-          <a href="https://twitter.com/intent/tweet?text=%EC%99%9C%20%EC%9A%B0%EB%A6%AC%EB%8A%94%20OOP%EB%A5%BC%20%EC%82%AC%EC%9A%A9%ED%95%B4%EC%95%BC%20%ED%95%A0%EA%B9%8C?&amp;url=https://shoark7.github.io/programming/python/OOP-in-Python.html" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
-          <a href="https://facebook.com/sharer.php?u=https://shoark7.github.io/programming/python/OOP-in-Python.html" title="Share on Facebook" rel="nofollow" target="_blank">Facebook</a>
-          <a href="https://plus.google.com/share?url=https://shoark7.github.io/programming/python/OOP-in-Python.html" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>
+          <a href="https://twitter.com/intent/tweet?text=%EC%99%9C%20%EC%9A%B0%EB%A6%AC%EB%8A%94%20OOP%EB%A5%BC%20%EC%82%AC%EC%9A%A9%ED%95%B4%EC%95%BC%20%ED%95%A0%EA%B9%8C?&amp;url=http://localhost:4000/programming/python/OOP-in-Python.html" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
+          <a href="https://facebook.com/sharer.php?u=http://localhost:4000/programming/python/OOP-in-Python.html" title="Share on Facebook" rel="nofollow" target="_blank">Facebook</a>
+          <a href="https://plus.google.com/share?url=http://localhost:4000/programming/python/OOP-in-Python.html" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>
         </div>
         <div class="page-tag">
           
@@ -879,7 +879,7 @@
   }(document, 'script', 'facebook-jssdk'));</script>
 
   <!-- Your share button code -->
-  <div class="fb-share-button" data-href="https://shoark7.github.io/programming/python/OOP-in-Python.html" data-layout="button_count">
+  <div class="fb-share-button" data-href="http://localhost:4000/programming/python/OOP-in-Python.html" data-layout="button_count">
   </div>
 
 		
@@ -906,7 +906,7 @@ var sjs = SimpleJekyllSearch({
   searchInput: document.querySelector('#search-input'),
   resultsContainer: document.getElementById('results-container'),
   json: '/search.json',
-  searchResultTemplate: '<li class="search-results-item"><a href="https://shoark7.github.io{url}">{title}</a></li>',
+  searchResultTemplate: '<li class="search-results-item"><a href="http://localhost:4000{url}">{title}</a></li>',
 	limit: 9,
 	noResultsText: '<li class="search-results-item"><a href="#">No results found...</a></li>'
 })

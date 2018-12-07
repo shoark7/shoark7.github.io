@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "에라토스테네스의 체 Bitmask로 구현하기",
+      "category" : "",
+      "tags"     : "Algorithm, Sieve_of_Eratosthenes",
+      "url"      : "/programming/algorithm/sieve-of-eratosthenes-bitmask.html",
+      "date"     : "2018-12-07 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "FizzBuzz를 &#39;개발자답게&#39; 구현해보자",
       "category" : "",
       "tags"     : "Algorithm, Combination, Permutation",
