@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "프로 바둑 기사와 대국한 이야기",
+      "category" : "",
+      "tags"     : "Insight, Go",
+      "url"      : "/insight/sensitivity/a-story-with-pro-go-player.html",
+      "date"     : "2018-12-08 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "에라토스테네스의 체 Bitmask로 구현하기",
       "category" : "",
       "tags"     : "Algorithm, Sieve_of_Eratosthenes",
