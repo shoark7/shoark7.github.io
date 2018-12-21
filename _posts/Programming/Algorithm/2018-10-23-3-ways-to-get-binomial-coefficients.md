@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '[조합론] 이항계수를 구하는 3가지 알고리즘'
+title: '[조합론] 이항계수 알고리즘 3가지'
 date: 2018-10-23
 description: 'I introduce 3 algorithms to get binomial coefficient.'
 img:  /algorithm/logo-binomial-coefficient.png

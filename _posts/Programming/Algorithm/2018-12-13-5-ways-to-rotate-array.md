@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "1차원 배열을 회전하는 5가지 방법"
+title: "1차원 배열 회전 알고리즘 5가지"
 date: 2018-12-13
 description: "5 Ways to rotate an 1 dimensional array"
 img:  /algorithm/rotate-array-logo.png
