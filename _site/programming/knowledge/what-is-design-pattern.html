@@ -432,7 +432,11 @@
 
 <p>물론 인스턴스에 저장된 두 점의 정보를 통해 너비와 높이를 구할 수는 있다. 하지만 넓이를 구해야 할 때마다 이렇게 구구절절 정보를 가공하기에는 사용자 입장에서 너무 불편하다. <strong>다시 말해 직사각형 클래스와 직사각형의 넓이를 구하는 함수간의 인터페이스가 달라 둘 간의 활용에 어려움을 겪는 상황</strong></p>
 
-<p><strong>그렇다면, 둘 간의 인터페이스를 연결하는 Adapter 함수를 만들어 활용하자!</strong></p>
+<p><br /></p>
+
+<center>그렇다면, 둘 간의 인터페이스를 연결하는 Adapter 함수를 만들어 활용하자!</center>
+
+<p><br /></p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">get_area_for_plane</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">Rectangle</span><span class="p">):</span>
