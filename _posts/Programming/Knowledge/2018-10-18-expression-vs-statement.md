@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 코드 단위, Expression과 Statement를 알아보자
+title: 코드 단위인 Expression과 Statement의 차이를 알아보자
 date: 2018-10-18
 description: What is the difference between expression and statement?
 img:  /knowledge/logo-expression-statement.jpg
