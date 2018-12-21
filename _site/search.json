@@ -97,7 +97,7 @@
     } ,
   
     {
-      "title"    : "Shell 사용의 핵심: I/O Redirection에 대하여",
+      "title"    : "[중요]Shell: Redirection",
       "category" : "",
       "tags"     : "shell, Redirection, IO_Redirection, Pipe_operator",
       "url"      : "/programming/shell-programming/IO-Redirection-in-Shell.html",
