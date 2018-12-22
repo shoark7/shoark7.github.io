@@ -383,9 +383,8 @@ What's your job? : 학생
 
 ---
 
-* [Sourcemaking: design pattern pages](https://en.wikipedia.org/wiki/Software_design_pattern#Behavioral_patterns){:target="_blank"}
-* [Wikipedia: design pattern pages](https://sourcemaking.com/design_patterns){:target="_blank"}
+* [Wikipedia: design pattern pages](https://en.wikipedia.org/wiki/Software_design_pattern#Behavioral_patterns){:target="_blank"}
+* [Sourcemaking: design pattern pages](https://sourcemaking.com/design_patterns){:target="_blank"}
 * [Stackoverflow: Relationship between design patterns and OOP](https://stackoverflow.com/questions/478773/how-is-oop-and-design-patterns-related){:target="_blank"}
 * [Geeks for Geeks: design pattern pages](https://www.geeksforgeeks.org/software-design-patterns/){:target="_blank"}
 * [파이썬으로 싱글턴 패턴 구현하기](https://wikidocs.net/3693){:target="_blank"}
-

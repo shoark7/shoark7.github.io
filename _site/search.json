@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "최대 연속 부분수열 합을 구하는 4가지 알고리즘",
+      "category" : "",
+      "tags"     : "Algorithm, Max_slice_sum, Max_consecutive_sum",
+      "url"      : "/programming/algorithm/4-ways-to-get-subarray-consecutive-sum.html",
+      "date"     : "2018-12-22 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "디자인 패턴이란 무엇인가?",
       "category" : "",
       "tags"     : "Expression, Design_pattern",
