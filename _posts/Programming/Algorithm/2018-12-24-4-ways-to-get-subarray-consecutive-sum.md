@@ -1,11 +1,11 @@
 ---
 layout: post
 title: "최대 연속 부분수열 합을 구하는 4가지 알고리즘"
-date: 2018-12-23
+date: 2018-12-24
 description: "I introduce 4 algorithms to get largest continuous sum of subarrays"
 img:  /algorithm/largest-subarray-sum-logo.jpg
 categories: [Programming, Algorithm]
-tags: [Algorithm, Max_slice_sum, Max_consecutive_sum]
+tags: [Algorithm, Max_slice_sum, Largest_continous_sum_in_subarray]
 ---
 
 
@@ -97,9 +97,8 @@ for func in functions:
 
 ### 3.1. 완전탐색: $$O(2^n)$$
 
-답을 구할 배열을 앞서 그림에서 본 크기 8의 배열로 두고 이야기하자. 이는 모든 알고리즘에도 마찬가지다. 저 배열은 크기가 8이다.  
 
-나는 답을 만드는 과정을 다음과 같이 구성해도 된다고 생각했다. 일단 부분문제를 만들었다.
+언제나 문제를 그대로 풀기 보다는 보다 작은 부분문제로 나누고 이를 활용해 문제를 푸는 노력을 하는 것은 바람직하다. 나는 답을 만드는 과정을 다음과 같이 구성해도 된다고 생각했다. 일단 부분문제를 만들었다.
 
 
 $$
@@ -189,7 +188,7 @@ $$
 \end{array}
 $$
 
-*p\_sum[hi] - p\_sum[lo-1]*을 구하면 [lo, hi] 구간의 합을 구할 수 있다. **이때 뒷 부분이 'lo'가 아닌 'lo-1'라는 것을 기억하자. lo 부분은 포함할 값이기 때문에 그전까지의 합만 빼줘야 닫힌 구간의 합을 구할 수 있다.**
+*p\_sum[hi] - p\_sum[lo-1]*을 구하면 [lo, hi] 구간의 합을 구할 수 있다. **이때 뒷 부분이 'lo'가 아닌 'lo-1'이라는 것을 기억하자. lo 부분은 포함할 값이기 때문에 그전까지의 합만 빼줘야 닫힌 구간의 합을 구할 수 있다.**
 
 바로 이 식을 이용해서 **수열의 모든 부분구간에 대해 구간합을 구하고 그중 최대값을 반환하면 되겠다.**
 

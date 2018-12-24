@@ -20,7 +20,7 @@
     <meta content="http://localhost:4000/programming/algorithm/4-ways-to-get-subarray-consecutive-sum.html" property="og:url">
 	
   
-    <meta content="2018-12-23T00:00:00+09:00" property="article:published_time">
+    <meta content="2018-12-24T00:00:00+09:00" property="article:published_time">
     <meta content="http://localhost:4000/about/" property="article:author">
   
   
@@ -37,7 +37,7 @@
     
     <meta content="Max_slice_sum" property="article:tag">
     
-    <meta content="Max_consecutive_sum" property="article:tag">
+    <meta content="Largest_continous_sum_in_subarray" property="article:tag">
     
   
 
@@ -245,7 +245,7 @@
     <div class="wrap-content">
       <header class="header-page">
         <h1 class="page-title">최대 연속 부분수열 합을 구하는 4가지 알고리즘</h1>
-        <div class="page-date"><span>2018, Dec 23&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+        <div class="page-date"><span>2018, Dec 24&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
       </header>
       <h3 id="목차">목차</h3>
 
@@ -329,9 +329,7 @@
 
 <h3 id="31-완전탐색-o2n">3.1. 완전탐색: <script type="math/tex">O(2^n)</script></h3>
 
-<p>답을 구할 배열을 앞서 그림에서 본 크기 8의 배열로 두고 이야기하자. 이는 모든 알고리즘에도 마찬가지다. 저 배열은 크기가 8이다.</p>
-
-<p>나는 답을 만드는 과정을 다음과 같이 구성해도 된다고 생각했다. 일단 부분문제를 만들었다.</p>
+<p>언제나 문제를 그대로 풀기 보다는 보다 작은 부분문제로 나누고 이를 활용해 문제를 푸는 노력을 하는 것은 바람직하다. 나는 답을 만드는 과정을 다음과 같이 구성해도 된다고 생각했다. 일단 부분문제를 만들었다.</p>
 
 <script type="math/tex; mode=display">\begin{array} \label{}
 	f(now, tmp\_ans): \textbf{현재 탐색할 인덱스가 now이고,} \\
@@ -420,7 +418,7 @@
 	\displaystyle\sum_{i=lo}^{hi} arr_i = p\_sum[hi] - p\_sum[lo-1]
 \end{array}</script>
 
-<p><em>p_sum[hi] - p_sum[lo-1]</em>을 구하면 [lo, hi] 구간의 합을 구할 수 있다. <strong>이때 뒷 부분이 ‘lo’가 아닌 ‘lo-1’라는 것을 기억하자. lo 부분은 포함할 값이기 때문에 그전까지의 합만 빼줘야 닫힌 구간의 합을 구할 수 있다.</strong></p>
+<p><em>p_sum[hi] - p_sum[lo-1]</em>을 구하면 [lo, hi] 구간의 합을 구할 수 있다. <strong>이때 뒷 부분이 ‘lo’가 아닌 ‘lo-1’이라는 것을 기억하자. lo 부분은 포함할 값이기 때문에 그전까지의 합만 빼줘야 닫힌 구간의 합을 구할 수 있다.</strong></p>
 
 <p>바로 이 식을 이용해서 <strong>수열의 모든 부분구간에 대해 구간합을 구하고 그중 최대값을 반환하면 되겠다.</strong></p>
 
@@ -625,7 +623,7 @@
           
             <a href="/tags#Max_slice_sum" class="tag">&#35; Max_slice_sum</a>
           
-            <a href="/tags#Max_consecutive_sum" class="tag">&#35; Max_consecutive_sum</a>
+            <a href="/tags#Largest_continous_sum_in_subarray" class="tag">&#35; Largest_continous_sum_in_subarray</a>
           
         </div>
       </div>
