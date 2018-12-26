@@ -17,11 +17,11 @@
     <meta content="Parkito's dev blog for programming, Python, Algorithm, Automation and insights." property="og:description">
   
   
-    <meta content="https://shoark7.github.io/tags/" property="og:url">
+    <meta content="http://localhost:4000/tags/" property="og:url">
 	
   
   
-    <meta content="https://shoark7.github.io/assets/img/1536558558520.jpg" property="og:image">
+    <meta content="http://localhost:4000/assets/img/1536558558520.jpg" property="og:image">
   
   
   
@@ -33,13 +33,13 @@
     <meta name="twitter:title" content="Tags">
   
   
-    <meta name="twitter:url" content="https://shoark7.github.io/tags/">
+    <meta name="twitter:url" content="http://localhost:4000/tags/">
   
   
     <meta name="twitter:description" content="Parkito's dev blog for programming, Python, Algorithm, Automation and insights.">
   
   
-    <meta name="twitter:image:src" content="https://shoark7.github.io/assets/img/1536558558520.jpg">
+    <meta name="twitter:image:src" content="http://localhost:4000/assets/img/1536558558520.jpg">
   
 
   
@@ -247,7 +247,7 @@
     <li ><a href="#Design_pattern" class="tag">Design_pattern <span>(1)</span></a></li>
   
     
-    <li ><a href="#Expression" class="tag">Expression <span>(2)</span></a></li>
+    <li ><a href="#Expression" class="tag">Expression <span>(1)</span></a></li>
   
     
     <li ><a href="#Fibonacci" class="tag">Fibonacci <span>(1)</span></a></li>
@@ -289,6 +289,9 @@
     <li ><a href="#Pipe_operator" class="tag">Pipe_operator <span>(1)</span></a></li>
   
     
+    <li ><a href="#Process" class="tag">Process <span>(1)</span></a></li>
+  
+    
     <li ><a href="#Python" class="tag">Python <span>(5)</span></a></li>
   
     
@@ -308,6 +311,9 @@
   
     
     <li ><a href="#Statement" class="tag">Statement <span>(1)</span></a></li>
+  
+    
+    <li ><a href="#Thread" class="tag">Thread <span>(1)</span></a></li>
   
     
     <li ><a href="#alias" class="tag">alias <span>(1)</span></a></li>
@@ -489,11 +495,6 @@
 <!--  lists all posts corresponding to specific tag...-->
     
     <div class="tag-list">
-        <span><a href="/programming/knowledge/what-is-design-pattern.html">디자인 패턴이란 무엇인가?</a></span>
-        <small><span>| 21 Dec 2018</span></small>
-    </div>
-    
-    <div class="tag-list">
         <span><a href="/programming/knowledge/expression-vs-statement.html">코드 단위인 Expression과 Statement의 차이를 알아보자</a></span>
         <small><span>| 18 Oct 2018</span></small>
     </div>
@@ -640,6 +641,16 @@
     
   
     
+  <h2 id="Process">Process</h2>
+<!--  lists all posts corresponding to specific tag...-->
+    
+    <div class="tag-list">
+        <span><a href="/programming/knowledge/difference-between-process-and-thread.html">Process와 Thread의 차이</a></span>
+        <small><span>| 26 Dec 2018</span></small>
+    </div>
+    
+  
+    
   <h2 id="Python">Python</h2>
 <!--  lists all posts corresponding to specific tag...-->
     
@@ -726,6 +737,16 @@
     <div class="tag-list">
         <span><a href="/programming/knowledge/expression-vs-statement.html">코드 단위인 Expression과 Statement의 차이를 알아보자</a></span>
         <small><span>| 18 Oct 2018</span></small>
+    </div>
+    
+  
+    
+  <h2 id="Thread">Thread</h2>
+<!--  lists all posts corresponding to specific tag...-->
+    
+    <div class="tag-list">
+        <span><a href="/programming/knowledge/difference-between-process-and-thread.html">Process와 Thread의 차이</a></span>
+        <small><span>| 26 Dec 2018</span></small>
     </div>
     
   
@@ -975,7 +996,7 @@ var sjs = SimpleJekyllSearch({
   searchInput: document.querySelector('#search-input'),
   resultsContainer: document.getElementById('results-container'),
   json: '/search.json',
-  searchResultTemplate: '<li class="search-results-item"><a href="https://shoark7.github.io{url}">{title}</a></li>',
+  searchResultTemplate: '<li class="search-results-item"><a href="http://localhost:4000{url}">{title}</a></li>',
 	limit: 9,
 	noResultsText: '<li class="search-results-item"><a href="#">No results found...</a></li>'
 })

@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "Process와 Thread의 차이",
+      "category" : "",
+      "tags"     : "Process, Thread",
+      "url"      : "/programming/knowledge/difference-between-process-and-thread.html",
+      "date"     : "2018-12-26 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "최대 연속 부분수열 합을 구하는 4가지 알고리즘",
       "category" : "",
       "tags"     : "Algorithm, Max_slice_sum, Largest_continous_sum_in_subarray",
@@ -11,7 +19,7 @@
     {
       "title"    : "디자인 패턴이란 무엇인가?",
       "category" : "",
-      "tags"     : "Expression, Design_pattern",
+      "tags"     : "Design_pattern",
       "url"      : "/programming/knowledge/what-is-design-pattern.html",
       "date"     : "2018-12-21 00:00:00 +0900"
     } ,

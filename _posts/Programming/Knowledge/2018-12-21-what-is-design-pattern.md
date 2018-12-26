@@ -5,7 +5,7 @@ date: 2018-12-21
 description: 디자인 패턴이 무엇인지 알아보고 파이썬으로 실습해보자.
 img:  /knowledge/design-pattern-logo.png
 categories: [Programming, Knowledge]
-tags: [Expression, Design_pattern]
+tags: [Design_pattern]
 ---
 
 
