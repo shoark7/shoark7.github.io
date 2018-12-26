@@ -2,8 +2,8 @@
 layout: post
 title: Process와 Thread의 차이
 date: 2018-12-26
-description: 프로그램과 프로세스, 스레드의 차이를 정의하고 알아보자
-img:  /knowledge/design-pattern-logo.png
+description: 프로세스, 스레드를 알아보고 이들의 차이를 정리하자.
+img:  /knowledge/process-logo.jpeg
 categories: [Programming, Knowledge]
 tags: [Process, Thread]
 ---
@@ -127,7 +127,7 @@ $ cat many-names | sort | uniq
   - 시간도 자원이기에 오버헤드가 줄어들어 전체 응답이 짧아진다. 또 병목이 걸리는 작업과 다른 작업을 구분할 수 있어 전체 실행시간을 줄일 수 있다.
 
 
-**위와 같은 장점은 왜 웹 서버가 각각의 HTTP 통신을 멀티 프로세스가 아닌 멀티스레드로 구현하는지를 설명한다. 각 통신을 고유한 자원을 할당해야 하고 서로 간 통신도 까다로운 프로세스로 구현하고 싶지는 않을테니까 말이다.**
+**위와 같은 장점은 왜 웹 서버가 각각의 HTTP 통신을 멀티프로세스가 아닌 멀티스레드로 구현하는지를 설명한다. 각 통신을 고유한 자원을 할당해야 하고 서로 간 통신도 까다로운 프로세스로 구현하고 싶지는 않을테니까 말이다.**
 
 
 
