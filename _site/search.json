@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "팩토리얼의 끝 0의 개수 유려하게 풀기",
+      "category" : "",
+      "tags"     : "Algorithm, Factorial",
+      "url"      : "/programming/algorithm/number-of-trailing-zeros-in-factorial.html",
+      "date"     : "2018-12-28 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "Process와 Thread의 차이",
       "category" : "",
       "tags"     : "Process, Thread",
