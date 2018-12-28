@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "팩토리얼의 끝 0의 개수 유려하게 풀기"
+title: "팩토리얼의 끝 0의 개수 구하기"
 date: 2018-12-28
 description: "Let's count the trailing zeros in a factorial number"
 img:  /algorithm/factorial-logo.jpg

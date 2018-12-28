@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>팩토리얼의 끝 0의 개수 유려하게 풀기 - Parkito's on the way</title>
+	<title>팩토리얼의 끝 0의 개수 구하기 - Parkito's on the way</title>
 
   <!-- Edit site and author settings in `_config.yml` to make the social details your own -->
 
     <meta content="Parkito's on the way" property="og:site_name">
   
-    <meta content="팩토리얼의 끝 0의 개수 유려하게 풀기" property="og:title">
+    <meta content="팩토리얼의 끝 0의 개수 구하기" property="og:title">
   
   
     <meta content="article" property="og:type">
@@ -43,7 +43,7 @@
     <meta name="twitter:site" content="@">
     <meta name="twitter:creator" content="@">
   
-    <meta name="twitter:title" content="팩토리얼의 끝 0의 개수 유려하게 풀기">
+    <meta name="twitter:title" content="팩토리얼의 끝 0의 개수 구하기">
   
   
     <meta name="twitter:url" content="http://localhost:4000/programming/algorithm/number-of-trailing-zeros-in-factorial.html">
@@ -235,14 +235,14 @@
     
     <div class="page-cover-image">
       <figure>
-        <img class="page-image" src=/assets/img//algorithm/factorial-logo.jpg alt="팩토리얼의 끝 0의 개수 유려하게 풀기">
+        <img class="page-image" src=/assets/img//algorithm/factorial-logo.jpg alt="팩토리얼의 끝 0의 개수 구하기">
         
       </figure>
     </div> <!-- End Page Cover Image -->
     
     <div class="wrap-content">
       <header class="header-page">
-        <h1 class="page-title">팩토리얼의 끝 0의 개수 유려하게 풀기</h1>
+        <h1 class="page-title">팩토리얼의 끝 0의 개수 구하기</h1>
         <div class="page-date"><span>2018, Dec 28&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
       </header>
       <p><strong>본 컨텐츠는 데스크탑 환경에 최적화되어 있습니다.</strong></p>
@@ -287,7 +287,7 @@
 
 <p>이 방법은 우리의 직관에서 바로 시작한다. <strong><script type="math/tex">N!</script>을 소인수 분해해 2와 5의 계승을 세서 이의 최소값을 반환하자.</strong></p>
 
-<p>이때 <strong>N이 100만 되어도 <script type="math/tex">100!</script>은 364자리의 미친 숫자이기 때문에 오버플로우의 위험이 있다. 그러니 팩토리얼을 계산하지 말고 1부터 N까지 순회하면서 각 숫자가 가지고 있는 2와 5의 개수를 더해나가자.</strong></p>
+<p>이때 <strong>N이 100만 되어도 <script type="math/tex">100!</script>은 364자리의 미친 숫자이기 때문에 오버플로우의 위험이 있다. 그러니 팩토리얼을 직접 계산하지 말고 1부터 N까지 순회하면서 각 숫자가 가지고 있는 2와 5의 개수를 더해나가자.</strong></p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">count_zero</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
     <span class="n">two</span> <span class="o">=</span> <span class="mi">0</span>
@@ -424,7 +424,7 @@
 
       <div class="page-footer">
         <div class="page-share">
-          <a href="https://twitter.com/intent/tweet?text=팩토리얼의 끝 0의 개수 유려하게 풀기&url=http://localhost:4000/programming/algorithm/number-of-trailing-zeros-in-factorial.html" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
+          <a href="https://twitter.com/intent/tweet?text=팩토리얼의 끝 0의 개수 구하기&url=http://localhost:4000/programming/algorithm/number-of-trailing-zeros-in-factorial.html" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
           <a href="https://facebook.com/sharer.php?u=http://localhost:4000/programming/algorithm/number-of-trailing-zeros-in-factorial.html" title="Share on Facebook" rel="nofollow" target="_blank">Facebook</a>
           <a href="https://plus.google.com/share?url=http://localhost:4000/programming/algorithm/number-of-trailing-zeros-in-factorial.html" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>
         </div>
