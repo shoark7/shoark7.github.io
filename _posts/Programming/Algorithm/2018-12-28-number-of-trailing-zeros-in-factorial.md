@@ -149,12 +149,12 @@ $$
 
 $$
 \begin{array} \label{}
-	\text{a와 b는 자연수, a < b 일 때} \\
+	\text{a와 b는 소수, a < b 일 때} \\
 	\displaystyle\sum_{i=1}^{N} count\_factor(i, a) >= \displaystyle\sum_{i=1}^{N} count\_factor(i, b)
 \end{array}
 $$
 
-이는 조금만 생각해보면 당연함을 알 수 있다. 이제 **우리는 N!에서 5의 개수만 세서 반환하면 되겠다.**
+이는 조금만 생각해보면 당연함을 알 수 있는데 a, b가 자연수일 때는 성립하지 않는다.(예: 7, 8) 이제 **우리는 N!에서 5의 개수만 세서 반환하면 되겠다.**
 
 이제 지금까지의 내용을 코드로 옮기자.
 
