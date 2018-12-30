@@ -3,13 +3,18 @@ layout: only-menus
 ---
 
 ## About me!
+
 <br>
+
 I'm a student who wants to make value. Then you can ask me 'what is value?'.  
 I think you can understand it when you look around my blog. :grin:
 
 <br>
+
 ### :pushpin: What I'm interested in: 
+
 <br>
+
 #### :ledger: Programming
 
 * **Python**: It's my major language. I cover lots of basic Python here.  
@@ -22,7 +27,7 @@ I think you can understand it when you look around my blog. :grin:
 
 <br>
 
-#### :ledger: Other interests
+#### :ledger: Interests
 * Books: Yes!
 * Music: I like it. I'll sometimes upload a post about it.
 * Netflix: God, please bless Netflix. I like watching Netflix contents with our TV in home.

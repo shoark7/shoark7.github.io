@@ -1,7 +1,7 @@
 # Parkito's Dev blog with Jekyll and Github!
 
 
-### with theme [Flexible-Jekyll](http://jekyllthemes.org/themes/flexible-jekyll/){:target="_blank"}
+### with theme [Flexible-Jekyll](http://jekyllthemes.org/themes/flexible-jekyll/)
 
 ---
 
@@ -11,4 +11,4 @@ My blog has programming, insight and projects part.
 * Insight: Covers my daily lives' insight.
 * Projects: My project gallery
 
-You can check it out [here](https://shoark7.github.io){:target="_blank"}.
+You can check it out [here](https://shoark7.github.io)
