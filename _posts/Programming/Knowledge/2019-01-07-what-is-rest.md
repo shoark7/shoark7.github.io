@@ -42,7 +42,7 @@ tags: [REST, Roy_Fielding]
 
 그가 REST를 개발할 때는 웹이 폭발적으로 성장하고 있었지만 어떤 웹 전체를 꿰뚫는 '표준'이라는 개념이 미비했던 때로 표준을 만들기 위한 여러 움직임이 있었다. 그의 표현에 따르면 **그 당시에는 "_웹의 구조를 서술하는 비공식 문서들과 두 개의 소개 형식의 논문 등이 있었지만 실제 웹 구현이 너무 빨라 이미 시대에 뒤떨어진(out-dated) 경우가 많았다_" 또 "_그 당시 이미 캐시와 프록시 등이 웹에는 존재했지만 이에 대해 인식하는 표준은 없다시피 했다._"** **그렇기에 웹에 대한 새로운 표준, 또는 표준의 확장이 꼭 필요했다.**
 
-그래서 팀 버너스 리가 이끄는 W3C와 IETF 같은 곳에서 표준화 작업에 본격적으로 착수했다. 그는 웹 소프트웨어를 개발했던 경험 덕분에 상대적 URL의 사양, HTTP 1.0의 사양, HTTP 1.1의 초기 주요 설계자, 마지막으로 URI의 generic 문법 표준의 사양 개정 등 **웹 표준화에 상당한 기여를 했다.** REST가 처음 개발된 것은 1994년 10월부터 1995년 8월 사이로 HTTP 1.0, 1.1의 개념을 소통하기 위해서였다고 한다. **REST가 웹, HTTP와 큰 관련이 있는 것**은 이 때문인 것이다.
+그래서 팀 버너스 리가 이끄는 W3C와 IETF 같은 곳에서 표준화 작업에 본격적으로 착수했다. 그는 웹 소프트웨어를 개발했던 경험 덕분에 상대적 URL의 사양, HTTP 1.0의 사양, HTTP 1.1의 초기 주요 설계자, 마지막으로 URI의 generic 문법 표준의 사양 개정 등 **웹 표준화에 상당한 기여를 했다.** REST가 처음 개발된 것은 1994년 10월부터 1995년 8월 사이로 HTTP 1.0, 1.1의 개념을 소통하기 위해서였다고 한다. **REST가 웹, HTTP와 큰 관련이 있는 것**은 이 때문이다.
 
 
 ## 3. REST의 배경과 제약
@@ -162,11 +162,11 @@ REST API 규칙에 대해 추론할 수 있는 몇 가지 언급은 논문에서
 
 먼저 이거. 그의 논문에서는 'URL은 어떻게 작성해야 한다'는 식의 구체적인 언급은 한 마디도 없다. 그래서 사실 내가 적는 내용이 조금은 못 미덥다. 구체적이지 않기 때문에 REST가 무엇인지에 대한 생각이 사람마다 조금씩 다를 수 있는 것이다.
 
-**그래서 이 포스트에서는 구체적인 API 규칙은 살펴보지 않겠다. 관련된 포스트가 많으니 참고하길 바란다.([여기](https://gmlwjd9405.github.io/2018/09/21/rest-and-restful.html)) 작성 잘 해놓으셨다.** 대신 논문에서 소개된, 그리고 로이 필딩이 이후에 작성한 REST API에 대한 언급에서 단서를 찾도록 한다. 이 부분을 읽고 다른 누군가 써놓은 규칙을 살펴보면 일맥상통함이 분명 있다. 그것을 발견하는 것이 이 포스트의 목적이기도 하다.
+**그래서 이 포스트에서는 구체적인 API 규칙은 살펴보지 않겠다. 관련된 포스트가 많으니 참고하길 바란다.([여기](https://gmlwjd9405.github.io/2018/09/21/rest-and-restful.html){:target="_blank"}) 작성 잘 해놓으셨다.** 대신 논문에서 소개된, 그리고 로이 필딩이 이후에 작성한 REST API에 대한 언급에서 단서를 찾도록 한다. 이 부분을 읽고 다른 누군가 써놓은 규칙을 살펴보면 일맥상통함이 분명 있다. 그것을 발견하는 것이 이 포스트의 목적이기도 하다.
 
 <br>
 
-> REST에서의 자원의 정의는 단순한 전제로 시작한다: 식별자는 가능한 변하지 말아야 한다. 관리자들은 하이퍼미디어 참조에 잘 맞는, 참조(링크)를 여러 번 접근해서 심지어 내용이나 결과가 바뀔지라도 참조는 정적이어야 한다. REST는 '자원'이 확인하고자 하는 것에 대한 의미(semantic)라고 정의하며 실제 문서와 같은 가치, 정보라고 보지 않는다. 그렇기 때문에 가치, 정보가 변하거나, 읽히거나 심지어 삭제되어도 참조는 불변을 유지할 수 있다.
+> REST에서의 자원의 정의는 단순한 전제로 시작한다: 식별자는 가능한 변하지 말아야 한다. 한 자원에 대한 참조(링크)를 여러 번 접근해서 정보의 내용이나 결과가 바뀔지라도 참조는 정적이어야 한다. REST는 '자원'이 확인하고자 하는 것에 대한 의미(semantic)라고 정의하며 실제 문서와 같은 가치, 정보라고 보지 않는다. 그렇기 때문에 가치, 정보가 변하거나, 읽히거나 심지어 삭제되어도 참조는 불변을 유지할 수 있다.
 
 이건 좀 크다. 이것은 시사하는 바가 있는데 **한 자원이 읽히거나(READ), 생성되거나(POST), 업데이트되거나(PUT), 삭제(DELETE)되어도 URL은 자원 그 자체가 아니라 의미 또는 참조이기 때문에 변하지 않는다.** 이는 이후 내용에 큰 통찰을 준다.
 
@@ -174,7 +174,7 @@ REST API 규칙에 대해 추론할 수 있는 몇 가지 언급은 논문에서
 
 로이 필딩이 2008년 10월 20일에 작성한 'REST APIs must be hypertext-driven'라는 포스트가 있다. 여기서 그는 사람들이 모든 HTTP 기반 인터페이스를 REST라고 부르는 것에 좌절하고 있다면서 REST 스타일에서 'hyptertext'는 앞서 이야기한 '제약'이라고 말하고 있다. 다시 말해 어플리케이션 상태가 하이퍼텍스트 기반이 아니라면 RESTful하지 않다고 말한다. 
 
-여기서 **REST 규칙을 설명하고 있는 다른 많은 블로그들에서 API는 실제 웹 페이지에서 링크를 타고 내려가듯이 계층구조를 이루어야 한다는 말이 'hyptertext-driven'과 일맥상통하는 듯하다.** Hypertext는 웹의 중요한 성질 중 하나로 링크를 통해 다른 페이지(상태)로 전이할 수 있게 한다. 이때 링크를 타고 넘어가면 페이지와 페이지를 잇는 트리를 만들 수 있는데 트리는 대표적인 계층을 표현하는 자료구조다. **이 페이지 링크 트리를 타고 넘어가듯이 URL을 작성하라는 것이 곧 'hyptertext-driven'이라고 생각되었다.**
+**REST 규칙을 설명하고 있는 다른 많은 블로그들에서 API는 실제 웹 페이지에서 링크를 타고 내려가듯이 계층구조를 이루어야 한다는 말이 이 'hyptertext-driven'과 일맥상통하는 듯하다.** Hypertext는 웹의 중요한 성질 중 하나로 링크를 통해 다른 페이지(상태)로 전이할 수 있게 한다. 이때 링크를 타고 넘어가면 페이지와 페이지를 잇는 트리를 만들 수 있는데 트리는 대표적인 계층을 표현하는 자료구조다. **이 페이지 링크 트리를 타고 넘어가듯이 URL을 작성하라는 것이 곧 'hyptertext-driven'이라고 생각되었다.**
 
 예를 들어 313(내 생일이다)을 아이디로 하는 유저의 정보를 담는 상태를 '~/foobar/users/313'이라고 하자. 이 페이지는 해당 유저에 관한 많은 정보와 연결될 수 있는데(Edge) 가령 유저가 그동안 작성했던 포스트들을 담은 상태로 넘어갈 수 있다고 하자. 그때 URL을 '~/foobar/users/313/posts'와 같이 작성하면 유저 페이지에서 '작성했던 포스트' 페이지로 링크(hypertext)를 통해 이동한 것을 URL 계층구조로 표현할 수 있다.
 
@@ -198,8 +198,8 @@ REST에 대해 처음 공부하면 나처럼 위와 같은 내용을 알지 못�
 
 ---
 
-* [Architectural Styles and the Design of Network-based Software Architectures, Ch 5,6](https://www.ics.uci.edu/~fielding/pubs/dissertation/evaluation.htm)
-* [Codecademy Articles: What is REST?](https://www.codecademy.com/articles/what-is-rest)
-* [[Network] REST란? REST API란? RESTful이란?](https://gmlwjd9405.github.io/2018/09/21/rest-and-restful.html)
-* [REST APIs must be hyptertext-driven](https://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven)
-* [Wikipedia: REST](https://en.wikipedia.org/wiki/Representational_state_transfer)
+* [Architectural Styles and the Design of Network-based Software Architectures, Ch 5,6](https://www.ics.uci.edu/~fielding/pubs/dissertation/evaluation.htm){:target="_blank"}
+* [Codecademy Articles: What is REST?](https://www.codecademy.com/articles/what-is-rest){:target="_blank"}
+* [[Network] REST란? REST API란? RESTful이란?](https://gmlwjd9405.github.io/2018/09/21/rest-and-restful.html){:target="_blank"}
+* [REST APIs must be hyptertext-driven](https://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven){:target="_blank"}
+* [Wikipedia: REST](https://en.wikipedia.org/wiki/Representational_state_transfer){:target="_blank"}
