@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "그래프와 트리의 관계에 대한 고찰",
+      "category" : "",
+      "tags"     : "Tree, Graph",
+      "url"      : "/insight/rationality/relationship-between-graph-and-tree.html",
+      "date"     : "2019-01-12 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "논문을 통한 REST에 대한 고찰",
       "category" : "",
       "tags"     : "REST, Roy_Fielding",
