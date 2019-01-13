@@ -17,14 +17,14 @@
     <meta content="Let me introduce 5 different ways to solve fibonacci algorithm" property="og:description">
   
   
-    <meta content="http://localhost:4000/programming/algorithm/%ED%94%BC%EB%B3%B4%EB%82%98%EC%B9%98-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%84-%ED%95%B4%EA%B2%B0%ED%95%98%EB%8A%94-5%EA%B0%80%EC%A7%80-%EB%B0%A9%EB%B2%95.html" property="og:url">
+    <meta content="https://shoark7.github.io/programming/algorithm/%ED%94%BC%EB%B3%B4%EB%82%98%EC%B9%98-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%84-%ED%95%B4%EA%B2%B0%ED%95%98%EB%8A%94-5%EA%B0%80%EC%A7%80-%EB%B0%A9%EB%B2%95.html" property="og:url">
 	
   
     <meta content="2018-11-22T00:00:00+09:00" property="article:published_time">
-    <meta content="http://localhost:4000/about/" property="article:author">
+    <meta content="https://shoark7.github.io/about/" property="article:author">
   
   
-    <meta content="http://localhost:4000/assets/img/algorithm/fibonacci-logo.png" property="og:image">
+    <meta content="https://shoark7.github.io/assets/img/algorithm/fibonacci-logo.png" property="og:image">
   
   
     
@@ -48,13 +48,13 @@
     <meta name="twitter:title" content="피보나치 수열 알고리즘을 해결하는 5가지 방법">
   
   
-    <meta name="twitter:url" content="http://localhost:4000/programming/algorithm/%ED%94%BC%EB%B3%B4%EB%82%98%EC%B9%98-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%84-%ED%95%B4%EA%B2%B0%ED%95%98%EB%8A%94-5%EA%B0%80%EC%A7%80-%EB%B0%A9%EB%B2%95.html">
+    <meta name="twitter:url" content="https://shoark7.github.io/programming/algorithm/%ED%94%BC%EB%B3%B4%EB%82%98%EC%B9%98-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%84-%ED%95%B4%EA%B2%B0%ED%95%98%EB%8A%94-5%EA%B0%80%EC%A7%80-%EB%B0%A9%EB%B2%95.html">
   
   
     <meta name="twitter:description" content="Let me introduce 5 different ways to solve fibonacci algorithm">
   
   
-    <meta name="twitter:image:src" content="http://localhost:4000/assets/img//algorithm/fibonacci-logo.png">
+    <meta name="twitter:image:src" content="https://shoark7.github.io/assets/img//algorithm/fibonacci-logo.png">
   
 
   
@@ -460,7 +460,7 @@
 
 <p><br /></p>
 
-<p>마지막으로, 재귀적 동적 계획법 풀이를 Pythonic하게 풀어보자. 파이썬 함수의 동작방식을 활용한 방법으로 바로 코드부터 확인해보자.</p>
+<p>마지막으로, 파이썬 함수의 동작방식을 활용한 방법을 사용해 문제를 풀어보자.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">fibo</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">__cache</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="mi">1</span><span class="p">}):</span>
     <span class="s">"""Get nth fibonacci number"""</span>
@@ -480,9 +480,9 @@
 
 <p>함수 정의 시에 ‘__cache’를 미리 선언했기 때문에, 함수 실행 시에는 <em>n</em> 만 인자로 넘기면 된다. 그것을 알리기 위해서 캐시 이름 앞에 ‘__‘를 불였다. 알다시피 파이썬에서 변수명을 정할 때 ‘_‘와 ‘__‘를 붙이는 것은 특별한 의미가 있는데, 그 중에서도 ‘__‘는 미약한 ‘private’의 의미로 ‘이 값은 사용자가 건드리지 말라’는 의미를 함축한다. 실제로 여기서는 캐시를 건드릴 이유가 없고 건드려서도 안 된다.</p>
 
-<p>위와 같이 쓰는 것은 상당한 주의를 요한다. <strong>함수 실행 시에 캐시가 꾸준히 변화하고 그 값이 보존되기에 함수가 계속 실행되면서 예기치 못한 에러를 맞닥뜨릴 수도 있기 때문이다.</strong> 조심해야 하지만, 이 함수를 써야할 때는 크게 문제가 없다. 파이썬의 내부 동작방식을 활용하기 때문에 Pythonic하다고 할 수 있는 방법이다.</p>
+<p>위와 같이 쓰는 것은 상당한 주의를 요한다. <strong>함수 실행 시에 캐시가 꾸준히 변화하고 그 값이 보존되기에 함수가 계속 실행되면서 예기치 못한 에러를 맞닥뜨릴 수도 있기 때문이다.</strong> 조심해야 하지만, 이 함수를 써야할 때는 크게 문제가 없다. 파이썬의 내부 동작방식을 활용하기 때문에 파이썬에서만 구현할 수 있는 방식이다.</p>
 
-<p><strong>이 방법을 쓸 때는 몇 가지 단점이 있는데, 먼저 Pythonic하기 때문에 다른 언어 사용자들에게 가독성이 떨어질 수 있으며, 사랑받는 프로그램이 되기 위한 필수적인 조건인 프로그램의 설명문서가 비대진다는 것이다.</strong> 위의 저 100번째 값을 구하는 코드를 실행한뒤 ‘help(fibo)’를 실행해보면 그 의미를 알 수 있다.</p>
+<p><strong>이 방법을 쓸 때는 몇 가지 단점이 있는데, 먼저 다른 언어 사용자들에게 가독성이 떨어질 수 있으며, 사랑받는 프로그램이 되기 위한 필수적인 조건인 프로그램의 설명문서가 비대진다는 것이다.</strong> 위의 저 100번째 값을 구하는 코드를 실행한뒤 ‘help(fibo)’를 실행해보면 그 의미를 알 수 있다.</p>
 
 <p><br /></p>
 
@@ -618,11 +618,7 @@
 
 <p>답이 나온다. 이게 무슨 알고리즘이냐고 물을 수 있지만, 알고리즘이 ‘문제를 해결하는 일련의 절차나 방법’이라는 것을 감안할 때 이 정의에 딱 부합한다.</p>
 
-<p>이 알고리즘의 장점은 뭐니뭐니 해도 시간 복잡도로, 꿈에서나 볼듯한 <script type="math/tex">O(1)</script>가 된다. 행렬을 사용한 알고리즘의  <script type="math/tex">O(log_{2}n)</script>도 물론 충분히 훌륭하지만 만약 고객에게 제품으로 내놓을 실제 제품이라면 난 심각하게 이 알고리즘 사용을 고려해보겠다.</p>
-
-<p>가령 어떤 위대한 사업의 목표를 성취하기 위해 <script type="math/tex">2^{32}</script> 번째 피보나치 수를 구해야 하는 니즈가 있는 고객이 있을 수 있다. 그런 사람들에게 어쩌면 32번의 계산은 사치스러운 효율일 수 있지 않을까??</p>
-
-<p>물론 위와 같은 가정이 오버라는 것은 나도 안다. 하지만 내가 이 알고리즘을 소개한 것은 나같은 학생이 알고리즘을 공부하고 문제를 푸는 데만 집중하느라 실제 적용가능한 또 다른 방법들을 인지하지 못하는 경우가 충분히 있을 수 있다고 느꼈기 때문이다. 우리는 눈을 크게 뜰 필요가 있다.</p>
+<p>시간복잡도는 위 식의 각 부분을 살펴봐야 하는데 제곱을 구하는 부분이 행렬 알고리즘에서 살펴본 것처럼 <script type="math/tex">O(logn)</script>이기 때문에 전체적으로 <script type="math/tex">O(logn)</script>이 된다. 행렬식과 같다.</p>
 
 <hr />
 
@@ -651,9 +647,9 @@
 
       <div class="page-footer">
         <div class="page-share">
-          <a href="https://twitter.com/intent/tweet?text=피보나치 수열 알고리즘을 해결하는 5가지 방법&url=http://localhost:4000/programming/algorithm/%ED%94%BC%EB%B3%B4%EB%82%98%EC%B9%98-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%84-%ED%95%B4%EA%B2%B0%ED%95%98%EB%8A%94-5%EA%B0%80%EC%A7%80-%EB%B0%A9%EB%B2%95.html" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
-          <a href="https://facebook.com/sharer.php?u=http://localhost:4000/programming/algorithm/%ED%94%BC%EB%B3%B4%EB%82%98%EC%B9%98-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%84-%ED%95%B4%EA%B2%B0%ED%95%98%EB%8A%94-5%EA%B0%80%EC%A7%80-%EB%B0%A9%EB%B2%95.html" title="Share on Facebook" rel="nofollow" target="_blank">Facebook</a>
-          <a href="https://plus.google.com/share?url=http://localhost:4000/programming/algorithm/%ED%94%BC%EB%B3%B4%EB%82%98%EC%B9%98-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%84-%ED%95%B4%EA%B2%B0%ED%95%98%EB%8A%94-5%EA%B0%80%EC%A7%80-%EB%B0%A9%EB%B2%95.html" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>
+          <a href="https://twitter.com/intent/tweet?text=피보나치 수열 알고리즘을 해결하는 5가지 방법&url=https://shoark7.github.io/programming/algorithm/%ED%94%BC%EB%B3%B4%EB%82%98%EC%B9%98-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%84-%ED%95%B4%EA%B2%B0%ED%95%98%EB%8A%94-5%EA%B0%80%EC%A7%80-%EB%B0%A9%EB%B2%95.html" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
+          <a href="https://facebook.com/sharer.php?u=https://shoark7.github.io/programming/algorithm/%ED%94%BC%EB%B3%B4%EB%82%98%EC%B9%98-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%84-%ED%95%B4%EA%B2%B0%ED%95%98%EB%8A%94-5%EA%B0%80%EC%A7%80-%EB%B0%A9%EB%B2%95.html" title="Share on Facebook" rel="nofollow" target="_blank">Facebook</a>
+          <a href="https://plus.google.com/share?url=https://shoark7.github.io/programming/algorithm/%ED%94%BC%EB%B3%B4%EB%82%98%EC%B9%98-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%84-%ED%95%B4%EA%B2%B0%ED%95%98%EB%8A%94-5%EA%B0%80%EC%A7%80-%EB%B0%A9%EB%B2%95.html" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>
         </div>
         <div class="page-tag">
           
@@ -677,7 +673,7 @@
 
   <!-- Your share button code -->
   <div class="fb-share-button" 
-    data-href="http://localhost:4000/programming/algorithm/%ED%94%BC%EB%B3%B4%EB%82%98%EC%B9%98-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%84-%ED%95%B4%EA%B2%B0%ED%95%98%EB%8A%94-5%EA%B0%80%EC%A7%80-%EB%B0%A9%EB%B2%95.html" 
+    data-href="https://shoark7.github.io/programming/algorithm/%ED%94%BC%EB%B3%B4%EB%82%98%EC%B9%98-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%84-%ED%95%B4%EA%B2%B0%ED%95%98%EB%8A%94-5%EA%B0%80%EC%A7%80-%EB%B0%A9%EB%B2%95.html" 
     data-layout="button_count">
   </div>
 
@@ -705,7 +701,7 @@ var sjs = SimpleJekyllSearch({
   searchInput: document.querySelector('#search-input'),
   resultsContainer: document.getElementById('results-container'),
   json: '/search.json',
-  searchResultTemplate: '<li class="search-results-item"><a href="http://localhost:4000{url}">{title}</a></li>',
+  searchResultTemplate: '<li class="search-results-item"><a href="https://shoark7.github.io{url}">{title}</a></li>',
 	limit: 9,
 	noResultsText: '<li class="search-results-item"><a href="#">No results found...</a></li>'
 })
