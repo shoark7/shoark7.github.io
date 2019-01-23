@@ -17,11 +17,11 @@
     <meta content="Parkito's dev blog for programming, Python, Algorithm, Automation and insights." property="og:description">
   
   
-    <meta content="https://shoark7.github.io/page/2/" property="og:url">
+    <meta content="http://localhost:4000/page/2/" property="og:url">
 	
   
   
-    <meta content="https://shoark7.github.io/assets/img/1536558558520.jpg" property="og:image">
+    <meta content="http://localhost:4000/assets/img/1536558558520.jpg" property="og:image">
   
   
   
@@ -33,13 +33,13 @@
     <meta name="twitter:title" content="Parkito's on the way">
   
   
-    <meta name="twitter:url" content="https://shoark7.github.io/page/2/">
+    <meta name="twitter:url" content="http://localhost:4000/page/2/">
   
   
     <meta name="twitter:description" content="Parkito's dev blog for programming, Python, Algorithm, Automation and insights.">
   
   
-    <meta name="twitter:image:src" content="https://shoark7.github.io/assets/img/1536558558520.jpg">
+    <meta name="twitter:image:src" content="http://localhost:4000/assets/img/1536558558520.jpg">
   
 
   
@@ -221,6 +221,22 @@
 	
 	<article class="post">
 		
+			<a class="post-thumbnail" style="background-image: url(/assets/img//algorithm/sieve-logo.png)" href="/programming/algorithm/sieve-of-eratosthenes-bitmask.html"></a>
+		
+		<div class="post-content">
+			<h2 class="post-title"><a href="/programming/algorithm/sieve-of-eratosthenes-bitmask.html">에라토스테네스의 체 Bitmask로 구현하기</a></h2>
+			<p>0. 들어가며
+
+
+
+에라토스테네스의 체는 정해진 범위 내의 자연수에서 소수를 걸러내는 데 유용하게 사용되는 알고리즘이다. 이를 개발한 에라토스테네스는 기원전 200여년 전 사람인데 참 대단하다는 생각이 든다. ...</p>
+			<span class="post-date">&nbsp;&nbsp;&nbsp;—&nbsp;2018, Dec 07&nbsp;&nbsp;&nbsp;—&nbsp;</span>
+			
+		</div>
+	</article>
+	
+	<article class="post">
+		
 			<a class="post-thumbnail" style="background-image: url(/assets/img//algorithm/fizzbuzz-logo.png)" href="/programming/algorithm/implement-fizzbuzz-like-developer.html"></a>
 		
 		<div class="post-content">
@@ -367,22 +383,6 @@
 		</div>
 	</article>
 	
-	<article class="post">
-		
-			<a class="post-thumbnail" style="background-image: url(/assets/img//algorithm/logo-binomial-coefficient.png)" href="/programming/algorithm/3-ways-to-get-binomial-coefficients.html"></a>
-		
-		<div class="post-content">
-			<h2 class="post-title"><a href="/programming/algorithm/3-ways-to-get-binomial-coefficients.html">[조합론] 이항계수 알고리즘 3가지</a></h2>
-			<p>들어가며
-
-
-
-이항계수는 내 기억에 고등학교 수준에서 배웠던 경우의 수 개념으로 나를 한동안 괴롭혔던 문제이다. 가령 “‘a’, ‘b’, ‘c’ 중 2개를 선택해 뽑는 조합을 모두 출력하라”와 같은 문제를 난 ...</p>
-			<span class="post-date">&nbsp;&nbsp;&nbsp;—&nbsp;2018, Oct 23&nbsp;&nbsp;&nbsp;—&nbsp;</span>
-			
-		</div>
-	</article>
-	
 	<div class="container">
   <nav class="pagination" role="pagination">
     <ul>
@@ -426,7 +426,7 @@ var sjs = SimpleJekyllSearch({
   searchInput: document.querySelector('#search-input'),
   resultsContainer: document.getElementById('results-container'),
   json: '/search.json',
-  searchResultTemplate: '<li class="search-results-item"><a href="https://shoark7.github.io{url}">{title}</a></li>',
+  searchResultTemplate: '<li class="search-results-item"><a href="http://localhost:4000{url}">{title}</a></li>',
 	limit: 9,
 	noResultsText: '<li class="search-results-item"><a href="#">No results found...</a></li>'
 })

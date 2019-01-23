@@ -20,6 +20,7 @@ I think you can understand it when you look around my blog. :grin:
 * **Python**: It's my major language. I cover lots of basic Python here.  
 * **Algorithm**: I love to divide problems into small subproblems and moduling. That's why I like algorithms.  
   - My algorithm repository is [here](https://github.com/shoark7/algorithm-with-python).  **All my contents are in Python.**
+  - ![codewars badge](https://www.codewars.com/users/shoark7/badges/large)
 * **Server-side**: I want to learn more about server, back-end programming.  
 * **Automation**: I'll deep dive more into this. It's for sure.
 * **Shell scripts**: My small hobby is making a simple shell scripts.
