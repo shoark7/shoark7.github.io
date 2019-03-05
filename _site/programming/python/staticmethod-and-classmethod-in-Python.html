@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>[Python] staticmethod VS classmethod - Parkito's on the way</title>
+
+  <!-- Edit site and author settings in `_config.yml` to make the social details your own -->
+
+    <meta content="Parkito's on the way" property="og:site_name">
+  
+    <meta content="[Python] staticmethod VS classmethod" property="og:title">
+  
+  
+    <meta content="article" property="og:type">
+  
+  
+    <meta content="Python OOP를 제대로 활용하기 위해 꼭 필요한 staticmethod와 classmethod를 확인하고 비교, 대조해보도록 하겠습니다." property="og:description">
+  
+  
+    <meta content="http://localhost:4000/programming/python/staticmethod-and-classmethod-in-Python.html" property="og:url">
+	
+  
+    <meta content="2019-03-05T00:00:00+09:00" property="article:published_time">
+    <meta content="http://localhost:4000/about/" property="article:author">
+  
+  
+    <meta content="http://localhost:4000/assets/img/knowledge/unix-philosophy-logo.jpg" property="og:image">
+  
+  
+    
+    <meta content="Programming" property="article:section">
+    
+  
+  
+    
+    <meta content="Staticmethod" property="article:tag">
+    
+    <meta content="Classmethod" property="article:tag">
+    
+  
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@">
+    <meta name="twitter:creator" content="@">
+  
+    <meta name="twitter:title" content="[Python] staticmethod VS classmethod">
+  
+  
+    <meta name="twitter:url" content="http://localhost:4000/programming/python/staticmethod-and-classmethod-in-Python.html">
+  
+  
+    <meta name="twitter:description" content="Python OOP를 제대로 활용하기 위해 꼭 필요한 staticmethod와 classmethod를 확인하고 비교, 대조해보도록 하겠습니다.">
+  
+  
+    <meta name="twitter:image:src" content="http://localhost:4000/assets/img//knowledge/unix-philosophy-logo.jpg">
+  
+
+  
+    <meta content="Python OOP를 제대로 활용하기 위해 꼭 필요한 staticmethod와 classmethod를 확인하고 비교, 대조해보도록 하겠습니다." name="description">
+  
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="shortcut icon" href="/assets/img/favicon/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" href="/assets/img/favicon/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/assets/img/favicon/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/assets/img/favicon/apple-touch-icon-144x144.png">
+	<!-- Chrome, Firefox OS and Opera -->
+	<meta name="theme-color" content="#263959">
+	<!-- Windows Phone -->
+	<meta name="msapplication-navbutton-color" content="#263959">
+	<!-- iOS Safari -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="#263959">
+	<!-- Google Fonts -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+	
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="/assets/fonts/font-awesome/css/font-awesome.min.css">
+	<!-- Styles -->
+	<!-- Mathjax Support -->
+<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+	MathJax.Hub.Config({
+  showProcessingMessages: false,
+  jax: ["input/TeX", "output/HTML-CSS"],
+  TeX: {
+    TagSide: "left",
+    Macros: {
+      RR: '{\\bf R}',
+      bold: ['{\\bf #1}',1]
+    }
+  },
+  CommonHTML: {
+    linebreaks: {automatic: true}
+  }
+});
+</script>
+
+	<link rel="stylesheet" href="/assets/css/main.css">
+	<link rel="stylesheet" href="/assets/css/personal.css">
+	<link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Nanum+Gothic:400,700,800&amp;subset=korean" rel="stylesheet">
+</head>
+
+<body style="position: relative">
+	<div id="toggler-wrapper">
+		<div id="menu-toggler">
+			<img src="/assets/img/nav-off.png" alt="Menu collapse image">
+		</div>
+	</div>
+
+  <div class="wrapper">
+
+		<nav id="nav">
+			<div id="menus">
+				<p>
+					<a class="navbar-brand text-white" href="/">&nbsp;&nbsp;&nbsp;Parkito's on the way!&nbsp;&nbsp;&nbsp;</a>
+				</p>
+				<ul id="category-list">
+					<li>
+						<a href="/about.me">
+							<div class="menu">
+								<span> About </span>
+							</div>
+						</a>
+					</li>
+				
+					<li>
+						<div class="menu-wrapper">
+							<a href="/category/programming">
+								<div class="menu">
+									<span> Programming </span>
+								</div>
+							</a>
+							<div class="menu-item">
+								<a href="/category/programming/knowledge">Knowledge</a>
+								<a href="/category/programming/algorithm">Algorithm</a>
+								<a href="/category/programming/python">Python</a>
+								<a href="/category/programming/shell-programming">Shell programming</a>
+							</div>
+						</div>
+					</li>
+				
+					<li>
+						<div class="menu-wrapper">
+								<a href="/category/insight">
+									<div class="menu">
+										<span> Insight </span>
+									</div>
+								</a>
+								<div class="menu-item">
+									<a href="/category/insight/sensitivity">&nbsp;&nbsp;Sensitivity&nbsp;&nbsp;</a>
+									<a href="/category/insight/rationality">&nbsp;&nbsp;Rationality&nbsp;&nbsp;</a>
+								</div>
+						</div>
+					</li>
+
+					<li>
+						<div class="menu-wrapper">
+								<a href="/category/projects">
+									<div class="menu">
+										<span> Projects </span>
+									</div>
+								</a>
+							<div class="menu-item">
+								<a href="/category/projects/dev-related">&nbsp;&nbsp;Dev related&nbsp;&nbsp;</a>
+								<a href="/category/projects/etc">&nbsp;&nbsp;ETC&nbsp;&nbsp;</a>
+							</div>
+						</div> </li>
+
+				</ul>
+			</div>
+
+			<div id="menus-right">
+				<div id="search-section">
+					<div class="input-wrapper">
+						<span class="fa fa-search"></span>
+						<input type="text" id="search-input" placeholder="Please input specific keyword :)" size="30">
+					</div>
+					<div id="results-container"></div>
+				</div>
+
+				<!--<div id="toggler-wrapper">-->
+					<!--<div id="menu-toggler">-->
+						<!--<img src="/assets/img/nav-off.png" alt="" width="35px" height="35px">-->
+					<!--</div>-->
+				<!--</div>-->
+				
+			</div>
+			
+		</nav>
+
+
+    <aside class="sidebar">
+  <header>
+    <div class="about">
+      <div class="cover-author-image">
+        <a href="/"><img src="/assets/img/1536558558520.jpg" alt="Sunghwan Park"></a>
+      </div>
+      <div class="author-name">Sunghwan Park</div>
+      <p>I'm Parkito. A Python lover. Interested in Python, Automation, Algorithm. Please give me insights. I'll teach you tambien! :)</p>
+    </div>
+  </header> <!-- End Header -->
+  <footer>
+    <section class="contact">
+      <h3 class="contact-title">Contact me</h3>
+      <ul>
+				<!--
+        
+          <li><a href="https://twitter.com/artemsheludko_" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+        
+        
+          <li><a href="https://facebook.com/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+        
+				-->
+        
+          <li class="github"><a href="http://github.com/shoark7" target="_blank"><i class="fa fa-github"></i></a></li>
+        
+        
+          <li class="linkedin"><a href="https://in.linkedin.com/in/sunghwan-park-3773b8154" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+        
+        
+          <li class="email"><a href="mailto:shoark7@gmail.com"><i class="fa fa-envelope-o"></i></a></li>
+        
+      </ul>
+    </section> <!-- End Section Contact -->
+    <div class="copyright">
+      <p>2019 &copy; Sunghwan Park</p>
+    </div>
+  </footer> <!-- End Footer -->
+</aside> <!-- End Sidebar -->
+
+<div class="content-box clearfix">
+  <article class="article-page">
+  <div class="page-content">
+    
+    <div class="page-cover-image">
+      <figure>
+        <img class="page-image" src=/assets/img//knowledge/unix-philosophy-logo.jpg alt="[Python] staticmethod VS classmethod">
+        
+      </figure>
+    </div> <!-- End Page Cover Image -->
+    
+    <div class="wrap-content">
+      <header class="header-page">
+        <h1 class="page-title">[Python] staticmethod VS classmethod</h1>
+        <div class="page-date"><span>2019, Mar 05&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+      </header>
+      <h2 id="0-목차">0. 목차</h2>
+
+<blockquote>
+  <ol>
+    <li>들어가며</li>
+    <li>일반 메소드에 대한 이해</li>
+    <li>classmethod
+      <ul>
+        <li>3.1. 기본 이해</li>
+        <li>3.2. classmethod의 특징</li>
+        <li>3.3. 사용처
+          <ul>
+            <li>3.3.1. 싱글턴 패턴(Singleton pattern)</li>
+            <li>3.3.2. 팩토리 메소드 패턴(Factory method pattern)</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>staticmethod
+      <ul>
+        <li>4.1. 기본 이해</li>
+        <li>4.2. staticmethod의 특징</li>
+        <li>4.3. 사용처</li>
+      </ul>
+    </li>
+    <li>비교 &amp; 대조
+      <ul>
+        <li>5.1. 공통점</li>
+        <li>5.2. 차이점</li>
+      </ul>
+    </li>
+    <li>마치며</li>
+    <li>자료 출처</li>
+  </ol>
+</blockquote>
+
+<h2 id="1-들어가며">1. 들어가며</h2>
+
+<hr />
+
+<p><strong>Python(이하 ‘파이썬’) 언어의 주요 특징 중 하나로 ‘Batteries Included’가 있다. 이는 파이썬이 개발에 도움이 될만한 다목적의 표준 라이브러리(모듈)를 풍부하게 기본 내장하고 있다는 의미로, 프로젝트 시에 필요한 패키지를 따로 다운로드하지 않아도 되는 장점(head start)이 있다.</strong> 우리가 어지간하면 몰랐을 다양한 기본 모듈이 많은데 일례로 최근에 나는 Codewars에서 다른 사람 코드를 보면서 ‘calendar’, ‘ipaddress’와 같은 모듈이 있는지 처음 알았다. 파이썬을 3년 넘게 한 것 같은데 이런 모듈을 보면서 ‘ㅋ;’와 같은 감정이 드는 것을 숨길 수가 없었다. 이처럼 파이썬은 ‘없는 것 빼고 다 있는’ 기본 라이브러리를 내장하고 있다.</p>
+
+<p>그러한 정신에서인지, 파이썬에서는 표준 라이브러리가 풍부할 뿐만 아니라 <strong>기본 로드(‘built-in’, 이하 ‘빌트인’)된 함수와 자료구조도 많은 편이다.</strong> 항상 사용되는 <em>list</em>, <em>dict</em> 와 같은 자료구조에서부터 <em>sum</em>, <em>round</em> 와 같은 함수가 바로 그것이다. 언급한 정도는 누구나 알 것이다. 근데 파이썬에는 이외에도 다양한 빌트인 함수가 많다. 그 목록은 <a href="https://docs.python.org/3/library/functions.html" target="_blank">여기</a>에서 확인할 수 있는데, 나는 아직도 여기에서 이해하지 못한 것들이 많다. 부담감을 가지고 다 공부할 필요는 없어보이고 필요할 때마다 공부해나가면 되지 않을까 싶다.</p>
+
+<p>그 테이블에서 <strong>‘classmethod’와 ‘staticmethod’</strong>가 보이는지? 오늘 포스트는 이 둘을 비교하는 것을 다루려고 한다. 둘 다 <strong>파이썬에서 OOP를 제대로 활용하기 위해 꼭 필요한 요소들이다.</strong> 또 <strong>다양한 디자인 패턴을 구현하는 데 중요한 역할을 맡고 있다.</strong> ‘classmethod’에 대해서만 얼핏 알고 있었고, 둘의 차이는 거의 모르다시피 했는데 이번 기회에 제대로 짚고 넘어가도록 하자.</p>
+
+<p><br /></p>
+
+<p><strong>둘에 대해 알아보기 전에 먼저 클래스의 일반 메소드에 대해 살펴보자.</strong> classmethod와 staticmethod의 차이보다는 이 둘과 일반 메소드의 차이가 훨씬 크기에 꼭 짚고 넘어가야 한다. <strong>그다음 classmethod와 staticmethod를 살펴본다. 각각의 특징과 자주 쓰이는 사용처에 대해 살펴보려고 한다. 그 다음 둘의 공통점과 차이점을 비교, 대조 후 포스트를 마무리한다.</strong></p>
+
+<h2 id="2-일반-메소드에-대한-이해">2. 일반 메소드에 대한 이해</h2>
+
+<hr />
+
+<p><strong>classmethod와 staticmethod는 OOP와 깊은 관련이 있고 실제로 클래스 내의 메소드에만 적용가능하다.</strong> 그리고 둘은 우리가 클래스에 대해 처음 배우고 사용하는 일반 메소드와는 차이가 있다. <strong>따라서 classmethod와 staticmethod에 대해 탐구하기 전에 먼저 일반 메소드에 대해 짚고 넘어가자.</strong></p>
+
+<p>클래스와 메소드를 모르는 사람은 없다. <strong>클래스는 어떤 특징에 기반한 한 집단을 프로그래밍적으로 정의한 것에 지나지 않고 메소드는 그 집단의 개체들이 행할 수 있는 어떤 동작이나 행동을 의미한다.</strong> 여기서 개체는 Instance(이하 ‘인스턴스’)로서 클래스와 인스턴스는 흔히들 붕어빵틀과 붕어빵과의 관계로 이해하고는 한다. 꼭 맞지는 않겠지만 당장 이해하기에 나쁜 설명은 아닌 듯 하다.</p>
+
+<p>간단하게 클래스와 메소드를 만들어보자. 우리를 둘러싼 ‘인간’에 대한 클래스와 그들이 행할 수 있는 메소드를 만들 수 있다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Human</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">use_glasses</span> <span class="o">=</span> <span class="bp">False</span>
+
+    <span class="k">def</span> <span class="nf">introduce_myself</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">f</span><span class="s">"My name is {self.name} and I'm {self.age} years old."</span>
+
+
+<span class="n">A</span> <span class="o">=</span> <span class="n">Human</span><span class="p">(</span><span class="s">'성환'</span><span class="p">,</span> <span class="s">'28'</span><span class="p">)</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">Human</span><span class="p">(</span><span class="s">'Gosari Muchim'</span><span class="p">,</span> <span class="s">'27'</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">introduce_myself</span><span class="p">())</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">B</span><span class="o">.</span><span class="n">introduce_myself</span><span class="p">())</span>
+
+
+<span class="n">My</span> <span class="n">name</span> <span class="ow">is</span> <span class="err">성환</span> <span class="ow">and</span> <span class="n">I</span><span class="s">'m 28 years old.</span><span class="err">
+</span><span class="s">My name is Gosari Muchim and I'</span><span class="n">m</span> <span class="mi">27</span> <span class="n">years</span> <span class="n">old</span><span class="o">.</span>
+</code></pre></div></div>
+
+<p>‘Human’ 클래스를 정의하고 생성자 메소드(__init__)와 자기 소개하는 메소드(introduce_myself)를 만들었다. 간단한 OOP이다.</p>
+
+<p>이때 꼭 짚고 넘어갈 것이 있다. 파이썬에서 일반 메소드들에는 첫 인자로 ‘self’를 꼭 넣어준다. <strong>‘self’를 암시적으로(implicitly) 넣어줌으로써 일반 메소드가 인스턴스의 변수에 접근할 수 있다.</strong> 인스턴스를 지칭하는 단어는 꼭 ‘self’이여야 할 필요는 없지만 <strong>첫 인자로 인스턴스 자신을 의미하는 인자는 어떤 식으로든 꼭 넣어줘야 한다.</strong> 그리고 ‘self’가 다른 개발자 모두에게 이해하기도 좋다.</p>
+
+<p>생성자 메소드에서는 인스턴스마다의 이름, 나이, 안경 착용 유무를 변수로 할당한다. 인스턴스마다의 변수는 인스턴스마다 값이 제각각이라서 A와 B의 자기소개 메소드에서 보듯이 이름, 나이 등이 다 다르다. <strong>이처럼 인스턴스 변수는 인스턴스마다 다르고, 이를 사용하는 일반 메소드는 인스턴스마다 서로 다른 값을 출력하게 된다.</strong> 다시 말해 <strong>일반 메소드는 인스턴스에 종속적이다.(dependent or bound to)</strong> 이런 의미에서 일반 메소드는 인스턴스 메소드라고 부를 수도 있을 것이다.</p>
+
+<p><br /></p>
+
+<p>이렇듯 <strong>일반 메소드는 인스턴스에 종속적인 결과를 출력한다.</strong> 하지만 때에 따라서는 각각의 인스턴스와 상관 없는, 다시 말해 인스턴스마다 값이 항상 동일한, 또는 클래스 단위로 관리해야 할 변수나 메소드가 있지 않을까?</p>
+
+<p>아까의 Human 클래스를 다시 보자. 현생 인류종의 학명은 그 유명한 ‘Homo sapiens’로 ‘지혜로운 사람’이라는 뜻이라고 한다. 내가 아는 한 현생 인류종은 모두 이 호모 사피엔스이고 개체마다, 다시 말해 인스턴스마다 값이 달리지지 않는다.</p>
+
+<p>이 값을 클래스에 변수로 할당하고자 할 때, 생성자 메소드에 ‘<em>self.species = “homo_sapiens”</em>’ 라고 쓸 수는 있지만 바람직하지 않다. 저 할당 자체에서 ‘인류의 종은 개체마다 달라질 수 있다’는 뉘앙스를 풍기기 때문이다. 향후 유전공학이 발달하고 생명윤리에 큰 변화가 있지 않는 이상 현실적으로는 이는 틀렸다. <strong>이런 경우에는 인류의 학명은 인스턴스 변수가 아니라 클래스 변수로 할당하면 된다.</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Human</span><span class="p">:</span>
+    <span class="c1"># 인류의 학명은 모든 인스턴스마다 동일하다!
+</span>    <span class="c1"># 따라서 클래스 변수로 'species' 할당
+</span>    <span class="n">species</span> <span class="o">=</span> <span class="s">'Homo Sapiens'</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">):</span>
+        <span class="o">...</span>
+
+<span class="n">C</span> <span class="o">=</span> <span class="n">Human</span><span class="p">(</span><span class="s">'Charles Darwin'</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">Human</span><span class="o">.</span><span class="n">species</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">C</span><span class="o">.</span><span class="n">species</span><span class="p">)</span>
+
+
+<span class="n">Homo</span> <span class="n">Sapiens</span>
+<span class="n">Homo</span> <span class="n">Sapiens</span>
+</code></pre></div></div>
+
+<p><strong><em>species</em> 변수는 클래스 변수로, 클래스 단위로 접근, 관리되는 변수이다. 그래서 <em>Human.species</em> 처럼 인스턴스가 아닌 클래스에서 접근해도 인간의 종을 바르게 확인할 수 있다.</strong> 이때 눈여겨 볼 점은 <em>C</em> 라는 이름의 인스턴스에서도 클래스 변수에 접근 가능하다는 것이다.</p>
+
+<p>일반 메소드는 확인한 것처럼 인스턴스 단위의 변수를 다루고 관리한다. 반대로 <strong>클래스 변수는 ‘클래스 단위’로 설정되고 할당되는 변수이다.</strong> 여기서 classmethod가 무엇일지에 대해 눈치껏 파악할 수도 있을 것이다. 이제 본격적으로 classmethod와 staticmethod에 대해 알아보도록 하자.</p>
+
+<h2 id="3-classmethod">3. classmethod</h2>
+
+<hr />
+
+<h3 id="31-기본-이해">3.1. 기본 이해</h3>
+
+<p>classmethod는 앞서 확인한 일반 메소드의 반대로 확인하면 된다. 일반 메소드가 인스턴스 변수의 값을 다루고 인스턴스마다에서 서로 다른 결과를 출력할 것이라면, <strong>classmethod는 클래스 단위로 관리되는 클래스 변수에 접근하기 때문에 그리고 클래스의 모든 인스턴스마다에서 같은 값을 다루고 출력한다.</strong></p>
+
+<p>classmethod는 내장 함수이다. 맨 위에서 확인했다. 항상 처음 보는 모르는 대상에 대해서는 헬핑을 하자. 그 결과는 다음과 같다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">help</span><span class="p">(</span><span class="nb">classmethod</span><span class="p">)</span>
+
+
+<span class="nb">classmethod</span><span class="p">(</span><span class="n">function</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">method</span>
+
+<span class="n">Convert</span> <span class="n">a</span> <span class="n">function</span> <span class="n">to</span> <span class="n">be</span> <span class="n">a</span> <span class="k">class</span> <span class="nc">method</span><span class="o">.</span>
+
+<span class="n">A</span> <span class="k">class</span> <span class="nc">method</span> <span class="n">receives</span> <span class="n">the</span> <span class="k">class</span> <span class="nc">as</span> <span class="n">implicit</span> <span class="n">first</span> <span class="n">argument</span><span class="p">,</span>
+<span class="n">just</span> <span class="n">like</span> <span class="n">an</span> <span class="n">instance</span> <span class="n">method</span> <span class="n">receives</span> <span class="n">the</span> <span class="n">instance</span><span class="o">.</span>
+<span class="n">To</span> <span class="n">declare</span> <span class="n">a</span> <span class="k">class</span> <span class="nc">method</span><span class="p">,</span> <span class="n">use</span> <span class="n">this</span> <span class="n">idiom</span><span class="p">:</span>
+
+  <span class="k">class</span> <span class="nc">C</span><span class="p">:</span>
+      <span class="o">@</span><span class="nb">classmethod</span>
+      <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="o">...</span><span class="p">):</span>
+          <span class="o">...</span>
+
+<span class="n">It</span> <span class="n">can</span> <span class="n">be</span> <span class="n">called</span> <span class="n">either</span> <span class="n">on</span> <span class="n">the</span> <span class="k">class</span> <span class="err">(</span><span class="nc">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span> <span class="n">C</span><span class="o">.</span><span class="n">f</span><span class="p">())</span> <span class="ow">or</span> <span class="n">on</span> <span class="n">an</span> <span class="n">instance</span>
+<span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span> <span class="n">C</span><span class="p">()</span><span class="o">.</span><span class="n">f</span><span class="p">())</span><span class="o">.</span>  <span class="n">The</span> <span class="n">instance</span> <span class="ow">is</span> <span class="n">ignored</span> <span class="k">except</span> <span class="k">for</span> <span class="n">its</span> <span class="n">class</span><span class="o">.</span>
+<span class="n">If</span> <span class="n">a</span> <span class="k">class</span> <span class="nc">method</span> <span class="ow">is</span> <span class="n">called</span> <span class="k">for</span> <span class="n">a</span> <span class="n">derived</span> <span class="n">class</span><span class="p">,</span> <span class="n">the</span> <span class="n">derived</span> <span class="k">class</span>
+<span class="nc">object</span> <span class="ow">is</span> <span class="n">passed</span> <span class="k">as</span> <span class="n">the</span> <span class="n">implied</span> <span class="n">first</span> <span class="n">argument</span><span class="o">.</span>
+
+<span class="n">Class</span> <span class="n">methods</span> <span class="n">are</span> <span class="n">different</span> <span class="n">than</span> <span class="n">C</span><span class="o">++</span> <span class="ow">or</span> <span class="n">Java</span> <span class="n">static</span> <span class="n">methods</span><span class="o">.</span>
+<span class="n">If</span> <span class="n">you</span> <span class="n">want</span> <span class="n">those</span><span class="p">,</span> <span class="n">see</span> <span class="n">the</span> <span class="nb">staticmethod</span> <span class="n">builtin</span><span class="o">.</span>
+</code></pre></div></div>
+
+<p>헬핑은 파이썬의 기본이고 큰 장점이다! 잊지 말자.</p>
+
+<p><strong>기본 사용법은 함수를 받아 메소드를 반환한다.</strong>(반환된 메소드를 ‘클래스메소드’라고 표현하겠다. 이는 <em>classmethod</em> 함수로 반환된 class method를 지칭한다.) 그리고 이 클래스메소드는 <strong>첫 인자로 클래스를 뜻하는 ‘cls’라는 변수를 암묵적으로 받는다.</strong> ‘cls’를 통해 클래스 변수에 접근할 수 있는데 일반 메소드에서 ‘self’를 통해 인스턴스 변수에 접근할 수 있었던 것과 같은 의미다.</p>
+
+<p>기본적인 사용법은 다음과 같다. 이번에는 고양이 클래스를 정의해보자.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Cat</span><span class="p">:</span>
+    <span class="n">species</span> <span class="o">=</span> <span class="s">'Felis Catus'</span>
+
+    <span class="k">def</span> <span class="nf">get_species</span><span class="p">(</span><span class="n">cls</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s">'Scientific name for cat is {cls.species}!'</span><span class="p">)</span>
+
+<span class="n">Cat</span><span class="o">.</span><span class="n">get_species</span> <span class="o">=</span> <span class="nb">classmethod</span><span class="p">(</span><span class="n">Cat</span><span class="o">.</span><span class="n">get_species</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">Cat</span><span class="o">.</span><span class="n">get_species</span><span class="p">())</span>
+
+
+<span class="n">Scientific</span> <span class="n">name</span> <span class="k">for</span> <span class="n">cat</span> <span class="ow">is</span> <span class="n">Felis</span> <span class="n">Catus</span><span class="err">!</span>
+</code></pre></div></div>
+
+<p>고양이의 학명은 ‘Felis Catus’란다. 오늘 처음 알았다. 고양이 학명을 Cat의 클래스 변수로 설정했다. 그리고 고양이의 학명을 반환하는 <em>get_species</em> 메소드를 만들었다. 근데 이 메소드는 인스턴스 변수에 접근하는 일반 메소드가 아니라 클래스 변수를 조작하는 클래스메소드이다. 따라서 그대로 사용하면 안 되고 <strong><em>Cat.get_species = classmethod(Cat.get_species)</em> 처럼 <em>classmethod</em> 내장 함수를 써서 일반 메소드를 클래스메소드로 변환해줘야 한다.</strong></p>
+
+<p>잘 작동한다. 하지만 클래스메소드를 정의할 때마다 귀찮게 <em>classmethod</em> 함수를 따로 쓰기 귀찮기 때문에 <strong>헬핑에서처럼 데코레이터로 클래스메소드를 정의한다.</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Cat</span><span class="p">:</span>
+    <span class="n">species</span> <span class="o">=</span> <span class="s">'Felis Catus'</span>
+
+    <span class="o">@</span><span class="nb">classmethod</span>
+    <span class="k">def</span> <span class="nf">get_species</span><span class="p">(</span><span class="n">cls</span><span class="p">):</span>
+        <span class="o">...</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">Cat</span><span class="o">.</span><span class="n">get_species</span><span class="p">())</span>
+
+
+<span class="n">Scientific</span> <span class="n">name</span> <span class="k">for</span> <span class="n">cat</span> <span class="ow">is</span> <span class="n">Felis</span> <span class="n">Catus</span><span class="err">!</span>
+</code></pre></div></div>
+
+<p>이게 다다! 이제 우리는 인스턴스 변수를 조작하는 일반 메소드와 함께 클래스 변수를 조작하는 클래스메소드도 정의할 수 있게 되었다.</p>
+
+<h3 id="32-classmethod의-특징">3.2. classmethod의 특징</h3>
+
+<p><em>classmethod</em> 데코레이터를 통해 생성된 클래스메소드의 특징을 다음과 같이 정리해볼 수 있다.</p>
+
+<ul>
+  <li><strong>클래스메소드는 인스턴스에 독립적이다.(independent)</strong>
+    <ul>
+      <li>클래스메소드는 인스턴스에서도 실행할 수 있지만 클래스 자체에서도 문제없이 실행할 수 있다.</li>
+      <li>그리고 인스턴스마다에서 반환값이 변하지 않는다.</li>
+    </ul>
+  </li>
+  <li><strong>클래스에 종속적이다.(dependent)</strong>
+    <ul>
+      <li>클래스메소드는 클래스를 통해 호출할 수 있다. 따라서 클래스에 종속적이다.</li>
+    </ul>
+  </li>
+  <li><strong>클래스메소드는 클래스 변수를 조작할 수 있다.</strong>
+    <ul>
+      <li>classmethod로 반환된 클래스메소드는 첫 인자로 ‘cls’를 받는다. 이 ‘cls’를 통해 클래스를 지칭할 수 있고 따라서 클래스 변수에 접근, 관리할 수 있다. 우리가 할당한 <em>species</em> 변수는 클래스 변수다.</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<h3 id="33-사용처">3.3. 사용처</h3>
+
+<p><em>classmethod</em> 함수를 통해 정의하는 클래스메소드는 어디에 쓸 수 있을까? 앞서 <strong>classmethod와 staticmethod는 디자인 패턴을 구현하는 데 요긴하게 사용된다고 짧게 언급했다.</strong> classmethod를 통해 두 가지의 유명한 패턴을 구현해보도록 하자.</p>
+
+<h4 id="331-싱글턴-패턴singleton-pattern">3.3.1. 싱글턴 패턴(Singleton pattern)</h4>
+
+<p>디자인 패턴 중에서 가장 유명한 패턴은 아마 싱글턴 패턴이 아닐까 한다. 싱글턴 패턴은 내가 예전에 인강으로 자바 OOP에 대해 들을 때 재능기부하시는 강사분이 처음으로 소개해줘서 꽤 오랫동안 알고 있었다. 개념 또한 쉽다. <strong>싱글턴 패턴은 클래스마다에서 단 하나의 인스턴스만 허용하는 디자인 패턴이다.</strong> 최근에 『코스모스』를 읽어서 그 감성에서 가정하자면 언젠가 탄생할 우주 정부에서 전 우주를 호령할 대통령은 아마 한 명이지 않을까? 그러면 대통령 클래스의 인스턴스는 단 하나만 있어야 한다.</p>
+
+<p>싱글턴 패턴은 클래스메소드를 사용하면 매우 쉽게 구현할 수 있다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Singleton</span><span class="p">:</span>
+    <span class="n">__instance</span> <span class="o">=</span> <span class="bp">None</span>
+
+    <span class="o">@</span><span class="nb">classmethod</span>
+    <span class="k">def</span> <span class="nf">instance</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">cls</span><span class="o">.</span><span class="n">__instance</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">cls</span><span class="o">.</span><span class="n">__instance</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">cls</span><span class="o">.</span><span class="n">__instance</span> <span class="o">=</span> <span class="n">cls</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">cls</span><span class="o">.</span><span class="n">__instance</span>
+
+
+<span class="k">class</span> <span class="nc">MyClass</span><span class="p">(</span><span class="n">Singleton</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">MyClass</span><span class="o">.</span><span class="n">instance</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">MyClass</span><span class="o">.</span><span class="n">instance</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">a</span> <span class="ow">is</span> <span class="n">b</span><span class="p">)</span>
+
+
+<span class="bp">True</span>
+</code></pre></div></div>
+
+<ul>
+  <li><em>Singleton</em> 클래스를 구현하고 <em>__instance</em> 라는 클래스 변수를 정의했다. 이 변수에 허용되는 단 하나의 싱글턴 인스턴스를 담을 생각이다. 싱글턴에서는 인스턴스가 단 하나이기 때문에 클래스 변수에 이 단 하나의 인스턴스를 할당해도 이치에 맞는다. 이를 활용해서 싱글턴 인스턴스를 만들거나 있는 인스턴스를 반환하는 <em>instance</em> 클래스메소드를 정의했다. 이 메소드는 인스턴스가 정의되어 있으면 이를 반환하고 없으면 하나 만들어 내놓는다.</li>
+</ul>
+
+<p>이 코드는 이전에 <a href="https://shoark7.github.io/programming/knowledge/what-is-design-pattern.html" target="_blank">디자인 패턴에 대해 공부한 포스트</a>에서 가져왔다.</p>
+
+<p><br /></p>
+
+<h4 id="332-팩토리-메소드-패턴factory-method-pattern">3.3.2. 팩토리 메소드 패턴(Factory method pattern)</h4>
+
+<p>팩토리 메소드 패턴은 디자인 패턴의 하나로서 C++의 함수 오버로딩(function overloading)과 유사하다. 팩토리 메소드 패턴을 통해 클래스의 인스턴스를 생성하는 다양한 방법을 한 클래스 내에서 정의할 수 있다.</p>
+
+<p>아까 사용했던 Human 클래스를 다시 가져와보자.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Human</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">use_glasses</span> <span class="o">=</span> <span class="bp">False</span>
+
+    <span class="k">def</span> <span class="nf">introduce_myself</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">f</span><span class="s">"My name is {self.name} and I'm {self.age} years old."</span>
+</code></pre></div></div>
+
+<p>이 클래스는 이름과 나이를 입력 받아 인스턴스에 할당하는데 인스턴스를 조금 다르게 할당하고 싶을 수도 있다. 예를 들어 나이를 할당할 때 나이가 아니라 그 사람이 출생한 연도를 대신 입력 받아도 문제없이 나이가 결정되도록 만들고 싶을 수 있다.</p>
+
+<p>이럴 때 팩토리 메소드 패턴을 사용하면 좋다</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Human</span><span class="p">:</span>
+    <span class="n">species</span> <span class="o">=</span> <span class="s">'Homo Sapiens'</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">use_glasses</span> <span class="o">=</span> <span class="bp">False</span>
+
+    <span class="o">@</span><span class="nb">classmethod</span>
+    <span class="k">def</span> <span class="nf">from_year</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">year</span><span class="p">):</span>
+        <span class="kn">import</span> <span class="nn">datetime</span>
+        <span class="k">return</span> <span class="n">cls</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">year</span> <span class="o">-</span> <span class="n">year</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>나이 대신 태어난 연도와 이름을 받아 인간을 창조하는 <em>from_year</em> 클래스메소드를 정의했다. 이 메소드는 올해의 연도에서 태어난 연도를 빼서 나이를 알아낸다. 기존의 나이를 직접 받는 방식도 좋지만, 이와 같이 태어난 연도를 직접 받는 인터페이스도 충분히 의미 있을 수 있다.</p>
+
+<p><em>classmethod</em> 를 통해 인스턴스를 생성하는 다양한 인터페이스를 생성하는 팩토리 메소드 패턴을 구현했다.</p>
+
+<hr />
+
+<h2 id="4-staticmethod">4. staticmethod</h2>
+
+<hr />
+
+<p>아까 <em>help(classmethod)</em> 를 한 것을 기억하는지? 그중 한 문장을 가져와보자.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Class methods are different than C++ or Java static methods.
+If you want those, see the staticmethod builtin.
+</code></pre></div></div>
+
+<p>헬핑 문서의 맨 마지막 두 문장이다. 여기서는 <em>classmethod</em> 함수를 통해 반환된 클래스메소드는 C++, 자바의 static method와는 다르다고 이야기하고 있다. 그리고 그것을 구현하려면 <em>staticmethod</em> 를 살펴보라고 한다.</p>
+
+<p>이제 우리의 방향은 정해졌다. 근데 staticmethod는 classmethod를 어느 정도 이해했다면 문제가 없다. 거의 비슷하기 때문이다. 그래서 4장은 3장보다 짧아질 것 같다.</p>
+
+<h3 id="41-기본-이해">4.1. 기본 이해</h3>
+
+<p><em>staticmethod</em> 내장 함수에 헬핑을 해보자</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">help</span><span class="p">(</span><span class="nb">staticmethod</span><span class="p">)</span>
+
+<span class="n">Convert</span> <span class="n">a</span> <span class="n">function</span> <span class="n">to</span> <span class="n">be</span> <span class="n">a</span> <span class="n">static</span> <span class="n">method</span><span class="o">.</span>
+
+<span class="n">A</span> <span class="n">static</span> <span class="n">method</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">receive</span> <span class="n">an</span> <span class="n">implicit</span> <span class="n">first</span> <span class="n">argument</span><span class="o">.</span>
+<span class="n">To</span> <span class="n">declare</span> <span class="n">a</span> <span class="n">static</span> <span class="n">method</span><span class="p">,</span> <span class="n">use</span> <span class="n">this</span> <span class="n">idiom</span><span class="p">:</span>
+
+     <span class="k">class</span> <span class="nc">C</span><span class="p">:</span>
+         <span class="o">@</span><span class="nb">staticmethod</span>
+         <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="o">...</span><span class="p">):</span>
+             <span class="o">...</span>
+
+<span class="n">It</span> <span class="n">can</span> <span class="n">be</span> <span class="n">called</span> <span class="n">either</span> <span class="n">on</span> <span class="n">the</span> <span class="k">class</span> <span class="err">(</span><span class="nc">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span> <span class="n">C</span><span class="o">.</span><span class="n">f</span><span class="p">())</span> <span class="ow">or</span> <span class="n">on</span> <span class="n">an</span> <span class="n">instance</span>
+<span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span> <span class="n">C</span><span class="p">()</span><span class="o">.</span><span class="n">f</span><span class="p">())</span><span class="o">.</span>  <span class="n">The</span> <span class="n">instance</span> <span class="ow">is</span> <span class="n">ignored</span> <span class="k">except</span> <span class="k">for</span> <span class="n">its</span> <span class="n">class</span><span class="o">.</span>
+
+<span class="n">Static</span> <span class="n">methods</span> <span class="ow">in</span> <span class="n">Python</span> <span class="n">are</span> <span class="n">similar</span> <span class="n">to</span> <span class="n">those</span> <span class="n">found</span> <span class="ow">in</span> <span class="n">Java</span> <span class="ow">or</span> <span class="n">C</span><span class="o">++.</span>
+<span class="n">For</span> <span class="n">a</span> <span class="n">more</span> <span class="n">advanced</span> <span class="n">concept</span><span class="p">,</span> <span class="n">see</span> <span class="n">the</span> <span class="nb">classmethod</span> <span class="n">builtin</span><span class="o">.</span>
+</code></pre></div></div>
+
+<p><strong>이 함수는 다른 함수를 인자로 받아서 static method로 변환해 반환한다.</strong>(이때 반환된 staticmethod를 ‘스태틱메소드’라고 언급하겠다.)</p>
+
+<p>근데, 그 다음 문장이 <em>classmethod</em> 와의 확연한 차이를 드러낸다.</p>
+
+<p><br /></p>
+
+<blockquote>
+  <p>static method(스태틱메소드)는 암시적인 첫 인자를 받지 않는다.</p>
+</blockquote>
+
+<p><br /></p>
+
+<p>이것이 staticmethod와 classmethod의 중요한 차이이다.</p>
+
+<p><strong>클래스메소드는 암시적인 첫 인자, 클래스 자체를 받아서 클래스 변수에 접근했다. 그리고 그 첫 인자는 관습적으로 ‘cls’로 지칭한다.</strong> 이와는 대조적으로 <strong><em>staticmethod</em> 함수로 생성된 스태틱메소드는 클래스 자신을 지칭하는 첫 인자를 받지 않기에 인스턴스의 상태는 물론 클래스의 상태와도 상관 없는 메소드가 된다.</strong></p>
+
+<p>간단한 예제를 살펴보자. 우리는 ‘수학적 연산’이라는 클래스를 정의하고자 한다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">MathCalculation</span><span class="p">:</span>
+    <span class="o">@</span><span class="nb">staticmethod</span>
+    <span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+            <span class="n">ret</span> <span class="o">*=</span> <span class="n">i</span>
+        <span class="k">return</span> <span class="n">ret</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">MathCalculation</span><span class="o">.</span><span class="n">factorial</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="mi">3628800</span>
+</code></pre></div></div>
+
+<p>이 클래스는 기본적인 사칙연산부터 삼각함수 계산까지의 다양한 수학적 연산을 정의한다. 근데 상식적으로 우리가 정의한 클래스는 뭔가 인스턴스가 딱히 필요하지 않는 추상적인 연산들의 집합이다. 인간 클래스의 인간 인스턴스들은 매우 그럴 듯 하지만(현실에서 많이들 뛰어다니기 때문이다), 수학적 연산 클래스의 수학 연산 인스턴스는 현실의 필요로서 다가오지 않고, 실제로 필요하지 않다.(현실에서는 수학적 연산이 개체로서 뛰어다니지 않는다) 이 클래스는 수학 계산만 잘하면 되지, 인스턴스의 다양성이나 인스턴스간 상호작용이 딱히 필요하지 않아 보인다.</p>
+
+<p>또 의도한 <em>factorial</em> 메소드에서는 클래스 변수에 대한 접근이 필요없다. 단순히 자연수 <em>n</em> 을 받아 그 팩토리얼을 반환하면 된다. 이럴 때 스태틱메소드를 쓰면 좋다.</p>
+
+<hr />
+
+<h3 id="42-staticmethod의-특징">4.2. staticmethod의 특징</h3>
+
+<p><em>classmethod</em> 데코레이터를 통해 생성된 클래스메소드의 특징을 다음과 같이 정리해볼 수 있다.</p>
+
+<ul>
+  <li><strong>스태틱메소드는 인스턴스에 독립적이다.(independent)</strong>
+    <ul>
+      <li>클래스메소드와 같다. 스태틱메소드를 실행하기 위해서는 인스턴스를 생성하지 않아도 된다.</li>
+    </ul>
+  </li>
+  <li><strong>클래스의 상태에 독립적이다.</strong>
+    <ul>
+      <li>스태틱메소드는 첫 인자로 ‘cls’를 받지 않는다. 따라서 클래스 변수(상태)도 사용하지 않고 따라서 클래스의 상태에 독립적이다.</li>
+    </ul>
+  </li>
+  <li><strong>클래스에 종속적이다.</strong>
+    <ul>
+      <li>위의 특징과 구분되어야 한다. 스태틱메소드도 결국 클래스의 속성(attribute)이다. 따라서 클래스에 Bound 되어 있다.</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<h3 id="43-사용처">4.3. 사용처</h3>
+
+<p>스태틱메소드는 클래스메소드와 달리 사용처가 제한된다. <strong>보통은 어떤 클래스의 유틸리티 메소드로 많이 쓰인다.</strong> 다음과 같은 예를 만들어보자.</p>
+
+<p>아까 우리는 Human 클래스를 정의했다. 이 클래스는 당신과 같은 인간을 정의하는데 추가 메소드들을 정의하려고 한다. 그중 임의의 숫자를 입력 받아 인간이 읽기 쉽게 천 단위로 <code class="highlighter-rouge">,</code>를 넣어 반환하는 ‘humanify_number’이라는 메소드를 만들고 싶다고 하자.</p>
+
+<p>이 메소드를 일반 메소드로 만들 수는 있지만, 인스턴스의 상태에 종속적일 이유도 없고 또 클래스의 상태에 종속적일 이유도 굳이 없다. 그냥 숫자를 하나 입력 받아 처리하면 되기 때문이다. 따라서 이 메소드를 스태틱메소드로 만들자.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Human</span><span class="p">:</span>
+    <span class="n">species</span> <span class="o">=</span> <span class="s">'Homo Sapiens'</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">):</span>
+        <span class="o">...</span>
+
+    <span class="o">@</span><span class="nb">staticmethod</span>
+    <span class="k">def</span> <span class="nf">humanify_number</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">f</span><span class="s">'{n:,}'</span>
+	<span class="c1"># {} 안의 내용이 이해가 안 가면 문의주세요.
+</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">Human</span><span class="o">.</span><span class="n">humanify_number</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">Human</span><span class="o">.</span><span class="n">humanify_number</span><span class="p">(</span><span class="mi">10</span><span class="o">*</span><span class="mi">9</span><span class="o">*</span><span class="mi">8</span><span class="o">*</span><span class="mi">7</span><span class="o">*</span><span class="mi">6</span><span class="o">*</span><span class="mi">5</span><span class="o">*</span><span class="mi">4</span><span class="o">*</span><span class="mi">3</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="s">'1,000'</span>
+<span class="s">'3,628,800'</span>
+</code></pre></div></div>
+
+<p>지금까지 classmethod와 staticmethod에 대해 알아보았다.</p>
+
+<hr />
+
+<h2 id="5-비교--대조">5. 비교 &amp; 대조</h2>
+
+<hr />
+
+<p>3장과 4장에서  <em>classmethod</em> 로 생성된 클래스메소드와 <em>staticmethod</em> 로 생성된 스태틱메소드에 대해 각각 알아봤다. 이번 5장에서는 이 둘의 공통점과 차이점을 정리해보자. 언제나 비교와 대조는 서로에 대한 이해를 높이는 데 도움이 된다.</p>
+
+<h3 id="51-공통점">5.1. 공통점</h3>
+
+<p>클래스메소드와 스태틱메소드의 공통점은 다음과 같다.</p>
+
+<ol>
+  <li><strong>인스턴스에 대해 독립적이다.</strong>
+    <ul>
+      <li>둘 모두 실행하기 위해 인스턴스를 생성할 필요가 없고 클래스에서 직접 호출할 수 있다. 따라서 인스턴스의 상태에 대해 독립적이다.</li>
+    </ul>
+  </li>
+  <li><strong>인스턴스에서 실행가능하다.</strong>
+    <ul>
+      <li>이 둘은 인스턴스에 대해 독립적인데 특이하게도 인스턴스에서 실행은 할 수 있다.</li>
+    </ul>
+  </li>
+  <li><strong>클래스에 종속적이다.(bound or dependent)</strong>
+    <ul>
+      <li>둘 모두 클래스에 속한 속성이다. 클래스를 통하지 않고는 실행할 방법이 없다. 따라서 클래스에 대해 종속적이다.</li>
+    </ul>
+  </li>
+</ol>
+
+<hr />
+
+<h3 id="52-차이점">5.2. 차이점</h3>
+
+<ol>
+  <li><strong>클래스메소드는 클래스 변수에 접근가능한 데 반해 스태틱메소드는 그렇지 않다.</strong>
+    <ul>
+      <li>클래스메소드에서는 ‘cls’라는 클래스를 지칭하는 인자를 암시적으로 받아 이 변수를 통해 클래스 변수에 접근할 수 있다.</li>
+      <li>스태틱메소드는 첫 인자로 이 변수를 받지 않는다. 따라서 함수 블록 내에서 하드코딩하지 않는 이상 클래스 변수에 접근할 수 없다.</li>
+    </ul>
+  </li>
+  <li><strong>클래스메소드는 클래스 변수(상태)에 종속적이고 스태틱메소드는 클래스 변수(상태)에 독립적이다.</strong>
+    <ul>
+      <li>클래스메소드는 클래스 변수 값에 따라 결과가 달라질 수 있지만 스태틱메소드는 그렇지 않다.</li>
+    </ul>
+  </li>
+  <li><strong>클래스가 상속될 때 클래스메소드는 상속을 제대로 반영하지만 스태틱메소드는 그렇지 않다.</strong>
+    <ul>
+      <li>이는 예제를 통해 확인해야 한다.</li>
+      <li>우리는 클래스 상속관계를 만들되 ‘name’이라는 클래스 변수를 통해 클래스의 이름을 관리하고 클래스의 이름을 반환하는 ‘get_class_name’이라는 메소드로 클래스의 이름을 확인하고 싶다. 이때 이름을 구하는 하나의 메소드를 클래스메소드, 스태틱메소드로 각각 정의하고 상속관계에서 차이를 보자.</li>
+    </ul>
+  </li>
+</ol>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 먼저 클래스메소드로 정의
+</span><span class="k">class</span> <span class="nc">BaseClass</span><span class="p">:</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s">"I'm BaseClass to be inherited"</span>
+
+    <span class="o">@</span><span class="nb">classmethod</span>
+    <span class="k">def</span> <span class="nf">get_class_name</span><span class="p">(</span><span class="n">cls</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">cls</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">RealClass</span><span class="p">(</span><span class="n">BaseClass</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s">"Succeeding you, father"</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">RealClass</span><span class="o">.</span><span class="n">get_class_name</span><span class="p">()</span>
+
+<span class="n">Succeeding</span> <span class="n">you</span><span class="p">,</span> <span class="n">father</span>
+</code></pre></div></div>
+
+<p><em>BaseClass</em> 는 클래스 이름을 반환하는 ‘<em>get_class_name</em>’ 메소드를 정의한다. 그리고 <em>RealClass</em> 는 <em>BaseClass</em> 를 상속하되, 클래스 이름(<em>name</em>)은 그에 맞게 당연히 바꼈다.</p>
+
+<p>먼저 클래스 이름을 반환하는 메소드를 클래스메소드로 만들었다.</p>
+
+<p>이때, <strong>메소드는 상속된 클래스의 이름을 올바르게 표현한다.</strong> 클래스가 바꼈으니 바뀐 클래스의 이름을 출력하는 것이 이 예제에서는 이치에 맞다.</p>
+
+<p><br /></p>
+
+<p>이번엔 같은 함수를 스태틱메소드로 만들어보자.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 스태틱메소드로 정의
+</span><span class="k">class</span> <span class="nc">BaseClass</span><span class="p">:</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s">"I'm BaseClass to be inherited"</span>
+
+    <span class="o">@</span><span class="nb">staticmethod</span>
+    <span class="k">def</span> <span class="nf">get_class_name</span><span class="p">():</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">BaseClass</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">RealClass</span><span class="p">(</span><span class="n">BaseClass</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s">"Succeeding you, father"</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">RealClass</span><span class="o">.</span><span class="n">get_class_name</span><span class="p">()</span>
+
+<span class="n">I</span><span class="s">'m BaseClass to be inherited</span><span class="err">
+</span></code></pre></div></div>
+
+<p>스태틱메소드에서는 인자를 받지 않았다.</p>
+
+<p><strong>또, 스태틱메소드로 정의했을 때는 클래스의 변수에  <em>BaseClass.name</em> 처럼 하드코딩해서 접근했다.</strong><br />
+하드코딩을 할 수밖에 없었던 이유는 <strong>스태틱메소드는 첫 인자로 ‘cls’ 인자를 받지 않기 때문에 클래스 변수에 직접 접근할 방법이 없기 때문이다.</strong></p>
+
+<p>그래서 상속을 했을 때도 메소드의 코드는 부모 클래스를 그대로 지칭하고 따라서 자식 클래스의 메소드가 부모의 이름을 출력하고 있다.</p>
+
+<p>이처럼 <strong>클래스메소드는 상속관계를 잘 반영하고, 스태틱메소드는 그렇지 않다.</strong></p>
+
+<hr />
+
+<h2 id="6-마치며">6. 마치며</h2>
+
+<hr />
+
+<p>이상으로 classmethod와 staticmethod 각각을 알아보고 서로를 비교, 대조해보았다. 이 둘은 인스턴스의 상태에 영향을 받는 일반 메소드와 달리, 인스턴스에 독립적이고 클래스에 종속적인 메소드를 만드는 내장 함수로서 OOP의 여러 디자인 패턴을 구현하는 데 요긴하게 사용된다. 이때 <em>classmethod</em> 를 통해 반환된 클래스메소드는 ‘cls’라는 첫 인자를 암시적으로 받아 클래스의 상태에 종속적인 데 반해, <em>staticmethod</em> 를 통해 반환된 스태틱메소드는 클래스 상태에도 독립적인 특징을 보였다.</p>
+
+<p>생각보다 너무 길어졌다. 전혀 예상하지 못했는데 실제 난이도에 비해 분량이 방대해진 느낌을 지울 수 없기는 하다. 이 포스트는 OOP에 익숙하신 분들보다는 OOP에 익숙하지 않고 classmethod, staticmethod에 대해 정말 아무것도 모르는 분들을 위한 가이드가 될 것으로 판단된다. 그래도 나도 이번에 준비하면서 이 둘은 확실하게 구분할 수 있게 되었다.</p>
+
+<p>이상 포스트를 마칩니다.</p>
+
+<h2 id="7-자료-출처">7. 자료 출처</h2>
+
+<hr />
+
+<ul>
+  <li><a href="https://www.geeksforgeeks.org/what-are-static-functions-in-c/" target="_blank">GeeksforGeeks: Static functions in C</a></li>
+  <li><a href="https://www.python.org/dev/peps/pep-0206/" target="_blank">PEP 206: Python Advanced Library</a></li>
+  <li><a href="https://en.wikipedia.org/wiki/Factory_method_pattern" target="_blank">Wikipedia: Factory method pattern</a></li>
+  <li><a href="https://www.programiz.com/python-programming/methods/built-in/classmethod" target="_blank">Programiz: classmethod</a></li>
+  <li><a href="https://www.programiz.com/python-programming/methods/built-in/staticmethod" target="_blank">Programiz: staticmethod</a></li>
+</ul>
+
+      <div class="page-footer">
+        <div class="page-share">
+          <a href="https://twitter.com/intent/tweet?text=[Python] staticmethod VS classmethod&url=http://localhost:4000/programming/python/staticmethod-and-classmethod-in-Python.html" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
+          <a href="https://facebook.com/sharer.php?u=http://localhost:4000/programming/python/staticmethod-and-classmethod-in-Python.html" title="Share on Facebook" rel="nofollow" target="_blank">Facebook</a>
+          <a href="https://plus.google.com/share?url=http://localhost:4000/programming/python/staticmethod-and-classmethod-in-Python.html" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>
+        </div>
+        <div class="page-tag">
+          
+            <a href="/tags#Staticmethod" class="tag">&#35; Staticmethod</a>
+          
+            <a href="/tags#Classmethod" class="tag">&#35; Classmethod</a>
+          
+        </div>
+      </div>
+		  <!-- Load Facebook SDK for JavaScript -->
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+
+  <!-- Your share button code -->
+  <div class="fb-share-button" 
+    data-href="http://localhost:4000/programming/python/staticmethod-and-classmethod-in-Python.html" 
+    data-layout="button_count">
+  </div>
+
+		
+    </div> <!-- End Wrap Content -->
+  </div> <!-- End Page Content -->
+</article> <!-- End Article Page -->
+
+</div>
+
+  </div>
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', '', 'auto');
+  ga('send', 'pageview');
+</script> <!-- End Analytics -->
+
+	<script src="https://unpkg.com/simple-jekyll-search@1.5.0/dest/simple-jekyll-search.min.js"></script>
+<script>
+var sjs = SimpleJekyllSearch({
+  searchInput: document.querySelector('#search-input'),
+  resultsContainer: document.getElementById('results-container'),
+  json: '/search.json',
+  searchResultTemplate: '<li class="search-results-item"><a href="http://localhost:4000{url}">{title}</a></li>',
+	limit: 9,
+	noResultsText: '<li class="search-results-item"><a href="#">No results found...</a></li>'
+})
+</script>
+
+	<!-- Main Js -->
+<!--<script src="/assets/js/main.js"></script>-->
+
+<!-- JQuery 3.x min -->
+<script src="/assets/js/jquery.js"></script>
+
+<script>
+	let menus = $("#category-list");
+	let image = $("#menu-toggler img");
+	$("#toggler-wrapper").click(function() {
+		if(menus.css("display") === "none") {
+			image.attr("src", "/assets/img/close-button.png");
+			menus.css("display", "flex");
+		}
+		else {
+			image.attr("src", "/assets/img/nav-off.png");
+			menus.css("display", "none");
+		}
+	});
+
+
+</script>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-127149179-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-127149179-1');
+</script>
+
+</body>
+</html>

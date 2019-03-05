@@ -352,17 +352,16 @@
 <p>여기에 여러 종류가 있는데 ‘Singleton’을 구현해보자. <strong>‘Singleton’은 앞서 살펴봤듯이 하나의 클래스에 단 하나의 인스턴스를 허용하는 패턴이다.</strong></p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Singleton</span><span class="p">:</span>
-  <span class="n">__instance</span> <span class="o">=</span> <span class="bp">None</span>
+    <span class="n">__instance</span> <span class="o">=</span> <span class="bp">None</span>
 
-  <span class="o">@</span><span class="nb">classmethod</span>
-  <span class="k">def</span> <span class="nf">__getInstance</span><span class="p">(</span><span class="n">cls</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">cls</span><span class="o">.</span><span class="n">__instance</span>
+    <span class="o">@</span><span class="nb">classmethod</span>
+    <span class="k">def</span> <span class="nf">instance</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">cls</span><span class="o">.</span><span class="n">__instance</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">cls</span><span class="o">.</span><span class="n">__instance</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">cls</span><span class="o">.</span><span class="n">__instance</span> <span class="o">=</span> <span class="n">cls</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">cls</span><span class="o">.</span><span class="n">__instance</span>
 
-  <span class="o">@</span><span class="nb">classmethod</span>
-  <span class="k">def</span> <span class="nf">instance</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kargs</span><span class="p">):</span>
-    <span class="n">cls</span><span class="o">.</span><span class="n">__instance</span> <span class="o">=</span> <span class="n">cls</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kargs</span><span class="p">)</span>
-    <span class="n">cls</span><span class="o">.</span><span class="n">instance</span> <span class="o">=</span> <span class="n">cls</span><span class="o">.</span><span class="n">__getInstance</span>
-    <span class="k">return</span> <span class="n">cls</span><span class="o">.</span><span class="n">__instance</span>
 
 <span class="k">class</span> <span class="nc">MyClass</span><span class="p">(</span><span class="n">Singleton</span><span class="p">):</span>
     <span class="k">pass</span>
