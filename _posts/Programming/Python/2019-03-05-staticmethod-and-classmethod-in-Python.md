@@ -1,9 +1,9 @@
 ---
 layout: post
-title: '[Python] staticmethod VS classmethod'
+title: '[Python] classmethod VS staticmethod'
 date: 2019-03-05
-description: 'Python OOP를 제대로 활용하기 위해 꼭 필요한 staticmethod와 classmethod를 확인하고 비교, 대조해보도록 하겠습니다.'
-img:  /knowledge/unix-philosophy-logo.jpg
+description: 'Python OOP를 제대로 활용하기 위해 꼭 필요한 classmethod와 staticmethod를 확인하고 비교, 대조해보도록 하겠습니다.'
+img:  /python/python-staticmethod-classmethod-logo.png
 categories: [Programming, Python]
 tags: [Staticmethod, Classmethod]
 ---
