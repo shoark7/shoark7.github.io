@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "[Python] 2차원 배열 회전 알고리즘",
+      "category" : "",
+      "tags"     : "Algorithm, 2D_array, Square_array, Rotate_array",
+      "url"      : "/programming/algorithm/rotate-2d-array.html",
+      "date"     : "2019-03-08 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "[Python] classmethod VS staticmethod",
       "category" : "",
       "tags"     : "Staticmethod, Classmethod",
