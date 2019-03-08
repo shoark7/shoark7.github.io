@@ -28,7 +28,7 @@ tags: [Algorithm, 2D_array, Square_array, Rotate_array]
 
 하지만 2차원 배열 알고리즘의 회전은 수요가 확실하고 우리에게도 매우 친숙하다. **이미지 90도 회전**, 분명 많이들 해봤으리라 생각한다.(마우스로든, 손가락으로든) 난 현실적인 수요에서 가장 중요한 배열 회전 알고리즘은 2차원이라고 생각했고, 따라서 이번 포스트에서는 **2차원 배열을 회전하는 방법에 대해 다룬다.** 
 
-참고로 회전 코드로 바로 이동하려면 3장 4철로 넘어가면 된다.('CTRL + F'로 '3.4.' 검색)
+참고로 회전 코드로 바로 이동하려면 3장 4절로 넘어가면 된다.('CTRL + F'로 '3.4.' 검색)
 
 
 
@@ -277,6 +277,10 @@ def rotate(m, d):
         for r in range(N):
             for c in range(N):
                 ret[N-1-c][r] = m[r][c]
+    else:
+        for r in range(N):
+            for c in range(N):
+                ret[r][c] = m[r][c]
 
     return ret
 ```

@@ -275,7 +275,7 @@
 
 <p>하지만 2차원 배열 알고리즘의 회전은 수요가 확실하고 우리에게도 매우 친숙하다. <strong>이미지 90도 회전</strong>, 분명 많이들 해봤으리라 생각한다.(마우스로든, 손가락으로든) 난 현실적인 수요에서 가장 중요한 배열 회전 알고리즘은 2차원이라고 생각했고, 따라서 이번 포스트에서는 <strong>2차원 배열을 회전하는 방법에 대해 다룬다.</strong></p>
 
-<p>참고로 회전 코드를 바로 원하시는 경우 3장 4철로 바로 넘어가면 된다.(‘CTRL + F’로 ‘3.4.’ 검색)</p>
+<p>참고로 회전 코드로 바로 이동하려면 3장 4절로 넘어가면 된다.(‘CTRL + F’로 ‘3.4.’ 검색)</p>
 
 <h2 id="2-문제-소개">2. 문제 소개</h2>
 
@@ -572,6 +572,11 @@
         <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
             <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
                 <span class="n">ret</span><span class="p">[</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">c</span><span class="p">][</span><span class="n">r</span><span class="p">]</span> <span class="o">=</span> <span class="n">m</span><span class="p">[</span><span class="n">r</span><span class="p">][</span><span class="n">c</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+                <span class="n">ret</span><span class="p">[</span><span class="n">r</span><span class="p">][</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">m</span><span class="p">[</span><span class="n">r</span><span class="p">][</span><span class="n">c</span><span class="p">]</span>
+	
 
     <span class="k">return</span> <span class="n">ret</span>
 </code></pre></div></div>
