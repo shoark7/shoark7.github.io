@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>개발자라면 꼭 알아야 할 숫자 모음 - Parkito's on the way</title>
+
+  <!-- Edit site and author settings in `_config.yml` to make the social details your own -->
+
+    <meta content="Parkito's on the way" property="og:site_name">
+  
+    <meta content="개발자라면 꼭 알아야 할 숫자 모음" property="og:title">
+  
+  
+    <meta content="article" property="og:type">
+  
+  
+    <meta content="개발을 공부하면서 기억하고 있으면 유익한 상수들을 모았습니다." property="og:description">
+  
+  
+    <meta content="http://localhost:4000/programming/knowledge/fundamental-numbers-for-developers.html" property="og:url">
+	
+  
+    <meta content="2019-03-13T00:00:00+09:00" property="article:published_time">
+    <meta content="http://localhost:4000/about/" property="article:author">
+  
+  
+    <meta content="http://localhost:4000/assets/img/knowledge/necessary-numbers-logo.jpg" property="og:image">
+  
+  
+    
+    <meta content="Programming" property="article:section">
+    
+  
+  
+    
+    <meta content="Number" property="article:tag">
+    
+  
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@">
+    <meta name="twitter:creator" content="@">
+  
+    <meta name="twitter:title" content="개발자라면 꼭 알아야 할 숫자 모음">
+  
+  
+    <meta name="twitter:url" content="http://localhost:4000/programming/knowledge/fundamental-numbers-for-developers.html">
+  
+  
+    <meta name="twitter:description" content="개발을 공부하면서 기억하고 있으면 유익한 상수들을 모았습니다.">
+  
+  
+    <meta name="twitter:image:src" content="http://localhost:4000/assets/img//knowledge/necessary-numbers-logo.jpg">
+  
+
+  
+    <meta content="개발을 공부하면서 기억하고 있으면 유익한 상수들을 모았습니다." name="description">
+  
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="shortcut icon" href="/assets/img/favicon/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" href="/assets/img/favicon/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/assets/img/favicon/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/assets/img/favicon/apple-touch-icon-144x144.png">
+	<!-- Chrome, Firefox OS and Opera -->
+	<meta name="theme-color" content="#263959">
+	<!-- Windows Phone -->
+	<meta name="msapplication-navbutton-color" content="#263959">
+	<!-- iOS Safari -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="#263959">
+	<!-- Google Fonts -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+	
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="/assets/fonts/font-awesome/css/font-awesome.min.css">
+	<!-- Styles -->
+	<!-- Mathjax Support -->
+<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+	MathJax.Hub.Config({
+  showProcessingMessages: false,
+  jax: ["input/TeX", "output/HTML-CSS"],
+  TeX: {
+    TagSide: "left",
+    Macros: {
+      RR: '{\\bf R}',
+      bold: ['{\\bf #1}',1]
+    }
+  },
+  CommonHTML: {
+    linebreaks: {automatic: true}
+  }
+});
+</script>
+
+	<link rel="stylesheet" href="/assets/css/main.css">
+	<link rel="stylesheet" href="/assets/css/personal.css">
+	<link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Nanum+Gothic:400,700,800&amp;subset=korean" rel="stylesheet">
+</head>
+
+<body style="position: relative">
+	<div id="toggler-wrapper">
+		<div id="menu-toggler">
+			<img src="/assets/img/nav-off.png" alt="Menu collapse image">
+		</div>
+	</div>
+
+  <div class="wrapper">
+
+		<nav id="nav">
+			<div id="menus">
+				<p>
+					<a class="navbar-brand text-white" href="/">&nbsp;&nbsp;&nbsp;Parkito's on the way!&nbsp;&nbsp;&nbsp;</a>
+				</p>
+				<ul id="category-list">
+					<li>
+						<a href="/about.me">
+							<div class="menu">
+								<span> About </span>
+							</div>
+						</a>
+					</li>
+				
+					<li>
+						<div class="menu-wrapper">
+							<a href="/category/programming">
+								<div class="menu">
+									<span> Programming </span>
+								</div>
+							</a>
+							<div class="menu-item">
+								<a href="/category/programming/knowledge">Knowledge</a>
+								<a href="/category/programming/algorithm">Algorithm</a>
+								<a href="/category/programming/python">Python</a>
+								<a href="/category/programming/shell-programming">Shell programming</a>
+							</div>
+						</div>
+					</li>
+				
+					<li>
+						<div class="menu-wrapper">
+								<a href="/category/insight">
+									<div class="menu">
+										<span> Insight </span>
+									</div>
+								</a>
+								<div class="menu-item">
+									<a href="/category/insight/sensitivity">&nbsp;&nbsp;Sensitivity&nbsp;&nbsp;</a>
+									<a href="/category/insight/rationality">&nbsp;&nbsp;Rationality&nbsp;&nbsp;</a>
+								</div>
+						</div>
+					</li>
+
+					<li>
+						<div class="menu-wrapper">
+								<a href="/category/projects">
+									<div class="menu">
+										<span> Projects </span>
+									</div>
+								</a>
+							<div class="menu-item">
+								<a href="/category/projects/dev-related">&nbsp;&nbsp;Dev related&nbsp;&nbsp;</a>
+								<a href="/category/projects/etc">&nbsp;&nbsp;ETC&nbsp;&nbsp;</a>
+							</div>
+						</div> </li>
+
+				</ul>
+			</div>
+
+			<div id="menus-right">
+				<div id="search-section">
+					<div class="input-wrapper">
+						<span class="fa fa-search"></span>
+						<input type="text" id="search-input" placeholder="Please input specific keyword :)" size="30">
+					</div>
+					<div id="results-container"></div>
+				</div>
+
+				<!--<div id="toggler-wrapper">-->
+					<!--<div id="menu-toggler">-->
+						<!--<img src="/assets/img/nav-off.png" alt="" width="35px" height="35px">-->
+					<!--</div>-->
+				<!--</div>-->
+				
+			</div>
+			
+		</nav>
+
+
+    <aside class="sidebar">
+  <header>
+    <div class="about">
+      <div class="cover-author-image">
+        <a href="/"><img src="/assets/img/1536558558520.jpg" alt="Sunghwan Park"></a>
+      </div>
+      <div class="author-name">Sunghwan Park</div>
+      <p>I'm Parkito. A Python lover. Interested in Python, Automation, Algorithm. Please give me insights. I'll teach you tambien! :)</p>
+    </div>
+  </header> <!-- End Header -->
+  <footer>
+    <section class="contact">
+      <h3 class="contact-title">Contact me</h3>
+      <ul>
+				<!--
+        
+          <li><a href="https://twitter.com/artemsheludko_" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+        
+        
+          <li><a href="https://facebook.com/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+        
+				-->
+        
+          <li class="github"><a href="http://github.com/shoark7" target="_blank"><i class="fa fa-github"></i></a></li>
+        
+        
+          <li class="linkedin"><a href="https://in.linkedin.com/in/sunghwan-park-3773b8154" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+        
+        
+          <li class="email"><a href="mailto:shoark7@gmail.com"><i class="fa fa-envelope-o"></i></a></li>
+        
+      </ul>
+    </section> <!-- End Section Contact -->
+    <div class="copyright">
+      <p>2019 &copy; Sunghwan Park</p>
+    </div>
+  </footer> <!-- End Footer -->
+</aside> <!-- End Sidebar -->
+
+<div class="content-box clearfix">
+  <article class="article-page">
+  <div class="page-content">
+    
+    <div class="page-cover-image">
+      <figure>
+        <img class="page-image" src=/assets/img//knowledge/necessary-numbers-logo.jpg alt="개발자라면 꼭 알아야 할 숫자 모음">
+        
+      </figure>
+    </div> <!-- End Page Cover Image -->
+    
+    <div class="wrap-content">
+      <header class="header-page">
+        <h1 class="page-title">개발자라면 꼭 알아야 할 숫자 모음</h1>
+        <div class="page-date"><span>2019, Mar 13&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+      </header>
+      <h3 id="0-목차">0. 목차</h3>
+
+<blockquote>
+  <ol>
+    <li><a href="#1">들어가며</a></li>
+    <li><a href="#2">Log 상수(<script type="math/tex">log_{10}n</script>)</a></li>
+    <li><a href="#3">팩토리얼 상수(<script type="math/tex">n!</script>)</a></li>
+    <li><a href="#4">지수 상수(<script type="math/tex">2^n</script>)</a></li>
+    <li><a href="#5">기타 상수</a></li>
+    <li><a href="#6">마치며</a></li>
+  </ol>
+</blockquote>
+
+<p><br id="1" /></p>
+
+<h2 id="1-들어가며">1. 들어가며</h2>
+
+<hr />
+
+<p>인간은 의사소통할 때 숫자가 반드시 필요하지 않다. 내가 같이 식사 중인 A에게 ‘자네, 거기 물통 좀 건네주겠나?’라고 물을 때 이 문장은 수학암호 등으로 인코딩할 수야 있겠지만, 나와 A는 말하고 이해할 때 수학적인 의미를 전혀 담고 있지 않다. 인간의 통상적인 의사소통이 다 그렇다.</p>
+
+<p>하지만 컴퓨터는 그렇지 않다. 개발을 조금만 공부해봐도 배우는 ‘컴퓨터에게는 모든 것이 숫자다’라는 명제는 참이다. 컴퓨터는 0과 1의 이분법적인 값만을 취하는 비트를 정보의 최소단위로 하며 이를 조합해 더욱 큰 데이터를 구성해나간다. 그렇게 해서 이 장의 첫 글자인 ‘인’이라는 글자도 컴퓨터 내부에서는 숫자로 처리되고 있다. 파이썬에서 확인해보니 ‘인’이라는 글자는 유니코드 코드 포인트가 51064이다. 내가 입력하는 화면에는 사람이 읽을 수 있는(human-readable) 글자가 출력됐지만 컴퓨터 내에서는 본질적으로 숫자로 취급되고 저장되고 인식되는 것이다.</p>
+
+<p>하지만 컴퓨터로 게임이나 일상 문서작업만을 한다면 이런 원리는 정말 몰라도 된다. ‘!’의 유니코드 포인트가 33라는 것이 뭐가 그리 중요하겠는가? 엑셀에서 표를 더 이쁘게 표현하는 게 훨씬 중요하지.</p>
+
+<p>그러나 개발을 공부하는 사람의 입장이라면 입장은 달라진다. 일반 유저는 컴퓨터에게서 대접 받는 입장이다. 컴퓨터가 사람에게 맞춰서 사람이 읽을 수 있는 평문(plain text)으로 인터페이스를 제공하고, 유저는 그것을 통해 컴퓨터를 ‘조작’한다. 그러나 개발을 공부하고 컴퓨터를 좀더 들여다봐야 한다면 숫자에 익숙해져야 한다. 사용하는 개발 언어가 인간에게 보다 친숙한 고급 언어라 할지라도 이는 변하지 않는다. 개인적인 예를 들어보자. 나는 알고리즘을 공부하면서 완전탐색을 사용한 해답을 고려할 때가 있다. 완전탐색은 입력의 크기 <script type="math/tex">n</script>에 따라 보통 <script type="math/tex">n!</script>의 시간복잡도를 갖기 때문에 완전탐색을 사용하겠다면 문제의 입력의 상한을 살펴보는 것이 이롭다. 만약 상한이 10 미만의 자연수라면 완전탐색은 충분히 사용가능한 기법일 수 있지만 10 이상이 되면 사용하기 어렵다. 10!만해도 360만을 넘는 매우 큰 값이기 때문이다. 만약 내가 <script type="math/tex">10!</script>이 3,628,800이라는 것을 외우고 있지 않다면 입력에 따라 팩토리얼의 복잡도가 얼마나 될지 가늠하기 쉽지 않을 것이다. 또 네트워크를 공부할 때는 어떤가? 2의 32승이 43억에 가까운 수라는 것을 정확히 인지하지 못하면 현대사회에서 IP 주소가 고갈되는 문제를 이해할 수 없을 것이다.</p>
+
+<p><strong>결론은 개발을 공부하고, 알고리즘이나 시스템을 설계하고 기존 시스템의 성능을 분석할 때 여러 숫자 상수에 익숙하면 좋다는 것이다.</strong> 개인적으로 숫자를 좋아하기도 해서, 나는 네트워크나 알고리즘을 공부할 때 자주 만져보거나 찾아봐야 했던 숫자들을 조금 외우고 있다. 그래서 이번 포스트의 목적은 이를 공유하고 개인적으로도 저장하고 업데이트하는 데 있다.</p>
+
+<p><br /></p>
+
+<p>이후 각 장에서는 특정 <script type="math/tex">n</script>에 따른 로그, 팩토리얼, 지수, 기타 상수를 알아볼 것이다. 이는 경험적으로 내게 유용했거나 또는 현대사회에서 중요한 의미를 갖는 상수들이다. 이중에는 내가 툭 건드리면 술술 나올 정도로 외운 것도 있고, 너무 길다거나 매우 중요하지는 않아 외우지 않은 것도 있다. 이를 구분해서 개인적으로 꼭 외웠으면 하는 숫자에서는 강조 표시를 하도록 하겠다. 들어가자.</p>
+
+<p><br id="2" /></p>
+
+<h2 id="2-log-상수log_10n">2. Log 상수(<script type="math/tex">log_{10}n</script>)</h2>
+
+<hr />
+
+<p>밑이 10인 로그를 상용로그(Common Logarithm)이라고 한다. 인간에게는 10진수가 익숙하고 따라서 밑을 10으로 하는 로그 계산이 일반적(common)이여서 그런 이름이 붙지 않았나 한다.</p>
+
+<p>상용로그에서 이 수를 외울 것을 추천한다.</p>
+
+<script type="math/tex; mode=display">\begin{array} \label{}
+	\mathbf{log_{10}2 \approx 0.3010} \\
+\end{array}</script>
+
+<p>뭐 당연한 숫자다. 고등학교 수학만 공부해도 한 번씩은 접하는 숫자다. 이 숫자는 2는 10의 0.3010승이라는 것을 의미한다. 이 숫자는 대관절 왜 외우라는 것일까?</p>
+
+<p><strong>이 숫자는 알고리즘을 공부할 때 2의 지수승이 대략 어느 정도의 큰 수인지 가늠할 때 사용한다.</strong> 가령 어떤 문제에 있어 내가 작성한 알고리즘의 시간복잡도가 <script type="math/tex">O(2^n)</script>라고 해보자. 그리고 <script type="math/tex">n</script>의 상한이 100이라고 했을 때 <strong>이 알고리즘은 일반적으로(내 구린 노트북으로) 실행할만한가?</strong></p>
+
+<p>이 문제를 맞닥뜨렸을 때 순진하게 <script type="math/tex">2^{100}</script>을 계산하지는 말자. 이 정도로 지수가 커지면 눈으로 길이조차 가늠할 수 없고, 또 구체적인 숫자는 중요해지지 않는다. <strong>이때 <script type="math/tex">log_{10}2</script> 값을 이용해 저 무식하게 큰 수의 자릿수 정도만 파악하자.</strong> 저 수를 10진수로 변환했을 때의 자릿수를 다음과 같이 구할 수 있다.</p>
+
+<script type="math/tex; mode=display">\begin{array} \label{}
+	\mathbf{log_{10}2^{100} = 100log_{10}2 \approx 100 \times 0.3010 = 30.10} \\
+\end{array}</script>
+
+<p>음, 저 수가 어떤 수일지 잘 모르지만 <strong>확실한 건 저 수는 1조(<script type="math/tex">10^{12}</script>)에 1조를 곱하고 거기에 1백만(<script type="math/tex">10^{6}</script>) 정도를 더 곱해야 나오는 무시무시한 수라는 것이다.</strong></p>
+
+<p>그래서 우리는 현재의 입력 상한에서 현재의 시간복잡도를 갖는 해결책으로는 문제가 해결되지 않을 것이라고 합리적인 추측을 할 수 있다.</p>
+
+<p><br /></p>
+
+<p>이 추측을 할 때 <script type="math/tex">log_{10}2 \approx 0.3010</script>라는 것을 외우고 있다면 저 계산을 1초만에 할 수 있다. 이런 경우를 대비해서 저 수를 외울 것을 추천한다. 숫자도 작고 효용도 있다.</p>
+
+<p>자매품으로 이 숫자도 있다.</p>
+
+<script type="math/tex; mode=display">\begin{array} \label{}
+	log_{10}3 \approx 0.4771
+\end{array}</script>
+
+<p><script type="math/tex">log_{10}2</script>보다는 확실히 필요가 적지만 숫자가 워낙 작아서 외워볼만 하다.</p>
+
+<p><br id="3" /></p>
+
+<h2 id="3-팩토리얼-상수n">3. 팩토리얼 상수(<script type="math/tex">n!</script>)</h2>
+
+<hr />
+
+<p>앞서 첫 장에서 완전탐색 알고리즘이 많은 경우 <script type="math/tex">O(n!)</script>의 시간복잡도를 갖는다는 것을 확인했다. 따라서 이 알고리즘을 사용하려면 문제의 입력의 상한을 확인해야 한다.(사실 문제를 보는 순간 입력의 조건을 어딘가에 기록하는 습관을 들여야 한다.)</p>
+
+<p>외우고 있으면 좋은 입력의 크기(<script type="math/tex">n</script>)에 따른 팩토리얼 상수는 다음과 같다.</p>
+
+<script type="math/tex; mode=display">\begin{array} \label{}
+	5! = 120 \\
+	8! = 40,320
+\end{array}</script>
+
+<p>이 두 수는 무난해서 외울만하다. 내 경험상 이 두 팩토리얼은 간단한 수 계산을 할 때 필요했던 것 같다. 그리고 중요한 건 이 숫자다.</p>
+
+<script type="math/tex; mode=display">\begin{array} \label{}
+	\mathbf{10! = 3,628,800}
+\end{array}</script>
+
+<p><script type="math/tex">10!</script>은 약 360만에 달하는 숫자이다. 내가 볼 때, <strong><script type="math/tex">O(n!)</script>의 시간복잡도를 갖는 알고리즘의 입력의 상한은 10 정도이다.</strong> 그 이후부터는 너무너무 커져서 동적계획법이나 분할정복 같은 대안을 찾아봐야 한다. 하지만 10 이하까지는 어떻게 비벼볼만 하다.</p>
+
+<p>이 <a href="https://algospot.com/judge/problem/read/SORTGAME">Sorting Game</a>은 완전탐색을 사용하는 문제의 예시로 Algospot에서 가져왔다. 이 문제에서 배열의 길이의 상한이 8이라는 것은 굉장히 의미심장하다.</p>
+
+<p>팩토리얼에서는 이 세 숫자는 외우면 좋겠다.</p>
+
+<p><br id="4" /></p>
+
+<h2 id="4-지수-상수2n">4. 지수 상수(<script type="math/tex">2^n</script>)</h2>
+
+<hr />
+
+<p>지수 상수는 중요하다. C 언어 등에서 각종 자료형의 크기에 따른 데이터의 상하한,  <script type="math/tex">O(2^n)</script>의 시간복잡도를 갖는 알고리즘을 다룰 때, 특히 네트워크 IP 등을 공부할 때 지수 상수를 접하게 된다.</p>
+
+<p>그래서 여기서는 여러 지수 상수를 살펴보고 이를 외우라고 강요한다. 밑수는 2로 고정한다. 개인적으로 2가 아닌 다른 밑수를 써본 기억이 없다.</p>
+
+<script type="math/tex; mode=display">\begin{array} \label{}
+	\mathbf{2^8 = 256} \\
+\end{array}</script>
+
+<p>우리는 일반적으로 1바이트는 8비트라고 알고 있다. 하지만 수십년 전에는 1바이트는 6, 7 등 8이 아닌 다른 수의 비트를 가진 때가 있었다. 그래서 <strong>8비트를 의미할 때 전문적인 표현으로는 이를 옥탯(octet)이라고 한다.</strong> C 언어의 <em>char</em> 자료형도 1바이트로 알고 있다. RGB의 각 색도 8비트로 표현된다.</p>
+
+<p>그렇기 때문에 8비트의 표현범위를 아는 것은 의미 있다. 2의 8승은 256으로 총 256의 정보 상태를 저장할 수 있다.</p>
+
+<p><br /></p>
+
+<script type="math/tex; mode=display">\begin{array} \label{}
+	\mathbf{2^{10} = 1,024} \\
+\end{array}</script>
+
+<p><strong>2의 10승은 1024로 1000에 근사한다.</strong> 그래서 외울만한 가치가 있다. 그리고 외우기도 쉽다. 2의 10승인 1024이 ‘10’으로 시작하기 때문이다. <strong>이 숫자가 1000에 근사한다는 것은 큰 장점이 있는데, 이를 통해 2의 20승은 1백만(<script type="math/tex">10^6</script>), 2의 30승은 10억(<script type="math/tex">10^9</script>) 정도로 근사할 것이라고 추측 가능하기 때문이다.</strong></p>
+
+<p>참고로, 2의 20승은 1,048,576인데 엑셀에서 한 시트가 가질 수 있는 최대 행의 개수가 이 숫자와 같다. 확인해보라. 어떤 이유가 있을 것 같지 않은가?</p>
+
+<p><br /></p>
+
+<script type="math/tex; mode=display">\begin{array} \label{}
+	\mathbf{2^{32} = 4,294,967,296}
+\end{array}</script>
+
+<p>그 중요한 2의 32승이다. C 언에서 <em>int</em> 자료형과 <em>float</em> 자료형 등은 4바이트의 크기를 갖는데 4바이트는 32비트다. IPv4의 IP 주소는 32비트 수로 표현될 수 있으며 따라서 이론상 할당될 수 있는 전세계 네트워크의 모든 기기의 수는 43억을 넘지 못한다. 이런 이유로 인터넷이 폭발적으로 성장한 현대 사회에서 IP 주소의 고갈의 문제가 대두되었고 NAT 등의 땜빵, IPv6라는 진지한 대안과 같은 여러 해결책이 제시되었다. 2의 32승의 활용은 이것말고도 더 많을 것이다.</p>
+
+<p>이 수는 외우자. 나도 그냥 외웠다. 13자리의 수로 단박에 외워지지는 않는다. 중간과 끝에 ‘96’이 두 번 들어간다는 패턴을 이용해서 한 10번 되뇌이고 실수하다보니 외워지게 되었다.</p>
+
+<script type="math/tex; mode=display">\begin{array} \label{}
+	2^{64} = 18,446,744,073,709,551,616 \\
+	log_{10}2^{64} \approx 19.2659
+\end{array}</script>
+
+<p>C 언어에서 <em>double</em> 자료형은 8바이트이다. 그래서 2의 64승도 찾아보면 좋겠지만 이 숫자는 너무 길다(1조 X 1천만)… 내 머리로는 다 외우지는 못할 것 같고, 대략 20자리 수라는 것만 기억하면 되겠다.</p>
+
+<p><br id="5" /></p>
+
+<h2 id="5-기타-상수">5. 기타 상수</h2>
+
+<hr />
+
+<p>이제는 개발과는 큰 상관은 없는, 알면 현실세계에서 간단한 계산을 할 때 유용한 상수를 하나 소개할까 한다. 개인적으로 매우 애용하고 있다.</p>
+
+<script type="math/tex; mode=display">\begin{array} \label{}
+	\mathbf{12 \times 15 = 180}
+\end{array}</script>
+
+<p>이 숫자는 구구단의 범위를 애매하게 벗어나서 평범한 지능을 가진 나는 한 번에 튀어나오지는 않는 수이다. 그래서 외웠다. 바로 어제 12일, 친구와 이런 이야기를 했다. ‘스타트업에서 월 150을 받으면 연봉이 얼마지?’ 이 숫자를 외우면 1800만원이라고 그냥 튀어나온다.</p>
+
+<p>또 이 숫자를 외우면 이를 응용해서 ‘18 * 15’, ‘24 * 15’도 바로 튀어나올 수 있다. 전자는 180에 1.5를 곱해주고(270), 후자는 2만 곱해주면 되기 때문이다(360). 개인적으로 이렇게 응용 가능성이 큰 수를 좋아한다.(그래서 12를 종아한다.)</p>
+
+<p><br id="6" /></p>
+
+<h2 id="6-마치며">6. 마치며</h2>
+
+<hr />
+
+<p>내가 좋아하고 외우고 있는 숫자들을 정리해봤다. 네트워크와 알고리즘을 주로 공부하다보니 관련된 숫자를 알고 있으면 유용한 경우가 많았고, 숫자를 좋아하는 성격과 맞아서 작업해봤다.</p>
+
+<p>이 포스트는 의미 있는 숫자를 또 발견할 때마다, 그래서 외울 때마다 업데이트하면 좋을 것 같다. 간만에 포스트 주제가 매우 가벼웠다. 모든 포스트가 이랬으면 소원이 없을텐데.</p>
+
+<p>이상 포스트를 마칩니다.</p>
+
+      <div class="page-footer">
+        <div class="page-share">
+          <a href="https://twitter.com/intent/tweet?text=개발자라면 꼭 알아야 할 숫자 모음&url=http://localhost:4000/programming/knowledge/fundamental-numbers-for-developers.html" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
+          <a href="https://facebook.com/sharer.php?u=http://localhost:4000/programming/knowledge/fundamental-numbers-for-developers.html" title="Share on Facebook" rel="nofollow" target="_blank">Facebook</a>
+          <a href="https://plus.google.com/share?url=http://localhost:4000/programming/knowledge/fundamental-numbers-for-developers.html" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>
+        </div>
+        <div class="page-tag">
+          
+            <a href="/tags#Number" class="tag">&#35; Number</a>
+          
+        </div>
+      </div>
+		  <!-- Load Facebook SDK for JavaScript -->
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+
+  <!-- Your share button code -->
+  <div class="fb-share-button" 
+    data-href="http://localhost:4000/programming/knowledge/fundamental-numbers-for-developers.html" 
+    data-layout="button_count">
+  </div>
+
+		
+    </div> <!-- End Wrap Content -->
+  </div> <!-- End Page Content -->
+</article> <!-- End Article Page -->
+
+</div>
+
+  </div>
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', '', 'auto');
+  ga('send', 'pageview');
+</script> <!-- End Analytics -->
+
+	<script src="https://unpkg.com/simple-jekyll-search@1.5.0/dest/simple-jekyll-search.min.js"></script>
+<script>
+var sjs = SimpleJekyllSearch({
+  searchInput: document.querySelector('#search-input'),
+  resultsContainer: document.getElementById('results-container'),
+  json: '/search.json',
+  searchResultTemplate: '<li class="search-results-item"><a href="http://localhost:4000{url}">{title}</a></li>',
+	limit: 9,
+	noResultsText: '<li class="search-results-item"><a href="#">No results found...</a></li>'
+})
+</script>
+
+	<!-- Main Js -->
+<!--<script src="/assets/js/main.js"></script>-->
+
+<!-- JQuery 3.x min -->
+<script src="/assets/js/jquery.js"></script>
+
+<script>
+	let menus = $("#category-list");
+	let image = $("#menu-toggler img");
+	$("#toggler-wrapper").click(function() {
+		if(menus.css("display") === "none") {
+			image.attr("src", "/assets/img/close-button.png");
+			menus.css("display", "flex");
+		}
+		else {
+			image.attr("src", "/assets/img/nav-off.png");
+			menus.css("display", "none");
+		}
+	});
+
+
+</script>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-127149179-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-127149179-1');
+</script>
+
+</body>
+</html>
