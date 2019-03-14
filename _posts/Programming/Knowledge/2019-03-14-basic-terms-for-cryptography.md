@@ -8,6 +8,22 @@ categories: [Programming, Knowledge]
 tags: [Cryptography]
 ---
 
+### 0. 목차
+
+> 1. [들어가며](#1)
+> 2. [용어 정리](#2)
+>    - 2.1. [Cryptography, Cryptology](#2a)
+>    - 2.2. [Encryption과 Decryption](#2b)
+>    - 2.3. [Message Digest](#2c)
+>    - 2.4. [Hash funcion](#2d)
+>    - 2.5. [Break](#2e)
+>    - 2.6. [Collision attack](#2f)
+> 3. [마치며](#3)
+> 4. [자료 출처](#4)
+
+
+<br id="1">
+
 ## 1. 들어가며
 
 ---
@@ -21,11 +37,16 @@ tags: [Cryptography]
 따라서 **오늘은 암호화 방식에 대한 문서를 읽으면 숨쉬듯 출현하는 기본 용어들에 대해 정리를 하자.** 카이사르 암호화의 수준을 넘어가는 암호화 방식은 추후 단계적으로 공부해야 할 것 같다.
 
 
+<br id="2">
+
+
 ## 2. 용어 정리
 
 ---
 
 정리할 기본 용어는 내가 관련 문서에서 많이 봤거나, 중요하다고 생각하거나, 개인적으로 흥미가 가는 용어들을 정리하도록 하겠다.
+
+<br id="2a">
 
 ### 2.1. Cryptography, Cryptology
 
@@ -37,6 +58,8 @@ tags: [Cryptography]
 
 ---
 
+
+<br id="2b">
 
 ### 2.2. Encryption과 Decryption
 
@@ -52,6 +75,8 @@ tags: [Cryptography]
 
 ---
 
+
+<br id="2c">
 
 ### 2.3. Message Digest
 
@@ -78,6 +103,8 @@ tags: [Cryptography]
 
 ---
 
+
+<br id="2d">
 
 ### 2.4. Hash funcion
 
@@ -130,6 +157,8 @@ Hash(이하 '해시')는 프로그래밍을 하면서 알게 모르게 많이 �
 ---
 
 
+<br id="2e">
+
 ### 2.5. Break
 
 'Break'은 암호를 깨는 것을 말한다. Cryptography에 대한 추가 정보 없이(즉, _key_ 없이) 암호(cipher)를 통해 원문(message)를 빼내는 것이다. 
@@ -138,6 +167,8 @@ Hash(이하 '해시')는 프로그래밍을 하면서 알게 모르게 많이 �
 
 ---
 
+
+<br id="2f">
 
 ### 2.6. Collision attack
 
@@ -153,6 +184,7 @@ Hash(이하 '해시')는 프로그래밍을 하면서 알게 모르게 많이 �
 
 
 
+<br id="3">
 
 ## 3. 마치며
 
@@ -165,6 +197,8 @@ Hash(이하 '해시')는 프로그래밍을 하면서 알게 모르게 많이 �
 이상 포스트를 마칩니다.
 
 
+<br id="4">
+
 ## 4. 자료 출처
 
 ---
@@ -173,7 +207,7 @@ Hash(이하 '해시')는 프로그래밍을 하면서 알게 모르게 많이 �
 * [Python dictionary implementation](https://www.laurentluce.com/posts/python-dictionary-implementation/){:target="_blank"}
 * [Python's _hash_ builtin functions](https://www.bogotobogo.com/python/python_hash_tables_hashing_dictionary_associated_arrays.php){:target="_blank"}
 * [Quora: What-are-the-major-differences-of-cryptography-and-encryption](https://www.quora.com/What-are-the-major-differences-of-cryptography-and-encryption){:target="_blank"}
-* [wordhippo: meaning of 'crypta' in Latin](https://www.wordhippo.com/what-is/the-meaning-of/latin-word-3d123f3b16e94bf56e17a93d316b9d8bd708f16b.html){:target="_blank"}
 * [Wikipedia: Collision attack](https://en.wikipedia.org/wiki/Collision_attack){:target="_blank"}
 * [Wikipedia: hash function](https://en.wikipedia.org/wiki/Hash_function){:target="_blank"}
 * [Wikipedia: 해시(음식)](https://ko.wikipedia.org/wiki/%ED%95%B4%EC%8B%9C_(%EC%9D%8C%EC%8B%9D)){:target="_blank"}
+* [wordhippo: meaning of 'crypta' in Latin](https://www.wordhippo.com/what-is/the-meaning-of/latin-word-3d123f3b16e94bf56e17a93d316b9d8bd708f16b.html){:target="_blank"}

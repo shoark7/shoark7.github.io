@@ -243,7 +243,29 @@
         <h1 class="page-title">[암호학] 암호학의 기본 용어 정리</h1>
         <div class="page-date"><span>2019, Mar 14&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
       </header>
-      <h2 id="1-들어가며">1. 들어가며</h2>
+      <h3 id="0-목차">0. 목차</h3>
+
+<blockquote>
+  <ol>
+    <li><a href="#1">들어가며</a></li>
+    <li><a href="#2">용어 정리</a>
+      <ul>
+        <li>2.1. <a href="#2a">Cryptography, Cryptology</a></li>
+        <li>2.2. <a href="#2b">Encryption과 Decryption</a></li>
+        <li>2.3. <a href="#2c">Message Digest</a></li>
+        <li>2.4. <a href="#2d">Hash funcion</a></li>
+        <li>2.5. <a href="#2e">Break</a></li>
+        <li>2.6. <a href="#2f">Collision attack</a></li>
+      </ul>
+    </li>
+    <li><a href="#3">마치며</a></li>
+    <li><a href="#4">자료 출처</a></li>
+  </ol>
+</blockquote>
+
+<p><br id="1" /></p>
+
+<h2 id="1-들어가며">1. 들어가며</h2>
 
 <hr />
 
@@ -255,11 +277,15 @@
 
 <p>따라서 <strong>오늘은 암호화 방식에 대한 문서를 읽으면 숨쉬듯 출현하는 기본 용어들에 대해 정리를 하자.</strong> 카이사르 암호화의 수준을 넘어가는 암호화 방식은 추후 단계적으로 공부해야 할 것 같다.</p>
 
+<p><br id="2" /></p>
+
 <h2 id="2-용어-정리">2. 용어 정리</h2>
 
 <hr />
 
 <p>정리할 기본 용어는 내가 관련 문서에서 많이 봤거나, 중요하다고 생각하거나, 개인적으로 흥미가 가는 용어들을 정리하도록 하겠다.</p>
+
+<p><br id="2a" /></p>
 
 <h3 id="21-cryptography-cryptology">2.1. Cryptography, Cryptology</h3>
 
@@ -270,6 +296,8 @@
 <p>참고로, 두 용어가 공유하는 ‘Crypt’의 어원은 라틴어 ‘Crypta’라고 하며 무언가를 숨기는 ‘금고’, 겉으로 드러나지 않는 ‘지하 납골당’(vault)을 의미한다고 한다.</p>
 
 <hr />
+
+<p><br id="2b" /></p>
 
 <h3 id="22-encryption과-decryption">2.2. Encryption과 Decryption</h3>
 
@@ -284,6 +312,8 @@
 <p><strong>Cryptography는 암호화 방식으로 암호화, 복호화를 포함하는 개별적인 암호화 원리를 구분한다.</strong> 예를 들어 카이사르 암호화, SHA256, MD5 등은 서로 개별적인 Cryptography가 된다.  반면, <strong>Encryption은 원래의 평문을 암호화하는 작업 자체를 의미한다.</strong> 우리는 어떤 텍스트를 특정 Cryptography(가령 MD5)로 encrypt할 수 있고 다른 암호를 특정 Cryptography(가령 SHA256)으로 decrypt할 수 있다.</p>
 
 <hr />
+
+<p><br id="2c" /></p>
 
 <h3 id="23-message-digest">2.3. Message Digest</h3>
 
@@ -320,6 +350,8 @@
 </ol>
 
 <hr />
+
+<p><br id="2d" /></p>
 
 <h3 id="24-hash-funcion">2.4. Hash funcion</h3>
 
@@ -376,6 +408,8 @@
 
 <hr />
 
+<p><br id="2e" /></p>
+
 <h3 id="25-break">2.5. Break</h3>
 
 <p>‘Break’은 암호를 깨는 것을 말한다. Cryptography에 대한 추가 정보 없이(즉, <em>key</em> 없이) 암호(cipher)를 통해 원문(message)를 빼내는 것이다.</p>
@@ -383,6 +417,8 @@
 <p><strong>이때 암호학적인 의미에서의 ‘Break’은 Brute force 공격보다 빠른 것만을 대상으로 한다.</strong> 앞서 살펴봤듯이 모든 암호화 방식에 대해 brute force 공격은 시도는 해볼 수 있다. 하지만 Brute force 공격은 전산학적으로 실행불가능한 해시 함수를 사용하는 암호화 방식에는 의미가 없다. <strong>만약 Brute force보다 더 나은 시간복잡도를 갖는 decrypt 방법을 찾는다면 이는 암호를 깬 것이 된다.(break)</strong></p>
 
 <hr />
+
+<p><br id="2f" /></p>
 
 <h3 id="26-collision-attack">2.6. Collision attack</h3>
 
@@ -394,6 +430,8 @@
 
 <hr />
 
+<p><br id="3" /></p>
+
 <h2 id="3-마치며">3. 마치며</h2>
 
 <hr />
@@ -404,6 +442,8 @@
 
 <p>이상 포스트를 마칩니다.</p>
 
+<p><br id="4" /></p>
+
 <h2 id="4-자료-출처">4. 자료 출처</h2>
 
 <hr />
@@ -413,10 +453,10 @@
   <li><a href="https://www.laurentluce.com/posts/python-dictionary-implementation/" target="_blank">Python dictionary implementation</a></li>
   <li><a href="https://www.bogotobogo.com/python/python_hash_tables_hashing_dictionary_associated_arrays.php" target="_blank">Python’s <em>hash</em> builtin functions</a></li>
   <li><a href="https://www.quora.com/What-are-the-major-differences-of-cryptography-and-encryption" target="_blank">Quora: What-are-the-major-differences-of-cryptography-and-encryption</a></li>
-  <li><a href="https://www.wordhippo.com/what-is/the-meaning-of/latin-word-3d123f3b16e94bf56e17a93d316b9d8bd708f16b.html" target="_blank">wordhippo: meaning of ‘crypta’ in Latin</a></li>
   <li><a href="https://en.wikipedia.org/wiki/Collision_attack" target="_blank">Wikipedia: Collision attack</a></li>
   <li><a href="https://en.wikipedia.org/wiki/Hash_function" target="_blank">Wikipedia: hash function</a></li>
   <li><a href="https://ko.wikipedia.org/wiki/%ED%95%B4%EC%8B%9C_(%EC%9D%8C%EC%8B%9D)" target="_blank">Wikipedia: 해시(음식)</a></li>
+  <li><a href="https://www.wordhippo.com/what-is/the-meaning-of/latin-word-3d123f3b16e94bf56e17a93d316b9d8bd708f16b.html" target="_blank">wordhippo: meaning of ‘crypta’ in Latin</a></li>
 </ul>
 
       <div class="page-footer">
