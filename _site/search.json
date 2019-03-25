@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "[Python] __str__와 __repr__의 차이 살펴보기",
+      "category" : "",
+      "tags"     : "__str__ vs __repr",
+      "url"      : "/programming/python/difference-between-__repr__-vs-__str__.html",
+      "date"     : "2019-03-25 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "[암호학] 암호학의 기본 용어 정리",
       "category" : "",
       "tags"     : "Cryptography",
