@@ -272,9 +272,9 @@
 
 <hr />
 
-<p>오늘은 파이썬에서 사소해보이지만 생각보다 중요하고, 또 은근히 헷갈리는 두 메소드에 대해 다룬다. 바로 __str__와 __repr__로서 이 둘은 객체를 사용자가 이해할 수 있는 문자열로 반환하는 함수다. 이 둘에 대해 어렴풋이 알고 있었는데 그 차이를 정확하게 알지는 못했다. 그래서 생각나는 김에 다시 알아봤다.</p>
+<p>오늘은 파이썬에서 사소해보이지만 생각보다 중요하고, 또 은근히 헷갈리는 두 메소드에 대해 다룬다. 바로 __str__와 __repr__로서 이 둘은 객체를 사용자가 이해할 수 있는 문자열로 반환하는 함수다. 이 둘에 대해 어렴풋이 알고 있었는데 그 차이를 정확하게 알지는 못했다. 방금 생각나는 김에 다시 알아봤다.</p>
 
-<p>그래서 오늘은 <strong>이 두 메소드에 대해 각각 알아보고 둘의 공통점과 차이점에 대해 살펴보겠다.</strong> 구분이 매우 까다롭지는 않지만 파이썬 OOP에 대한 기본적인 이해가 필요한 부분이기도 하다. 들어가보자.</p>
+<p>그래서 오늘 포스트는 <strong>이 두 메소드에 대해 각각 알아보고 둘의 공통점과 차이점에 대해 살펴보겠다.</strong> 구분이 매우 까다롭지는 않지만 파이썬 OOP에 대한 기본적인 이해가 필요한 부분이기도 하다. 들어가보자.</p>
 
 <p><br id="2" /></p>
 
@@ -288,7 +288,7 @@
 
 <h3 id="21-str-__str__">2.1. str, __str__</h3>
 
-<p>__str__는 본 적이 없는 사용자라도, str 함수는 많이 써봤을 것이다. 어떤 작업 후 정수나 소수 등의 자료형을 출력하거나, 접합(concatenating) 등의 작업을 할 때 str을 통해 가공하기 때문이다.</p>
+<p>‘__str__‘를 본 적이 없는 사용자라도, str 함수는 많이 써봤을 것이다. 어떤 작업 후 정수나 소수 등의 자료형을 출력하거나, 접합(concatenating) 등의 작업을 할 때 str을 통해 가공하기 때문이다.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">add_expr</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
     <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">+</span> <span class="s">' + '</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
@@ -508,7 +508,7 @@
 
 <p><br /></p>
 
-<p><strong>객체의 표현을 값이 아닌 고유한 주소값으로 나타내는 클래스를 A로 구현했다. 이 클래스는 __repr__만을 구현하고 있는데 결과 인스턴스를 표현할 때 고유한 메모리 주소값이 출력되게 됐다.</strong></p>
+<p><strong>객체의 표현을 값이 아닌 고유한 주소값으로 나타내는 클래스 A를 구현했다. 이 클래스는 __repr__만을 구현하고 있는데 그 결과 인스턴스를 표현할 때 고유한 메모리 주소값이 출력되게 됐다.</strong></p>
 
 <p>이제 나만의 int 클래스인 NewInt를 정의하고 사용하는 예시를 살펴보자.</p>
 
