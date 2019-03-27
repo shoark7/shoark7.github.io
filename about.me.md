@@ -19,12 +19,12 @@ I think you can understand it when you look around my blog. :grin:
 
 * **Python**: It's my major language. I cover lots of basic Python here.  
 * **Algorithm**: I love to divide problems into small subproblems and moduling. That's why I like algorithms.  
-  - My algorithm repository is [here](https://github.com/shoark7/algorithm-with-python).  **All my contents are in Python.**
+  - My algorithm repository is [here](https://github.com/shoark7/algorithm-with-python){:target="_blank"}.  **All my contents are in Python.**
   - ![codewars badge](https://www.codewars.com/users/shoark7/badges/large)
 * **Server-side**: I want to learn more about server, back-end programming.  
 * **Automation**: I'll deep dive more into this. It's for sure.
 * **Shell scripts**: My small hobby is making a simple shell scripts.
-* **Vim**: I use vim. You can check my .vimrc [here](https://github.com/shoark7/Daily-practice/blob/master/others/.vimrc).  I hope you give me suggestions for better vim.  
+* **Vim**: I use vim. You can check my .vimrc [here](https://github.com/shoark7/Daily-practice/blob/master/others/.vimrc){:target="_blank"}.  I hope you give me suggestions for better vim.  
 
 <br>
 
@@ -43,9 +43,9 @@ I think you can understand it when you look around my blog. :grin:
   - shoark7[@]gmail.com  
   - shoark7[@]naver.com  
 * :chart_with_upwards_trend: github
-  - [My github link](https://github.com/shoark7)  
+  - [My github link](https://github.com/shoark7){:target="_blank"}  
 * :mag_right: LinkedIn
-	- [My LinkedIn account](https://linkedin.com/in/sunghwan-park-3773b8154/?originalSubdomain=in). Please, I'm looking for a job.
+	- [My LinkedIn account](https://linkedin.com/in/sunghwan-park-3773b8154/?originalSubdomain=in){:target="_blank"}. Please, I'm looking for a job.
 
 
 <br>
