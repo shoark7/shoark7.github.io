@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "[Python] 다양한 방법으로 팩토리얼(Factorial) 구해보기",
+      "category" : "",
+      "tags"     : "Factorial",
+      "url"      : "/programming/algorithm/several-ways-to-solve-factorial-in-python.html",
+      "date"     : "2019-04-04 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "[Python] __str__와 __repr__의 차이 살펴보기",
       "category" : "",
       "tags"     : "__str__ vs __repr",

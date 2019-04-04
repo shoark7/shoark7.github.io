@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>[Python] 다양한 방법으로 팩토리얼(Factorial) 구해보기 - Parkito's on the way</title>
+
+  <!-- Edit site and author settings in `_config.yml` to make the social details your own -->
+
+    <meta content="Parkito's on the way" property="og:site_name">
+  
+    <meta content="[Python] 다양한 방법으로 팩토리얼(Factorial) 구해보기" property="og:title">
+  
+  
+    <meta content="article" property="og:type">
+  
+  
+    <meta content="Python을 통해 가능한 많은 방법으로 팩토리얼을 구해봅시다." property="og:description">
+  
+  
+    <meta content="http://localhost:4000/programming/algorithm/several-ways-to-solve-factorial-in-python.html" property="og:url">
+	
+  
+    <meta content="2019-04-04T00:00:00+09:00" property="article:published_time">
+    <meta content="http://localhost:4000/about/" property="article:author">
+  
+  
+    <meta content="http://localhost:4000/assets/img/algorithm/factorials-logo.jpg" property="og:image">
+  
+  
+    
+    <meta content="Programming" property="article:section">
+    
+  
+  
+    
+    <meta content="Factorial" property="article:tag">
+    
+  
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@">
+    <meta name="twitter:creator" content="@">
+  
+    <meta name="twitter:title" content="[Python] 다양한 방법으로 팩토리얼(Factorial) 구해보기">
+  
+  
+    <meta name="twitter:url" content="http://localhost:4000/programming/algorithm/several-ways-to-solve-factorial-in-python.html">
+  
+  
+    <meta name="twitter:description" content="Python을 통해 가능한 많은 방법으로 팩토리얼을 구해봅시다.">
+  
+  
+    <meta name="twitter:image:src" content="http://localhost:4000/assets/img//algorithm/factorials-logo.jpg">
+  
+
+  
+    <meta content="Python을 통해 가능한 많은 방법으로 팩토리얼을 구해봅시다." name="description">
+  
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="shortcut icon" href="/assets/img/favicon/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" href="/assets/img/favicon/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/assets/img/favicon/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/assets/img/favicon/apple-touch-icon-144x144.png">
+	<!-- Chrome, Firefox OS and Opera -->
+	<meta name="theme-color" content="#263959">
+	<!-- Windows Phone -->
+	<meta name="msapplication-navbutton-color" content="#263959">
+	<!-- iOS Safari -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="#263959">
+	<!-- Google Fonts -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+	
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="/assets/fonts/font-awesome/css/font-awesome.min.css">
+	<!-- Styles -->
+	<!-- Mathjax Support -->
+<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+	MathJax.Hub.Config({
+  showProcessingMessages: false,
+  jax: ["input/TeX", "output/HTML-CSS"],
+  TeX: {
+    TagSide: "left",
+    Macros: {
+      RR: '{\\bf R}',
+      bold: ['{\\bf #1}',1]
+    }
+  },
+  CommonHTML: {
+    linebreaks: {automatic: true}
+  }
+});
+</script>
+
+	<link rel="stylesheet" href="/assets/css/main.css">
+	<link rel="stylesheet" href="/assets/css/personal.css">
+	<link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Nanum+Gothic:400,700,800&amp;subset=korean" rel="stylesheet">
+</head>
+
+<body style="position: relative">
+	<div id="toggler-wrapper">
+		<div id="menu-toggler">
+			<img src="/assets/img/nav-off.png" alt="Menu collapse image">
+		</div>
+	</div>
+
+  <div class="wrapper">
+
+		<nav id="nav">
+			<div id="menus">
+				<p>
+					<a class="navbar-brand text-white" href="/">&nbsp;&nbsp;&nbsp;Parkito's on the way!&nbsp;&nbsp;&nbsp;</a>
+				</p>
+				<ul id="category-list">
+					<li>
+						<a href="/about.me">
+							<div class="menu">
+								<span> About </span>
+							</div>
+						</a>
+					</li>
+				
+					<li>
+						<div class="menu-wrapper">
+							<a href="/category/programming">
+								<div class="menu">
+									<span> Programming </span>
+								</div>
+							</a>
+							<div class="menu-item">
+								<a href="/category/programming/knowledge">Knowledge</a>
+								<a href="/category/programming/algorithm">Algorithm</a>
+								<a href="/category/programming/python">Python</a>
+								<a href="/category/programming/shell-programming">Shell programming</a>
+							</div>
+						</div>
+					</li>
+				
+					<li>
+						<div class="menu-wrapper">
+								<a href="/category/insight">
+									<div class="menu">
+										<span> Insight </span>
+									</div>
+								</a>
+								<div class="menu-item">
+									<a href="/category/insight/sensitivity">&nbsp;&nbsp;Sensitivity&nbsp;&nbsp;</a>
+									<a href="/category/insight/rationality">&nbsp;&nbsp;Rationality&nbsp;&nbsp;</a>
+								</div>
+						</div>
+					</li>
+
+					<li>
+						<div class="menu-wrapper">
+								<a href="/category/projects">
+									<div class="menu">
+										<span> Projects </span>
+									</div>
+								</a>
+							<div class="menu-item">
+								<a href="/category/projects/dev-related">&nbsp;&nbsp;Dev related&nbsp;&nbsp;</a>
+								<a href="/category/projects/etc">&nbsp;&nbsp;ETC&nbsp;&nbsp;</a>
+							</div>
+						</div> </li>
+
+				</ul>
+			</div>
+
+			<div id="menus-right">
+				<div id="search-section">
+					<div class="input-wrapper">
+						<span class="fa fa-search"></span>
+						<input type="text" id="search-input" placeholder="Please input specific keyword :)" size="30">
+					</div>
+					<div id="results-container"></div>
+				</div>
+
+				<!--<div id="toggler-wrapper">-->
+					<!--<div id="menu-toggler">-->
+						<!--<img src="/assets/img/nav-off.png" alt="" width="35px" height="35px">-->
+					<!--</div>-->
+				<!--</div>-->
+				
+			</div>
+			
+		</nav>
+
+
+    <aside class="sidebar">
+  <header>
+    <div class="about">
+      <div class="cover-author-image">
+        <a href="/"><img src="/assets/img/1536558558520.jpg" alt="Sunghwan Park"></a>
+      </div>
+      <div class="author-name">Sunghwan Park</div>
+      <p>I'm Parkito. A Python lover. Interested in Python, Automation, Algorithm. Please give me insights. I'll teach you tambien! :)</p>
+    </div>
+  </header> <!-- End Header -->
+  <footer>
+    <section class="contact">
+      <h3 class="contact-title">Contact me</h3>
+      <ul>
+				<!--
+        
+          <li><a href="https://twitter.com/artemsheludko_" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+        
+        
+          <li><a href="https://facebook.com/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+        
+				-->
+        
+          <li class="github"><a href="http://github.com/shoark7" target="_blank"><i class="fa fa-github"></i></a></li>
+        
+        
+          <li class="linkedin"><a href="https://in.linkedin.com/in/sunghwan-park-3773b8154" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+        
+        
+          <li class="email"><a href="mailto:shoark7@gmail.com"><i class="fa fa-envelope-o"></i></a></li>
+        
+      </ul>
+    </section> <!-- End Section Contact -->
+    <div class="copyright">
+      <p>2019 &copy; Sunghwan Park</p>
+    </div>
+  </footer> <!-- End Footer -->
+</aside> <!-- End Sidebar -->
+
+<div class="content-box clearfix">
+  <article class="article-page">
+  <div class="page-content">
+    
+    <div class="page-cover-image">
+      <figure>
+        <img class="page-image" src=/assets/img//algorithm/factorials-logo.jpg alt="[Python] 다양한 방법으로 팩토리얼(Factorial) 구해보기">
+        
+      </figure>
+    </div> <!-- End Page Cover Image -->
+    
+    <div class="wrap-content">
+      <header class="header-page">
+        <h1 class="page-title">[Python] 다양한 방법으로 팩토리얼(Factorial) 구해보기</h1>
+        <div class="page-date"><span>2019, Apr 04&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+      </header>
+      <h2 id="0-목차">0. 목차</h2>
+
+<blockquote>
+  <ol>
+    <li><a href="#1">들어가며</a></li>
+    <li><a href="#2">문제 소개</a></li>
+    <li><a href="#3">여러 방법들 살펴보기</a>
+      <ul>
+        <li>3.1. <a href="#3a">Don’t reinvent the wheel by yourself</a></li>
+        <li>3.2. <a href="#3b">단순 반복문</a></li>
+        <li>3.3. <a href="#3c">재귀함수 사용</a></li>
+        <li>3.4. <a href="#3d">reduce 함수 사용</a></li>
+        <li>3.5. <a href="#3e">Meta!! programming</a></li>
+      </ul>
+    </li>
+    <li><a href="#4">효율성 극대화: Cache 사용</a></li>
+    <li><a href="#5">마치며</a></li>
+    <li><a href="#6">자료 출처</a></li>
+  </ol>
+</blockquote>
+
+<p><br id="1" /></p>
+
+<h2 id="1-들어가며">1. 들어가며</h2>
+
+<hr />
+
+<p>알고리즘 문제들을 풀면서 팩토리얼은 정말 많이 마주친다. 방금도 코드워즈에서 팩토리얼과 관련된 문제를 하나 풀었고, 내 블로그에도 팩토리얼을 사용해서 다른 문제를 해결하는 포스트들이 여럿 있다. 개념 자체도 쉽고 구현도 어렵지 않아서 많은 코더들이 알고리즘을 처음 공부할 때 한 번씩 풀어보지 않나 싶다.</p>
+
+<p>오늘 문제를 풀면서 문득 <strong>‘내가 파이썬으로 몇 가지 방법으로 팩토리얼을 구할 수 있을까?’하는 생각이 들었고 이 포스트를 작성하게 됐다.</strong> 지금 내 수준에서는 한 5가지 방법이 생각난다. 각 방법을 구현해보자. 그리고 이것만으로 끝나면 섭하니 <strong>Memoization을 통해 효율을 높이는 수준까지 가보자.</strong> 5가지 방법에 모두 memoization을 사용할텐데 이때 <strong>decorator</strong>의 강력함이 빛난다. 살펴보자.</p>
+
+<p><br id="2" /></p>
+
+<h2 id="2-문제-소개">2. 문제 소개</h2>
+
+<hr />
+
+<p>팩토리얼(Factorial)은 너무나 유명하고 친숙한 문제다. 0 이상의 정수 N을 받아서 N부터 (N-1), (N-2), …, 2, 1까지 곱하는 문제로 아마 고등학교 수준에서 배우는 것으로 기억한다.</p>
+
+<script type="math/tex; mode=display">\begin{array} \label{}
+	\text{Factorial of N} = factorial(N) = N! = N * (N-1) * \cdots * 2 * 1 \\
+\end{array}</script>
+
+<p>이때 5 팩토리얼은(5!)은 120이 된다.(5! = 5 * 4 * 3 * 2 * 1 = 120) 팩토리얼은 N이 증가함에 따라 무식하게 커져서 N이 10만 되어도 3,628,800이나 된다. 그래서 알고리즘 문제들에서 시간복잡도가 <script type="math/tex">O(N!)</script>이 되는 문제들은 보통 N 값이 작다.</p>
+
+<p>팩토리얼은 여러 알고리즘 문제에서 사용되는데 팩토리얼과 직접적으로 연관된 문제들도 있지만(ex: <a href="https://www.acmicpc.net/problem/1676" target="_blank">팩토리얼의 끝 0의 개수</a>), 보통은 팩토리얼을 사용하는 이항계수, 조합론 문제에서 많이 등장한다. 개념 자체가 너무 쉽고 유용하기 때문에 개발이나 수학을 공부하는 사람들에게는 ‘기본’이라고 할 수 있는 알고리즘이다.</p>
+
+<p>참고로 팩토리얼은 한글로는 계승(階乘)이라고도 하는데, 보통은 영어로만 사용한다.</p>
+
+<p><br id="3" /></p>
+
+<h2 id="3-여러-방법들-살펴보기">3. 여러 방법들 살펴보기</h2>
+
+<hr />
+
+<p>살펴볼 방법은 모두 5가지다. 이 포스트의 목적은 ‘팩토리얼을 구하는 알고리즘을 만들자’가 아니라 ‘파이썬으로 팩토리얼을 어떻게 구하지?’이다. 참고하기 바란다.</p>
+
+<p>모든 알고리즘들에서 입력되는 정수 N은 0이상이라고 가정하겠다. 따라서 입력에 대한 validation은 따로 진행하지 않는다.</p>
+
+<p><br id="3a" /></p>
+
+<h3 id="31-dont-reinvent-the-wheel-by-yourself">3.1. Don’t reinvent the wheel by yourself</h3>
+
+<p>첫 번째 방법의 제목으로 쓸데없는 영어 격언을 넣었는데 저 문장의 뜻은 <strong>‘바퀴를 직접 재발명하지 마라’</strong>이다. 이 격언은 소프트웨어 공학에서 유명한 Phrase로 <strong>이미 개발되어 있는 프로그램, 기능을 필요할 때마다 개발하지 말고 있는 코드를 모듈화해서 비슷한 문제상황에서 재사용하라는 뜻을 담고 있다.</strong>(또는 ‘복붙’이라고 이해되기도 한다.) ‘다시 말해 있는거 가져다 쓰라’이다. 많은 경우에서 반복작업해야 하는 코딩은 문제해결에 있어서 꼭 필수적이지만 창의적이지는 않다. 애초에 반복된다는 것이 ‘새롭다’와는 대조적인 의미를 갖기 때문이다. 따라서 이 격언은 <strong>‘필수적이지만 창의적이지 않은 코딩에 자원(시간, 인력)을 사용하지 말고 프로그램에 있어 창의적이고 새로운 기능에 자원을 더 투자하라’는 의미를 갖고 있다.</strong></p>
+
+<p>첫 번째 방법은, 다시 말해 <strong>‘파이썬에서 제공하는 팩토리얼 함수를 쓰자’</strong>이다. <strong>파이썬에는 다양한 수학적 연산을 지원하는 math 모듈을 내장하고 있는데 이 모듈에서 팩토리얼 함수를 제공한다.</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">math</span><span class="o">.</span><span class="n">factorial</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">math</span><span class="o">.</span><span class="n">factorial</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+
+<span class="mi">120</span>
+<span class="mi">2432902008176640000</span>
+</code></pre></div></div>
+
+<p>내가 알기로 C++이나 자바에는 팩토리얼을 구하는 내장 함수나 STL이 없는 걸로 아는데, 그래서인지 사람들이 팩토리얼을 직접 구현하려는 생각만 한다. 물론 구현이 매우 쉬운 것은 맞지만, 파이썬에서 있는 것을 가져다 쓰는 방법도 있다는 것을 참고하면 좋겠다.</p>
+
+<hr />
+
+<p><br id="3b" /></p>
+
+<h3 id="32-단순-반복문">3.2. 단순 반복문</h3>
+
+<p>다음은 아마 초보분들이 이 문제를 해결할 때 가장 많이 사용할 것으로 생각되는 반복문을 사용한 방법이다. 팩토리얼이 N부터 1까지 곱하는 것이기 때문에 반복문을 통해 1씩 늘리며 곱해나가면 충분하다. for, while 반복문을 모두 사용할 수 있는데 for 문을 사용하자.(코드가 더 짧다.)</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">factorial_for</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">ret</span> <span class="o">*=</span> <span class="n">i</span>
+    <span class="k">return</span> <span class="n">ret</span>
+
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">factorial_for</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">factorial_for</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+
+<span class="mi">120</span>
+<span class="mi">2432902008176640000</span>
+</code></pre></div></div>
+
+<p>for 반복문을 통해 팩토리얼을 구하는 <em>factorial_for</em> 함수를 구현했다. 첫 값을 1로 두고 n까지 반복하면서 곱해나가면 팩토리얼 값이 나온다. 매우 간단하고 무난한 해결방식이다.</p>
+
+<hr />
+
+<p><br id="3c" /></p>
+
+<h3 id="33-재귀함수-사용">3.3. 재귀함수 사용</h3>
+
+<p>난 재귀함수가 정말 좋다. 자주 예상하지 못하는 결과를 내놓기 때문이다. 분명 큐와 대조되는 스택의 비직관성 때문일 것이다.</p>
+
+<p>때로 단순 반복문으로 해결할 수 있는 문제들은 재귀함수로도 구현할 수 있다. 그런데 <strong>재귀함수는 함수 내에서 동명의 함수를 재호출하기 때문에, 함수를 무한히 호출해 스택오버플로우가 발생할 수 있어서 재귀의 탈출 조건(base case)를 정해줘야 한다.</strong> 팩토리얼을 재귀함수로 구할 <em>factorial_recursive</em> 함수를 다음과 같은 식으로 정리할 수 있다.</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\text{factorial_recursive}(n) =
+  \begin{cases}
+    n * \text{factorial_recursive}(n-1)       & \quad \text{if } n > 1 \\
+    1				  & \quad \text{else}
+  \end{cases} %]]></script>
+
+<p><strong>위 함수는 N이 1일 때는 1을 그대로 내놓고(<script type="math/tex">1! = 1</script>이기 때문에.) 아닐 때는 N에 (N - 1)! 재귀함수를 곱해 반환한다.</strong> 처음 이런 재귀함수를 보면 살짝 어리둥절할 수 있는데 N을 한 3, 4만 주고 저 식을 따라가보라. 정확히 값이 나온다.</p>
+
+<p>알고리즘을 포함해 어떤 문제에서 문제의 해결책에 대한 일반식을 도출할 수 있으면 나머지는 그 식을 구현만 하면 되고 매우 쉽다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">factorial_recursive</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">factorial_recursive</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="mi">1</span>
+
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">factorial_recursive</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">factorial_recursive</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+
+<span class="mi">120</span>
+<span class="mi">2432902008176640000</span>
+</code></pre></div></div>
+
+<p>재귀함수를 통해 팩토리얼을 구하는 <em>factorial_recursive</em> 함수를 구현했다. 이 구현의 장점은 삼항 연산자(ternary operator)를 통해 1줄로 구현이 가능하다는 점인데 이때 조건이 ‘n &gt; 1’이라는 것을 확인하면 된다. 팩토리얼은 0!과 1! 모두 1이다. 이 함수는 이 두 값 모두 1로 적절히 반환한다.</p>
+
+<hr />
+
+<p><br id="3d" /></p>
+
+<h3 id="34-reduce-함수-사용">3.4. reduce 함수 사용</h3>
+
+<p>함수형 프로그래밍 언어를 사용한 분들은 친숙하지만 파이썬 등으로 프로그래밍을 시작한 사람들이 잘 모르는 <code class="highlighter-rouge">reduce</code>라는 함수가 있다.</p>
+
+<p>함수형 프로그래밍에서, <strong>reduce는 fold라고 일컬어지는 함수 집합의 일원으로 재귀적인 자료구조를 분석하고 주어진 결합 동작을 사용해서 원 자료구조의 부분구조를 반복적으로 처리해 재결합해서 하나의 결과값으로 반환하는 고순위(higher-order) 함수이다.</strong></p>
+
+<p>이게 대관절 무슨 말일까? 이때 저 문장을 조금씩 분해해서 설명하면 조금은 쉽게 이해할 수 있다.</p>
+
+<ul>
+  <li>재귀적인 자료구조
+    <ul>
+      <li>파이썬의 리스트나 튜플 또는 <em>range</em> 처럼, 원소들을 하나씩 순회할 수 있는 자료구조를 뜻한다. 우리는 for문 등으로 리스트 순회를 밥먹듯 해왔다.</li>
+    </ul>
+  </li>
+  <li>… 결합 동작을 사용해 … 반복적으로 처리해 재결합해서 하나의 결과값으로 반환:
+    <ul>
+      <li>여기가 핵심이다. <strong>리스트 같은 자료구조는</strong> 원소의 개수가 임의적이다. <strong>단 하나의 값이 아닌 상태다.</strong> <strong>reduce는 이런 자료구조에 결합동작(예를 들면, 합, 곱 등)을 사용해 원소들을 반복적으로 재결합해 하나의 값으로 반환한다.</strong></li>
+      <li>예를 들어 [1, 2, 3, 4, 5]라는 리스트가 있을 때 모든 원소를 더한 ‘하나의 값’을 구하고 싶다면 <strong>‘합(add)’라는 결합동작을 이용해 각 원소를 더해나가며 최종적인 값 15를 구할 수 있을 것이다.</strong> 이것이 reduce의 역할이다.</li>
+      <li>정리하면, <strong>반복될 수 있는 자료구조에서 원소마다 원하는 연산을 반복해 단 하나의 값으로 환원하는 것, 이것이 reduce의 역할이다.</strong> 이 이름은 다양한 현상을 하나의 단일 원칙으로 귀속시키는 환원주의를 영어로 Reductionism이라고 하는 것과 무관하지 않을 것이다.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>이 reduce의 개념을 이용해 팩토리얼을 구할 수 있다. 1부터 N까지 1의 간격으로 반복되는 자료구조(이를테면 리스트)가 있고 우리가 원하는 연산을 ‘곱’이라고 정의한다면, 그리고 이를 reduce 연산에 입력으로 주면 1부터 N까지 곱한 값, 즉 N!이 나오지 않겠는가?</p>
+
+<p>바로 구현해보자. 파이썬에서는 <code class="highlighter-rouge">functools</code>라는 내장 모듈에서 <code class="highlighter-rouge">reduce</code>라는 함수를 제공한다. <strong>이 함수는 첫 번째 인자로 원하는 연산, 두 번째 인자로 재귀적인 자료구조를 받는다.</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="nb">reduce</span>
+
+<span class="k">def</span> <span class="nf">factorial_reduce</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">factorial_for</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">factorial_for</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+
+<span class="mi">120</span>
+<span class="mi">2432902008176640000</span>
+</code></pre></div></div>
+
+<p><em>reduce</em> 를 활용해 팩토리얼을 구하는 <em>factorial_reduce</em> 함수를 작성했다.</p>
+
+<ul>
+  <li><em><strong>lambda x, y: x * y</strong></em>
+    <ul>
+      <li>첫 번째 인자로서 두 원소의 곱을 반환하는 익명 람다함수를 작성했다. 이 함수는 재귀적인 자료구조에서 (1, 2번째), (2, 3) 번째, (3, 4) 번째의 원소들을 차례로 곱해나가며 자료구조의 끝 원소까지 나아가 결국 단 하나의 곱값을 반환할 것이다.</li>
+    </ul>
+  </li>
+  <li><em><strong>range(1, n+1)</strong></em>
+    <ul>
+      <li>우리가 for 반복문에서 자주 사용하는 <strong><em>range</em> 는 사실 재귀적인 자료구조다!</strong> 이는 파이썬의 중급 이상의 내용으로 이 포스트와 직접적인 관련이 없어 넘어간다. Iterator, Generator, Iterable 등의 지식이 필요한 분은 메일 주시면 포스트를 작성하겠습니다.</li>
+      <li>1부터 <em>n</em> 까지 곱을 해야하기 때문에 <em>n+1</em> 을 두 번째 인자로 넣어준다.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><em>factorial_reduce</em> 또한 답을 잘 구하는 것을 확인할 수 있다. 이렇게 <strong>함수형 프로그래밍과 관련 있는 map, filter, reduce 등은 익숙해지면 좋다.</strong> 파이썬에서 배열을 생성하는 리스트 컴프리헨션이 고차원으로 복잡해지면 이해하기 힘든 불편함이 생기는 데 이때 이 함수들이 좋은 대안이 되기도 한다. 이 개념과 함수는 파이썬이 아니더라도 자바스크립트 등의 언어에서라도 언젠가 마주칠 확률이 높기 때문에 기억하면 좋겠다.(자바스크립트의 배열(array)는 map이라는 메소드를 지원한다. 많이 쓰이는 것 같다.)</p>
+
+<hr />
+
+<p><br id="3e" /></p>
+
+<h3 id="35-meta-programming">3.5. Meta!! programming</h3>
+
+<p>이름이 뭔가 무시무시하다. ‘Meta’라. 위키피디아에 따르면 <strong>Meta programming(이하 ‘메타 프로그래밍’)은 컴퓨터 프로그램이 다른 별개의 프로그램을 자신의 입력값으로 취할 수 있도록 하는 기법이다.</strong> 이 뜻은 컴퓨터 프로그램이 다른 프로그램을 읽고, 생성, 분석하며 실행 중에 수정할 수 있는 것을 말한다.</p>
+
+<p>간단한 형태의 예시를 보자. <strong>우리가 짜는 간단한 프로그램은 인터프리트에 해석되기 전에는 문자열의 형태다. ~~.py라는 이름의 파일 안에 들어간 내용들은 모두 문자열이다!</strong> 작성할 때 문자를 입력했지, 이미지나 동영상을 집어넣은 게 아니지 않은가. 당연한 사실이지만 처음 들으면 인식하지 못하기도 한다. <strong>‘hi’ 라는 문자열을 출력하는 프로그램을 짜되, 그 프로그램의 이름을 runtime에 결정할 수 있는 메타 프로그램을 짜보자.</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"함수의 이름을 정하시오: "</span><span class="p">)</span>
+<span class="n">program</span> <span class="o">=</span> <span class="n">f</span><span class="s">"""def {name}():
+    print('hi')"""</span>
+
+<span class="k">exec</span><span class="p">(</span><span class="n">program</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><em>program</em> 은 정확히 ‘hi’를 표준출력에 표현하는 프로그램이다. 그런데 지금은 그냥 문자열의 형태로 저장되어 있으며 함수 이름도 정해지지 않았다. 이름은 사용자에게서 런타임일 때 입력받을 수 있다!</p>
+
+<p>함수의 이름을 ‘hihi’라고 내 맘대로 정한 뒤 이 이름의 함수를 실행해보자.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">함수의</span> <span class="err">이름을</span> <span class="err">정하시오</span><span class="p">:</span> <span class="n">hihi</span>
+
+<span class="n">hihi</span><span class="p">()</span>
+
+
+<span class="n">hi</span>
+</code></pre></div></div>
+
+<p>정말 신기하다! <strong>원래의 프로그램의 이름을 미정으로 남겨두고 그 함수를 지배하는 메타프로그램을 통해 함수의 이름을 동적으로 결정했다.</strong></p>
+
+<p>여기서 <strong><em>exec</em> 은 문자열 형태의 코드를 실행하는 함수다. <em>program</em> 변수는 프로그램을 문자열 형태로 담고 있었다.</strong> 이 코드를 실행함으로써 전역 이름공간에 hihi라는 함수가 기록될 수 있었던 것이다.</p>
+
+<p>이 개념을 어떻게 사용해서 팩토리얼을 구한다는 것인가?</p>
+
+<p><br /></p>
+
+<p>접근은 간단하다. 앞서 문자열 형태의 원 프로그램에 변화를 주는 등의 행동 뒤에 프로그램을 실행하는 것이 메타프로그래밍이라고 말했다.</p>
+
+<p>그리고 팩토리얼은 다음과 같은 식으로 쓸 수도 있다.</p>
+
+<script type="math/tex; mode=display">\begin{array} \label{}
+	N! = 1 * 2 * 3 * ... * (N - 1) * N
+\end{array}</script>
+
+<p>뭐 당연한 식이다. 이때 <strong>숫자 N을 받아 1부터 N까지 나열하고 그 사이에 우변처럼 ‘*‘를 끼어넣어 문자열로 반환하는 프로그램을 짜면 어떨까?</strong></p>
+
+<p><strong>프로그램의 결과 생성된 식을 변형을 가하지 않고 실행해 평가값을 반환하면 팩토리얼을 구하는 것이 된다.</strong> 우변이 당연한 식이라고 인정했으니까.</p>
+
+<p>코드를 먼저 보자.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">factorial_meta</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">n</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="nb">eval</span><span class="p">(</span><span class="s">'*'</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)))</span>
+
+
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">factorial_for</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">factorial_for</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+
+<span class="mi">120</span>
+<span class="mi">2432902008176640000</span>
+</code></pre></div></div>
+
+<p>일단 n이 0이면 1을 반환한다. 그 밑의 식이 문제인데 결론만 말하면 <strong><em>eval</em> 이라는 함수는 expression을 받아 그 평가값을 반환한다.</strong> ‘eval(“1 + 5”) == 6’인 것처럼.</p>
+
+<p>이때 받은 <strong>expression 식은 n에 따라 ‘1*2*3*4*…*n’ 꼴의 문자열을 반환한다.</strong> 이 프로그램을 <em>eval</em> 함수에 넣고 실행해 생성된 값을 반환하며 이 값이 곧 팩토리얼이다.</p>
+
+<p>위 식은 파이썬의 Iterator, str.join 등의 지식이 필요하다. 일단 넘어가겠다.</p>
+
+<p><br /></p>
+
+<p>3장에서 5가지 방법으로 팩토리얼을 구해봤다. 모두 충분히 짧고 문제없이 동작한다.</p>
+
+<p>근데 여기서 만족하면 안 되지. 한 단계 더 나아가자.</p>
+
+<hr />
+
+<p><br id="4" /></p>
+
+<h2 id="4-효율성-극대화-cache-사용">4. 효율성 극대화: Cache 사용</h2>
+
+<hr />
+
+<p>방금 짠 5가지 코드들의 시간 복잡도는 어떻게 될까? 가령 n이 10이면 재귀함수에서 10번의 재귀가 일어나기 때문에 시간복잡도는 <script type="math/tex">O(N)</script>이 된다. 좋다. 보통 어지간한 알고리즘에서 복잡도가 이 정도에 수렴하면 굉장히 훌륭한 수준의 알고리즘이다.</p>
+
+<p>근데 팩토리얼을 한 두번이 아닌, 한 번 만들어놓고 매우 많이 실행해야 하는 경우에는 어떻게 될까?</p>
+
+<p>쉬운 예를 들어서 인간은 10진수를 사랑하기 때문에 여하튼 무슨 이유로 10!을 지속적으로 한 1000번 계속해서 실행하면 그때마다 10번의 재귀함수 실행을 1000번을 해야 한다. 바로 이때 <strong>동적 계획법(Memoization)을 사용하면 좋겠다!</strong> 한 번 구한 값을 저장해서 같은 요청이 올 때마다 계산하지 않고 바로 반환하는 그런 함수 말이다.</p>
+
+<p>3번 재귀 함수에 이를 적용해보자.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">cache</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="k">def</span> <span class="nf">factorial_recursive</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">cache</span>
+
+    <span class="k">if</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">cache</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">cache</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
+    <span class="k">elif</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">cache</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">n</span> <span class="o">*</span> <span class="n">factorial_recursive</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+	<span class="k">return</span> <span class="n">cache</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">factorial_recursive</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="mi">1</span>
+</code></pre></div></div>
+
+<p><strong>전역 공간에 캐쉬로 쓸 dict를 선언했다. 이제 재귀함수에서 cache에 n에 해당하는 key가 있으면 value를 바로(계산할 필요없이) 반환한다. 계산한 적이 없으면 앞서 구현했던 대로 계산하고 차후에 쓰일 수 있도록 캐시에 저장한 뒤 반환한다.</strong> 다음에 같은 n으로 요청이 오면 해당하는 n!을 반환하면 된다.</p>
+
+<p><br /></p>
+
+<p>정말 무난한 동적계획법으로 피보나치 수열마냥 동적계획법 입문용으로 쓰일 수 있는 코드이다.</p>
+
+<p>근데, 이게 옳다고 생각하면 틀린 거다. 저 코드는 개선의 여지가 다분하다.</p>
+
+<ol>
+  <li><strong>일단 캐시가 전역으로 선언됐다.</strong> 이 캐쉬는 팩토리얼 기능만을 위해 존재할텐데 굳이 전역에 둬서 위험에 빠드릴 필요가 없다.</li>
+  <li><strong>cache에 값을 요청하는 코드와 실제 계산하는 코드가 Coupling 상태다.</strong> 이 둘을 나누면 좋을 것 같다.</li>
+  <li><strong>코드가 중복된다.</strong> cache에 값을 요청하는 위 코드는 5가지 팩토리얼에 모두 중복해 쓸 수 있다. 이때 저 코드를 함수 각각에 넣으면 5개의 부분이 중복되는 것이다. 정말 쓸데없는 코드 낭비로 대충 계산해서 대략 100 Byte는 더 낭비될 것 같다. 코드의 중복 작성을 없애자.</li>
+</ol>
+
+<p>이 3가지 문제점을 모두 해결할 수 있는 동적 계획법 구현은 없을까? 답은 있다. 바로 <code class="highlighter-rouge">decorator</code></p>
+
+<h4 id="decorator를-써서-재사용성을-높이자-">decorator를 써서 재사용성을 높이자 :)</h4>
+
+<p>decorator는 매우 유용해서 가급적 많이 사용하면 좋다. 저 재귀함수를 데코레이터를 사용해 Memoization하면 다음과 같이 코드를 짤 수 있을 것이다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">in_cache</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="n">cache</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">cache</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">cache</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">cache</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">cache</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">wrapper</span>
+
+<span class="o">@</span><span class="n">in_cache</span>
+<span class="k">def</span> <span class="nf">factorial_recursive</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">factorial_recursive</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="mi">1</span>
+</code></pre></div></div>
+
+<p>cache에 n에 해당하는 팩토리얼이 존재하는지 먼저 검사하는 함수 <em>in_cache</em> 함수를 만들었다. 이 부분은 데코레이터를 이해해야 정확히 파악할 수 있는데 중요한건 <strong>캐시에 값을 확인하는 부분과 실제로 계산하는 부분이 유연하게 분리됐다는 사실을 기억하는 것이다.</strong></p>
+
+<p>위외 같이 작성함으로써 아까의 무식한 동적 계획법에 비해</p>
+
+<ol>
+  <li><strong>캐시가 전역공간이 아닌, in_cache 이름공간을 쓰기 때문에 더 안전하며,</strong></li>
+  <li><strong>캐시에 값을 확인하는 코드와 실제 계산하는 코드가 분리되어 재사용성이 강화됐으며</strong>,</li>
+  <li><strong>값을 확인하는 코드를 일일이 복붙할 필요가 없다는 것이다.</strong> 단순히 ‘@’와 함께 함수명 윗 줄에 두어 함수를 감싸면 된다.</li>
+</ol>
+
+<p>5가지 함수에 대해서 모두 <em>@in_cache</em> 데코레이터로 함수를 wrap해보자. 너무나 단순하다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">@</span><span class="n">in_cache</span>
+<span class="k">def</span> <span class="nf">factorial_recursive</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="o">...</span>
+
+<span class="o">@</span><span class="n">in_cache</span>
+<span class="k">def</span> <span class="nf">factorial_for</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="o">...</span>
+
+<span class="o">@</span><span class="n">in_cache</span>
+<span class="k">def</span> <span class="nf">factorial_meta</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="o">...</span>
+
+<span class="o">@</span><span class="n">in_cache</span>
+<span class="k">def</span> <span class="nf">factorial_reduce</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="o">...</span>
+
+<span class="c1">##
+</span>
+<span class="n">factorial</span> <span class="o">=</span> <span class="n">in_cache</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">factorial</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>다섯 가지 함수를 모두 구현한다고 했을 때 캐시에 값을 확인하는 함수를 데코레이터로 감싸니 훨씬 이해하기 싶고 코드도 간결하다. 좋다. 동적계획법을 아름답게 구현했다.</p>
+
+<p>근데 첫 번째 방법(Don’t reinvent the wheel by yourself)은 다른 함수들과 달리 이미 함수가 정의되어 있는데 데코레이터를 어떻게 적용할까?</p>
+
+<p>어렵지 않다. <strong>원 함수를 <em>in_cache</em> 함수의 인자로 넣어 반환된 함수를 사용하는 것이다. 애초에 데코레이터가 하는 일이 저거다.</strong></p>
+
+<p><br /></p>
+
+<p>이제 우리는 데코레이터를 통해 깔끔하게 동적 계획법을 적용한 팩토리얼 함수를 만들었다.</p>
+
+<p><br id="5" /></p>
+
+<h2 id="5-마치며">5. 마치며</h2>
+
+<hr />
+
+<p>파이썬으로 팩토리얼을 구하는 5가지 방법에 대해서 알아보았다. 그리고 데코레이터를 통한 동적계획법까지 살펴봤다. 이게 참 어렵다. 데코레이터나 Iterator를 이전에 다루지 않았다보니 이 개념을 모두 설명하고 넘어가야 하는지, 아니면 독자분들이 이해하고 있다고 가정해도 되는지를 모르겠다. GA를 통해 살펴본 유저들의 유입 데이터를 보건대 다 이해하고 계시지는 않을 것 같은데 말이다.</p>
+
+<p>일단 나는 파이썬의 원시 자료구조를 포함하는 collections, collections.abc 모듈에 관심이 많이 때문에 Iterator, Iterable, Generator, Sequence 등은 언젠가 다루어야겠다는 생각을 한다.</p>
+
+<p>글쎄요. 수요가 있는 글을 썼는지 모르겠습니다. 팩토리얼은 너무 쉬운가요? 다음엔 좀더 어려운 알고리즘이나 내용을 살펴보도록 하겠습니다.</p>
+
+<p>이상 포스트를 마칩니다.</p>
+
+<p><br id="6" /></p>
+
+<h2 id="6-자료-출처">6. 자료 출처</h2>
+
+<hr />
+
+<ul>
+  <li><a href="https://shoark7.github.io/programming/algorithm/3ways-to-get-multiplication-in-a-list-in-python.html" target="_blank">Parkito’s on the way: 3 ways to get multiplication in a list in python</a></li>
+  <li><a href="https://en.wikipedia.org/wiki/Metaprogramming" target="_blank">Wikipedia: Metaprogramming</a></li>
+  <li><a href="https://en.wikipedia.org/wiki/Reinventing_the_wheel" target="_blank">Wikipedia: Reinventing the wheel</a></li>
+</ul>
+
+      <div class="page-footer">
+        <div class="page-share">
+          <a href="https://twitter.com/intent/tweet?text=[Python] 다양한 방법으로 팩토리얼(Factorial) 구해보기&url=http://localhost:4000/programming/algorithm/several-ways-to-solve-factorial-in-python.html" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
+          <a href="https://facebook.com/sharer.php?u=http://localhost:4000/programming/algorithm/several-ways-to-solve-factorial-in-python.html" title="Share on Facebook" rel="nofollow" target="_blank">Facebook</a>
+          <a href="https://plus.google.com/share?url=http://localhost:4000/programming/algorithm/several-ways-to-solve-factorial-in-python.html" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>
+        </div>
+        <div class="page-tag">
+          
+            <a href="/tags#Factorial" class="tag">&#35; Factorial</a>
+          
+        </div>
+      </div>
+		  <!-- Load Facebook SDK for JavaScript -->
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+
+  <!-- Your share button code -->
+  <div class="fb-share-button" 
+    data-href="http://localhost:4000/programming/algorithm/several-ways-to-solve-factorial-in-python.html" 
+    data-layout="button_count">
+  </div>
+
+		
+    </div> <!-- End Wrap Content -->
+  </div> <!-- End Page Content -->
+</article> <!-- End Article Page -->
+
+</div>
+
+  </div>
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', '', 'auto');
+  ga('send', 'pageview');
+</script> <!-- End Analytics -->
+
+	<script src="https://unpkg.com/simple-jekyll-search@1.5.0/dest/simple-jekyll-search.min.js"></script>
+<script>
+var sjs = SimpleJekyllSearch({
+  searchInput: document.querySelector('#search-input'),
+  resultsContainer: document.getElementById('results-container'),
+  json: '/search.json',
+  searchResultTemplate: '<li class="search-results-item"><a href="http://localhost:4000{url}">{title}</a></li>',
+	limit: 9,
+	noResultsText: '<li class="search-results-item"><a href="#">No results found...</a></li>'
+})
+</script>
+
+	<!-- Main Js -->
+<!--<script src="/assets/js/main.js"></script>-->
+
+<!-- JQuery 3.x min -->
+<script src="/assets/js/jquery.js"></script>
+
+<script>
+	let menus = $("#category-list");
+	let image = $("#menu-toggler img");
+	$("#toggler-wrapper").click(function() {
+		if(menus.css("display") === "none") {
+			image.attr("src", "/assets/img/close-button.png");
+			menus.css("display", "flex");
+		}
+		else {
+			image.attr("src", "/assets/img/nav-off.png");
+			menus.css("display", "none");
+		}
+	});
+
+
+</script>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-127149179-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-127149179-1');
+</script>
+
+</body>
+</html>
