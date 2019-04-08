@@ -46,7 +46,7 @@ I think you can understand it when you look around my blog. :grin:
   - [My github link](https://github.com/shoark7){:target="_blank"}  
 * :mag_right: LinkedIn
 	- [My LinkedIn account](https://linkedin.com/in/sunghwan-park-3773b8154/?originalSubdomain=in){:target="_blank"}. Please, I'm looking for a job.
-
+* :star: Quora: Follow me on Quora. My profile is [here.](https://www.quora.com/profile/Sunghwan-Park-2){:target="_blank"}
 
 <br>
 <br>
