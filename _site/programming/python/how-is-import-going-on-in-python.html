@@ -280,22 +280,22 @@
 <p>We use Python and we surely <strong>import</strong> other modules everyday. Importing other modules is so common that usually we don’t pay much attention to it. I wasn’t that interested in this topic too. But I bumped into situations that I needed to know more about ‘import’ and ‘modules’. Below are some issues I encountered while using Python.</p>
 
 <ol>
-  <li>Python’s math module has many useful mathematical functions. But sometimes theirs wouldn’t match your needs. <strong>What should we do when we want to define our own mathematical functions and make our ‘math’ modules. When we run ‘import math’, what shall be imported, Python’s or ours?</strong></li>
+  <li>Python’s <em>math</em> module has many useful mathematical functions. But sometimes theirs wouldn’t match your needs. <strong>What should we do when we want to define our own mathematical functions and make our ‘math’ module? When we run <em>import math</em>, what shall be imported, Python’s or ours?</strong></li>
   <li>Sometimes we may need a higher rank set of modules and it’s called <strong>package</strong> in Python. Package is a bundle of relevant modules and is also a module itself. In this case, <strong>we need to carefully consider absolute import and relative import.</strong> This can be tricky.</li>
 </ol>
 
-<p><strong>Today’s post focuses on issue No.1.</strong> Issue No.2 is a huge area and I’ll post it later with my personal experience of constructing package.</p>
+<p><strong>Today’s post focuses on issue No.1.</strong> Issue No.2 is a huge area and I’ll post it later with my personal experience of constructing a package.</p>
 
 <p>So today,</p>
 <ol>
   <li><strong>I’ll look through basic usage of <em>import</em> statement. It’s a way of reusing code in Python.</strong></li>
-  <li><strong>And I’ll introduce some interesting tricks on <em>import</em>. For example, I’ll answer ‘can we name our modules without ‘.py’ suffix’, ‘can we use characters besides english for modules? And how about punctuation characters?’</strong></li>
-  <li>**At last, I’ll cover module import order in Python and how to register our own modules in Python.</li>
+  <li><strong>And I’ll introduce some interesting tricks on <em>import</em>. For example, I’ll answer ‘can we name our modules without <code class="highlighter-rouge">.py</code> suffix’, ‘can we use characters besides english for modules? And how about punctuation characters?’</strong></li>
+  <li><strong>At last, I’ll cover module import order in Python and how to register our own modules in Python.</strong></li>
 </ol>
 
 <p>I assume readers have ‘shell’ programs in their systems.</p>
 
-<p>So, let’s go guys :)</p>
+<p>Let’s go guys :)</p>
 
 <p><br id="2" /></p>
 
@@ -305,7 +305,7 @@
 
 <p><strong>Code reusability</strong> is really import in programming languages and other high-level languages contain many useful others’ code in the name of library or STL. Some boring routines are essential in almost any projects, but it can be hell if we have to implement not creative, boresome jobs everytime.</p>
 
-<p><strong>Python supports others’ code in the name of ‘module’.</strong> Python has long maintained ‘<strong><em>batteries included</em></strong>’ philosophy, meaning Python supports many versatile and rich standard libraries. In fact, there’re many standard libraries that people don’t know but can be useful: <em>ipaddress</em>, <em>pickle</em>, <em>shutil</em>, <em>pprint</em>, <em>smtp</em>, … I cannot even mention them all because it really has a lot. With these modules you don’t need to repeat boring jobs but use Python’s efficient and ready-made codes. This is why we python lovers say ‘<em>Life is short, use Python</em>’. You can put your energy into what is most creative and interesting to you.</p>
+<p><strong>Python supports others’ code in the name of ‘module’.</strong> Python has long maintained ‘<strong><em>batteries included</em></strong>’ philosophy, meaning Python supports many versatile and rich standard libraries. In fact, there’re so many standard libraries that people don’t know: <em>ipaddress</em>, <em>pickle</em>, <em>shutil</em>, <em>pprint</em>, <em>smtp</em>, … I cannot even mention them all because it really has a lot. With these modules you don’t need to repeat boring codes but use Python’s efficient and ready-made codes. This is why we python lovers say ‘<em>Life is short, use Python</em>’. You can put your energy into what is most creative and interesting to you.</p>
 
 <p><br /></p>
 
@@ -319,7 +319,7 @@
 
 <p>This is very basic use of ‘<em>import</em>’ statement. Codes above imported <em>math</em>, <em>numpy</em>, <em>os</em>, <em>sys</em> modules. They’re all important and famous in Python.</p>
 
-<p><strong>Sometimes you don’t need all module functions but only need one single part.</strong> Then you can import only a small part of modules with ‘from … import …’ statement</p>
+<p><strong>Sometimes you don’t need all module functions but only need one single part.</strong> Then you can import only a small part of modules with <em>from … import …</em> statement</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">sys</span> <span class="kn">import</span> <span class="n">getrecursionlimit</span>
 
@@ -364,13 +364,13 @@
 
 <hr />
 
-<p>Chapter 2. covers simple import examples. And those used Python standard libraries like <em>math</em>, <em>os</em> and <em>sys</em>. <strong>Now, let_s assume when we make our own modules and import them in other projects.</strong> It’s different from just using standard modules. These can bring some issues about module names. Let<strong>_s check it out some hidden features for our customized-named modules.</strong></p>
+<p>Chapter 2. covers simple import examples. And those used Python standard libraries like <em>math</em>, <em>os</em> and <em>sys</em>. <strong>Now, let_s assume when we make our own modules and import them in other projects.</strong> It’s different from just using standard modules. These can bring some issues about module names. <strong>Let’s check it out some hidden features for our customized-named modules.</strong></p>
 
 <p><br id="3a" /></p>
 
 <h3 id="31-using-other-characters-besides-english-for-modules">3.1. Using other characters besides english for modules</h3>
 
-<p>As the title itself says, <strong>can we use another characters like Koreans, Japanese and punctuation chars for module names?</strong> Built-in and Python standard modules’ names are all in english like <em>math</em>, <em>os</em>, <em>sys</em>. But… Not all people’s mother tounge is English and I’m also a Korean. <strong>For usability, it’s more recommended to use english but sometimes, we might want to use other languages to name our modules.</strong> And Python supports it.</p>
+<p>As the title itself says, <strong>can we use another characters like Korean, Japanese and punctuation chars for module names?</strong> Built-in and Python standard modules’ names are all in english like <em>math</em>, <em>os</em>, <em>sys</em>. But… Not all people’s mother tounge is English and I’m also a Korean. <strong>For usability, it’s more recommended to use english but sometimes, we might want to use other languages to name our modules.</strong> And Python supports it.</p>
 
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">echo</span> <span class="s2">"print('hi')"</span> <span class="o">&gt;</span> 안녕.py
 
@@ -446,7 +446,7 @@ hi
 
 <p><strong><em>__import__</em> is a built-in function that gets module name in str type and imports it. Internally, when we import a module with <em>import</em> statement, <em>__import__</em> function is called to import the module in Python.</strong></p>
 
-<p>And instead of using <em>import</em> statement, <strong>we can import any modules containing any characters(including whitespaces) if we give names in <em>str</em> type in <em>__import__</em> function.</strong> It’s syntatically correct while <em>import greeting-to-you</em> breaks variable naming rules of Python.</p>
+<p>And instead of using <em>import</em> statement, <strong>we can import any modules containing any characters(including whitespaces) if we give names in <em>str</em> type in <em>__import__</em> function.</strong> It’s syntatically correct while ‘<em>import greeting-to-you</em>’ breaks variable naming rules of Python.</p>
 
 <p><br /></p>
 
@@ -508,14 +508,14 @@ hi
 
 <hr />
 
-<p>This chapter is very core of this post. If we create our own scripts, we can use them as scripts and modules. Now we’re great Python users and our code is fantastic. Who knows? Maybe we can create famous frameworks like Django, Pandas, etc someday. <strong>This chapter deals with issues about importing our own modules</strong></p>
+<p>This chapter is very core of this post. If we create our own scripts, we can use them as scripts and modules. Now we’re great Python users and our code is fantastic. Who knows? Maybe we can create famous frameworks like Django, Pandas, etc someday. <strong>This chapter deals with issues about importing our own modules</strong>:</p>
 
 <ol>
   <li>You can import standard modules(<em>math</em>, <em>sys</em>, <em>keyword</em>) wherever you are. Then how about ours? <strong>How can we make our modules importable in any places?</strong></li>
-  <li><strong>You created ‘math’ module and it’s duplicate with Python <em>math</em> standard module.</strong> It’s not ideal but let’s say you have to name it that way. <strong>If we run <em>import math</em> it, what would be imported, ours or Python’s?</strong></li>
+  <li><strong>You created ‘math’ module and it’s duplicate with Python <em>math</em> standard module.</strong> It’s not ideal but let’s say you have to name it that way. <strong>If we run ‘<em>import math</em>’ it, what would be imported, ours or Python’s?</strong></li>
 </ol>
 
-<p>Isn’t those interesting? Yeah, it sure is. Let’sget into it :)</p>
+<p>Isn’t those interesting? Yeah, it sure is. Let’s get into it :)</p>
 
 <p><br id="4a" /></p>
 
@@ -564,7 +564,7 @@ hi
 
 <h4 id="411-test-case-definition">4.1.1. Test case definition</h4>
 
-<p>Let’s make a test to understand before going on. <strong>I made a simple directory structure for this case.</strong></p>
+<p>Let’s make a test exmple before going on. <strong>I made a simple directory structure for this case.</strong></p>
 
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">mkdir</span> <span class="nt">-p</span> ~/deletemesoon/<span class="o">{</span>a..c<span class="o">}</span>
 <span class="nv">$ </span><span class="nb">touch</span> ~/deletemesoon/a/in_a.py
@@ -622,11 +622,11 @@ hi
 
 <h4 id="412-dynamically-add-it">4.1.2. Dynamically add it!</h4>
 
-<p>First way is <strong>‘dynamically adding target modules’</strong>. Here’s some Python information here.</p>
+<p>First way is <strong>‘dynamically adding target modules’</strong>. Here’s some Python information.</p>
 
 <p>As you know, Python has <em>sys</em> standard module and it deals with Python interpreter environment. It can control interpreter-related configurations like recursion limit of function calls, get version information of the interpreter, customize shell prompts(‘&gt;&gt;&gt;’ is default) and etc.</p>
 
-<p>In there, <strong>there is a list named <em>sys.path</em> and it contains paths of directories that the interpreter searches for modules when you try to import modules.</strong></p>
+<p>Also <em>sys</em> contains a list named <em>sys.path</em> and it contains paths of directories that the interpreter searches for modules when you try to import modules.**</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">sys</span>
 
@@ -674,9 +674,9 @@ Total execution <span class="nb">time </span><span class="k">for </span>say_ok i
 
 <p>Perfectly worked. Just before now, in_b.py couldn’t import in_a module because Python interpreter couldn’t find in_a module in all directories in <em>sys.path</em>. <strong>When we added paths containing in_a, in_c modules, it could find both modules and code went well.</strong> It supports only full absolute paths and others(e.g. ‘~/p/a/t/h’) are not seen as paths here.</p>
 
-<p><strong>I named this ‘dynamic way’ because we add directories to look through inside the script we work on.</strong></p>
+<p><strong>I named this ‘dynamic way’ because we add directory paths to look through inside the script we work on.</strong></p>
 
-<p>How do you think about this way? Well… It’s ok <strong>but it’s boring to put sys.path related code everytime we use the target module.</strong> So, we need a better option.</p>
+<p>How do you think about this way? Well… It’s ok <strong>but it’s boring to put <em>sys.path</em> related code everytime we use the target module.</strong> So, we need a better option.</p>
 
 <hr />
 
@@ -684,7 +684,7 @@ Total execution <span class="nb">time </span><span class="k">for </span>say_ok i
 
 <h4 id="413-use-environment-variable">4.1.3. Use environment variable</h4>
 
-<p>Systems including Xnix and Windows have environment variables and they’re used in programs as configuration options. If you have installed Python on Windows, you must have set environment variable configurations for Python.</p>
+<p>Systems including Xnix and Windows have environment variables and they’re used in programs as configuration options. If you have installed Python on Windows, I think you must have set environment variable configurations for Python.</p>
 
 <p>I’m using Linux(Ubuntu) and it’s same too. This way is using environment variable named <code class="highlighter-rouge">PYTHONPATH</code>.</p>
 
@@ -725,7 +725,7 @@ Total execution <span class="nb">time </span><span class="k">for </span>say_ok i
 
 <p>We’ve come a long way. This is the final session:</p>
 
-<p>If there’re modules with same names and both are detectable from Python interpreter, what would be imported? As I supposed above, <strong>if I created my ‘math’ module, and execute <em>import math</em> statement, what module would be imported?</strong></p>
+<p>If there’re modules with same names and both are detectable from Python interpreter, what would be imported? As I supposed above, <strong>if I created my ‘math’ module, and execute ‘<em>import math</em>’ statement, what module would be imported?</strong></p>
 
 <p>The answer lies with <em>sys.path</em>. Let’s call it again here.</p>
 
@@ -760,9 +760,9 @@ Total execution <span class="nb">time </span><span class="k">for </span>say_ok i
 <p>Paths in which Python searches for modules is decided by these principles in order:</p>
 
 <ol>
-  <li><strong>Path that interpreter is executed.</strong> It means current path.</li>
+  <li><strong>Path that interpreter is working on.</strong> It means current path.</li>
   <li><strong>Paths registered in PYTHONPATH environment variable in the system.</strong> We checked this out.</li>
-  <li><strong>Paths that Python was in installed initially.</strong> These paths contain built-in and third-party packages(Django, Pandas, etc)</li>
+  <li><strong>Paths in which Python was installed initially.</strong> These paths contain built-in and third-party packages(Django, Pandas, etc)</li>
 </ol>
 
 <p><br /></p>
@@ -789,7 +789,7 @@ Total execution <span class="nb">time </span><span class="k">for </span>say_ok i
 
 <hr />
 
-<p>It’s my first time I post content in English. I think I need this kind of challenges to improve my English and it’s very effective. From now on, I’ll try to write posts that at least belongs to DEV in English. And also, I would really appreciate any advice on my awkard English expressions.</p>
+<p>It’s my first time posting in English. I think I need this kind of challenges to improve my English and it’s very effective. From now on, I’ll try to write posts that at least belongs to DEV in English. And also, I would really appreciate any advice on my awkard English expressions.</p>
 
 <p>We import modules everyday but pay less attention to what happens when we import modules. I didn’t know this post would be so long like this and I think we have to keep looking for hidden logic in very simple and abstract functions.</p>
 

@@ -32,15 +32,15 @@ tags: [import]
 
 We use Python and we surely **import** other modules everyday. Importing other modules is so common that usually we don't pay much attention to it. I wasn't that interested in this topic too. But I bumped into situations that I needed to know more about 'import' and 'modules'. Below are some issues I encountered while using Python.
 
-1. Python's math module has many useful mathematical functions. But sometimes theirs wouldn't match your needs. **What should we do when we want to define our own mathematical functions and make our 'math' modules. When we run 'import math', what shall be imported, Python's or ours?**
+1. Python's _math_ module has many useful mathematical functions. But sometimes theirs wouldn't match your needs. **What should we do when we want to define our own mathematical functions and make our 'math' module? When we run _import math_, what shall be imported, Python's or ours?**
 2. Sometimes we may need a higher rank set of modules and it's called **package** in Python. Package is a bundle of relevant modules and is also a module itself. In this case, **we need to carefully consider absolute import and relative import.** This can be tricky.
 
-**Today's post focuses on issue No.1.** Issue No.2 is a huge area and I'll post it later with my personal experience of constructing package.
+**Today's post focuses on issue No.1.** Issue No.2 is a huge area and I'll post it later with my personal experience of constructing a package.
 
 So today,  
 1. **I'll look through basic usage of _import_ statement. It's a way of reusing code in Python.**
-2. **And I'll introduce some interesting tricks on _import_. For example, I'll answer 'can we name our modules without '.py' suffix', 'can we use characters besides english for modules? And how about punctuation characters?'**
-3. **At last, I'll cover module import order in Python and how to register our own modules in Python.
+2. **And I'll introduce some interesting tricks on _import_. For example, I'll answer 'can we name our modules without `.py` suffix', 'can we use characters besides english for modules? And how about punctuation characters?'**
+3. **At last, I'll cover module import order in Python and how to register our own modules in Python.**
 
 I assume readers have 'shell' programs in their systems.
 
@@ -54,7 +54,7 @@ Let's go guys :)
 
 **Code reusability** is really import in programming languages and other high-level languages contain many useful others' code in the name of library or STL. Some boring routines are essential in almost any projects, but it can be hell if we have to implement not creative, boresome jobs everytime.   
 
-**Python supports others' code in the name of 'module'.** Python has long maintained '**_batteries included_**' philosophy, meaning Python supports many versatile and rich standard libraries. In fact, there're many standard libraries that people don't know but can be useful: _ipaddress_, _pickle_, _shutil_, _pprint_, _smtp_, ... I cannot even mention them all because it really has a lot. With these modules you don't need to repeat boring jobs but use Python's efficient and ready-made codes. This is why we python lovers say '_Life is short, use Python_'. You can put your energy into what is most creative and interesting to you.
+**Python supports others' code in the name of 'module'.** Python has long maintained '**_batteries included_**' philosophy, meaning Python supports many versatile and rich standard libraries. In fact, there're so many standard libraries that people don't know: _ipaddress_, _pickle_, _shutil_, _pprint_, _smtp_, ... I cannot even mention them all because it really has a lot. With these modules you don't need to repeat boring codes but use Python's efficient and ready-made codes. This is why we python lovers say '_Life is short, use Python_'. You can put your energy into what is most creative and interesting to you.
 
 <br>
 
@@ -69,7 +69,7 @@ import os, sys
 
 This is very basic use of '_import_' statement. Codes above imported _math_, _numpy_, _os_, _sys_ modules. They're all important and famous in Python.
 
-**Sometimes you don't need all module functions but only need one single part.** Then you can import only a small part of modules with 'from ... import ...' statement
+**Sometimes you don't need all module functions but only need one single part.** Then you can import only a small part of modules with _from ... import ..._ statement
 
 ```python
 from sys import getrecursionlimit
@@ -116,14 +116,14 @@ These are very basic examples of importing modules in Python. I'm sure you all k
 
 ---
 
-Chapter 2. covers simple import examples. And those used Python standard libraries like _math_, _os_ and _sys_. **Now, let_s assume when we make our own modules and import them in other projects.** It's different from just using standard modules. These can bring some issues about module names. Let**_s check it out some hidden features for our customized-named modules.**
+Chapter 2. covers simple import examples. And those used Python standard libraries like _math_, _os_ and _sys_. **Now, let_s assume when we make our own modules and import them in other projects.** It's different from just using standard modules. These can bring some issues about module names. **Let's check it out some hidden features for our customized-named modules.**
 
 
 <br id="3a">
 
 ### 3.1. Using other characters besides english for modules
 
-As the title itself says, **can we use another characters like Koreans, Japanese and punctuation chars for module names?** Built-in and Python standard modules' names are all in english like _math_, _os_, _sys_. But... Not all people's mother tounge is English and I'm also a Korean. **For usability, it's more recommended to use english but sometimes, we might want to use other languages to name our modules.** And Python supports it.
+As the title itself says, **can we use another characters like Korean, Japanese and punctuation chars for module names?** Built-in and Python standard modules' names are all in english like _math_, _os_, _sys_. But... Not all people's mother tounge is English and I'm also a Korean. **For usability, it's more recommended to use english but sometimes, we might want to use other languages to name our modules.** And Python supports it.
 
 ```sh
 $ echo "print('hi')" > 안녕.py
@@ -207,7 +207,7 @@ What happened? Rather, what is that function?
 
 __*\_\_import\_\_* is a built-in function that gets module name in str type and imports it. Internally, when we import a module with _import_ statement, *\_\_import\_\_* function is called to import the module in Python.__
 
-And instead of using _import_ statement, **we can import any modules containing any characters(including whitespaces) if we give names in _str_ type in *\_\_import\_\_* function.** It's syntatically correct while _import greeting-to-you_ breaks variable naming rules of Python.
+And instead of using _import_ statement, **we can import any modules containing any characters(including whitespaces) if we give names in _str_ type in *\_\_import\_\_* function.** It's syntatically correct while '_import greeting-to-you_' breaks variable naming rules of Python.
 
 <br>
 
@@ -273,13 +273,13 @@ We found answers for 2 module naming issues in Python:
 
 ---
 
-This chapter is very core of this post. If we create our own scripts, we can use them as scripts and modules. Now we're great Python users and our code is fantastic. Who knows? Maybe we can create famous frameworks like Django, Pandas, etc someday. **This chapter deals with issues about importing our own modules**
+This chapter is very core of this post. If we create our own scripts, we can use them as scripts and modules. Now we're great Python users and our code is fantastic. Who knows? Maybe we can create famous frameworks like Django, Pandas, etc someday. **This chapter deals with issues about importing our own modules**:
 
 1. You can import standard modules(_math_, _sys_, _keyword_) wherever you are. Then how about ours? **How can we make our modules importable in any places?**
-1. **You created 'math' module and it's duplicate with Python _math_ standard module.** It's not ideal but let's say you have to name it that way. **If we run _import math_ it, what would be imported, ours or Python's?**
+1. **You created 'math' module and it's duplicate with Python _math_ standard module.** It's not ideal but let's say you have to name it that way. **If we run '_import math_' it, what would be imported, ours or Python's?**
 
 
-Isn't those interesting? Yeah, it sure is. Let'sget into it :)
+Isn't those interesting? Yeah, it sure is. Let's get into it :)
 
 
 
@@ -335,7 +335,7 @@ Yeah, it's cool. **I love my _calc\_time_ function and I want it to be accessibl
 
 #### 4.1.1. Test case definition
 
-Let's make a test to understand before going on. **I made a simple directory structure for this case.**
+Let's make a test exmple before going on. **I made a simple directory structure for this case.**
 
 ```sh
 $ mkdir -p ~/deletemesoon/{a..c}
@@ -396,11 +396,11 @@ Yes, this is our problem. **We want in\_a and in\_c module to be accessible from
 
 #### 4.1.2. Dynamically add it!
 
-First way is **'dynamically adding target modules'**. Here's some Python information here.  
+First way is **'dynamically adding target modules'**. Here's some Python information.  
 
 As you know, Python has _sys_ standard module and it deals with Python interpreter environment. It can control interpreter-related configurations like recursion limit of function calls, get version information of the interpreter, customize shell prompts('\>\>\>' is default) and etc.  
 
-In there, **there is a list named _sys.path_ and it contains paths of directories that the interpreter searches for modules when you try to import modules.**
+Also _sys_ contains a list named _sys.path_ and it contains paths of directories that the interpreter searches for modules when you try to import modules.**
 
 
 ```python
@@ -452,9 +452,9 @@ Total execution time for say_ok is 6.866455078125e-05
 
 Perfectly worked. Just before now, in_b.py couldn't import in\_a module because Python interpreter couldn't find in_a module in all directories in _sys.path_. **When we added paths containing in\_a, in\_c modules, it could find both modules and code went well.** It supports only full absolute paths and others(e.g. '~/p/a/t/h') are not seen as paths here.
 
-**I named this 'dynamic way' because we add directories to look through inside the script we work on.**  
+**I named this 'dynamic way' because we add directory paths to look through inside the script we work on.**  
 
-How do you think about this way? Well... It's ok **but it's boring to put sys.path related code everytime we use the target module.** So, we need a better option.
+How do you think about this way? Well... It's ok **but it's boring to put _sys.path_ related code everytime we use the target module.** So, we need a better option.
 
 ---
 
@@ -462,7 +462,7 @@ How do you think about this way? Well... It's ok **but it's boring to put sys.pa
 
 #### 4.1.3. Use environment variable
 
-Systems including Xnix and Windows have environment variables and they're used in programs as configuration options. If you have installed Python on Windows, you must have set environment variable configurations for Python.  
+Systems including Xnix and Windows have environment variables and they're used in programs as configuration options. If you have installed Python on Windows, I think you must have set environment variable configurations for Python.  
 
 I'm using Linux(Ubuntu) and it's same too. This way is using environment variable named `PYTHONPATH`.
 
@@ -507,7 +507,7 @@ Ok. Now we can use our awesome and fantastic functions and classes anywhere we a
 
 We've come a long way. This is the final session:  
 
-If there're modules with same names and both are detectable from Python interpreter, what would be imported? As I supposed above, **if I created my 'math' module, and execute _import math_ statement, what module would be imported?**
+If there're modules with same names and both are detectable from Python interpreter, what would be imported? As I supposed above, **if I created my 'math' module, and execute '_import math_' statement, what module would be imported?**
 
 The answer lies with _sys.path_. Let's call it again here.
 
@@ -544,9 +544,9 @@ At this point, We can redefine our problems.
 
 Paths in which Python searches for modules is decided by these principles in order:
 
-1. **Path that interpreter is executed.** It means current path.
+1. **Path that interpreter is working on.** It means current path.
 1. **Paths registered in PYTHONPATH environment variable in the system.** We checked this out.
-1. **Paths that Python was in installed initially.** These paths contain built-in and third-party packages(Django, Pandas, etc)
+1. **Paths in which Python was installed initially.** These paths contain built-in and third-party packages(Django, Pandas, etc)
 
 
 <br>
@@ -575,7 +575,7 @@ It was a long way for import. But we finished and have grown up now.
 
 ---
 
-It's my first time I post content in English. I think I need this kind of challenges to improve my English and it's very effective. From now on, I'll try to write posts that at least belongs to DEV in English. And also, I would really appreciate any advice on my awkard English expressions.
+It's my first time posting in English. I think I need this kind of challenges to improve my English and it's very effective. From now on, I'll try to write posts that at least belongs to DEV in English. And also, I would really appreciate any advice on my awkard English expressions.
 
 We import modules everyday but pay less attention to what happens when we import modules. I didn't know this post would be so long like this and I think we have to keep looking for hidden logic in very simple and abstract functions.  
 
