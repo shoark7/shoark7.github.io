@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>[Python] Useful tips when importing modules in Python - Parkito's on the way</title>
+
+  <!-- Edit site and author settings in `_config.yml` to make the social details your own -->
+
+    <meta content="Parkito's on the way" property="og:site_name">
+  
+    <meta content="[Python] Useful tips when importing modules in Python" property="og:title">
+  
+  
+    <meta content="article" property="og:type">
+  
+  
+    <meta content="Let's take a more closer look at what happens when we import modules in Python." property="og:description">
+  
+  
+    <meta content="http://localhost:4000/programming/python/how-is-import-going-on-in-python.html" property="og:url">
+	
+  
+    <meta content="2019-04-10T00:00:00+09:00" property="article:published_time">
+    <meta content="http://localhost:4000/about/" property="article:author">
+  
+  
+    <meta content="http://localhost:4000/assets/img/python/import-logo.png" property="og:image">
+  
+  
+    
+    <meta content="Programming" property="article:section">
+    
+  
+  
+    
+    <meta content="import" property="article:tag">
+    
+  
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@">
+    <meta name="twitter:creator" content="@">
+  
+    <meta name="twitter:title" content="[Python] Useful tips when importing modules in Python">
+  
+  
+    <meta name="twitter:url" content="http://localhost:4000/programming/python/how-is-import-going-on-in-python.html">
+  
+  
+    <meta name="twitter:description" content="Let's take a more closer look at what happens when we import modules in Python.">
+  
+  
+    <meta name="twitter:image:src" content="http://localhost:4000/assets/img//python/import-logo.png">
+  
+
+  
+    <meta content="Let's take a more closer look at what happens when we import modules in Python." name="description">
+  
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="shortcut icon" href="/assets/img/favicon/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" href="/assets/img/favicon/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/assets/img/favicon/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/assets/img/favicon/apple-touch-icon-144x144.png">
+	<!-- Chrome, Firefox OS and Opera -->
+	<meta name="theme-color" content="#263959">
+	<!-- Windows Phone -->
+	<meta name="msapplication-navbutton-color" content="#263959">
+	<!-- iOS Safari -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="#263959">
+	<!-- Google Fonts -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+	
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="/assets/fonts/font-awesome/css/font-awesome.min.css">
+	<!-- Styles -->
+	<!-- Mathjax Support -->
+<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+	MathJax.Hub.Config({
+  showProcessingMessages: false,
+  jax: ["input/TeX", "output/HTML-CSS"],
+  TeX: {
+    TagSide: "left",
+    Macros: {
+      RR: '{\\bf R}',
+      bold: ['{\\bf #1}',1]
+    }
+  },
+  CommonHTML: {
+    linebreaks: {automatic: true}
+  }
+});
+</script>
+
+	<link rel="stylesheet" href="/assets/css/main.css">
+	<link rel="stylesheet" href="/assets/css/personal.css">
+	<link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Nanum+Gothic:400,700,800&amp;subset=korean" rel="stylesheet">
+</head>
+
+<body style="position: relative">
+	<div id="toggler-wrapper">
+		<div id="menu-toggler">
+			<img src="/assets/img/nav-off.png" alt="Menu collapse image">
+		</div>
+	</div>
+
+  <div class="wrapper">
+
+		<nav id="nav">
+			<div id="menus">
+				<p>
+					<a class="navbar-brand text-white" href="/">&nbsp;&nbsp;&nbsp;Parkito's on the way!&nbsp;&nbsp;&nbsp;</a>
+				</p>
+				<ul id="category-list">
+					<li>
+						<a href="/about.me">
+							<div class="menu">
+								<span> About </span>
+							</div>
+						</a>
+					</li>
+				
+					<li>
+						<div class="menu-wrapper">
+							<a href="/category/programming">
+								<div class="menu">
+									<span> Programming </span>
+								</div>
+							</a>
+							<div class="menu-item">
+								<a href="/category/programming/knowledge">Knowledge</a>
+								<a href="/category/programming/algorithm">Algorithm</a>
+								<a href="/category/programming/python">Python</a>
+								<a href="/category/programming/shell-programming">Shell programming</a>
+							</div>
+						</div>
+					</li>
+				
+					<li>
+						<div class="menu-wrapper">
+								<a href="/category/insight">
+									<div class="menu">
+										<span> Insight </span>
+									</div>
+								</a>
+								<div class="menu-item">
+									<a href="/category/insight/sensitivity">&nbsp;&nbsp;Sensitivity&nbsp;&nbsp;</a>
+									<a href="/category/insight/rationality">&nbsp;&nbsp;Rationality&nbsp;&nbsp;</a>
+								</div>
+						</div>
+					</li>
+
+					<li>
+						<div class="menu-wrapper">
+								<a href="/category/projects">
+									<div class="menu">
+										<span> Projects </span>
+									</div>
+								</a>
+							<div class="menu-item">
+								<a href="/category/projects/dev-related">&nbsp;&nbsp;Dev related&nbsp;&nbsp;</a>
+								<a href="/category/projects/etc">&nbsp;&nbsp;ETC&nbsp;&nbsp;</a>
+							</div>
+						</div> </li>
+
+				</ul>
+			</div>
+
+			<div id="menus-right">
+				<div id="search-section">
+					<div class="input-wrapper">
+						<span class="fa fa-search"></span>
+						<input type="text" id="search-input" placeholder="Please input specific keyword :)" size="30">
+					</div>
+					<div id="results-container"></div>
+				</div>
+
+				<!--<div id="toggler-wrapper">-->
+					<!--<div id="menu-toggler">-->
+						<!--<img src="/assets/img/nav-off.png" alt="" width="35px" height="35px">-->
+					<!--</div>-->
+				<!--</div>-->
+				
+			</div>
+			
+		</nav>
+
+
+    <aside class="sidebar">
+  <header>
+    <div class="about">
+      <div class="cover-author-image">
+        <a href="/"><img src="/assets/img/1536558558520.jpg" alt="Sunghwan Park"></a>
+      </div>
+      <div class="author-name">Sunghwan Park</div>
+      <p>I'm Parkito. A Python lover. Interested in Python, Automation, Algorithm. Please give me insights. I'll teach you tambien! :)</p>
+    </div>
+  </header> <!-- End Header -->
+  <footer>
+    <section class="contact">
+      <h3 class="contact-title">Contact me</h3>
+      <ul>
+				<!--
+        
+          <li><a href="https://twitter.com/artemsheludko_" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+        
+        
+          <li><a href="https://facebook.com/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+        
+				-->
+        
+          <li class="github"><a href="http://github.com/shoark7" target="_blank"><i class="fa fa-github"></i></a></li>
+        
+        
+          <li class="linkedin"><a href="https://in.linkedin.com/in/sunghwan-park-3773b8154" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+        
+        
+          <li class="email"><a href="mailto:shoark7@gmail.com"><i class="fa fa-envelope-o"></i></a></li>
+        
+      </ul>
+    </section> <!-- End Section Contact -->
+    <div class="copyright">
+      <p>2019 &copy; Sunghwan Park</p>
+    </div>
+  </footer> <!-- End Footer -->
+</aside> <!-- End Sidebar -->
+
+<div class="content-box clearfix">
+  <article class="article-page">
+  <div class="page-content">
+    
+    <div class="page-cover-image">
+      <figure>
+        <img class="page-image" src=/assets/img//python/import-logo.png alt="[Python] Useful tips when importing modules in Python">
+        
+      </figure>
+    </div> <!-- End Page Cover Image -->
+    
+    <div class="wrap-content">
+      <header class="header-page">
+        <h1 class="page-title">[Python] Useful tips when importing modules in Python</h1>
+        <div class="page-date"><span>2019, Apr 10&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+      </header>
+      <h2 id="0-index">0. Index</h2>
+
+<blockquote>
+  <ol>
+    <li><a href="#1">Prologue</a></li>
+    <li><a href="#2">Way of loading and using other modules: <em>import</em></a></li>
+    <li><a href="#3">Some hidden features of ‘import’</a>
+      <ul>
+        <li>3.1. <a href="#3a">Using other characters besides english for modules</a></li>
+        <li>3.2. <a href="#3b">Do all Python module names have to end with ‘.py’?</a></li>
+      </ul>
+    </li>
+    <li><a href="#4">Registering our modules and module import order</a>
+      <ul>
+        <li>4.1. <a href="#4a">Make our modules system-wide!</a>
+          <ul>
+            <li>4.1.1. <a href="#4a!">Test case definition</a></li>
+            <li>4.1.2. <a href="#4a@">Dynamically add it!</a></li>
+            <li>4.1.3. <a href="#4a#">Use environment variable</a></li>
+          </ul>
+        </li>
+        <li>4.2. <a href="#4b">Modules with same names</a></li>
+      </ul>
+    </li>
+    <li><a href="#5">Epilogue</a></li>
+  </ol>
+</blockquote>
+
+<p><br id="1" /></p>
+
+<h2 id="1-prologue">1. Prologue</h2>
+
+<hr />
+
+<p>We use Python and we surely <strong>import</strong> other modules everyday. Importing other modules is so common that usually we don’t pay much attention to it. I wasn’t that interested in this topic too. But I bumped into situations that I needed to know more about ‘import’ and ‘modules’. Below are some issues I encountered while using Python.</p>
+
+<ol>
+  <li>Python’s math module has many useful mathematical functions. But sometimes theirs wouldn’t match your needs. <strong>What should we do when we want to define our own mathematical functions and make our ‘math’ modules. When we run ‘import math’, what shall be imported, Python’s or ours?</strong></li>
+  <li>Sometimes we may need a higher rank set of modules and it’s called <strong>package</strong> in Python. Package is a bundle of relevant modules and is also a module itself. In this case, <strong>we need to carefully consider absolute import and relative import.</strong> This can be tricky.</li>
+</ol>
+
+<p><strong>Today’s post focuses on issue No.1.</strong> Issue No.2 is a huge area and I’ll post it later with my personal experience of constructing package.</p>
+
+<p>So today,</p>
+<ol>
+  <li><strong>I’ll look through basic usage of <em>import</em> statement. It’s a way of reusing code in Python.</strong></li>
+  <li><strong>And I’ll introduce some interesting tricks on <em>import</em>. For example, I’ll answer ‘can we name our modules without ‘.py’ suffix’, ‘can we use characters besides english for modules? And how about punctuation characters?’</strong></li>
+  <li>**At last, I’ll cover module import order in Python and how to register our own modules in Python.</li>
+</ol>
+
+<p>I assume readers have ‘shell’ programs in their systems.</p>
+
+<p>So, let’s go guys :)</p>
+
+<p><br id="2" /></p>
+
+<h2 id="2-way-of-loading-and-using-other-modules-import">2. Way of loading and using other modules: <em>import</em></h2>
+
+<hr />
+
+<p><strong>Code reusability</strong> is really import in programming languages and other high-level languages contain many useful others’ code in the name of library or STL. Some boring routines are essential in almost any projects, but it can be hell if we have to implement not creative, boresome jobs everytime.</p>
+
+<p><strong>Python supports others’ code in the name of ‘module’.</strong> Python has long maintained ‘<strong><em>batteries included</em></strong>’ philosophy, meaning Python supports many versatile and rich standard libraries. In fact, there’re many standard libraries that people don’t know but can be useful: <em>ipaddress</em>, <em>pickle</em>, <em>shutil</em>, <em>pprint</em>, <em>smtp</em>, … I cannot even mention them all because it really has a lot. With these modules you don’t need to repeat boring jobs but use Python’s efficient and ready-made codes. This is why we python lovers say ‘<em>Life is short, use Python</em>’. You can put your energy into what is most creative and interesting to you.</p>
+
+<p><br /></p>
+
+<p>To load a module, you use ‘<em>import</em>’ statement.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+
+<span class="kn">import</span> <span class="nn">os</span><span class="p">,</span> <span class="n">sys</span>
+</code></pre></div></div>
+
+<p>This is very basic use of ‘<em>import</em>’ statement. Codes above imported <em>math</em>, <em>numpy</em>, <em>os</em>, <em>sys</em> modules. They’re all important and famous in Python.</p>
+
+<p><strong>Sometimes you don’t need all module functions but only need one single part.</strong> Then you can import only a small part of modules with ‘from … import …’ statement</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">sys</span> <span class="kn">import</span> <span class="n">getrecursionlimit</span>
+
+<span class="n">getrecursionlimit</span><span class="p">()</span>
+
+<span class="mi">3000</span>
+</code></pre></div></div>
+
+<p>As we know, <strong><em>sys</em> modules controls Python interpreter environments.</strong> And I only wanted to check function call recursion limit in my ipython environment. So I didn’t import <em>sys</em> a whole but only imported <em>getrecursionlimit</em> from it. And we can see my ipython has recursion upper limit of 3000.</p>
+
+<p><br /></p>
+
+<p>You can separate module’s attributes from module’s name.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">pi</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">log2</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">log10</span><span class="p">(</span><span class="mi">1000</span><span class="p">))</span>
+
+<span class="mf">3.141592653589793</span>
+<span class="mf">2.0</span>
+<span class="mf">3.0</span>
+</code></pre></div></div>
+
+<p>In regular expression, <code class="highlighter-rouge">*</code> means a single character and it covers <strong>all</strong> ranges of unicode characters. In Python module importing, it has a similar meaning. <strong>Importing with <code class="highlighter-rouge">*</code> from a module can import all attributes(functions, constants) of that module.</strong> Above shows that example. <strong>I imported all attributes from <em>math</em> module using <code class="highlighter-rouge">*</code> and I could use <em>pi</em>, <em>log2</em> and <em>log10</em> which are constants and functions of <em>math</em> module without ‘math.’ prefix.</strong></p>
+
+<p><strong>This can be used but not recommended.</strong> Here are some reasons:</p>
+
+<ol>
+  <li><strong>It adds too many attributes to global namespace.</strong> Global namespace should be maintained and controlled carefully. But asterisk importing spoils namespace hierarchy and flattens all names.</li>
+  <li><strong>Code review can be harder with <code class="highlighter-rouge">*</code> import.</strong> In most cases, we import less than 5 attributes from a module even though a module can hold a bunch of functions. <strong>If you specify names of what you use, code reviewers get to know the intention of importing the module.</strong> But the above example literally imports all so you cannot guess what I would do.</li>
+</ol>
+
+<p><br /></p>
+
+<p>These are very basic examples of importing modules in Python. I’m sure you all know these. Now let’s dive into deeper parts of import.</p>
+
+<p><br id="3" /></p>
+
+<h2 id="3-some-hidden-features-of-import">3. Some hidden features of ‘import’</h2>
+
+<hr />
+
+<p>Chapter 2. covers simple import examples. And those used Python standard libraries like <em>math</em>, <em>os</em> and <em>sys</em>. <strong>Now, let_s assume when we make our own modules and import them in other projects.</strong> It’s different from just using standard modules. These can bring some issues about module names. Let<strong>_s check it out some hidden features for our customized-named modules.</strong></p>
+
+<p><br id="3a" /></p>
+
+<h3 id="31-using-other-characters-besides-english-for-modules">3.1. Using other characters besides english for modules</h3>
+
+<p>As the title itself says, <strong>can we use another characters like Koreans, Japanese and punctuation chars for module names?</strong> Built-in and Python standard modules’ names are all in english like <em>math</em>, <em>os</em>, <em>sys</em>. But… Not all people’s mother tounge is English and I’m also a Korean. <strong>For usability, it’s more recommended to use english but sometimes, we might want to use other languages to name our modules.</strong> And Python supports it.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">echo</span> <span class="s2">"print('hi')"</span> <span class="o">&gt;</span> 안녕.py
+
+
+<span class="nv">$ </span>python 안녕.py
+
+hi
+</code></pre></div></div>
+
+<p>I created the module printing ‘hi’. ‘안녕’ means ‘hi’ in Korean and I created the module printing ‘hi’ to module users. And this module is perfectly OK and executable as you see even though name is not in english characters. Actually, you can use non-english characters when assigning variables. It’s basic but some people don’t know.</p>
+
+<p><br /></p>
+
+<p>Ok. We just checked we can use other languages for our module names. But how about punctuations? <strong>Can we use punctuations for module names?</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">string</span> <span class="kn">import</span> <span class="n">punctuation</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">punctuation</span><span class="p">)</span>
+
+
+<span class="err">!</span><span class="s">"#$</span><span class="si">%</span><span class="s">&amp;'()*+,-./:;&lt;=&gt;?@[</span><span class="err">\</span><span class="s">]^_`{|}~</span><span class="err">
+</span></code></pre></div></div>
+
+<p>There are over 30 punctuation characters supported in Python. But how about these characters? We use punctuation chars often for file names in daily lives, right? Is it OK in Python modules?</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">echo</span> <span class="s2">"print('hi')"</span> <span class="o">&gt;</span> greetings-to-you.py
+<span class="nv">$ </span>python greetings-to-you.py
+
+hi
+</code></pre></div></div>
+
+<p><strong>We made a greeting module above and named it again using <code class="highlighter-rouge">-</code> punctuation chars.</strong> Well, we could execute the module even though it contains punctuation characters. But the problem happens when we import the module inside other scripts.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># A new module importing 'greetings-to-you'
+</span>
+<span class="kn">import</span> <span class="nn">greetings</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">you</span>
+
+<span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">bar</span><span class="p">):</span>
+    <span class="n">eggs</span><span class="p">()</span>
+
+
+<span class="c1">## !!! A SyntaxError is raised !!!
+</span>    <span class="kn">import</span> <span class="nn">greetings</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">you</span>
+                    <span class="o">^</span>
+<span class="nb">SyntaxError</span><span class="p">:</span> <span class="n">invalid</span> <span class="n">syntax</span>
+</code></pre></div></div>
+
+<p>Jesus, what’s wrong? A <em>SyntaxError</em> is raised. Why? It’s related to <strong>Python variable naming rules.</strong></p>
+
+<p>While using Python, I think you could have seen many underscore(<code class="highlighter-rouge">_</code>) characters in variable names. But I’m sure you would (almost) never have seen other punctuation characters.</p>
+
+<p>In Python, <strong>you can’t use punctuation characters for variable names except for underscores(‘_’).</strong> That’s why you cannot import modules using other punctuation characters in Python script with <em>import</em> statement.</p>
+
+<p><br /></p>
+
+<p>It’s too sad because we can use any chars for files in Windows and Xnix. But don’t be frustrated. There’s a detour to use punctuation chars for module names.</p>
+
+<p><strong>The way is to use <em>__import__</em> built-in function to import a module.</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># In Python script,
+</span>
+<span class="c1"># instead of 'import greetings-to-you',
+</span><span class="nb">__import__</span><span class="p">(</span><span class="s">'greetings-to-you'</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">bar</span><span class="p">):</span>
+    <span class="n">eggs</span><span class="p">()</span>
+
+<span class="n">hi</span>
+</code></pre></div></div>
+
+<p>What happened? Rather, what is that function?</p>
+
+<p><strong><em>__import__</em> is a built-in function that gets module name in str type and imports it. Internally, when we import a module with <em>import</em> statement, <em>__import__</em> function is called to import the module in Python.</strong></p>
+
+<p>And instead of using <em>import</em> statement, <strong>we can import any modules containing any characters(including whitespaces) if we give names in <em>str</em> type in <em>__import__</em> function.</strong> It’s syntatically correct while <em>import greeting-to-you</em> breaks variable naming rules of Python.</p>
+
+<p><br /></p>
+
+<p>Okay. <strong>We proved that we can use non-english characters, Japanese, Korean, punctuation and even whitespaces for module names.</strong></p>
+
+<hr />
+
+<p><br id="3b" /></p>
+
+<h3 id="32-do-all-python-module-names-have-to-end-with-py">3.2. Do all Python module names have to end with ‘.py’?</h3>
+
+<p>We take it for granted that all Python modules should end with ‘.py’ suffix. Because we learn to name it that way at first time we learn Python. But let’s ask, ask for everything. Is it True?</p>
+
+<p>Who knows? Let’s test it right away :)</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">echo</span> <span class="s">"print('hi')"</span> <span class="o">&gt;</span> <span class="n">greetings</span><span class="o">.</span><span class="n">py</span>
+<span class="n">echo</span> <span class="s">"print('bye')"</span> <span class="o">&gt;</span> <span class="n">farewells</span> 
+<span class="c1"># farewells is a module without '.py' suffix.
+</span>
+
+<span class="n">python</span> <span class="n">greetings</span><span class="o">.</span><span class="n">py</span>
+<span class="n">python</span> <span class="n">farewells</span>
+
+
+<span class="n">hi</span>
+<span class="n">bye</span>
+</code></pre></div></div>
+
+<p>Well, we could see that it doens’t matter if the script ends with ‘.py’ or not when executing the script.</p>
+
+<p>However, it’s different when we import modules inside scripts.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">greetings</span>
+
+<span class="c1"># It's ok.
+</span>
+<span class="kn">import</span> <span class="nn">farewells</span>
+
+<span class="c1">## !!! A ModuleNotFoundError is raised !!!
+</span><span class="nb">ModuleNotFoundError</span><span class="p">:</span> <span class="n">No</span> <span class="n">module</span> <span class="n">named</span> <span class="s">'farewells'</span>
+</code></pre></div></div>
+
+<p>A <em>ModuleNotFoundError</em> exception is raised. It’s interesting because ‘greetings.py’ and ‘farewells’ are in the same folder where Python interpreter is working but ‘farewells’ module is not found.</p>
+
+<p><strong>So, We can think that Python assumes all proper module names should end with ‘.py’ suffix. It doesn’t consider file names that do not end with ‘.py’ can be also python modules.</strong> So we should add ‘.py’ suffix to all Python modules we make. Also it’s more recommended because people can guess files containing ‘.py’ suffix would be Python modules. But we could see that <strong>naming Python modules with ‘.py’ suffix is not just recommended, but mandatory.</strong></p>
+
+<p><br /></p>
+
+<p>We found answers for 2 module naming issues in Python:</p>
+
+<ol>
+  <li><strong>Python module names can contain any characters besides english if you want. It’s possible, but not that ideal.</strong></li>
+  <li><strong>All Python modules should have ‘.py’ suffix. Without it, you cannot import them in other Python sripts.</strong></li>
+</ol>
+
+<p><br id="4" /></p>
+
+<h2 id="4-registering-our-modules-and-module-import-order">4. Registering our modules and module import order</h2>
+
+<hr />
+
+<p>This chapter is very core of this post. If we create our own scripts, we can use them as scripts and modules. Now we’re great Python users and our code is fantastic. Who knows? Maybe we can create famous frameworks like Django, Pandas, etc someday. <strong>This chapter deals with issues about importing our own modules</strong></p>
+
+<ol>
+  <li>You can import standard modules(<em>math</em>, <em>sys</em>, <em>keyword</em>) wherever you are. Then how about ours? <strong>How can we make our modules importable in any places?</strong></li>
+  <li><strong>You created ‘math’ module and it’s duplicate with Python <em>math</em> standard module.</strong> It’s not ideal but let’s say you have to name it that way. <strong>If we run <em>import math</em> it, what would be imported, ours or Python’s?</strong></li>
+</ol>
+
+<p>Isn’t those interesting? Yeah, it sure is. Let’sget into it :)</p>
+
+<p><br id="4a" /></p>
+
+<h3 id="41-make-our-modules-system-wide">4.1. Make our modules system-wide!</h3>
+
+<p>Sometimes you need to count the execution time of code blocks, like when you compare several algorithms. I knew that it can be used in many cases so I made a time counting function with decorator(@). Here is the code.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">calc_time</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="kn">import</span> <span class="nn">time</span>
+    <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="n">v</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="n">e</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+        <span class="k">print</span><span class="p">(</span><span class="s">"Total execution time for"</span><span class="p">,</span> <span class="n">func</span><span class="o">.</span><span class="n">__name__</span><span class="p">,</span> <span class="s">"is"</span><span class="p">,</span> <span class="n">e</span><span class="o">-</span><span class="n">s</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">v</span>
+
+    <span class="k">return</span> <span class="n">wrapper</span>
+</code></pre></div></div>
+
+<p>This is an easy example of decorator. Decorator function gets function as input and return wrapper function, which addes some actions to original functions. Decorator is really useful.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">@</span><span class="n">calc_time</span>
+<span class="k">def</span> <span class="nf">print_1_to_n</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+
+<span class="o">@</span><span class="n">calc_time</span>
+<span class="k">def</span> <span class="nf">repeat_word</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">word</span> <span class="o">*</span> <span class="n">n</span>
+
+
+<span class="n">print_1_to_n</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">repeat_word</span><span class="p">(</span><span class="s">'parkito'</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+
+
+<span class="c1"># I omitted execution results of both functions.
+</span><span class="n">Total</span> <span class="n">execution</span> <span class="n">time</span> <span class="k">for</span> <span class="n">print_1_to_n</span> <span class="ow">is</span> <span class="mf">0.01787590980529785</span>
+<span class="n">Total</span> <span class="n">execution</span> <span class="n">time</span> <span class="k">for</span> <span class="n">repeat_word</span> <span class="ow">is</span> <span class="mf">7.62939453125e-06</span>
+</code></pre></div></div>
+
+<p>Yeah, it’s cool. <strong>I love my <em>calc_time</em> function and I want it to be accessible from any places like other useful modules do.</strong> But you can easily see that if the module containing that couting function is not where you import or use it, you can’t automatically use it. It means you need some actions or solutions for it. What would it be? I introduce 2 ways for it.</p>
+
+<p><br id="4a!" /></p>
+
+<h4 id="411-test-case-definition">4.1.1. Test case definition</h4>
+
+<p>Let’s make a test to understand before going on. <strong>I made a simple directory structure for this case.</strong></p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">mkdir</span> <span class="nt">-p</span> ~/deletemesoon/<span class="o">{</span>a..c<span class="o">}</span>
+<span class="nv">$ </span><span class="nb">touch</span> ~/deletemesoon/a/in_a.py
+<span class="nv">$ </span><span class="nb">touch</span> ~/deletemesoon/b/in_b.py
+<span class="nv">$ </span><span class="nb">touch</span> ~/deletemesoon/c/in_c.py
+</code></pre></div></div>
+
+<p>It’s a simple shell usage to make folders. I made a ‘deletemesoon’ directioy(cause I’ll remove it after posting) right inside home directory and created ‘a’, ‘b’, ‘c’ directories inside. And each directory has ‘in_*‘.py Python module. And each module has a function and we’ll use it later. The directory structure would be like this:</p>
+
+<p><img src="/assets/img/python/import-structure.png" alt="import example directory hierarchy" /></p>
+
+<p>Each Python module has its unique function:</p>
+
+<ol>
+  <li>in_a.py: it has <em>calc_time</em> function and we saw it earlier.</li>
+  <li>in_b.py: In <em>main</em> function, we’ll import other 2 functions and use it.</li>
+  <li>in_c.py: it has <em>say_ok</em> function and it prints out a calming phrase: ‘ok!’.</li>
+</ol>
+
+<p>And we didn’t define <em>say_ok</em> function so let’s make it.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># in in_c.py
+</span>
+<span class="k">def</span> <span class="nf">say_ok</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'ok!'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><strong>And in <em>main</em> function in in_b.py, we’ll calculate execution time of <em>say_ok</em> function using <em>calc_time</em> function.</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># in in_b.py
+</span><span class="kn">from</span> <span class="nn">in_a</span> <span class="kn">import</span> <span class="n">calc_time</span>
+<span class="kn">from</span> <span class="nn">in_c</span> <span class="kn">import</span> <span class="n">say_ok</span>
+
+<span class="c1"># Decorate it with calc_time
+</span><span class="n">say_ok</span> <span class="o">=</span> <span class="n">calc_time</span><span class="p">(</span><span class="n">say_ok</span><span class="p">)</span>
+
+<span class="c1"># main function counts execution time of say_ok.
+</span><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">say_ok</span><span class="p">()</span>
+
+<span class="c1"># Execute main function
+</span><span class="n">main</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>And inside ‘b’ folder, run in_b.py script. How was it?</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ModuleNotFoundError: No module named 'in_a'
+</code></pre></div></div>
+
+<p>Yes, this is our problem. <strong>We want in_a and in_c module to be accessible from any directory inside the system.</strong> We’ll solve it in 2 ways.</p>
+
+<hr />
+
+<p><br id="4a@" /></p>
+
+<h4 id="412-dynamically-add-it">4.1.2. Dynamically add it!</h4>
+
+<p>First way is <strong>‘dynamically adding target modules’</strong>. Here’s some Python information here.</p>
+
+<p>As you know, Python has <em>sys</em> standard module and it deals with Python interpreter environment. It can control interpreter-related configurations like recursion limit of function calls, get version information of the interpreter, customize shell prompts(‘&gt;&gt;&gt;’ is default) and etc.</p>
+
+<p>In there, <strong>there is a list named <em>sys.path</em> and it contains paths of directories that the interpreter searches for modules when you try to import modules.</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
+
+
+<span class="p">[</span><span class="s">''</span><span class="p">,</span>
+ <span class="s">'/home/sunghwanpark/.pyenv/versions/3.6.3/bin'</span><span class="p">,</span>
+ <span class="s">'/home/sunghwanpark/.pyenv/versions/3.6.3/lib/python36.zip'</span><span class="p">,</span>
+ <span class="s">'/home/sunghwanpark/.pyenv/versions/3.6.3/lib/python3.6'</span><span class="p">,</span>
+ <span class="s">'/home/sunghwanpark/.pyenv/versions/3.6.3/lib/python3.6/lib-dynload'</span><span class="p">,</span>
+ <span class="s">'/home/sunghwanpark/.pyenv/versions/3.6.3/lib/python3.6/site-packages'</span><span class="p">,</span>
+ <span class="s">'/home/sunghwanpark/.pyenv/versions/3.6.3/lib/python3.6/site-packages/IPython/extensions'</span><span class="p">,</span>
+ <span class="s">'/home/sunghwanpark/.ipython'</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p>It’s my result and yours would be different.</p>
+
+<p><strong>Each element in the list is a directory path and target module should be inside at least one directories here. Otherwise, <em>ModuleNotFound</em> exception is raised as you saw.</strong> We’ll talk about this list more in the next paragraph.</p>
+
+<p><strong>Solution here is to append paths containing our target modules to this list.</strong> Let’s add somd codes in in_b.py.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># in_b.py 
+</span>
+<span class="c1">### new code
+</span><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">'/home/sunghwanpark/deletemesoon/a'</span><span class="p">)</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">'/home/sunghwanpark/deletemesoon/c'</span><span class="p">)</span>
+<span class="c1">###
+</span>
+
+<span class="kn">from</span> <span class="nn">in_a</span> <span class="kn">import</span> <span class="n">calc_time</span>
+<span class="kn">from</span> <span class="nn">in_c</span> <span class="kn">import</span> <span class="n">say_ok</span>
+<span class="o">...</span>
+</code></pre></div></div>
+
+<p>Run it! What does it say?</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>python in_b.py
+
+ok!
+Total execution <span class="nb">time </span><span class="k">for </span>say_ok is 6.866455078125e-05
+</code></pre></div></div>
+
+<p>Perfectly worked. Just before now, in_b.py couldn’t import in_a module because Python interpreter couldn’t find in_a module in all directories in <em>sys.path</em>. <strong>When we added paths containing in_a, in_c modules, it could find both modules and code went well.</strong> It supports only full absolute paths and others(e.g. ‘~/p/a/t/h’) are not seen as paths here.</p>
+
+<p><strong>I named this ‘dynamic way’ because we add directories to look through inside the script we work on.</strong></p>
+
+<p>How do you think about this way? Well… It’s ok <strong>but it’s boring to put sys.path related code everytime we use the target module.</strong> So, we need a better option.</p>
+
+<hr />
+
+<p><br id="4a#" /></p>
+
+<h4 id="413-use-environment-variable">4.1.3. Use environment variable</h4>
+
+<p>Systems including Xnix and Windows have environment variables and they’re used in programs as configuration options. If you have installed Python on Windows, you must have set environment variable configurations for Python.</p>
+
+<p>I’m using Linux(Ubuntu) and it’s same too. This way is using environment variable named <code class="highlighter-rouge">PYTHONPATH</code>.</p>
+
+<p><strong>If you set PYTHONPATH variable with concatenated string of directory paths, python interpreter look for these paths when you import a module.</strong> Hoolay! Is it True? Let’s test it.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ PYTHONPATH</span><span class="o">=</span>/home/sunghwanpark/deletemesoon/a:/home/sunghwanpark/deletemesoon/c
+</code></pre></div></div>
+<p>Execute this code in shell and comment <em>sys.path</em> code block in in_b.py</p>
+
+<p><strong>PYTHONPATH is a concatenated string of paths and ‘:’ is a seperator between them.</strong> And from now on, Python interpreter will look through these directories to find target modules.</p>
+
+<p>Let’s run the script</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>python in_b.py
+
+ok!
+Total execution <span class="nb">time </span><span class="k">for </span>say_ok is 6.4849853515625e-05
+</code></pre></div></div>
+
+<p>It works. You don’t need to paste additional boring codes to import your modules.</p>
+
+<p>And last, <strong>this way only lasts until you quit this shell session. If you want to maintain this configuration, paste and run this code in shell.</strong></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo 'export PYTHONPATH="your:wanted:paths:concatenated' &gt;&gt; ~/.bashrc
+</code></pre></div></div>
+
+<p>I assumed you use bash shell(default in many Xnix systems)</p>
+
+<p><br /></p>
+
+<p>Ok. Now we can use our awesome and fantastic functions and classes anywhere we are in our system.</p>
+
+<hr />
+
+<p><br id="4b" /></p>
+
+<h3 id="42-modules-with-same-names">4.2. Modules with same names</h3>
+
+<p>We’ve come a long way. This is the final session:</p>
+
+<p>If there’re modules with same names and both are detectable from Python interpreter, what would be imported? As I supposed above, <strong>if I created my ‘math’ module, and execute <em>import math</em> statement, what module would be imported?</strong></p>
+
+<p>The answer lies with <em>sys.path</em>. Let’s call it again here.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
+
+
+<span class="p">[</span><span class="s">''</span><span class="p">,</span>
+ <span class="s">'/home/sunghwanpark/deletemesoon/a'</span><span class="p">,</span>
+ <span class="s">'/home/sunghwanpark/deletemesoon/c'</span><span class="p">,</span>
+ <span class="s">'/home/sunghwanpark/.pyenv/versions/3.6.3/lib/python36.zip'</span><span class="p">,</span>
+ <span class="s">'/home/sunghwanpark/.pyenv/versions/3.6.3/lib/python3.6'</span><span class="p">,</span>
+ <span class="s">'/home/sunghwanpark/.pyenv/versions/3.6.3/lib/python3.6/lib-dynload'</span><span class="p">,</span>
+ <span class="s">'/home/sunghwanpark/.pyenv/versions/3.6.3/lib/python3.6/site-packages'</span><span class="p">,</span>
+ <span class="s">'/home/sunghwanpark/.pyenv/versions/3.6.3/lib/python3.6/site-packages/IPython/extensions'</span><span class="p">,</span>
+ <span class="s">'/home/sunghwanpark/.ipython'</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p>We checked that Python interpreter looks through each of this directory path to find target module.</p>
+
+<p><strong>And the order of looking through is same to element order in <em>sys.path</em> list. Interpreter iterates over each path in the list and if you find the module, exit the iteration and import that module.</strong></p>
+
+<p>So <em>sys.path[0]</em> is searched first and [1], [2], … will go on until it finds the module. If the iteration ends and couldn’t find the module, exception is raised.</p>
+
+<p>At this point, We can redefine our problems.</p>
+
+<p><strong>How does <em>sys.path</em> list is organized? How first, second and other elements are decided?</strong></p>
+
+<p><br /></p>
+
+<p>Paths in which Python searches for modules is decided by these principles in order:</p>
+
+<ol>
+  <li><strong>Path that interpreter is executed.</strong> It means current path.</li>
+  <li><strong>Paths registered in PYTHONPATH environment variable in the system.</strong> We checked this out.</li>
+  <li><strong>Paths that Python was in installed initially.</strong> These paths contain built-in and third-party packages(Django, Pandas, etc)</li>
+</ol>
+
+<p><br /></p>
+
+<p><strong>We can understand <em>sys.path</em> module now. First element is ‘’, an empty string. It means ‘current path’ the interpreter is working on.</strong></p>
+
+<p><strong>And the following two paths are paths we just added by setting PYTHONPATH. They’re searched second.</strong></p>
+
+<p><strong>The rest are pre-set Python modules paths. These paths contain built-in, third-party modules.</strong></p>
+
+<p><br /></p>
+
+<p>Now we got the answer of our issue: If I have my <em>math</em> module, what module would be imported?</p>
+
+<p>The answer is <strong>our module will be either in current path or in paths registered in PYTHONPATH variable. They both precede pre-registered paths for built-in modules. So our ‘math’ module will be imported, not built-in one.</strong></p>
+
+<p><br /></p>
+
+<p>It was a long way for import. But we finished and have grown up now.</p>
+
+<p><br id="5" /></p>
+
+<h2 id="5-epilogue">5. Epilogue</h2>
+
+<hr />
+
+<p>It’s my first time I post content in English. I think I need this kind of challenges to improve my English and it’s very effective. From now on, I’ll try to write posts that at least belongs to DEV in English. And also, I would really appreciate any advice on my awkard English expressions.</p>
+
+<p>We import modules everyday but pay less attention to what happens when we import modules. I didn’t know this post would be so long like this and I think we have to keep looking for hidden logic in very simple and abstract functions.</p>
+
+<p>Our challenge to know more never ends.</p>
+
+<p>Post ended. Thank you.</p>
+
+      <div class="page-footer">
+        <div class="page-share">
+          <a href="https://twitter.com/intent/tweet?text=[Python] Useful tips when importing modules in Python&url=http://localhost:4000/programming/python/how-is-import-going-on-in-python.html" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
+          <a href="https://facebook.com/sharer.php?u=http://localhost:4000/programming/python/how-is-import-going-on-in-python.html" title="Share on Facebook" rel="nofollow" target="_blank">Facebook</a>
+          <a href="https://plus.google.com/share?url=http://localhost:4000/programming/python/how-is-import-going-on-in-python.html" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>
+        </div>
+        <div class="page-tag">
+          
+            <a href="/tags#import" class="tag">&#35; import</a>
+          
+        </div>
+      </div>
+		  <!-- Load Facebook SDK for JavaScript -->
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+
+  <!-- Your share button code -->
+  <div class="fb-share-button" 
+    data-href="http://localhost:4000/programming/python/how-is-import-going-on-in-python.html" 
+    data-layout="button_count">
+  </div>
+
+		
+    </div> <!-- End Wrap Content -->
+  </div> <!-- End Page Content -->
+</article> <!-- End Article Page -->
+
+</div>
+
+  </div>
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', '', 'auto');
+  ga('send', 'pageview');
+</script> <!-- End Analytics -->
+
+	<script src="https://unpkg.com/simple-jekyll-search@1.5.0/dest/simple-jekyll-search.min.js"></script>
+<script>
+var sjs = SimpleJekyllSearch({
+  searchInput: document.querySelector('#search-input'),
+  resultsContainer: document.getElementById('results-container'),
+  json: '/search.json',
+  searchResultTemplate: '<li class="search-results-item"><a href="http://localhost:4000{url}">{title}</a></li>',
+	limit: 9,
+	noResultsText: '<li class="search-results-item"><a href="#">No results found...</a></li>'
+})
+</script>
+
+	<!-- Main Js -->
+<!--<script src="/assets/js/main.js"></script>-->
+
+<!-- JQuery 3.x min -->
+<script src="/assets/js/jquery.js"></script>
+
+<script>
+	let menus = $("#category-list");
+	let image = $("#menu-toggler img");
+	$("#toggler-wrapper").click(function() {
+		if(menus.css("display") === "none") {
+			image.attr("src", "/assets/img/close-button.png");
+			menus.css("display", "flex");
+		}
+		else {
+			image.attr("src", "/assets/img/nav-off.png");
+			menus.css("display", "none");
+		}
+	});
+
+
+</script>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-127149179-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-127149179-1');
+</script>
+
+</body>
+</html>
