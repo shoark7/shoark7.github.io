@@ -9,6 +9,14 @@
     } ,
   
     {
+      "title"    : "Get longest palindromes in a string",
+      "category" : "",
+      "tags"     : "Palindrome, Dynamic_programming",
+      "url"      : "/programming/algorithm/get-longest-palindromes-in-string.html",
+      "date"     : "2019-04-04 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "[Python] 다양한 방법으로 팩토리얼(Factorial) 구해보기",
       "category" : "",
       "tags"     : "Factorial",
