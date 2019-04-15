@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Get longest palindromes in a string - Parkito's on the way</title>
+	<title>[Python] Get longest palindromes in string - Parkito's on the way</title>
 
   <!-- Edit site and author settings in `_config.yml` to make the social details your own -->
 
     <meta content="Parkito's on the way" property="og:site_name">
   
-    <meta content="Get longest palindromes in a string" property="og:title">
+    <meta content="[Python] Get longest palindromes in string" property="og:title">
   
   
     <meta content="article" property="og:type">
@@ -43,7 +43,7 @@
     <meta name="twitter:site" content="@">
     <meta name="twitter:creator" content="@">
   
-    <meta name="twitter:title" content="Get longest palindromes in a string">
+    <meta name="twitter:title" content="[Python] Get longest palindromes in string">
   
   
     <meta name="twitter:url" content="http://localhost:4000/programming/algorithm/get-longest-palindromes-in-string.html">
@@ -235,14 +235,14 @@
     
     <div class="page-cover-image">
       <figure>
-        <img class="page-image" src=/assets/img//algorithm/longest-palindromes-logo.png alt="Get longest palindromes in a string">
+        <img class="page-image" src=/assets/img//algorithm/longest-palindromes-logo.png alt="[Python] Get longest palindromes in string">
         
       </figure>
     </div> <!-- End Page Cover Image -->
     
     <div class="wrap-content">
       <header class="header-page">
-        <h1 class="page-title">Get longest palindromes in a string</h1>
+        <h1 class="page-title">[Python] Get longest palindromes in string</h1>
         <div class="page-date"><span>2019, Apr 04&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
       </header>
       <h2 id="0-index">0. Index</h2>
@@ -268,9 +268,93 @@
 
 <h2 id="prologue">Prologue</h2>
 
+<hr />
+
+<p>This is my second post written totally in English. Well, this post was one of my must-do items but I couldn’t make it because I was too lazy. If you’re intested in algorithm, this subject would be attractive, and maybe a piece of cake to you. Today’s post is about <code class="highlighter-rouge">palindrome</code>. Palindrome is the very famous, easy-to-introduce algorithm for newbies in computer science or any computer languages. But often, it just focuses on telling whether the given string is a palindrome or not. It’s also interesting but we want more, right? So, <strong>today’s post is about ‘getting a list of longest palindromes in a string’. A string can be any sizes long and we have to find all longest palindromes.</strong></p>
+
+<p>I think you wouldn’t know my focus on posts on algorithms because they’re all written in Korean. I try to introduce various algorithms on a single problem and try to divide the original problem into subproblems and assemble them to solve the original one. This kind of behavior is really important for other cases and this kind of view is my pride on my posts on algorithms.</p>
+
+<p>So, I’ll solve the problem in 2 ways today: One way is really simple, codes are short and I didn’t put my attention too much because question itself is not that difficult actually. But, codes only written in hands are always not good. We’ll see what’s and why’s wrong in first solution. And in 2nd solution, we’ll divide it and solve it continously and assemble them. While doing so, we’ll use dynamic programming and improve time complexity of the algorithm. Also, you’ll get to know this way is much more beautiful and healthy for maintenance, reusabilly and for your mental health.</p>
+
+<p>OK, I was too talkative. Let’s move on and dive into algorithm.</p>
+
 <h2 id="problem-introduction">Problem introduction</h2>
 
-<p>##</p>
+<hr />
+
+<p><strong>Today’s post is about ‘getting a list of longest palindromes in a string’. Palindrome is a sequence of characters which reads the same backward as forward, such as ‘<em>hannah</em>’, ‘<em>racecar</em>’, ‘<em>기러기</em>’.</strong> If you’ve studied programming anyhow, I think you might have come across this word or problem related to this. Even if not, it’s okay cause problem is easy and intuitive. We feel comfortable within 2-dimensional areas.</p>
+
+<p>And we’re given a string. It can be any string and you have to return a list. Here’s an example.</p>
+
+<p><img src="/assets/img/algorithm/longest-palindromes.png" alt="Example of a get longest palindrome" /></p>
+
+<p>Somebody emphasizes importance of levelness of the ground for multi-pulpose radars. His words are given as a string. And <strong>we have a function named ‘<em>get_longest_palindromes</em>’ and this function returns longest palindromes.</strong> This sentence have two longest palindromes and they’re ‘level’ and ‘radar’. They’re both 5 words long. So the returned list has two items inside.</p>
+
+<p>And <strong>if a string has no palindromes(like ‘abc’), it returns a list of all characters([‘a’, ‘b’, ‘c’]) cause a character of one length is a palindrome technically. If an empty string(‘’) is given, we return a list of an empty string(['']).</strong></p>
+
+<h2 id="way-1-implement-it-simple-way">Way 1. Implement it simple way</h2>
+
+<hr />
+
+<p>Actually, palindrome is an one of easy examples of many brain-*ucking problems related to string and we can solve it without any sort of deep thinking or taking notes. With definition, we can know that length of longest palindromes is between 0(inclusive) and length of the original string(inclusive). If so, <strong>how about iterating N to 0(not 0 to N) and test all substrings in a string if they’re palindromes. If any substring matches, we can iterate until that candidate length and finish the loop cause we don’t need short palindromes in this problem.</strong></p>
+
+<p>I just created the simple version of ‘<em>get_longest_palindromes</em>’ function. It’s only 2 <em>for</em> loop deep and codes are short too.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">get_longest_palindromes</span><span class="p">(</span><span class="n">strng</span><span class="p">):</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">strng</span><span class="p">)</span>
+    <span class="n">ans</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>	<span class="c1"># 1.
+</span>        <span class="n">found</span> <span class="o">=</span> <span class="bp">False</span>
+        <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="n">l</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>	<span class="c1"># 2.
+</span>            <span class="n">target</span> <span class="o">=</span> <span class="n">strng</span><span class="p">[</span><span class="n">s</span><span class="p">:</span><span class="n">s</span><span class="o">+</span><span class="n">l</span><span class="p">]</span>
+	    <span class="k">if</span> <span class="n">target</span> <span class="o">==</span> <span class="n">target</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>	<span class="c1"># 3.
+</span>                <span class="n">ans</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">strng</span><span class="p">[</span><span class="n">s</span><span class="p">:</span><span class="n">s</span><span class="o">+</span><span class="n">l</span><span class="p">])</span>
+                <span class="n">found</span> <span class="o">=</span> <span class="bp">True</span>
+        <span class="k">if</span> <span class="n">found</span><span class="p">:</span>
+            <span class="k">break</span>
+
+    <span class="k">return</span> <span class="n">ans</span> <span class="k">if</span> <span class="n">strng</span> <span class="k">else</span> <span class="p">[</span><span class="s">''</span><span class="p">]</span>	<span class="c1"># 4.
+</span></code></pre></div></div>
+
+<p>Here’re some comments on codes section 1, 2, 3.</p>
+
+<ol>
+  <li><strong>We first iterate on possible longest length in [N, 1]</strong>
+    <ul>
+      <li>We don’t need to check 0 because shortest palindromes are one length long if not string is empty.</li>
+      <li>And we define <em>found</em> variable to check if we found palindromes in that candidate length. At every end of first loop, we’ll check if <em>found</em> is changed and end the loop if longest palindromes are found and saved.</li>
+    </ul>
+  </li>
+  <li><strong>Check every substring of length <em>l</em> if it is a palindrome</strong>
+    <ul>
+      <li>Look at the length of iteration of 2nd loop. It’s <script type="math/tex">N-l+1</script>, not <script type="math/tex">N-l</script>. It may seem confusing but simple. If <script type="math/tex">l == N</script>, we have to iterate only once. But if we don’t add 1 in iteration count, no iteration is executed.(<em>N-N</em> is 0 and <em>range(0)</em> is not executed) So we have to add 1. To be honest, I was really confused at first.</li>
+    </ul>
+  </li>
+  <li><strong>Direct codes of checking a substring is a palindrome</strong>
+    <ul>
+      <li>With length variable(<em>l</em>) and start location of a substring(<em>s</em>) we can retrieve a target substring. And now what’s left is checking it. There can be a lot of ways to know but we use a very easy and intuitive way. <strong><em>Just compare the substring to backwards string.</em></strong>  We used a Python trick to reverse a Sequence backwards. <strong><em>Using -1 stride</em></strong></li>
+      <li><strong>If we found palindromes, we add in the <em>ans</em> variable and toggle <em>found</em> variable to <em>True</em></strong></li>
+    </ul>
+  </li>
+  <li>After all iterations, we return the <em>ans</em>. But We didn’t consider a case of an empty string. If so return [''] or return <em>ans</em> otherwise.</li>
+</ol>
+
+<p><br /></p>
+
+<p>How do you think of this codes? Well, <strong>I can solve it in this way but I won’t recommend this kind of algorithms and approach to the original problem.</strong> I train myself to be negative on this kind of approach actually. This codes don’t imply any philosophy.</p>
+
+<p>Next algorithm is way more appropriate for this purpose. It needs more time and energy, insight on the question but I assure you that you will be more satisfied with algorithm.</p>
+
+<h2 id="way-2-a-more-elegant-way">Way 2. A more elegant way</h2>
+
+<h3 id="open-your-eyes-way-1-is-not-our-role-model">Open your eyes: ‘Way 1’ is not our role model</h3>
+
+<h4 id="easy-one-first-define-subproblem">Easy one first: define subproblem</h4>
+
+<h4 id="need-for-more-efficient-program">Need for more efficient program</h4>
+
+<h3 id="code-review">Code review</h3>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">get_longest_palindromes</span><span class="p">(</span><span class="n">strng</span><span class="p">):</span>
     <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">strng</span><span class="p">)</span>
@@ -285,30 +369,29 @@
         <span class="k">elif</span> <span class="n">lo</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">==</span> <span class="n">hi</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">strng</span><span class="p">[</span><span class="n">lo</span><span class="p">]</span> <span class="o">==</span> <span class="n">strng</span><span class="p">[</span><span class="n">hi</span><span class="p">]</span>
 
-        <span class="n">ret</span> <span class="o">=</span> <span class="bp">False</span> <span class="k">if</span> <span class="n">strng</span><span class="p">[</span><span class="n">lo</span><span class="p">]</span> <span class="o">!=</span> <span class="n">strng</span><span class="p">[</span><span class="n">hi</span><span class="p">]</span> <span class="k">else</span> <span class="n">is_palindrome</span><span class="p">(</span><span class="n">lo</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">hi</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-        <span class="n">cache</span><span class="p">[</span><span class="n">lo</span><span class="p">][</span><span class="n">hi</span><span class="p">]</span> <span class="o">=</span> <span class="n">ret</span>
-        <span class="k">return</span> <span class="n">ret</span>
+        <span class="n">ans</span> <span class="o">=</span> <span class="bp">False</span> <span class="k">if</span> <span class="n">strng</span><span class="p">[</span><span class="n">lo</span><span class="p">]</span> <span class="o">!=</span> <span class="n">strng</span><span class="p">[</span><span class="n">hi</span><span class="p">]</span> <span class="k">else</span> <span class="n">is_palindrome</span><span class="p">(</span><span class="n">lo</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">hi</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">cache</span><span class="p">[</span><span class="n">lo</span><span class="p">][</span><span class="n">hi</span><span class="p">]</span> <span class="o">=</span> <span class="n">ans</span>
+        <span class="k">return</span> <span class="n">ans</span>
 
     <span class="k">def</span> <span class="nf">generate_palindromes</span><span class="p">():</span>
         <span class="n">ret</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="n">longest</span> <span class="o">=</span> <span class="n">N</span>
         <span class="n">found</span> <span class="o">=</span> <span class="bp">False</span>
 
-        <span class="k">while</span> <span class="ow">not</span> <span class="n">found</span><span class="p">:</span>
-            <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="n">longest</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
-                <span class="k">if</span> <span class="n">is_palindrome</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">s</span><span class="o">+</span><span class="n">longest</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">strng</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[</span><span class="s">''</span><span class="p">]</span>
+
+        <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+            <span class="n">found</span> <span class="o">=</span> <span class="bp">False</span>
+            <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="n">l</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">is_palindrome</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">s</span><span class="o">+</span><span class="n">l</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
                     <span class="n">found</span> <span class="o">=</span> <span class="bp">True</span>
-                    <span class="k">break</span>
-
-            <span class="k">if</span> <span class="ow">not</span> <span class="n">found</span><span class="p">:</span>
-                <span class="n">longest</span> <span class="o">-=</span> <span class="mi">1</span>
-
-        <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="n">longest</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
-            <span class="k">if</span> <span class="n">is_palindrome</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">s</span><span class="o">+</span><span class="n">longest</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
-                <span class="n">ret</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">strng</span><span class="p">[</span><span class="n">s</span><span class="p">:</span><span class="n">s</span><span class="o">+</span><span class="n">longest</span><span class="p">])</span>
+                    <span class="n">ret</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">strng</span><span class="p">[</span><span class="n">s</span><span class="p">:</span><span class="n">s</span><span class="o">+</span><span class="n">l</span><span class="p">])</span>
+            <span class="k">if</span> <span class="n">found</span><span class="p">:</span>
+                <span class="k">break</span>
         <span class="k">return</span> <span class="n">ret</span>
 
-    <span class="k">return</span> <span class="p">[</span><span class="s">''</span><span class="p">]</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">strng</span> <span class="k">else</span> <span class="n">generate_palindromes</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">generate_palindromes</span><span class="p">()</span>
 
 
 <span class="k">print</span><span class="p">(</span><span class="n">get_longest_palindromes</span><span class="p">(</span><span class="s">'hannah'</span><span class="p">))</span>
@@ -326,9 +409,19 @@
 
 <h2 id="epilogue">Epilogue</h2>
 
+<hr />
+
+<h2 id="data-source">Data source</h2>
+
+<hr />
+
+<ul>
+  <li><a href="https://en.wikipedia.org/wiki/Palindrome">Wikipedia: Palindrome</a></li>
+</ul>
+
       <div class="page-footer">
         <div class="page-share">
-          <a href="https://twitter.com/intent/tweet?text=Get longest palindromes in a string&url=http://localhost:4000/programming/algorithm/get-longest-palindromes-in-string.html" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
+          <a href="https://twitter.com/intent/tweet?text=[Python] Get longest palindromes in string&url=http://localhost:4000/programming/algorithm/get-longest-palindromes-in-string.html" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
           <a href="https://facebook.com/sharer.php?u=http://localhost:4000/programming/algorithm/get-longest-palindromes-in-string.html" title="Share on Facebook" rel="nofollow" target="_blank">Facebook</a>
           <a href="https://plus.google.com/share?url=http://localhost:4000/programming/algorithm/get-longest-palindromes-in-string.html" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>
         </div>

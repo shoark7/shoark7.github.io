@@ -4,12 +4,12 @@
       "title"    : "[Python] Useful tips when importing modules in Python",
       "category" : "",
       "tags"     : "import",
-      "url"      : "/programming/python/how-is-import-going-on-in-python.html",
+      "url"      : "/programming/python/what-is-going-on-when-importing-modules-in-python.html",
       "date"     : "2019-04-10 00:00:00 +0900"
     } ,
   
     {
-      "title"    : "Get longest palindromes in a string",
+      "title"    : "[Python] Get longest palindromes in string",
       "category" : "",
       "tags"     : "Palindrome, Dynamic_programming",
       "url"      : "/programming/algorithm/get-longest-palindromes-in-string.html",
