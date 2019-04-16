@@ -1,19 +1,19 @@
 [
   
     {
+      "title"    : "[Python] Get longest palindromes in string",
+      "category" : "",
+      "tags"     : "Palindrome, Dynamic_programming",
+      "url"      : "/programming/algorithm/get-longest-palindromes-in-string.html",
+      "date"     : "2019-04-16 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "[Python] Useful tips when importing modules in Python",
       "category" : "",
       "tags"     : "import",
       "url"      : "/programming/python/what-is-going-on-when-importing-modules-in-python.html",
       "date"     : "2019-04-10 00:00:00 +0900"
-    } ,
-  
-    {
-      "title"    : "[Python] Get longest palindromes in string",
-      "category" : "",
-      "tags"     : "Palindrome, Dynamic_programming",
-      "url"      : "/programming/algorithm/get-longest-palindromes-in-string.html",
-      "date"     : "2019-04-04 00:00:00 +0900"
     } ,
   
     {
