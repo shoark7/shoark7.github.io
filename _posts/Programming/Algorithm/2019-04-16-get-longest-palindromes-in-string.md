@@ -392,7 +392,7 @@ OK, we made a better solution with power of defining subproblems, modularity and
 
 <br id="5">
 
-## 5. Appendix: importance of defining a problem
+## 5. Appendix: importance of defining problems
 
 ---
 
