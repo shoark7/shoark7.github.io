@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Python의 Closure에 대해 알아보자 - Parkito's on the way</title>
+
+  <!-- Edit site and author settings in `_config.yml` to make the social details your own -->
+
+    <meta content="Parkito's on the way" property="og:site_name">
+  
+    <meta content="Python의 Closure에 대해 알아보자" property="og:title">
+  
+  
+    <meta content="article" property="og:type">
+  
+  
+    <meta content="Python에서 유용한 Closure에 대해 살펴봅니다." property="og:description">
+  
+  
+    <meta content="http://localhost:4000/programming/python/closure-in-python.html" property="og:url">
+	
+  
+    <meta content="2019-04-20T00:00:00+09:00" property="article:published_time">
+    <meta content="http://localhost:4000/about/" property="article:author">
+  
+  
+    <meta content="http://localhost:4000/assets/img/python/closure-logo.jpg" property="og:image">
+  
+  
+    
+    <meta content="Programming" property="article:section">
+    
+  
+  
+    
+    <meta content="Closure" property="article:tag">
+    
+  
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@">
+    <meta name="twitter:creator" content="@">
+  
+    <meta name="twitter:title" content="Python의 Closure에 대해 알아보자">
+  
+  
+    <meta name="twitter:url" content="http://localhost:4000/programming/python/closure-in-python.html">
+  
+  
+    <meta name="twitter:description" content="Python에서 유용한 Closure에 대해 살펴봅니다.">
+  
+  
+    <meta name="twitter:image:src" content="http://localhost:4000/assets/img//python/closure-logo.jpg">
+  
+
+  
+    <meta content="Python에서 유용한 Closure에 대해 살펴봅니다." name="description">
+  
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="shortcut icon" href="/assets/img/favicon/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" href="/assets/img/favicon/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/assets/img/favicon/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/assets/img/favicon/apple-touch-icon-144x144.png">
+	<!-- Chrome, Firefox OS and Opera -->
+	<meta name="theme-color" content="#263959">
+	<!-- Windows Phone -->
+	<meta name="msapplication-navbutton-color" content="#263959">
+	<!-- iOS Safari -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="#263959">
+	<!-- Google Fonts -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+	
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="/assets/fonts/font-awesome/css/font-awesome.min.css">
+	<!-- Styles -->
+	<!-- Mathjax Support -->
+<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+	MathJax.Hub.Config({
+  showProcessingMessages: false,
+  jax: ["input/TeX", "output/HTML-CSS"],
+  TeX: {
+    TagSide: "left",
+    Macros: {
+      RR: '{\\bf R}',
+      bold: ['{\\bf #1}',1]
+    }
+  },
+  CommonHTML: {
+    linebreaks: {automatic: true}
+  }
+});
+</script>
+
+	<link rel="stylesheet" href="/assets/css/main.css">
+	<link rel="stylesheet" href="/assets/css/personal.css">
+	<link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Nanum+Gothic:400,700,800&amp;subset=korean" rel="stylesheet">
+</head>
+
+<body style="position: relative">
+	<div id="toggler-wrapper">
+		<div id="menu-toggler">
+			<img src="/assets/img/nav-off.png" alt="Menu collapse image">
+		</div>
+	</div>
+
+  <div class="wrapper">
+
+		<nav id="nav">
+			<div id="menus">
+				<p>
+					<a class="navbar-brand text-white" href="/">&nbsp;&nbsp;&nbsp;Parkito's on the way!&nbsp;&nbsp;&nbsp;</a>
+				</p>
+				<ul id="category-list">
+					<li>
+						<a href="/about.me">
+							<div class="menu">
+								<span> About </span>
+							</div>
+						</a>
+					</li>
+				
+					<li>
+						<div class="menu-wrapper">
+							<a href="/category/programming">
+								<div class="menu">
+									<span> Programming </span>
+								</div>
+							</a>
+							<div class="menu-item">
+								<a href="/category/programming/knowledge">Knowledge</a>
+								<a href="/category/programming/algorithm">Algorithm</a>
+								<a href="/category/programming/python">Python</a>
+								<a href="/category/programming/shell-programming">Shell programming</a>
+							</div>
+						</div>
+					</li>
+				
+					<li>
+						<div class="menu-wrapper">
+								<a href="/category/insight">
+									<div class="menu">
+										<span> Insight </span>
+									</div>
+								</a>
+								<div class="menu-item">
+									<a href="/category/insight/sensitivity">&nbsp;&nbsp;Sensitivity&nbsp;&nbsp;</a>
+									<a href="/category/insight/rationality">&nbsp;&nbsp;Rationality&nbsp;&nbsp;</a>
+								</div>
+						</div>
+					</li>
+
+					<li>
+						<div class="menu-wrapper">
+								<a href="/category/projects">
+									<div class="menu">
+										<span> Projects </span>
+									</div>
+								</a>
+							<div class="menu-item">
+								<a href="/category/projects/dev-related">&nbsp;&nbsp;Dev related&nbsp;&nbsp;</a>
+								<a href="/category/projects/etc">&nbsp;&nbsp;ETC&nbsp;&nbsp;</a>
+							</div>
+						</div> </li>
+
+				</ul>
+			</div>
+
+			<div id="menus-right">
+				<div id="search-section">
+					<div class="input-wrapper">
+						<span class="fa fa-search"></span>
+						<input type="text" id="search-input" placeholder="Please input specific keyword :)" size="30">
+					</div>
+					<div id="results-container"></div>
+				</div>
+
+				<!--<div id="toggler-wrapper">-->
+					<!--<div id="menu-toggler">-->
+						<!--<img src="/assets/img/nav-off.png" alt="" width="35px" height="35px">-->
+					<!--</div>-->
+				<!--</div>-->
+				
+			</div>
+			
+		</nav>
+
+
+    <aside class="sidebar">
+  <header>
+    <div class="about">
+      <div class="cover-author-image">
+        <a href="/"><img src="/assets/img/1536558558520.jpg" alt="Sunghwan Park"></a>
+      </div>
+      <div class="author-name">Sunghwan Park</div>
+      <p>I'm Parkito. A Python lover. Interested in Python, Automation, Algorithm. Please give me insights. I'll teach you tambien! :)</p>
+    </div>
+  </header> <!-- End Header -->
+  <footer>
+    <section class="contact">
+      <h3 class="contact-title">Contact me</h3>
+      <ul>
+				<!--
+        
+          <li><a href="https://twitter.com/artemsheludko_" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+        
+        
+          <li><a href="https://facebook.com/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+        
+				-->
+        
+          <li class="github"><a href="http://github.com/shoark7" target="_blank"><i class="fa fa-github"></i></a></li>
+        
+        
+          <li class="linkedin"><a href="https://in.linkedin.com/in/sunghwan-park-3773b8154" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+        
+        
+          <li class="email"><a href="mailto:shoark7@gmail.com"><i class="fa fa-envelope-o"></i></a></li>
+        
+      </ul>
+    </section> <!-- End Section Contact -->
+    <div class="copyright">
+      <p>2019 &copy; Sunghwan Park</p>
+    </div>
+  </footer> <!-- End Footer -->
+</aside> <!-- End Sidebar -->
+
+<div class="content-box clearfix">
+  <article class="article-page">
+  <div class="page-content">
+    
+    <div class="page-cover-image">
+      <figure>
+        <img class="page-image" src=/assets/img//python/closure-logo.jpg alt="Python의 Closure에 대해 알아보자">
+        
+      </figure>
+    </div> <!-- End Page Cover Image -->
+    
+    <div class="wrap-content">
+      <header class="header-page">
+        <h1 class="page-title">Python의 Closure에 대해 알아보자</h1>
+        <div class="page-date"><span>2019, Apr 20&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+      </header>
+      <h2 id="0-index">0. Index</h2>
+
+<blockquote>
+  <ol>
+    <li><a href="#1">Prologue</a></li>
+    <li><a href="#2">Way of loading and using other modules: <em>import</em></a></li>
+    <li><a href="#3">Some hidden features of ‘import’</a>
+      <ul>
+        <li>3.1. <a href="#3a">Using other characters besides english for modules</a></li>
+        <li>3.2. <a href="#3b">Do all Python module names have to end with ‘.py’?</a></li>
+      </ul>
+    </li>
+    <li><a href="#4">Registering our modules and module import order</a>
+      <ul>
+        <li>4.1. <a href="#4a">Make our modules system-wide!</a>
+          <ul>
+            <li>4.1.1. <a href="#4a!">Test case definition</a></li>
+            <li>4.1.2. <a href="#4a@">Dynamically add it!</a></li>
+            <li>4.1.3. <a href="#4a#">Use environment variable</a></li>
+          </ul>
+        </li>
+        <li>4.2. <a href="#4b">Modules with same names</a></li>
+      </ul>
+    </li>
+    <li><a href="#5">Epilogue</a></li>
+  </ol>
+</blockquote>
+
+<h2 id="1-들어가며">1. 들어가며</h2>
+
+<hr />
+
+<p><strong>오늘은 Python의 <code class="highlighter-rouge">Closure</code>에 대해 알아본다.</strong> 해야지 해야지 하고 미룬 포스트인데 이제야 하게 됐다. 난 Closure가 단순히 함수 내 함수를 의미하는지 알았는데 밑에서 살펴보겠지만 그건 완전한 내 착각이었다.</p>
+
+<p>이 포스트도 앞의 두 포스트와 마찬가지로 영어로 할까 했다. 그렇게 하지 않고 한글로 한 이유는 이 Closure의 뜻에 대해 나름의 깨달음을 얻었기 때문이다. ‘Closure’를 그냥 영어 단어로 해석하면 ‘폐쇄’란다. 그렇게 보면 안 된다. 내가 나름 생각한 의미를 공유하기에는 영어가 모국어가 아닌 사람들이 적절하겠다 싶어서 한글로 작성한다.</p>
+
+<p>아마 이번 포스트는 매우 길어질 것 같지는 않다. 포스트 하나 쓸 때마다 지치는데 보다 더 정수만 담아, 잉여 데이터 출력 없이 의미가 전달될 수 있도록 노력해야겠다. 아직 부족하다.</p>
+
+<p><br /></p>
+
+<p><strong>포스트는 먼저 Closure에 대해 바로 들어가기 전에 필요한 사전지식을 살펴본다. 그리고 Closure에 대해 살핀다. 기본 정의부터 특징, 사용시의 장점에 대해 살핀다. 특히 장점이 매우 중요하기 때문에 집중해서 봐주면 좋겠다. 마지막으로는 Closure의 대표적인 사용 사례인 decorator에 대해 살핀 뒤 포스트를 마무리한다.</strong></p>
+
+<p>들어가겠습니다. :)</p>
+
+<h2 id="2-배경지식">2. 배경지식</h2>
+
+<hr />
+
+<h3 id="함수-중첩function-nesting">함수 중첩(Function nesting)</h3>
+
+<p>아시다시피 Python(이하 “파이썬”)에서 if 조건문은 중첩이 된다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"정수를 입력하세요"</span><span class="p">))</span>
+
+<span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"6의 배수군요?"</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"짝수로소이다 ㅎㅎ"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>인터프리터에 ‘<em>import this</em>‘라고 입력하면 나오면 유려한 시 <strong>‘<em>Zen of Python</em>‘에서는 가급적 중첩을 피하라고 이야기하고 있다.</strong> 꼭 필요한 경우는 어쩔 수 없지만 아닌 경우에는 가급적 펼치는 게(flatten) 나을 것 같다.</p>
+
+<p><br /></p>
+
+<p><strong>파이썬에서는 조건문뿐만 아니라 함수도 중첩이 된다.</strong> 그러니까 함수 정의 안에 다른 함수를 정의할 수 있는 것이다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">greetings</span><span class="p">():</span>
+    <span class="k">def</span> <span class="nf">say_hi</span><span class="p">():</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Hi, everyone :)"</span><span class="p">)</span>
+
+    <span class="n">say_hi</span><span class="p">()</span>
+
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">greetings</span><span class="p">()</span>
+    
+<span class="n">Hi</span><span class="p">,</span> <span class="n">everyone</span> <span class="p">:)</span>
+</code></pre></div></div>
+
+<p>인사를 건네는 <em>greetings</em> 함수를 만들었다. 이 함수는 실제 인사를 건네는 코드를 다른 함수로 감싸서 이 내부 함수를 호출하고 있다. 이 코드는 전혀 문제가 없다.</p>
+
+<p>난 이렇게 내부 함수를 짜면 이게 다 Closure인 줄 알았다. 하지만 그건 틀린 생각이었고, 함수 중첩은 Closure이기 위한 필요조건이지 충분조건이 아니다.</p>
+
+<h3 id="first-class-object">First Class Object</h3>
+
+<p>좀 생소한 개념이 나왔다. 그런데 생각보다 어렵지는 않다.</p>
+
+<p><strong>프로그래밍 언어에서 First Class Object(또는 First Class Citizen)는 해당 언어 내에서 일반적으로 다른 모든 개체에 통용가능한 동작(operation)이 지원되는 개체(entity)를 의미한다.</strong></p>
+
+<p>이 동작은 주로</p>
+
+<ol>
+  <li><strong>함수의 인자로 전달되거나,</strong></li>
+  <li><strong>함수의 반환값이 되거나,</strong></li>
+  <li><strong>수정되고 할당되는 것들을 전제로 한다.</strong></li>
+</ol>
+
+<p><br /></p>
+
+<p>이게 무슨 뜻일까? 어렵지 않다. 파이썬에서 가장 많이 쓰이는 자료타입이 뭐가 있을까? <strong><em>list</em>, <em>str</em>, <em>int</em> 등등이 쉽게 떠오른다. 이렇게 기본적이고 유명한 자료타입들은 함수의 인자로 전달되거나, 반환값이 되거나, 수정되고 할당될 수 있다.(적어도 개념적으로는)</strong></p>
+
+<p>이런 자료형은 파이썬의 1급 객체다.(First Class Object) 파이썬을 오래 한 나에게는 이게 상식적이고 당연한데 그렇지 않은 언어들이 있나보다.  [][][][] 추가적인 언급 필요 [][][][]</p>
+
+<p><br /></p>
+
+<p>그리고 <strong>파이썬에서는 함수(function)도 1급 객체다. 함수에는 위의 기본 자료타입들에 적용가능한 동작들이 똑같이 적용 가능하다.</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+
+<span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span> <span class="c1"># 2.
+</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">add</span> <span class="c1"># 3.
+</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">execute</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="c1"># 1.
+</span>
+<span class="mi">8</span>
+</code></pre></div></div>
+
+<p>Packing과 Unpacking을 활용한 간단한 예제이다. 두 수의 합을 반환하는 함수 <em>add</em> 를 정의했는데 이를 직접 호출하지 않고 감싸는 <em>execute</em> 함수를 만들었다.</p>
+
+<p>이 예제에서 앞서 이야기한 1급 객체에 적용가능한 동작이 모두 적용되었다.</p>
+
+<ol>
+  <li><em>f</em> 라는 함수가 <em>execute</em> 의 함수의 인자로 전달되었고,</li>
+  <li>함수 내부에서 받은 함수 <em>func</em> 를 반환하고 있으며</li>
+  <li><em>add</em> 라는 원 함수의 이름이 마음에 안 들었는지 <em>f</em> 라는 새 이름에 할당했다.</li>
+</ol>
+
+<p><br /></p>
+
+<p>즉, 파이썬에서 함수는 1급 객체이다. 이 특성이 있어야 Closure가 성립될 수 있다.</p>
+
+<h3 id="nonlocal"><em>nonlocal</em></h3>
+
+<p>이 개념은 중요하다. 꼭 Closure가 아니라도 의미가 있기에 조금 길게 설명하자. 먼저 간단한 예시를 들고 가자.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">z</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="k">def</span> <span class="nf">outer</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="mi">10</span>
+    <span class="k">def</span> <span class="nf">inner</span><span class="p">():</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="mi">1000</span>
+        <span class="k">return</span> <span class="n">x</span>
+
+    <span class="k">return</span> <span class="n">inner</span><span class="p">()</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">outer</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>앞서 파이썬에서 함수 중첩이 가능하다는 것을 확인했다. 그건 그런데, <em>x</em> 값에 대한 코드가 두 번 제시됐다. 처음은 함수 실행 시에 받는 임의의 <em>x</em> 이고, 다음은 <em>inner</em> 함수 내에서 1000으로 초기화하는 변수 <em>x</em> 이다. 예시처럼 함수 호출 시 인자를 10으로 줬을 때 반환되는 값은 몇이어야 하는가?</p>
+
+<p>위와 같은 이슈는 <strong>Scope</strong>에 대한 이야기다. <strong><em>inner</em> 함수 입장에서 바라보겠다.</strong></p>
+
+<ul>
+  <li><strong><em>inner</em> 함수 블록 안에 있는 영역은 <em>local</em> 스코프라고 불린다. 로컬 영역 안의 모든 개체들은 <em>inner</em> 의 제어 아래에 있다.</strong></li>
+  <li><strong><em>outer</em> 의 안에 있되, <em>inner</em> 의 밖에 있는 영역은 <em>nonlocal</em> 이라고 불린다. <em>outer</em> 의 <em>y</em> 변수는 <em>inner</em> 입장에서는 <em>nonlocal</em> 영역의 변수이다.</strong></li>
+  <li><strong><em>outer</em> 함수 밖의 영역은 <em>global</em> 영역이다. <em>z</em> 변수는 <em>global</em> 영역에 선언된 변수로 <em>outer</em> 뿐만 아니라 다른 코드나 함수에서도 참조가능할 것이다.</strong></li>
+</ul>
+
+<p><br /></p>
+
+<p>이런 <em>global</em>, <em>nonlocal</em>, <em>local</em> 의 구분, 다시 말해 스코프(namespace라고 말할 수도 있을 것이다.)의 구분은 어떤 의미가 있는가? <strong>각 스코프는 자신의 영역에 최대한의 관심을 가지며, 다른 영역의 변수나 객체에 대해서는 제한적인 제어를 가지게 된다.</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">greetings</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">say_hi</span><span class="p">():</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+    <span class="n">say_hi</span><span class="p">()</span>
+
+
+<span class="n">greetings</span><span class="p">(</span><span class="s">'안녕하세요?'</span><span class="p">)</span>
+
+<span class="err">안녕하세요?</span>
+</code></pre></div></div>
+
+<p>아까의 예와 비슷하다. <em>say_hi</em> 내부 함수는 <em>nonlocal</em> 영역의 <em>x</em> 의 변수를 그대로 반환하는 기능을 갖고 있다. 그리고 <em>greetings</em> 가 받은 문자열을 문제없이 참조할 수 있었다. <strong>그러니까 ‘읽기’가 가능하다고 이해하면 된다.</strong></p>
+
+<p>하지만 <strong>자신의 영역이 아닌 영역에 대해 ‘쓰기’는 제한적이다.</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">count</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">increment</span><span class="p">():</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="n">increment</span><span class="p">()</span>
+
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">count</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="nb">UnboundLocalError</span><span class="p">:</span> <span class="n">local</span> <span class="n">variable</span> <span class="s">'x'</span> <span class="n">referenced</span> <span class="n">before</span> <span class="n">assignment</span>
+</code></pre></div></div>
+
+<p>음 뭐가 문제지? 특이한 에러가 발생했다. <strong><em>UnboundLocalError</em> 로 <em>local</em> 변수 <em>x</em> 가 할당되기 전에 참조됐다는 의미이다.</strong>  하지만 우리는 <em>nonlocal</em> 영역에서 받은 <em>x</em> 에 값을 1 추가한건데?</p>
+
+<p>여기에 트릭이 있다. <strong><em>local</em> 영역에서(여기서는 <em>increment</em>) 밖의 영역에 대한 값을 참조하는, 또는 읽는 것은 항상 문제가 없는데, 값을 수정하거나 새로 할당하는 것은, 쓰는 것은 안 된다.</strong></p>
+
+<p>위에서는 ‘<em>x += 1</em>‘가 ‘수정하는’ 역할을 하고 있다. 이렇게 수정하는, 쓰는 코드가 나오면 따로 언급이 없는 한, <em>increment</em> 함수는 <em>x</em> 가 자신이 제어할 수 있는 <em>local</em> 변수라고 무조건 가정한다. 선언하지도 않는 변수에 값을 더하는건 당연히 말이 안 된다. 그래서 위와 같은 에러가 출력되는 것이다.</p>
+
+<p>왜 위와 같이 헷갈리게 만들어놨을까? <strong>그것은 코드 영역의 책임과 권한을 명확히 나누는 것이 좋기 때문이다. 예제의 <em>count</em> 함수는 하나의 내부 함수를 갖고 있지만, 어떤 경우에는 수십여개의 내부 함수를 가질 수도 있다. 이때 내부 함수마다 자신의 상태값을 건드리고 수정한다면 예상하지 못한 결과를 초래할 수 있다.</strong> 그래서 읽기는 가능하지만 쓰기는 제한하고 있는 것이다. 리눅스에서 유저마다, 그룹마다 쓰기와 읽기, 실행에 대한 권한을 제어하는 것은 같은 이치다.</p>
+
+<p>만약 위의 예제에서 <em>nonlocal</em> 의 값을 수정하고 싶으면 어떻게 할까? 이때 <em>nonlocal</em> statement를 쓰면 된다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">count</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">increment</span><span class="p">():</span>
+        <span class="k">nonlocal</span> <span class="n">x</span>  <span class="c1"># x가 로컬이 아닌 nonlocal의 변수임을 확인한다.
+</span>        <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="n">increment</span><span class="p">()</span>
+
+<span class="n">count</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="mi">5</span>
+</code></pre></div></div>
+
+<p><strong><em>increment</em> 함수 정의 바로 아랫줄에 ‘<em>nonlocal x</em>‘라고 선언했다. 저 코드는 <em>x</em> 가 <em>local</em> 변수가 아닌, <em>nonlocal</em>, 여기서는 <em>count</em> 스코프 내의 변수라는 것을 개발자가 명시적으로 선언하는 것으로 이 값에 대해 읽는 것뿐 아니라 쓰는 것도 가능하게 된다.</strong> 같은 식으로 <em>global</em> 스코프의 값을 제어하고 싶다면 ‘<em>global x</em>‘와 같이 사용할 수도 있을 것이다.</p>
+
+<h2 id="2-closure에-대한-이해">2. Closure에 대한 이해</h2>
+
+<hr />
+
+<h3 id="closure의-의미는">Closure의 의미는?</h3>
+
+<h3 id="기본-정의">기본 정의</h3>
+
+<h3 id="closure의-특징">Closure의 특징</h3>
+
+<h3 id="closure의-장점">Closure의 장점</h3>
+
+<h2 id="3-closure의-대표적-사용-사례-decorator">3. Closure의 대표적 사용 사례: decorator(\@)</h2>
+
+<h2 id="4-마치며">4. 마치며</h2>
+
+<hr />
+
+<h2 id="5-자료-출처">5. 자료 출처</h2>
+
+<hr />
+
+<ul>
+  <li><a href="https://www.geeksforgeeks.org/python-closures/">GeeksforGeeks: Python closures</a></li>
+  <li><a href="https://www.programiz.com/python-programming/closure">Programiz: Python closures</a></li>
+  <li><a href="https://stackoverflow.com/questions/14413946/what-exactly-is-contained-within-a-obj-closure">Stackoverflow: what exactly is contained within a obj closure</a></li>
+  <li><a href="https://en.wikipedia.org/wiki/First-class_citizen">Wikipedia: First-class citizen</a></li>
+  <li><a href=""></a></li>
+  <li><a href=""></a></li>
+  <li><a href=""></a></li>
+  <li><a href=""></a></li>
+  <li><a href=""></a></li>
+  <li><a href=""></a></li>
+  <li><a href=""></a></li>
+</ul>
+
+      <div class="page-footer">
+        <div class="page-share">
+          <a href="https://twitter.com/intent/tweet?text=Python의 Closure에 대해 알아보자&url=http://localhost:4000/programming/python/closure-in-python.html" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
+          <a href="https://facebook.com/sharer.php?u=http://localhost:4000/programming/python/closure-in-python.html" title="Share on Facebook" rel="nofollow" target="_blank">Facebook</a>
+          <a href="https://plus.google.com/share?url=http://localhost:4000/programming/python/closure-in-python.html" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>
+        </div>
+        <div class="page-tag">
+          
+            <a href="/tags#Closure" class="tag">&#35; Closure</a>
+          
+        </div>
+      </div>
+		  <!-- Load Facebook SDK for JavaScript -->
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+
+  <!-- Your share button code -->
+  <div class="fb-share-button" 
+    data-href="http://localhost:4000/programming/python/closure-in-python.html" 
+    data-layout="button_count">
+  </div>
+
+		
+    </div> <!-- End Wrap Content -->
+  </div> <!-- End Page Content -->
+</article> <!-- End Article Page -->
+
+</div>
+
+  </div>
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', '', 'auto');
+  ga('send', 'pageview');
+</script> <!-- End Analytics -->
+
+	<script src="https://unpkg.com/simple-jekyll-search@1.5.0/dest/simple-jekyll-search.min.js"></script>
+<script>
+var sjs = SimpleJekyllSearch({
+  searchInput: document.querySelector('#search-input'),
+  resultsContainer: document.getElementById('results-container'),
+  json: '/search.json',
+  searchResultTemplate: '<li class="search-results-item"><a href="http://localhost:4000{url}">{title}</a></li>',
+	limit: 9,
+	noResultsText: '<li class="search-results-item"><a href="#">No results found...</a></li>'
+})
+</script>
+
+	<!-- Main Js -->
+<!--<script src="/assets/js/main.js"></script>-->
+
+<!-- JQuery 3.x min -->
+<script src="/assets/js/jquery.js"></script>
+
+<script>
+	let menus = $("#category-list");
+	let image = $("#menu-toggler img");
+	$("#toggler-wrapper").click(function() {
+		if(menus.css("display") === "none") {
+			image.attr("src", "/assets/img/close-button.png");
+			menus.css("display", "flex");
+		}
+		else {
+			image.attr("src", "/assets/img/nav-off.png");
+			menus.css("display", "none");
+		}
+	});
+
+
+</script>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-127149179-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-127149179-1');
+</script>
+
+</body>
+</html>

@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "Python의 Closure에 대해 알아보자",
+      "category" : "",
+      "tags"     : "Closure",
+      "url"      : "/programming/python/closure-in-python.html",
+      "date"     : "2019-04-20 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "[Python] Get longest palindromes in string",
       "category" : "",
       "tags"     : "Palindrome, Dynamic_programming",
