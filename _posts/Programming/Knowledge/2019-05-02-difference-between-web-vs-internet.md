@@ -105,7 +105,7 @@ However, Internet is more deeper. Internet is the worldwide spread network of in
 
 ---
 
-We simply checked out differences between Web and Internet. **The most dominant usage of Internet in our daily lives is Web so we often get confused of Web and Internet are same. But it's totally, structurally not true. In Web environment, we communicate through HTTP protocol and it's based on protocol layer. But Internet can serve many more layers and they constitue the vast, wide area of network and it's based upon more deeper layers: TCP(maybe UDP too) and IP.** So their differences are qualitative, not quantitative. It's a huge gap and we're clear about it now.
+We simply checked out differences between Web and Internet. **The most dominant usage of Internet in our daily lives is Web so we often get confused that Web and Internet are same. But it's totally, structurally not true. In Web environment, we communicate through HTTP protocol and it's based on protocol layer. But Internet can serve many more layers and they constitue the vast, wide area of network and it's based upon more deeper layers: TCP(maybe UDP too) and IP.** So their differences are qualitative, not quantitative. It's a huge gap and we're clear about it now.
 
 Modern network is so complicated and difficult so checking out every detail doesn't help out the topic today. So I just introduced shallow concept of OSI model and we now know each layer serves specific functions and serves higher layers' communication. I hope it's enough for you to grasp at the differences even though simply.
 
