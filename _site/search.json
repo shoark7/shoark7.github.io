@@ -4,7 +4,7 @@
       "title"    : "Web vs Internet, what&#39;s the difference?",
       "category" : "",
       "tags"     : "Web, Internet, Web_vs_Internet",
-      "url"      : "/programming/knowledge/difference-between-web-vs-internet.html",
+      "url"      : "/programming/knowledge/difference-between-web-vs-internet",
       "date"     : "2019-05-02 00:00:00 +0900"
     } ,
   
@@ -12,7 +12,7 @@
       "title"    : "Python의 Closure에 대해 알아보자",
       "category" : "",
       "tags"     : "Closure",
-      "url"      : "/programming/python/closure-in-python.html",
+      "url"      : "/programming/python/closure-in-python",
       "date"     : "2019-04-22 00:00:00 +0900"
     } ,
   
@@ -20,7 +20,7 @@
       "title"    : "[Python] Get longest palindromes in string",
       "category" : "",
       "tags"     : "Palindrome, Dynamic_programming",
-      "url"      : "/programming/algorithm/get-longest-palindromes-in-string.html",
+      "url"      : "/programming/algorithm/get-longest-palindromes-in-string",
       "date"     : "2019-04-16 00:00:00 +0900"
     } ,
   
@@ -28,7 +28,7 @@
       "title"    : "[Python] Useful tips when importing modules in Python",
       "category" : "",
       "tags"     : "import",
-      "url"      : "/programming/python/what-is-going-on-when-importing-modules-in-python.html",
+      "url"      : "/programming/python/what-is-going-on-when-importing-modules-in-python",
       "date"     : "2019-04-10 00:00:00 +0900"
     } ,
   
@@ -36,7 +36,7 @@
       "title"    : "[Python] 다양한 방법으로 팩토리얼(Factorial) 구해보기",
       "category" : "",
       "tags"     : "Factorial",
-      "url"      : "/programming/algorithm/several-ways-to-solve-factorial-in-python.html",
+      "url"      : "/programming/algorithm/several-ways-to-solve-factorial-in-python",
       "date"     : "2019-04-04 00:00:00 +0900"
     } ,
   
@@ -44,7 +44,7 @@
       "title"    : "[Python] __str__와 __repr__의 차이 살펴보기",
       "category" : "",
       "tags"     : "__str__ vs __repr",
-      "url"      : "/programming/python/difference-between-__repr__-vs-__str__.html",
+      "url"      : "/programming/python/difference-between-__repr__-vs-__str__",
       "date"     : "2019-03-25 00:00:00 +0900"
     } ,
   
@@ -52,7 +52,7 @@
       "title"    : "[암호학] 암호학의 기본 용어 정리",
       "category" : "",
       "tags"     : "Cryptography",
-      "url"      : "/programming/knowledge/basic-terms-for-cryptography.html",
+      "url"      : "/programming/knowledge/basic-terms-for-cryptography",
       "date"     : "2019-03-14 00:00:00 +0900"
     } ,
   
@@ -60,7 +60,7 @@
       "title"    : "개발자라면 꼭 알아야 할 숫자 모음",
       "category" : "",
       "tags"     : "Number",
-      "url"      : "/programming/knowledge/fundamental-numbers-for-developers.html",
+      "url"      : "/programming/knowledge/fundamental-numbers-for-developers",
       "date"     : "2019-03-13 00:00:00 +0900"
     } ,
   
@@ -68,7 +68,7 @@
       "title"    : "[Python] 2차원 배열 회전 알고리즘",
       "category" : "",
       "tags"     : "Algorithm, 2D_array, Square_array, Rotate_array",
-      "url"      : "/programming/algorithm/rotate-2d-array.html",
+      "url"      : "/programming/algorithm/rotate-2d-array",
       "date"     : "2019-03-08 00:00:00 +0900"
     } ,
   
@@ -76,7 +76,7 @@
       "title"    : "[Python] classmethod VS staticmethod",
       "category" : "",
       "tags"     : "Staticmethod, Classmethod",
-      "url"      : "/programming/python/staticmethod-and-classmethod-in-Python.html",
+      "url"      : "/programming/python/staticmethod-and-classmethod-in-Python",
       "date"     : "2019-03-05 00:00:00 +0900"
     } ,
   
@@ -84,7 +84,7 @@
       "title"    : "라다크 주민과의 대화",
       "category" : "",
       "tags"     : "India, Ladakh",
-      "url"      : "/insight/rationality/Conversation-with-a-Ladakh-resident.html",
+      "url"      : "/insight/rationality/Conversation-with-a-Ladakh-resident",
       "date"     : "2019-03-03 00:00:00 +0900"
     } ,
   
@@ -92,7 +92,7 @@
       "title"    : "어느 은퇴한 인도인 은행원과의 대화",
       "category" : "",
       "tags"     : "India",
-      "url"      : "/insight/rationality/Conversation-with-a-retired-Indian-man.html",
+      "url"      : "/insight/rationality/Conversation-with-a-retired-Indian-man",
       "date"     : "2019-03-01 00:00:00 +0900"
     } ,
   
@@ -100,7 +100,7 @@
       "title"    : "[Python] 1부터 N까지의 합을 구하는 3가지 알고리즘 살펴보기",
       "category" : "",
       "tags"     : "Algorithm, Gauss_sum",
-      "url"      : "/programming/algorithm/3-ways-to-get-natural-number-sum-in-python.html",
+      "url"      : "/programming/algorithm/3-ways-to-get-natural-number-sum-in-python",
       "date"     : "2019-02-03 00:00:00 +0900"
     } ,
   
@@ -108,7 +108,7 @@
       "title"    : "[번역] The Unix Philosophy: A Brief Introduction",
       "category" : "",
       "tags"     : "Unix",
-      "url"      : "/programming/knowledge/unix-philosophy-intro.html",
+      "url"      : "/programming/knowledge/unix-philosophy-intro",
       "date"     : "2019-01-23 00:00:00 +0900"
     } ,
   
@@ -116,7 +116,7 @@
       "title"    : "그래프와 트리의 관계에 대한 고찰",
       "category" : "",
       "tags"     : "Tree, Graph",
-      "url"      : "/insight/rationality/relationship-between-graph-and-tree.html",
+      "url"      : "/insight/rationality/relationship-between-graph-and-tree",
       "date"     : "2019-01-12 00:00:00 +0900"
     } ,
   
@@ -124,7 +124,7 @@
       "title"    : "논문을 통한 REST에 대한 고찰",
       "category" : "",
       "tags"     : "REST, Roy_Fielding",
-      "url"      : "/programming/knowledge/what-is-rest.html",
+      "url"      : "/programming/knowledge/what-is-rest",
       "date"     : "2019-01-07 00:00:00 +0900"
     } ,
   
@@ -132,7 +132,7 @@
       "title"    : "NoSQL에 대해 알아보자",
       "category" : "",
       "tags"     : "NoSQL, Database",
-      "url"      : "/programming/knowledge/what-is-NoSQL.html",
+      "url"      : "/programming/knowledge/what-is-NoSQL",
       "date"     : "2019-01-01 00:00:00 +0900"
     } ,
   
@@ -140,7 +140,7 @@
       "title"    : "팩토리얼의 끝 0의 개수 구하기",
       "category" : "",
       "tags"     : "Algorithm, Factorial",
-      "url"      : "/programming/algorithm/number-of-trailing-zeros-in-factorial.html",
+      "url"      : "/programming/algorithm/number-of-trailing-zeros-in-factorial",
       "date"     : "2018-12-28 00:00:00 +0900"
     } ,
   
@@ -148,7 +148,7 @@
       "title"    : "Process와 Thread의 차이",
       "category" : "",
       "tags"     : "Process, Thread",
-      "url"      : "/programming/knowledge/difference-between-process-and-thread.html",
+      "url"      : "/programming/knowledge/difference-between-process-and-thread",
       "date"     : "2018-12-26 00:00:00 +0900"
     } ,
   
@@ -156,7 +156,7 @@
       "title"    : "최대 연속 부분수열 합을 구하는 4가지 알고리즘",
       "category" : "",
       "tags"     : "Algorithm, Max_slice_sum, Largest_continous_sum_in_subarray",
-      "url"      : "/programming/algorithm/4-ways-to-get-subarray-consecutive-sum.html",
+      "url"      : "/programming/algorithm/4-ways-to-get-subarray-consecutive-sum",
       "date"     : "2018-12-24 00:00:00 +0900"
     } ,
   
@@ -164,7 +164,7 @@
       "title"    : "디자인 패턴이란 무엇인가?",
       "category" : "",
       "tags"     : "Design_pattern",
-      "url"      : "/programming/knowledge/what-is-design-pattern.html",
+      "url"      : "/programming/knowledge/what-is-design-pattern",
       "date"     : "2018-12-21 00:00:00 +0900"
     } ,
   
@@ -172,7 +172,7 @@
       "title"    : "1차원 배열 회전 알고리즘 5가지",
       "category" : "",
       "tags"     : "Algorithm, Rotate_array",
-      "url"      : "/programming/algorithm/5-ways-to-rotate-array.html",
+      "url"      : "/programming/algorithm/5-ways-to-rotate-array",
       "date"     : "2018-12-13 00:00:00 +0900"
     } ,
   
@@ -180,7 +180,7 @@
       "title"    : "프로 바둑 기사와 대국한 이야기",
       "category" : "",
       "tags"     : "Insight, Go",
-      "url"      : "/insight/sensitivity/a-story-with-pro-go-player.html",
+      "url"      : "/insight/sensitivity/a-story-with-pro-go-player",
       "date"     : "2018-12-08 00:00:00 +0900"
     } ,
   
@@ -188,7 +188,7 @@
       "title"    : "에라토스테네스의 체 Bitmask로 구현하기",
       "category" : "",
       "tags"     : "Algorithm, Sieve_of_Eratosthenes",
-      "url"      : "/programming/algorithm/sieve-of-eratosthenes-bitmask.html",
+      "url"      : "/programming/algorithm/sieve-of-eratosthenes-bitmask",
       "date"     : "2018-12-07 00:00:00 +0900"
     } ,
   
@@ -196,7 +196,7 @@
       "title"    : "FizzBuzz를 &#39;개발자답게&#39; 구현해보자",
       "category" : "",
       "tags"     : "Algorithm, Combination, Permutation",
-      "url"      : "/programming/algorithm/implement-fizzbuzz-like-developer.html",
+      "url"      : "/programming/algorithm/implement-fizzbuzz-like-developer",
       "date"     : "2018-12-02 00:00:00 +0900"
     } ,
   
@@ -204,7 +204,7 @@
       "title"    : "유용한 쉘 명령어 소개 Part 2: find",
       "category" : "",
       "tags"     : "shell, useful_shell_commands",
-      "url"      : "/programming/shell-programming/Useful-shell-commands-2-find.html",
+      "url"      : "/programming/shell-programming/Useful-shell-commands-2-find",
       "date"     : "2018-11-29 00:00:00 +0900"
     } ,
   
@@ -212,7 +212,7 @@
       "title"    : "조합과 순열 알고리즘, 파이썬으로 구현하기",
       "category" : "",
       "tags"     : "Algorithm, Combination, Permutation",
-      "url"      : "/programming/algorithm/Permutations-and-Combinations.html",
+      "url"      : "/programming/algorithm/Permutations-and-Combinations",
       "date"     : "2018-11-26 00:00:00 +0900"
     } ,
   
@@ -220,7 +220,7 @@
       "title"    : "피보나치 수열 알고리즘을 해결하는 5가지 방법",
       "category" : "",
       "tags"     : "Algorithm, Fibonacci_sequence, Fibonacci",
-      "url"      : "/programming/algorithm/%ED%94%BC%EB%B3%B4%EB%82%98%EC%B9%98-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%84-%ED%95%B4%EA%B2%B0%ED%95%98%EB%8A%94-5%EA%B0%80%EC%A7%80-%EB%B0%A9%EB%B2%95.html",
+      "url"      : "/programming/algorithm/%ED%94%BC%EB%B3%B4%EB%82%98%EC%B9%98-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%84-%ED%95%B4%EA%B2%B0%ED%95%98%EB%8A%94-5%EA%B0%80%EC%A7%80-%EB%B0%A9%EB%B2%95",
       "date"     : "2018-11-22 00:00:00 +0900"
     } ,
   
@@ -228,7 +228,7 @@
       "title"    : "[중요] Shell 확장",
       "category" : "",
       "tags"     : "shell, expansion",
-      "url"      : "/programming/shell-programming/shell-expansions.html",
+      "url"      : "/programming/shell-programming/shell-expansions",
       "date"     : "2018-11-18 00:00:00 +0900"
     } ,
   
@@ -236,7 +236,7 @@
       "title"    : "반려견 - 견주 산책갈등론",
       "category" : "",
       "tags"     : "dog, walk",
-      "url"      : "/insight/rationality/%EB%B0%98%EB%A0%A4%EA%B2%AC,-%EA%B2%AC%EC%A3%BC-%EC%82%B0%EC%B1%85%EA%B0%88%EB%93%B1%EB%A1%A0.html",
+      "url"      : "/insight/rationality/%EB%B0%98%EB%A0%A4%EA%B2%AC,-%EA%B2%AC%EC%A3%BC-%EC%82%B0%EC%B1%85%EA%B0%88%EB%93%B1%EB%A1%A0",
       "date"     : "2018-11-15 00:00:00 +0900"
     } ,
   
@@ -244,7 +244,7 @@
       "title"    : "alias: 나만의 쉘 커맨드 만들기",
       "category" : "",
       "tags"     : "shell, alias, .bashrc",
-      "url"      : "/programming/shell-programming/make-my-own-shell-commands.html",
+      "url"      : "/programming/shell-programming/make-my-own-shell-commands",
       "date"     : "2018-11-10 00:00:00 +0900"
     } ,
   
@@ -252,7 +252,7 @@
       "title"    : "유용한 쉘 명령어 소개 Part 1",
       "category" : "",
       "tags"     : "shell, useful_shell_commands",
-      "url"      : "/programming/shell-programming/Useful-shell-commands-1.html",
+      "url"      : "/programming/shell-programming/Useful-shell-commands-1",
       "date"     : "2018-11-07 00:00:00 +0900"
     } ,
   
@@ -260,7 +260,7 @@
       "title"    : "[중요] Shell: I/O Redirection",
       "category" : "",
       "tags"     : "shell, Redirection, IO_Redirection, Pipe_operator",
-      "url"      : "/programming/shell-programming/IO-Redirection-in-Shell.html",
+      "url"      : "/programming/shell-programming/IO-Redirection-in-Shell",
       "date"     : "2018-10-25 00:00:00 +0900"
     } ,
   
@@ -268,7 +268,7 @@
       "title"    : "[조합론] 이항계수 알고리즘 3가지",
       "category" : "",
       "tags"     : "Algorithm, binomial_coefficient",
-      "url"      : "/programming/algorithm/3-ways-to-get-binomial-coefficients.html",
+      "url"      : "/programming/algorithm/3-ways-to-get-binomial-coefficients",
       "date"     : "2018-10-23 00:00:00 +0900"
     } ,
   
@@ -276,7 +276,7 @@
       "title"    : "코드 단위인 Expression과 Statement의 차이를 알아보자",
       "category" : "",
       "tags"     : "Expression, Statement, expression-vs-statement",
-      "url"      : "/programming/knowledge/expression-vs-statement.html",
+      "url"      : "/programming/knowledge/expression-vs-statement",
       "date"     : "2018-10-18 00:00:00 +0900"
     } ,
   
@@ -284,7 +284,7 @@
       "title"    : "새로운 리눅스 Shell 커맨드를 만났을 때 대처법",
       "category" : "",
       "tags"     : "shell, shell_commands",
-      "url"      : "/programming/shell-programming/ways-to-search-information-for-linux-commands.html",
+      "url"      : "/programming/shell-programming/ways-to-search-information-for-linux-commands",
       "date"     : "2018-10-16 00:00:00 +0900"
     } ,
   
@@ -292,7 +292,7 @@
       "title"    : "표준 스트림, 표준 입출력에 대해 알아보자",
       "category" : "",
       "tags"     : "standard_stream, standard_IO",
-      "url"      : "/programming/knowledge/what-is-standard-stream.html",
+      "url"      : "/programming/knowledge/what-is-standard-stream",
       "date"     : "2018-10-15 00:00:00 +0900"
     } ,
   
@@ -300,7 +300,7 @@
       "title"    : "핵심 Shell 커맨드 9개 살펴보기",
       "category" : "",
       "tags"     : "shell, top_9_shell_commands",
-      "url"      : "/programming/shell-programming/Top-basic-unix-shell-command.html",
+      "url"      : "/programming/shell-programming/Top-basic-unix-shell-command",
       "date"     : "2018-10-12 00:00:00 +0900"
     } ,
   
@@ -308,7 +308,7 @@
       "title"    : "[Algospot] 와일드카드 패턴 매칭 알고리즘",
       "category" : "",
       "tags"     : "Algorithm, wildcard, Algospot",
-      "url"      : "/programming/algorithm/Algospot-Wildcard-%EB%A7%A4%EC%B9%AD.html",
+      "url"      : "/programming/algorithm/Algospot-Wildcard-%EB%A7%A4%EC%B9%AD",
       "date"     : "2018-10-10 00:00:00 +0900"
     } ,
   
@@ -316,7 +316,7 @@
       "title"    : "갈라파고스 여행 후기, 정보!",
       "category" : "",
       "tags"     : "Galapagos, 갈라파고스",
-      "url"      : "/projects/etc/Trip-To-Galapagos-Islands.html",
+      "url"      : "/projects/etc/Trip-To-Galapagos-Islands",
       "date"     : "2018-10-07 00:00:00 +0900"
     } ,
   
@@ -324,7 +324,7 @@
       "title"    : "졸업을 앞두고 느끼는 생각",
       "category" : "",
       "tags"     : "Graduation",
-      "url"      : "/insight/sensitivity/%EC%A1%B8%EC%97%85%EC%9D%84-%EC%95%9E%EB%91%90%EA%B3%A0-%EB%8A%90%EB%81%BC%EB%8A%94-%EC%83%9D%EA%B0%81.html",
+      "url"      : "/insight/sensitivity/%EC%A1%B8%EC%97%85%EC%9D%84-%EC%95%9E%EB%91%90%EA%B3%A0-%EB%8A%90%EB%81%BC%EB%8A%94-%EC%83%9D%EA%B0%81",
       "date"     : "2018-10-06 00:00:00 +0900"
     } ,
   
@@ -332,7 +332,7 @@
       "title"    : "파이썬에서 배열의 원소의 곱을 구하는 3가지 방법",
       "category" : "",
       "tags"     : "Python, Algorithm",
-      "url"      : "/programming/algorithm/3ways-to-get-multiplication-in-a-list-in-python.html",
+      "url"      : "/programming/algorithm/3ways-to-get-multiplication-in-a-list-in-python",
       "date"     : "2018-10-03 00:00:00 +0900"
     } ,
   
@@ -340,7 +340,7 @@
       "title"    : "결정장애 시 좋은 해결방법: 나머지 연산 결정법",
       "category" : "",
       "tags"     : "Indecisiveness",
-      "url"      : "/insight/rationality/%EA%B2%B0%EC%A0%95%EC%9E%A5%EC%95%A0-%EC%8B%9C-%EC%A2%8B%EC%9D%80-%ED%95%B4%EA%B2%B0%EB%B0%A9%EB%B2%95-%EB%82%98%EB%A8%B8%EC%A7%80-%EC%97%B0%EC%82%B0.html",
+      "url"      : "/insight/rationality/%EA%B2%B0%EC%A0%95%EC%9E%A5%EC%95%A0-%EC%8B%9C-%EC%A2%8B%EC%9D%80-%ED%95%B4%EA%B2%B0%EB%B0%A9%EB%B2%95-%EB%82%98%EB%A8%B8%EC%A7%80-%EC%97%B0%EC%82%B0",
       "date"     : "2018-10-01 00:00:00 +0900"
     } ,
   
@@ -348,7 +348,7 @@
       "title"    : "왜 우리는 OOP를 사용해야 할까?",
       "category" : "",
       "tags"     : "Python, OOP",
-      "url"      : "/programming/python/OOP-in-Python.html",
+      "url"      : "/programming/python/OOP-in-Python",
       "date"     : "2018-09-15 00:00:00 +0900"
     } ,
   
@@ -356,7 +356,7 @@
       "title"    : "Python Decorator &amp; OOP",
       "category" : "",
       "tags"     : "Python, Decorator, OOP",
-      "url"      : "/programming/python/Python-Decorator-OOP.html",
+      "url"      : "/programming/python/Python-Decorator-OOP",
       "date"     : "2016-10-02 00:00:00 +0900"
     } ,
   
@@ -364,7 +364,7 @@
       "title"    : "Python packing &amp; unpacking and list comprehension",
       "category" : "",
       "tags"     : "Python, list comprehension, packing & unpacking, args & kwargs",
-      "url"      : "/programming/python/Python-packing-list-comprehension.html",
+      "url"      : "/programming/python/Python-packing-list-comprehension",
       "date"     : "2016-09-25 00:00:00 +0900"
     } ,
   
@@ -372,7 +372,7 @@
       "title"    : "Python&#39;s very basic",
       "category" : "",
       "tags"     : "Python, Python data structure, Python file handling",
-      "url"      : "/programming/python/Python-Basic.html",
+      "url"      : "/programming/python/Python-Basic",
       "date"     : "2016-09-25 00:00:00 +0900"
     } ,
   
@@ -380,7 +380,7 @@
       "title"    : "꿈꾸는 데이터 디자이너 프로젝트: DATA 1988",
       "category" : "",
       "tags"     : "꿈꾸는_데이터_디자이너, DATA_1988, 응답하라_1988",
-      "url"      : "/projects/dev-related/data-designer-projects.html",
+      "url"      : "/projects/dev-related/data-designer-projects",
       "date"     : "2016-05-01 00:00:00 +0900"
     } 
   
