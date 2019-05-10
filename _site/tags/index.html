@@ -17,11 +17,11 @@
     <meta content="Parkito's dev blog for programming, Python, Algorithm, Automation and insights." property="og:description">
   
   
-    <meta content="https://shoark7.github.io/tags/" property="og:url">
+    <meta content="http://localhost:4000/tags/" property="og:url">
 	
   
   
-    <meta content="https://shoark7.github.io/assets/img/1536558558520.jpg" property="og:image">
+    <meta content="http://localhost:4000/assets/img/1536558558520.jpg" property="og:image">
   
   
   
@@ -33,13 +33,13 @@
     <meta name="twitter:title" content="Tags">
   
   
-    <meta name="twitter:url" content="https://shoark7.github.io/tags/">
+    <meta name="twitter:url" content="http://localhost:4000/tags/">
   
   
     <meta name="twitter:description" content="Parkito's dev blog for programming, Python, Algorithm, Automation and insights.">
   
   
-    <meta name="twitter:image:src" content="https://shoark7.github.io/assets/img/1536558558520.jpg">
+    <meta name="twitter:image:src" content="http://localhost:4000/assets/img/1536558558520.jpg">
   
 
   
@@ -305,6 +305,9 @@
   
     
     <li ><a href="#Internet" class="tag">Internet <span>(1)</span></a></li>
+  
+    
+    <li ><a href="#Interview" class="tag">Interview <span>(1)</span></a></li>
   
     
     <li ><a href="#Ladakh" class="tag">Ladakh <span>(1)</span></a></li>
@@ -787,6 +790,16 @@
     <div class="tag-list">
         <span><a href="/programming/knowledge/difference-between-web-vs-internet">Web vs Internet, what's the difference?</a></span>
         <small><span>| 02 May 2019</span></small>
+    </div>
+    
+  
+    
+  <h2 id="Interview">Interview</h2>
+<!--  lists all posts corresponding to specific tag...-->
+    
+    <div class="tag-list">
+        <span><a href="/programming/knowledge/postscript-of-failing-in-tech-interview">생애 첫 기술면적 탈락 후기 및 교훈</a></span>
+        <small><span>| 10 May 2019</span></small>
     </div>
     
   
@@ -1351,7 +1364,7 @@ var sjs = SimpleJekyllSearch({
   searchInput: document.querySelector('#search-input'),
   resultsContainer: document.getElementById('results-container'),
   json: '/search.json',
-  searchResultTemplate: '<li class="search-results-item"><a href="https://shoark7.github.io{url}">{title}</a></li>',
+  searchResultTemplate: '<li class="search-results-item"><a href="http://localhost:4000{url}">{title}</a></li>',
 	limit: 9,
 	noResultsText: '<li class="search-results-item"><a href="#">No results found...</a></li>'
 })
