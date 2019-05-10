@@ -4,7 +4,7 @@ title: "생애 첫 기술면적 탈락 후기 및 교훈"
 date: 2019-05-10
 description: "Let's check what I've learned from failing in a tech interview"
 img:  /insight/first-interview-logo.jpg
-categories: [Programming, Knowledge]
+categories: [Insight, Rationality]
 tags: [Interview]
 ---
 
