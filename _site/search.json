@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "현실에서 유용한 Bitwise 연산 및 활용 모음",
+      "category" : "",
+      "tags"     : "bit, bitwise",
+      "url"      : "/programming/knowledge/some-useful-bit-tricks-and-usages",
+      "date"     : "2019-05-30 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "&quot;You are all labor merchandises&quot;",
       "category" : "",
       "tags"     : "Labor",

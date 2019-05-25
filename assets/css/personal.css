@@ -315,6 +315,10 @@ article th {
 	color: crimson;
 	padding: 3px;
 }
+.highlight span.err {
+	background-color: #fff;
+	color: grey;
+}
 .language-sh {
 	padding: 3px;
 }
