@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "TSP 알고리즘 1: 문제 소개 및 완전탐색 구현",
+      "category" : "",
+      "tags"     : "TSP, exhaustive_search",
+      "url"      : "/programming/algorithm/introduction-to-tsp-and-solve-with-exhasutive-search",
+      "date"     : "2019-05-30 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "현실에서 유용한 Bitwise 연산 및 활용 모음",
       "category" : "",
       "tags"     : "bit, bitwise",
