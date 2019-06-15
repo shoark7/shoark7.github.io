@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "TSP 알고리즘 2: 동적 계획법 구현",
+      "category" : "",
+      "tags"     : "TSP, dynamic_programming",
+      "url"      : "/programming/algorithm/solve-tsp-with-dynamic-programming",
+      "date"     : "2019-06-15 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "TSP 알고리즘 1: 문제 소개 및 완전탐색 구현",
       "category" : "",
       "tags"     : "TSP, exhaustive_search",

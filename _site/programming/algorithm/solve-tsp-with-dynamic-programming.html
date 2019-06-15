@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>TSP 알고리즘 2: 동적 계획법 구현 - Parkito's on the way</title>
+
+  <!-- Edit site and author settings in `_config.yml` to make the social details your own -->
+
+    <meta content="Parkito's on the way" property="og:site_name">
+  
+    <meta content="TSP 알고리즘 2: 동적 계획법 구현" property="og:title">
+  
+  
+    <meta content="article" property="og:type">
+  
+  
+    <meta content="TSP, '여행하는 외판원' 문제를 동적 계획법으로 해결합니다." property="og:description">
+  
+  
+    <meta content="http://localhost:4000/programming/algorithm/solve-tsp-with-dynamic-programming" property="og:url">
+	
+  
+    <meta content="2019-06-15T00:00:00+09:00" property="article:published_time">
+    <meta content="http://localhost:4000/about/" property="article:author">
+  
+  
+    <meta content="http://localhost:4000/assets/img/algorithm/tsp-dynamic-programming-logo.jpg" property="og:image">
+  
+  
+    
+    <meta content="Programming" property="article:section">
+    
+  
+  
+    
+    <meta content="TSP" property="article:tag">
+    
+    <meta content="dynamic_programming" property="article:tag">
+    
+  
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@">
+    <meta name="twitter:creator" content="@">
+  
+    <meta name="twitter:title" content="TSP 알고리즘 2: 동적 계획법 구현">
+  
+  
+    <meta name="twitter:url" content="http://localhost:4000/programming/algorithm/solve-tsp-with-dynamic-programming">
+  
+  
+    <meta name="twitter:description" content="TSP, '여행하는 외판원' 문제를 동적 계획법으로 해결합니다.">
+  
+  
+    <meta name="twitter:image:src" content="http://localhost:4000/assets/img//algorithm/tsp-dynamic-programming-logo.jpg">
+  
+
+  
+    <meta content="TSP, '여행하는 외판원' 문제를 동적 계획법으로 해결합니다." name="description">
+  
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="shortcut icon" href="/assets/img/favicon/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" href="/assets/img/favicon/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/assets/img/favicon/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/assets/img/favicon/apple-touch-icon-144x144.png">
+	<!-- Chrome, Firefox OS and Opera -->
+	<meta name="theme-color" content="#263959">
+	<!-- Windows Phone -->
+	<meta name="msapplication-navbutton-color" content="#263959">
+	<!-- iOS Safari -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="#263959">
+	<!-- Google Fonts -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+	
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="/assets/fonts/font-awesome/css/font-awesome.min.css">
+	<!-- Styles -->
+	<!-- Mathjax Support -->
+<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+	MathJax.Hub.Config({
+  showProcessingMessages: false,
+  jax: ["input/TeX", "output/HTML-CSS"],
+  TeX: {
+    TagSide: "left",
+    Macros: {
+      RR: '{\\bf R}',
+      bold: ['{\\bf #1}',1]
+    }
+  },
+  CommonHTML: {
+    linebreaks: {automatic: true}
+  }
+});
+</script>
+
+	<link rel="stylesheet" href="/assets/css/main.css">
+	<link rel="stylesheet" href="/assets/css/personal.css">
+	<link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Nanum+Gothic:400,700,800&amp;subset=korean" rel="stylesheet">
+</head>
+
+<body style="position: relative">
+	<div id="toggler-wrapper">
+		<div id="menu-toggler">
+			<img src="/assets/img/nav-off.png" alt="Menu collapse image">
+		</div>
+	</div>
+
+  <div class="wrapper">
+
+		<nav id="nav">
+			<div id="menus">
+				<p>
+					<a class="navbar-brand text-white" href="/">&nbsp;&nbsp;&nbsp;Parkito's on the way!&nbsp;&nbsp;&nbsp;</a>
+				</p>
+				<ul id="category-list">
+					<li>
+						<a href="/about.me">
+							<div class="menu">
+								<span> About </span>
+							</div>
+						</a>
+					</li>
+				
+					<li>
+						<div class="menu-wrapper">
+							<a href="/category/programming">
+								<div class="menu">
+									<span> Programming </span>
+								</div>
+							</a>
+							<div class="menu-item">
+								<a href="/category/programming/knowledge">Knowledge</a>
+								<a href="/category/programming/algorithm">Algorithm</a>
+								<a href="/category/programming/python">Python</a>
+								<a href="/category/programming/shell-programming">Shell programming</a>
+							</div>
+						</div>
+					</li>
+				
+					<li>
+						<div class="menu-wrapper">
+								<a href="/category/insight">
+									<div class="menu">
+										<span> Insight </span>
+									</div>
+								</a>
+								<div class="menu-item">
+									<a href="/category/insight/sensitivity">&nbsp;&nbsp;Sensitivity&nbsp;&nbsp;</a>
+									<a href="/category/insight/rationality">&nbsp;&nbsp;Rationality&nbsp;&nbsp;</a>
+								</div>
+						</div>
+					</li>
+
+					<li>
+						<div class="menu-wrapper">
+								<a href="/category/projects">
+									<div class="menu">
+										<span> Projects </span>
+									</div>
+								</a>
+							<div class="menu-item">
+								<a href="/category/projects/dev-related">&nbsp;&nbsp;Dev related&nbsp;&nbsp;</a>
+								<a href="/category/projects/etc">&nbsp;&nbsp;ETC&nbsp;&nbsp;</a>
+							</div>
+						</div> </li>
+
+				</ul>
+			</div>
+
+			<div id="menus-right">
+				<div id="search-section">
+					<div class="input-wrapper">
+						<span class="fa fa-search"></span>
+						<input type="text" id="search-input" placeholder="Please input specific keyword :)" size="30">
+					</div>
+					<div id="results-container"></div>
+				</div>
+
+				<!--<div id="toggler-wrapper">-->
+					<!--<div id="menu-toggler">-->
+						<!--<img src="/assets/img/nav-off.png" alt="" width="35px" height="35px">-->
+					<!--</div>-->
+				<!--</div>-->
+				
+			</div>
+			
+		</nav>
+
+
+    <aside class="sidebar">
+  <header>
+    <div class="about">
+      <div class="cover-author-image">
+        <a href="/"><img src="/assets/img/1536558558520.jpg" alt="Sunghwan Park"></a>
+      </div>
+      <div class="author-name">Sunghwan Park</div>
+      <p>I'm Parkito. A Python lover. Interested in Python, Automation, Algorithm. Please give me insights. I'll teach you tambien! :)</p>
+    </div>
+  </header> <!-- End Header -->
+  <footer>
+    <section class="contact">
+      <h3 class="contact-title">Contact me</h3>
+      <ul>
+				<!--
+        
+          <li><a href="https://twitter.com/artemsheludko_" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+        
+        
+          <li><a href="https://facebook.com/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+        
+				-->
+        
+          <li class="github"><a href="http://github.com/shoark7" target="_blank"><i class="fa fa-github"></i></a></li>
+        
+        
+          <li class="linkedin"><a href="https://in.linkedin.com/in/sunghwan-park-3773b8154" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+        
+        
+          <li class="email"><a href="mailto:shoark7@gmail.com"><i class="fa fa-envelope-o"></i></a></li>
+        
+      </ul>
+    </section> <!-- End Section Contact -->
+    <div class="copyright">
+      <p>2019 &copy; Sunghwan Park</p>
+    </div>
+  </footer> <!-- End Footer -->
+</aside> <!-- End Sidebar -->
+
+<div class="content-box clearfix">
+  <article class="article-page">
+  <div class="page-content">
+    
+    <div class="page-cover-image">
+      <figure>
+        <img class="page-image" src=/assets/img//algorithm/tsp-dynamic-programming-logo.jpg alt="TSP 알고리즘 2: 동적 계획법 구현">
+        
+      </figure>
+    </div> <!-- End Page Cover Image -->
+    
+    <div class="wrap-content">
+      <header class="header-page">
+        <h1 class="page-title">TSP 알고리즘 2: 동적 계획법 구현</h1>
+        <div class="page-date"><span>2019, Jun 15&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+      </header>
+      <h2 id="0-index">0. Index</h2>
+
+<blockquote>
+  <ol>
+    <li><a href="#1">들어가며</a></li>
+    <li><a href="#2">구현을 위한 통찰</a>
+      <ul>
+        <li>2.1. <a href="#2a">완전탐색 코드 재확인</a></li>
+        <li>2.2. <a href="#2b">중복 확인</a></li>
+        <li>2.3. <a href="#2c">시작 도시도 중요하지 않다</a></li>
+      </ul>
+    </li>
+    <li><a href="#3">실제 코드</a></li>
+    <li><a href="#4">마치며</a></li>
+  </ol>
+</blockquote>
+
+<p><br id="1" /></p>
+
+<h2 id="1-들어가며">1. 들어가며</h2>
+
+<hr />
+
+<p><a href="https://shoark7.github.io/programming/algorithm/introduction-to-tsp-and-solve-with-exhasutive-search" target="_blank">이전 포스트</a>에서 TSP에 대한 문제 소개와 완전탐색 구현코드를 살펴봤다. <strong>이번 포스트에서는 완전탐색 코드를 바탕으로 TSP를 동적 계획법으로 구현해본다.</strong> 이때 최대한 시간복잡도를 낮추기 위한 세 가지의 통찰을 살피고 코드를 구현한다.</p>
+
+<p><br id="2" /></p>
+
+<h2 id="2-구현을-위한-통찰">2. 구현을 위한 통찰</h2>
+
+<hr />
+
+<p><br id="2a" /></p>
+
+<h3 id="21-완전탐색-코드-재확인">2.1. 완전탐색 코드 재확인</h3>
+
+<p>우리의 종만 형님께서는 완전탐색은 많은 경우 동적 계획법으로 개선가능하다고 말씀하셨다. 이를 확인하기 위해 이전 포스트에서 기술했던 <em>find_path</em> 함수를 다시 살펴보자.</p>
+
+<blockquote>
+  <p>find_path(start, last, V, tmp_dist):</p>
+
+  <ul>
+    <li>여행을 start에서 시작했고,</li>
+    <li>현재까지 방문한 중간 경로의 마지막 도시는 last이고,</li>
+    <li>방문한 도시의 집합은 V,</li>
+    <li>중간경로의 길이는 tmp_dist일 때</li>
+  </ul>
+
+  <p>해당 중간경로를 사용해서 여행을 마쳤을 때의 완성된 모든 경로의 길의의 최소값을 구하라.</p>
+</blockquote>
+
+<p>실제 값을 구하는 함수를 문장으로 기술했다. 이 함수는 4개의 인자를 받는다.</p>
+
+<ul>
+  <li>시작 도시</li>
+  <li>중간 경로의 마지막 방문 도시</li>
+  <li>방문한 도시의 집합</li>
+  <li>중간 경로의 길이</li>
+</ul>
+
+<p>완전탐색에서는 이 인자를 모두 사용했지만 동적 계획법에서는 가능한 인자를 줄이고, 실제로 같은 인자에 대한 호출이 여러 번 일어나는지 확인해야 한다. 실제 동적 계획법 코드를 살피기 전에 몇 가지 통찰을 살펴본다.</p>
+
+<p><br id="2a" /></p>
+
+<h3 id="21-구체적인-경로는-중요하지-않다">2.1. 구체적인 경로는 중요하지 않다.</h3>
+
+<p>문장으로 기술된 함수에서 세 번째 인자는 방문한 도시의 집합이다. 이때 재미있는 것은 <strong>방문한 중간 경로의 구체적인 순서는 중요하지 않다는 것이다.</strong> 실제 완전탐색 코드에서 방문한 도시의 집합을 비트 연산을 통해 구현했다. 실제 경로(V)를 <em>list</em> 자료구조를 써서 표현할 수도 있었지만 그렇게 하지 않은 것은 비트를 쓰는 것이 조금 더 빠르기도 해서인 것도 있다. 하지만 가장 중요한 이유는 <strong>비트로 도시 집합을 표현하면 실제 구체적인 경로는 표현되지 않는데, 그럼에도 정답이 잘 나온다는 것을 보여주기 위한 것도 있다.</strong> 코드에서 확인할 수 있듯이 중요한 것은 여행 시작 도시와 현재 중간 경로에서의 마지막 방문 도시, 그리고 각 도시의 방문 여부이다. 구체적인 경로, 도시의 순서는 중요하지 않다. 이것이 첫 번째 통찰이다.</p>
+
+<p><br id="2b" /></p>
+
+<h3 id="22-중복-확인">2.2. 중복 확인</h3>
+
+<p>다음으로는 <strong>특정 start, last, V에서 이들을 활용한 <em>find_path(start, last, V)</em> 가 실제 중복 호출되는지 확인해야 한다. 이것이 확인되어야 동적 계획법이 실효성을 갖는다.</strong></p>
+
+<p>아, 마지막 인자 <em>tmp_dist</em> 는 어디 갔냐고 물을 수 있다. 확인결과 이 <em>tmp_dist</em> 인자는 함수 호출에 직접 넣지 않고도 값을 구할 수 있다는 것을 알 수 있게 되었다. 이는 실제 코드를 보고 이야기하자.</p>
+
+<p>특정 start, last, V에 <em>find_path</em> 에는 다음과 같은 수식이 성립한다.</p>
+
+<script type="math/tex; mode=display">\begin{array} \label{}
+  find\_path(start, last, V)  \\
+  = MIN \bigg( \forall c \in V^\complement | find\_path(start, c, V \cup \{c\}) + D[last][c] \bigg)
+\end{array}</script>
+
+<p>이 수식은 다음과 같은 의미를 가진다:</p>
+
+<p class="function-definition">
+  특정 start, last, V 에 대해 아직 방문하지 않은 모든 도시 각각을 방문하는 재귀함수를 호출하고 이중 최소값을 취한다.
+</p>
+
+<p>조금만 생각해보면 당연한 것이다. 그러면 이제 특정 start, last, V에 대한 <em>find_path</em> 가 두 번 이상 호출되는지 확인해보자. 대단한 수식 증명까지 갈 것도 없이(사실 어떻게 하는지 잘 모르겠다) 간단한 예를 들어보면 되겠다.</p>
+
+<p>실제 식을 점화하면 수많은 재귀호출이 일어날 것이다. 도시의 개수(N)이 10개라고 하자. 이때 <strong><script type="math/tex">find\_path(1, 2, \{1, 3, 2\})</script>, <script type="math/tex">find\_path(1, 3, \{1, 2, 3\})</script>가 호출되었을 때 각 함수는 모두 <script type="math/tex">find\_path(1, 4, \{1, 2, 3, 4\})</script>을 호출한다.</strong> 확실히 <code class="highlighter-rouge">중복</code>이 발생했다. <strong>2장 1절에서 <script type="math/tex">V</script>의 구체적인 경로는 중요하지 않다는 것을 확인했다.</strong> <script type="math/tex">\{1, 2, 3\}, \{1, 3, 2\}</script>는 구분할 이유가 없다. 중요한 것은 방문했는지, 안 했는지의 여부뿐이다.</p>
+
+<p>좋아, 중복 여부도 확인했으니 동적 계획법을 위한 캐시의 크기를 산정하면 된다. 현재 세 개의 변수를 사용하는데 start, last는 도시의 수 <script type="math/tex">N</script>을 따라가고, 방문 여부 집합은 방문 여부 0과 1을 담기 때문에 <script type="math/tex">2^N</script>개의 상태를 가질 수 있다. 그러면 캐시의 크기는 <script type="math/tex">N*N*2^N = N^{2} 2^N</script>라는 것을 확인할 수 있다. 동적 계획법에서는 알고리즘의 시간복잡도가 캐시의 크기를 따라가기 때문에 <strong>시간복잡도는 곧 <script type="math/tex">O(N^{2} \times 2^N)</script>가 된다.</strong></p>
+
+<p>하지만, 마지막 통찰을 통해 이를 한 번 더 개선할 수 있다.</p>
+
+<p><br id="2c" /></p>
+
+<h3 id="23-시작-도시도-중요하지-않다">2.3. 시작 도시도 중요하지 않다</h3>
+
+<p>이전 절에서 중간 경로의 구체적인 순서는 중요하지 않고, 특정 세 변수값에 대해 중복 호출이 일어난다는 것까지 확인했다. 그리고 이를 통해 우리는 완전탐색의 <script type="math/tex">O(N!)</script>의 시간복잡도를 <script type="math/tex">O(N^{2} \times 2^N)</script>까지 끌어내릴 수 있는 기반을 마련했다. 하지만 마지막 통찰을 통해 시간복잡도를 한 번 더 낮출 수 있다. 이는 원 문제에서 간략하게 설정한 중요한 조건에 기반한다.</p>
+
+<p class="function-definition">
+  한 번 방문한 도시는 재방문하지 않는다.
+</p>
+
+<p>일견으로는 참 사소하다 싶다. 그러면 이 원칙을 지키면서 만든 완전한 하나의 경로를 살펴보자.</p>
+
+<p><img src="/assets/img/algorithm/tsp-dynamic-programming-route.png" alt="A possible route which can be an answer" /></p>
+
+<p>도시의 개수가 5개일 때 문제의 답이 될 수도 있는 하나의 경로이다. 1번 도시에서 시작하고 5번 도시에서 여행을 마치고 1번 도시로 오는 것을 확인할 수 있다. 이 경로가 문제에서 원한 답이라고 하자. 이 경로에서 여행 비용이 최소가 된다.</p>
+
+<p>이때 한 번 방문한 도시는 재방문하지 않고, 여행을 마치고 시작 도시로 돌아오기 때문에 이 경로는 결국 사이클(cycle)임을 알 수 있다. <strong>사이클은 그래프에서 매우 중요한 개념 중 하나로 일반적인 개념으로는 첫 정점과 마지막 정점이 중복되는 경로로 이를 통해 경로를 무한히 순회할 수 있다.</strong></p>
+
+<p>모든 정답 후보군을 구성하는 경로가 사이클인 것이 중요한 이유는 <strong>이 경로를 만들 수만 있으면 시작점은 중요하지 않기 때문이다.</strong> 즉, <strong>1번에서 시작하든, 2, 3, 5번에서 시작하든 정답 경로는 반드시 훑게 되어 있고, 결국 시작점을 단일 도시로 고정해도 정답 경로를 지나치게 돼서 시작 도시를 추적하지 않아도 된다.</strong> 이를 통해 우리가 관리해야 할 변수는 3개에서 2개가 된다. <em>start</em> 변수를 생략하자!</p>
+
+<p>이 통찰을 통해서 우리는 여행 시작 도시를 생략할 수 있으므로 시간 복잡도는 한 번 더 개선되어 <script type="math/tex">O(N \times 2^N)</script>가 된다. <script type="math/tex">N</script>만큼이 더 줄어든 것을 확인할 수 있다.</p>
+
+<p>이 세 가지 통찰을 바탕으로 실제 동적 계획법 코드로 넘어가자.</p>
+
+<p><br id="3" /></p>
+
+<h2 id="3-실제-코드">3. 실제 코드</h2>
+
+<hr />
+
+<p>2장에서 동적 계획법으로 코드를 개선하기 위해 필요한 세 가지 통찰을 확인했다. 이제 실제 코드를 살펴보자. 더 유려해진 것을 확인할 수 있다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">tsp</span><span class="p">(</span><span class="n">dists</span><span class="p">):</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">dists</span><span class="p">)</span>
+    <span class="n">VISITED_ALL</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">N</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="n">cache</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">None</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">N</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">)]</span>
+    <span class="n">INF</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s">'inf'</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">find_path</span><span class="p">(</span><span class="n">last</span><span class="p">,</span> <span class="n">visited</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">visited</span> <span class="o">==</span> <span class="n">VISITED_ALL</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">dists</span><span class="p">[</span><span class="n">last</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="ow">or</span> <span class="n">INF</span>
+
+        <span class="k">if</span> <span class="n">cache</span><span class="p">[</span><span class="n">last</span><span class="p">][</span><span class="n">visited</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">cache</span><span class="p">[</span><span class="n">last</span><span class="p">][</span><span class="n">visited</span><span class="p">]</span>
+            
+        <span class="n">tmp</span> <span class="o">=</span> <span class="n">INF</span>        
+        <span class="k">for</span> <span class="n">city</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">visited</span> <span class="o">&amp;</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">city</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">dists</span><span class="p">[</span><span class="n">last</span><span class="p">][</span><span class="n">city</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">tmp</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">tmp</span><span class="p">,</span>
+		 	  <span class="n">find_path</span><span class="p">(</span><span class="n">city</span><span class="p">,</span> <span class="n">visited</span> <span class="o">|</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">city</span><span class="p">))</span> <span class="o">+</span> <span class="n">dists</span><span class="p">[</span><span class="n">last</span><span class="p">][</span><span class="n">city</span><span class="p">])</span>
+        <span class="n">cache</span><span class="p">[</span><span class="n">last</span><span class="p">][</span><span class="n">visited</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp</span>
+        <span class="k">return</span> <span class="n">tmp</span>
+                
+    <span class="k">return</span> <span class="n">find_path</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">0</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>코드의 중요한 부분을 설명하면 다음과 같다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">cache</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">None</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">N</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">)]</span>
+</code></pre></div></div>
+
+<p>동적 계획법을 위한 캐시를 초기화한다. <strong><em>range(N)</em> 을 통해 도시의 개수(N)에 대응하고 <em>(1 &lt;&lt; N)</em> 을 통해 방문한 도시 집합(V)에 대응한다.</strong> 만약 <em>start</em> 변수까지 추적해야 했다면 캐시의 차원이 한 단계 더 증가해 복잡해졌을 것이다. 하지만 이제는 그러지 않아도 된다. 각 셀의 초기값은 <em>None</em> 으로 둔다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="n">visited</span> <span class="o">==</span> <span class="n">VISITED_ALL</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">dists</span><span class="p">[</span><span class="n">last</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="ow">or</span> <span class="n">INF</span>
+</code></pre></div></div>
+
+<p>완전탐색 코드에서 모든 도시를 방문했을 때와 유사하다. 하지만 조금 다른데 이번에는 <code class="highlighter-rouge">or</code> 연산자를 썼다. <strong>이 연산자를 통해 마지막 방문 도시와 0번째(여기서는 시작 도시) 사이의 경로가 존재하면(이 문제에서는 값이 0이 아니라면) 이 경로 값을 반환하고 이어져 있지 않다면(이 문제에서는 값이 0이라면) 무한값을 반환해서 절대 답이 될 수 없게 한다.</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="n">cache</span><span class="p">[</span><span class="n">last</span><span class="p">][</span><span class="n">visited</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">cache</span><span class="p">[</span><span class="n">last</span><span class="p">][</span><span class="n">visited</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p>우리는 캐시의 초기값을 <em>None</em> 으로 했다. 근데 값이 <em>None</em> 이 아니라는 얘기는 해당 <em>last</em> 와 <em>V</em> 에 대한 계산이 이미 이루어졌고 지금은 중복 호출되었다는 뜻이기 때문에 다시 재계산하지 않고 값을 바로 반환한다. 동적 계획법은 이렇게 중복 계산을 없애 효율을 높인다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tmp</span> <span class="o">=</span> <span class="n">INF</span>        
+<span class="k">for</span> <span class="n">city</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">visited</span> <span class="o">&amp;</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">city</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">dists</span><span class="p">[</span><span class="n">last</span><span class="p">][</span><span class="n">city</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+	<span class="n">tmp</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span>
+		  <span class="n">tmp</span><span class="p">,</span>
+		  <span class="n">find_path</span><span class="p">(</span><span class="n">city</span><span class="p">,</span> <span class="n">visited</span> <span class="o">|</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">city</span><span class="p">))</span> <span class="o">+</span> <span class="n">dists</span><span class="p">[</span><span class="n">last</span><span class="p">][</span><span class="n">city</span><span class="p">]</span>
+		  <span class="p">)</span>
+
+<span class="n">cache</span><span class="p">[</span><span class="n">last</span><span class="p">][</span><span class="n">visited</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp</span>
+</code></pre></div></div>
+
+<p>이제 첫 계산이라면, 방문하지 않은 모든 도시를 모두 방문해서 그중 최소값을 선택해야 한다. 그래서 <em>tmp</em> 를 무한으로 설정하고, 방문하지 않은 도시를 각각 방문하고 <em>tmp</em> 를 점점 줄여나간다.</p>
+
+<p><em>tmp</em> 의 최소값을 경신하는 식의 <em>find_path</em> 재귀호출에서 <em>dists[last][city]</em> 를 더해나가는 것을 확인하자. <em>tmp_dist</em> 를 함수에 인자로 넣는 대신 이렇게 더하는 방식을 통해서도 값을 구할 수 있다. 이는 사실 완전탐색 식에서도 마찬가지다. 이전 포스트에서 이렇게 하지 않은 이유는 처음 떠오른 방식이 인자로 값을 넘기는 방식이었기 때문이다. 하지만 확인 결과 꼭 그러지 않아도 충분했다.</p>
+
+<p>모든 도시를 방문하고 최소로 경신된  <em>tmp</em> 를 캐시에 저장한다. 이후 이 <em>last</em>, <em>V</em> 에 대한 호출에서는 재계산하지 않고 바로 답을 반환할 수 있다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">return</span> <span class="n">find_path</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">0</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>점화식을 ignite한다. 2장 3절에서 시작 도시는 어디가 되어도 결국 정답 경로를 찾게 된다는 것을 확인했다. 그래서 여기서는 0번 인덱스의 도시를 시작 도시로 고정하고 여행을 시작한다. 하지만 시작 도시는 1, 2, …, <script type="math/tex">N</script>-1번 도시가 되어도 관련 코드만 수정해주면 답이 나올 것이다. 그렇기에 추적하지 않는 것이다!</p>
+
+<p><br /></p>
+
+<p>이렇게 동적 계획법을 통해 TSP를 해결해보았다.</p>
+
+<p><br id="4" /></p>
+
+<h2 id="4-마치며">4. 마치며</h2>
+
+<hr />
+
+<p>결국에는 이 포스트를 해결했다. 이 동적 계획법 포스트는 나한테는 도전이었다. 문제 자체가 까다로워서 사실 어떻게 포스트를 진행해 나가야 할지 감이 오지 않았기 때문이다. 아마 지금까지 다룬 알고리즘 포스트 중에는 가장 까다롭지 않았을까? 부족한 부분이 있겠지마는 일단은 후련하다.</p>
+
+<p>첫 연속 포스트를 일단락지었다. TSP의 다양한 알고리즘 중 가장 잘 알려진 동적 계획법까지만 해결했기 때문에 다른 방법론에 대해 언젠가 다루지 말라는 법은 없지만 현재는 잘 모르겠다. 아직 내게 미개척지로 남은 분야가 너무 많아서… 하지만 두고 볼 일이다.</p>
+
+<p>포스트를 2주만에 작성했다. 뭐 일하면서 바빴다고 말하고 싶지만 결국 변명이라는 것을 안다. 다음주에는 미루지 않고 꼭 하나라도 작성할 수 있도록 해봐야겠다.</p>
+
+<p>이상 포스트를 마칩니다.</p>
+
+      <div class="page-footer">
+        <div class="page-share">
+          <a href="https://twitter.com/intent/tweet?text=TSP 알고리즘 2: 동적 계획법 구현&url=http://localhost:4000/programming/algorithm/solve-tsp-with-dynamic-programming" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
+          <a href="https://facebook.com/sharer.php?u=http://localhost:4000/programming/algorithm/solve-tsp-with-dynamic-programming" title="Share on Facebook" rel="nofollow" target="_blank">Facebook</a>
+          <a href="https://plus.google.com/share?url=http://localhost:4000/programming/algorithm/solve-tsp-with-dynamic-programming" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>
+        </div>
+        <div class="page-tag">
+          
+            <a href="/tags#TSP" class="tag">&#35; TSP</a>
+          
+            <a href="/tags#dynamic_programming" class="tag">&#35; dynamic_programming</a>
+          
+        </div>
+      </div>
+		  <!-- Load Facebook SDK for JavaScript -->
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+
+  <!-- Your share button code -->
+  <div class="fb-share-button" 
+    data-href="http://localhost:4000/programming/algorithm/solve-tsp-with-dynamic-programming" 
+    data-layout="button_count">
+  </div>
+
+		
+    </div> <!-- End Wrap Content -->
+  </div> <!-- End Page Content -->
+</article> <!-- End Article Page -->
+
+</div>
+
+  </div>
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', '', 'auto');
+  ga('send', 'pageview');
+</script> <!-- End Analytics -->
+
+	<script src="https://unpkg.com/simple-jekyll-search@1.5.0/dest/simple-jekyll-search.min.js"></script>
+<script>
+var sjs = SimpleJekyllSearch({
+  searchInput: document.querySelector('#search-input'),
+  resultsContainer: document.getElementById('results-container'),
+  json: '/search.json',
+  searchResultTemplate: '<li class="search-results-item"><a href="http://localhost:4000{url}">{title}</a></li>',
+	limit: 9,
+	noResultsText: '<li class="search-results-item"><a href="#">No results found...</a></li>'
+})
+</script>
+
+	<!-- Main Js -->
+<!--<script src="/assets/js/main.js"></script>-->
+
+<!-- JQuery 3.x min -->
+<script src="/assets/js/jquery.js"></script>
+
+<script>
+	let menus = $("#category-list");
+	let image = $("#menu-toggler img");
+	$("#toggler-wrapper").click(function() {
+		if(menus.css("display") === "none") {
+			image.attr("src", "/assets/img/close-button.png");
+			menus.css("display", "flex");
+		}
+		else {
+			image.attr("src", "/assets/img/nav-off.png");
+			menus.css("display", "none");
+		}
+	});
+
+
+</script>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-127149179-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-127149179-1');
+</script>
+
+</body>
+</html>

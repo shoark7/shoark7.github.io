@@ -5,7 +5,7 @@ blockquote {
 .function-definition {
 	font-style: italic;
 	color: #17a2b8!important;
-	text-center: center!important;
+	text-align: center!important;
 	padding: 3rem!important;
 	font-size: 1.25rem;
 }
