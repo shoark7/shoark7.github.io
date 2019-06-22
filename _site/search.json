@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "개발 블로그를 운영하면서 느낀 점",
+      "category" : "",
+      "tags"     : "Dev-blog",
+      "url"      : "/insight/rationality/what-I-feel-with-my-dev-blog",
+      "date"     : "2019-06-22 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "TSP 알고리즘 2: 동적 계획법 구현",
       "category" : "",
       "tags"     : "TSP, dynamic_programming",

@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>개발 블로그를 운영하면서 느낀 점 - Parkito's on the way</title>
+
+  <!-- Edit site and author settings in `_config.yml` to make the social details your own -->
+
+    <meta content="Parkito's on the way" property="og:site_name">
+  
+    <meta content="개발 블로그를 운영하면서 느낀 점" property="og:title">
+  
+  
+    <meta content="article" property="og:type">
+  
+  
+    <meta content="개발 블로그를 수개월간 운영하고 글을 쓰면서 중요하다고 느낀 점을 공유하고자 합니다." property="og:description">
+  
+  
+    <meta content="http://localhost:4000/insight/rationality/what-I-feel-with-my-dev-blog" property="og:url">
+	
+  
+    <meta content="2019-06-22T00:00:00+09:00" property="article:published_time">
+    <meta content="http://localhost:4000/about/" property="article:author">
+  
+  
+    <meta content="http://localhost:4000/assets/img/insight/feel-with-dev-blog-logo.jpg" property="og:image">
+  
+  
+    
+    <meta content="Insight" property="article:section">
+    
+  
+  
+    
+    <meta content="Dev-blog" property="article:tag">
+    
+  
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@">
+    <meta name="twitter:creator" content="@">
+  
+    <meta name="twitter:title" content="개발 블로그를 운영하면서 느낀 점">
+  
+  
+    <meta name="twitter:url" content="http://localhost:4000/insight/rationality/what-I-feel-with-my-dev-blog">
+  
+  
+    <meta name="twitter:description" content="개발 블로그를 수개월간 운영하고 글을 쓰면서 중요하다고 느낀 점을 공유하고자 합니다.">
+  
+  
+    <meta name="twitter:image:src" content="http://localhost:4000/assets/img//insight/feel-with-dev-blog-logo.jpg">
+  
+
+  
+    <meta content="개발 블로그를 수개월간 운영하고 글을 쓰면서 중요하다고 느낀 점을 공유하고자 합니다." name="description">
+  
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="shortcut icon" href="/assets/img/favicon/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" href="/assets/img/favicon/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/assets/img/favicon/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/assets/img/favicon/apple-touch-icon-144x144.png">
+	<!-- Chrome, Firefox OS and Opera -->
+	<meta name="theme-color" content="#263959">
+	<!-- Windows Phone -->
+	<meta name="msapplication-navbutton-color" content="#263959">
+	<!-- iOS Safari -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="#263959">
+	<!-- Google Fonts -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+	
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="/assets/fonts/font-awesome/css/font-awesome.min.css">
+	<!-- Styles -->
+	<!-- Mathjax Support -->
+<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+	MathJax.Hub.Config({
+  showProcessingMessages: false,
+  jax: ["input/TeX", "output/HTML-CSS"],
+  TeX: {
+    TagSide: "left",
+    Macros: {
+      RR: '{\\bf R}',
+      bold: ['{\\bf #1}',1]
+    }
+  },
+  CommonHTML: {
+    linebreaks: {automatic: true}
+  }
+});
+</script>
+
+	<link rel="stylesheet" href="/assets/css/main.css">
+	<link rel="stylesheet" href="/assets/css/personal.css">
+	<link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Nanum+Gothic:400,700,800&amp;subset=korean" rel="stylesheet">
+</head>
+
+<body style="position: relative">
+	<div id="toggler-wrapper">
+		<div id="menu-toggler">
+			<img src="/assets/img/nav-off.png" alt="Menu collapse image">
+		</div>
+	</div>
+
+  <div class="wrapper">
+
+		<nav id="nav">
+			<div id="menus">
+				<p>
+					<a class="navbar-brand text-white" href="/">&nbsp;&nbsp;&nbsp;Parkito's on the way!&nbsp;&nbsp;&nbsp;</a>
+				</p>
+				<ul id="category-list">
+					<li>
+						<a href="/about.me">
+							<div class="menu">
+								<span> About </span>
+							</div>
+						</a>
+					</li>
+				
+					<li>
+						<div class="menu-wrapper">
+							<a href="/category/programming">
+								<div class="menu">
+									<span> Programming </span>
+								</div>
+							</a>
+							<div class="menu-item">
+								<a href="/category/programming/knowledge">Knowledge</a>
+								<a href="/category/programming/algorithm">Algorithm</a>
+								<a href="/category/programming/python">Python</a>
+								<a href="/category/programming/shell-programming">Shell programming</a>
+							</div>
+						</div>
+					</li>
+				
+					<li>
+						<div class="menu-wrapper">
+								<a href="/category/insight">
+									<div class="menu">
+										<span> Insight </span>
+									</div>
+								</a>
+								<div class="menu-item">
+									<a href="/category/insight/sensitivity">&nbsp;&nbsp;Sensitivity&nbsp;&nbsp;</a>
+									<a href="/category/insight/rationality">&nbsp;&nbsp;Rationality&nbsp;&nbsp;</a>
+								</div>
+						</div>
+					</li>
+
+					<li>
+						<div class="menu-wrapper">
+								<a href="/category/projects">
+									<div class="menu">
+										<span> Projects </span>
+									</div>
+								</a>
+							<div class="menu-item">
+								<a href="/category/projects/dev-related">&nbsp;&nbsp;Dev related&nbsp;&nbsp;</a>
+								<a href="/category/projects/etc">&nbsp;&nbsp;ETC&nbsp;&nbsp;</a>
+							</div>
+						</div> </li>
+
+				</ul>
+			</div>
+
+			<div id="menus-right">
+				<div id="search-section">
+					<div class="input-wrapper">
+						<span class="fa fa-search"></span>
+						<input type="text" id="search-input" placeholder="Please input specific keyword :)" size="30">
+					</div>
+					<div id="results-container"></div>
+				</div>
+
+				<!--<div id="toggler-wrapper">-->
+					<!--<div id="menu-toggler">-->
+						<!--<img src="/assets/img/nav-off.png" alt="" width="35px" height="35px">-->
+					<!--</div>-->
+				<!--</div>-->
+				
+			</div>
+			
+		</nav>
+
+
+    <aside class="sidebar">
+  <header>
+    <div class="about">
+      <div class="cover-author-image">
+        <a href="/"><img src="/assets/img/1536558558520.jpg" alt="Sunghwan Park"></a>
+      </div>
+      <div class="author-name">Sunghwan Park</div>
+      <p>I'm Parkito. A Python lover. Interested in Python, Automation, Algorithm. Please give me insights. I'll teach you tambien! :)</p>
+    </div>
+  </header> <!-- End Header -->
+  <footer>
+    <section class="contact">
+      <h3 class="contact-title">Contact me</h3>
+      <ul>
+				<!--
+        
+          <li><a href="https://twitter.com/artemsheludko_" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+        
+        
+          <li><a href="https://facebook.com/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+        
+				-->
+        
+          <li class="github"><a href="http://github.com/shoark7" target="_blank"><i class="fa fa-github"></i></a></li>
+        
+        
+          <li class="linkedin"><a href="https://in.linkedin.com/in/sunghwan-park-3773b8154" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+        
+        
+          <li class="email"><a href="mailto:shoark7@gmail.com"><i class="fa fa-envelope-o"></i></a></li>
+        
+      </ul>
+    </section> <!-- End Section Contact -->
+    <div class="copyright">
+      <p>2019 &copy; Sunghwan Park</p>
+    </div>
+  </footer> <!-- End Footer -->
+</aside> <!-- End Sidebar -->
+
+<div class="content-box clearfix">
+  <article class="article-page">
+  <div class="page-content">
+    
+    <div class="page-cover-image">
+      <figure>
+        <img class="page-image" src=/assets/img//insight/feel-with-dev-blog-logo.jpg alt="개발 블로그를 운영하면서 느낀 점">
+        
+      </figure>
+    </div> <!-- End Page Cover Image -->
+    
+    <div class="wrap-content">
+      <header class="header-page">
+        <h1 class="page-title">개발 블로그를 운영하면서 느낀 점</h1>
+        <div class="page-date"><span>2019, Jun 22&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+      </header>
+      <h2 id="0-index">0. Index</h2>
+
+<blockquote>
+  <ol>
+    <li><a href="#1">들어가며</a></li>
+    <li><a href="#2">블로그를 시작한 이유와 현 상황</a>
+      <ul>
+        <li>2.1. <a href="#2a">블로그를 시작한 이유</a></li>
+        <li>2.2. <a href="#2b">블로그의 현 상황</a></li>
+      </ul>
+    </li>
+    <li><a href="#3">느낀 점</a>
+      <ul>
+        <li>3.1. <a href="#3a">블로그 운영 관점</a></li>
+        <li>3.2. <a href="#3b">컨텐츠 관점</a></li>
+        <li>3.3. <a href="#3c">블로그 인지도 관점</a></li>
+        <li>3.4. <a href="#3d">커리어 관점</a></li>
+        <li>3.5. <a href="#3e">기타</a></li>
+      </ul>
+    </li>
+    <li><a href="#4">마치며</a></li>
+  </ol>
+</blockquote>
+
+<p><br id="1" /></p>
+
+<h2 id="1-들어가며">1. 들어가며</h2>
+
+<hr />
+
+<p>난 작년 9월부터 현재까지 약 9개월 간 개발 블로그를 운영하고 있다. 생각보다 꽤 됐다. 지금 읽고 있는 탭의 도메인 이름(shoark7.github.io)이 내 블로그의 이름이며 이름에서 알 수 있듯이 github의 <a href="https://pages.github.com/">무료 호스팅 서비스</a>으로 호스팅하고 있고, <a href="https://jekyllrb.com/">Jekyll</a>로 컨텐츠를 만들고 관리한다. 이 서비스들은 꽤 괜찮기 때문에 블로그를 운영하고 싶으신 분들께 개인적으로 추천한다.</p>
+
+<p><strong>9개월이라는 짧지만은 않은 시간동안 블로그를 운영하고 컨텐츠를 제작하면서 느낀 점이 많다.</strong> 언젠가 이에 대해 정리하고 싶었는데 딱 지금이 삘이 왔다. 원래는 느낀 점 자체보다는 블로그의 컨텐츠의 유입률 등의 메타분석을 할까 했었는데, 먼저 <strong>운영 자체에 대한 느낌을 전달해야겠다고 생각이 들었다.</strong> 그래서 글을 쓴다.</p>
+
+<p><br id="2" /></p>
+
+<h2 id="2-블로그를-시작한-이유와-현-상황">2. 블로그를 시작한 이유와 현 상황</h2>
+
+<hr />
+
+<p><br id="2a" /></p>
+
+<h3 id="21-블로그를-시작한-이유">2.1. 블로그를 시작한 이유</h3>
+
+<p>느낀 점을 바로 살피기에 앞서 내 블로그의 지향점과 현재 운영 상황에 대해 살펴볼 필요가 있겠다. 내가 개발 블로그를 운영하게 된 계기는 다음과 같다:</p>
+
+<ul>
+  <li><strong>배운 내용을 효과적으로 정리하고 싶었다.</strong>
+    <ul>
+      <li>개발을 공부하며 수많은 내용을 정리하는데 예전에는 github에 보관했다. 하지만 github는 문서 정리용 서비스가 아니기 때문에 수개월 뒤 자료를 다시 찾아보기도 너무 힘들었고, 또 내용의 질이 나쁘지 않음에도 그 누구에게도 주목받지 못했다. 대신 블로그에 내용을 정리함으로써 REST, 디자인 패턴 등 중요한 내용을 나중에 다시 찾아볼 때 큰 도움이 됐다.</li>
+    </ul>
+  </li>
+  <li><strong>내가 배우고 아는 내용을 타인과 나누고 싶었다.</strong>
+    <ul>
+      <li>‘<em>내가 공부한 내용을 공유하고 싶다</em>’ 아마 개발 블로그를 공유하는 많은 분들이 공감하실 것이다. 나도 마찬가지였고 요즘은 유튜브 채널 등도 많이 운영하는데 아싸인 나로서는 블로그가 더 편했다.</li>
+    </ul>
+  </li>
+  <li><strong>커리어에 도움이 되지 않을까 싶었다.</strong>
+    <ul>
+      <li>개발 블로그를 꾸준히 하고 배운 내용을 정리하면 커리어에 도움이 될 수 있다는 얘기를 얼핏 들은 적이 있다. 그래서 이왕 블로그를 운영하는 거, 제대로 해야겠다고 마음 먹었다.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br id="2b" /></p>
+
+<h3 id="22-블로그의-현-상황">2.2. 블로그의 현 상황</h3>
+
+<p>내 블로그는 개발 내용이 압도적으로 많지만, 개인적인 느낌이나 영감, 소중한 글을 저장하는 용도로도 쓰이고 있다. 특히 <a href="https://shoark7.github.io/category/insight">Insights</a> 섹션에 관련 내용이 많은데 여기 글들은 내 사후에 출판될 수 있는 수준의 글들이 더 실릴 것이다.</p>
+
+<p>블로그에서는 Google Analytics를 사용해서 블로그 현황을 매일 파악하고 있다. GA는 페이지에 자바스크립트 링크만 삽입하면 되기 때문에 사용법이 정말 매우 간편한데 확인할 수 있는 정보는 매우 많다. 개발 블로그를 운영하는 분들은 분명 GA를 다 쓰고 계실 것이다. 다음 장의 많은 느낀 점들은 GA의 자료를 바탕으로 한 것이 많다.</p>
+
+<p>GA를 통해 확인할 수 있는 블로그의 현재 성과는 2019년 6월 22일 현재 월간 순사용자 2천명, 재사용률 2.5%, 세션 시간 1분 08초 정도이다. 뭐 다른 파워 블로거들에 비하면 결코 위대한 성과는 아니지만, 개인적으로 만족한다. 트래픽의 변동은 어느 수준까지는 쭉쭉 오르다가 이제는 약한 기울기의 성장세에 있다고 평가할 수 있다. 보다 구체적인 지표는 다음 장에서 같이 살펴볼 생각이다.</p>
+
+<p>단순 수치보다 더 만족스러운 것은 포스트들의 구글 검색 순위이다. 내 포스트들 중, 특히 개발 관련한 포스트들은 구글에서 검색 시 1페이지에 위치하는 것들이 좀 있다. 가령 <a href="https://shoark7.github.io/programming/knowledge/what-is-rest">논문을 통해 살펴본 REST</a>, <a href="https://shoark7.github.io/programming/algorithm/solve-tsp-with-dynamic-programming">동적 계획법을 사용한 TSP 알고리즘 구현</a> 등등 더 많다. 구글 검색 순위가 곧 글의 완성도 자체를 나타내지는 않는다. 하지만 최소한의 지표는 될 수 있다고 생각한다. 난 내 포스트에 정성을 담아 작성하고 그래서 자부심을 가지고 있기 때문에 이에 만족하고 있다.</p>
+
+<p>내 블로그에 대한 기본적인 이해는 이 정도까지 하고, 이제 내가 실제로 운영하면서 느낀 점을 같이 살펴보도록 하자.</p>
+
+<p><br id="3" /></p>
+
+<h2 id="3-느낀-점">3. 느낀 점</h2>
+
+<hr />
+
+<p>난 <code class="highlighter-rouge">구조화</code>의 힘과 중요성을 확신하는 광신도다. 그렇기에 <strong>느낀 점을 몇몇 분류로 나눠 정리하도록 하자.</strong> 이들은 크게 블로그 운영, 컨텐츠, 블로그 인지도, 커리어, 기타 관점으로 나눠볼 수 있다.</p>
+
+<p><br id="3a" /></p>
+
+<h3 id="31-블로그-운영-관점">3.1. 블로그 운영 관점</h3>
+
+<h4 id="ga는-필수다">GA는 필수다</h4>
+
+<p>블로그를 진지하게 운영한다면 앞서 소개한 GA를 사용하는 것은 필수적이다. 아마 나는 GA의 전체 기능의 1%도 쓰고 있지 않을텐데 그럼에도 GA를 통해 얻는 정보가 상당하다. 내가 자주 확인하는 정보로는 다음이 있다.</p>
+
+<ul>
+  <li>일간, 주간, 월간 순사용자 수, 평균 세션 시간, 이탈률, 세션 수</li>
+  <li>트래픽 채널의 원천: 직접 입력, 구글링 등의 검색, 링크 클릭, 페이스북이나 카카오 등을 통해 공유된 링크 등</li>
+  <li>국가별 세션 수(당연히 대한민국이 95% 이상은 된다.)</li>
+  <li>기기별 세션 수(데스크탑, 모바일, 태블릿)</li>
+  <li>포스트별 세션 수</li>
+</ul>
+
+<p>등등… 이런 정보들이 없었다면 내 블로그가 어떻게 돌아가는지 결코 파악하지 못했을 것이다. 또 글을 쓴다고 해서 실제 사람들이 읽는다고 확신이 없으니 블로그를 계속 운영할 동기부여도 떨어졌을 것이다. GA에 대한 온오프라인 강의가 있는 것이 이제는 이해가 간다.</p>
+
+<p>혹시 <strong>개발 블로그를 운영하는데 GA를 안 쓰시는 분들은 무조건 검색해서 쓰시기를 강력히 추천한다.</strong></p>
+
+<p><br /></p>
+
+<h4 id="jekyll은-매우-강력한-도구다">Jekyll은 매우 강력한 도구다</h4>
+
+<p>블로그 호스팅은 github를 사용한다. 가장 큰 이유는 ‘공짜’라서이다. <strong>나는 호스팅 자체보다 포스트를 작성하면 그에 맞게 사이트를 제작해주는 Jekyll에 매우 큰 매력을 느꼈다.</strong> Jekyll은 정적인 사이트를 제작해주는 프로그램인데 이게 정말 좋다.</p>
+
+<p>Jekyll은 라이브 서버를 제공해서 컨텐츠를 업로드 이전에 렌더링 상태를 확인할 수도 있고, 검색엔진 최적화(SEO)와 관련된 내용도 빌드하면 자동으로 관리해주며, 마크다운으로 포스트를 작성해도 HTML으로 자동 변환(build)해주기 때문에 컨텐츠를 작성하기도 쉽다.</p>
+
+<p>이중 <strong>마크다운을 HTML으로 변환하는 작업을 커스터마이즈하면 나만의 HTML 스타일링을 만들 수 있다.</strong> 가령 마크다운에서 <code class="highlighter-rouge">&gt;</code>사용하면 HTML로는 ‘blockquote’로 변환된다. <strong>Jekyll에서는 보통 마크다운으로 포스트를 작성하는데 이 마크다운은 어차피 HTML으로 변환되기 때문에 마크다운 중간에 HTML 코드를 넣어도 전혀 문제가 없다.</strong> blockquote를 만들고 나만의 클래스를 정의해 사용하면 내가 원하는 형태의 스타일링을 할 수 있다.</p>
+
+<p>그 예로는 이 <a href="https://shoark7.github.io/programming/algorithm/introduction-to-tsp-and-solve-with-exhasutive-search">포스트</a>의 2장에서 이미지 바로 밑에 문제 정의 섹션이 있는데 <strong>색깔이 하늘색으로서 마크다운으로 낼 수 없는 색이다.</strong> 이는 마크다운으로 포스트를 작성하면서 이 부분만 이미 만든 특정 클래스를 속성으로 하는 HTML 코드를 넣었기에 가능했다. 이렇게 <strong>Jekyll 안에서는 마크다운으로 포스트를 작성하면서도 나만의 스타일링을 손쉽게 구현할 수 있다.</strong></p>
+
+<p>HTML, CSS에 대한 기초지식이 있다면 블로그를 만드실 분들께 Jekyll을 추천하고 싶다.</p>
+
+<p><br /></p>
+
+<h4 id="포스트-작성-주기를-정하자">포스트 작성 주기를 정하자</h4>
+
+<p>블로그 포스트를 작성하는 것은 꽤나 귀찮은 일이다. 특히 내 포스트들은 평균 길이나 글자수가 꽤 많은 편인데, 하나의 포스트를 만들 때 적게는 4~5 시간, 많게는 7~8 시간이 걸리는 것 같다. 그래서 꾸준히 글을 쓰자고 마음 먹어도 조금만 놓치면 어느새 1~2 주가 훌쩍 지나가 있기도 한다.</p>
+
+<p>그래서 <strong>개인적인 포스트 작성 주기를 정해놓는 것이 중요하다.</strong> 나는 ‘일주일에 하나는 쓰자’는 마음을 가지고 있는데 이렇게 마음 먹어도 사실 기한을 놓칠 때가 많다. 그래도 정해놓는 것이 중요하다. 기한이 지나서 양심의 가책이라도 느껴야 늦었지만 빨리 작업을 시작할 수 있다.</p>
+
+<p>내 입장에서 다른 블로그들을 돌아다니면 최신 포스트가 약  5 ~ 6개월 이전인 경우가 있다. 나는 이런 블로그를 보면 <code class="highlighter-rouge">죽었구나</code>라는 느낌이 든다. 그게 목적이라면 상관없지만 난 블로그 작성이 재밌기 때문에 죽게 만들고 싶은 마음이 없다. 이런 면에서도 자신만의 작성 주기를 만들고 이를 지키려는 노력이 필요하다.</p>
+
+<p><br id="3b" /></p>
+
+<h3 id="32-컨텐츠-관점">3.2. 컨텐츠 관점</h3>
+
+<h4 id="컨텐츠-주제를-정하는-것은-스트레스다">컨텐츠 주제를 정하는 것은 스트레스다</h4>
+
+<p>LOL을 오랫동안 본 사람이라면 ‘강찬용’이라는 프로게이머를 알 수도 있다. 선수 시설 ‘Ambition’이라는 아이디를 사용했고 지금은 은퇴하고 유튜브에서 개인방송을 하고 있다. 내가 얼핏 이 사람이 하는 말을 들은 기억이 있다. 그때 뭐라고 했냐면 <strong>“방송이 끝나고 채널을 닫으면 ‘아 다음엔 무슨 방송을 해야 하지’라는 생각이 듭니다.”</strong> 정확한 워딩은 아니었지만 핵심내용은 관통한다.</p>
+
+<p>나는 저 말을 듣고 비록 플랫폼은 다르지만 공감했다. 블로그를 하나 완성하고 업로드하면 그 순간에는 뿌듯한데 곧이어 막연한 걱정이 다가온다. <strong>‘내가 정한 포스트 주기가 있는데 이제 갱신되어 다시 7일 남았네, 다음엔 어떤 주제로 글을 쓰지..?’</strong></p>
+
+<p>이게 느낌이 딱 와서 주제를 잡으면 쓰는 건 금방 쓴다. 근데 <strong>어떤 주제의 글을 쓸지 학교 수업마냥 매주 정해져 있는 게 아니다보니 내 마음에 들고, 또 팔릴만한 주제를 찾아야 한다는 강박이 생긴다.</strong> 건전한 스트레스이기는 한데 만약 2주 이상 글을 못 쓰고 있다면 더 큰 스트레스가 되기도 한다. 아는만큼 글을 쓰기 때문에 공부를 계속해서, 꾸준히 해야하는 것도 있다.</p>
+
+<p><br /></p>
+
+<h4 id="컨텐츠를-잘-구조화하는-것은-필수적이다">컨텐츠를 잘 구조화하는 것은 필수적이다</h4>
+
+<p>이건 좀 중요하다. 사람들은 ‘시스템을 구조화해야 한다’고 하면 쉽게 동의한다. 근데 ‘글의 구조화도 잘해야 한다’고 하면 아까만큼의 확신을 보여주지는 않는다. 다시 말해 <code class="highlighter-rouge">글의 구조화</code>가 무엇인지 확실하게 모르는 것 같다.</p>
+
+<p>글의 구조화라는 게 별게 아니다. 가령 논문을 읽는다고 하자. 근데 논문의 저자가 극단적인 미니멀리스트라서, 논문 전체를 한 문장으로 만들었다고 하자. 일단 용량이 작아져서 개인은 흡족해한다. 하지만 이런 글이 좋은 글일까?</p>
+
+<p>저 논문은 지금 구조가 전혀 잡혀있지 않다. 글의 구조화도 다른 구조화와 똑같다. <strong>글에서 관련 내용끼리 묶어 장을 만들고, 장 안에서 절을 만들고, 절 안에서도 서로 다른 호흡 간에는 단락을 구분하고… 이런 작업을 글의 구조화라고 할 때, 구조화는 정말정말 중요하다.</strong></p>
+
+<p>이런 구조화가 중요한 이유는 다음과 같다.</p>
+
+<ul>
+  <li><strong>가독성</strong>:
+    <ul>
+      <li>No 1. 우선순위다. 일단 글에서 구조화가 안 되어 있으면 가독성이 매우 떨어진다. 컴퓨터는 HTML 문서를 한 줄로 받아도 문법만 맞으면 완벽하게 해석한다. 하지만 인간은 컴퓨터가 아니다. <strong>글의 구조화가 안 되어 있으면 아무리 훌륭한 내용이라도 독자의 눈에 띄지 않는다.(심지어는 읽을 수조차 없다)</strong></li>
+      <li>가독성을 증대하려는 노력은 언제나 의미있다. 앞서 Jekyll을 통해 HTML 태그를 나만의 방법으로 스타일링할 수 있다고 했다. <strong>난 나만의 구조화 스타일링을 만들기 위해 노력했는데, 가령 장과 장 사이의 간격, 절과 절 사이의 간격을 직접 테스트하면서 CSS 파일을 수정했다.</strong></li>
+      <li>또 <strong>글에서 평문, bold체, Italic체를 사용하는 상황의 구분 등을 구별하기 위해 노력했다.</strong> 예를 들어서, 문장 안에서 코드를 인용한다고 하자. 한 문장 안에서 다른 단어들과 코드는 공존하지만 서로 다른 의미(Semantic)를 갖는다. 따라서 나는 코드 부분에는 Italic을 적용한다. 이런 나만의 스타일링이 정답은 아니다. 하지만 노력 자체를 안 하는 것보다는 훨씬 낫다고 확신한다.</li>
+    </ul>
+  </li>
+  <li><strong>검색 엔진 최적화</strong>
+    <ul>
+      <li><strong>구조화는 또 구글, 네이버 등의 검색엔진의 최적화에 영향을 미친다.</strong> 내가 검색엔진의 동작의 구체적인 내용은 모르지만 이것만은 안다. <strong>구조화 안 된 글보다는  HTML 요소를 적재적소에 활용해 짠 글이 더 잘 검색되리란 것을.</strong> 이때 중요한 것은 전체 글에서 장, 절 등을 똑부러지게 구분할 수 있는지의 요소일 것이다. 지금 이 글에서도 숫자가 메겨져 있는 것들은 구조화를 위한 내 노력의 발로이다.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>단순히 작성한 코드를 업로드한 것을 넘어, 나만 이해하는 내용을 넘어 잘 쓴 글, 가독성 좋은 글, 잘 팔리는 글을 쓰려면 구조화는 필수적이라고 할 수 있다.</strong></p>
+
+<p><br /></p>
+
+<h4 id="악마는-디테일에-있다-오탈자-체크-필수">악마는 디테일에 있다: 오탈자 체크 필수</h4>
+
+<p>글을 쓰는 누구나 오탈자를 피할 수는 없다. 하지만 최소한으로 줄일 수는 있다. 지금 글을 쓰고 있는데 아직 초고도 안 끝낸 위의 내용에도 오탈자가 작렬할 것이라 생각한다. <strong>오탈자는 보통 글의 핵심적인 내용과는 크게 관련이 없는데 신기하게 글의 전체적인 완성도에 엄청난 영향을 미친다.</strong> 정말 악마는 디테일에 있다. 그런 사람은 별로 없겠지만 남이 읽으라는 용도로 블로그를 쓰는 사람이 퇴고를 거치지 않고 글을 쓰면 오탈자가 꽤 나올 것이다. 그런 글은 끝까지 읽지 않아도 저자의 수준을 어느 정도 파악할 수 있다.</p>
+
+<p>나는 개인적으로 내 글들이 수업 등에서 교보재로 쓰일 수 있는 수준이 되는 것을 최종 목표로 한다. 그러기 위해서는 글의 내용을 넘어 글 자체의 최종적인 완성도를 매우 중요하게 취급해야 한다. 이에 필수적으로 오탈자, 띄어쓰기, 문법, 비문 등을 예민하게 체크하며 글을 여러 번, 자세히 퇴고하려 한다. 심지어는 가까운 거리에 있는 두 문장이 같은 의미의 단어를 쓰고 있다면 한 문장에서 단어를 비슷한 단어로 바꿔주는 등의 섬세한 주의도 기울여야 한다.</p>
+
+<p>이 짓을 워낙 많이 하다 보니 난 어떤 글을 읽어도 마지막 완성도를 꼼꼼하게 확인하는 편이다. 꼭 그렇게 마음먹지 않아도 그냥 그렇게 된다. 집착일 수도 있는데 별 생각없이 끄적이는 것보다는 훨씬 낫다고 생각한다.</p>
+
+<p><br /></p>
+
+<h4 id="모바일-환경도-고려해야-한다">모바일 환경도 고려해야 한다</h4>
+
+<p><strong>이제는 글을 써도 모바일 환경도 반드시 고려해야 한다.</strong> 나는 개발 관련 내용을 적기 때문에 데스크탑 비중이 훨씬 높기는 하다. 내 블로그에서는 보통 개발을 하다가, 컴퓨터로 과제를 하다가 관련 내용을 찾는 경우가 많기 때문이다.</p>
+
+<p>하지만 모바일 기기 비중이 오늘 기준으로 35% 정도로 결코 무시할 수 없는 수준이다. 그래서 글을 퇴고하고 업로드 후에는 마지막으로 스마트폰으로 읽으면서 내용이 모바일로 읽을 때에도 잘 읽히는지 확인한다. 이는 요즘 같은 시대에는 필수적인 practice다.<br />
+근데 관련해서 고민이 있다. 내 블로그 중 가장 큰 비중을 차지하는 알고리즘 포스트에는 당연히 코드가 많다. 근데 데스크탑에서는 깔끔하게 보여도 화면이 작다보니 모바일 환경에서는 한 줄에 코드가 넘치면 wrap, 즉 아랫줄로 내려간다. 이게 가독성이 꽤 안 좋다. 어떤 게 최선일까 잘 모르겠다. 곧 결단을 내려서 코드 관련 HTML 요소의 CSS를 수정해야겠다.</p>
+
+<p><br id="3c" /></p>
+
+<h3 id="33-블로그-인지도-관점">3.3. 블로그 인지도 관점</h3>
+
+<h4 id="들인-시간과-정성이-곧-검색-순위-상위권을-의미하지는-않는다">들인 시간과 정성이 곧 검색 순위 상위권을 의미하지는 않는다</h4>
+
+<p>난 포스트의 검색 순위 지표를 중요하게 생각한다. 그게 어떤 식으로든 내 포스트의 질을 표현한다고 생각하기 때문이다. 그런데 내가 나름의 ‘역작’이라고 생각하고 시간과 정성을 쏟아 글을 써도 그게 꼭 검색 순위 상위권을 차지하지는 않는다.</p>
+
+<p>예를 들어보자. 내 개발 블로그의 트래픽 발생 순위를 매주 확인해보면 보통 상위 10%는 다 개발, 특히 알고리즘 포스트들이다. 전체 포스트 중에서 알고리즘 포스트 비율이 약 25%로 다른 범주에 비해 비율이 높은 것은 맞다. 그렇지만 상위 10% 포스트가 모두 알고리즘이라는 것은 나름 재미있는 의미가 있는 것 같다. <strong>이는 다른 말로 하면 알고리즘이 아닌 포스트, 특히 개발이 아닌 주제의 포스트들은 크게 관심 받지 못하고 있다고 표현할 수도 있다.</strong> 예를 들어 내가 운영 초창기에 쓴 <a href="https://shoark7.github.io/insight/rationality/%EA%B2%B0%EC%A0%95%EC%9E%A5%EC%95%A0-%EC%8B%9C-%EC%A2%8B%EC%9D%80-%ED%95%B4%EA%B2%B0%EB%B0%A9%EB%B2%95-%EB%82%98%EB%A8%B8%EC%A7%80-%EC%97%B0%EC%82%B0">나머지 연산 결정법</a>이나 <a href="https://shoark7.github.io/insight/rationality/%EB%B0%98%EB%A0%A4%EA%B2%AC,-%EA%B2%AC%EC%A3%BC-%EC%82%B0%EC%B1%85%EA%B0%88%EB%93%B1%EB%A1%A0">반려견 - 견주 산책갈등론</a>은 꽤나 가치 있는 인사이트를 담고 있다고 자체 평가하고 있다. 하지만 이 글은 거의 읽히지 않는다. 처음엔 조금 슬펐는데 어차피 내 사후에 출판하면 상관없지 싶다.</p>
+
+<p>그렇기 때문에 다음의 느낀 점이 중요해진다.</p>
+
+<p><br /></p>
+
+<h4 id="인지도가-중요하면-팔릴만한-주제를-선정하자">인지도가 중요하면 팔릴만한 주제를 선정하자</h4>
+
+<p><strong>만약 단순 정리가 아닌 읽히는 글을 쓰고 싶다면, 내 몇몇 포스트처럼 외면받지 않으려면 팔릴만한 주제로 글을 써야 한다.</strong> 다시 말해 주제를 전략적으로 선택해야 한다. 여기서 ‘팔릴만한 주제’란 ‘사람들이 많은 관심을 갖고 있거나’, ‘관련 검색이 많을 법한’을 의미한다.</p>
+
+<p>예를 들어보자. 내 블로그에서 꾸준히 매주 트래픽 상위권을 차지하는 포스트로는 <a href="https://shoark7.github.io/programming/algorithm/Permutations-and-Combinations">조합 - 순열 구현</a> 포스트가 있다. 나는 왜 이 포스트가 수요가 높을까 고민했는데 잠정적으로 내린 결론은 이 주제 자체가 현실에서 자주 언급되기 때문이라고 여겼다. 조합, 순열은 중등 수준에서 배우는 수학이고, 특히 <strong>알고리즘이 지나치게 어렵지 않아서 대학교 과제나 알고리즘 연습용으로 매우 좋다. 이를 증명하듯 알고리즘 포스트들의 순위를 보건대 피보나치 수열, 조합-순열, 이항계수 등 지나치게 어렵지 않아서 초보 개발자가 질문 받고 연습하기 쉬운 주제들이 많이 검색되고 방문되는 것 같다.</strong></p>
+
+<p>이때 잘 이해가 안 가는 포스트가 있다. 언젠가 <a href="https://shoark7.github.io/programming/algorithm/3-ways-to-get-natural-number-sum-in-python">1부터 N까지의 합</a>에 대해 정리했는데 크게 3가지의 방법을 소개한다. 반복문으로 더하기, 분할정복으로 풀기, 가우스 정리 사용하기… 이 포스트의 순위는 매주 1 ~ 3등을 다투는데 왜 이 포스트가 수요가 높은지 이해가 잘 안 된다. 가우스의 방법은 초등학생도 앉혀놓고 이해시킬 수 있을만한 난이도인데(솔직히 그렇다) 이 알고리즘을 확인하려고 오는건가? 아니면 반복문을 처음 배워서 활용 예제를 푸는 중인가? 아니면 분할정복의 어썸한 방법을 배우고 싶은 것인가? 이건 정말 잘 모르겠다.</p>
+
+<p><strong>결론은 만약 단순 정리를 넘어 읽히는 글을 쓰고 싶다면 주제를 신중하게 선택하도록 해야 한다.</strong></p>
+
+<p><br /></p>
+
+<h4 id="컨텐츠의-meta-데이터를-신중하게-작성하자">컨텐츠의 Meta 데이터를 신중하게 작성하자</h4>
+
+<p>일단 웹에서는 모든 컨텐츠는 결국 HTML로 작성된다. 이때 페이지의 head 요소에 meta 요소를 쓸 수 있다. 이 meta 요소를 잘 작성해야 한다. 검색 순위를 높이는 데 꽤나 중요하기 때문이다. 특히 meta 요소에서 title, description은 정말 중요하다. title은 검색 시 가장 큰 제목으로, description은 링크 밑의 페이지 소개문장으로 표현된다.</p>
+
+<p>우리가 검색을 할 때 검색어에 오탈자를 내면 기대 안 한 전혀 다른 내용이 나오듯, 이 중요한 속성들에도 오탈자가 있거나 애매하게 적어놓으면 검색엔진이 제대로 참고하지 않을 수 있다. 그렇기에 본문도 물론 마찬가지지만, <strong>title, description과 같은 매우 중요한 meta 요소에 적는 내용은 다시 한 번 꼼꼼히 확인하고 내용도 신중하게 기입하자.</strong> 포스트를 온전하게 농축한 문장으로 정제해서 적을 수 있어야 하겠다.</p>
+
+<p><br id="3d" /></p>
+
+<h3 id="34-커리어-관점">3.4. 커리어 관점</h3>
+
+<h4 id="블로그가-매우-강력한-도구인지는-확실하지-않다">블로그가 매우 강력한 도구인지는 확실하지 않다</h4>
+
+<p>블로그를 시작한 이유에는 커리어에 도움이 될까해서 시작한 것도 있다. 인사 담당자에게 더 눈에 띄거나 성실성을 인정받을 수 있지 않을까 하는… 지금까지 면접을 매우 많이 보지는 않아서 통계적으로 유의미하지는 않지만 일단 지금까지의 면접을 살펴보면 <strong>블로그에 딱히 관심이 없다</strong>. 면접을 보러 가서 블로그에 대한 질문을 하는 곳은 단 한 곳뿐이었고 블로그의 내용을 하나라도 읽어봤는지, 아니 들어는 가봤는지조차 알 수 없었다. 스타트업은 제품 생산 능력과 직결되지 않으면 정말로 관심을 주지 않는다.</p>
+
+<p>물론 물론 매우 관심 있게 봐준 곳도 있다. 내 블로그의 컨텐츠를 많이 읽고 질문해준 곳도 있다. 개인적으로 참 고마웠는데 이런 경우는 특수하고, 아직까지는 ‘블로그로 재미를 봤다’고 말할 수 없다.</p>
+
+<p><br /></p>
+
+<h4 id="영어로-작성하는-것은-나쁘지는-않다">영어로 작성하는 것은 나쁘지는 않다</h4>
+
+<p>포스트를 조금씩 영어로 작성하고 있다. 아직 많지는 않은데 그래도 간간히 더 영어로 작성할 생각이다. 사실 영어로 작성하기 시작한 이유는 커리어보다는 트래픽을 높이기 위한 목적이 컸다. 단순하게 생각해서 한국어로 작성해서 한국에서 발생한 트래픽이 96%인데 순사용자가 2천명이라면, 같은 내용을 영어로 써서 예비 독자층을 전세계적으로 확대하면 사용자를 수만을 찍어볼 수 있지 않을까 하는.</p>
+
+<p>근데 생각보다 쉽지 않았다. 진화생물학에서 보면 보통 고립된 섬에서 자체 경쟁하고 진화한 생물종은 넓은 내륙에서 더 치열하고 다양한 환경에서 진화한 종에 압도된다. 이는 경쟁의 양과 질이 다르기 때문이다. 어차피 살아남았다면 더 치열한 환경에서 살아남은 종이 상대적으로 덜한 환경에서 진화한 종보다 생존력이 강할 수밖에 없다. 이는 갈라파고스라는 내륙에서 매우 먼 섬에서도 확인할 결과기도 하다. 이와 비슷한 논리로 <strong>많이 읽히려면 구글의 검색 순위를 높여야 한다. 이때 영어로 작성하면 내가 경쟁해야 하는 포스트의 수가 매우매우 늘어나게 된다.</strong> 그래서인지 영어로 쓴 포스트는 검색해도 모두 3페이지 이내에 뜨지 않는다. 아무래도 내용을 영어로 작성한다고 트래픽 수를 올리기는 힘들 것 같다.</p>
+
+<p>그래서 목적을 조금 바꿨다. <strong>내가 언젠가 해외로 일을 하러 가게 되면 영어로 글을 작성한 경험이 도움이 되지 않을까 싶다.</strong> 최소한의 영어능력이 된다는 것을 해외의 인사담당자들에게 어필할 수도 있고, 또 영어를 쓰는 것 자체가 영어실력을 늘리는 데 도움이 된다.</p>
+
+<p><br id="3e" /></p>
+
+<h3 id="35-기타">3.5. 기타</h3>
+
+<h4 id="글을-쓰는-것-자체는-언제나-옳다">글을 쓰는 것 자체는 언제나 옳다</h4>
+
+<p>마지막이다. 꼭 <strong>커리어나 명예 등을 떠나서 글을 쓰는 것 자체는 반드시 이후에 도움이 된다. 블로그를 운영하며 많은 글을 읽고 쓰고 수정하고 오탈자에 예민하게 반응하다보니 내가 쓰는 다른 글의 품질 또한 향상됐음을 느낀다.</strong> 일례로 현재 패스트캠퍼스에서 조교로 알바 뛰고 있는데 수강생들을 위해 내용 설명문서를 간간히 만든다. 이때 글을 쓴 경험이 도움이 됐는지 글이 일사천리로 써지고 쓰고 읽어봐도 오탈자나 비문의 비율이 현저히 줄었음을 확실히 느낀다.</p>
+
+<p>이는 꼭 내가 아니라도 많은 사람들이 말하는 바이기도 하다. 매일매일 조금씩 쓰라고. 매일은 못 쓰더라도 꾸준히 쓰는 것은 반드시 도움이 되는 것 같다. <strong>블로그든, 다른 플랫폼이든 글을 쓰는 노력은 분명 나를 배신하지 않는다.</strong></p>
+
+<p><br id="4" /></p>
+
+<h2 id="4-마치며">4. 마치며</h2>
+
+<hr />
+
+<p>생각보다 길어졌다. 줄은 250줄 정도밖에 안 되는게 이번에는 코드가 없고 완전 문장뿐이기 때문에 시간이 꽤 걸렸다. 근데 홀가분하다. 꼭 한 번 정리하고 싶었다. 블로그를 운영하고 내가 느낀 점을.</p>
+
+<p>혹시 이 글이 블로그를 갓 시작했거나 시작하려는 사람들에게 도움이 되지 않을까 하는 생각이 든다. 그럴 수 있으면 뿌듯할 것 같다.</p>
+
+<p>만약 이 블로그가 1년이 되고, 2, 3년이 되도록 살아남는다면 더 좋은 블로그가 되어 있지 않을까 싶다. 나도 더 느끼는 바가 있고 더 많이 알게 될 것이다. 지금까지 블로그를 운영한 것이 자랑스럽다. 많이 배웠고 개인적으로 조촐한 성과에 만족한다. 하지만 아직 끝나지 않았다. 꾸준히 글을 더 쓰고, 트래픽도 늘려야겠다. 지금이야 아무도 몰라주지만 반드시 빛을 볼 날이 있으리라 믿으며.</p>
+
+<p>이상 포스트를 마칩니다.</p>
+
+      <div class="page-footer">
+        <div class="page-share">
+          <a href="https://twitter.com/intent/tweet?text=개발 블로그를 운영하면서 느낀 점&url=http://localhost:4000/insight/rationality/what-I-feel-with-my-dev-blog" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
+          <a href="https://facebook.com/sharer.php?u=http://localhost:4000/insight/rationality/what-I-feel-with-my-dev-blog" title="Share on Facebook" rel="nofollow" target="_blank">Facebook</a>
+          <a href="https://plus.google.com/share?url=http://localhost:4000/insight/rationality/what-I-feel-with-my-dev-blog" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>
+        </div>
+        <div class="page-tag">
+          
+            <a href="/tags#Dev-blog" class="tag">&#35; Dev-blog</a>
+          
+        </div>
+      </div>
+		  <!-- Load Facebook SDK for JavaScript -->
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+
+  <!-- Your share button code -->
+  <div class="fb-share-button" 
+    data-href="http://localhost:4000/insight/rationality/what-I-feel-with-my-dev-blog" 
+    data-layout="button_count">
+  </div>
+
+		
+    </div> <!-- End Wrap Content -->
+  </div> <!-- End Page Content -->
+</article> <!-- End Article Page -->
+
+</div>
+
+  </div>
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', '', 'auto');
+  ga('send', 'pageview');
+</script> <!-- End Analytics -->
+
+	<script src="https://unpkg.com/simple-jekyll-search@1.5.0/dest/simple-jekyll-search.min.js"></script>
+<script>
+var sjs = SimpleJekyllSearch({
+  searchInput: document.querySelector('#search-input'),
+  resultsContainer: document.getElementById('results-container'),
+  json: '/search.json',
+  searchResultTemplate: '<li class="search-results-item"><a href="http://localhost:4000{url}">{title}</a></li>',
+	limit: 9,
+	noResultsText: '<li class="search-results-item"><a href="#">No results found...</a></li>'
+})
+</script>
+
+	<!-- Main Js -->
+<!--<script src="/assets/js/main.js"></script>-->
+
+<!-- JQuery 3.x min -->
+<script src="/assets/js/jquery.js"></script>
+
+<script>
+	let menus = $("#category-list");
+	let image = $("#menu-toggler img");
+	$("#toggler-wrapper").click(function() {
+		if(menus.css("display") === "none") {
+			image.attr("src", "/assets/img/close-button.png");
+			menus.css("display", "flex");
+		}
+		else {
+			image.attr("src", "/assets/img/nav-off.png");
+			menus.css("display", "none");
+		}
+	});
+
+
+</script>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-127149179-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-127149179-1');
+</script>
+
+</body>
+</html>
