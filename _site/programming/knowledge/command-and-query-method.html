@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Command와 Query, CQS 알아보기 - Parkito's on the way</title>
+
+  <!-- Edit site and author settings in `_config.yml` to make the social details your own -->
+
+    <meta content="Parkito's on the way" property="og:site_name">
+  
+    <meta content="Command와 Query, CQS 알아보기" property="og:title">
+  
+  
+    <meta content="article" property="og:type">
+  
+  
+    <meta content="함수를 크게 범주화할 수 있는 Command, Query method에 대해 알아보고 추가로 CQS까지 살펴봅니다." property="og:description">
+  
+  
+    <meta content="http://localhost:4000/programming/knowledge/command-and-query-method" property="og:url">
+	
+  
+    <meta content="2019-07-09T00:00:00+09:00" property="article:published_time">
+    <meta content="http://localhost:4000/about/" property="article:author">
+  
+  
+    <meta content="http://localhost:4000/assets/img/knowledge/cqs-logo.jpeg" property="og:image">
+  
+  
+    
+    <meta content="Programming" property="article:section">
+    
+  
+  
+    
+    <meta content="CQS" property="article:tag">
+    
+  
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@">
+    <meta name="twitter:creator" content="@">
+  
+    <meta name="twitter:title" content="Command와 Query, CQS 알아보기">
+  
+  
+    <meta name="twitter:url" content="http://localhost:4000/programming/knowledge/command-and-query-method">
+  
+  
+    <meta name="twitter:description" content="함수를 크게 범주화할 수 있는 Command, Query method에 대해 알아보고 추가로 CQS까지 살펴봅니다.">
+  
+  
+    <meta name="twitter:image:src" content="http://localhost:4000/assets/img//knowledge/cqs-logo.jpeg">
+  
+
+  
+    <meta content="함수를 크게 범주화할 수 있는 Command, Query method에 대해 알아보고 추가로 CQS까지 살펴봅니다." name="description">
+  
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="shortcut icon" href="/assets/img/favicon/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" href="/assets/img/favicon/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/assets/img/favicon/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/assets/img/favicon/apple-touch-icon-144x144.png">
+	<!-- Chrome, Firefox OS and Opera -->
+	<meta name="theme-color" content="#263959">
+	<!-- Windows Phone -->
+	<meta name="msapplication-navbutton-color" content="#263959">
+	<!-- iOS Safari -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="#263959">
+	<!-- Google Fonts -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+	
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="/assets/fonts/font-awesome/css/font-awesome.min.css">
+	<!-- Styles -->
+	<!-- Mathjax Support -->
+<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+	MathJax.Hub.Config({
+  showProcessingMessages: false,
+  jax: ["input/TeX", "output/HTML-CSS"],
+  TeX: {
+    TagSide: "left",
+    Macros: {
+      RR: '{\\bf R}',
+      bold: ['{\\bf #1}',1]
+    }
+  },
+  CommonHTML: {
+    linebreaks: {automatic: true}
+  }
+});
+</script>
+
+	<link rel="stylesheet" href="/assets/css/main.css">
+	<link rel="stylesheet" href="/assets/css/personal.css">
+	<link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Nanum+Gothic:400,700,800&amp;subset=korean" rel="stylesheet">
+</head>
+
+<body style="position: relative">
+	<div id="toggler-wrapper">
+		<div id="menu-toggler">
+			<img src="/assets/img/nav-off.png" alt="Menu collapse image">
+		</div>
+	</div>
+
+  <div class="wrapper">
+
+		<nav id="nav">
+			<div id="menus">
+				<p>
+					<a class="navbar-brand text-white" href="/">&nbsp;&nbsp;&nbsp;Parkito's on the way!&nbsp;&nbsp;&nbsp;</a>
+				</p>
+				<ul id="category-list">
+					<li>
+						<a href="/about.me">
+							<div class="menu">
+								<span> About </span>
+							</div>
+						</a>
+					</li>
+				
+					<li>
+						<div class="menu-wrapper">
+							<a href="/category/programming">
+								<div class="menu">
+									<span> Programming </span>
+								</div>
+							</a>
+							<div class="menu-item">
+								<a href="/category/programming/knowledge">Knowledge</a>
+								<a href="/category/programming/algorithm">Algorithm</a>
+								<a href="/category/programming/python">Python</a>
+								<a href="/category/programming/shell-programming">Shell programming</a>
+							</div>
+						</div>
+					</li>
+				
+					<li>
+						<div class="menu-wrapper">
+								<a href="/category/insight">
+									<div class="menu">
+										<span> Insight </span>
+									</div>
+								</a>
+								<div class="menu-item">
+									<a href="/category/insight/sensitivity">&nbsp;&nbsp;Sensitivity&nbsp;&nbsp;</a>
+									<a href="/category/insight/rationality">&nbsp;&nbsp;Rationality&nbsp;&nbsp;</a>
+								</div>
+						</div>
+					</li>
+
+					<li>
+						<div class="menu-wrapper">
+								<a href="/category/projects">
+									<div class="menu">
+										<span> Projects </span>
+									</div>
+								</a>
+							<div class="menu-item">
+								<a href="/category/projects/dev-related">&nbsp;&nbsp;Dev related&nbsp;&nbsp;</a>
+								<a href="/category/projects/etc">&nbsp;&nbsp;ETC&nbsp;&nbsp;</a>
+							</div>
+						</div> </li>
+
+				</ul>
+			</div>
+
+			<div id="menus-right">
+				<div id="search-section">
+					<div class="input-wrapper">
+						<span class="fa fa-search"></span>
+						<input type="text" id="search-input" placeholder="Please input specific keyword :)" size="30">
+					</div>
+					<div id="results-container"></div>
+				</div>
+
+				<!--<div id="toggler-wrapper">-->
+					<!--<div id="menu-toggler">-->
+						<!--<img src="/assets/img/nav-off.png" alt="" width="35px" height="35px">-->
+					<!--</div>-->
+				<!--</div>-->
+				
+			</div>
+			
+		</nav>
+
+
+    <aside class="sidebar">
+  <header>
+    <div class="about">
+      <div class="cover-author-image">
+        <a href="/"><img src="/assets/img/1536558558520.jpg" alt="Sunghwan Park"></a>
+      </div>
+      <div class="author-name">Sunghwan Park</div>
+      <p>I'm Parkito. A Python lover. Interested in Python, Automation, Algorithm. Please give me insights. I'll teach you tambien! :)</p>
+    </div>
+  </header> <!-- End Header -->
+  <footer>
+    <section class="contact">
+      <h3 class="contact-title">Contact me</h3>
+      <ul>
+				<!--
+        
+          <li><a href="https://twitter.com/artemsheludko_" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+        
+        
+          <li><a href="https://facebook.com/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+        
+				-->
+        
+          <li class="github"><a href="http://github.com/shoark7" target="_blank"><i class="fa fa-github"></i></a></li>
+        
+        
+          <li class="linkedin"><a href="https://in.linkedin.com/in/sunghwan-park-3773b8154" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+        
+        
+          <li class="email"><a href="mailto:shoark7@gmail.com"><i class="fa fa-envelope-o"></i></a></li>
+        
+      </ul>
+    </section> <!-- End Section Contact -->
+    <div class="copyright">
+      <p>2019 &copy; Sunghwan Park</p>
+    </div>
+  </footer> <!-- End Footer -->
+</aside> <!-- End Sidebar -->
+
+<div class="content-box clearfix">
+  <article class="article-page">
+  <div class="page-content">
+    
+    <div class="page-cover-image">
+      <figure>
+        <img class="page-image" src=/assets/img//knowledge/cqs-logo.jpeg alt="Command와 Query, CQS 알아보기">
+        
+      </figure>
+    </div> <!-- End Page Cover Image -->
+    
+    <div class="wrap-content">
+      <header class="header-page">
+        <h1 class="page-title">Command와 Query, CQS 알아보기</h1>
+        <div class="page-date"><span>2019, Jul 09&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+      </header>
+      <h2 id="0-index">0. Index</h2>
+
+<blockquote>
+  <ol>
+    <li><a href="#1">들어가며</a></li>
+    <li><a href="#2">Betrand Meyer</a></li>
+    <li><a href="#3">개념 소개</a>
+      <ul>
+        <li>3.1. <a href="#3a">Query vs Command</a></li>
+        <li>3.2. <a href="#3b">Command Query Separation</a></li>
+      </ul>
+    </li>
+    <li><a href="#4">마치며</a></li>
+    <li><a href="#5">자료 출처</a></li>
+  </ol>
+</blockquote>
+
+<p><br id="1" /></p>
+
+<h2 id="1-들어가며">1. 들어가며</h2>
+
+<hr />
+
+<p>아는 사람은 알지만, 나는 프로그래밍 교육 기관에서 조교, 코칭 일을 적잖이 했다. 아무래도 요즘 프로그래밍 입문을 파이썬으로 많이 하다보니 파이썬을 공부하는 내가 설 자리가 있었던 것 같다. 그래서 프로그래밍을 처음 하는 사람들에게 변수, 할당, 함수 등 초보적인 개념부터 설명할 일이 많았는데 특히 함수를 공부할 때 <code class="highlighter-rouge">list.sort()</code>와 <code class="highlighter-rouge">sorted()</code>처럼 비슷한 일을 하는데 구체적인 동작은 다른 형태에 대해 많은 코칭이 필요했다.</p>
+
+<p>위 두 함수를 입문자에게는 ‘list를 정렬할 때 사용하는 두 가지 방법’이라고 설명한다. 근데 둘은 뚜렷이 구분되는 동작을 한다. 첫 번째 함수의 특징은 값이 반환되지 않아서 변수 할당에 사용할 수 없는데 두 번째는 그 반대다. 처음 공부하시는 분들이 이 두 가지를 혼동하는 경우가 많았고 그래서 <code class="highlighter-rouge">a = list.sort()</code>와 같은 실수를 많이 봤다. 이런 혼동은 비단 정렬 기능에만 해당하는 것이 아니다.</p>
+
+<p>그래서 <strong>오늘은 함수를 크게 두 가지로 구분하는 Command와 Query에 대해 공부한다.</strong> 먼저 이 개념을 소개한 Betrand Meyer에 대해 간략히 살펴본다. 프로그래밍 분야에 큰 공헌을 한 분이라고 한다. 다음으로 Command와 Query에 대해 본격적으로 다루는데 이는 실무와는 큰 관련은 없지만 프로그래밍을 처음 공부하는 분들에게는 함수의 개념을 이해하기에 꽤나 유용하다. 경험칙으로 확인했다. 그리고 ‘한 함수에서 Command와 Query를 구분하는 것이 좋다’는 원칙인 CQS에 대해서도 살핀다.</p>
+
+<p>이 포스트를 지난번에 맡은 구모 씨에게 바친다.</p>
+
+<p><br id="2" /></p>
+
+<h2 id="2-betrand-meyer">2. Betrand Meyer</h2>
+
+<hr />
+
+<p>Command와 Query, 그리고 CQS를 알아보기 전에 먼저 이 개념들을 소개한 사람을 간략히 알아보자.</p>
+
+<p><img src="http://psi.iis.nsk.su/system/files/bertrand_meyer_240.jpg" alt="Betrand Meyer" /></p>
+
+<p>Betrand Meyer(이하 ‘메이어’)는 프랑스 학자로 컴퓨터 언어 분야에 크게 공헌한 인물이다. OOP에 공헌했고 Design By Contract라는 개념을 소개한 인물로도 알려져 있다. 특히 Eiffel 언어를 창조했는데 언어의 이름이 이 사람이 프랑스 사람인 것과 무관하지 않아 보인다.</p>
+
+<p>저서 ‘Object Oriented Software Construction’에서 CQS를 소개했다.</p>
+
+<p><br id="3" /></p>
+
+<h2 id="3-개념-소개">3. 개념 소개</h2>
+
+<hr />
+
+<p><br id="3a" /></p>
+
+<h3 id="31-query-vs-command">3.1. Query vs Command</h3>
+
+<p>함수는 코드 블록에 대한 추상화다. 함수는 매우 중요하고 기본적인 프로그래밍 요소로 나도 방금 쓰고 왔다. 인간은 나누는 것을 참 좋아하는데, 함수도 필요에 따라 몇몇 범주로 나눌 수 있을 것이다. 이때 Meyer는 <strong>시스템의 상태를 바꾸는지</strong>를 기준으로 함수를 크게 두 가지로 분류한다.</p>
+
+<ul>
+  <li><strong>Query</strong>:
+    <ul>
+      <li>결과값을 반환하고, 시스템의 관찰가능한 상태를 변화시키지 않는다. 따라서 부작용에서 자유롭다.(free of side effects)</li>
+    </ul>
+  </li>
+  <li><strong>command</strong>:
+    <ul>
+      <li>결과를 반환하지 않고, 대신 시스템의 상태를 변화시킨다.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<p>이 둘을 이해하는 것은 어렵지 않다.</p>
+
+<p>먼저 Query. <strong>Query는 영어로 ‘질의’라는 뜻을 가지기 때문에 질문에 따른 답을 반환해야 한다. 함수가 Query라면 함수는 다른 값을 바꾸지 않고 오직 질문에 대한 답을 반환한다.</strong> 간단한 예제를 만들어볼 수 있겠다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+
+<span class="k">print</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">l</span><span class="p">))</span>
+
+<span class="mi">5</span>
+</code></pre></div></div>
+
+<p><em>max</em> 함수를 사용해 배열의 원소의 최대값을 반환했는데 이 함수를 통해 값이 반환됐지만 원 배열에 변화가 발생하지는 않았다. 따라서 <em>max</em> 내장 함수는 Query 메소드라고 할 수 있다.</p>
+
+<p><br /></p>
+
+<p>Command는 ‘명령’이라는 뜻을 가지고 있다. 군대를 생각해보자. 상명하복이라는 말이 있듯 군대에서는 상관의 명령에 대해 말대답보다는 실제 액션이 기대된다. 이런 의미에서 <strong>함수가 Command라면 Query와 달리 꼭 값을 반환하지 않더라도 실제 시스템의 상태를 영구적으로 변화시킨다는 의미를 갖고 있다.</strong> 그런 의미에서 Command를 ‘modifier’, ‘mutator’ 등으로 표현하기도 한단다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">l</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+
+<span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p>원 배열에 <em>list.reverse()</em> 메소드를 사용해 배열을 뒤집었다. 이 메소드는 결과값을 반환하지 않고 다만 원 배열의 상태를 영구히 변경할 뿐이다. 따라서 <em>list.reverse()</em> 는 Command 메소드다.</p>
+
+<p><br /></p>
+
+<p>상태를 바꾸는 함수와 바꾸지 않는 함수의 구분은 꽤나 유용하다. <strong>상태를 바꾸지 않는 함수는 안전하기 때문에 더 신뢰성을 갖고, 별다른 주의없이 원하는 대로 사용할 수 있다. 반면에 상태를 바꾸는 Command는 함수간 사용순서를 신중하게 짜야하고 부주의하게 실행하면 전혀 예상못한 결과가 나올 수 있음을 의미한다.</strong></p>
+
+<p>이런 구분은 HTTP method와도 연결된다. HTTP method는 10여 가지가 있는데 이때 서버의 상태를 변경하지 않는 메소드를 ‘안전하다’(safe)고 한다. 다른 말로는 CRUD 중에 Read-only 액션만 한다고 할 수 있다.</p>
+
+<p><strong>HTTP에서 GET은 대표적인 안전한 메소드로서 자원의 상태만을 요청하기 때문에 서버측에서 별다른 주의없이 대응해도 된다. 반면 POST 등의 안전하지 않은 메소드는 자원의 상태를 변경하기 때문에 서버 입장에서 신중하게 다루어야 한다. 이때 GET은 Query에 대응되고, POST는 Command에 대응된다.</strong></p>
+
+<hr />
+
+<p><br id="3b" /></p>
+
+<h3 id="32-command-query-separation">3.2. Command Query Separation</h3>
+
+<p>앞선 장에서 Command와 Query의 차이를 알아봤다. Command는 ‘명령’으로, 값을 반환하는 대신 상태를 변경한다. Query는 ‘질문’의 의미로 상태를 변화시키지 않고 값을 반환한다. <strong>메이어는 한 함수가 Command 또는 Query 중 하나의 역할만 할 것을 강조했다. 이 프로그래밍 원칙을 Command Query Separation, CQS라고 하며 이 둘을 구분하는 것의 장점은 위에서 말한 두 개념 구분의 장점과 일맥상통하다.</strong> 한 함수가 Command이면서 Query이기도 하다면 두 개념을 나누는 장점이 상쇄되기 때문이다.</p>
+
+<p>하지만 여기에도 예외는 있다. 쉬운 예로 스택의 pop 액션을 보자. 보통 pop 액션은 스택의 맨 위의 값을 빼서(command) 반환(query)하는 일까지 병행한다. 이 일반적인 액션은 명확히 command와 query를 겸임하고 있는 상태다. 이런 예외는 어떻게 대처해야 할까?</p>
+
+<p>일단 내 생각과 다른 사람들의 일반적인 의견은 ‘<strong>가능하다면 CQS를 지키되, 예외가 필요할 때는 허용하자</strong>‘다. 예외없는 법칙이 어디 있겠는가? 다만 CQS를 지키는 것이 유용하기 때문에 최대한 지키고 그럴 수 없는 경우에는 기능에 대한 문서화를 좀더 충실히 해놓는 것이 바람직하겠다.</p>
+
+<p><br id="4" /></p>
+
+<h2 id="4-마치며">4. 마치며</h2>
+
+<hr />
+
+<p>이번 포스트에서는 Command와 Query, 그리고 Command Query Separation의 개념에 대해 살펴봤다. 확실히 내용이 어렵지는 않다. 함수의 <code class="highlighter-rouge">return</code>문을 쓸 수 있기만 하면 이해되는 수준이다. 이 포스트가 프로그래밍에서 함수를 처음 접하는 분들에게 이해의 물꼬를 터줄 수 있기를 바래본다.</p>
+
+<p>이상 포스트를 마칩니다.</p>
+
+<p><br id="5" /></p>
+
+<h2 id="5-자료-출처">5. 자료 출처</h2>
+
+<hr />
+
+<ul>
+  <li><a href="https://martinfowler.com/bliki/CommandQuerySeparation.html" target="_blank">Martin Fowler: CQS</a></li>
+  <li><a href="https://en.wikipedia.org/wiki/Bertrand_Meyer" target="_blank">Wikipedia: Betrand Meyer</a></li>
+  <li><a href="https://en.wikipedia.org/wiki/Command%E2%80%93query_separation" target="_blank">Wikipedai: CQS</a></li>
+</ul>
+
+      <div class="page-footer">
+        <div class="page-share">
+          <a href="https://twitter.com/intent/tweet?text=Command와 Query, CQS 알아보기&url=http://localhost:4000/programming/knowledge/command-and-query-method" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
+          <a href="https://facebook.com/sharer.php?u=http://localhost:4000/programming/knowledge/command-and-query-method" title="Share on Facebook" rel="nofollow" target="_blank">Facebook</a>
+          <a href="https://plus.google.com/share?url=http://localhost:4000/programming/knowledge/command-and-query-method" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>
+        </div>
+        <div class="page-tag">
+          
+            <a href="/tags#CQS" class="tag">&#35; CQS</a>
+          
+        </div>
+      </div>
+		  <!-- Load Facebook SDK for JavaScript -->
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+
+  <!-- Your share button code -->
+  <div class="fb-share-button" 
+    data-href="http://localhost:4000/programming/knowledge/command-and-query-method" 
+    data-layout="button_count">
+  </div>
+
+		
+    </div> <!-- End Wrap Content -->
+  </div> <!-- End Page Content -->
+</article> <!-- End Article Page -->
+
+</div>
+
+  </div>
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', '', 'auto');
+  ga('send', 'pageview');
+</script> <!-- End Analytics -->
+
+	<script src="https://unpkg.com/simple-jekyll-search@1.5.0/dest/simple-jekyll-search.min.js"></script>
+<script>
+var sjs = SimpleJekyllSearch({
+  searchInput: document.querySelector('#search-input'),
+  resultsContainer: document.getElementById('results-container'),
+  json: '/search.json',
+  searchResultTemplate: '<li class="search-results-item"><a href="http://localhost:4000{url}">{title}</a></li>',
+	limit: 9,
+	noResultsText: '<li class="search-results-item"><a href="#">No results found...</a></li>'
+})
+</script>
+
+	<!-- Main Js -->
+<!--<script src="/assets/js/main.js"></script>-->
+
+<!-- JQuery 3.x min -->
+<script src="/assets/js/jquery.js"></script>
+
+<script>
+	let menus = $("#category-list");
+	let image = $("#menu-toggler img");
+	$("#toggler-wrapper").click(function() {
+		if(menus.css("display") === "none") {
+			image.attr("src", "/assets/img/close-button.png");
+			menus.css("display", "flex");
+		}
+		else {
+			image.attr("src", "/assets/img/nav-off.png");
+			menus.css("display", "none");
+		}
+	});
+
+
+</script>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-127149179-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-127149179-1');
+</script>
+
+</body>
+</html>

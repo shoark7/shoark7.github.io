@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "Command와 Query, CQS 알아보기",
+      "category" : "",
+      "tags"     : "CQS",
+      "url"      : "/programming/knowledge/command-and-query-method",
+      "date"     : "2019-07-09 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "개발 블로그를 운영하면서 느낀 점",
       "category" : "",
       "tags"     : "Dev-blog",
