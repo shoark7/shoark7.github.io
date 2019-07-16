@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "[Python] list comprehension에 대한 즐거운 이해",
+      "category" : "",
+      "tags"     : "list_comprehension",
+      "url"      : "/programming/python/about-list-comprehension-python",
+      "date"     : "2019-07-16 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "Command와 Query, CQS 알아보기",
       "category" : "",
       "tags"     : "CQS",
