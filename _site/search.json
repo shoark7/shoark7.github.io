@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "[Python] Iterable, Iterator 그리고 Generator",
+      "category" : "",
+      "tags"     : "list_comprehension",
+      "url"      : "/programming/python/iterable-iterator-generator-in-python",
+      "date"     : "2019-07-23 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "[Python] list comprehension에 대한 즐거운 이해",
       "category" : "",
       "tags"     : "list_comprehension",
