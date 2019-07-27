@@ -349,21 +349,19 @@
 <span class="mi">5</span>
 </code></pre></div></div>
 
-<p>이 코드에서는 ‘for loop를 통해 <em>my_list</em> 라는 리스트(또는 배열)의 원소를 순회했다’고 말할 수 있다.(iterate over my_list with for loop) 반복문은 모든 프로그래밍 언어에서 사용하는 핵심 요소이기 때문에 결코 어려운 개념이 아니다.</p>
-
-<p>오늘 소개하는 Iterable, Iterator가 iteration이라는 일반 용어와 <em>iter</em> 이라는 접두사를 공유한다는 것이 이 개념들이 반복문과 깊은 관련이 있다는 것을 암시하고 있다.</p>
+<p>이 코드는 ‘for loop를 통해 <em>my_list</em> 라는 리스트(또는 배열)의 원소를 순회했다’고 말할 수 있다.(iterate over my_list with for loop) 반복문은 모든 프로그래밍 언어에서 사용하는 핵심 요소이기 때문에 이해하기 어렵지 않다. 그리고 오늘 소개하는 Iterable, Iterator가 iteration이라는 일반 용어와 <code class="highlighter-rouge">iter</code> 라는 접두사를 공유하는 것이 이 개념들이 반복문과 깊은 관련이 있다는 것을 암시하고 있다.</p>
 
 <p><br id="2b" /></p>
 
 <h3 id="22-abstract-base-classabc">2.2. Abstract Base Class(ABC)</h3>
 
-<p><strong>Abstract Base Class</strong>(이하 “ABC”)는 객체지향 프로그래밍에서 자료구조의 위계를 세울 때 사용하는 개념으로, 이 개념 또한 파이썬에만 얽매이지 않는 특징을 갖는다. 객체지향을 지원하는 많은 언어들에서 자료구조의 위계를 설계할 때 ABC를 사용하며, 특히 자바에서는 추상 클래스를 정의하는 ‘abstract’라는 키워드까지 있을 정도다.</p>
+<p><strong>Abstract Base Class</strong>(이하 “ABC”)는 객체지향 프로그래밍에서 자료구조의 위계를 세울 때 사용하는 개념으로, 이 개념 또한 파이썬에만 얽매이지 않는 특징을 갖는다. 객체지향을 지원하는 많은 언어들에서 자료구조의 위계를 설계할 때 ABC를 사용하며, 특히 Java에는 추상 클래스를 정의하는 ‘abstract’라는 키워드까지 있을 정도다.</p>
 
 <p>‘추상’의 뜻은 무엇인가? 어렵지 않다. <strong>컴퓨터 공학적으로 ‘추상적’의 의미는 하드웨어에서 멀어진다는 의미이고</strong>(파이썬은 garbage collection 등을 직접 하지 않아 C 등의 언어보다는 추상적이다), <strong>소프트웨어 공학적으로 ‘추상적’의 의미는 객체의 구체적인 속성이나 동작을 구현하지 않는다는 의미로 해석하면 대강 맞다.(또는 함수는 구체적인 코드 블락을 이름 뒤로 숨기기 때문에 이것 또한 추상적이다)</strong> 이게 핵심이다. 인간은 ‘먹는다’는 행동을 할 수 있는데 정확히 어떤 조건을 만족해서, 어떤 동작을 통해 이 행동을 실현하는지까지의 의미는 포함하고 있지 않다. 문화권마다, 사람마다 구체적인 구현 형태는 다르겠지.</p>
 
-<p>다음은 클래스. 파이썬에서는 모든 것이 클래스다. 오늘 주제와 관련해서는 <strong>모든 개별 자료구조는 클래스를 통해 구현된다.</strong> <strong>자료구조</strong>라는 개념을 좀 더 파보자. <strong>파이썬의 기본 내장 자료구조 4개는 누구나 알다시피 list, tuple, set, dict를 꼽을 수 있다.</strong> 처음 배울 때는 이 자료구조의 내부 동작이나 또는 서로 간의 관계 등을 생각하지 않고 배우는데 Iterator.. 등의 개념을 배울 때는 이 내부를 더 들여다볼 필요가 있다. <strong>앞선 4개의 자료구조는 고유한 동작과 특징을 갖는데, 내부적으로 파이썬에서 정의한 특정 추상 자료구조를 상속받고 있다. 파이썬에서 각 추상 자료구조는 자신을 상속받는 클래스가 구현해야 할 메소드를 정의하고 있으며 ‘추상’의 의미에 맞게 구체적인 행동은 지정되어 있지 않다.</strong></p>
+<p>다음은 클래스. 파이썬에서는 모든 것이 클래스다. 오늘 주제와 관련해서는 <strong>모든 개별 자료구조는 클래스를 통해 구현된다.</strong> <strong>자료구조</strong>라는 개념을 좀더 파보자. <strong>파이썬의 기본 내장 자료구조 4개로는 list, tuple, set, dict를 꼽을 수 있다.</strong> 처음 배울 때는 이 자료구조의 내부 동작이나 또는 서로 간의 관계 등을 생각하지 않고 배우는데 Iterator.. 등의 개념을 배울 때는 이 내부를 더 들여다볼 필요가 있다. <strong>앞선 4개의 자료구조는 고유한 동작과 특징을 갖는데, 내부적으로 파이썬에서 정의한 특정 추상 자료구조를 상속받고 있다. 파이썬에서 각 추상 자료구조는 자신을 상속받는 클래스가 구현해야 할 메소드를 정의하고 있으며 ‘추상’의 의미에 맞게 구체적인 행동은 지정되어 있지 않다.</strong></p>
 
-<p><strong>파이썬에서는 <code class="highlighter-rouge">collections.abc</code>라는 내장모듈에 4개의 핵심 자료구조를 포함한 다른 자료구조들의 뼈대가 되는 추상 자료구조를 클래스로 관리하고 있다.</strong> 혹시 파이썬의 문서를 보면서 Sequence, Collection, Mapping이라는 단어를 본적이 있는지? 특히 Sequence는 파이썬을 조금이라도 진지하게 공부했으면 접해봤음직 하다. <strong>이 자료구조들은 모두 ABC로서 자신들의 메소드를 구현하지 않은 채 선언만 하고 있으며, 클래스로 정의되어 있다.</strong></p>
+<p><strong>파이썬에서는 <code class="highlighter-rouge">collections.abc</code>라는 내장모듈에 4개의 핵심 자료구조를 포함한 다른 자료구조들의 뼈대가 되는 추상 자료구조가 클래스로 관리되고 있다.</strong> 혹시 파이썬의 문서를 보면서 Sequence, Collection, Mapping이라는 단어를 본 적이 있는지? 특히 Sequence는 파이썬을 조금이라도 진지하게 공부했으면 접해봤음직 하다. <strong>이 자료구조들은 모두 ABC로서 자신들의 메소드를 구현하지 않은 채 선언만 하고 있으며, 클래스로 정의되어 있다.</strong></p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">collections.abc</span> <span class="kn">import</span> <span class="n">Container</span><span class="p">,</span> <span class="n">Collection</span><span class="p">,</span> <span class="n">Sequence</span>
 
@@ -377,7 +375,7 @@
 </span><span class="s">&lt;class '</span><span class="n">collections</span><span class="o">.</span><span class="n">abc</span><span class="o">.</span><span class="n">Sequence</span><span class="s">'&gt; </span><span class="err">
 </span></code></pre></div></div>
 
-<p>그리고 <strong>각 추상 자료구조는 자신을 상속받는 클래스가 구현해야 할 메소드를 갖고 있는데 **cls.__abstractmethods__</strong> 라는 속성을 통해 살펴볼 수 있다.**</p>
+<p>그리고 <strong>각 추상 자료구조는 자신을 상속받는 클래스가 구현해야 할 메소드를 선언하고 있는데 cls.__abstractmethods__ 라는 속성을 통해 살펴볼 수 있다.</strong></p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="n">Container</span><span class="o">.</span><span class="n">__abstractmethods__</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">Collection</span><span class="o">.</span><span class="n">__abstractmethods__</span><span class="p">)</span>
@@ -411,7 +409,7 @@
 
 <p><br /></p>
 
-<p>ABC에 대해 길게 여기까지 온 이유가 이제 나온다. <strong>Iterable, Iterator, Generator은 개념이기도 하며 또한 ABC에 정의되어 있는 추상 클래스이기도 하다.</strong> 이 셋은 추상 클래스로서 따라서 기본 자료구조들이 상속받기도 하고, 또는 상속받지 않기도 하다.</p>
+<p>ABC에 대해 길게 여기까지 온 이유가 이제 나온다. <strong>Iterable, Iterator, Generator는 개념이기도 하며 또한 ABC에 정의되어 있는 추상 클래스이기도 하다.</strong> 이 셋은 추상 클래스로서 따라서 기본 자료구조들이 상속받기도 하고, 또는 상속받지 않기도 하다.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Iterable</span><span class="p">,</span> <span class="n">Iterator</span><span class="p">,</span> <span class="n">Generator</span>
 
@@ -437,7 +435,7 @@
 <span class="nb">dict</span><span class="err">는</span> <span class="n">Generator</span><span class="err">를</span> <span class="err">상속</span> <span class="err">받나요?</span> <span class="bp">False</span>
 </code></pre></div></div>
 
-<p>결과물에서 흥미로운 것은 <strong>기본 자료구조들은 모두 Iterable를 상속받고, Generator, Iterator는 상속받지 않는다는 것이다. 특히 Iterable를 모두 상속받는 것을 통해 첫 장에서 이야기했던, sum의 인자가 iterable인 이유를 알 수 있다. list, tuple, set, dict 모두 iterable이기 때문에(Iterable 추상 클래스를 상속받기 때문에) 모두 iterable인 것이다.</strong></p>
+<p>위에서 흥미로운 것은 <strong>기본 자료구조들은 모두 Iterable을 상속받고, Generator, Iterator는 상속받지 않는다는 것이다. 특히 Iterable을 모두 상속받는 것을 통해 첫 장에서 이야기했던, sum의 인자가 iterable인 이유를 알 수 있다. list, tuple, set, dict 모두 iterable이기 때문에(Iterable 추상 클래스를 상속받기 때문에) sum 함수의 인자로 사용할 수 있었던 것이다.</strong></p>
 
 <p>다음 장에서부터는 각 추상클래스에 대해 구체적으로 알아보고 그들의 관계에 대해서도 심도 있게 살펴봐야 한다.</p>
 
@@ -447,9 +445,9 @@
 
 <hr />
 
-<p>앞서 Iterable과 Iterator는 ‘collections.abc’ 내장 모듈에 정의되어 있는 추상 클래스라는 것을 살펴봤다. 또 우리는 이 개념이 반복문과 매우 큰 관련이 있음을 안다. 그래서 이제 각각에 대해 개념적으로, 또 기술적으로 어떤 특징이 있는지 살펴볼 생각이다. 근데 이들은 같은 접두사를 공유하는 것과 같이 묶어서 설명할 수 있다.</p>
+<p>앞서 Iterable과 Iterator는 ‘collections.abc’ 내장 모듈에 정의되어 있는 추상 클래스라는 것을 살펴봤다. 또 우리는 이 개념이 반복문과 매우 큰 관련이 있음을 안다. 그래서 이제 각각에 대해 개념적으로, 또 기술적으로 어떤 특징이 있는지 살펴볼 생각이다. 근데 이들은 같은 접두사를 공유하는 것과 같이, 묶어서 설명할 수 있다.</p>
 
-<p><strong>두 클래스는 파이썬의 Iterator Protocol라는 개념 속에서 정의되는 한 쌍이다.</strong> 그래서 먼저 Iterator Protocol이 뭔지 대략적으로 살피고 Iterable, Iterator에 대해 각각 살핀다. 그리고 이 둘을 이해할 수 있으면 이제 파이썬에서 for 문이 정확히 어떤 식으로 동작하는지 더 생생하게 이해할 수 있다. 이 장의 마지막에서는 이 둘의 상속 관계를 코드로, 그리고 개념적으로도 확인한다.</p>
+<p><strong>두 클래스는 파이썬의 Iterator Protocol이라는 개념 속에서 정의되는 한 쌍이다.</strong> 그래서 먼저 Iterator Protocol이 뭔지 대략적으로 살피고 Iterable, Iterator에 대해 각각 살핀다. 그리고 이 둘을 이해할 수 있으면 이제 파이썬에서 for 문이 정확히 어떤 식으로 동작하는지 더 생생하게 이해할 수 있다. 이 장의 마지막에서는 이 둘의 상속 관계를 코드로, 그리고 개념적으로도 확인한다.</p>
 
 <p><br id="3a" /></p>
 
@@ -463,7 +461,7 @@
 
 <h3 id="32-iterable">3.2. Iterable</h3>
 
-<p>이제 Iterable과 Iterator의 보다 구체적인 내용을 살펴보자. 먼저 Iterable. Iterable은 개념적으로 이해하기에는 매우 쉽다. ‘순회하다’의 ‘Iterate’에 ‘가능한’이라는 의미를 갖는 ‘-able’ 접두사가 붙어서 <strong>‘순회가능한’</strong>으로 이해할 수 있다. 즉, <strong>Iterable은 순회할 수 있는 모든 객체를 가리킨다. 다른 말로 하면 파이썬에서 for 문의 <code class="highlighter-rouge">in</code> 키워드 뒤에 올 수 있는 모든 값은 Iterable이다.</strong> 그러면 list, tuple, set, dict는 말할 것도 없고 문자열, 파일 등도 Iterable이라고 할 수 있다.</p>
+<p>이제 Iterable과 Iterator의 보다 구체적인 내용을 살펴보자. 먼저 Iterable. Iterable은 개념적으로 이해하기에는 매우 쉽다. ‘순회하다’의 ‘Iterate’에 ‘가능한’이라는 의미를 갖는 ‘-able’ 접미사가 붙어서 <strong>‘순회 가능한’</strong>으로 이해할 수 있다. 즉, <strong>Iterable은 순회할 수 있는 모든 객체를 가리킨다. 다른 말로 하면 파이썬에서 for 문의 <code class="highlighter-rouge">in</code> 키워드 뒤에 올 수 있는 모든 값은 Iterable이다.</strong> 그러면 list, tuple, set, dict는 말할 것도 없고 문자열, 파일 등도 Iterable이라고 할 수 있다.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">s</span> <span class="o">=</span> <span class="s">'abc'</span>
 <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
@@ -617,7 +615,7 @@
 <span class="mi">5</span>
 </code></pre></div></div>
 
-<p>이미 세 번의 next 함수 호출을 통해 3개의 값이 반환되었기 때문에 남은 반환 횟수는 두 번이다. for 문을 통해서 네 번째 값부터 끝까지 출력할 수 있었다.</p>
+<p>이미 세 번의 next 함수 호출을 통해 3까지의 값이 반환되었기 때문에 남은 반환 횟수는 두 번이다. for 문을 통해서 네 번째 값부터 끝까지 출력할 수 있었다. <strong>iterator가 순회 상태를 관리하기 때문에 for문에서 다시 1부터 출력되는 것이 아닌 현재 상태값 4부터 출력하고 있다.</strong></p>
 
 <p><strong>iterator는 일회용 깡통과 같아서 값을 모두 사용했다면 재사용할 수 없다. <em>iterator</em> 는 마지막 원소까지 모두 반환했고 이후에 next를 통해 강제적으로 반환을 요구하면 내장 예외인 StopIteration이 반환된다.</strong></p>
 
@@ -652,7 +650,7 @@
         <span class="k">return</span> <span class="n">RandomIntIterator</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="p">)</span>
 </code></pre></div></div>
 
-<p><em>RandomIntIterable</em> 는 Iterator가 반환할 임의의 정수 개수를 의미하는 <em>n</em> 을 받는다. 그리고 값을 인스턴스의 속성으로 지정한다.  <strong>__iter__ 메소드는 밑에서 정의할 <em>RandomIntIterator</em> 를 반환하는데 반환할 정수의 개수를 생성자의 인자로 준다.</strong></p>
+<p><em>RandomIntIterable</em> 는 Iterator가 반환할 임의의 정수 개수를 의미하는 <em>n</em> 을 받는다. 그리고 값을 인스턴스의 속성으로 지정한다.  <strong>__iter__ 메소드는 밑에서 정의할 <em>RandomIntIterator</em> 를 반환하는데 속성으로 할당한 n을 Iterator 생성자의 인자로 준다.</strong></p>
 
 <p>다음은 Iterator를 정의하자.</p>
 
@@ -747,7 +745,7 @@
 
 <h3 id="35-python의-for문-동작방식-추적하기">3.5. Python의 for문 동작방식 추적하기</h3>
 
-<p>지금까지의 내용을 바탕으로 파이썬에서의 for문이 어떻게 동작하는지 살펴보자. 다음은 해석대상인 간단한 for문 활용이다.</p>
+<p>지금까지의 내용을 바탕으로 파이썬에서의 for문이 어떻게 동작하는지 살펴보자. 다음은 해석 대상인 간단한 for문이다.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">:</span>
     <span class="k">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
@@ -760,14 +758,14 @@
 <span class="mi">5</span>
 </code></pre></div></div>
 
-<p>1부터 5까지 출력하는 매우 간단한 활용이다. ‘in’ 키워드 뒤에 <code class="highlighter-rouge">[]</code>나 <code class="highlighter-rouge">()</code>가 없다고 놀라지 말자. 파이썬에서 두 개 이상의 값을 괄호 없이 쓰면 tuple로 인식한다. 파이썬 인터프리터에 <code class="highlighter-rouge">1, 2</code>라고 입력해보라.</p>
+<p>1부터 5까지 출력하는 매우 간단한 활용이다. ‘in’ 키워드 뒤에 <code class="highlighter-rouge">[]</code>나 <code class="highlighter-rouge">()</code>가 없다고 놀라지 말자. 파이썬에서 두 개 이상의 값을 괄호 없이 쓰면 tuple로 인식한다. 파이썬 인터프리터에 ‘1, 2’라고 입력해보라.</p>
 
 <p>자, 우리는 지금까지 저런 식이 내부적으로 어떻게 돌아가는지 전혀 신경쓰지 않았다. 하지만 Iterator protocol을 익히고 이 프로토콜을 준수하는 나만의 Iterator를 만든 지금, 저 식이 어떤 단계를 거쳐 진행되는지 추적할 수 있다:</p>
 
 <ol>
   <li><strong>‘in’ 뒤의 Iterable(또는 Iterator)에 iter 내장 함수를 써서 Iterator를 얻는다</strong>
     <ul>
-      <li>Iterable에 iter를 쓰면 새로운 Iterator가 반환되고, Iterator에 iter를 쓰면 자기 자신이 반환된다는 것을 확인했다. <strong>for문에 순회가능한 자료구조를 입력하면 자기 자신이 쓰이는 것이 아니라 일회용 Iterator를 만들어 쓰게 된다.</strong></li>
+      <li>Iterable에 iter를 쓰면 새로운 Iterator가 반환되고, Iterator에 iter를 쓰면 자기 자신이 반환된다는 것을 확인했다. <strong>for문에 순회 가능한 자료구조를 입력하면 자기 자신이 쓰이는 것이 아니라 일회용 Iterator를 만들어 쓰게 된다.</strong></li>
     </ul>
   </li>
   <li><strong>반환된 Iterator에 next 함수를 써서 한 번씩 값을 얻어낸다</strong>
@@ -788,7 +786,7 @@
 
 <h3 id="36-상속-관계">3.6. 상속 관계</h3>
 
-<p><strong>Iterator와 Iterator는 collections.abc에 있는 다른 많은 자료구조처럼 다른 자료구조를 위한 추상 데이터 타입(Abstract Data Type, ADT)다.</strong> 앞서 파이썬의 기본 자료구조들이 이 안의 자료구조들을 상속한다는 것을 확인했는데, 얼핏 넘어갔지만 ADT 사이에도 상속관계가 성립한다. 구체적인 내용은 이 포스트의 취지가 아니기에 넘어가는데 중요한 것은 <strong>Iterator와 Iterator 사이에도 상속관계가 성립한다는 것이다.</strong> 이번 절에서는 이 둘의 상속관계를 개념적으로,또 실제 파이썬 코드를 통해서 확인해본다.</p>
+<p><strong>Iterable과 Iterator는 collections.abc에 있는 다른 많은 자료구조처럼 다른 자료구조를 위한 추상 데이터 타입(Abstract Data Type, ADT)이다.</strong> 앞서 파이썬의 기본 자료구조들이 이 안의 자료구조들을 상속한다는 것을 확인했는데, 얼핏 넘어갔지만 ADT 사이에도 상속관계가 성립한다. 구체적인 내용은 이 포스트의 취지가 아니기에 넘어가는데 중요한 것은 <strong>Iterable과 Iterator 사이에도 상속관계가 성립한다는 것이다.</strong> 이번 절에서는 이 둘의 상속관계를 개념적으로, 또 실제 파이썬 코드를 통해서 확인해본다.</p>
 
 <p>먼저 <code class="highlighter-rouge">개념적</code>으로 살펴보자. 상속관계를 확인할 때 자주 사용하는 <strong>‘a는 b다’</strong> 논리를 사용해보자. 가령 자동차라는 추상 클래스를 만들고 이를 상속하는 트럭, SUV, 트랜스포머라는 보다 구체적인 자식 클래스를 만들자. 당연히 이들은 자동차 추상 클래스를 상속해서 무릇 자동차라면 가져야 할 속성과 행동을 자신의 방법으로 정의할 것이다. 이때 두 가지 명제를 살펴보자.</p>
 
@@ -861,7 +859,7 @@
 
 <p>이에 대해 직접 언급하기 전에 앞서 만들었던 나만의 Iterable, Iterator 예제를 살펴보자. 아마 받은 개수만큼 랜덤 정수를 반환하는 역할을 했던 것으로 기억한다. 이후 Generator 예제도 이것을 구현하려고 한다.</p>
 
-<p>이때 <strong>‘Iterable과 Iterator의 특징(다음 장에서 볼 장점)을 유지하면서 Iterable과 Iterator만들 때 준수해야 하는 Iterator protocol을 쉽게 우회할 수 없을까’</strong>가 우리가 집중해야 할 핵심이다. 앞선 두 클래스 코드를 가져오면 다음과 같다.</p>
+<p>이때 <strong>‘Iterable과 Iterator의 특징(다음 장에서 볼 장점)을 유지하면서 Iterable과 Iterator를 만들 때 준수해야 하는 Iterator protocol을 쉽게 우회할 수 없을까’</strong>가 우리가 집중해야 할 핵심이다. 앞선 두 클래스 코드를 가져오면 다음과 같다.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">randint</span>
 
@@ -889,11 +887,9 @@
             <span class="k">raise</span> <span class="nb">StopIteration</span>
 </code></pre></div></div>
 
-<p>나만의 Iterable과 Iterator를 만들기 위해서는 다음과 같이 Iterator protocol을 준수해서 클래스를 완성해야 한다. <strong>이런 클래스의 수요가 충분하다고 할 때(장점은 다음 장에서 살펴볼 것이다), 프로토콜을 준수해 만드는 문법이(비용이) 조금 복잡해보일 수 있다.</strong></p>
+<p>나만의 Iterable과 Iterator를 만들기 위해서는 다음과 같이 Iterator protocol을 준수해서 클래스를 완성해야 한다. <strong>이런 클래스의 수요가 충분하다고 할 때(장점은 다음 장에서 살펴볼 것이다), 프로토콜을 준수해 만드는 문법이(비용이) 요구사항에 비해 조금 복잡해보인다.</strong> 위의 예제에서 우리가 만들고자 하는 것은 단순히 상태를 유지하면서 입력한 개수만큼 랜덤 정수를 만드는 기능인데 이를 위해 코드가 적잖이 사용됐고 두 개의 클래스를 작성해야 했다.</p>
 
-<p>위의 예제에서도 우리가 만들고자 하는 것은 단순히 상태를 유지하면서 입력한 개수만큼 랜덤 정수를 만드는 기능인데 이를 위해 코드가 적잖이 사용됐다. <strong>간단한 프로그램이기에 이 정도로 끝났지만 이렇게 코드가 계속 복잡해진다면(비용이 커지면) 그 장점을 포기할지라도 유지보수의 측면에서 커스텀 Iterator, Iterable을 정의할 동기를 잃을 수 있다.</strong></p>
-
-<p>다시 말해 <strong>Generator는 나만의 Iterable, Iterator 기능을 만들되, 생성 문법을 기존보다 단순화한 개념 또는 클래스라고 할 수 있다.</strong> Generator는 앞선 두 클래스와 마찬가지로 collections.abc에 저장되어 있다.</p>
+<p><strong>Generator는 나만의 Iterable, Iterator 기능을 만들되, 생성 문법을 기존보다 단순화한 개념 또는 클래스라고 할 수 있다.</strong> Generator는 앞선 두 클래스와 마찬가지로 collections.abc에 저장되어 있다.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Generator</span>
 
@@ -902,7 +898,7 @@
 <span class="o">&lt;</span><span class="k">class</span> <span class="err">'</span><span class="nc">collections</span><span class="o">.</span><span class="n">abc</span><span class="o">.</span><span class="n">Generator</span><span class="s">'&gt;</span><span class="err">
 </span></code></pre></div></div>
 
-<p>Generator를 만드는 방법은 크게 두 가지가 있는데 이 둘 모두 중요하기에 잘 살펴보도록 하자.</p>
+<p>Generator를 만드는 방법은 크게 두 가지인데 이 둘 모두 중요하기에 잘 살펴보도록 하자.</p>
 
 <p><br id="4b" /></p>
 
@@ -919,11 +915,11 @@
         <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
 </code></pre></div></div>
 
-<p>‘yield’ 문을 활용한 기초적인 활용법이다. 실제로 사용해보기 전에, Iterator를 직접 구현했을 때와 대비되는 Generator의 특징을 살펴보면 다음과 같다.</p>
+<p>‘yield’ 문을 활용한 기초적인 Generator 활용 예제다. 사용해보기 전에, Iterator를 직접 구현했을 때와 대비되는 Generator의 특징을 살펴보면 다음과 같다.</p>
 
 <ul>
   <li><strong>클래스가 아닌 함수로 정의한다.</strong></li>
-  <li><strong>프로토콜처럼 Iterable와 Iterator의 두 요소를 분리하지 않고 한 기능에 담을 수 있다.</strong></li>
+  <li><strong>프로토콜처럼 Iterable와 Iterator의 두 요소를 분리하지 않고 한 요소에 담을 수 있다.</strong></li>
   <li><strong>호출될 때마다 한 번씩 반환할 값을 반환하는 키워드가 ‘yield’이며, 이는 함수가 아니다. 즉 return 문처럼 <code class="highlighter-rouge">()</code>를 사용하지 않는다.</strong></li>
 </ul>
 
@@ -936,7 +932,7 @@
 <span class="o">&lt;</span><span class="n">generator</span> <span class="nb">object</span> <span class="n">random_number_generator</span> <span class="n">at</span> <span class="mh">0x7f0801e15e08</span><span class="o">&gt;</span>
 </code></pre></div></div>
 
-<p>함수를 호출해 generator 객체(object)를 만들었다. 이때 객체라는 것은 함수의 반환값이 상태값을 유지하는 Generaotr 클래스의 인스턴스(instance)라는 것을 암시한다. <strong>Generator는 Iterable, Iterator 생성 문법을 간략화한 개념 및 구현이기 때문에 그 내부과정이 직관적으로 보이지는 않지만(추상화되었기 때문에), 함수의 호출 결과가 결국은 Iterator protocol을 준수하는 개체를 반환한다고 이해하면 무난하다.</strong></p>
+<p>함수를 호출해 generator 객체(object)를 만들었다. 이때 객체라는 것은 함수의 반환값이 상태값을 유지하는 Generator 클래스의 인스턴스(instance)라는 것을 암시한다. <strong>Generator는 Iterable, Iterator 생성 문법을 간략화한 개념 및 구현이기 때문에 그 내부과정이 직관적으로 보이지는 않지만(추상화되었기 때문에), 함수의 호출 결과가 결국은 Iterator protocol을 준수하는 개체를 반환한다고 이해하면 무난하다.</strong></p>
 
 <p>생성된 Generator를 사용해보자.</p>
 
