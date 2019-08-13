@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Anagram을 판별하는 알고리즘과의 설레는 만남 - Parkito's on the way</title>
+
+  <!-- Edit site and author settings in `_config.yml` to make the social details your own -->
+
+    <meta content="Parkito's on the way" property="og:site_name">
+  
+    <meta content="Anagram을 판별하는 알고리즘과의 설레는 만남" property="og:title">
+  
+  
+    <meta content="article" property="og:type">
+  
+  
+    <meta content="두 문자열이 anagram인지 판별하는 알고리즘들을 파이썬으로 구현해봅니다." property="og:description">
+  
+  
+    <meta content="http://localhost:4000/programming/algorithm/several-ways-to-solve-anagram-in-python" property="og:url">
+	
+  
+    <meta content="2019-08-13T00:00:00+09:00" property="article:published_time">
+    <meta content="http://localhost:4000/about/" property="article:author">
+  
+  
+    <meta content="http://localhost:4000/assets/img/algorithm/anagram-logo.jpg" property="og:image">
+  
+  
+    
+    <meta content="Programming" property="article:section">
+    
+  
+  
+    
+    <meta content="Anagram" property="article:tag">
+    
+  
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@">
+    <meta name="twitter:creator" content="@">
+  
+    <meta name="twitter:title" content="Anagram을 판별하는 알고리즘과의 설레는 만남">
+  
+  
+    <meta name="twitter:url" content="http://localhost:4000/programming/algorithm/several-ways-to-solve-anagram-in-python">
+  
+  
+    <meta name="twitter:description" content="두 문자열이 anagram인지 판별하는 알고리즘들을 파이썬으로 구현해봅니다.">
+  
+  
+    <meta name="twitter:image:src" content="http://localhost:4000/assets/img//algorithm/anagram-logo.jpg">
+  
+
+  
+    <meta content="두 문자열이 anagram인지 판별하는 알고리즘들을 파이썬으로 구현해봅니다." name="description">
+  
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="shortcut icon" href="/assets/img/favicon/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" href="/assets/img/favicon/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/assets/img/favicon/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/assets/img/favicon/apple-touch-icon-144x144.png">
+	<!-- Chrome, Firefox OS and Opera -->
+	<meta name="theme-color" content="#263959">
+	<!-- Windows Phone -->
+	<meta name="msapplication-navbutton-color" content="#263959">
+	<!-- iOS Safari -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="#263959">
+	<!-- Google Fonts -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+	
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="/assets/fonts/font-awesome/css/font-awesome.min.css">
+	<!-- Styles -->
+	<!-- Mathjax Support -->
+<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+	MathJax.Hub.Config({
+  showProcessingMessages: false,
+  jax: ["input/TeX", "output/HTML-CSS"],
+  TeX: {
+    TagSide: "left",
+    Macros: {
+      RR: '{\\bf R}',
+      bold: ['{\\bf #1}',1]
+    }
+  },
+  CommonHTML: {
+    linebreaks: {automatic: true}
+  }
+});
+</script>
+
+	<link rel="stylesheet" href="/assets/css/main.css">
+	<link rel="stylesheet" href="/assets/css/personal.css">
+	<link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Nanum+Gothic:400,700,800&amp;subset=korean" rel="stylesheet">
+</head>
+
+<body style="position: relative">
+	<div id="toggler-wrapper">
+		<div id="menu-toggler">
+			<img src="/assets/img/nav-off.png" alt="Menu collapse image">
+		</div>
+	</div>
+
+  <div class="wrapper">
+
+		<nav id="nav">
+			<div id="menus">
+				<p>
+					<a class="navbar-brand text-white" href="/">&nbsp;&nbsp;&nbsp;Parkito's on the way!&nbsp;&nbsp;&nbsp;</a>
+				</p>
+				<ul id="category-list">
+					<li>
+						<a href="/about.me">
+							<div class="menu">
+								<span> About </span>
+							</div>
+						</a>
+					</li>
+				
+					<li>
+						<div class="menu-wrapper">
+							<a href="/category/programming">
+								<div class="menu">
+									<span> Programming </span>
+								</div>
+							</a>
+							<div class="menu-item">
+								<a href="/category/programming/knowledge">Knowledge</a>
+								<a href="/category/programming/algorithm">Algorithm</a>
+								<a href="/category/programming/python">Python</a>
+								<a href="/category/programming/shell-programming">Shell programming</a>
+							</div>
+						</div>
+					</li>
+				
+					<li>
+						<div class="menu-wrapper">
+								<a href="/category/insight">
+									<div class="menu">
+										<span> Insight </span>
+									</div>
+								</a>
+								<div class="menu-item">
+									<a href="/category/insight/sensitivity">&nbsp;&nbsp;Sensitivity&nbsp;&nbsp;</a>
+									<a href="/category/insight/rationality">&nbsp;&nbsp;Rationality&nbsp;&nbsp;</a>
+								</div>
+						</div>
+					</li>
+
+					<li>
+						<div class="menu-wrapper">
+								<a href="/category/projects">
+									<div class="menu">
+										<span> Projects </span>
+									</div>
+								</a>
+							<div class="menu-item">
+								<a href="/category/projects/dev-related">&nbsp;&nbsp;Dev related&nbsp;&nbsp;</a>
+								<a href="/category/projects/etc">&nbsp;&nbsp;ETC&nbsp;&nbsp;</a>
+							</div>
+						</div> </li>
+
+				</ul>
+			</div>
+
+			<div id="menus-right">
+				<div id="search-section">
+					<div class="input-wrapper">
+						<span class="fa fa-search"></span>
+						<input type="text" id="search-input" placeholder="Please input specific keyword :)" size="30">
+					</div>
+					<div id="results-container"></div>
+				</div>
+
+				<!--<div id="toggler-wrapper">-->
+					<!--<div id="menu-toggler">-->
+						<!--<img src="/assets/img/nav-off.png" alt="" width="35px" height="35px">-->
+					<!--</div>-->
+				<!--</div>-->
+				
+			</div>
+			
+		</nav>
+
+
+    <aside class="sidebar">
+  <header>
+    <div class="about">
+      <div class="cover-author-image">
+        <a href="/"><img src="/assets/img/1536558558520.jpg" alt="Sunghwan Park"></a>
+      </div>
+      <div class="author-name">Sunghwan Park</div>
+      <p>I'm Parkito. A Python lover. Interested in Python, Automation, Algorithm. Please give me insights. I'll teach you tambien! :)</p>
+    </div>
+  </header> <!-- End Header -->
+  <footer>
+    <section class="contact">
+      <h3 class="contact-title">Contact me</h3>
+      <ul>
+				<!--
+        
+          <li><a href="https://twitter.com/artemsheludko_" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+        
+        
+          <li><a href="https://facebook.com/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+        
+				-->
+        
+          <li class="github"><a href="http://github.com/shoark7" target="_blank"><i class="fa fa-github"></i></a></li>
+        
+        
+          <li class="linkedin"><a href="https://in.linkedin.com/in/sunghwan-park-3773b8154" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+        
+        
+          <li class="email"><a href="mailto:shoark7@gmail.com"><i class="fa fa-envelope-o"></i></a></li>
+        
+      </ul>
+    </section> <!-- End Section Contact -->
+    <div class="copyright">
+      <p>2019 &copy; Sunghwan Park</p>
+    </div>
+  </footer> <!-- End Footer -->
+</aside> <!-- End Sidebar -->
+
+<div class="content-box clearfix">
+  <article class="article-page">
+  <div class="page-content">
+    
+    <div class="page-cover-image">
+      <figure>
+        <img class="page-image" src=/assets/img//algorithm/anagram-logo.jpg alt="Anagram을 판별하는 알고리즘과의 설레는 만남">
+        
+      </figure>
+    </div> <!-- End Page Cover Image -->
+    
+    <div class="wrap-content">
+      <header class="header-page">
+        <h1 class="page-title">Anagram을 판별하는 알고리즘과의 설레는 만남</h1>
+        <div class="page-date"><span>2019, Aug 13&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+      </header>
+      <h2 id="0-index">0. Index</h2>
+
+<blockquote>
+  <ol>
+    <li><a href="#1">들어가며</a></li>
+    <li><a href="#2">Anagram이란?</a></li>
+    <li><a href="#3">알고리즘 1: 정렬</a></li>
+    <li><a href="#4">알고리즘 2: 글자 개수 세기</a>
+      <ul>
+        <li>4.1. <a href="#4a">list 사용하기</a></li>
+        <li>4.2. <a href="#4b">dict 사용하기</a></li>
+        <li>4.3. <a href="#4c">Counter 사용하기</a></li>
+      </ul>
+    </li>
+    <li><a href="#5">마치며</a></li>
+    <li><a href="#6">자료 출처</a></li>
+  </ol>
+</blockquote>
+
+<p><br id="1" /></p>
+
+<h2 id="1-들어가며">1. 들어가며</h2>
+
+<hr />
+
+<p>간만에 알고리즘 포스트다. 마지막 알고리즘이 TSP를 동적 계획법으로 푸는 것이었는데 벌써 두 달 전이었다. 시간이 왜 이렇게 빠른건지, 시간은 약이기도 하고 병이기도 하다.</p>
+
+<p>오늘 알고리즘은 지난 알고리즘에 비해 매우 가벼운 주제다. 바로 <strong>두 문자열이 anagram인지 판별하는 알고리즘</strong>으로 지난번 알고리즘 포스트가 돈 주고도 배워볼만한 TSP였다는 것을 감안하면 그 무게가 확 낮아졌음을 알 수 있다. 문제 자체는 가볍지만 다뤄볼 알고리즘은 꽤나 유려하고 재미있다. 특히 같은 알고리즘에서도 문자열의 형태에 따라 서로 다른 자료구조를 써보기도 할텐데 데이터의 형태에 따라 어떤 자료구조를 쓸지에 대한 통찰을 느껴볼 수도 있으니 기대해도 좋다. Let’s get it!</p>
+
+<p><br id="2" /></p>
+
+<h2 id="2-anagram이란">2. Anagram이란?</h2>
+
+<hr />
+
+<p>알고리즘을 바로 코드로 보기 전에 먼저 Anagram이 무엇인지부터 살펴보는 것이 순서일테다. <strong>Anagram(이하 “아나그램”)은 한 단어를 구성하는 글자의 개수를 그대로 유지하면서 순서만 바꾼 단어를 일컫는 말로 한글로는 ‘어구전철’(語句轉綴)이라고도 한다.</strong> 바로 예를 살펴보면 편하다.</p>
+
+<p><img src="/assets/img/algorithm/anagram-silents.png" alt="'silent' and 'listen' are anagrams" /></p>
+
+<p>우리에게 친숙한 영단어인 ‘silent’와 ‘listen’은 순서는 달라도 구성하는 알파벳 글자들의 개수가 동일하다. 대충 봐도 이해할 수 있다. 이때 두 단어는 아나그램이며, <strong>우리가 해결할 문제상황은 두 개의 단어를 받아 이 둘이 서로에게 아나그램인지 판별하는(bool을 반환하는) 것이다.</strong> 이때 각 단어는 <em>str</em> 형태로 주어진다고 가정하며 따라서 따로 입력에 대한 검증을 실시하지 않는다.</p>
+
+<p><br /></p>
+
+<p>우리가 살펴볼 알고리즘은 크게 두 가지다.</p>
+
+<ol>
+  <li><strong>정렬</strong></li>
+  <li><strong>글자 개수 세기</strong></li>
+</ol>
+
+<p>각 알고리즘은 학습용으로 매우 좋고, 난이도도 그리 높지는 않기 때문에 알고리즘을 막 공부하는 분들이라면 이 포스트가 도움이 될 것이라고 생각한다. 시작해보겠습니다. :)</p>
+
+<p><br id="3" /></p>
+
+<h2 id="3-알고리즘-1-정렬">3. 알고리즘 1: 정렬</h2>
+
+<hr />
+
+<p>이 문제를 해결하는 가장 쉽고 짧은 방법은 정렬을 사용하는 것이다. <strong>파이썬에는 <em>sorted</em> 라는 내장 함수가 있는데 이 함수는 입력이 단일 문자열이라면 각 글자를 오름차순 정렬해서 하나의 리스트로 반환한다.</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">l</span> <span class="o">=</span> <span class="s">'나는야멋쟁이문자열'</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">l</span><span class="p">))</span>
+
+<span class="p">[</span><span class="s">'나'</span><span class="p">,</span> <span class="s">'는'</span><span class="p">,</span> <span class="s">'멋'</span><span class="p">,</span> <span class="s">'문'</span><span class="p">,</span> <span class="s">'야'</span><span class="p">,</span> <span class="s">'열'</span><span class="p">,</span> <span class="s">'이'</span><span class="p">,</span> <span class="s">'자'</span><span class="p">,</span> <span class="s">'쟁'</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p>문자열을 구성하는 각 글자가 유니코드 순서대로 정렬됐음을 확인할 수 있다. 대충 봤을 때 자음이 ‘ㄱ’, ‘ㄴ’, ‘ㄷ’, ‘ㅁ’, …, ‘ㅎ’의 순서대로 문제없이 정렬되어 하나의 리스트로 반환되었다.</p>
+
+<p>눈치 빠른 분들은 바로 파악하셨을텐데, <strong>두 문자열이 아나그램이라면 <em>sorted</em> 함수의 인자로 줬을 때 결국 같은 값이 나오게 된다.</strong> 이는 애초에 아나그램의 정의와도 맞닿는다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">are_anagrams</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">==</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">are_anagrams</span><span class="p">(</span><span class="s">'listen'</span><span class="p">,</span> <span class="s">'silent'</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">are_anagrams</span><span class="p">(</span><span class="s">'pop'</span><span class="p">,</span> <span class="s">'odd'</span><span class="p">))</span>
+
+<span class="bp">True</span>
+<span class="bp">False</span>
+</code></pre></div></div>
+
+<p>많은 설명이 필요하지 않을 정도로 자명하다. 혹시나 헷갈린다면 위의 예제에서 각 단어에 대해 <em>sorted</em> 를 적용한 결과를 직접 출력해보면 확실할 것이다.</p>
+
+<p>보통 많은 고급 언어에서 표준 라이브러리를 통해 정렬 기능을 제공하기 때문에 이를 활용하면 된다. 그래서 이 방법이 보통 가장 쉽게 아나그램임을 확인할 수 있는 알고리즘일 것이다. 정렬 기능 자체를 활용해 문제를 해결할 수 있는 경우는 많지 않은데 이 경우가 꽤나 재미있는 사례라 할 수 있다.</p>
+
+<p>시간복잡도는 어떻게 될까? <strong>정렬 알고리즘이 보통 내부적으로 병합정렬, 퀵 정렬 등을 통해 구현되어 있고 파이썬도 예외는 아니다. 따라서 파이썬의 내장 정렬 기능을 사용한 이 알고리즘의 시간복잡도는 <script type="math/tex">O(N log N)</script>이다.</strong> 어지간한 입력에는 충분히 빠르다.</p>
+
+<p><br id="4" /></p>
+
+<h2 id="4-알고리즘-2-글자-개수-세기">4. 알고리즘 2: 글자 개수 세기</h2>
+
+<hr />
+
+<p>다음 알고리즘은 가장 직관적인 방법으로, 각 단어의 글자들을 세서 종류와 개수가 같으면 아나그램으로 판별하는 방법이다. 보통 이 문제를 접하면 이 직관을 구현하는 경우가 많은 것 같다.</p>
+
+<p>다만 <strong>여기서는 글자의 개수를 세는 데 서로 다른 세 가지의 자료구조를 사용해서 해결할 것이다.</strong> 왜 그런 선택을 굳이 했을까? 심심해서? 첫 번째 알고리즘의 분량이 너무 적어서? 물론 그렇지는 않다. <strong>이런 방법을 취하는 이유는 문제를 잘 해결하는 개발자는 ‘어떤 알고리즘을 사용해야 할까?’뿐만 아니라 ‘어떤 자료구조를 사용해야 할까?’까지도 고민해야 하기 때문이다.</strong> 이번 장에서 <strong>우리는 데이터의 구조가 프로그램의 구조를 결정할 수 있다는 것을 확인할 것이다.</strong></p>
+
+<p>상술한대로 세 가지의 서로 다른 자료구조를 사용해서 아나그램 여부를 판별할텐데, 뒤로 갈수록 Python-specific해진다. 시작해봅시다.</p>
+
+<p><br id="4a" /></p>
+
+<h3 id="41-list-사용하기">4.1. list 사용하기</h3>
+
+<hr />
+
+<p>먼저 파이썬의 가장 기본적인 자료구조인 list를 사용해서 각 글자의 개수를 셀 것이다. <strong>list는 파이썬의 대표적인 선형 자료구조로 이 특징을 사용할 생각이다.</strong> 가령 앞선 ‘silent’와 ‘listen’의 예를 다시 보자. 선형의 카운터의 첫 번째 원소를 ‘a’의 개수를 세는 데 사용하고, 두 번째 원소를 ‘b’, …, 26번째를 ‘z’를 세는 데 사용하는 식이다.</p>
+
+<p>각 글자에 해당하는 인덱스를 어떻게 찾을지에 대한 고민은 차치하고, <strong>list를 사용하는 방법은 사용할 수 있는 데이터가 제한적이라는 것을 먼저 짚고 가자.</strong> 앞선 예제는 글자가 26개밖에 되지 않는 상황을 가정했다. 그러면 list의 크기를 그에 맞출 수 있었다. 하지만 그렇지 않은 경우 또한 얼마든지 가정할 수 있고 그 예로는 ‘asdf가나다몽키매직’ 등등 끝도 없다.</p>
+
+<p>즉 <strong>list를 사용하는 것은 타 언어 사용자에게 친숙하고 좋지만(어느 언어나 선형 자료구조는 있다.) 입력되는 두 단어가 모두 알파벳 소문자라고 가정하자.</strong> 데이터의 형태가 프로그램의 형태를 결정지을 수 있다는 것은 이런 상황을 두고 하는 말이다.</p>
+
+<p><br /></p>
+
+<p>list를 사용하는 방법에서는 크기가 26인 list를 두고, ‘a’일 때는 0번째 인덱스의 크기를 조절하고, ‘b’는 1번째, …, ‘z’는 25번째 인덱스의 크기를 조절하는 방식을 쓰면 참 좋을 것이다. 이를 어떻게 할 수 있을까?</p>
+
+<p><strong>여기서는 파이썬의 내장 <em>ord</em> 함수를 사용할텐데, 이 함수는 글자 한 글자를 받아서 그 글자의 유니코드 포인트를 반환한다.</strong> 컴퓨터에는 모든 것이 숫자로 저장된다는 것을 한 번씩은 들어봤을텐데, 이 함수는 ‘글자’가 저장되는 실제 숫자를 반환하며 요즘의 시스템에서는 UTF-8의 유니코드 숫자가 반환된다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="s">'A'</span><span class="p">,</span> <span class="nb">ord</span><span class="p">(</span><span class="s">'A'</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'a'</span><span class="p">,</span> <span class="nb">ord</span><span class="p">(</span><span class="s">'a'</span><span class="p">))</span>
+
+
+<span class="n">A</span> <span class="mi">65</span>
+<span class="n">a</span> <span class="mi">97</span>
+</code></pre></div></div>
+
+<p>‘A’와 ‘a’는 우리 눈에는 특수한 기호로 보이지만, 실제 컴퓨터에는 65와 97이라는 숫자로 표기되고 저장된다.(물론 비트 이미지 형태일 것이다.) <em>ord</em> 함수를 통해 각 글자의 유니코드를 확인할 수 있다. 이 함수는 길이가 1인 문자열만 받으며 그 외에는 에러가 반환된다. 참고로 이와 반대로 유니코드 포인트를 받아 그에 해당하는 글자를 반환하는 내장함수로는 <em>chr</em> 가 있다.(ex: <em>chr(65)</em>)</p>
+
+<p><br /></p>
+
+<p>자, 이 함수를 사용해서 카운터 list를 만들어 글자의 개수를 세자. 두 단어의 모든 글자는 영어 소문자라고 이 알고리즘에서는 가정했다. 그러면 <strong>이제는 ‘a’가 0, …, ‘z’가 25를 반환하는 함수를 만들어서 사용하면 될 듯 하다.</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">string</span> <span class="kn">import</span> <span class="n">ascii_lowercase</span> <span class="k">as</span> <span class="n">LOWERS</span>
+
+<span class="k">def</span> <span class="nf">char_to_index</span><span class="p">(</span><span class="n">c</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">c</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">LOWERS</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="nb">ValueError</span><span class="p">(</span><span class="s">"Only lower alphabet characters are allowed"</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="nb">ord</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">-</span> <span class="nb">ord</span><span class="p">(</span><span class="s">'a'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>영어 소문자 한 글자에 대해 카운터 list에서 사용할 인덱스를 반환하는 함수를 만들었다. 이 함수는 입력이 영어 소문자가 아니거나, 길이가 2 이상의 문자열일 경우 에러를 반환한다. 의도된 입력의 경우에는 0부터 25까지의 정수를 반환할 예정이다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">LOWERS</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">char_to_index</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
+
+
+<span class="n">a</span> <span class="mi">0</span>
+<span class="n">b</span> <span class="mi">1</span>
+<span class="o">...</span> <span class="err">생략</span>
+<span class="n">y</span> <span class="mi">24</span>
+<span class="n">z</span> <span class="mi">25</span>
+</code></pre></div></div>
+
+<p>좋아! 이제 다 왔다. <em>are_anagrams</em> 함수를 정의하며 두 단어에 속한 글자들의 카운터를 조절해주면 된다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">are_anagrams</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="n">counter</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">LOWERS</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">a</span><span class="p">:</span>
+        <span class="n">counter</span><span class="p">[</span><span class="n">char_to_index</span><span class="p">(</span><span class="n">c</span><span class="p">)]</span> <span class="o">+=</span> <span class="mi">1</span>       
+
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">b</span><span class="p">:</span>
+        <span class="n">counter</span><span class="p">[</span><span class="n">char_to_index</span><span class="p">(</span><span class="n">c</span><span class="p">)]</span> <span class="o">-=</span> <span class="mi">1</span>       
+
+    <span class="k">return</span> <span class="nb">all</span><span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">counter</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>이 함수가 하는 일은 간단한데, 첫 단어의 모든 글자는 1씩 키워주고, 두 번째 단어의 모든 글자는 1씩 감소시킨다. 만약 두 단어가 아나그램이라면 카운터의 모든 원소는 값이 0이어야 한다. 하나라도 0이 아니라면 return 문의 판별식이 False가 나올 것이다. <em>all</em> 내장 함수는 입력된 Iterable의 모든 원소가 조건식을 만족해야 True, 하나라도 어긋나면 False를 반환한다. 이런 용도로는 위와 같은 함수를 쓰는 방법이 가장 싸고 짧게 먹힌다.</p>
+
+<p>많은 유저에게 익숙하고 친숙할 list를 사용해 문제를 해결했다. 하지만 이 알고리즘은 두 단어의 모든 글자가 특정 범위 안에 들 때만 유효했기 때문에 아직 불완전하다. 모든 입력에 가능하도록 하는 방법은 여러 가지겠지만 두 번째는 파이썬의 또 다른 내장 자료구조인 dict를 사용해보자.</p>
+
+<p><br id="4b" /></p>
+
+<h3 id="42-dict-사용하기">4.2. dict 사용하기</h3>
+
+<hr />
+
+<p>앞선 list를 사용하는 방법은 시공간적 성능이 괜찮았지만 특정 입력에만 유효하다는 단점이 있었다. 가령 입력의 상태를 고려하지 않고 list로 해결하려 한다고 했을 때, 단어가 ‘a힣b’였다면 ‘힣’의 유니코드 포인트는 55203이기 때문에 카운터의 크기가 50,000을 훌쩍 상회했을 것이다. 한글이 단 한 글자만 있었어도 그 큰 공간이 낭비되는 가슴 아픈 상황. <strong>다음에서 다룰 두 알고리즘의 경우에는 이런 문제 상황에 더 잘 대처하기 위해 dict와 관련된 서브 클래스로 문제를 해결할 것이다.</strong></p>
+
+<p><strong>이번에는 카운터를 dict로 만들어서 각 글자의 빈도수를 세보자.</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">are_anagrams</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="n">counter</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">a</span><span class="p">:</span>
+        <span class="n">counter</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">counter</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">b</span><span class="p">:</span>
+        <span class="n">counter</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">counter</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+
+    <span class="k">return</span> <span class="nb">all</span><span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">counter</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+</code></pre></div></div>
+
+<p>dict를 사용해 빈도수를 세는 가장 무난한 방법을 사용했다. 바로 <strong>dict.get</strong> 메소드를 사용하는 방법으로 이 메소드까지 굳이 설명할 필요는 없어보인다. list를 사용할 때와 마찬가지로 첫 단어의 글자의 빈도는 +1, 두 번째 단어의 글자의 빈도는 -1를 한다. <strong>최종적으로 두 단어가 아나그램이기 위해서는 카운터 dict의 value가 모두 0이어야 할 것이다.(두 단어가 빈 문자열일 경우는 빈 dict.)</strong></p>
+
+<p><br id="4c" /></p>
+
+<h3 id="43-counter-사용하기">4.3. Counter 사용하기</h3>
+
+<hr />
+
+<p>다음은 Counter 자료구조를 사용해서 글자 수를 세보자. <strong>Counter는 <em>collections</em> 내장 모듈에 구현되어 있는 자료구조로, 그 이름에 걸맞게 원소의 빈도수를 세는 데 그 목적이 있다.</strong> 앞선 dict 자료구조의 예에서 dict 자체는 빈도를 세는 데 특화되어 있는 자료구조라고는 할 수 없다. 그렇기 때문에 코드에서 get 메소드를 쓰는 등 코드가 매우 직관적이라고는 할 수 없었다.</p>
+
+<p><strong>Counter 클래스는 빈도 수를 세는 데 그 목적이 있기 때문에 위의 계산을 (이것보다도) 더 쉽게 할 수 있다.</strong></p>
+
+<p>먼저 <strong>Counter 자료구조를 살펴보자. 이 자료구조는 dict의 서브 클래스로 구현되어 있다.</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+
+<span class="nb">issubclass</span><span class="p">(</span><span class="n">Counter</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span>
+
+<span class="bp">True</span>
+</code></pre></div></div>
+
+<p>이 클래스의 사용법은 정말 간단하다. <strong>빈도를 세기 원하는 iterable을 인자로 주면 바로 빈도 dict가 반환된다.</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="n">Counter</span><span class="p">(</span><span class="s">'abcd'</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">Counter</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]))</span>
+
+<span class="n">Counter</span><span class="p">({</span><span class="s">'a'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">'b'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">'c'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">'d'</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
+<span class="n">Counter</span><span class="p">({</span><span class="mi">1</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
+</code></pre></div></div>
+
+<p>놀라울 따름이다. 생성된 Counter 인스턴스에는 최빈 원소를 반환하는 <em>most_common</em> 과 같은 메소드도 준비되어 있다. 이 클래스를 사용해 문제를 해결하자. 앞선 <em>dict</em> 코드도 매우 짧았는데 Counter를 통해서는 극한의 여백의 미를 즐길 수 있다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+
+<span class="k">def</span> <span class="nf">are_anagrams</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">Counter</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">==</span> <span class="n">Counter</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>위의 <strong>세 알고리즘에는 결국 단어의 글자 빈도를 세는 작업이 수반됐으며 각 단어의 글자를 한 번씩만 세면 된다. 따라서 시간복잡도는 <script type="math/tex">O(N)</script>이 된다.</strong></p>
+
+<p><br id="5" /></p>
+
+<h2 id="5-마치며">5. 마치며</h2>
+
+<hr />
+
+<p>오늘은 두 단어가 아나그램인지 판단하는 두 가지 알고리즘을 살펴봤다. 첫 번째는 가장 정석적인 방법으로 두 문자열을 정렬해 결과가 완전히 동일한지 비교하는 방법으로 초심자들에게 알고리즘의 경이로움이 무엇인지 맛보게 해줄 요량으로 많이 소개되는 방법이기도 하다. 두 번째는 가장 직관적인 방법으로 단어의 글자의 개수를 모두 세서 정확히 개수가 일치하는지 비교하는 방법이었다. 여기서 중요한 인사이트를 얻을 수 있었는데, <strong>이 문제 하나를 위해 데이터의 형태에 따라 다양한 자료구조를 쓸 수 있음을 확인했다.</strong> 이들은 결국 같은 알고리즘이기에 같은 시간복잡도를 갖지만 구체적인 메모리 사용량 등은 차이가 있다. 따라서 문제상황에서 어떤 알고리즘, 자료구조를 쓰는지도 개발자의 실력이라고 감히 말할 수 있겠다.</p>
+
+<p>이전 TSP에 비해 알고리즘 포스트의 무게가 반토막이 났는데 재미있는 주제가 필요하다. 다음에는 어쩌면 ‘트리’ 자료구조에 대해 다뤄볼 수도 있겠다. 트리가 생각보다 더 중요하더라…(가슴 아픈 추억이)</p>
+
+<p>이상 포스트를 마칩니다.</p>
+
+<p><br id="6" /></p>
+
+<h2 id="6-자료-출처">6. 자료 출처</h2>
+
+<hr />
+
+<ul>
+  <li><a href="https://www.geeksforgeeks.org/check-whether-two-strings-are-anagram-of-each-other/">geeksforgeeks: Several algorithms for anagrams</a></li>
+  <li><a href="https://docs.python.org/3/library/collections.html#collections.Counter">Python.org: collections.Counter</a></li>
+</ul>
+
+      <div class="page-footer">
+        <div class="page-share">
+          <a href="https://twitter.com/intent/tweet?text=Anagram을 판별하는 알고리즘과의 설레는 만남&url=http://localhost:4000/programming/algorithm/several-ways-to-solve-anagram-in-python" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
+          <a href="https://facebook.com/sharer.php?u=http://localhost:4000/programming/algorithm/several-ways-to-solve-anagram-in-python" title="Share on Facebook" rel="nofollow" target="_blank">Facebook</a>
+          <a href="https://plus.google.com/share?url=http://localhost:4000/programming/algorithm/several-ways-to-solve-anagram-in-python" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>
+        </div>
+        <div class="page-tag">
+          
+            <a href="/tags#Anagram" class="tag">&#35; Anagram</a>
+          
+        </div>
+      </div>
+		  <!-- Load Facebook SDK for JavaScript -->
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+
+  <!-- Your share button code -->
+  <div class="fb-share-button" 
+    data-href="http://localhost:4000/programming/algorithm/several-ways-to-solve-anagram-in-python" 
+    data-layout="button_count">
+  </div>
+
+		
+    </div> <!-- End Wrap Content -->
+  </div> <!-- End Page Content -->
+</article> <!-- End Article Page -->
+
+</div>
+
+  </div>
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', '', 'auto');
+  ga('send', 'pageview');
+</script> <!-- End Analytics -->
+
+	<script src="https://unpkg.com/simple-jekyll-search@1.5.0/dest/simple-jekyll-search.min.js"></script>
+<script>
+var sjs = SimpleJekyllSearch({
+  searchInput: document.querySelector('#search-input'),
+  resultsContainer: document.getElementById('results-container'),
+  json: '/search.json',
+  searchResultTemplate: '<li class="search-results-item"><a href="http://localhost:4000{url}">{title}</a></li>',
+	limit: 9,
+	noResultsText: '<li class="search-results-item"><a href="#">No results found...</a></li>'
+})
+</script>
+
+	<!-- Main Js -->
+<!--<script src="/assets/js/main.js"></script>-->
+
+<!-- JQuery 3.x min -->
+<script src="/assets/js/jquery.js"></script>
+
+<script>
+	let menus = $("#category-list");
+	let image = $("#menu-toggler img");
+	$("#toggler-wrapper").click(function() {
+		if(menus.css("display") === "none") {
+			image.attr("src", "/assets/img/close-button.png");
+			menus.css("display", "flex");
+		}
+		else {
+			image.attr("src", "/assets/img/nav-off.png");
+			menus.css("display", "none");
+		}
+	});
+
+
+</script>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-127149179-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-127149179-1');
+</script>
+
+</body>
+</html>

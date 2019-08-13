@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "Anagram을 판별하는 알고리즘과의 설레는 만남",
+      "category" : "",
+      "tags"     : "Anagram",
+      "url"      : "/programming/algorithm/several-ways-to-solve-anagram-in-python",
+      "date"     : "2019-08-13 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "[Python] Iterable, Iterator 그리고 Generator",
       "category" : "",
       "tags"     : "Iterator, Iterable, Generator",
