@@ -2,7 +2,7 @@
 layout: post
 title: "My moms' girl's generations"
 date: 2019-08-17
-description: "My story of a sudden insight of my mom and grandmom's girl's generation."
+description: "My story of a sudden insight of my mom and grandmom's girl's generations."
 img:  /insight/moms-girls-generation-logo.jpg
 categories: [Insight, Sensitivity]
 tags: [family]
@@ -12,7 +12,7 @@ When I was young, existence of my grandma was not a big deal to me. She has live
 
 My first memory with her was her early 60s, so I don't know much about her young and middle ages. And I didn't think any harder about her life. She was just her, in her 60s, whom I visit only on holidays and some occassions. That was all to me.
 
-But sometimes she visited her daughter's house for several days every year. She was uncomfortable with her moving so she mostly stayed at home and talked to his daughter, my mom. I have a memory with her in our home. You know, when I was young I payed Kumon, a famous home-school materials' brand in Korea, and had studied math with it. I was about 8 or 9 and scope I was into was multiplying two 2-digit numbers like $$44 X 15$$. I had a problem with it so I asked to my grandma because she was right next to me. I guess she was watching a television. When I asked her, she didn't say anything. My mother said 'grandma can't do multiplication of numbers'. I was somewhat surprised because it was out of my world that not being able to do multiplications, the very basic math. The reason of it was she wasn't educated enough in her early ages because of her home environment. But I didn't know of it then. I didn't say any further about it out of my mouth until now but I have known I felt that she was out of my world, the bright side of 'Demian'.
+But sometimes she visited her daughter's house for several days every year. She was uncomfortable with her moving so she mostly stayed at home and talked to his daughter, my mom. I have a memory with her in our home. You know, when I was young I payed Kumon, a famous home-school materials' brand in Korea, and had studied math with it. I was about 8 or 9 and scope I was into was multiplying two 2-digit numbers like $$44 X 15$$. I had a problem with it so I asked my grandma because she was right next to me. I guess she was watching a television. When I asked her, she didn't say anything. My mother said 'grandma can't do multiplication of numbers'. I was somewhat surprised because it was unimaginable in my world. It was the very basic math. The reason was she wasn't educated enough in her early ages because of her poor home environment. But I didn't know of it at that age. I didn't say any further out of my mouth until now but I got to know she was out of my world, the bright side of 'Demian'.
 
 
 <br>
