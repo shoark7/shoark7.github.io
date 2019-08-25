@@ -49,7 +49,7 @@ We're given a string. It can be any string and you have to return a list. Here's
 
 ![Example of a get longest palindrome](/assets/img/algorithm/longest-palindromes.png)
 
-As you can see, somebody emphasizes importance of levelness of the ground for multi-pulpose radars. His words are given as a string. And **we have a function named '_get\_longest\_palindromes_' and this function returns longest palindromes.** This sentence have two longest palindromes and they're 'level' and 'radar'. They're both 5 chars long. So the returned list has two items inside.  
+As you can see, somebody emphasizes importance of levelness of the ground for multi-pulpose radars. His words are given as a string. And **we have a function named '_get\_longest\_palindromes_' and this function returns longest palindromes.** This sentence has two longest palindromes and they're 'level' and 'radar'. They're both 5 chars long. So the returned list has two items inside.  
 
 And **if a string has no palindromes(like 'abc'), it returns a list of all characters(['a', 'b', 'c']) cause a character of one length is a palindrome technically. If an empty string('') is given, we return a list of an empty string([\'\']).**
 
@@ -378,7 +378,7 @@ print(get_longest_palindromes('abcdef'))
 ['']
 ```
 
-I admit that codes are much longer than before. However, our purpose is not making a short program but a more beaufitul and efficient program. **Has this gained benefits?**
+I admit that codes are much longer than before. However, our purpose is not making a short program but a more beaufitul and efficient program. **What benefits have this solution gained?**
 
 * **Readability: With defining subproblems and making them modules, readability improved. And that's why we define problems and modularize blocks.**
 * **Efficiency: As readability is improved, we can talk about better efficiency. Amongst subfunctions, bottleneck part is 'checking a string is a palindrome'. We can profile a program better and we changed _is\_palindrome_ function in design level. And if we find a better solution than dynamic programming, no need to make a mess. Just improve the codes of a subfunction. Much, much more easy.**
