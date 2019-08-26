@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "Python의 핵심 내장 자료구조 살펴보기",
+      "category" : "",
+      "tags"     : "built-in, data-structures, list, tuple, set, dict",
+      "url"      : "/programming/python/four-basic-datastructures-in-python",
+      "date"     : "2019-08-26 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "My moms&#39; girl&#39;s generations",
       "category" : "",
       "tags"     : "family",
