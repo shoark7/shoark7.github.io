@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "숫자 배열에서 두 번째로 큰 값 찾기",
+      "category" : "",
+      "tags"     : "second_largest_number, kth_biggest_number",
+      "url"      : "/programming/algorithm/second-largest-number-in-array",
+      "date"     : "2019-09-11 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "Python의 핵심 내장 자료구조 살펴보기",
       "category" : "",
       "tags"     : "built-in, data-structures, list, tuple, set, dict",
