@@ -3,7 +3,7 @@
     {
       "title"    : "숫자 배열에서 두 번째로 큰 값 찾기",
       "category" : "",
-      "tags"     : "second_largest_number, kth_biggest_number",
+      "tags"     : "second_largest_number, kth_largest_number",
       "url"      : "/programming/algorithm/second-largest-number-in-array",
       "date"     : "2019-09-11 00:00:00 +0900"
     } ,

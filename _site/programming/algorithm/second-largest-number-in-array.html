@@ -35,7 +35,7 @@
     
     <meta content="second_largest_number" property="article:tag">
     
-    <meta content="kth_biggest_number" property="article:tag">
+    <meta content="kth_largest_number" property="article:tag">
     
   
 
@@ -271,7 +271,7 @@
 
 <p>재미있는 알고리즘 문제를 들고 왔다. 바로 <strong>숫자 배열에서 두 번째로 큰 값 찾기.</strong> 파이썬에서 배열의 최대값을 찾는 것은 매우 간단하다. 누구나 알 듯이 <code class="highlighter-rouge">max</code> 함수를 쓰면 되는데, 그러면 두 번째로 큰 값은 어떻게 찾을까? 딱히 생각을 하지 않으면 그 누구도 이런 질문을 하지 않는다. 1등만 기억하는 더러운 세상.</p>
 
-<p>문제가 너무 직관적이고 쉬워서 따로 문제 소개 장은 넣지 않고 바로 알고리즘으로 넘어간다. 두 번째로 큰 값을 찾는 알고리즘을 두 개 가져왔다. 하나는 너무 쉽고, 다른 하나는 약간의 사고를 해야 한다. 후자의 방법이 시간복잡도가 더 좋기 때문에 기억할만한 가치가 있다.</p>
+<p>문제가 너무 직관적이고 쉬워서 따로 ‘문제 소개’ 장은 넣지 않고 바로 알고리즘으로 넘어간다. 두 번째로 큰 값을 찾는 알고리즘을 두 개 가져왔다. 하나는 너무 쉽고, 다른 하나는 약간의 사고를 해야 한다. 후자의 방법이 시간복잡도가 더 좋기 때문에 기억할만한 가치가 있다.</p>
 
 <p>그 다음 여기서 끝내기에는 뭔가 아쉽다. 그래서 문제를 확장해서 생각하고 핵심 아이디어를 도출해 더 범용적인 기능을 만들어보는 것까지 진행해본다.</p>
 
@@ -372,7 +372,7 @@
 
 <p>물론! 겨우 이 정도로 끝나지 않았다. 겨우 이 정도의 분량과 인사이트를 가진 포스트를 내가 굳이 만들지는 않으니까. 이 포스트를 만든 이유에 대한 구현은 지금부터다.</p>
 
-<p>이번 문제는 숫자 배열의 <strong>두 번째</strong> 큰 고유한 값을 찾는 것이었다. 하지만 이 정도에 만족하면 성장하지 않는다. 더 생각해볼 것은 없을까?</p>
+<p>이번 문제는 숫자 배열에서 <strong>두 번째</strong>로 큰 고유한 값을 찾는 것이었다. 하지만 이 정도에 만족하면 성장하지 않는다. 더 생각해볼 것은 없을까?</p>
 
 <p><br id="4a" /></p>
 
@@ -393,7 +393,7 @@
 
 <p>이때 우리 프로그램은 좋은 프로그램일까? 우리 프로그램의 문제의식은 배열의 최대값이 아닌 두 번째로 큰 값을 찾는 것이다. 그러면 경우에 따라선 <strong>세 번째 값이나 네 번째 값, 100번째 큰 값을 원하는 사람은 정말 없을까???</strong> 두 번째 큰 값을 찾는 사람뿐 아니라 다른 사람들의 수요도 만족시킬 수 있다면, 보다 <code class="highlighter-rouge">범용적</code>인 프로그램이라면 더 많은 사용자를 만족시킬 수 있고, 더 좋은 프로그램일 것이다.</p>
 
-<p>따라서 이 문제를 단순히 구현함을 넘어 우리는 확장의 여지를 본다.</p>
+<p>따라서 단순히 이 문제를 구현함을 넘어 우리는 확장의 여지를 본다.</p>
 
 <p class="function-definition">
 숫자 배열에서 K번째로 큰 고유한 값을 찾아라
@@ -405,7 +405,7 @@
 
 <h3 id="42-핵심-아이디어-삽입정렬">4.2. 핵심 아이디어: 삽입정렬</h3>
 
-<p>좋다. 확장된 문제를 구현하자. 어떻게 해야 할까? 우리는 포스트에서 두 가지 방법을 살폈는데 먼저 정렬의 경우 이 문제를 구현하는 것은 매우 쉽다. <strong>원 코드에서는 반환값에서 두 번째를 의미하는 <code class="highlighter-rouge">1</code>을 인덱스로 했는데 그대신 새로 받은 <code class="highlighter-rouge">K-1</code>번째 값을 반환하면 된다.</strong> 코드는 대략 이렇게 된다.</p>
+<p>좋다. 확장된 문제를 구현하자. 어떻게 해야 할까? 우리는 포스트에서 두 가지 방법을 살폈는데 먼저 정렬의 경우 이 문제를 구현하는 것은 매우 쉽다. <strong>원 코드에서는 반환값에서 두 번째를 의미하는 <code class="highlighter-rouge">1</code>을 인덱스로 했는데 그 대신 새로 받은 <code class="highlighter-rouge">K-1</code>번째 값을 반환하면 된다.</strong> 코드는 대략 이렇게 된다.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">kth_largest_number</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">K</span><span class="p">):</span>
     <span class="n">unique_nums</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
@@ -528,7 +528,7 @@
         <span class="k">continue</span>
 </code></pre></div></div>
 
-<p>배열의 원소마다 순회한다. 각 숫자로 실질적인 알고리즘을 진행하기 전에 먼저 이 숫자와 현재 <em>memory</em> 의 K번째 값과의 대소관계를 비교한다. 이 이유는 현재 <em>n</em> 이 지금까지의 memory의 최소값보다 작거나 같으면 밑에 중첩된 반복문 자체를 실행하지 않아도 되기 때문이다. <em>memory</em> 의 한 자리도 차지하지 못할 것이다. 따라서 이 경우에는 <em>continue</em> 로 건너 뛴다. 이제 핵심 부분으로 넘어가자.</p>
+<p>배열의 원소마다 순회한다. 각 숫자로 실질적인 알고리즘을 진행하기 전에 먼저 이 숫자와 현재 <em>memory</em> 의 K번째 값과의 대소관계를 비교한다. 이 이유는 현재 <em>n</em> 이 지금까지의 memory의 최소값보다 작거나 같으면 밑에 중첩된 반복문 자체를 실행하지 않아도 되기 때문이다. 따라서 이 경우에는 <em>continue</em> 로 건너 뛴다. 이제 핵심 부분으로 넘어가자.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">arr</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">m</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">memory</span><span class="p">):</span>
@@ -541,13 +541,13 @@
     <span class="k">return</span> <span class="n">memory</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 </code></pre></div></div>
 
-<p><em>n</em> 과 memory의 각 값을 비교하기 위해 for 문을 중첩했다. 이때 <em>n</em> 과 현재 비교하는 <em>memory</em> 의 값을 <em>m</em> 이라고 할 때, <em>n</em> 이 <em>memory_에 들어오기 위해서는 <strong>_n_ 은 _m_ 보다 커야하고 _m_ 의 바로 앞의 값보다는 작아야 한다.</strong> 그 검증을 if 문에서 하고 있다. 단, _m</em> 이 첫 번째 원소라면 <em>m</em> 의 바로 앞의 값은 없기 때문에 i가 0일 때는 따로 검증해 <code class="highlighter-rouge">or</code>로 묶는다. 이렇게 하지 않으면 <em>memory[i-1]</em> 부분에서 ‘-1’이라는 엉뚱한 인덱스가 튀어나올 수 있다.</p>
+<p><em>n</em> 과 memory의 각 값을 비교하기 위해 for 문을 중첩했다. 이때 <em>n</em> 과 현재 비교하는 <em>memory</em> 의 값을 <em>m</em> 이라고 할 때, <em>n</em> 이 <em>memory</em> 에 들어오기 위해서는 <strong><em>n</em> 은 <em>m</em> 보다 커야하고 <em>m</em> 의 바로 앞의 값보다는 작아야 한다.</strong> 그 검증을 if 문에서 하고 있다. 단, <em>m</em> 이 첫 번째 원소라면 <em>m</em> 의 바로 앞의 값은 없기 때문에 i가 0일 때는 따로 검증해 <code class="highlighter-rouge">or</code>로 묶는다. 이렇게 하지 않으면 <em>memory[i-1]</em> 부분에서 ‘-1’이라는 엉뚱한 인덱스가 튀어나올 수 있다.</p>
 
 <p>만약 조건식에서 True가 반환된다면, 다시 말해 <em>n</em> 이 값을 뒤집어써야 할 <em>m</em> 과 그 위치를 찾았다면 다시 한 번 반복문을 실행한다. 값을 하나씩 뒤로 밀어야하기 때문이다. 이때 현재 <em>m</em> 의 위치 <em>i</em> 가 아니라 <strong>맨 뒤에서부터 거꾸로 앞의 값을 현재 위치로 뒤집어써야 한다는 것을 명심하자.</strong> 두 번째 큰 값을 찾는 코드에서도 <em>n</em> 이 <em>largest</em> 보다 클 때 <em>largest</em> 보다 <em>second</em> 변수가 먼저 재설정됐다는 것을 보면 납득할 수 있다.</p>
 
 <p>현재 <em>m</em> 의 위치 <em>i</em> 의 바로 뒤까지 값이 밀렸으면 이제 <em>i</em> 에 <em>n</em> 을 할당한다. 그러면 현재까지의 최대값이 경신된다.</p>
 
-<p>반복문을 완전히 탈출한 뒤에 memory의 마지막값이 K번째 최대값이기 때문에 이를 반환하면 된다.</p>
+<p>반복문을 완전히 탈출한 뒤에 memory의 마지막 값이 K번째 최대값이기 때문에 이를 반환하면 된다.</p>
 
 <p><br id="4d" /></p>
 
@@ -584,7 +584,7 @@
           
             <a href="/tags#second_largest_number" class="tag">&#35; second_largest_number</a>
           
-            <a href="/tags#kth_biggest_number" class="tag">&#35; kth_biggest_number</a>
+            <a href="/tags#kth_largest_number" class="tag">&#35; kth_largest_number</a>
           
         </div>
       </div>
