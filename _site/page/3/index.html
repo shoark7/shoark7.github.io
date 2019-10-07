@@ -17,11 +17,11 @@
     <meta content="Parkito's dev blog for programming, Python, Algorithm, Automation and insights." property="og:description">
   
   
-    <meta content="https://shoark7.github.io/page/3/" property="og:url">
+    <meta content="http://localhost:4000/page/3/" property="og:url">
 	
   
   
-    <meta content="https://shoark7.github.io/assets/img/1536558558520.jpg" property="og:image">
+    <meta content="http://localhost:4000/assets/img/1536558558520.jpg" property="og:image">
   
   
   
@@ -33,13 +33,13 @@
     <meta name="twitter:title" content="Parkito's on the way">
   
   
-    <meta name="twitter:url" content="https://shoark7.github.io/page/3/">
+    <meta name="twitter:url" content="http://localhost:4000/page/3/">
   
   
     <meta name="twitter:description" content="Parkito's dev blog for programming, Python, Algorithm, Automation and insights.">
   
   
-    <meta name="twitter:image:src" content="https://shoark7.github.io/assets/img/1536558558520.jpg">
+    <meta name="twitter:image:src" content="http://localhost:4000/assets/img/1536558558520.jpg">
   
 
   
@@ -218,6 +218,28 @@
 
 <div class="content-box clearfix">
   <div class="articles">
+	
+	<article class="post">
+		
+			<a class="post-thumbnail" style="background-image: url(/assets/img//knowledge/cryptography-algorithms-logo.jpg)" href="/programming/knowledge/basic-terms-for-cryptography"></a>
+		
+		<div class="post-content">
+			<h2 class="post-title"><a href="/programming/knowledge/basic-terms-for-cryptography">[암호학] 암호학의 기본 용어 정리</a></h2>
+			<!--<p>0. 목차
+
+
+  
+    들어가며
+    용어 정리
+      
+        2.1. Cryptography, Cryptology
+        2.2. Encryption과 Decryption
+      ...</p>-->
+			<p>Hash, Message digest 등 암호학을 배울 때 마주치는 필수적인 단어들에 대해 공부하고 익숙해집시다.</p>
+			<span class="post-date">&nbsp;&nbsp;&nbsp;—&nbsp;2019, Mar 14&nbsp;&nbsp;&nbsp;—&nbsp;</span>
+			
+		</div>
+	</article>
 	
 	<article class="post">
 		
@@ -418,31 +440,6 @@
 		</div>
 	</article>
 	
-	<article class="post">
-		
-			<a class="post-thumbnail" style="background-image: url(/assets/img//knowledge/nosql-logo.jpg)" href="/programming/knowledge/what-is-NoSQL"></a>
-		
-		<div class="post-content">
-			<h2 class="post-title"><a href="/programming/knowledge/what-is-NoSQL">NoSQL에 대해 알아보자</a></h2>
-			<!--<p>목차
-
-
-  
-    들어가며
-    NoSQL이란?
-      
-        2.1. 배경
-        2.2. NoSQL의 등장
-        2.3. NoSQL의 특징
-      
-    
-    No...</p>-->
-			<p>NoSQL의 등장배경, 이유, 장점, 종류 등을 살펴보자.</p>
-			<span class="post-date">&nbsp;&nbsp;&nbsp;—&nbsp;2019, Jan 01&nbsp;&nbsp;&nbsp;—&nbsp;</span>
-			
-		</div>
-	</article>
-	
 	<div class="container">
   <nav class="pagination" role="pagination">
     <ul>
@@ -486,7 +483,7 @@ var sjs = SimpleJekyllSearch({
   searchInput: document.querySelector('#search-input'),
   resultsContainer: document.getElementById('results-container'),
   json: '/search.json',
-  searchResultTemplate: '<li class="search-results-item"><a href="https://shoark7.github.io{url}">{title}</a></li>',
+  searchResultTemplate: '<li class="search-results-item"><a href="http://localhost:4000{url}">{title}</a></li>',
 	limit: 9,
 	noResultsText: '<li class="search-results-item"><a href="#">No results found...</a></li>'
 })
