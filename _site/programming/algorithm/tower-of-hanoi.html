@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>'하노이의 탑' 이해하기 - Parkito's on the way</title>
+
+  <!-- Edit site and author settings in `_config.yml` to make the social details your own -->
+
+    <meta content="Parkito's on the way" property="og:site_name">
+  
+    <meta content="'하노이의 탑' 이해하기" property="og:title">
+  
+  
+    <meta content="article" property="og:type">
+  
+  
+    <meta content="'하노이의 탑' 문제를 이해하고 문제 해결을 위한 핵심 통찰을 살핀 뒤 코드로 작성합니다. 이후 탑의 개수에 따른 총 이동 횟수를 구하는 일반항까지 수학적으로 유도합니다." property="og:description">
+  
+  
+    <meta content="http://localhost:4000/programming/algorithm/tower-of-hanoi" property="og:url">
+	
+  
+    <meta content="2019-10-16T00:00:00+09:00" property="article:published_time">
+    <meta content="http://localhost:4000/about/" property="article:author">
+  
+  
+    <meta content="http://localhost:4000/assets/img/algorithm/hanoi-tower-logo.jpg" property="og:image">
+  
+  
+    
+    <meta content="Programming" property="article:section">
+    
+  
+  
+    
+    <meta content="tower-of-hanoi" property="article:tag">
+    
+  
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@">
+    <meta name="twitter:creator" content="@">
+  
+    <meta name="twitter:title" content="'하노이의 탑' 이해하기">
+  
+  
+    <meta name="twitter:url" content="http://localhost:4000/programming/algorithm/tower-of-hanoi">
+  
+  
+    <meta name="twitter:description" content="'하노이의 탑' 문제를 이해하고 문제 해결을 위한 핵심 통찰을 살핀 뒤 코드로 작성합니다. 이후 탑의 개수에 따른 총 이동 횟수를 구하는 일반항까지 수학적으로 유도합니다.">
+  
+  
+    <meta name="twitter:image:src" content="http://localhost:4000/assets/img//algorithm/hanoi-tower-logo.jpg">
+  
+
+  
+    <meta content="'하노이의 탑' 문제를 이해하고 문제 해결을 위한 핵심 통찰을 살핀 뒤 코드로 작성합니다. 이후 탑의 개수에 따른 총 이동 횟수를 구하는 일반항까지 수학적으로 유도합니다." name="description">
+  
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="shortcut icon" href="/assets/img/favicon/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" href="/assets/img/favicon/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/assets/img/favicon/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/assets/img/favicon/apple-touch-icon-144x144.png">
+	<!-- Chrome, Firefox OS and Opera -->
+	<meta name="theme-color" content="#263959">
+	<!-- Windows Phone -->
+	<meta name="msapplication-navbutton-color" content="#263959">
+	<!-- iOS Safari -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="#263959">
+	<!-- Google Fonts -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+	
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="/assets/fonts/font-awesome/css/font-awesome.min.css">
+	<!-- Styles -->
+	<!-- Mathjax Support -->
+<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+	MathJax.Hub.Config({
+  showProcessingMessages: false,
+  jax: ["input/TeX", "output/HTML-CSS"],
+  TeX: {
+    TagSide: "left",
+    Macros: {
+      RR: '{\\bf R}',
+      bold: ['{\\bf #1}',1]
+    }
+  },
+  CommonHTML: {
+    linebreaks: {automatic: true}
+  }
+});
+</script>
+
+	<link rel="stylesheet" href="/assets/css/main.css">
+	<link rel="stylesheet" href="/assets/css/personal.css">
+	<link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Nanum+Gothic:400,700,800&amp;subset=korean" rel="stylesheet">
+</head>
+
+<body style="position: relative">
+	<div id="toggler-wrapper">
+		<div id="menu-toggler">
+			<img src="/assets/img/nav-off.png" alt="Menu collapse image">
+		</div>
+	</div>
+
+  <div class="wrapper">
+
+		<nav id="nav">
+			<div id="menus">
+				<p>
+					<a class="navbar-brand text-white" href="/">&nbsp;&nbsp;&nbsp;Parkito's on the way!&nbsp;&nbsp;&nbsp;</a>
+				</p>
+				<ul id="category-list">
+					<li>
+						<a href="/about.me">
+							<div class="menu">
+								<span> About </span>
+							</div>
+						</a>
+					</li>
+				
+					<li>
+						<div class="menu-wrapper">
+							<a href="/category/programming">
+								<div class="menu">
+									<span> Programming </span>
+								</div>
+							</a>
+							<div class="menu-item">
+								<a href="/category/programming/knowledge">Knowledge</a>
+								<a href="/category/programming/algorithm">Algorithm</a>
+								<a href="/category/programming/python">Python</a>
+								<a href="/category/programming/shell-programming">Shell programming</a>
+							</div>
+						</div>
+					</li>
+				
+					<li>
+						<div class="menu-wrapper">
+								<a href="/category/insight">
+									<div class="menu">
+										<span> Insight </span>
+									</div>
+								</a>
+								<div class="menu-item">
+									<a href="/category/insight/sensitivity">&nbsp;&nbsp;Sensitivity&nbsp;&nbsp;</a>
+									<a href="/category/insight/rationality">&nbsp;&nbsp;Rationality&nbsp;&nbsp;</a>
+								</div>
+						</div>
+					</li>
+
+					<li>
+						<div class="menu-wrapper">
+								<a href="/category/projects">
+									<div class="menu">
+										<span> Projects </span>
+									</div>
+								</a>
+							<div class="menu-item">
+								<a href="/category/projects/dev-related">&nbsp;&nbsp;Dev related&nbsp;&nbsp;</a>
+								<a href="/category/projects/etc">&nbsp;&nbsp;ETC&nbsp;&nbsp;</a>
+							</div>
+						</div> </li>
+
+				</ul>
+			</div>
+
+			<div id="menus-right">
+				<div id="search-section">
+					<div class="input-wrapper">
+						<span class="fa fa-search"></span>
+						<input type="text" id="search-input" placeholder="Please input specific keyword :)" size="30">
+					</div>
+					<div id="results-container"></div>
+				</div>
+
+				<!--<div id="toggler-wrapper">-->
+					<!--<div id="menu-toggler">-->
+						<!--<img src="/assets/img/nav-off.png" alt="" width="35px" height="35px">-->
+					<!--</div>-->
+				<!--</div>-->
+				
+			</div>
+			
+		</nav>
+
+
+    <aside class="sidebar">
+  <header>
+    <div class="about">
+      <div class="cover-author-image">
+        <a href="/"><img src="/assets/img/1536558558520.jpg" alt="Sunghwan Park"></a>
+      </div>
+      <div class="author-name">Sunghwan Park</div>
+      <p>I'm Parkito. A Python lover. Interested in Python, Automation, Algorithm. Please give me insights. I'll teach you tambien! :)</p>
+    </div>
+  </header> <!-- End Header -->
+  <footer>
+    <section class="contact">
+      <h3 class="contact-title">Contact me</h3>
+      <ul>
+				<!--
+        
+          <li><a href="https://twitter.com/artemsheludko_" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+        
+        
+          <li><a href="https://facebook.com/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+        
+				-->
+        
+          <li class="github"><a href="http://github.com/shoark7" target="_blank"><i class="fa fa-github"></i></a></li>
+        
+        
+          <li class="linkedin"><a href="https://in.linkedin.com/in/sunghwan-park-3773b8154" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+        
+        
+          <li class="email"><a href="mailto:shoark7@gmail.com"><i class="fa fa-envelope-o"></i></a></li>
+        
+      </ul>
+    </section> <!-- End Section Contact -->
+    <div class="copyright">
+      <p>2019 &copy; Sunghwan Park</p>
+    </div>
+  </footer> <!-- End Footer -->
+</aside> <!-- End Sidebar -->
+
+<div class="content-box clearfix">
+  <article class="article-page">
+  <div class="page-content">
+    
+    <div class="page-cover-image">
+      <figure>
+        <img class="page-image" src=/assets/img//algorithm/hanoi-tower-logo.jpg alt="'하노이의 탑' 이해하기">
+        
+      </figure>
+    </div> <!-- End Page Cover Image -->
+    
+    <div class="wrap-content">
+      <header class="header-page">
+        <h1 class="page-title">'하노이의 탑' 이해하기</h1>
+        <div class="page-date"><span>2019, Oct 16&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+      </header>
+      <h2 id="0-index">0. Index</h2>
+
+<blockquote>
+  <ol>
+    <li><a href="#1">들어가며</a></li>
+    <li><a href="#2">하노이의 탑</a>
+      <ul>
+        <li>2.1. <a href="#2a">문제 소개</a></li>
+        <li>2.2. <a href="#2b">문제 정의</a></li>
+      </ul>
+    </li>
+    <li><a href="#3">아이디어 얻기</a>
+      <ul>
+        <li>3.1. <a href="#3a">재귀</a></li>
+        <li>3.2. <a href="#3b">출발점, 도착점, 경유점</a></li>
+        <li>3.3. <a href="#3c">문제 분해</a></li>
+      </ul>
+    </li>
+    <li><a href="#4">실제 코드</a></li>
+    <li><a href="#5">번외: 원반의 개수에 따른 총 이동횟수 구하기</a></li>
+    <li><a href="#6">마치며</a></li>
+    <li><a href="#7">자료 출처</a></li>
+  </ol>
+</blockquote>
+
+<p><br />
+<br id="1" /></p>
+
+<h2 id="1-들어가며">1. 들어가며</h2>
+
+<hr />
+
+<p>오늘 다룰 포스트는 ‘하노이의 탑’ 알고리즘이다. 개인적으로 <code class="highlighter-rouge">재귀</code>를 사용한 프로그래밍을 매우 좋아하는데, ‘하노이의 탑’은 재귀를 연습하기에 매우 좋은 연습문제다. 아마 학교에서도 알고리즘 초급 수업에서 재귀 입문으로 이 문제를 많이 다루는 것으로 아는데 이에 대한 내 이해를 공유하면 좋을 것 같다.</p>
+
+<p>언제나 그렇듯 나는 단순히 정답 코드를 찍 적고 휑하니 끝내는 것을 좋아하지 않는다. 코드 자체보다 코드에 이르는 과정이 더 중요한데, 먼저 이 문제를 우리가 원하는 방식으로 정의한다. 그 다음 이 문제를 풀기 위한 핵심 아이디어를 살펴본다. 이후 이 통찰력을 사용해 코드를 곧바로 유도한다.</p>
+
+<p>코드를 살펴본 후 바로 마치지 않고, 탑의 개수에 따른 총 이동횟수 자체를 구해본다. 이때 단순히 재귀식이 아닌, 일반항을 유도해보자.</p>
+
+<p><br />
+<br id="2" /></p>
+
+<h2 id="2-하노이의-탑">2. 하노이의 탑</h2>
+
+<hr />
+
+<p>먼저 문제를 이해해보자. 이 문제가 무엇을 요구하는지 확인하고, 우리는 그중 어떤 출력을 선택할 것인지 정한다. 어떤 출력을 선택하는지에 따라 코드 형태가 달리지기 때문에 확실히 하고 간다.</p>
+
+<p><br id="2a" /></p>
+
+<h3 id="21-문제-소개">2.1. 문제 소개</h3>
+
+<p>‘하노이의 탑’(Tower of Hanoi)은 프랑스의 수학자 에두아르 뤼카가 1883년 소개한 유명한 문제로, 다음과 같은 그림으로 표현할 수 있다.</p>
+
+<p><img src="/assets/img/algorithm/hanoi-tower-intro.png" alt="Intro image of hanoi tower" /></p>
+
+<p>3개의 막대가 있고, 첫 번째 막대(여기서는 ‘A’)에 5개의 원반이 쌓여 있다. 각 원반의 크기는 모두 다르고, 아래에서부터 위로 갈수록 점점 작아진다.</p>
+
+<p><strong>우리의 목표는 막대 ‘A’에 쌓여 있는 원반들을 그 순서를 지키면서 그대로 ‘C’로 옮기는 것이다.(‘B’도 상관 없다.)</strong></p>
+
+<p><img src="/assets/img/algorithm/hanoi-tower-from-to.png" alt="Our goal in Hanoi tower problem" /></p>
+
+<p>이때 원반을 옮기는 몇 가지 조건이 따른다.</p>
+
+<ul>
+  <li><strong>한 번에 움직일 수 있는 원반은 기둥 위에 놓인 원반 하나뿐이다.</strong></li>
+  <li><strong>어떤 원반 위에 그보다 더 큰 원반을 쌓을 수 없다.</strong></li>
+</ul>
+
+<p><br /></p>
+
+<p>이 조건 하에서 ‘최소의 이동횟수로 옮기는 가짓수’를 구하거나, ‘최소의 이동횟수로 옮길 때 각 원반을 옮기는 순서’ 등을 구하는 것이 하노이의 탑 문제가 된다.</p>
+
+<p><br id="2b" /></p>
+
+<h3 id="22-문제-정의">2.2. 문제 정의</h3>
+
+<p>이제 문제 자체는 알았으니 문제를 보다 체계적으로 정의하자. 내가 말하는 <code class="highlighter-rouge">체계적</code>이라함은 문제의 입력과 출력을 보다 함수에 가깝게 정의하자는 것이다. 앞서 하노이의 탑과 관련된 여러 문제를 만들 수 있다고 했는데 우리는 <strong>원반의 이동횟수를 최소화하고자 할 때, 각 원반을 옮기는 모든 순서를 출력하는 것으로 한다.</strong> 이때 각 이동의 출력은 ‘3번 원반을 A에서 C’와 같이로 정하며, 입력은 원반의 개수로 받는다.</p>
+
+<p>이를 구현하는 함수 <strong><em>hanoi</em></strong> 를 대략적으로 정의하면 다음과 같다.</p>
+
+<p class="function-definition">
+  hanoi(N): 원반의 개수 N을 입력 받아 모든 원반을 'C' 막대에 옮기는 각 움직임을 출력한다.
+</p>
+
+<p><br />
+<br id="3" /></p>
+
+<h2 id="3-아이디어-얻기">3. 아이디어 얻기</h2>
+
+<hr />
+
+<p>위에서 문제를 대략적으로, 사실 매우 러프하게 정의했다. 우리는 여기서 시작해서 각 원반을 어디에서 어디로 옮기는지를 모두 출력해야 하며 그를 위해서는 실제 움직임을 추적하고 문제해결을 위한 핵심 아이디어를 포착해야 한다.</p>
+
+<p>어떻게 아이디어를 포착할까? 어떤 알고리즘 문제든 감각적으로 아이디어가 안 떠오를 때 가장 해볼법한 것은 <strong>실제로 원반을 하나씩 옮겨보는 것이다.</strong> 우리도 그렇게 해보자. 그리고 중요한 것은 <strong>언제나 문제를 작게 만들어 해결하고 이후 확대하는 것</strong>이다. 그런 의미에서 원반을 3개에서 시작해보자. 이렇게 그려본 후, 문제 해결을 위해 내가 선택한 세 가지 통찰을 확인한다.</p>
+
+<p><img src="/assets/img/algorithm/hanoi-tower-process.png" alt="Hanoi tower process of each move" /></p>
+
+<p>와… 이거 그리는 거 힘들었다. 원반의 개수가 3개일 때, 각 움직임을 표현하고 있다. 이동횟수를 최소로 할 때 총 7번을 이동해야 하며 정해진 규칙을 지키면서 최종적으로 ‘C’ 막대에 모든 원반이 위치하게 된다. 각 움직임을 눈으로 쫓기 바란다. 원반이 2개, 4개일 때 직접 그려보는 것도 매우 도움이 된다.</p>
+
+<p>이때 우리는 각 움직임을 한 문장씩 출력한다고 했다. 우리가 원하는 함수(<script type="math/tex">hanoi(3)</script>)의 실행결과는 다음과 같을 것이다.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1번 원반을 A에서 C로 이동
+2번 원반을 A에서 B로 이동
+1번 원반을 C에서 B로 이동
+3번 원반을 A에서 C로 이동
+1번 원반을 B에서 A로 이동
+2번 원반을 B에서 C로 이동
+1번 원반을 A에서 C로 이동  # 여기까지 7번
+</code></pre></div></div>
+
+<p>자, 이제 우리가 할 것은 작은 입력을 통해 문제를 직접 풀어본 뒤 이를 통해 문제 해결을 위한 통찰, 즉 핵심 아이디어를 얻는 것이다. 그를 바탕으로 문제를 프로그래밍 가능하게 보다 구체적으로 재정의할 것이다.</p>
+
+<p><br id="3a" /></p>
+
+<h3 id="31-재귀">3.1. 재귀</h3>
+
+<p>앞서 여러 번 언급했지만 재귀는 이 문제의 성패를 가르는 통찰이다. <strong>재귀(recursion)란 같은 형태의 보다 작은 입력을 지닌 자기 자신을 호출하는 것이고, 이렇게 재귀적인 호출을 사용하는 함수를 재귀 함수라고 한다.</strong> 재귀함수의 활용은 내 알고리즘 포스트에서 많이 사용됐기 때문에 이쯤 넘어가도록 하자.</p>
+
+<p>이 문제 어디에서 재귀의 여지가 있을까? 일단 우리가 정의한 함수의 명세를 다시 보자.</p>
+
+<ul>
+  <li><strong>hanoi(N): N개의 원반을 어쩌고 저쩌고 해서 다른 곳으로 옮겨라.</strong></li>
+</ul>
+
+<p>이때 위의 7번의 움직임은 모두 <em>hanoi(N)</em> 의 과정이다. 그러면 <em>hanoi(N-1)</em> 은 뭘까? 정의에 따라 다음과 같을 것이다:</p>
+
+<ul>
+  <li><strong>hanoi(N-1): (N-1)개의 원반을 어쩌고 저쩌고 해서 다른 곳으로 옮겨라.</strong></li>
+</ul>
+
+<p>뭐 충분히 가능한 해석이다. 원반을 100개를 옮길 수도 있고, 그보다 1개 작은 99개 옮기는 것도 얼마든지 가능할테니까. 내가 원하는 것은 <strong><em>hanoi(N)</em> 에서 <em>hanoi(N-1)</em> 가 발견되냐</strong>는 것이다. <strong>이를 현재 문제에 적용하면 <em>hanoi(3)</em> 이니 <em>hanoi(2)</em> 가 발견되는지가 될 것이다.</strong></p>
+
+<p>이 조건을 충족할 때 재귀를 전략적으로 사용할 수 있다. 위 그림에서 찾아보자.</p>
+
+<p><br /></p>
+
+<p>단서는 start와 4번째 움직임 후. 먼저 맨 처음을 보자. <strong>규칙에 따라 3번째 원반을 ‘C’에서 처음으로 꽂으려면 위의 두 원반은 ‘B’ 원반에 이미 꽂혀 있어야 한다.</strong> 즉 여기서 <em>hanoi(2)</em> 가 보인다.</p>
+
+<p>또 4번째 그림. 2개의 원반을 ‘B’에 꽂은 후 3번째 원반을 ‘C’로 옮겼다. <strong>이제 2개의 원반을 다시 ‘B’에서 ‘C’로 옮겨야 한다. 여기서도 <em>hanoi(2)</em> 가 쓰이고 있다.</strong></p>
+
+<p>여기서 알 수 있는 것은 <strong><em>hanoi(N)</em> 은 두 번의 <em>hanoi(N-1)</em> 재귀 과정을 수반한다는 것이다.</strong> 한 번의 재귀 후 가장 큰 원반(N번째 원반)을 목적지로 옮기고, 다시 마지막 재귀를 통해 나머지 N-1개의 원반을 목적지에 옮긴다. <strong>즉, hanoi(N)은 세 번의 과정으로 나눌 수 있다.</strong></p>
+
+<p><br id="3b" /></p>
+
+<h3 id="32-출발점-도착점-경유점">3.2. 출발점, 도착점, 경유점</h3>
+
+<p>좋아, 재귀의 가능성을 찾은 것은 큰 성과다. <strong><em>hanoi(N)</em> 함수를 어떻게든 <em>hanoi(N-1)</em> 를 활용한 형태로 표현가능할 것</strong>이라는 단서를 찾았다. 근데 여기서 다가 아니고 추가적인 정보가 필요하다.</p>
+
+<p>앞서 N개의 원반을 옮기는 작업에는 두 번의 재귀 과정이 있다고 했다. 이때 <strong>각 재귀 과정이 의도하는 바가 조금씩 다르다.</strong> 위의 그림을 참고하면 다음과 같이 구분할 수 있다.</p>
+
+<ul>
+  <li>첫 번째 재귀: N-1 개의 원반을 ‘A’에서 ‘B’로 옮긴다.(start)</li>
+  <li>두 번째 재귀: N-1 개의 원반을 ‘B’에서 ‘C’로 옮긴다.(4번)</li>
+</ul>
+
+<p><strong>두 재귀는 옮기는 원반의 개수는 같지만 원반을 움직이는 출발지와 목적지가 다르다.</strong> 그리고 이 정보는 현재 러프하게 정의한 <em>hanoi</em> 함수에서 추적하지 않고 있는 정보이기도 하다. <strong>우리의 문제 정의에서 출력은 각 움직임의 출발지와 목적지도 같이 기술해야 하기 때문에 함수에서 이 두 정보를 같이 추적해줘야 한다.</strong> 따라서 원 함수의 입력이 원반의 개수만 받았다면 이제는 최소 출발지, 도착지의 변수까지 추가로 받아야 한다.</p>
+
+<p><br /></p>
+
+<p>여기에 더해 <code class="highlighter-rouge">경유점</code>이라는 개념도 사용하자. 만약 ‘A’에서 ‘C’로 3개의 원반을 이동할 때 ‘B’ 막대도 결국 사용해야 한다. 이렇게 세 개의 입력을 같이 입력해줘야 원반을 하나씩 이동할 때 경유점을 지날 때도 문제없이 출력할 수 있다.</p>
+
+<p><br id="3c" /></p>
+
+<h3 id="32-문제-분해">3.2. 문제 분해</h3>
+
+<p>이제 문제 해결과 관련된 핵심 재귀식을 만들어보자. 앞선 그림에서 순차적으로 얻을 수 있다. 먼저 보다 구체화된 문제를 다시 한 번 정의해보자.</p>
+
+<p class="function-definition">
+  hanoi(N, start, to, via): start에서 to로 via를 거쳐 총 N개의 원반을 운반할 때 각 이동 과정을 출력하라
+</p>
+
+<p>앞선 문제보다 훨씬 구체화됐다. 그러면 위의 3개의 원반을 옮기는 과정은 다음 함수로 표현할 수 있다.</p>
+
+<ul>
+  <li><strong>hanoi(3, ‘A’, ‘C’, ‘B’)</strong></li>
+</ul>
+
+<p>그리고 <em>hanoi</em> 함수는 두 번의 재귀와 한 번의 가장 큰 원반을 옮기는 과정이 필요하다고 했다. 즉, <strong>전체 과정을 세 과정의 연속으로 분해가능한 것이다.</strong> 이때 각 과정은 순차적으로 이루어지는데 그 순서는 다음과 같다. 이 과정은 그림과 같이 확인하라.</p>
+
+<ol>
+  <li><strong>hanoi(2, ‘A’, ‘B’, ‘C’)</strong> : start에서 3번까지
+    <ul>
+      <li>3번 원반을 ‘C’로 옮기기 위해서는 먼저 위의 두 원반을 ‘B’로 옮겨야 한다.</li>
+    </ul>
+  </li>
+  <li><strong>이후 3번 원반을 ‘C’로 옮긴다</strong> : 4번</li>
+  <li><strong>hanoi(2, ‘B’, ‘C’, ‘A’)</strong> : 5번 ~
+    <ul>
+      <li>3번을 ‘C’로 옮긴 후 ‘B’에 있는 두 개의 원반을 ‘C’로 옮긴다. 이때 ‘A’를 경유한다.</li>
+    </ul>
+  </li>
+</ol>
+
+<p>원반의 개수(<script type="math/tex">N</script>)가 몇 개가 되든 결국 이 과정을 거친다. 한 번의 재귀, 가장 큰 원반 옮기기 이후 다시 한 번의 재귀. 물론 이때 예외가 있다. <script type="math/tex">N</script>이 1일 때는 자신의 위에 원반이 없기 때문에 재귀가 필요없고 바로 원반을 옮기고 종료한다. 이것이 곧 재귀함수의 탈출 조건, 또는 기저 사례(base case)가 된다. 이제 이 식을 실제 수식으로 표현해보자.</p>
+
+<script type="math/tex; mode=display">move(N, from, to): \text{N번 원반을 from에서 to로 옮긴다.(우리는 print로 출력함)}</script>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{array} \label{}
+	\text{hanoi}(N, start, to, via) =
+	  \begin{cases}
+	    move(1, start, to) & \quad \text{1. if N == 1},\\
+	    \\
+	    hanoi(N-1, start, via, to) \\
+	     + move(N, start, to) \\
+	     + hanoi(N-1, via, to, start) & \quad \text{2. else},\\
+	  \end{cases}
+\end{array} %]]></script>
+
+<p>각 재귀 함수에서 인자의 순서가 헷갈리기 쉽다. 헷갈리지 말자.</p>
+
+<ol>
+  <li>첫 번째 재귀에서는 맨 밑의 N번째 원반을 목적지로 옮기기 위해 위의 N-1 개의 원반을 경유지로 옮긴다.</li>
+  <li>그 다음 N 번째 원반을 목적지로 옮긴다.</li>
+  <li>경유지에 있는 N-1 개의 원반을 이제 to로 옮긴다.</li>
+</ol>
+
+<p>이게 핵심이다. 그러면 이제 할 수 있는 질문은 <em>‘이러면 진짜 풀려??’</em> 일 수 있는데, 코드를 짜고 실행시켜 보면 알 수 있겠다.</p>
+
+<p><br />
+<br id="4" /></p>
+
+<h2 id="4-실제-코드">4. 실제 코드</h2>
+
+<hr />
+
+<p><strong>재귀 함수는 많은 경우 재귀식을 표현만 할 수 있으면 그대로 풀린다.</strong> 위에서 정의한 함수 그대로 코드를 작성해보자.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">MSG_FORMAT</span> <span class="o">=</span> <span class="s">"{}번 원반을 {}에서 {}로 이동"</span>
+
+
+<span class="k">def</span> <span class="nf">move</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">to</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">MSG_FORMAT</span><span class="o">.</span><span class="nb">format</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">to</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>먼저 실제로 원반을 옮기는 <em>move</em> 함수를 정의한다. 메시지 형식은 위에서 정의한 그대로 사용한다. 이때 기억하자. <strong>실제 데이터와 데이터를 표현하는 형식은 별개의 것이므로, 이 둘을 분리하면 좋다.</strong> <em>MSG_FORMAT</em> 은 형식에 불과하고, 실제 데이터는 <em>N</em>, <em>start</em>, <em>to</em> 다. 이렇게 역할에 맞게 분리하는 습관은 결국 정답이다.</p>
+
+<p><br /></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">hanoi</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">to</span><span class="p">,</span> <span class="n">via</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">N</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">move</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">to</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">hanoi</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">via</span><span class="p">,</span> <span class="n">to</span><span class="p">)</span>
+        <span class="n">move</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">to</span><span class="p">)</span>
+        <span class="n">hanoi</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">via</span><span class="p">,</span> <span class="n">to</span><span class="p">,</span> <span class="n">start</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>정말 위에서 정의한 재귀식 그대로 함수를 만들었다. 기억하자. <strong>설계가 코딩에 앞선다는 것.</strong> 설계 없는 코딩은 전기와 노동력, 시간을 잡아먹는 바보 같은 짓이다.</p>
+
+<p>이제 함수가 돌아가는지 실행해볼까?</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">hanoi</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s">'A'</span><span class="p">,</span> <span class="s">'C'</span><span class="p">,</span> <span class="s">'B'</span><span class="p">)</span>
+
+
+<span class="mi">1</span><span class="err">번</span> <span class="err">원반을</span> <span class="n">A</span><span class="err">에서</span> <span class="n">C</span><span class="err">로</span> <span class="err">이동</span>
+<span class="mi">2</span><span class="err">번</span> <span class="err">원반을</span> <span class="n">A</span><span class="err">에서</span> <span class="n">B</span><span class="err">로</span> <span class="err">이동</span>
+<span class="mi">1</span><span class="err">번</span> <span class="err">원반을</span> <span class="n">C</span><span class="err">에서</span> <span class="n">B</span><span class="err">로</span> <span class="err">이동</span>
+<span class="mi">3</span><span class="err">번</span> <span class="err">원반을</span> <span class="n">A</span><span class="err">에서</span> <span class="n">C</span><span class="err">로</span> <span class="err">이동</span>
+<span class="mi">1</span><span class="err">번</span> <span class="err">원반을</span> <span class="n">B</span><span class="err">에서</span> <span class="n">A</span><span class="err">로</span> <span class="err">이동</span>
+<span class="mi">2</span><span class="err">번</span> <span class="err">원반을</span> <span class="n">B</span><span class="err">에서</span> <span class="n">C</span><span class="err">로</span> <span class="err">이동</span>
+<span class="mi">1</span><span class="err">번</span> <span class="err">원반을</span> <span class="n">A</span><span class="err">에서</span> <span class="n">C</span><span class="err">로</span> <span class="err">이동</span>
+</code></pre></div></div>
+
+<p>따라가 보라. 정말 기가 막히게, 다시 말해 이 문제의 조건을 어기지 않으며 원반을 옮긴다. 시간과 용기가 허락한다면 <script type="math/tex">N</script>을 4, 5로 키워서 실행해보라. 문제없이 동작할 것이다.</p>
+
+<p><strong>이렇게 원반을 옮기는 각 과정을 추적하는 형태의 하노이의 탑 문제는 해결이 됐다.</strong></p>
+
+<p><br />
+<br id="5" /></p>
+
+<h2 id="5-번외-원반의-개수에-따른-총-이동횟수-구하기">5. 번외: 원반의 개수에 따른 총 이동횟수 구하기</h2>
+
+<hr />
+
+<p>앞선 ‘문제 정의’ 절에서 우리는 원반을 움직이는 각 이동의 과정을 출력하도록 하노이의 탑 문제를 정의했다. 하지만 이번에는 조금 다른, 상대적으로 수학적인 하노이의 탑 문제를 풀어보려고 한다. <strong>원반의 개수가 N일 때, 원반을 모두 옮기는 데 드는 이동 횟수는 몇 번일까?</strong></p>
+
+<p>확실히 앞선 문제와는 궤를 달리 한다. 앞서 작성한 함수는 원반의 개수가 3일 때 7번의 print 문이 실행되는데 이번 문제에서는 이렇게 7을 구하면 된다. 즉, 이번 문제는 <strong>원반의 개수 N에 따른 하노이의 탑 이동횟수에 대한 일반식을 구할 수 있을까?</strong>이고, 확실히 앞선 문제에 비해 수학적이다.</p>
+
+<p>천천히 접근해서 먼저 함수를 정의하고 시작하자. 앞선 함수는 원반의 개수(N)뿐 아니라 출발지와 목적지에 대한 정보도 필요했다. 어디에서 어디로 옮기는지를 모두 출력해야 했기에 당연하다. <strong>하지만 이 문제에서는 구체적인 출발지와 목적지에 대한 정보는 필요없다. 단순히 총 이동횟수만 구하면 되기 때문이고 따라서 이번 함수에서는 이 정보들을 무시한다.</strong> 결국 함수를 정의하면 다음과 같다.</p>
+
+<p class="function-definition">
+  hanoi(N): N개의 원반을 옮기는 하노이의 탑 문제의 총 이동 횟수를 구하라
+</p>
+
+<p>이때 각 함수는 마찬가지로 재귀식으로 짤 수 있다.</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{array} \label{}
+	\text{hanoi}(N) =
+	  \begin{cases}
+	    1 & \quad \text{1. if N == 1}, \\
+	    \\
+	    2 \times hanoi(N-1) + 1 & \quad \text{2. else}, \\
+	  \end{cases}
+\end{array} %]]></script>
+
+<p>앞선 함수와 핵심 재귀 논리는 동일하다. 원반의 개수가 1개일 때는 눈치보지 않고 바로 옮기면 되고, 아니면 위의 원반을 옮기고 자신을 옮긴 뒤 다시 남은 원반을 목적지로 옮긴다.</p>
+
+<p>이제 문제는 <strong>이 재귀식에서 일반항을 어떻게 도출할 수 있는가</strong>이다. 그 과정이 결코 어렵지 않으니 따라가보자.</p>
+
+<script type="math/tex; mode=display">hanoi_n = hanoi_{n-1} \times 2 + 1 \\
+\text{양변에 1을 더하면} \\
+	\\
+hanoi_n + 1 = 2 \times (hanoi_{n-1} + 1) \\
+hanoi_{n-1} + 1 = 2 \times (hanoi_{n-2} + 1) \\
+hanoi_{n-2} + 1 = 2 \times (hanoi_{n-3} + 1) \\
+\vdots \\
+hanoi_2 + 1 = 2 \times (hanoi_1 + 1) \\</script>
+
+<script type="math/tex; mode=display">\text{이때 좌변과 우변을 각각 곱하면...} \\
+	\\
+(hanoi_n + 1)(hanoi_{n-1} + 1) \cdots (hanoi_2 + 1) = 2^{n-1}(hanoi_{n-1} + 1) \cdots (hanoi_1 + 1) \\
+\text{양변의 공통된 인자들을 나눈다.} \\
+	\\
+(hanoi_n + 1) = 2^{n-1} \times (hanoi_1 + 1) \\
+	\\
+hanoi_1 \text{은 1이기 때문에 결국} \\
+	\\
+(hanoi_n + 1) = 2^n \\
+	\\
+\therefore \mathbf{hanoi_n = 2^n - 1}</script>
+
+<p>이렇게 N개의 원반을 옮기는 하노이의 탑 문제의 이동횟수의 일반항을 구할 수 있었다. 결국 2의 지수식이 나오는데 각 함수가 두 번의 재귀식을 실행시킨다는 것을 알면 감각적인 사람들은 대충이라도 유추할 수도 있었을 것이다. 나는 못했다. ㅋㅋ</p>
+
+<p><br />
+<br id="6" /></p>
+
+<h2 id="6-마치며">6. 마치며</h2>
+
+<hr />
+
+<p>오늘은 그 유명한 하노이의 탑 문제를 풀어봤다. 이 문제는 병합문제와 마찬가지로 <code class="highlighter-rouge">재귀</code>를 연습하는데 정말 좋은 문제로 재귀가 익숙하지 않은 분들은 꼭 복기하시면 좋겠다. 우리는 이 문제를 해결하기 위한</p>
+
+<ol>
+  <li>재귀</li>
+  <li>출발점, 도착점, 경유</li>
+  <li>문제 분해</li>
+</ol>
+
+<p>이상 세 개의 통찰을 발견할 수 있었고 이를 통해 각 움직임을 포착하는 함수를 작성할 수 있었다.</p>
+
+<p>번외로 각 움직임을 포착하는 것이 아닌, 총 이동횟수를 구하는 일반항까지 구할 수 있었다. 문제는 정하기 나름이라는 것, ‘주제’와 ‘문제’는 구분할 필요가 있다는 것을 기억하자.</p>
+
+<p><br /></p>
+
+<p>현재 재미있는 알고리즘 주제들이 준비되어 있다. 아마 빠른 주기로 작성될 것 같다. 다시 가보자.</p>
+
+<p><br />
+<br id="7" /></p>
+
+<h2 id="7-자료-출처">7. 자료 출처</h2>
+
+<hr />
+
+<ul>
+  <li><a href="http://blog.naver.com/PostView.nhn?blogId=2gumin14&amp;logNo=221060149259" target="_blank">하노이의 탑 일반항 구하기</a></li>
+  <li><a href="https://ko.wikipedia.org/wiki/%ED%95%98%EB%85%B8%EC%9D%B4%EC%9D%98_%ED%83%91" target="_blank">하노이의 탑: wikipedia</a></li>
+</ul>
+
+      <div class="page-footer">
+        <div class="page-share">
+          <a href="https://twitter.com/intent/tweet?text='하노이의 탑' 이해하기&url=http://localhost:4000/programming/algorithm/tower-of-hanoi" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
+          <a href="https://facebook.com/sharer.php?u=http://localhost:4000/programming/algorithm/tower-of-hanoi" title="Share on Facebook" rel="nofollow" target="_blank">Facebook</a>
+          <a href="https://plus.google.com/share?url=http://localhost:4000/programming/algorithm/tower-of-hanoi" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>
+        </div>
+        <div class="page-tag">
+          
+            <a href="/tags#tower-of-hanoi" class="tag">&#35; tower-of-hanoi</a>
+          
+        </div>
+      </div>
+		  <!-- Load Facebook SDK for JavaScript -->
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+
+  <!-- Your share button code -->
+  <div class="fb-share-button" 
+    data-href="http://localhost:4000/programming/algorithm/tower-of-hanoi" 
+    data-layout="button_count">
+  </div>
+
+		
+    </div> <!-- End Wrap Content -->
+  </div> <!-- End Page Content -->
+</article> <!-- End Article Page -->
+
+</div>
+
+  </div>
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', '', 'auto');
+  ga('send', 'pageview');
+</script> <!-- End Analytics -->
+
+	<script src="https://unpkg.com/simple-jekyll-search@1.5.0/dest/simple-jekyll-search.min.js"></script>
+<script>
+var sjs = SimpleJekyllSearch({
+  searchInput: document.querySelector('#search-input'),
+  resultsContainer: document.getElementById('results-container'),
+  json: '/search.json',
+  searchResultTemplate: '<li class="search-results-item"><a href="http://localhost:4000{url}">{title}</a></li>',
+	limit: 9,
+	noResultsText: '<li class="search-results-item"><a href="#">No results found...</a></li>'
+})
+</script>
+
+	<!-- Main Js -->
+<!--<script src="/assets/js/main.js"></script>-->
+
+<!-- JQuery 3.x min -->
+<script src="/assets/js/jquery.js"></script>
+
+<script>
+	let menus = $("#category-list");
+	let image = $("#menu-toggler img");
+	$("#toggler-wrapper").click(function() {
+		if(menus.css("display") === "none") {
+			image.attr("src", "/assets/img/close-button.png");
+			menus.css("display", "flex");
+		}
+		else {
+			image.attr("src", "/assets/img/nav-off.png");
+			menus.css("display", "none");
+		}
+	});
+
+
+</script>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-127149179-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-127149179-1');
+</script>
+
+</body>
+</html>
