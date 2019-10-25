@@ -8,6 +8,9 @@ categories: [Programming, Algorithm]
 tags: [bulls-and-cows, 숫자 야구, Methodology]
 ---
 
+* **본 포스트는 데스크탑에 최적화되어 있습니다.**
+
+
 ## 0. Index
 
 > 1. [들어가며](#1)
@@ -234,6 +237,8 @@ $$
 \text{판단하는 함수를 } judge(n, r) \text{라고 하자.(n이 숫자, r이 추측 기록)} \\
 \text{이때 원 문제의 해답은:}
 $$
+
+<br>
 
 $$
 \large{|\{ \forall n \in N | \hspace{2mm} n \hspace{5mm} if \hspace{3mm} \sum_{i=0} \big(judge(n, R[i]) == |R|) \}|}
