@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>내가 알고리즘 문제를 푸는 방법 - Parkito's on the way</title>
+
+  <!-- Edit site and author settings in `_config.yml` to make the social details your own -->
+
+    <meta content="Parkito's on the way" property="og:site_name">
+  
+    <meta content="내가 알고리즘 문제를 푸는 방법" property="og:title">
+  
+  
+    <meta content="article" property="og:type">
+  
+  
+    <meta content="필자가 알고리즘 문제를 접하고 해결하는 나름의 과정과 절차를 소개해보겠습니다." property="og:description">
+  
+  
+    <meta content="http://localhost:4000/programming/algorithm/how-i-approach-algorithm-from-my-way" property="og:url">
+	
+  
+    <meta content="2019-10-25T00:00:00+09:00" property="article:published_time">
+    <meta content="http://localhost:4000/about/" property="article:author">
+  
+  
+    <meta content="http://localhost:4000/assets/img/algorithm/approach-algorithm-logo.png" property="og:image">
+  
+  
+    
+    <meta content="Programming" property="article:section">
+    
+  
+  
+    
+    <meta content="bulls-and-cows" property="article:tag">
+    
+    <meta content="숫자 야구" property="article:tag">
+    
+    <meta content="Methodology" property="article:tag">
+    
+  
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@">
+    <meta name="twitter:creator" content="@">
+  
+    <meta name="twitter:title" content="내가 알고리즘 문제를 푸는 방법">
+  
+  
+    <meta name="twitter:url" content="http://localhost:4000/programming/algorithm/how-i-approach-algorithm-from-my-way">
+  
+  
+    <meta name="twitter:description" content="필자가 알고리즘 문제를 접하고 해결하는 나름의 과정과 절차를 소개해보겠습니다.">
+  
+  
+    <meta name="twitter:image:src" content="http://localhost:4000/assets/img//algorithm/approach-algorithm-logo.png">
+  
+
+  
+    <meta content="필자가 알고리즘 문제를 접하고 해결하는 나름의 과정과 절차를 소개해보겠습니다." name="description">
+  
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="shortcut icon" href="/assets/img/favicon/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" href="/assets/img/favicon/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/assets/img/favicon/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/assets/img/favicon/apple-touch-icon-144x144.png">
+	<!-- Chrome, Firefox OS and Opera -->
+	<meta name="theme-color" content="#263959">
+	<!-- Windows Phone -->
+	<meta name="msapplication-navbutton-color" content="#263959">
+	<!-- iOS Safari -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="#263959">
+	<!-- Google Fonts -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+	
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="/assets/fonts/font-awesome/css/font-awesome.min.css">
+	<!-- Styles -->
+	<!-- Mathjax Support -->
+<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+	MathJax.Hub.Config({
+  showProcessingMessages: false,
+  jax: ["input/TeX", "output/HTML-CSS"],
+  TeX: {
+    TagSide: "left",
+    Macros: {
+      RR: '{\\bf R}',
+      bold: ['{\\bf #1}',1]
+    }
+  },
+  CommonHTML: {
+    linebreaks: {automatic: true}
+  }
+});
+</script>
+
+	<link rel="stylesheet" href="/assets/css/main.css">
+	<link rel="stylesheet" href="/assets/css/personal.css">
+	<link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Nanum+Gothic:400,700,800&amp;subset=korean" rel="stylesheet">
+</head>
+
+<body style="position: relative">
+	<div id="toggler-wrapper">
+		<div id="menu-toggler">
+			<img src="/assets/img/nav-off.png" alt="Menu collapse image">
+		</div>
+	</div>
+
+  <div class="wrapper">
+
+		<nav id="nav">
+			<div id="menus">
+				<p>
+					<a class="navbar-brand text-white" href="/">&nbsp;&nbsp;&nbsp;Parkito's on the way!&nbsp;&nbsp;&nbsp;</a>
+				</p>
+				<ul id="category-list">
+					<li>
+						<a href="/about.me">
+							<div class="menu">
+								<span> About </span>
+							</div>
+						</a>
+					</li>
+				
+					<li>
+						<div class="menu-wrapper">
+							<a href="/category/programming">
+								<div class="menu">
+									<span> Programming </span>
+								</div>
+							</a>
+							<div class="menu-item">
+								<a href="/category/programming/knowledge">Knowledge</a>
+								<a href="/category/programming/algorithm">Algorithm</a>
+								<a href="/category/programming/python">Python</a>
+								<a href="/category/programming/shell-programming">Shell programming</a>
+							</div>
+						</div>
+					</li>
+				
+					<li>
+						<div class="menu-wrapper">
+								<a href="/category/insight">
+									<div class="menu">
+										<span> Insight </span>
+									</div>
+								</a>
+								<div class="menu-item">
+									<a href="/category/insight/sensitivity">&nbsp;&nbsp;Sensitivity&nbsp;&nbsp;</a>
+									<a href="/category/insight/rationality">&nbsp;&nbsp;Rationality&nbsp;&nbsp;</a>
+								</div>
+						</div>
+					</li>
+
+					<li>
+						<div class="menu-wrapper">
+								<a href="/category/projects">
+									<div class="menu">
+										<span> Projects </span>
+									</div>
+								</a>
+							<div class="menu-item">
+								<a href="/category/projects/dev-related">&nbsp;&nbsp;Dev related&nbsp;&nbsp;</a>
+								<a href="/category/projects/etc">&nbsp;&nbsp;ETC&nbsp;&nbsp;</a>
+							</div>
+						</div> </li>
+
+				</ul>
+			</div>
+
+			<div id="menus-right">
+				<div id="search-section">
+					<div class="input-wrapper">
+						<span class="fa fa-search"></span>
+						<input type="text" id="search-input" placeholder="Please input specific keyword :)" size="30">
+					</div>
+					<div id="results-container"></div>
+				</div>
+
+				<!--<div id="toggler-wrapper">-->
+					<!--<div id="menu-toggler">-->
+						<!--<img src="/assets/img/nav-off.png" alt="" width="35px" height="35px">-->
+					<!--</div>-->
+				<!--</div>-->
+				
+			</div>
+			
+		</nav>
+
+
+    <aside class="sidebar">
+  <header>
+    <div class="about">
+      <div class="cover-author-image">
+        <a href="/"><img src="/assets/img/1536558558520.jpg" alt="Sunghwan Park"></a>
+      </div>
+      <div class="author-name">Sunghwan Park</div>
+      <p>I'm Parkito. A Python lover. Interested in Python, Automation, Algorithm. Please give me insights. I'll teach you tambien! :)</p>
+    </div>
+  </header> <!-- End Header -->
+  <footer>
+    <section class="contact">
+      <h3 class="contact-title">Contact me</h3>
+      <ul>
+				<!--
+        
+          <li><a href="https://twitter.com/artemsheludko_" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+        
+        
+          <li><a href="https://facebook.com/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+        
+				-->
+        
+          <li class="github"><a href="http://github.com/shoark7" target="_blank"><i class="fa fa-github"></i></a></li>
+        
+        
+          <li class="linkedin"><a href="https://in.linkedin.com/in/sunghwan-park-3773b8154" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+        
+        
+          <li class="email"><a href="mailto:shoark7@gmail.com"><i class="fa fa-envelope-o"></i></a></li>
+        
+      </ul>
+    </section> <!-- End Section Contact -->
+    <div class="copyright">
+      <p>2019 &copy; Sunghwan Park</p>
+    </div>
+  </footer> <!-- End Footer -->
+</aside> <!-- End Sidebar -->
+
+<div class="content-box clearfix">
+  <article class="article-page">
+  <div class="page-content">
+    
+    <div class="page-cover-image">
+      <figure>
+        <img class="page-image" src=/assets/img//algorithm/approach-algorithm-logo.png alt="내가 알고리즘 문제를 푸는 방법">
+        
+      </figure>
+    </div> <!-- End Page Cover Image -->
+    
+    <div class="wrap-content">
+      <header class="header-page">
+        <h1 class="page-title">내가 알고리즘 문제를 푸는 방법</h1>
+        <div class="page-date"><span>2019, Oct 25&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+      </header>
+      <h2 id="0-index">0. Index</h2>
+
+<blockquote>
+  <ol>
+    <li><a href="#1">들어가며</a></li>
+    <li><a href="#2">예제: 숫자 야구</a>
+      <ul>
+        <li>2.1. <a href="#2a">주제 소개</a></li>
+        <li>2.2. <a href="#2b">문제 정의</a></li>
+      </ul>
+    </li>
+    <li><a href="#3">어떻게 접근할까?</a>
+      <ul>
+        <li>3.0. <a href="#3a">나만의 방식으로 문제 정리하기</a></li>
+        <li>3.1. <a href="#3b">알고리즘 선택: 입력의 크기를 바탕으로</a></li>
+        <li>3.2. <a href="#3c">문제 분해 및 조합</a></li>
+        <li>3.3. <a href="#3d">조합: 수식으로 정리</a></li>
+      </ul>
+    </li>
+    <li><a href="#4">실제 코드</a></li>
+    <li><a href="#5">내 방식의 문제점</a></li>
+    <li><a href="#6">마치며</a></li>
+    <li><a href="#7">자료 출처</a></li>
+  </ol>
+</blockquote>
+
+<p><br />
+<br id="1" /></p>
+
+<h2 id="1-들어가며">1. 들어가며</h2>
+
+<hr />
+
+<p>내 블로그는 여러 카테고리가 있는데 그중 가장 잘 읽히는 카테고리는 단연 <code class="highlighter-rouge">알고리즘</code>이다. 현재 주간 통계에서 페이지뷰 상위 10위 중 8개가 알고리즘 포스트다. 그 원인은 여러 가지가 있을 수 있겠는데 분석 없이는 모두 뇌피셜이기 때문에 넘어간다. 참고로 이번주 1등은 <a href="https://shoark7.github.io/programming/algorithm/several-ways-to-solve-factorial-in-python" target="_blank">팩토리얼을 구하는 여러 방법을 다룬 포스트</a>인데, 실제 개발에 별 도움이 안 되는 팩토리얼 포스트가 왜 1등인지는 잘 모르겠다. 학생분들의 성원이 큰 힘이 된 것이 아닌가 추측만할 뿐이다.</p>
+
+<p>내 알고리즘 포스트의 컨셉은 확실하다. 알고리즘 플랫폼의 구체적인 문제를 일일이 소개하는 것이 아닌 보다 일반적인, 유명한 주제의 알고리즘을 다루며 가능하다면 다양한 시간복잡도의 알고리즘을 소개하는 것. 사실 이 방식은 단순히 플랫폼 문제의 정답코드를 소개하는 것에 비해 하나의 포스트에 시간이 많이 소모되고 주제 찾기가 까다로워서 지금도 고민인데, 그대신 하나하나 웹상에 등재될 때마다의 성취감은 더 크다. 일단은 이렇게 계속 가지 않을까 싶은데…</p>
+
+<p><strong>오늘은 알고리즘 소개보다는 내가 알고리즘 문제를 실제로 어떻게 접근하고 해결하는지, 나의 방법론을 소개하고자 한다.</strong> 최근 스터디를 하면서 문제를 읽은 후 설계하지 않고 코드를 작성하는 분들이 아직도 꽤 있다는 것을 알게 됐다. 이는 알고리즘을 가르치는 곳은 많아도 어떤 프로세스로 접근해야 하는지는 가르치는 곳이 많지 않아서인지도 모르겠다. 하지만 명심하자. <code class="highlighter-rouge">설계 없는 코드는 공허하다</code>. 설계 없이 코딩하는 것은 문제 난이도를 스스로 더 높이는 것이기도 하고, 또 해결이 된다한들 최종 결과물인 코드의 가독성이 심히 저해되기 쉽다.</p>
+
+<p>그래서 <strong>실제 예제 문제를 하나 가져와서 그 문제를 해결하는 나의 프로세스를 순차적으로 소개하고자 한다.</strong> 가져온 주제는 <code class="highlighter-rouge">숫자 야구</code>인데 이 주제를 통한 다양한 문제 버전이 있지만 여기서는 정보올림피아드 대회에 나왔던 문제를 풀어본다. 구체적인 문제 링크는 <a href="https://www.acmicpc.net/problem/2503" target="_blank">다음</a>과 같다.</p>
+
+<p><br /></p>
+
+<p>포스트의 구성은 다음과 같다:</p>
+
+<ul>
+  <li>먼저 문제를 소개한다. 이후 장에서는 이 문제를 해결하는 실제적인 나의 정리방식을 소개할 예정이기 때문에 문제는 꼭 이해하고 다음 장으로 넘어가자.</li>
+  <li>다음 장에서는 본격적으로 이 문제를 보고 내가 취한 접근법을 소개한다. 몇 개의 절로 이루어지는데 그 과정을 상세히 짚고 넘어갈 생각이다. 이미 이 장이 제일 길 것이다.</li>
+  <li>다음은 이 접근법을 적용한 코드를 확인한다. 설계가 적절하면 코드 부분에서 오래 고민할 것이 없다. 나의 방식이 적어도 이 문제에서는 유효하다는 것을 확인할 것이다.</li>
+  <li>마지막으로 내 방법론의 부족한 부분도 짧게 자평할 것이다.</li>
+</ul>
+
+<p>이 방식은 나만의 방식이고 정답이 결코 아니다. 향후 서술하겠지만 부족한 부분이 있는 것도 사실이다. <strong>개선할 부분이 있으면 적극적으로 댓글 달아주세요. 합리적이면 무슨 수를 써서라도 내 것으로 만들겠습니다.</strong></p>
+
+<p>시작합니다.</p>
+
+<p><br />
+<br id="2" /></p>
+
+<h2 id="2-예제-숫자-야구">2. 예제: 숫자 야구</h2>
+
+<hr />
+
+<p><br id="2a" /></p>
+
+<h3 id="21-주제-소개">2.1. 주제 소개</h3>
+
+<p><code class="highlighter-rouge">숫자 야구</code>는 기본적으로 숫자를 맞추는 게임이다. 문제를 내는 사람은 1부터 9까지의 서로 다른 숫자 세 개를 선택해 세 자리수를 만든다. 그리고 문제를 해결해야 하는 사람은 세 자리수를 제시하는데, <strong>문제를 낸 사람은 자신이 만든 숫자와 제시받은 숫자를 비교해 서로 얼마나 유사한지에 대한 정보를 제공하며 그 규칙은 다음과 같다:</strong></p>
+
+<ul>
+  <li>숫자를 맞추고 그 위치까지 맞췄다면 1S(Strike)</li>
+  <li>숫자를 맞췄지만 위치가 다르다면 1B(ball)</li>
+  <li>물론 무엇이 볼이고 스트라이크인지는 가르쳐주지 않는다.</li>
+</ul>
+
+<p><br /></p>
+
+<p>예를 들어보자.</p>
+
+<p><img src="/assets/img/algorithm/bulls-and-cows-example.png" alt="example of bulls and cows game" /></p>
+
+<p>내가 문제를 내는 입장이고 나는 ‘456’를 선택했다. 456은 각 자리수가 동일한 등차로 순증가하는 세 자리수로 우리의 마음 한켠을 따뜻하게 하기 때문이다. 물론 이 따뜻함은 나만의 것이기 때문에 숫자는 상대방에게 공유하지 않는다. 숫자를 맞춰야 하는 입장에서는 가능한 숫자를 제시한다. 그러면 이 숫자와 원 숫자(456)를 비교해 ball과 strike 개수를 제시한다.</p>
+
+<p>위의 그림이 몇 개의 예를 보여주고 있는데 두 숫자에서 공통된 숫자가 있고 그 위치까지 같으면 S(Strike), 위치는 다르지만 공통된 숫자가 있으면 B(ball)로 표현하고 있다. 이때 비교 결과가 <code class="highlighter-rouge">3S</code>가 되면 정답을 맞춘 것이다.</p>
+
+<p>이때 알 수 있는 것은 비교 결과가 ‘2S 1B’은 나올 수 없다는 것이다. 조금만 생각해보면 알 수 있다.</p>
+
+<p>참고로 이 게임을 영어로는 ‘bulls and cows’라고 한단다.</p>
+
+<p><br id="2b" /></p>
+
+<h3 id="22-문제-정의">2.2. 문제 정의</h3>
+
+<p>위에서는 <code class="highlighter-rouge">숫자 야구</code>라는 <code class="highlighter-rouge">주제</code>를 살펴봤다. 이 주제로 만들 수 있는 문제는 정말 많겠지만 우리가 이번에 푸는 문제는 다음과 같다:</p>
+
+<p class="function-definition">
+    '추측한 세 자리 수와 그에 대한 B, S의 개수'의 목록이 주어질 때, 원 숫자가 될 수 있는 남은 숫자들의 개수를 구하라
+</p>
+
+<p>예를 들어 추측한 숫자와 B, S의 개수가 다음과 같이 주어졌다고 하자.</p>
+
+<ul>
+  <li>123: 1S 1B</li>
+  <li>356: 1S</li>
+  <li>327: 2S</li>
+  <li>489: 1B</li>
+</ul>
+
+<p>이때 만들 수 있는 세 자리 수에서 답이 될 수 있는 원 숫자는 324와 328, 두 개뿐이다.</p>
+
+<p>문제가 주어졌다. 어디서부터 시작해야 할까?</p>
+
+<p><br />
+<br id="3" /></p>
+
+<h2 id="3-어떻게-접근할까">3. 어떻게 접근할까?</h2>
+
+<hr />
+
+<p>문제를 이해했다. 실제 코딩 테스트라고 생각하자. 시간이 째깍째깍 흐르고 문제를 최대한 침착하게 다 읽었다. 지금부터 설명할 다음 네 가지 부분은 실제로 내가 어떤 문제를 풀든 문제가 지나치게 쉽지 않은 이상 항상 적용하려고 하는 방법론이다.</p>
+
+<p><br id="3a" /></p>
+
+<h3 id="30-나만의-방식으로-문제-정리하기">3.0. 나만의 방식으로 문제 정리하기</h3>
+
+<p>내가 문제를 푸는 플랫폼은 그때그때 다르다. 가령 baekjoon online judge를 활용할 수도, programmers나 codewars 등을 활용할 수도 있다. 이때 각 플래폼마다 문제를 소개하는 방식이나 페이지 레이아웃이 다 다르다. 단적으로 예를 들어 한국인들이 애용하는 <a href="https://www.acmicpc.net/problem/2503" target="_blank">baekjoon</a>과 <a href="https://programmers.co.kr/learn/courses/30/lessons/42841" target="_blank">programmers</a>에서 같은 문제를 다뤄도 페이지 양식은 완전히 다름을 확인할 수 있다. 백준 플랫폼은 요즘 알고리즘 사이트들과는 다르게 한 페이지에서 문제와 에디터를 동시에 제공하지 않는다.</p>
+
+<p>그렇기 때문에 <strong>문제를 나만의 방식으로 정리하고 표현하는 것이 중요하다.</strong> 그러면 문제를 다시 읽거나 특정 조건을 쫓을 때 플랫폼에 구애받지 않고 평소 익숙하던 대로 빠르고 정확하게 원하는 바를 달성할 수 있다.</p>
+
+<p>또 긴 문제를 잘 정리해놓으면 한눈에 보기 좋다는 장점도 있다. 이번 <a href="https://programmers.co.kr/learn/courses/30/lessons/60057" target="_blank">2020 카카오 블라인드 테스트 1번 문제</a>를 보자. 문제가 별 것도 아닌데 열어보면 문제 설명은 스크롤이 꽤 긴 것을 확인할 수 있다. 이는 프로그래머스가 한 페이지에 에디터도 같이 제공해서 문제 소개 영역이 좁은 것도 있고, 문제 해결에 별 도움이 안 되는 쓸데없는 잡설 또는 noise도 많이 껴있기 때문이기도 하다. ‘“어피치”가 문자열 압축 알고리즘을 공부하고 있다’는 정보는 이 문제 해결과는 전혀 상관이 없음에도 길이가 50이나 된다. 길이가 아닌 용량을 따진다면 한글 글자가 UTF-8에서 3바이트임을 감안하면 매우 큰 정보 낭비를 하고 있다.</p>
+
+<p>따라서 <strong>문제를 읽고 난 후 설계나 코드로 들어가기 전에 자신만의 방법으로 어떻게든 정리하는 것을 강력히 추천한다.</strong> 문제를 나만의 방식으로 정리하고, 필요없는 정보는 생략해 일목요연하게 볼 수 있도록 하자. 나같은 경우에는 노트에 한두 페이지에 걸쳐 정리하는 것을 좋아한다. 그리고 ‘<strong>문제 체계화</strong>’ 부분과 ‘<strong>핵심 아이디어 추출</strong>’ 등 크게 두 부분으로 나누어 정보를 기록한다. 이 문제에 대해 ‘문제 체계화’ 부분까지 작성한 결과는 다음과 같다:</p>
+
+<p><img src="/assets/img/algorithm/approach-algorithm-systematize.jpg" alt="Systematize the problem first" /></p>
+
+<p>먼저 맨 위에 정의된 문제를 한 문장으로 기술한다. 이때 문장은 가급적 설명을 위한 설명(‘어피치가 열심히 문자열을 공부한다…’) 등이 아닌, <strong>보다 일반적이고 프로그래밍적으로 추상화된 형태로 기술한다.</strong> 지금 문장은 실패한 문제 기술이다. 별로 프로그래밍적으로 추상적이지도, 일반적이지도 않기 때문이다. 이는 순전히 내 실력 부족이 원인이다.</p>
+
+<p>다음에 나는 ‘문제 체계화’를 ‘Systematize’라는 영역에 적는다. <strong>체계는 ‘System’이라고 할 수 있는데 내가 어디서 얼핏 듣기에 시스템은 크게 ‘입력’, ‘출력’, ‘처리’로 정리할 수 있다고 들었다.</strong> 그렇게 생각해보면 이 세상 모든 것은 <code class="highlighter-rouge">체계</code>다. 내가 만드는 프로그램도 입출력, 처리가 가능한 시스템이고, 삼성전자 조직도 시스템이며, 인간도 하나의 시스템이다. 가령 인간은 시청후촉각 정보, 음식물 등의 입력을 받고 신체작용이 곧 처리이며, 말, 글, 배변 등의 출력을 한다. 이렇게 볼 때 인간이 시스템이 아니라고 보는 시각이 더 신기해진다. 이때 알 수 있는 것은 입출력 채널은 단일하지 않을 수는 있다.</p>
+
+<p><strong>따라서 풀어야 하는 문제도 시스템으로 구성한다.</strong> 문제의 입력과 출력을 정리하고, 문제의 주요 조건 등을 처리로 분류해 적는다. 이때 입출력, 처리는 다음과 같이 정의한다:</p>
+
+<ul>
+  <li><strong>입력</strong>: 만들어야 하는 기능의 주요 변수명, 변수의 자료형, 최대길이 등의 기본 사항을 적는다. 특정 변수에 대해 나는 이 세 가지를 다음과 같은 형식으로 적는다.
+    <ul>
+      <li><code class="highlighter-rouge">변수명 | 자료형 := 변수에 대한 소개. 이후 변수의 조건에 대한 수학적 표기</code></li>
+      <li>예는 위에서 ‘records’ 변수에서 확인할 수 있다. 이때 수학적 표기를 최대한 활용하는데 <code class="highlighter-rouge">| |</code>는 어떤 집합의 길이를 표시하는데 쓰이고, <script type="math/tex">\in</script>은 특정 원소가 어떤 집합에 포함된다고 기술할 때 쓰인다. 위에서는 배열의 길이가 <code class="highlighter-rouge">[1, 100]</code>이라는 닫힌 집합에 속한다고 명시하고 있다. 경우에 따라서는 <script type="math/tex">\mathbb{N}</script>, <script type="math/tex">\mathbb{Z}</script> 등을 활용해 원소가 자연수에 속하는지, 정수에 속하는지 등을 표현하기도 한다.</li>
+      <li>이런 건 다 어디서 주워들어서 쓰고 있다. 필요하면 다 찾아진다.</li>
+    </ul>
+  </li>
+  <li><strong>출력</strong>: 출력은 최종적으로 어떤 결과를 내야하는지, 그 자료형은 무엇인지에 대해 적는다.</li>
+  <li><strong>처리</strong>: 문제의 주요 조건을 적는다. 이때 주요 조건을 놓치지 않도록 조심한다. 짧은 한 문장을 놓쳤을 때 문제가 안 풀리는 경우도 잦다.</li>
+</ul>
+
+<p><br /></p>
+
+<p>여기까지가 체계화 부분이다. 위와 같이 정리해놓으면 다양한 문제를 만나도 일정한 형태가 유지되기 때문에 문제를 풀다가 어떤 조건을 다시 찾아봐야할 때 한눈에 찾기 쉬워진다. 그리고 수학적 표기를 사용하면 짧은 기호로(손 노동으로) 구체적인 정보를 기술할 수 있어 경제적이다.</p>
+
+<p>위의 사진에서 <code class="highlighter-rouge">IDEA</code>라고 적어놓은 부분이 ‘핵심 아이디어 추출’과 관련한 부분이다. 다음 세 절에 걸쳐 내가 핵심 아이디어를 추출하고 이를 코딩 전에 정리하는 과정을 살펴보자.</p>
+
+<p><br id="3b" /></p>
+
+<h3 id="31-알고리즘-선택-입력의-크기를-바탕으로">3.1. 알고리즘 선택: 입력의 크기를 바탕으로</h3>
+
+<p>문제를 이해했으면 이제 이 문제를 어떤 방법으로 풀어야 할지를 생각해본다. 여기서 방법이란 <strong>어떤 알고리즘을 사용할지, 어떤 자료구조로 이 알고리즘을 최대한 효율화할지</strong> 등에 대한 생각이다.</p>
+
+<p>이때 어떤 알고리즘을 사용할지에 대한 실마리를 떠올렸다고 해보자. 이 문제를 보고 떠오른 생각은 ‘원 숫자가 될 수 있는 모든 숫자를 만들어서 이 숫자들이 모든 기록을 통과하는지 확인하는지(AND) 검사해보자’이고 이것이 곧 브루트포스(brute force) 또는 완전탐색(exhaustive search)이다. 그러면 <strong>입력의 크기 등의 조건을 확인해서 이 알고리즘이 충분히 실현가능할지를 확인한다.</strong> 여기서 ‘실현가능할지’는 문제가 풀리는지가 아니라, <strong>입력이 정해진 크기의 상한일 때 적당한 선의 시간이 걸리고 끝날지를 의미한다.</strong> 이는 당연한 말이다. 시간이 너무 오래 걸리면 ‘시간 초과’로 탈락하고 마는 모습을 우리는 잘 알고 있다.</p>
+
+<p>완전탐색이 여기서 충분히 실현가능할지 시간복잡도를 대충 계산해보자.</p>
+
+<p class="function-definition">
+만드는 숫자가 몇 진수인지에 대한 정보가 B, 추측의 크기(records)를 R, 하나의 추측과 원 숫자 후보를 비교하는 비용이 F(n, r)이라고 할 때 완전탐색의 시간복잡도는 $$O(_BP_3RF(n, r)) = O(B^3RF(n, r))$$라고 쓸 수 있겠다. 이 알고리즘은 정말로 실현가능한가?
+</p>
+
+<ul>
+  <li>여기서 숫자는 10진수다. 그러면 세 개의 숫자를 고르는 순열의 가짓수, <script type="math/tex">_{10}P_3</script>은 1000도 안 되는 작은 수다.</li>
+  <li><script type="math/tex">R</script>은 최대 크기가 100이다. 매우매우 작은 수.</li>
+  <li>마지막 <script type="math/tex">F(n, r)</script>은 한눈에 들어오지 않는데, <em>R[i]</em> 의 크기가 3밖에 안 되고, 원 숫자의 길이(digit)도 3밖에 안 되는 것을 감안하면 짜기에 따라 조금씩 다르겠지만 결코 크지 않을 것이라 예상된다.</li>
+</ul>
+
+<p><br /></p>
+
+<p>결론은 완전탐색이 가능할 것 같은 복잡도다. 만약 진수 B가 10000진수였다고 해보자. 그 숫자는 16진수처럼 알파벳으로도 다 표현이 안 돼서 아마 한글 글자(‘꿹’, ‘쯟’ 등)까지 사용해야 할 것 같은데(한글 글자의 개수가 11172개다), 이에 대해 숫자 세 개를 뽑는 순열의 가짓수는 1조(<script type="math/tex">10^{12}</script>)를 넘기기 때문에 이 시간복잡도를 갖는 완전탐색은 실현 불가능할 것이다. 그때는 이 알고리즘을 포기하고 더 효율적인 알고리즘을 찾아야 한다. 하지만 입력이 이렇게 작기 때문에 완전탐색이 전혀 문제가 안 되고, 이 경우에는 오히려 ‘완전탐색을 장려하는 문제가 아닌가’라는 의심까지 든다.</p>
+
+<p><br /></p>
+
+<p><strong>여기서 문제 체계화의 중요성이 다시 강조된다. 입출력의 크기 등에 대한 정보를 제대로 파악하지 못했다면 떠오른 방법이 괜찮은지 파악하기 어려웠을 것이다. 아마 감에 의존했거나.</strong> 감을 믿지 마라. 인간의 감각정보 처리나 사고는 합리적이기 힘들다. 이 땅에 얼마나 많은 가짜 계시를 받은 구세주들이 존재했는지.</p>
+
+<p>입력의 크기를 바탕으로 완전탐색이 충분히 실현가능하다는 것을 파악했기 때문에 여기서 더 나아가보자.</p>
+
+<p><br id="3c" /></p>
+
+<h3 id="32-문제-분해-및-조합">3.2. 문제 분해 및 조합</h3>
+
+<p>‘코끼리를 먹는 방법은 한 입씩 베어 먹는 것이다’라는 유명한 격언이 있다. 코끼리는 너무 크기 때문에 한 번에 삼킬 수 없고 한 입씩 조금씩 먹어서 다 먹자는 뜻이다. 이 뚱딴지 같은 소리는 여러 영역에서 다른 의미로 생각해볼 수도 있겠는데 프로그래밍에서는 다음과 같이 해석해볼 수도 있다.</p>
+
+<p class="function-definition">
+거대한 원 문제를 있는 그대로 코드로 다루려고 하지 말고, 가급적 단일한 기능을 수행하는 부분문제(subproblem)로 나누어 이 문제들을 해결하고 이들을 조합해 원 문제를 해결하자
+</p>
+
+<p>이는 꼭 프로그래밍에 국한되지 않고 인생의 많은 분야에 적용할 수 있는 위대한 격언이다. 작게 생각하자. 조금씩조금씩. 그리고 하루를 살아가다 보면 내가 어딘가에는 가있지 않은가.</p>
+
+<p>자, 우리는 완전탐색 알고리즘을 사용하기로 했다. 이 문제는 간단하기 때문에 다음과 같이 크게 두 개의 부분문제로 나눠볼 수 있겠다.</p>
+
+<ul>
+  <li><strong>모든 가능한 숫자 만들기</strong>
+    <ul>
+      <li>우리는 길이가 3이고 각 자리수가 서로 다른 10진수를 만들어야 한다. 이 숫자를 만드는 것도 일이다. 파이썬처럼 조합, 순열 도구를 제공하는 언어를 사용한다면 이를 쓰면 되지만, 아닌 언어를 쓴다면 조금 고민해볼 문제가 된다.</li>
+    </ul>
+  </li>
+  <li><strong>특정 숫자와 모든 기록(<em>records</em>)이 일치하는지 검사하기</strong>
+    <ul>
+      <li>가령 모든 가능한 숫자를 만드는 도중 ‘123’이 나왔는데 이 숫자가 <em>records</em> 의 모든 원소에 대해 기록된 볼과 스트라이크를 내는지 판단해야 한다.</li>
+      <li><strong>이때 <code class="highlighter-rouge">가급적 단일한 기능</code>이라는 조건 하에 이 부분문제를 한 번 더 쪼갠다:</strong>
+        <ul>
+          <li>생성된 숫자와 특정 기록이 일치하는지</li>
+          <li>이를 AND 조건으로 엮어서 생성된 숫자가 모든 기록에 일치하는지</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p>별로 어렵지 않다. 다만 <strong>가급적 단일한 기능에 맞게 잘게 쪼개는 것에 신경쓰자.</strong> 원 문제와 직접적으로 연결된 부분문제뿐 아니라 원 문제와 부분문제의 트리도 얼마든지 만들 수 있다.</p>
+
+<p><img src="/assets/img/algorithm/approach-algorithm-subproblem.png" alt="Tree of subproblems" /></p>
+
+<p>이때 각 Level에 맞는 부분문제의 해답을 조합하면 상위문제가 해결되는 경우가 많다. <strong>이렇게 원 문제에서 부분문제를 나누면 한 번에 코드를 작성하는 것보다 가독성이 증대되고, 따라서 부분 기능에 대한 전문화와 유지보수가 쉬워진다.</strong> 특히 원 문제가 어렵고 복잡할수록 이 방법은 장점을 넘어선 필수가 되기도 한다. 어떻게 보면 <code class="highlighter-rouge">추상화</code>와도 관련 있는 부분이기도 하다. 이 장점은 실제 코드에서 확인할 수 있을 것이다.</p>
+
+<p><br /></p>
+
+<p>분해 과정을 살펴봤다. 이제 조합 과정을 살펴봐야 하는데 나같은 경우에 조합 과정은 문제마다 다르게 하는 것 같다. 어디서는 사용 가능한 방법이 다른 데서는 사용 가능하지 않은 경우가 있기 때문이다.</p>
+
+<p>이중에서 <strong>나는 부분문제를 조합해 원 문제를 해결하는 과정을 수식으로 표현하는 것을 정말 좋아한다.</strong> 이 문제의 경우에는 수식으로 표현하는 것이 가능하고, 이 조합 과정이 완성되면 이를 코드로 옮기기만 하면 된다. 다음 절에서 마지막으로 이 부분문제들을 수식적으로 표현해 원문제의 정답으로 만들어보자.</p>
+
+<p><br id="3d" /></p>
+
+<h3 id="33-조합-수식으로-정리">3.3. 조합: 수식으로 정리</h3>
+
+<p>나는 야메로 수식 표기법을 배웠다. 일단 종만 형님의 덕이 컸고, 또 내 수학 과외선생 윤 모씨의 도움도 무시못한다. 그리고 필요할 때는 인터넷으로 검색해보기도 한다. 난 이 문제를 수식으로 이렇게 정리해봤다:</p>
+
+<script type="math/tex; mode=display">\text{만들 수 있는 모든 세 자리수의 집합을 } N \text{,} \\
+\text{모든 추측 기록들의 집합을 } R \text{,} \\
+\text{특정 세 자리수를 하나의 추측 기록에 대조해 볼, 스트라이크 개수가 맞는지} \\
+\text{판단하는 함수를 } judge(n, r) \text{라고 하자.(n이 숫자, r이 추측 기록)} \\
+\text{이때 원 문제의 해답은:}</script>
+
+<script type="math/tex; mode=display">\large{|\{ \forall n \in N | \hspace{2mm} n \hspace{5mm} if \hspace{3mm} \sum_{i=0} \big(judge(n, R[i]) == |R|) \}|}</script>
+
+<p>저 수식은 양쪽 끝에서 양파 벗기듯 이해하면 쉽다.</p>
+
+<ul>
+  <li>먼저 맨 바깥의 <code class="highlighter-rouge">| |</code>은 안에 있는 집합의 크기를 표현한다고 했다. 종만 형님의 방식이다.</li>
+  <li>그 안의 <code class="highlighter-rouge">{ }</code>은 집합 표기다. 파이썬에서도 set에 같은 기호를 쓴다.</li>
+  <li>그리고 <strong>A가 거꾸로 뒤집힌 <script type="math/tex">\forall</script> 기호는 집합에서 ‘모든’을 의미한다고 한다. 위의 왼쪽 표현은 ‘N에 속하는 모든 원소 n에 대해서’ 정도의 의미로 썼다. 왼쪽에 쓴 것은 <code class="highlighter-rouge">조건</code>을 의미한다.</strong></li>
+  <li>이후 식이 실제 집합의 구성원소를 정의하는데, <strong><script type="math/tex">\sum</script>을 써서 모든 기록(<em>R[i]</em>)과 숫자들을 대조한 결과 참인 값들의 합이 기록 배열의 크기와 같다면, 다시 말해 ‘전부 기록과 일치한다면’ 이 숫자는 내가 추측한 원 숫자일 수도 있다.</strong> 저 if 문을 통과하는 세 자리수 <em>n</em> 은 원 숫자의 후보가 될 자격이 있는 것이다.</li>
+  <li>결과 생성된 집합은 원 숫자의 후보가 될 수 있는 모든 숫자들인데, <code class="highlighter-rouge">| |</code>를 쓰니 그 크기를 반환하게 된다.</li>
+</ul>
+
+<p>와… 이 수식 만들기도 너무 힘들었다. 뭔가 파이썬의 comprehension처럼 식이 만들어졌는데 이는 현재 내가 표현할 수 있는 능력의 최대치다. 분명 수학적 표기법을 제대로 공부한 분들은 더 좋은 표기를 쓸 수도 있겠지. 근데 정말 중요한 건 내가 이해할 수 있는지인데, 일단은 난 이 식이 이해가 간다.</p>
+
+<p><br /></p>
+
+<p>그러면 이런 질문을 할 수 있다. <strong>왜 굳이 수식으로 표현하지? 그냥 일반 문장으로도 얼마든지 부분문제들을 잘 조합하는 문장을 만들 수 있는데?</strong> 여기에 내가 할 수 있는 답은 다음과 같다.</p>
+
+<ul>
+  <li><strong>수학적 표기법은 깔끔하다.</strong>
+    <ul>
+      <li>수학적 표기법은 그 의미만 공유되면, 전달되면, 이해할 수 있으면 같은 의미를 전달해도 용량, 즉 길이가 짧다. 그래서 어느 정도 익숙해지면 문장으로 쓰는 것보다 오히려 가독성이 더 좋다.</li>
+    </ul>
+  </li>
+  <li><strong>수학적 표기법은 현실의 문장과 달리 오해의 여지가 없다.</strong>
+    <ul>
+      <li>가령 <code class="highlighter-rouge">A 또는 B</code>라는 현실의 문제는 오해할 수 있다. 이 문장은 수학적으로는 ‘A, B’ 모두 참일 수 있다것을 뜻하는데 그럼 ‘<em>그는 부산 또는 서울에 있다</em>‘가 서울과 부산 모두에 있다는 뜻인가?</li>
+      <li>현실의 문장은 이와 같은 오해의 여지를 만들어낼 수 있는데, 수학적 표기는 잘 쓰면 그런 가능성을 없앨 수 있다. 수학적 표기를 사용하면 위의 문장도 ‘부산과 서울 모두에 있을 때’와 ‘부산 또는 서울 중 한 곳에만 있을 때’를 구분해서 표현할 수 있다.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<p>물론 이는 내 주관이며, 경험칙으로는 일반적인 코테에서는 수식에 목맬 필요는 없다. <strong>하지만 수식 정리가 매우 강력할 때가 있는데, 점화식을 표현하는 완전탐색 또는 동적 계획법 알고리즘에서는 수식으로 표현하면 이후 과정이 매우매우 수월해진다.</strong> 동적 계획법은 점화식을 코드로만 옮기면 되기에 수식 정리가 매우 유용하다.</p>
+
+<p>하지만 수식으로 정리가 힘든 경우도 있다. 개인적으로 이번 <a href="https://programmers.co.kr/learn/courses/30/lessons/60058" target="_blank">2020 카카오 블라인드 테스트 2번 문제</a>가 그랬는데, 이 문제는 수식 정리보다는 그 과정을 잘 스케치하는 게 중요했던 것 같고 수식으로 정리도 못하겠다. 결국에는 상황에 맞게 문제를 정리하고 조합하는 방법을 선택하는 게 정답이겠다.</p>
+
+<p><br />
+<br id="4" /></p>
+
+<h2 id="4-실제-코드">4. 실제 코드</h2>
+
+<hr />
+
+<p>상술한 내용을 바탕으로 코드를 실제로 작성한다. <strong>나같은 경우에는 Level 1 부분문제들은 함수 안에 클로져 함수로 두고, 최종적으로는 이들을 조합해 답을 내는 것을 선호한다.</strong> 코드는 다음과 같다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">records</span><span class="p">):</span>
+    <span class="c1"># 0. 상수, 변수 정의. 숫자 야구는 네 자리수로 하기도 해서 상수로 처리
+</span>    <span class="n">MAX_LEN</span> <span class="o">=</span> <span class="mi">3</span>
+    <span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span>
+    
+    <span class="c1"># 1. 각 숫자가 한 조건을 통과하는지 살핀다.
+</span>    <span class="k">def</span> <span class="nf">does_match</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">record</span><span class="p">):</span>
+        <span class="n">b</span><span class="p">,</span> <span class="n">strike</span><span class="p">,</span> <span class="n">ball</span> <span class="o">=</span> <span class="n">record</span>
+        <span class="n">n</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+        <span class="n">total_strike</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">na</span> <span class="o">==</span> <span class="n">nb</span> <span class="k">for</span> <span class="n">na</span><span class="p">,</span> <span class="n">nb</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">b</span><span class="p">))</span>
+        <span class="n">total_ball</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">&amp;</span> <span class="nb">set</span><span class="p">(</span><span class="n">b</span><span class="p">))</span> <span class="o">-</span> <span class="n">total_strike</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">total_strike</span><span class="p">,</span> <span class="n">total_ball</span><span class="p">)</span> <span class="o">==</span> <span class="p">(</span><span class="n">strike</span><span class="p">,</span> <span class="n">ball</span><span class="p">)</span>
+    
+    <span class="c1"># 2. 숫자를 생성한다.
+</span>    <span class="k">def</span> <span class="nf">generate_number</span><span class="p">(</span><span class="n">tmp_num</span><span class="p">,</span> <span class="n">used</span><span class="p">):</span>
+        <span class="k">nonlocal</span> <span class="n">ans</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">used</span><span class="p">)</span> <span class="o">==</span> <span class="n">MAX_LEN</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="n">does_match</span><span class="p">(</span><span class="n">tmp_num</span><span class="p">,</span> <span class="n">record</span><span class="p">)</span> <span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="n">records</span><span class="p">):</span>
+                <span class="n">ans</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">return</span>
+        
+        <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">n</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">used</span><span class="p">:</span>
+                <span class="n">used</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+                <span class="n">generate_number</span><span class="p">(</span><span class="n">tmp_num</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">+</span>  <span class="n">n</span><span class="p">,</span> <span class="n">used</span><span class="p">)</span>
+                <span class="n">used</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+
+
+    <span class="c1"># 3. 조합해 문제 해결
+</span>    <span class="n">generate_number</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">set</span><span class="p">())</span>
+    <span class="k">return</span> <span class="n">ans</span>
+</code></pre></div></div>
+
+<p>말했던 그대로, Level 1 부분문제: ‘모든 세 자리수 만들기’와 ‘생성된 세 자리수와 단일 기록이 일치하는지’는 클로져 함수로 원 <em>solution</em> 함수 안에 둔 것을 확인할 수 있다.</p>
+
+<ul>
+  <li>순열을 생성하는 것은 python의 <a href="https://docs.python.org/2/library/itertools.html#itertools.permutations" target="_blank">itertools.permutations</a> 내장 도구를 써도 충분했는데, 그냥 만들었다. 종만 형님 덕에 난 재귀를 참 좋아하는 사람이 된 것 같다. 구체적인 내용은 <a href="https://shoark7.github.io/programming/algorithm/Permutations-and-Combinations" target="_blank">이전 포스트</a>에서 다루었기 때문에 넘어간다.</li>
+  <li>숫자와 단일 기록을 비교하는 <em>does_match</em> 함수는 내 방식대로 만들었는데 다르게 만드는 것도 가능해보인다.
+    <ul>
+      <li>두 수의 자릿수를 각각 비교해 strike, ball의 개수를 세고, 그것을 기록된 strike, ball과 비교해 일치하는지 검증한다.</li>
+      <li>이 함수를 조합해 전체 기록과 숫자가 일치하는지는 중간에 <code class="highlighter-rouge">all</code> 함수에서 검증하고 있다. 이 고결한 내장 함수는 모든 조건식 원소에 대해 AND 논리 연산을 한 결과를 반환한다. 최종결과가 True면 이 세 자리수는 어쩌면 원 숫자일 수도 있다.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>이렇게 문제를 정의하니 코드 작성은 얼마나 쉬운지. 만약 있는 도구 썼으면 더 짧아졌을 것이다. 멀고 멀리도 왔지만, 이와 같은 과정이 내가 알고리즘 문제에 접근하는 방식이다.</p>
+
+<p><br />
+<br id="5" /></p>
+
+<h2 id="5-내-방식의-문제점">5. 내 방식의 문제점</h2>
+
+<hr />
+
+<p>난 문제를 정리하는 내 방식에 문제가 많다고 생각한다. 다시 말해 개선의 여지가 뚜렷해보인다. 내가 생각하는 문제는:</p>
+
+<ul>
+  <li><strong>알고리즘 검증이 없다.</strong>
+    <ul>
+      <li>종만 형님은 이를 매우 잘 수행하고 계시던데, 난 이 능력이 부족하다.</li>
+    </ul>
+  </li>
+  <li><strong>유사코드 등을 사용해서 좀 더 코드에 가깝게 작성할 필요도 있다.</strong>
+    <ul>
+      <li>문제가 매우 어려워지면 이런 것도 필요하다. 가령 이진 탐색은 생각보다 온전하게 구현하기 어려운데, 루프 불변식 등을 활용해서 완벽하게 구현하면 좋겠는데 이런 능력이 아직 부족하다.</li>
+    </ul>
+  </li>
+  <li><strong>부분문제를 보다 정확하게 묘사할 필요가 있다.</strong>
+    <ul>
+      <li>각 부분문제에 대해서도 입출력을 정의한다든지 하는…</li>
+    </ul>
+  </li>
+</ul>
+
+<p>인데 아직 어떻게 이를 달성할 수 있을지 모르겠다. 윤 선생한테 다시 과외 받고 싶어지는데, 문제점을 의식하고 있으니 찬찬히 개선해볼 수 있도록 해야겠다.</p>
+
+<p><br />
+<br id="6" /></p>
+
+<h2 id="6-마치며">6. 마치며</h2>
+
+<hr />
+
+<p>와… 생각보다 길어졌다. 힘들었다. 이상이 내가 알고리즘에 접근하는 방법이고, 이는 개선과 수정이 얼마든지 더 가능할 것이다. 보다 좋은 방법이 있으면 주저없이 댓글 달아주시면 좋겠다. <strong>과학자의 올바른 태도는 얼마나 열정과 노력을 들였든 자신의 이론이 틀렸거나, 상위호환의 대안 이론이 출현하고 합리적이면 피눈물을 흘릴지언정 수긍하고 새로운 것을 배우는 것이다.</strong> 나는 진심으로 더 좋은 정리 방법을 찾고 싶다.</p>
+
+<p><strong>다시 한 번 말하지만 이 방법은 나만의 정리방법이고 어떤 경우에나, 모두에게나 적절한 방법은 아닐 것이다.</strong> 그래도 <code class="highlighter-rouge">코드 이전에 문제를 정리하는 것</code>만은 모두가 했으면 좋겠다. 자신이 이해하기에 좋고, 깔끔한 문제 정리 방법을 고안하는 것. 지금 도전하세요.</p>
+
+<p><br /></p>
+
+<p>다음 포스트는 아마 Knowledge 쪽이 될 것 같다. 최신이 좀 늦었네. 어떤 주제로 해볼까. 벌써부터 고민이 된다.</p>
+
+<p>이상 포스트를 마칩니다.</p>
+
+<p><br />
+<br id="7" /></p>
+
+<h2 id="7-자료-출처">7. 자료 출처</h2>
+
+<hr />
+
+<ul>
+  <li><a href="https://en.wikipedia.org/wiki/Bulls_and_Cows" target="_blank">bulls and cows: Wikipedia</a></li>
+  <li><a href="https://namu.wiki/w/%EC%88%AB%EC%9E%90%EC%95%BC%EA%B5%AC" target="_blank">숫자 야구: namu wiki</a></li>
+  <li><a href="https://shoark7.github.io/programming/algorithm/Permutations-and-Combinations" target="_blank">조합과 순열: Parkito’s on the way</a></li>
+</ul>
+
+      <div class="page-footer">
+        <div class="page-share">
+          <a href="https://twitter.com/intent/tweet?text=내가 알고리즘 문제를 푸는 방법&url=http://localhost:4000/programming/algorithm/how-i-approach-algorithm-from-my-way" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
+          <a href="https://facebook.com/sharer.php?u=http://localhost:4000/programming/algorithm/how-i-approach-algorithm-from-my-way" title="Share on Facebook" rel="nofollow" target="_blank">Facebook</a>
+          <a href="https://plus.google.com/share?url=http://localhost:4000/programming/algorithm/how-i-approach-algorithm-from-my-way" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>
+        </div>
+        <div class="page-tag">
+          
+            <a href="/tags#bulls-and-cows" class="tag">&#35; bulls-and-cows</a>
+          
+            <a href="/tags#숫자 야구" class="tag">&#35; 숫자 야구</a>
+          
+            <a href="/tags#Methodology" class="tag">&#35; Methodology</a>
+          
+        </div>
+      </div>
+		  <!-- Load Facebook SDK for JavaScript -->
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+
+  <!-- Your share button code -->
+  <div class="fb-share-button" 
+    data-href="http://localhost:4000/programming/algorithm/how-i-approach-algorithm-from-my-way" 
+    data-layout="button_count">
+  </div>
+
+		
+    </div> <!-- End Wrap Content -->
+  </div> <!-- End Page Content -->
+</article> <!-- End Article Page -->
+
+</div>
+
+  </div>
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', '', 'auto');
+  ga('send', 'pageview');
+</script> <!-- End Analytics -->
+
+	<script src="https://unpkg.com/simple-jekyll-search@1.5.0/dest/simple-jekyll-search.min.js"></script>
+<script>
+var sjs = SimpleJekyllSearch({
+  searchInput: document.querySelector('#search-input'),
+  resultsContainer: document.getElementById('results-container'),
+  json: '/search.json',
+  searchResultTemplate: '<li class="search-results-item"><a href="http://localhost:4000{url}">{title}</a></li>',
+	limit: 9,
+	noResultsText: '<li class="search-results-item"><a href="#">No results found...</a></li>'
+})
+</script>
+
+	<!-- Main Js -->
+<!--<script src="/assets/js/main.js"></script>-->
+
+<!-- JQuery 3.x min -->
+<script src="/assets/js/jquery.js"></script>
+
+<script>
+	let menus = $("#category-list");
+	let image = $("#menu-toggler img");
+	$("#toggler-wrapper").click(function() {
+		if(menus.css("display") === "none") {
+			image.attr("src", "/assets/img/close-button.png");
+			menus.css("display", "flex");
+		}
+		else {
+			image.attr("src", "/assets/img/nav-off.png");
+			menus.css("display", "none");
+		}
+	});
+
+
+</script>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-127149179-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-127149179-1');
+</script>
+
+</body>
+</html>
