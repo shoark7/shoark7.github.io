@@ -17,14 +17,14 @@
     <meta content="쉘의 중요 기능인 쉘 확장에 대해 다룬다." property="og:description">
   
   
-    <meta content="http://localhost:4000/programming/shell-programming/shell-expansions" property="og:url">
+    <meta content="https://shoark7.github.io/programming/shell-programming/shell-expansions" property="og:url">
 	
   
     <meta content="2018-11-18T00:00:00+09:00" property="article:published_time">
-    <meta content="http://localhost:4000/about/" property="article:author">
+    <meta content="https://shoark7.github.io/about/" property="article:author">
   
   
-    <meta content="http://localhost:4000/assets/img/shell-programming/shell-logo.png" property="og:image">
+    <meta content="https://shoark7.github.io/assets/img/shell-programming/shell-logo.png" property="og:image">
   
   
     
@@ -46,13 +46,13 @@
     <meta name="twitter:title" content="[중요] Shell 확장">
   
   
-    <meta name="twitter:url" content="http://localhost:4000/programming/shell-programming/shell-expansions">
+    <meta name="twitter:url" content="https://shoark7.github.io/programming/shell-programming/shell-expansions">
   
   
     <meta name="twitter:description" content="쉘의 중요 기능인 쉘 확장에 대해 다룬다.">
   
   
-    <meta name="twitter:image:src" content="http://localhost:4000/assets/img//shell-programming/shell-logo.png">
+    <meta name="twitter:image:src" content="https://shoark7.github.io/assets/img//shell-programming/shell-logo.png">
   
 
   
@@ -556,7 +556,7 @@ $ echo 정답은 $((answer))입니다!	# 2.
 
 <p>명령어 치환은 명령어의 출력결과를 확장으로 사용하는 것이다.</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">ls</span> <span class="nt">-l</span> <span class="k">$(</span>which <span class="nb">cp</span><span class="k">)</span>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">ls</span> <span class="nt">-l</span> <span class="si">$(</span>which <span class="nb">cp</span><span class="si">)</span>
 
 <span class="nt">-rwxr-xr-x</span> 1 root root 151024  3월  3  2017 /bin/cp
 </code></pre></div></div>
@@ -565,7 +565,7 @@ $ echo 정답은 $((answer))입니다!	# 2.
 
 <p>다음과 같은 좀더 고급스럽게 써볼 수도 있겠다.</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>file <span class="k">$(</span><span class="nb">ls</span> /usr/bin/<span class="k">*</span> | <span class="nb">grep </span>zip<span class="k">)</span>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>file <span class="si">$(</span><span class="nb">ls</span> /usr/bin/<span class="k">*</span> | <span class="nb">grep </span>zip<span class="si">)</span>
 
 
 /usr/bin/funzip:     ELF 64-bit LSB executable, x86-64, version 1 <span class="o">(</span>SYSV<span class="o">)</span>, dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, <span class="k">for </span>GNU/Linux 2.6.32, BuildID[sha1]<span class="o">=</span>06412c648a6927c4a14c751fe2412db3425ecd0f, stripped
@@ -612,7 +612,7 @@ I'</span>m sunghwanpark!!!
 <p>앞서 말했듯이 큰따옴표는 모든 확장을 숨기지 않는다. <strong>큰따옴표는 매개변수 확장, 산술 확장, 명령어 치환, 이렇게 세 확장은 억제하지 않는다. 대신 나머지는 억제한다.</strong></p>
 
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 1. 억제되지 않는 확장: 매개변수 확장, 산술 확장, 명령어 치환</span>
-<span class="nv">$ </span><span class="nb">echo</span> <span class="s2">"</span><span class="nv">$USER</span><span class="s2"> </span><span class="k">$((</span><span class="m">3</span><span class="o">*</span><span class="m">4</span><span class="k">))</span><span class="s2"> </span><span class="se">\n</span><span class="s2"> </span><span class="k">$(</span><span class="nb">date</span><span class="k">)</span><span class="s2">"</span>
+<span class="nv">$ </span><span class="nb">echo</span> <span class="s2">"</span><span class="nv">$USER</span><span class="s2"> </span><span class="k">$((</span><span class="m">3</span><span class="o">*</span><span class="m">4</span><span class="k">))</span><span class="s2"> </span><span class="se">\n</span><span class="s2"> </span><span class="si">$(</span><span class="nb">date</span><span class="si">)</span><span class="s2">"</span>
 
 sunghwanpark 12 
  2018. 11. 18. <span class="o">(</span>일<span class="o">)</span> 02:01:26 KST
@@ -632,7 +632,7 @@ sunghwanpark 12
 
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">echo</span> <span class="s1">'$USER $((3*4)) $(date) * {1..3} ~'</span>
 
-<span class="nv">$USER</span> <span class="k">$((</span><span class="m">3</span><span class="o">*</span><span class="m">4</span><span class="k">))</span> <span class="k">$(</span><span class="nb">date</span><span class="k">)</span> <span class="k">*</span> <span class="o">{</span>1..3<span class="o">}</span> ~
+<span class="nv">$USER</span> <span class="k">$((</span><span class="m">3</span><span class="o">*</span><span class="m">4</span><span class="k">))</span> <span class="si">$(</span><span class="nb">date</span><span class="si">)</span> <span class="k">*</span> <span class="o">{</span>1..3<span class="o">}</span> ~
 </code></pre></div></div>
 
 <p>정말 칼같이 다 억제했다.</p>
@@ -714,9 +714,9 @@ sunghwanpark 12
 
       <div class="page-footer">
         <div class="page-share">
-          <a href="https://twitter.com/intent/tweet?text=[중요] Shell 확장&url=http://localhost:4000/programming/shell-programming/shell-expansions" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
-          <a href="https://facebook.com/sharer.php?u=http://localhost:4000/programming/shell-programming/shell-expansions" title="Share on Facebook" rel="nofollow" target="_blank">Facebook</a>
-          <a href="https://plus.google.com/share?url=http://localhost:4000/programming/shell-programming/shell-expansions" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>
+          <a href="https://twitter.com/intent/tweet?text=[중요] Shell 확장&url=https://shoark7.github.io/programming/shell-programming/shell-expansions" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
+          <a href="https://facebook.com/sharer.php?u=https://shoark7.github.io/programming/shell-programming/shell-expansions" title="Share on Facebook" rel="nofollow" target="_blank">Facebook</a>
+          <a href="https://plus.google.com/share?url=https://shoark7.github.io/programming/shell-programming/shell-expansions" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>
         </div>
         <div class="page-tag">
           
@@ -738,7 +738,7 @@ sunghwanpark 12
 
   <!-- Your share button code -->
   <div class="fb-share-button" 
-    data-href="http://localhost:4000/programming/shell-programming/shell-expansions" 
+    data-href="https://shoark7.github.io/programming/shell-programming/shell-expansions" 
     data-layout="button_count">
   </div>
 
@@ -766,7 +766,7 @@ var sjs = SimpleJekyllSearch({
   searchInput: document.querySelector('#search-input'),
   resultsContainer: document.getElementById('results-container'),
   json: '/search.json',
-  searchResultTemplate: '<li class="search-results-item"><a href="http://localhost:4000{url}">{title}</a></li>',
+  searchResultTemplate: '<li class="search-results-item"><a href="https://shoark7.github.io{url}">{title}</a></li>',
 	limit: 9,
 	noResultsText: '<li class="search-results-item"><a href="#">No results found...</a></li>'
 })
