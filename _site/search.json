@@ -1,27 +1,11 @@
 [
   
     {
-      "title"    : "literal, evaluation and value",
-      "category" : "",
-      "tags"     : "literal, evaluation, value",
-      "url"      : "/programming/knowledge/what-is-literal-evalution-and-value",
-      "date"     : "2019-11-05 00:00:00 +0900"
-    } ,
-  
-    {
       "title"    : "내가 알고리즘 문제를 푸는 방법",
       "category" : "",
       "tags"     : "bulls-and-cows, 숫자 야구, Methodology",
       "url"      : "/programming/algorithm/how-i-approach-algorithm-from-my-way",
       "date"     : "2019-10-25 00:00:00 +0900"
-    } ,
-  
-    {
-      "title"    : "&#39;하노이의 탑&#39; 이해하기",
-      "category" : "",
-      "tags"     : "tower-of-hanoi",
-      "url"      : "/programming/algorithm/tower-of-hanoi",
-      "date"     : "2019-10-16 00:00:00 +0900"
     } ,
   
     {
