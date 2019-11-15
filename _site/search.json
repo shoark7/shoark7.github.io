@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "LIS의 길이를 구하는 3가지 알고리즘",
+      "category" : "",
+      "tags"     : "LIS, Longest-Increasing-Subsequence",
+      "url"      : "/programming/algorithm/3-LIS-algorithms",
+      "date"     : "2019-11-15 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "literal, evaluation and value",
       "category" : "",
       "tags"     : "literal, evaluation, value",

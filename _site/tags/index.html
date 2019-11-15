@@ -17,11 +17,11 @@
     <meta content="Parkito's dev blog for programming, Python, Algorithm, Automation and insights." property="og:description">
   
   
-    <meta content="https://shoark7.github.io/tags/" property="og:url">
+    <meta content="http://localhost:4000/tags/" property="og:url">
 	
   
   
-    <meta content="https://shoark7.github.io/assets/img/1536558558520.jpg" property="og:image">
+    <meta content="http://localhost:4000/assets/img/1536558558520.jpg" property="og:image">
   
   
   
@@ -33,13 +33,13 @@
     <meta name="twitter:title" content="Tags">
   
   
-    <meta name="twitter:url" content="https://shoark7.github.io/tags/">
+    <meta name="twitter:url" content="http://localhost:4000/tags/">
   
   
     <meta name="twitter:description" content="Parkito's dev blog for programming, Python, Algorithm, Automation and insights.">
   
   
-    <meta name="twitter:image:src" content="https://shoark7.github.io/assets/img/1536558558520.jpg">
+    <meta name="twitter:image:src" content="http://localhost:4000/assets/img/1536558558520.jpg">
   
 
   
@@ -331,6 +331,9 @@
     <li ><a href="#Iterator" class="tag">Iterator <span>(1)</span></a></li>
   
     
+    <li ><a href="#LIS" class="tag">LIS <span>(1)</span></a></li>
+  
+    
     <li ><a href="#Labor" class="tag">Labor <span>(1)</span></a></li>
   
     
@@ -338,6 +341,9 @@
   
     
     <li ><a href="#Largest_continous_sum_in_subarray" class="tag">Largest_continous_sum_in_subarray <span>(1)</span></a></li>
+  
+    
+    <li ><a href="#Longest-Increasing-Subsequence" class="tag">Longest-Increasing-Subsequence <span>(1)</span></a></li>
   
     
     <li ><a href="#Max_slice_sum" class="tag">Max_slice_sum <span>(1)</span></a></li>
@@ -960,6 +966,16 @@
     
   
     
+  <h2 id="LIS">LIS</h2>
+<!--  lists all posts corresponding to specific tag...-->
+    
+    <div class="tag-list">
+        <span><a href="/programming/algorithm/3-LIS-algorithms">LIS의 길이를 구하는 3가지 알고리즘</a></span>
+        <small><span>| 15 Nov 2019</span></small>
+    </div>
+    
+  
+    
   <h2 id="Labor">Labor</h2>
 <!--  lists all posts corresponding to specific tag...-->
     
@@ -986,6 +1002,16 @@
     <div class="tag-list">
         <span><a href="/programming/algorithm/4-ways-to-get-subarray-consecutive-sum">최대 연속 부분수열 합을 구하는 4가지 알고리즘</a></span>
         <small><span>| 24 Dec 2018</span></small>
+    </div>
+    
+  
+    
+  <h2 id="Longest-Increasing-Subsequence">Longest-Increasing-Subsequence</h2>
+<!--  lists all posts corresponding to specific tag...-->
+    
+    <div class="tag-list">
+        <span><a href="/programming/algorithm/3-LIS-algorithms">LIS의 길이를 구하는 3가지 알고리즘</a></span>
+        <small><span>| 15 Nov 2019</span></small>
     </div>
     
   
@@ -1775,7 +1801,7 @@ var sjs = SimpleJekyllSearch({
   searchInput: document.querySelector('#search-input'),
   resultsContainer: document.getElementById('results-container'),
   json: '/search.json',
-  searchResultTemplate: '<li class="search-results-item"><a href="https://shoark7.github.io{url}">{title}</a></li>',
+  searchResultTemplate: '<li class="search-results-item"><a href="http://localhost:4000{url}">{title}</a></li>',
 	limit: 9,
 	noResultsText: '<li class="search-results-item"><a href="#">No results found...</a></li>'
 })
