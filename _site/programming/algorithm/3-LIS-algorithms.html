@@ -285,7 +285,7 @@
         <li>4.2. <a href="#4b">실제 코드</a></li>
       </ul>
     </li>
-    <li><a href="#5">이진탐색을 통한 최적화</a>
+    <li><a href="#5">이진 탐색을 통한 최적화</a>
       <ul>
         <li>5.1. <a href="#5a">패러다임 바꿔 생각하기</a></li>
         <li>5.2. <a href="#5b">실제 코드</a></li>
@@ -304,7 +304,7 @@
 
 <hr />
 
-<p>오늘 다루는 문제는 유명한 <code class="highlighter-rouge">LIS</code>다. 특정 플랫폼의 문제가 아닌, 유명한 예제가 될 수 있는 문제가 생각보다 없다는 것은 내 잘못된 생각이었다. 종만북을 다시 공부하면서 LIS가 꽤나 유명한 문제라는 것을 알게 됐고 그에 대한 풀이를 준비했다. 이번에는 세 가지의 방법을 준비했는데: 완전탐색과 동적 계획법, 이진탐색을 통한 최적화 알고리즘이 있다. 가끔 우리의 익숙한 생각 패러다임 자체를 변화시키면 문제를 더 쉽게 해결할 수 있는 순간들이 있는데 세 번째 풀이가 딱 그런 것 같다. 알고리즘이 어렵지도 않고 꽤나 우아하다.</p>
+<p>오늘 다루는 문제는 유명한 <code class="highlighter-rouge">LIS</code>다. 특정 플랫폼의 문제가 아닌, 유명한 예제가 될 수 있는 문제가 생각보다 없다는 것은 내 잘못된 생각이었다. 종만북을 다시 공부하면서 LIS가 꽤나 유명한 문제라는 것을 알게 됐고 그에 대한 풀이를 준비했다. 이번에는 세 가지 방법을 준비했는데: 완전탐색과 동적 계획법, 이진 탐색을 통한 최적화 알고리즘이 있다. 가끔 우리의 익숙한 생각 패러다임 자체를 변화시키면 문제를 더 쉽게 해결할 수 있는 순간들이 있는데 세 번째 풀이가 딱 그런 것 같다. 알고리즘이 어렵지도 않고 꽤나 우아하다.</p>
 
 <p>간만에 문제다운 문제를 다루게 됐는데 얼마나 걸릴지 모르겠다. 있을지도 모르는 익명의 독자들을 위해 도움이 될 수 있도록 해보겠다.</p>
 
@@ -319,11 +319,11 @@
 
 <p>LIS는 <em>Longest Increasing Subsequence</em> 의 약자로 한글로는 ‘최장 증가수열’, 또는 ‘최대 증가 부분수열’로 불린다. <strong>LIS는 어떤 수열에서 특정 부분을 지워서 만들어낼 수 있는 증가 부분수열(increasing subsequence) 중 가장 긴 수열</strong>을 말하는데 이때 <strong>부분수열의 숫자들은 원 배열에서 위치가 이어져 있지 않아도 된다는 주요한 특징이 있다.</strong></p>
 
-<p>또 보통 증가는 순증가(strictly increaing)와 단조증가(monotonically increasing)로 나눌 수 있다. 순증가는 <script type="math/tex">[1, 2, 3]</script> 처럼 뒤의 숫자가 앞의 숫자보다 무조건 큰 경우를 말하고, 단조증가는 <script type="math/tex">[1, 2, 2, 3]</script>처럼 앞의 원소가 뒤의 원소 이상인 증가를 말한다. 단조증가 수열의 대표적인 예가 피보나치 수열이 있는데 피보나치 수열의 처음을 어떻게 잡아도 반드시 초반에 1이 두 번 반복되기 마련이다. LIS는 보통 순증가하는 부분수열을 대상으로 한다.</p>
+<p>또 보통 증가는 순증가(strictly increaing)와 단조증가(monotonically increasing)로 나눌 수 있다. 순증가는 <script type="math/tex">[1, 2, 3]</script> 처럼 뒤의 숫자가 앞의 숫자보다 무조건 큰 경우를 말하고, 단조증가는 <script type="math/tex">[1, 2, 2, 3]</script>처럼 뒤의 원소가 앞의 원소 이상인 증가를 말한다. 단조증가 수열의 대표적인 예가 피보나치 수열인데 피보나치 수열의 처음을 어떻게 잡아도 반드시 초반에 1이 두 번 반복되기 마련이다. <strong>LIS는 보통 순증가하는 부분수열을 대상으로 한다.</strong></p>
 
 <p>예를 들어 원 배열이 <script type="math/tex">[1, 4, 6, 8, 3, 5, 6, 7]</script>일 때 <script type="math/tex">[1, 6, 8]</script>, <script type="math/tex">[4, 6, 8]</script>, <script type="math/tex">[1, 7]</script>은 증가 부분수열인데, 이 중 가장 긴 부분열은 <script type="math/tex">[1, 3, 5, 6, 7]</script>이 된다. 이때 중간의 <script type="math/tex">4, 6, 8</script> 등은 생략한 것을 알 수 있다.</p>
 
-<p>LIS를 직접 구하는 등 LIS에 관한 많은 문제를 만들 수도 있을테지만 <strong>이 포스트에서는 원 수열의 순증가 LIS의 길이를 구하는 방법을 다루도록 한다.</strong></p>
+<p>LIS를 직접 구하는 등 LIS에 관한 많은 문제를 만들 수 있지만 <strong>이 포스트에서는 수열의 순증가 LIS의 길이를 구하는 방법을 다루도록 한다.</strong></p>
 
 <p><br />
 <br id="3" /></p>
@@ -414,13 +414,13 @@
 
 <p>두 번째 for문이 종료되면 <em>nxt</em> 에는 이 수(<em>arr[i]</em>)로 만들 수 있는 증가 부분수열의 두 번째 값들의 후보가 담긴다. 그 후에 <em>ret</em> 을 <em>nxt</em> 를 활용한 재귀식의 값들의 최대값으로 경신해나간다.</p>
 
-<p><strong><em>1 + lis(nxt)</em> 코드를 주목해야 한다. 각 함수는 나보다 앞선 값이나 생성되던 중간의 배열을 알 필요가 전혀 없다. 따라서 재귀를 호출할 때 <em>arr[i]</em> 의 크기 1만 더해주면 완성된 증가 부분수열의 길이를 구할 수 있는 것이다.</strong> 재귀가 깊어지면서 1은 계속 더해지기 때문에 더 이상 나보다 크고 뒤에 있는 원소를 발견할 수 없어 입력이 <code class="highlighter-rouge">[]</code>이 됐을 때 종료되며 그 수들의 합이 곧 정답이 된다.</p>
+<p><strong><em>1 + lis(nxt)</em> 코드를 주목해야 한다. 각 함수는 나보다 앞선 값이나 생성되던 중간의 배열을 알 필요가 전혀 없다. 따라서 재귀를 호출할 때 <em>arr[i]</em> 의 크기 1만 더해주면 완성된 증가 부분수열의 길이를 구할 수 있는 것이다.</strong> 재귀가 깊어지면서 1은 계속 더해지기 때문에 더 이상 나보다 크고 뒤에 있는 원소를 발견할 수 없어 입력이 <code class="highlighter-rouge">[]</code>이 됐을 때 0을 반환하며 종료하고 그 수들의 합이 곧 정답이 된다.</p>
 
 <p><br class="3c" /></p>
 
 <h3 id="33-시간복잡도">3.3. 시간복잡도</h3>
 
-<p>이 코드의 시간복잡도를 계산해보자. 나는 처음 이 코드를 보고 언뜻 시간복잡도가 바로 생각나지 않았다. 아무래도 시간복잡도에 큰 영향을 미치는 반복문과 재귀함수가 한 블락에 묶여있어서 그런 것 같다. 어떻게 이해할까 하다가 그림을 그려보니 감을 잡을 수 있었다. 시간이 가장 오래 걸리는 배열이 정렬된 경우다. 가령 <script type="math/tex">[1, 2, 3, ..., N]</script> 같은 입력에는 자기 자신이 곧 lis가 된다.</p>
+<p>이 코드의 시간복잡도를 계산해보자. 나는 처음 이 코드를 보고 언뜻 시간복잡도가 바로 생각나지 않았다. 아무래도 시간복잡도에 큰 영향을 미치는 반복문과 재귀함수가 한 블락에 묶여있어서 그런 것 같다. 어떻게 이해할까 하다가 그림을 그려보니 감을 잡을 수 있었다. 시간이 가장 오래 걸리는 경우는 배열이 정렬됐을 때이다. 가령 <script type="math/tex">[1, 2, 3, ..., N]</script> 같은 입력에는 자기 자신이 곧 lis가 되고 증가 부분수열도 제일 많이 생성된다.</p>
 
 <p>이 장을 적기 전에는 난 시간복잡도가 <script type="math/tex">O(N^3)</script>이 될 것이라 믿고 있었고 그에 맞게 작성하려고 그림을 컴퓨터로 그리고 있었는데 아무리 생각해도 저거보단 크게 보여서 연구하고 찾아보았다. 결국 틀렸다는 것을 알게 됐고 그동안 열심히 그린 그림을 폐기하게 됐다. 이 가슴아픈 상황을 누가 알아주려나..? Buy me a coffe..</p>
 
@@ -518,7 +518,7 @@ lis(i) := i번째 원소부터 끝까지의 최장 증가수열의 길이
 <p><br />
 <br id="5" /></p>
 
-<h2 id="5-이진탐색을-통한-최적화">5. 이진탐색을 통한 최적화</h2>
+<h2 id="5-이진-탐색을-통한-최적화">5. 이진 탐색을 통한 최적화</h2>
 
 <hr />
 
@@ -672,9 +672,9 @@ C[i-1] < n <= C[i] %]]></script>인 <script type="math/tex">i</script>를 찾아
         <span class="k">return</span> <span class="n">search</span><span class="p">(</span><span class="n">lo</span><span class="p">,</span> <span class="n">mid</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
 </code></pre></div></div>
 
-<p>다음은 조건에 맞는 인덱스 <em>i</em> 를 찾는 이진탐색 코드다. 다른 부분은 일반 이진탐색 코드와 동일한데 첫 번째 elif 문을 눈여겨보자. 크기가 2인 배열에서 어지간하면 두 번째 값을 반환하는데(<em>hi</em>), C가 <script type="math/tex">[2, 3]</script>일 때는 <script type="math/tex">n</script>이 1일 시 <script type="math/tex">[1, 3]</script>처럼 첫 번째 값이 경신되어야 하기 때문에 <em>hi</em> 가 아닌 <em>lo</em> 를 반환해야 한다. 참고하자.</p>
+<p>다음은 조건에 맞는 인덱스 <em>i</em> 를 찾는 이진 탐색 코드다. 다른 부분은 일반 이진 탐색 코드와 동일한데 첫 번째 elif 문을 눈여겨보자. 크기가 2인 배열에서 어지간하면 두 번째 값을 반환하는데(<em>hi</em>), C가 <script type="math/tex">[2, 3]</script>일 때는 <script type="math/tex">n</script>이 1일 시 <script type="math/tex">[1, 3]</script>처럼 첫 번째 값이 경신되어야 하기 때문에 <em>hi</em> 가 아닌 <em>lo</em> 를 반환해야 한다. 참고하자.</p>
 
-<p><strong>이진탐색을 쓰기 위해서는 배열이 항상 정렬이 되어 있다는 조건이 필요한데 직접 확인해보면 알 수 있듯이 어떤 배열을 순회하더라도 중간에 오름차순 조건이 깨지지 않는다.</strong> 이진탐색을 위해서는 반복문을 돌면서도 C 배열의 오름차순 조건이 지켜지는지 확인하는 것을 잊지 말자. 여기서는 문제없다.</p>
+<p><strong>이진 탐색을 쓰기 위해서는 배열이 항상 정렬이 되어 있다는 조건이 필요한데 직접 확인해보면 알 수 있듯이 어떤 배열을 순회하더라도 중간에 오름차순 조건이 깨지지 않는다.</strong> 이진 탐색을 위해서는 반복문을 돌면서도 C 배열의 오름차순 조건이 지켜지는지 확인하는 것을 잊지 말자. 여기서는 문제없다.</p>
 
 <p><br /></p>
 
@@ -691,13 +691,13 @@ C[i-1] < n <= C[i] %]]></script>인 <script type="math/tex">i</script>를 찾아
 
 <p>C 배열을 경신하는 핵심 코드다. <em>tmp_longest</em> 는 C의 무한 직전의 인덱스이자 중간 lis의 길이를 다루는 변수다. <script type="math/tex">n</script>이 <script type="math/tex">C[tmp\_longest]</script> 변수보다 크면 lis가 더 길어지기 때문에 크기를 1 키우고 그 인덱스에 <script type="math/tex">n</script>을 집어넣는다.</p>
 
-<p>반대로 그보다 작다면 이진탐색 코드를 써서 <script type="math/tex">n</script>이 경신해야 할 위치를 반환한다. 이때 <strong><em>search</em> 함수의 두 번째 인자가 길이 변수인 것을 확인하자.</strong> C 배열의 크기를 두지 않아도 된다. 애초에 C에는 많은 무한값도 같이 있기 때문에 그 전부를 훑어주지 않아도 된다.</p>
+<p>반대로 그보다 작다면 이진 탐색 코드를 써서 <script type="math/tex">n</script>이 경신해야 할 위치를 반환한다. 이때 <strong><em>search</em> 함수의 두 번째 인자가 길이 변수인 것을 확인하자.</strong> C 배열의 크기를 두지 않아도 된다. 애초에 C에는 많은 무한값도 같이 있기 때문에 그 전부를 훑어주지 않아도 된다.</p>
 
 <p>과정을 통해 C를 완전히 경신했으면 최종 lis의 길이를 반환하면 된다.</p>
 
 <p><br /></p>
 
-<p>지금까지 이진탐색을 통한 최적화 알고리즘 코드를 살펴봤다.</p>
+<p>지금까지 이진 탐색을 통한 최적화 알고리즘 코드를 살펴봤다.</p>
 
 <p><br id="5c" /></p>
 
@@ -705,7 +705,7 @@ C[i-1] < n <= C[i] %]]></script>인 <script type="math/tex">i</script>를 찾아
 
 <p>이 알고리즘의 시간복잡도를 살펴보자. 동적 계획법의 시간복잡도가 <script type="math/tex">O(N^2)</script>였는데 이보다는 나으면 좋겠다. 과연 그럴까?</p>
 
-<p>시간복잡도는 원 배열을 순회하고(<script type="math/tex">O(N)</script>) 각 순회에서 이진탐색하는(<script type="math/tex">O(logN)</script>) 과정이 묶여 있다. 따라서 시간복잡도는 <script type="math/tex">O(NlogN)</script>이 될 것 같은데 그거보다 사실 더 좋다.</p>
+<p>시간복잡도는 원 배열을 순회하고(<script type="math/tex">O(N)</script>) 각 순회에서 이진 탐색하는(<script type="math/tex">O(logN)</script>) 과정이 묶여 있다. 따라서 시간복잡도는 <script type="math/tex">O(NlogN)</script>이 될 것 같은데 그거보다 사실 더 좋다.</p>
 
 <p><strong>각 탐색 과정에서 두 번째 인자를 lis의 길이 변수(<em>tmp_longest</em>)로 줬는데 이 변수는 결국 lis의 길이로 수렴한다. lis의 길이를 <script type="math/tex">K</script>라고 할 때 <script type="math/tex">% <![CDATA[
 K <= N %]]></script>는 언제나 성립하기에 따라서 <script type="math/tex">% <![CDATA[
