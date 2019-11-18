@@ -239,7 +239,7 @@ str method is called   # 3.
 
 ```python
 class A:
-    # __str__ 은 구현하지 않는다.(다시 말해 overloading하지 않는다.)
+    # __str__ 은 구현하지 않는다.(다시 말해 overriding하지 않는다.)
     
     def __repr__(self):
         return str(id(self))

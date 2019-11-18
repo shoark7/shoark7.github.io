@@ -487,7 +487,7 @@
 <p>이에 대한 해결책으로 <strong>아까 만든 A 클래스와 int를 동시에 상속받는 NewInt 클래스를 만들자.</strong> 대신 A 클래스의 __str__, __repr__는 조금 변형할 생각이다.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">A</span><span class="p">:</span>
-    <span class="c1"># __str__ 은 구현하지 않는다.(다시 말해 overloading하지 않는다.)
+    <span class="c1"># __str__ 은 구현하지 않는다.(다시 말해 overriding하지 않는다.)
 </span>    
     <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span>

@@ -290,7 +290,7 @@
 
 <p>그중 하나로 며칠 전에 푼 <a href="https://app.codility.com/programmers/lessons/9-maximum_slice_problem/max_slice_sum/" target="_blank">MaxSliceSum</a> 문제가 있다. <strong>숫자 배열의 연속된 부분수열의 최대합</strong>을 구하는 문제인데 성능 30%, 100%, 0%을 오가는 다양한 알고리즘을 만졌다. 그래서 오늘은 이 문제를 해결하는 다양한 알고리즘들을 소개하려고 한다.</p>
 
-<p>이 문제를 해결하는 최적의 방법은 동적 계획법인데, 난이도가 낮아 동적 계획법 훈련에 적합해서 그런지 관련된 포스트가 굉장히 많다. 백준 강의 유투브 영상도 있고. <strong>난 총 4가지, 완전탐색, 부분합 배열 이용, 분할정복, 동적 계획법 알고리즘을 소개할텐데 뒤로 갈수록 효율적이다. 하지만 이중 완전탐색은 내가 만들었기에 다른 곳에서 보기 쉽지 않다. 성능은 <script type="math/tex">O(2^n)</script>으로 최악이지만 재밌고 직관적이다.</strong> 참고해주면 좋겠다.</p>
+<p>이 문제를 해결하는 최적의 방법은 동적 계획법인데, 난이도가 낮아 동적 계획법 훈련에 적합해서 그런지 관련된 포스트가 굉장히 많다. 백준 강의 유튜브 영상도 있고. <strong>난 총 4가지, 완전탐색, 부분합 배열 이용, 분할정복, 동적 계획법 알고리즘을 소개할텐데 뒤로 갈수록 효율적이다. 하지만 이중 완전탐색은 내가 만들었기에 다른 곳에서 보기 쉽지 않다. 성능은 <script type="math/tex">O(2^n)</script>으로 최악이지만 재밌고 직관적이다.</strong> 참고해주면 좋겠다.</p>
 
 <h2 id="2-문제-소개">2. 문제 소개</h2>
 
@@ -345,13 +345,15 @@
 
 <p>위에서 이야기한대로 소개할 알고리즘은 총 4개이다. 완전탐색, 부분합 배열 이용, 분할정복, 동적 계획법. 각각의 시간복잡도는 <script type="math/tex">O(2^n), O(n^2), O(nlog_2n), O(n)</script>이 된다.</p>
 
+<p><br /></p>
+
 <h3 id="31-완전탐색-o2n">3.1. 완전탐색: <script type="math/tex">O(2^n)</script></h3>
 
 <p>언제나 문제를 그대로 풀기 보다는 보다 작은 부분문제로 나누고 이를 활용해 문제를 푸는 노력을 하는 것은 바람직하다. 나는 답을 만드는 과정을 다음과 같이 구성해도 된다고 생각했다. 일단 부분문제를 만들었다.</p>
 
 <script type="math/tex; mode=display">\begin{array} \label{}
 	f(now, tmp\_ans): \textbf{현재 탐색할 인덱스가 now이고,} \\
-	\textbf{그전까지 만든 최대값이 tmp_ans일 때,} \\ 
+	\textbf{그 전까지 만든 최대값이 tmp_ans일 때,} \\ 
 	\textbf{배열의 끝에서의 최대 연속된 부분수열의 합}
 \end{array}</script>
 
@@ -368,11 +370,11 @@
 
 <p><br /></p>
 
-<p><strong>현재 인덱스에서 답을 찾을 수 있는 모든 경우의 수는 이 4가지뿐이며 중복되거나 놓친 부분이 없다.</strong>(이게 성립하지 않으면 저 가정은 틀렸다)</p>
+<p><strong>현재 인덱스에서 답을 찾을 수 있는 모든 경우의 수는 이 네 가지뿐이며 <code class="highlighter-rouge">중복</code> 또는 <code class="highlighter-rouge">누락</code>이 없다.</strong>(경우의 수에서 이 두 가지를 꼭 고려해야 한다.)</p>
 
 <p><strong>결국 이 4가지 값 중 최대의 값을 찾으면 그 인덱스에서의 최대값이 된다.</strong> 코드로 옮겨보자.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 답의 하한선보다 1작은 MIN 지정
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 답의 하한선보다 작은 MIN 지정
 </span><span class="n">MIN</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span> <span class="o">**</span> <span class="mi">31</span> <span class="o">-</span> <span class="mi">1</span>
 
 
