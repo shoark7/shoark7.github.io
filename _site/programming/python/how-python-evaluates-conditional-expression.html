@@ -284,11 +284,11 @@
 
 <hr />
 
-<p>Python(이하 “파이썬”)도 여타 다른 언어처럼 Bool값을 제공한다. 이들은 참, 거짓의 양값으로 나뉘어 논리를 실행하는지, 또는 안 하는지에 영향을 미치기에 거의 모든 프로그래밍 언어에서 필수적인 역할을 한다.</p>
+<p>Python(이하 “파이썬”)도 여타 다른 언어처럼 boolean 자료형을 제공한다. 이들은 참, 거짓의 양값으로 나뉘어 논리를 실행하는지, 또는 안 하는지에 영향을 미치기에 거의 모든 프로그래밍 언어에서 필수적인 역할을 한다.</p>
 
-<p><strong>파이썬은 다른 언어 사용자들에게 익숙한 조건문 평가방식을 완벽 제공하는 한편 자신만의, 다른 표현으로 Pythonic한 평가방식을 제공하기도 하는데 오늘 포스트는 파이썬이 어떻게 조건식을 평가하는지에 대한 이야기를 하려고 한다.</strong> 파이썬은 과연 어떻게 조건식을 평가하는가? 다시 말해 내가 작성한 이 식이 조건문에서 어떻게 True 또는 False가 되는가?</p>
+<p><strong>파이썬은 다른 언어 사용자들에게 익숙한 조건문 평가방식을 완벽히 제공하는 한편 자신만의, 다른 표현으로는 Pythonic한 평가방식을 제공하기도 하는데 오늘 포스트는 파이썬이 어떻게 조건식을 평가하는지에 대한 이야기를 하려고 한다.</strong> 파이썬은 과연 어떻게 조건식을 평가하는가? 다시 말해 내가 작성한 이 식이 조건문에서 어떻게 True 또는 False가 되는가?</p>
 
-<p>먼저 조건식이 무엇인지에 대해 짧게 살핀다. 이 장은 인트로 정도의 느낌의 장으로 개념을 잡는다. 그리고 파이썬이 다른 언어와 다른 형태의 조건식을 사용할 수 있다는 것에 대해 살필 것이다. 이 내용들은 <a href="https://www.python.org/dev/peps/pep-0008/" target="_blank">PEP 008</a>에서도 표준적인 코딩 방식으로 공식적으로 권고되고 있는 내용이기에 파이썬은 공부하는 사람이라면 잘 알아야하는 내용이기도 하다. 다음으로는 이런 방식이 어떻게 작동하는지 살피는데 먼저 파이썬의 문법적으로 살펴본다. 이후에는 파이썬만의 방식을 집합론을 사용해 개념적으로 이해해보려고 한다. 집합론으로 논리를 만들어나가는 것이 유용하다는 것을 알게 될 것이다.</p>
+<p>먼저 조건식이 무엇인지에 대해 짧게 살핀다. 이 장은 인트로 정도의 느낌의 장으로 개념을 잡는다. 그리고 파이썬이 다른 언어와 다른 형태의 조건식을 사용할 수 있다는 것에 대해 살필 것이다. 이 내용들은 <a href="https://www.python.org/dev/peps/pep-0008/" target="_blank">PEP 008</a>에서도 표준적인 코딩 방식으로 공식적으로 권고되고 있는 내용이기에 파이썬을 공부하는 사람이라면 잘 알아야하는 내용이기도 하다. 다음으로는 이런 방식이 어떻게 작동하는지 살피는데 먼저 파이썬의 내부 문법적으로 살펴본다. 이후에는 파이썬만의 방식을 집합론을 사용해 개념적으로 이해해보려고 한다. 집합론으로 논리를 만들어나가는 것이 유용하다는 것을 알게 될 것이다.</p>
 
 <p>이번 포스트는 굉장히 가벼운 주제가 될 것 같다. 시작해보자.</p>
 
@@ -299,17 +299,18 @@
 
 <hr />
 
-<p>먼저 논의의 중심이 되는 <code class="highlighter-rouge">조건식</code>(conditional expression)이 무엇인지 알고 가자. 먼저 <code class="highlighter-rouge">식</code>이란 영어로 ‘expression’으로 하나의 값으로 치환 또는 환원(reduce)될 수 있는 문장 단위를 말한다. 프로그래밍에서는 코드가 된다. 예를 들어 <script type="math/tex">2 + 3</script>은 <script type="math/tex">5</script>라는 값으로 치환될 수 있다. <script type="math/tex">(2 + 3) * 7</script>도 마찬가지로 식이고 또 어떤 값을 반환하는 함수도 expression이 될 수 있다. 예를 들어 배열의 원소들의 합을 반환하는 <em>sum</em> 함수를 실행한 것도 하나의 숫자를 반환하기 때문에 곧 ‘expression이다’라고 해도 된다.</p>
+<p>먼저 논의의 중심이 되는 <code class="highlighter-rouge">조건식</code>(conditional expression)이 무엇인지 알고 가자. 먼저 <strong><code class="highlighter-rouge">식</code>이란 영어로 ‘expression’으로 하나의 값으로 치환 또는 환원(reduce)될 수 있는 문장 단위를 말한다.</strong> 프로그래밍에서는 코드가 된다. 예를 들어 <script type="math/tex">2 + 3</script>은 <script type="math/tex">5</script>라는 값으로 치환될 수 있다. <script type="math/tex">(2 + 3) * 7</script>도 마찬가지로 식이고 또 수식뿐 아니라 <strong>어떤 값을 반환하는 함수도 expression이 될 수 있다.</strong> 예를 들어 배열의 원소들의 합을 반환하는 <em>sum</em> 함수를 실행한 것도 하나의 숫자를 반환하기 때문에 곧 ‘expression이다’라고 해도 된다.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># sum(arr) 자체도 식이라고 할 수 있다.
+# 실행결과를 15로 치환할 수 있다.
 </span><span class="k">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]))</span>
 
 <span class="mi">15</span>
 </code></pre></div></div>
 
-<p>여기서 <strong>조건식은 식 중에서 평가 또는 치환한 결과 참 또는 거짓의 결과로 귀결되는 식을 총칭한다.</strong> 앞서 참, 거짓을 결정하는 bool 값은 프로그래밍에서 매우 중요하다고 이야기했다. 파이썬에서는 참, 거짓에 해당되는 값을 <code class="highlighter-rouge">True</code>, <code class="highlighter-rouge">False</code>라는 Capitalized된 표기로 지정하며 C, Java, Javascript 등에서는 <code class="highlighter-rouge">true</code>, <code class="highlighter-rouge">false</code>와 같이 소문자로 표기한다.</p>
+<p>여기서 <strong>조건식은 식 중에서 평가 또는 치환한 결과 참 또는 거짓의 결과로 귀결되는 식을 총칭한다.</strong> 앞서 참, 거짓을 결정하는 boolean 값은 프로그래밍에서 매우 중요하다고 이야기했다. 파이썬에서는 참, 거짓에 해당되는 값을 <code class="highlighter-rouge">True</code>, <code class="highlighter-rouge">False</code>라는 Capitalized된 표기로 지정하며 C, Java, Javascript 등에서는 <code class="highlighter-rouge">true</code>, <code class="highlighter-rouge">false</code>와 같이 소문자로 표기한다.</p>
 
-<p>그럼 조건식의 대표적인 예제가 뭐가 있을까? <strong>바로 논리 연산자를 사용할 때다.</strong> 그렇다. 우리가 프로그래밍을 처음 배울 때 여러 종류의 연산자와 그들의 연산 순서 등을 공부하게 되는데 이중 논리 연산자를 사용한 식은 조건식이 된다.</p>
+<p>그럼 조건식의 대표적인 예가 뭐가 있을까? <strong>바로 논리 연산자를 사용하는 식이다.</strong> 그렇다. 우리가 프로그래밍을 처음 배울 때 여러 종류의 연산자와 그들의 연산 순서 등을 공부하게 되는데 이중 논리 연산자를 사용한 식은 조건식이 된다.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 다음은 모두 True 또는 False를 반환하기에 조건식이 된다.
 </span><span class="k">print</span><span class="p">(</span><span class="mi">1</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span>
@@ -354,7 +355,7 @@
 
 <hr />
 
-<p>파이썬은 논리 연산자를 사용하는 조건식말고도 다른 형태의 조건식도 제공한다. 그것은 바로 <strong>객체나 값 자체를 조건식으로 활용할 수 있다는 뜻이 된다. 다시 말하면 논리 연산자를 사용하지 않고, <code class="highlighter-rouge">if</code>문에 객체나 값 자신을 넣는 것이 가능하다.</strong> 이 말을 듣자마자 바로 반론을 제기하는 독자들이 있을 수 있다. ‘Java 등의 언어세도 값 자체를 조건식으로 쓸 수 있는데?’ 맞다. 정확히는 매우 제한적으로 맞다. 예를 들면 C에는 조건문에 1이나 0을 넣어 true나 false로 평가 가능하다는 것을 우리는 안다. Javascript에서 확인해보자.</p>
+<p>파이썬은 논리 연산자를 사용하는 조건식말고도 다른 형태의 조건식도 제공한다. 그것은 바로 <strong>객체나 값 자체를 조건식으로 활용할 수 있다는 뜻이 된다. 다시 말하면 논리 연산자를 사용하지 않고, <code class="highlighter-rouge">if</code>문에 객체나 값 자신을 넣는 것이 가능하다.</strong> 이 말을 듣자마자 바로 반론을 제기하는 독자들이 있을 수 있다. ‘Java 등의 언어에서도 값 자체를 조건식으로 쓸 수 있는데?’ 맞다. 정확히는 매우 제한적으로 맞다. 예를 들면 C에는 조건문에 1이나 0을 넣어 true나 false로 평가 가능하다는 것을 우리는 안다. Javascript에서 확인해보자.</p>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">yes boy</span><span class="dl">'</span><span class="p">);</span>
@@ -398,7 +399,7 @@
 <span class="n">Array</span> <span class="n">Hurrah</span> <span class="n">your</span> <span class="n">age</span><span class="o">~</span>
 </code></pre></div></div>
 
-<p>그리고 <strong>이런 활용은 파이썬의 코딩 컨벤션으로 공식적으로 권장되고 있다.</strong> 파이썬 공식 홈페이지의 PEP(Python Enhancement Proposal) 0008은 모든 파이썬 유저들에게 권장되는 파이썬 컨벤션에 대해 길게 언급하고 있는데 그중 자료구조를 조건식에서 위에서처럼 그대로 사용하는 것에 관한 내용이 있다. <strong>이때 빈 리스트, 빈 튜플 등 비어 있는 자료구조는 False를 반환하고, 조금이라도 값이 들어 있으면 True로 반환되게 된다.</strong> 따라서 배열이 비어 있는지 확인할 때는 파이썬에서는 이렇게 쓰는 것이 바람직하다.</p>
+<p>그리고 <strong>이런 활용은 파이썬의 코딩 컨벤션으로 공식적으로 권장되고 있다.</strong> 파이썬 공식 홈페이지의 PEP(Python Enhancement Proposal) 0008은 모든 파이썬 유저들에게 권장되는 파이썬 컨벤션에 대해 길게 언급하고 있는데 그중 자료구조를 조건식에서 위에서처럼 그대로 사용하는 것에 관한 내용이 있다. <strong>이때 빈 리스트, 빈 튜플 등 비어 있는 자료구조는 False를 반환하고, 조금이라도 값이 들어 있으면 True를 반환한다.</strong> 따라서 배열이 비어 있는지 확인할 때는 파이썬에서는 이렇게 쓰는 것이 바람직하다.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">some_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 
@@ -414,7 +415,7 @@
 
 <p><br /></p>
 
-<p>이렇게 <strong>값이나 자료구조 자체를 조건식으로 사용할 수 있고 장려하고 있다는 점이 파이썬의 흥미로운 부분 중 하나다.</strong> 그말은 ‘조건문에서는 자료구조가 True나 False의 bool 값으로 평가된다는 것’과 같은 말인데 다음 장에서는 ‘<strong>그러면 어떤 기준으로 True 또는 False을 판단하나</strong>‘에 대해 이야기할 것이다.</p>
+<p>이렇게 <strong>값이나 자료구조 자체를 조건식으로 사용할 수 있고 장려하고 있다는 것이 파이썬의 흥미로운 점이다.</strong> 그 말은 ‘조건문에서는 자료구조가 True나 False의 bool 값으로 평가된다는 것’과 같은 말인데 다음 장에서는 ‘<strong>그러면 어떤 기준으로 True 또는 False을 판단하나</strong>‘에 대해 이야기할 것이다.</p>
 
 <p><br />
 <br id="4" /></p>
@@ -425,7 +426,7 @@
 
 <p>앞서 확인했듯이 파이썬 사용자들에게는 값 자체를 조건식으로 사용하는 것이 매우 익숙하고 Pythonic한 방법이다. 모든 조건문에 입력된 조건식은 반드시 true 또는 false의 값으로 결정된다. ‘그 외’ 혹은 ‘둘 다’ 혹은 ‘무결정’은 없다. 로고의 네오가 파란색 알약과 빨간색 알약 중 하나를 반드시 선택해야 한 것과 같이… 네오라는 객체는 어떤 값으로 평가됐을까?</p>
 
-<p>그러면 <strong>이번 장에서는 값 자체를 조건식으로 입력받았을 때 어떤 방법이나 기준으로 양가 사이의 값을 선택하는지 알아볼 것이다.</strong> 방법은 크게 두 가지로, 먼저 파이썬의 문법을 통해 이해한다. 거의 공식과 같아서 이 방법을 통하면 어떤 자료구조 또는 값이 조건식으로 입력되었을 때 True가 될지 False가 될지 바로 알 수 있다. 하지만 이해하지 않고 공식만 외우는 것은 정말 공허한 일이니 그 문법이 어떻게 동작하는 것인지 개념적으로 살펴보자. 집합론을 사용해 이해한다.</p>
+<p>그러면 <strong>이번 장에서는 값 자체를 조건식으로 입력받았을 때 어떤 방법이나 기준으로 양가 사이의 값을 선택하는지 알아볼 것이다.</strong> 방법은 크게 두 가지로, 먼저 파이썬의 문법을 통해 이해한다. 거의 공식과 같아서 이 방법을 통하면 어떤 자료구조 또는 값이 조건식으로 입력되었을 때 True가 될지 False가 될지 바로 알 수 있다. 하지만 이해하지 않고 공식만 외우는 것은 정말 공허한 일이니, 그 다음에는 문법이 어떻게 동작하는 것인지 개념적으로 살펴보자. 집합론을 사용해 이해한다.</p>
 
 <p><br id="4a" /></p>
 
@@ -459,7 +460,7 @@
 
 <p>3은 정수지만 3.0은 실수 클래스(<em>float</em>)의 인스턴스기 때문에 False가 반환됐다.</p>
 
-<p>그리고 int의 생성자 함수를 호출하고 값을 입력해 그 객체의 정수형 인스턴스를 반환할 수 있는 것이다. 이게 일반적인 활용이다. 
+<p>int의 생성자 함수를 호출해 값을 입력하면 가능하다면 그 객체의 정수형 인스턴스를 반환할 수 있다. 이게 일반적인 활용이다. 
 이렇게 <strong>어떤 객체를 내장 클래스의 생성자 함수에 입력해서 해당 클래스의 인스턴스로 변환하는 것은 파이썬의 type casting의 주요한 방식이며, 또 자주 쓰이는 예로는 <em>str(3)</em> 같은 예가 있다.</strong></p>
 
 <p><br /></p>
@@ -513,7 +514,7 @@
 
 <h3 id="42-개념적-이해">4.2. 개념적 이해</h3>
 
-<p>앞서 이해한 내용은 지극히 문법적인 내용으로 수학 공식 달달 외우는 것처럼 참 불쌍한 일이다. 그리고 저런 방식은 현실에서 큰 도움이 안 된다. 그렇기 때문에 대부분의 파이썬 유저들이 bool 이라는 내장 클래스를 써본 적이 없는 것이기도 하다.</p>
+<p>앞서 이해한 내용은 지극히 문법적인 내용으로 이렇게 끝내는 것은 이해 없이 수학 공식 달달 외우는 것처럼 무식한 일이다. 그리고 저런 방식은 현실 개발에서 큰 도움이 안 된다. 그렇기 때문에 대부분의 파이썬 유저들이 bool 이라는 내장 클래스를 써본 적이 없는 것이다.</p>
 
 <p>이번에는 어떤 객체가 True가 되고 False가 되는지 <strong>개념적</strong>으로 이해해보자. 이걸 집합론으로 설명하려고 준비했는데 사실 이 포스트를 쓴 이유는 단순히 조건식을 논하고 싶었다기 보다는 내가 떠올린 이 방법을 글로 남기고 싶었던 것이 크다.</p>
 
@@ -521,7 +522,7 @@
 
 <p>먼저 <strong>논의를 한 개 이상의 객체를 담을 수 있는 자료구조 객체에 한정해서 논의하자.</strong> list, set, tuple, dict 등이 있을 것이다.</p>
 
-<p>우리가 고등학생 때 <code class="highlighter-rouge">집합</code>의 개념을 배웠다. 기억하는지? 그리고 아직도 기억나는 것이 어떤 집합을 주고 그 집합의 부분집합을 모두 구한다든가(보통 써야 해서 귀찮았다.), 개수를 구한다든가(이건 적지 않아서 좀 낫다.) 하는 작업을 많이 했다. 이때 처음에 이해가 잘 안 됐던 것이 <strong>공집합(empty set, 기호로는 <script type="math/tex">\emptyset</script>)도 부분집합이 된다는 것이다.</strong> 공집합은 원소가 없는 집합으로 정의상 공집합은 모든 집합의 부분집합이 된다.</p>
+<p>우리가 고등학생 때 <code class="highlighter-rouge">집합</code>의 개념을 배웠다. 기억하는지? 그리고 아직도 기억나는 것이 어떤 집합을 주고 그 집합의 부분집합을 모두 구한다든가(보통 써야 해서 귀찮았다.), 개수를 구한다든가(이건 적지 않아서 좀 낫다.) 하는 작업을 많이 했다. 이때 처음에 이해가 잘 안 됐던 것이 <strong>공집합(empty set, 기호로는 <script type="math/tex">\emptyset</script>)도 부분집합이 된다는 것이다. 공집합은 원소가 없는 집합으로 정의상 공집합은 모든 집합의 부분집합이 된다.</strong></p>
 
 <p>자, 이제 list, set, tuple, dict 등에서 아무거나 선택하자. 여기서는 list를 선택하겠다. 이때 <strong>만들 수 있는 모든 list들을 list 집합이라고 하자.</strong> <em>[1, 2, 3]</em> 도 list고 <em>[[], []]</em> 등도 list 집합이다. 이때 <strong>공집합이 아닌 모든 집합은 조건식에서 쓰이면 True로 평가되며, <code class="highlighter-rouge">[]</code>처럼 원소가 없는 공집합은 무조건 False로 평가된다.</strong> 이게 파이썬에서의 객체 조건식 평가 기준이다. 이때 객체는 집합에 사영(射影)되며 모든 객체는 유일한 집합에 일대일 대응된다. 즉, 객체는 집합으로 변환할 수 있다는 뜻이 된다.</p>
 
@@ -548,7 +549,7 @@
 
 <p><br /></p>
 
-<p>그리고 이번엔 데이터를 한 개 이상 포함하는 자료구조가 아니라 데이터 자체를 살펴보자. 대표적으로 정수, 실수 등이 있는데 여기에 공집합의 개념을 쓸 수는 없어보인다. 파이썬에서는 이런 숫자 상수(numerical literal)은 0이 아닌 경우 True, 이면 False가 된다. 이는 다른 여타 언어의 예와 같다.</p>
+<p>그리고 이번엔 데이터를 한 개 이상 포함하는 자료구조가 아니라 데이터 자체를 조건식으로 쓸 때를 보자. 대표적으로 정수, 실수 등이 있는데 여기에 공집합의 개념을 쓸 수는 없어보인다. 파이썬에서는 이런 숫자 상수(numerical literal)은 0이 아닌 경우 True, 0 이면 False가 된다. 이는 다른 여타 언어의 예와 같다.</p>
 
 <p><br /></p>
 
