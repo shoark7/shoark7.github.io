@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Python의 조건식 평가에 대한 고찰 - Parkito's on the way</title>
+
+  <!-- Edit site and author settings in `_config.yml` to make the social details your own -->
+
+    <meta content="Parkito's on the way" property="og:site_name">
+  
+    <meta content="Python의 조건식 평가에 대한 고찰" property="og:title">
+  
+  
+    <meta content="article" property="og:type">
+  
+  
+    <meta content="Python이 조건식을 어떻게 평가하고 타 언어와 어떤 차이가 있는지 간략하게 살펴봅니다." property="og:description">
+  
+  
+    <meta content="http://localhost:4000/programming/python/how-python-evaluates-conditional-expression" property="og:url">
+	
+  
+    <meta content="2019-11-30T00:00:00+09:00" property="article:published_time">
+    <meta content="http://localhost:4000/about/" property="article:author">
+  
+  
+    <meta content="http://localhost:4000/assets/img/python/conditional-expression-in-python.jpg" property="og:image">
+  
+  
+    
+    <meta content="Programming" property="article:section">
+    
+  
+  
+    
+    <meta content="conditional-expression" property="article:tag">
+    
+  
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@">
+    <meta name="twitter:creator" content="@">
+  
+    <meta name="twitter:title" content="Python의 조건식 평가에 대한 고찰">
+  
+  
+    <meta name="twitter:url" content="http://localhost:4000/programming/python/how-python-evaluates-conditional-expression">
+  
+  
+    <meta name="twitter:description" content="Python이 조건식을 어떻게 평가하고 타 언어와 어떤 차이가 있는지 간략하게 살펴봅니다.">
+  
+  
+    <meta name="twitter:image:src" content="http://localhost:4000/assets/img//python/conditional-expression-in-python.jpg">
+  
+
+  
+    <meta content="Python이 조건식을 어떻게 평가하고 타 언어와 어떤 차이가 있는지 간략하게 살펴봅니다." name="description">
+  
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="shortcut icon" href="/assets/img/favicon/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" href="/assets/img/favicon/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/assets/img/favicon/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/assets/img/favicon/apple-touch-icon-144x144.png">
+	<!-- Chrome, Firefox OS and Opera -->
+	<meta name="theme-color" content="#263959">
+	<!-- Windows Phone -->
+	<meta name="msapplication-navbutton-color" content="#263959">
+	<!-- iOS Safari -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="#263959">
+	<!-- Google Fonts -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="/assets/fonts/font-awesome/css/font-awesome.min.css">
+	<!-- Styles -->
+	<!-- Mathjax Support -->
+<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+	MathJax.Hub.Config({
+  showProcessingMessages: false,
+  jax: ["input/TeX", "output/HTML-CSS"],
+  TeX: {
+    TagSide: "left",
+    Macros: {
+      RR: '{\\bf R}',
+      bold: ['{\\bf #1}',1]
+    }
+  },
+  CommonHTML: {
+    linebreaks: {automatic: true}
+  }
+});
+</script>
+
+	<link rel="stylesheet" href="/assets/css/main.css">
+	<link rel="stylesheet" href="/assets/css/personal.css">
+	<link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Nanum+Gothic:400,700,800&amp;subset=korean" rel="stylesheet">
+
+	<!-- googld ads tag -->
+  <script data-ad-client="ca-pub-2670967175857332" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</head>
+
+<body style="position: relative">
+	<div id="toggler-wrapper">
+		<div id="menu-toggler">
+			<img src="/assets/img/nav-off.png" alt="Menu collapse image">
+		</div>
+	</div>
+
+  <div class="wrapper">
+
+		<nav id="nav">
+			<div id="menus">
+				<p>
+					<a class="navbar-brand text-white" href="/">&nbsp;&nbsp;&nbsp;Parkito's on the way!&nbsp;&nbsp;&nbsp;</a>
+				</p>
+				<ul id="category-list">
+					<li>
+						<a href="/about.me">
+							<div class="menu">
+								<span> About </span>
+							</div>
+						</a>
+					</li>
+				
+					<li>
+						<div class="menu-wrapper">
+							<a href="/category/programming">
+								<div class="menu">
+									<span> Programming </span>
+								</div>
+							</a>
+							<div class="menu-item">
+								<a href="/category/programming/knowledge">Knowledge</a>
+								<a href="/category/programming/algorithm">Algorithm</a>
+								<a href="/category/programming/python">Python</a>
+								<a href="/category/programming/shell-programming">Shell programming</a>
+							</div>
+						</div>
+					</li>
+				
+					<li>
+						<div class="menu-wrapper">
+								<a href="/category/insight">
+									<div class="menu">
+										<span> Insight </span>
+									</div>
+								</a>
+								<div class="menu-item">
+									<a href="/category/insight/sensitivity">&nbsp;&nbsp;Sensitivity&nbsp;&nbsp;</a>
+									<a href="/category/insight/rationality">&nbsp;&nbsp;Rationality&nbsp;&nbsp;</a>
+								</div>
+						</div>
+					</li>
+
+					<li>
+						<div class="menu-wrapper">
+								<a href="/category/projects">
+									<div class="menu">
+										<span> Projects </span>
+									</div>
+								</a>
+							<div class="menu-item">
+								<a href="/category/projects/dev-related">&nbsp;&nbsp;Dev related&nbsp;&nbsp;</a>
+								<a href="/category/projects/etc">&nbsp;&nbsp;ETC&nbsp;&nbsp;</a>
+							</div>
+						</div> </li>
+
+				</ul>
+			</div>
+
+			<div id="menus-right">
+				<div id="search-section">
+					<div class="input-wrapper">
+						<span class="fa fa-search"></span>
+						<input type="text" id="search-input" placeholder="Please input specific keyword :)" size="30">
+					</div>
+					<div id="results-container"></div>
+				</div>
+
+				<!--<div id="toggler-wrapper">-->
+					<!--<div id="menu-toggler">-->
+						<!--<img src="/assets/img/nav-off.png" alt="" width="35px" height="35px">-->
+					<!--</div>-->
+				<!--</div>-->
+				
+			</div>
+			
+		</nav>
+
+
+    <aside class="sidebar">
+  <header>
+    <div class="about">
+      <div class="cover-author-image">
+        <a href="/"><img src="/assets/img/1536558558520.jpg" alt="Sunghwan Park"></a>
+      </div>
+      <div class="author-name">Sunghwan Park</div>
+      <p>I'm Parkito. A Python lover. Interested in Python, Automation, Algorithm. Please give me insights. I'll teach you tambien! :)</p>
+    </div>
+  </header> <!-- End Header -->
+  <footer>
+    <section class="contact">
+      <h3 class="contact-title">Contact me</h3>
+      <ul>
+				<!--
+        
+          <li><a href="https://twitter.com/artemsheludko_" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+        
+        
+          <li><a href="https://facebook.com/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+        
+				-->
+        
+          <li class="github"><a href="http://github.com/shoark7" target="_blank"><i class="fa fa-github"></i></a></li>
+        
+        
+          <li class="linkedin"><a href="https://in.linkedin.com/in/sunghwan-park-3773b8154" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+        
+        
+          <li class="email"><a href="mailto:shoark7@gmail.com"><i class="fa fa-envelope-o"></i></a></li>
+        
+      </ul>
+    </section> <!-- End Section Contact -->
+    <div class="copyright">
+      <p>2019 &copy; Sunghwan Park</p>
+    </div>
+  </footer> <!-- End Footer -->
+</aside> <!-- End Sidebar -->
+
+<div class="content-box clearfix">
+  <article class="article-page">
+  <div class="page-content">
+    
+    <div class="page-cover-image">
+      <figure>
+        <img class="page-image" src=/assets/img//python/conditional-expression-in-python.jpg alt="Python의 조건식 평가에 대한 고찰">
+        
+      </figure>
+    </div> <!-- End Page Cover Image -->
+    
+    <div class="wrap-content">
+      <header class="header-page">
+        <h1 class="page-title">Python의 조건식 평가에 대한 고찰</h1>
+        <div class="page-date"><span>2019, Nov 30&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+      </header>
+
+		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<!-- 처음과끝에만 -->
+		<ins class="adsbygoogle"
+				 style="display:block"
+				 data-ad-client="ca-pub-2670967175857332"
+				 data-ad-slot="3352812061"
+				 data-ad-format="auto"
+				 data-full-width-responsive="true"></ins>
+		<script>
+				 (adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+		<!-- 처음과끝에만 -->
+
+      <h2 id="0-index">0. Index</h2>
+
+<blockquote>
+  <ol>
+    <li><a href="#1">들어가며</a></li>
+    <li><a href="#2">조건식이란?</a></li>
+    <li><a href="#3">Python의 독특한 조건식 평가방식</a></li>
+    <li><a href="#4">논리 이해하기</a>
+      <ul>
+        <li>4.1. <a href="#4a">문법적 이해</a></li>
+        <li>4.2. <a href="#4b">개념적 이해</a></li>
+      </ul>
+    </li>
+    <li><a href="#5">마치며</a></li>
+    <li><a href="#6">자료 출처</a></li>
+  </ol>
+</blockquote>
+
+<p><br id="1" /></p>
+
+<h2 id="1-들어가며">1. 들어가며</h2>
+
+<hr />
+
+<p>Python(이하 “파이썬”)도 여타 다른 언어처럼 Bool값을 제공한다. 이들은 참, 거짓의 양값으로 나뉘어 논리를 실행하는지, 또는 안 하는지에 영향을 미치기에 거의 모든 프로그래밍 언어에서 필수적인 역할을 한다.</p>
+
+<p><strong>파이썬은 다른 언어 사용자들에게 익숙한 조건문 평가방식을 완벽 제공하는 한편 자신만의, 다른 표현으로 Pythonic한 평가방식을 제공하기도 하는데 오늘 포스트는 파이썬이 어떻게 조건식을 평가하는지에 대한 이야기를 하려고 한다.</strong> 파이썬은 과연 어떻게 조건식을 평가하는가? 다시 말해 내가 작성한 이 식이 조건문에서 어떻게 True 또는 False가 되는가?</p>
+
+<p>먼저 조건식이 무엇인지에 대해 짧게 살핀다. 이 장은 인트로 정도의 느낌의 장으로 개념을 잡는다. 그리고 파이썬이 다른 언어와 다른 형태의 조건식을 사용할 수 있다는 것에 대해 살필 것이다. 이 내용들은 <a href="https://www.python.org/dev/peps/pep-0008/" target="_blank">PEP 008</a>에서도 표준적인 코딩 방식으로 공식적으로 권고되고 있는 내용이기에 파이썬은 공부하는 사람이라면 잘 알아야하는 내용이기도 하다. 다음으로는 이런 방식이 어떻게 작동하는지 살피는데 먼저 파이썬의 문법적으로 살펴본다. 이후에는 파이썬만의 방식을 집합론을 사용해 개념적으로 이해해보려고 한다. 집합론으로 논리를 만들어나가는 것이 유용하다는 것을 알게 될 것이다.</p>
+
+<p>이번 포스트는 굉장히 가벼운 주제가 될 것 같다. 시작해보자.</p>
+
+<p><br />
+<br id="2" /></p>
+
+<h2 id="2-조건식이란">2. 조건식이란?</h2>
+
+<hr />
+
+<p>먼저 논의의 중심이 되는 <code class="highlighter-rouge">조건식</code>(conditional expression)이 무엇인지 알고 가자. 먼저 <code class="highlighter-rouge">식</code>이란 영어로 ‘expression’으로 하나의 값으로 치환 또는 환원(reduce)될 수 있는 문장 단위를 말한다. 프로그래밍에서는 코드가 된다. 예를 들어 <script type="math/tex">2 + 3</script>은 <script type="math/tex">5</script>라는 값으로 치환될 수 있다. <script type="math/tex">(2 + 3) * 7</script>도 마찬가지로 식이고 또 어떤 값을 반환하는 함수도 expression이 될 수 있다. 예를 들어 배열의 원소들의 합을 반환하는 <em>sum</em> 함수를 실행한 것도 하나의 숫자를 반환하기 때문에 곧 ‘expression이다’라고 해도 된다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># sum(arr) 자체도 식이라고 할 수 있다.
+</span><span class="k">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]))</span>
+
+<span class="mi">15</span>
+</code></pre></div></div>
+
+<p>여기서 <strong>조건식은 식 중에서 평가 또는 치환한 결과 참 또는 거짓의 결과로 귀결되는 식을 총칭한다.</strong> 앞서 참, 거짓을 결정하는 bool 값은 프로그래밍에서 매우 중요하다고 이야기했다. 파이썬에서는 참, 거짓에 해당되는 값을 <code class="highlighter-rouge">True</code>, <code class="highlighter-rouge">False</code>라는 Capitalized된 표기로 지정하며 C, Java, Javascript 등에서는 <code class="highlighter-rouge">true</code>, <code class="highlighter-rouge">false</code>와 같이 소문자로 표기한다.</p>
+
+<p>그럼 조건식의 대표적인 예제가 뭐가 있을까? <strong>바로 논리 연산자를 사용할 때다.</strong> 그렇다. 우리가 프로그래밍을 처음 배울 때 여러 종류의 연산자와 그들의 연산 순서 등을 공부하게 되는데 이중 논리 연산자를 사용한 식은 조건식이 된다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 다음은 모두 True 또는 False를 반환하기에 조건식이 된다.
+</span><span class="k">print</span><span class="p">(</span><span class="mi">1</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="mi">16</span> <span class="o">!=</span> <span class="nb">sum</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]))</span>
+<span class="k">print</span><span class="p">(</span><span class="mi">1</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="ow">not</span> <span class="bp">True</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="mi">1</span> <span class="o">&gt;</span> <span class="mi">2</span> <span class="ow">and</span> <span class="mi">3</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="mi">1</span> <span class="o">&gt;</span> <span class="mi">2</span> <span class="ow">or</span> <span class="mi">3</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">)</span>
+
+<span class="bp">False</span>
+<span class="bp">False</span>
+<span class="bp">True</span>
+<span class="bp">False</span>
+<span class="bp">False</span>
+<span class="bp">True</span>
+</code></pre></div></div>
+
+<p>각 식은 모두 논리 연산자를 사용한 조건식이다. 세 번째까지는 타 언어 사용자들에게도 익숙한 대소 비교, 동치를 확인하는데 밑에는 파이썬만의 연산자다. <code class="highlighter-rouge">not</code> 예약어는 True 또는 False를 상대값으로 반전시키는 <code class="highlighter-rouge">!</code> 연산자의 파이썬 형태고, <code class="highlighter-rouge">and</code>는 <code class="highlighter-rouge">&amp;&amp;</code>, <code class="highlighter-rouge">or</code>은 <code class="highlighter-rouge">||</code>의 파이썬 논리 연산자다. 구체적인 표기는 달라도 하는 일은 똑같다. 그 표기는 달라도 의미는 같은 것이다.</p>
+
+<p>이런 조건식은 <code class="highlighter-rouge">if</code> 조건문을 사용할 때 매우 중요하다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">age</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"당신의 나이는? : "</span><span class="p">))</span>
+
+<span class="k">if</span> <span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">30</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"당신의 나이의 제곱의 최소값은 900"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"당신의 나이의 10진수 표기의 앞 두 자리의 곱의 최대값은 18"</span><span class="p">)</span>
+
+
+<span class="err">당신의</span> <span class="err">나이는?</span> <span class="p">:</span> <span class="mi">28</span>
+<span class="err">당신의</span> <span class="err">나이의</span> <span class="mi">10</span><span class="err">진수</span> <span class="err">표기의</span> <span class="err">앞</span> <span class="err">두</span> <span class="err">자리의</span> <span class="err">곱의</span> <span class="err">최대값은</span> <span class="mi">18</span>
+</code></pre></div></div>
+
+<p>이렇게 <strong>논리 연산자를 사용하는 조건문 사용 방식이 타 언어 사용자나 많은 파이썬 사용자들에도 익숙한 가장 일반적인, 또는 조건식을 만드는 유일한 방식이다.</strong></p>
+
+<p><strong>하지만 파이썬은 다른 형식의 조건식을 지원하며 이는 파이썬이라는 프로그래밍 언어의 주요한 특징이 된다.</strong></p>
+
+<p><br />
+<br id="3" /></p>
+
+<h2 id="3-python의-독특한-조건식-평가방식">3. Python의 독특한 조건식 평가방식</h2>
+
+<hr />
+
+<p>파이썬은 논리 연산자를 사용하는 조건식말고도 다른 형태의 조건식도 제공한다. 그것은 바로 <strong>객체나 값 자체를 조건식으로 활용할 수 있다는 뜻이 된다. 다시 말하면 논리 연산자를 사용하지 않고, <code class="highlighter-rouge">if</code>문에 객체나 값 자신을 넣는 것이 가능하다.</strong> 이 말을 듣자마자 바로 반론을 제기하는 독자들이 있을 수 있다. ‘Java 등의 언어세도 값 자체를 조건식으로 쓸 수 있는데?’ 맞다. 정확히는 매우 제한적으로 맞다. 예를 들면 C에는 조건문에 1이나 0을 넣어 true나 false로 평가 가능하다는 것을 우리는 안다. Javascript에서 확인해보자.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">yes boy</span><span class="dl">'</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">yes</span> <span class="nx">boy</span>
+</code></pre></div></div>
+
+<p>하지만 이외에 다른 값, 예를 들어 문자열이나 배열 같은 객체를 조건식에 그대로 넣는 것은 일반적이지 않거나 경고를 내거나 돌아가지 않는다. C 언어에서 <strong>조건식으로 배열 자체를 사용했을 때의 결과</strong>는 다음과 같다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#include &lt;stdio.h&gt;
+</span>
+<span class="nb">int</span> <span class="n">main</span><span class="p">(</span><span class="n">void</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nb">int</span> <span class="n">data</span><span class="p">[</span><span class="mi">100</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">};</span>
+  
+  <span class="k">if</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">printf</span><span class="p">(</span><span class="s">"Hello World!!!</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+<span class="n">Hello</span> <span class="n">World</span><span class="err">!!!</span>
+<span class="n">main</span><span class="o">.</span><span class="n">c</span><span class="p">:</span><span class="mi">5</span><span class="p">:</span><span class="mi">6</span><span class="p">:</span> <span class="n">warning</span><span class="p">:</span> <span class="n">address</span> <span class="n">of</span> <span class="n">array</span> <span class="s">'data'</span> <span class="n">will</span> <span class="n">always</span> <span class="n">evaluate</span> <span class="n">to</span>
+      <span class="s">'true'</span> <span class="p">[</span><span class="o">-</span><span class="n">Wpointer</span><span class="o">-</span><span class="nb">bool</span><span class="o">-</span><span class="n">conversion</span><span class="p">]</span>
+  <span class="k">if</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="p">{</span>
+</code></pre></div></div>
+
+<p>실행은 되는데 경고가 나오며 ‘data’라는 배열이 ‘true’로 평가될 것이라고 <code class="highlighter-rouge">경고</code>하고 있다. 이런 경고가 뜨는 이상 이런 조건식 활용이 C 언어의 일반 사용자가 동의하는 컨벤션은 아닐 것이라고 무난히 예상할 수 있다.</p>
+
+<p><br /></p>
+
+<p><strong>그런데 파이썬은 단순 정수뿐 아니라 문자열 등의 immutable한 값이나 list, set 등의 자료구조를 조건식에 쓰는 것이 가능하다.</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">some_array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+
+<span class="k">if</span> <span class="n">some_array</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"Array Hurrah your age~"</span><span class="p">)</span>
+
+
+<span class="n">Array</span> <span class="n">Hurrah</span> <span class="n">your</span> <span class="n">age</span><span class="o">~</span>
+</code></pre></div></div>
+
+<p>그리고 <strong>이런 활용은 파이썬의 코딩 컨벤션으로 공식적으로 권장되고 있다.</strong> 파이썬 공식 홈페이지의 PEP(Python Enhancement Proposal) 0008은 모든 파이썬 유저들에게 권장되는 파이썬 컨벤션에 대해 길게 언급하고 있는데 그중 자료구조를 조건식에서 위에서처럼 그대로 사용하는 것에 관한 내용이 있다. <strong>이때 빈 리스트, 빈 튜플 등 비어 있는 자료구조는 False를 반환하고, 조금이라도 값이 들어 있으면 True로 반환되게 된다.</strong> 따라서 배열이 비어 있는지 확인할 때는 파이썬에서는 이렇게 쓰는 것이 바람직하다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">some_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+
+<span class="c1"># 가능하지만 권장은 아님
+</span><span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">some_list</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"I'm not empty"</span><span class="p">)</span>
+
+
+<span class="c1"># 바람직한 방법
+</span><span class="k">if</span> <span class="n">some_list</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"I'm not empty"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>이렇게 <strong>값이나 자료구조 자체를 조건식으로 사용할 수 있고 장려하고 있다는 점이 파이썬의 흥미로운 부분 중 하나다.</strong> 그말은 ‘조건문에서는 자료구조가 True나 False의 bool 값으로 평가된다는 것’과 같은 말인데 다음 장에서는 ‘<strong>그러면 어떤 기준으로 True 또는 False을 판단하나</strong>‘에 대해 이야기할 것이다.</p>
+
+<p><br />
+<br id="4" /></p>
+
+<h2 id="4-논리-이해하기">4. 논리 이해하기</h2>
+
+<hr />
+
+<p>앞서 확인했듯이 파이썬 사용자들에게는 값 자체를 조건식으로 사용하는 것이 매우 익숙하고 Pythonic한 방법이다. 모든 조건문에 입력된 조건식은 반드시 true 또는 false의 값으로 결정된다. ‘그 외’ 혹은 ‘둘 다’ 혹은 ‘무결정’은 없다. 로고의 네오가 파란색 알약과 빨간색 알약 중 하나를 반드시 선택해야 한 것과 같이… 네오라는 객체는 어떤 값으로 평가됐을까?</p>
+
+<p>그러면 <strong>이번 장에서는 값 자체를 조건식으로 입력받았을 때 어떤 방법이나 기준으로 양가 사이의 값을 선택하는지 알아볼 것이다.</strong> 방법은 크게 두 가지로, 먼저 파이썬의 문법을 통해 이해한다. 거의 공식과 같아서 이 방법을 통하면 어떤 자료구조 또는 값이 조건식으로 입력되었을 때 True가 될지 False가 될지 바로 알 수 있다. 하지만 이해하지 않고 공식만 외우는 것은 정말 공허한 일이니 그 문법이 어떻게 동작하는 것인지 개념적으로 살펴보자. 집합론을 사용해 이해한다.</p>
+
+<p><br id="4a" /></p>
+
+<h3 id="41-문법적-이해">4.1. 문법적 이해</h3>
+
+<p>파이썬으로 알고리즘을 풀다보면 <code class="highlighter-rouge">int</code>라는 클래스의 생성자를 수없이 활용하게 된다. 가령 배열의 크기를 입력받았을 때 표기는 숫자지만 실제 값의 타입은 <em>str</em> 이기 때문에 int 생성자로 이를 정수로 변환해줘야 한다. 이를 유식한 말로는 <em>Type casting</em> 이라고 한다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">size</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"배열의 크기 입력: "</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">size</span><span class="p">))</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">"변환!!!!!!!!!"</span><span class="p">)</span>
+
+<span class="n">size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">size</span><span class="p">))</span>
+
+
+<span class="err">배열의</span> <span class="err">크기</span> <span class="err">입력</span><span class="p">:</span> <span class="mi">5</span>
+<span class="o">&lt;</span><span class="k">class</span> <span class="err">'</span><span class="nc">str</span><span class="s">'&gt;</span><span class="err">
+</span><span class="s">변환!!!!!!!!!</span><span class="err">
+</span><span class="s">&lt;class '</span><span class="nb">int</span><span class="s">'&gt;</span><span class="err">
+</span></code></pre></div></div>
+
+<p>이렇게 값을 정수로 변환시켜줘야 반복문 등에서 활용할 수 있다. 이때 기억할 것은 <strong><code class="highlighter-rouge">int</code>는 함수가 아니다. 내장 클래스로서 파이썬 내의 모든 정수값들은 이 클래스의 인스턴스가 된다.</strong> <em>isinstance</em> 함수를 활용해 확인해볼 수 있는데 이 함수는 첫 인자로 인스턴스, 두 번째 인자로 클래스를 받아 첫 인자가 두 번째 인자의 인스턴스가 맞는지 여부를 반환한다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="nb">int</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="mf">3.0</span><span class="p">,</span> <span class="nb">int</span><span class="p">))</span>
+
+<span class="bp">True</span>
+<span class="bp">False</span>
+</code></pre></div></div>
+
+<p>3은 정수지만 3.0은 실수 클래스(<em>float</em>)의 인스턴스기 때문에 False가 반환됐다.</p>
+
+<p>그리고 int의 생성자 함수를 호출하고 값을 입력해 그 객체의 정수형 인스턴스를 반환할 수 있는 것이다. 이게 일반적인 활용이다. 
+이렇게 <strong>어떤 객체를 내장 클래스의 생성자 함수에 입력해서 해당 클래스의 인스턴스로 변환하는 것은 파이썬의 type casting의 주요한 방식이며, 또 자주 쓰이는 예로는 <em>str(3)</em> 같은 예가 있다.</strong></p>
+
+<p><br /></p>
+
+<p>하지만 사람들은 <code class="highlighter-rouge">bool</code>이라는 내장 클래스로 같은 일을 할 수 있다는 것은 잘 모른다. bool 클래스는 예상했다시피 <code class="highlighter-rouge">True</code>, <code class="highlighter-rouge">False</code> 인스턴스의 클래스로서, 이 둘은 bool 내장 클래스의 유이(唯二)한 인스턴스다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="bp">True</span><span class="p">,</span> <span class="nb">bool</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="bp">False</span><span class="p">,</span> <span class="nb">bool</span><span class="p">))</span>
+
+<span class="bp">True</span>
+<span class="bp">True</span>
+</code></pre></div></div>
+
+<p><strong>이 bool 클래스도 값이나 객체를 입력받아 자신의 인스턴스로 반환한다.</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">([]))</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="s">'123'</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">({</span><span class="s">'a'</span><span class="p">:</span> <span class="mi">1</span><span class="p">}))</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="nb">sum</span><span class="p">))</span>
+
+
+<span class="bp">True</span>
+<span class="bp">False</span>
+<span class="bp">False</span>
+<span class="bp">True</span>
+<span class="bp">True</span>
+<span class="bp">True</span>
+</code></pre></div></div>
+
+<p>그리고 <strong>어떤 객체가 조건식으로 평가될 때 True 또는 False가 될지는 이 결과로 알 수 있다.</strong> 위의 결과에서 ‘0’과 ‘[]’ 입력만 False가 되었고 나머지는 True가 되었다. 그렇다면 이 값들이 if 문에서 조건식으로 쓰였을 때 그 블락이 실행될지 안 될지도 이를 따라가게 된다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="mi">1</span><span class="p">:</span> <span class="k">print</span><span class="p">(</span><span class="s">"'1'은 True가 되나 봅니다."</span><span class="p">)</span>
+<span class="k">if</span> <span class="mi">0</span><span class="p">:</span> <span class="k">print</span><span class="p">(</span><span class="s">"'0'은 True가 되나 봅니다."</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">[]:</span> <span class="k">print</span><span class="p">(</span><span class="s">"'[]'는 True가 되나 봅니다."</span><span class="p">)</span>
+<span class="k">if</span> <span class="s">'123'</span><span class="p">:</span> <span class="k">print</span><span class="p">(</span><span class="s">"''123''은 True가 되나 봅니다."</span><span class="p">)</span>
+<span class="k">if</span> <span class="nb">sum</span><span class="p">:</span> <span class="k">print</span><span class="p">(</span><span class="s">"'sum' 내장 함수는 True가 되나 봅니다."</span><span class="p">)</span>
+
+
+<span class="s">'1'</span><span class="err">은</span> <span class="bp">True</span><span class="err">가</span> <span class="err">되나</span> <span class="err">봅니다</span><span class="o">.</span>
+<span class="s">''</span><span class="mi">123</span><span class="s">''</span><span class="err">은</span> <span class="bp">True</span><span class="err">가</span> <span class="err">되나</span> <span class="err">봅니다</span><span class="o">.</span>
+<span class="s">'sum'</span> <span class="err">내장</span> <span class="err">함수는</span> <span class="bp">True</span><span class="err">가</span> <span class="err">되나</span> <span class="err">봅니다</span><span class="o">.</span>
+</code></pre></div></div>
+
+<p>앞서 bool의 생성자 함수에 입력했을 때 True가 반환됐던 경우의 조건식이 사용된 if 문만 실행되었다.</p>
+
+<p>이렇게 <strong>어떤 객체가 조건식으로 사용되었을 때 어떤 boolean 값을 반환할지 확인하려면 bool 내장 클래스의 생성자 함수에 객체를 입력하면 된다.</strong></p>
+
+<p><br id="4b" /></p>
+
+<h3 id="42-개념적-이해">4.2. 개념적 이해</h3>
+
+<p>앞서 이해한 내용은 지극히 문법적인 내용으로 수학 공식 달달 외우는 것처럼 참 불쌍한 일이다. 그리고 저런 방식은 현실에서 큰 도움이 안 된다. 그렇기 때문에 대부분의 파이썬 유저들이 bool 이라는 내장 클래스를 써본 적이 없는 것이기도 하다.</p>
+
+<p>이번에는 어떤 객체가 True가 되고 False가 되는지 <strong>개념적</strong>으로 이해해보자. 이걸 집합론으로 설명하려고 준비했는데 사실 이 포스트를 쓴 이유는 단순히 조건식을 논하고 싶었다기 보다는 내가 떠올린 이 방법을 글로 남기고 싶었던 것이 크다.</p>
+
+<p><br /></p>
+
+<p>먼저 <strong>논의를 한 개 이상의 객체를 담을 수 있는 자료구조 객체에 한정해서 논의하자.</strong> list, set, tuple, dict 등이 있을 것이다.</p>
+
+<p>우리가 고등학생 때 <code class="highlighter-rouge">집합</code>의 개념을 배웠다. 기억하는지? 그리고 아직도 기억나는 것이 어떤 집합을 주고 그 집합의 부분집합을 모두 구한다든가(보통 써야 해서 귀찮았다.), 개수를 구한다든가(이건 적지 않아서 좀 낫다.) 하는 작업을 많이 했다. 이때 처음에 이해가 잘 안 됐던 것이 <strong>공집합(empty set, 기호로는 <script type="math/tex">\emptyset</script>)도 부분집합이 된다는 것이다.</strong> 공집합은 원소가 없는 집합으로 정의상 공집합은 모든 집합의 부분집합이 된다.</p>
+
+<p>자, 이제 list, set, tuple, dict 등에서 아무거나 선택하자. 여기서는 list를 선택하겠다. 이때 <strong>만들 수 있는 모든 list들을 list 집합이라고 하자.</strong> <em>[1, 2, 3]</em> 도 list고 <em>[[], []]</em> 등도 list 집합이다. 이때 <strong>공집합이 아닌 모든 집합은 조건식에서 쓰이면 True로 평가되며, <code class="highlighter-rouge">[]</code>처럼 원소가 없는 공집합은 무조건 False로 평가된다.</strong> 이게 파이썬에서의 객체 조건식 평가 기준이다. 이때 객체는 집합에 사영(射影)되며 모든 객체는 유일한 집합에 일대일 대응된다. 즉, 객체는 집합으로 변환할 수 있다는 뜻이 된다.</p>
+
+<p>다시 말하지만 <strong>공집합은 <code class="highlighter-rouge">모든</code> 집합의 부분집합이다. tuple로 만든 집합의 공집합(<code class="highlighter-rouge">(,)</code>)도, dict로 만든 집합의 공집합(<code class="highlighter-rouge">{}</code>)도 조건식으로 사용되면 모두 False가 된다. 그외의 모든 집합은 True가 된다.</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">[]:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"Empty list"</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">[[]]:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"List having one list"</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">{}:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"empty dict"</span><span class="p">)</span>
+
+
+<span class="n">List</span> <span class="n">having</span> <span class="n">one</span> <span class="nb">list</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>주목할만한 다른 예로는 문자열(str)이 있다. 문자열을 ‘문자들의 모음’이라고 하면 ‘abc’, ‘abcde’ 등도 문자 집합이다. 이때 원소, 다시 말해 문자가 하나도 없는 문자열 공집합 <code class="highlighter-rouge">''</code>은 파이썬에서 조건식으로 쓰면 False, 그외 문자열은 True가 된다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="s">''</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"Something is here?"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>그리고 이번엔 데이터를 한 개 이상 포함하는 자료구조가 아니라 데이터 자체를 살펴보자. 대표적으로 정수, 실수 등이 있는데 여기에 공집합의 개념을 쓸 수는 없어보인다. 파이썬에서는 이런 숫자 상수(numerical literal)은 0이 아닌 경우 True, 이면 False가 된다. 이는 다른 여타 언어의 예와 같다.</p>
+
+<p><br /></p>
+
+<p>정리하면 <strong>파이썬에서는 모든 객체 자신을 조건식처럼 평가할 수 있는데 자료구조의 경우는 공집합이 아닌 자료구조는 모두 True, 공집합, 다시 말해 원소가 전혀 없는 자료구조는 False로 평가된다. 그외 정수, 실수, 복소수 등에서 0은(0, 0.0, 0 + 0j) False, 그 외에는 True가 된다고 하겠다.</strong></p>
+
+<p><br />
+<br id="5" /></p>
+
+<h2 id="5-마치며">5. 마치며</h2>
+
+<hr />
+
+<p>분명 파이썬에서 모든 객체를 조건식으로 쓸 수 있는 방식은 흥미롭다. 나에게는 이런 철학적 질문을 남기기 때문이다. ‘무엇이 참이고 거짓인가?’, ‘파이썬은 객체의 실존 여부를 bool로 평가하는가?’, ‘실존이란 무엇인가? <code class="highlighter-rouge">[]</code>은 실존하지 않는 값인가?’ 등등. 이런 이야기를 포스트에 더 담고 싶다면 내가 더 노력하는 수밖에 없다. 솔직히 아직 이런 개념까지 버무리지는 못하겠다. 다만 이 독특한 평가방식을 왠지 공집합 개념을 사용해 설명할 수 있겠다는 생각을 했을 뿐이다.</p>
+
+<p>다음 포스트는 개인적으로 기대가 되는 포스트다. 내 일상의 경험을 녹여낸 에세이가 될텐데 알고리즘에 대해 이야기한다. 정말 오랜만에 일주일 두 포스트를 할까 하는데 성공했으면 좋겠다. 일단 오늘은 여기까지.</p>
+
+<p>이상 포스트를 마칩니다.</p>
+
+<p><br />
+<br id="6" /></p>
+
+<h2 id="6-자료-출처">6. 자료 출처</h2>
+
+<hr />
+
+<ul>
+  <li><a href="https://shoark7.github.io/programming/knowledge/expression-vs-statement" target="_blank">expression by parkito’s on the way</a></li>
+  <li><a href="https://repl.it/languages/c" target="_blank">C online compiler by repl.it</a></li>
+  <li><a href="https://www.python.org/dev/peps/pep-0008/" target="_blank">PEP 0008 by python.org</a></li>
+</ul>
+
+      <div class="page-footer">
+        <div class="page-share">
+          <a href="https://twitter.com/intent/tweet?text=Python의 조건식 평가에 대한 고찰&url=http://localhost:4000/programming/python/how-python-evaluates-conditional-expression" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
+          <a href="https://facebook.com/sharer.php?u=http://localhost:4000/programming/python/how-python-evaluates-conditional-expression" title="Share on Facebook" rel="nofollow" target="_blank">Facebook</a>
+          <a href="https://plus.google.com/share?url=http://localhost:4000/programming/python/how-python-evaluates-conditional-expression" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>
+        </div>
+        <div class="page-tag">
+          
+            <a href="/tags#conditional-expression" class="tag">&#35; conditional-expression</a>
+          
+        </div>
+      </div>
+
+			<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+			<!-- 처음과끝에만 -->
+			<ins class="adsbygoogle"
+					 style="display:block"
+					 data-ad-client="ca-pub-2670967175857332"
+					 data-ad-slot="3352812061"
+					 data-ad-format="auto"
+					 data-full-width-responsive="true"></ins>
+			<script>
+					 (adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+			<!-- 처음과끝에만 -->
+
+		  <!-- Load Facebook SDK for JavaScript -->
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+
+  <!-- Your share button code -->
+  <div class="fb-share-button" 
+    data-href="http://localhost:4000/programming/python/how-python-evaluates-conditional-expression" 
+    data-layout="button_count">
+  </div>
+
+		
+    </div> <!-- End Wrap Content -->
+  </div> <!-- End Page Content -->
+</article> <!-- End Article Page -->
+
+</div>
+
+  </div>
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', '', 'auto');
+  ga('send', 'pageview');
+</script> <!-- End Analytics -->
+
+	<script src="https://unpkg.com/simple-jekyll-search@1.5.0/dest/simple-jekyll-search.min.js"></script>
+<script>
+var sjs = SimpleJekyllSearch({
+  searchInput: document.querySelector('#search-input'),
+  resultsContainer: document.getElementById('results-container'),
+  json: '/search.json',
+  searchResultTemplate: '<li class="search-results-item"><a href="http://localhost:4000{url}">{title}</a></li>',
+	limit: 9,
+	noResultsText: '<li class="search-results-item"><a href="#">No results found...</a></li>'
+})
+</script>
+
+	<!-- Main Js -->
+<!--<script src="/assets/js/main.js"></script>-->
+
+<!-- JQuery 3.x min -->
+<script src="/assets/js/jquery.js"></script>
+
+<script>
+	let menus = $("#category-list");
+	let image = $("#menu-toggler img");
+	$("#toggler-wrapper").click(function() {
+		if(menus.css("display") === "none") {
+			image.attr("src", "/assets/img/close-button.png");
+			menus.css("display", "flex");
+		}
+		else {
+			image.attr("src", "/assets/img/nav-off.png");
+			menus.css("display", "none");
+		}
+	});
+
+
+</script>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-127149179-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-127149179-1');
+</script>
+
+</body>
+</html>
