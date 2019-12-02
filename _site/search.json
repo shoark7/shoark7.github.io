@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "Algorithm actually",
+      "category" : "",
+      "tags"     : "Algorithm, Algorithm-actually",
+      "url"      : "/insight/rationality/algorithm-actually",
+      "date"     : "2019-12-02 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "Python의 조건식 평가에 대한 고찰",
       "category" : "",
       "tags"     : "conditional-expression",

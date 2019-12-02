@@ -1,0 +1,277 @@
+---
+layout: post
+title: 'Algorithm actually'
+date: 2019-12-02
+description: "A story of how I have got to know algorithm is all around in our daily lives"
+img:  /insight/algorithm-actually-logo.jpg
+categories: [Insight, Rationality]
+tags: [Algorithm, Algorithm-actually]
+---
+
+> Languages supported:
+> * [Korean version](#kor)  
+> * [English version](#eng)  
+
+
+<br id="kor">
+
+## Korean version
+
+## 0. Index
+
+> 1. 들어가며
+> 2. 한국의 가슴 아픈 알고리즘 사랑
+> 3. 알고리즘에 대한 나의 이야기
+>    - 3.1. 새벽 신문 배달 알바
+>    - 3.2. 엘레베이터에서 찾은 문제상황
+>    - 3.3. 구체적인 알고리즘
+> 4. 결론
+
+
+<br id="1">
+
+## 1. 들어가며
+
+---
+
+오늘 포스트는 알고리즘 이야기다. 그런데 많이 하던 유명한 알고리즘을 파헤치는 이야기가 아니고, 내가 일상에서 알고리즘을 발견한 이야기를 하려고 한다. 요즈음 IT를 공부하는 사람들이 알고리즘을 많이 공부하는데 단순히 취업을 위해 공부하는 경우가 많다. 나라고 꼭 다르지는 않지만 그래도 알고리즘을 단순히 문제풀이가 아니라 '우리 곁에 상주하는 누군가의 피땀'이라고 생각하고 있다. 그래서 이번에는 내가 알고리즘이 우리 곁에 상주하고 있다고 알게 된 이야기를 하려는 것이다.
+
+간만에 에세이같은 글을 쓰게 됐다. 재미있을 것 같은데 최초로 영어 버전과 한국어 버전을 동시에 작성한다. 이는 영작 실력을 늘리기 위함이기도 하고, 블로그 트래픽의 90%가 한국 출처인데 이를 80%대로 낮추기 위함이기도 하다. 또 이 주제는 내 사후 출판될만한 가치가 있다고 자체 평가하고 있다. 그래서 기대된다.
+
+시작합니다.
+
+
+<br>
+<br id="2">
+
+## 2. 한국의 가슴 아픈 알고리즘 사랑
+
+---
+
+나는 경영학과를 다니면서 컴퓨터를 공부한다고 하면 주변 대학생이나 지인들로부터 '대단하다'는 인식을 많이 받았었다. 그분들 표현을 빌리자면 '경영과 컴퓨터 과학 양쪽의 소양을 갖춘 인재'라는 것이다. 그게 사실이든 아니든 좋게 평가하는 사람이 대부분이었고 불안해하거나 못마땅해하는 사람은 내 부모님 빼고는 없었다. 가족이기에 뼈있는 말을 한 것이고 지인들은 못했던 것이라고 할 수도 있지만 다시 생각해봐도 어쨌든 평가는 대체로 호의적이었다.
+
+**나는 이 경험이 현재 한국의 취업시장에서 인문학이 무시당하고 과학이나 공학이 사랑받는, 적어도 사람들이 그렇다고 믿는 추세와 무관하지 않다고 본다.** 요즘 대한민국에서 취업이 워낙 힘들다보니 어떤 학문의 가치를 그 학문의 취업 가능성으로 평가하는 분위기가 팽배하다. 주위에서 '역사, 국문학 배워서 어디서 취업하냐'며 한탄하는 사람들을 꽤 볼 수 있다. 심지어 관련 학과를 나온 사람이 자신의 과를 졸업하는 것을 비통해하는 것도 봤기 때문에 마냥 나의 편견이라고 할 수 없을 것 같기도 하다. 그렇기에 인문학이라고 하기에는 애매하지만 공학도 아닌 경영학과를 공부하는데 여기에 컴퓨터 과학을 공부하니 나를 좋게 봐준 것이지 않나 생각한다.
+
+여기에 더해 정보화 시대에 진입하면서 과학 중에서도 컴퓨터 전공에 대한 평가가 매우 좋아졌다. 자신의 학과를 공부하지 않고 IT를 공부하는 사람도 정말 많이 봤다. 물론 나도 그렇다고 할 수 있다. 관련 공부를 한 사람이 많아지면서 IT 기업들은 알고리즘 테스트를 많이들 본다. 지원자가 많으니 대체로 알고리즘 테스트로 사람을 뽑는 것이 아니고, 알고리즘 테스트로 사람을 1차로 걸러낸다. 그 후에는 기업의 크기나 철학에 따라 알고리즘 테스트를 한 번 더 보는 곳도 있는데 경험상 이후에는 보통 면접이 기다리고 있다. 즉, **어느 IT 기업을 가게 되더라도 적어도 사람들이 좋게 평가하는 기업은 알고리즘 테스트를 보기 때문에 개발자로 일하고픈 정말 많은 사람들이 알고리즘을 공부한다. 코딩 테스트를 통과하지 못하면 면접 과정에 가지도 못하는 경우가 많으니까.**
+
+그러다보니 **오로지 취업을 위해 알고리즘을 공부하는 사람들도 적지 않아 보인다.** 물론 알고리즘을 공부하는 것은 IT 업계에서 일할 때 도움이 될 것이라 생각한다. 하지만 좋은 개발자가 되기 위한 필수조건은 아니다. 냉정히 말해 '알고리즘 공부해도 현업에서는 잘 쓰지 않는다'라는 이야기도 많이 들었고 내가 존경하는 분은 알고리즘을 잘하지는 않는데 개발자로 잘 살고 계신다. 알고리즘을 공부하는 것이 흥미에 맞는 사람이 있고, 맞지 않는 사람이 있다. 하지만 오로지 `취업`을 위해 알고리즘을 공부한다면 이는 참 가슴아픈 일이다. 
+
+
+<br>
+<br id="3">
+
+## 3. 알고리즘에 대한 나의 이야기
+
+---
+
+일단 여타 다른 취준생들처럼 나도 알고리즘을 공부한다. 그리고 나한테는 알고리즘이 적성에 맞고 재밌다. 그리고 알고리즘은 결코 취업하기만을 위해서 공부하지 않는다고 생각한다. 알고리즘은 사실 우리 삶 전반에 깔려 있다. 주위 조금만 둘러봐도 노력하면 알고리즘을 얼마든지 발견할 수 있다. 그리고 이번 장은 내가 이런 생각을 하게 된 계기를 이야기하려고 한다. 내 실제 이야기이고 이 일은 지금도 가끔씩 하는 일이기도 하다.
+
+<br id="3a">
+
+### 3.1. 새벽 신문 배달 알바
+
+나는 가끔씩 새벽 신문 배달 알바를 한다. 새벽 3시에 일어나서 근처 부유한 아파트 단지 10개 동에 신문을 돌리는 말 그대로 배달 알바인데 일하는 동안 마주치는 사람이 없고 혼자 조용히 일할 수 있다는 점에서 좋다. 시급을 계산해봐도 새벽에 일해서인지 후한 편인데, 역시 새벽에 일하는 것이 쉽지는 않아서 가끔 대타가 필요할 때만 하게 된다. 다루는 신문은 그 유명한 '조중동' 포함해서 각종 경제 신문, 스포츠 일간지, 영어 신문 등등 포함해 20 종류 조금 안 된다.
+
+일하는 방식은 다음과 같다. 먼저 아파트 단지 내에 매일 배달될 신문이 도착하는 장소가 있다. 내 쪽은 주차장 바로 안쪽에 신문이 도착하는데 먼저 이 신문들을 배달하기 편하게 분류한다. 구체적인 분류방법은 넘어가는데 많은 신문 종류들이 손에 잘 잡히도록 신문들을 배치해놓는다고 생각하면 된다. 10개 동을 배달하는데 배달 동선은 주차장을 기본으로 한다. 주차장은 비, 눈을 피할 수 있고 무엇보다 주차장으로 10개 동이 모두 연결되어 있기 때문이기도 하다.
+
+각 동은 보통 30층 내외로 되어 있으며 따라서 걸어올라갈 수는 없기 때문에 엘레베이터를 이용한다. 주차장은 각 동 지하 1층으로 연결되어 있고 거기서 엘레베이터를 타 각 동의 맨 꼭대기로 올라가 한 층씩 엘레베이터로 내려오며 신문을 돌린다. 엘레베이터 문이 열리면 빨리 신문을 문앞에 던지고 닫히기 전에 엘레베이터로 돌아와야 한다. 이게 생각보다 에너지 소모가 많아서 처음에는 힘들었다.
+
+결론은 이 일을 하기 위해서는 엘레베이터를 무조건 써야 하고, 각 동의 엘레베이터가 작동방식이 조금씩 다르다는 것을 알게 된 것이 이 포스트의 시작이었다.
+
+
+<br id="3b">
+
+### 3.2. 엘레베이터에서 찾은 문제상황
+
+**10개 동의 엘레베이터를 모두 이용하면서 엘레베이터들의 동작방식이 조금씩 다르다는 것을 알게 된다.** 각 동은 가장 높은 층 등 동마다 조금씩 사정이 다른데 결정적으로 **한 층에 있는 세대수가 다르다.** 가장 적은 동은 한 층에 두 세대가 있다. 그리고 가장 많은 곳은 한 층에 네 세대가 있다. 그리고 **층의 세대수에 따라 동의 엘레베이터의 동작방식이 달라진다.** 구체적인 동작방식을 밑에서 설명하기 전에 나는 여기서 의아했다. '애초에 왜 다를까? 같은 아파트 단지에 있는 엘레베이터들인데?' 나는 이 동작방식에 대한 이유를 내 나름대로 찾고자 했던 것이다. 그리고 내가 찾은 이유는, 다시 말해 그런 결정을 하게 된 문제상황을 다음과 같이 정의할 수 있었다.
+
+<p class="function-definition">
+엘레베이터를 이용하는 주민들의 평균 대기시간을 최소화하라
+</p>
+
+누구든 엘레베이터가 빨리 안 와 짜증이 난 적이 한두 번씩은 있을 것이다. 빨리 올라가야 하는데 같이 탄 사람들이 내 아래 층을 너무 많이 누를 때 나는 짜증을 많이 겪었다. 높은 인구밀도로 고층 아파트가 많고 빌딩이 많은 서울에 사는 분들은 특히 더 공감하리라 생각한다.
+
+적어도 내 생각에 이 아파트는 건축 당시 고급 아파트를 지향했다. 건설사나 건축가가 '주민의, 주민에 의한, 주민을 위한' 아파트를 조금이라도 고민했다면 위와 같은 문제는 충분히 고민해볼 수 있는 문제다. 주민이 많은 고층 아파트에서 누가 엘레베이터를 오래 잡고 있으면 다른 주민들이 불편을 겪는다. 즉 대기시간이 없을 수는 없겠지만 지나치게 길어지면 주민들이 불편을 겪고 스트레스를 겪기 때문에 가능하다면 평균 대기시간을 최소화하면 좋을 것이다.
+
+가장 쉬운 방법은 엘레베이터 대수를 늘리는 것이다. 이론적으로 엘레베이터를 한 동에 매우 많이 설치한다면(가령 한 5000대) 아마 주민들의 대기시간은 0에 수렴할 것이다.(동작 시간은 이 논의에서 중요하지 않다.) 이 아파트는 한 동에 최대 30층 내외의 높이이기 때문에 비둘기집의 원리를 적용하면 내가 몇 층에서 눌러도 그 층에 딱 대기 중이던 엘레베이터가 있을 것이라 예상할 수 있다.
+
+하지만 이는 당연히 불가능하다. 엘레베이터가 너무 많으면 아파트 한 층의 세대수들이 차지하는 공간보다 엘레베이터들의 총 공간이 더 넓어질 것이기 때문에 주객이 전도되는 꼴이다.(재러드 다이아몬드 식의 표현을 빌리면 '개 꼬리가 몸통을 흔드는 격'이라고 하겠다.) 엘레베이터를 작동시키는 전기 등을 고려해도 말도 안 되는 선택이다. 즉 비용적으로 불가능하며 냉정하게 말해서 주민들은 대기시간이 0이 되는 것을 원하는 것이 아니라 '적당하기를' 원한다. 즉, 건설사는 **적당한 비용으로 주민들의 엘레베이터 평균 대기시간을 최대한 줄여야 하는 상황인 것이다.** 알고리즘에서 정답이 아닌, 충분히 정답에 근접하고 비용효율적인 근사답안을 찾는 경우와 비슷하다.
+
+
+<br id="3c">
+
+### 3.3. 구체적인 알고리즘
+
+그래서 **각 동에는 동의 세대수에 맞게 서로 다른 방식으로 동작하는 엘레베이터가 설치되어 있다.** 세대수에 따라 동작방식이 달라지는 것은 당연히 세대수가 많을수록 주민이 더 많다는 뜻이고 이 경우에 보다 더 효율적인 동작방식이 고안되어야 하기 때문이다. 그리고 이제는 **이 동작방식을 `알고리즘`이라 칭하자.** 엘레베이터는 상술한 문제상황을 겪고 있고 이에 대한 동작방식이 곧 엘레베이터 운용 알고리즘이기 때문이다. 알고리즘이라는 용어를 편협하게 컴퓨터 과학에만 적용해 사용할 이유가 전혀 없다. 이제 본격적으로 구체적인 알고리즘을 살펴볼텐데, 먼저 세대수 구분하지 않고 모든 엘레베이터에 적용되는 알고리즘을 살펴본 후, 세대수에 따른 알고리즘을 살펴본다.
+
+
+* **모든 엘레베이터에 적용되는 알고리즘**
+  - **일반 엘레베이터 알고리즘을 따른다. 즉 어떤 층에서 여러 사람이 타고 각자 원하는 층이 있을 때 층이 입력된 순서대로 움직이지 않고 오름차순 혹은 내림차순 정렬된 상태로 이동한다.** 가령 1층에서 탄 사람들이 '10, 3, 20, 16' 순서대로 층을 눌렀을 때 이 순서대로 오르락내리락 하지 않고 '3, 10, 16, 20'층의 형태로 운행한다. 이는 얼핏 당연해보이지만 당연한 거 절대 아니다.
+  - **한 번에 층을 5개 이상 누르면 자동으로 취소된다.** 하루 24시간 중에서 사람들이 엘레베이터를 타거나 타기 위해 대기하는 시간은 매우 짧다. 그러다보니 주민이 많아도 확률적으로 어지간하면 혼자 타거나 세 명 이상 타지 않는 경우가 대부분이다. 5개 이상 눌린 경우는 따라서 매우 희귀한 경우고 이 엘레베이터 설계사는 혹시나 이를 바보들의 장난일 것이라 예상하지 않았나 싶다. 따라서 직접 실험해본 결과 한 번에 5개 이상 눌려 있으면 자동으로 취소된다. 덕분에 나는 30층에서 지하 1층까지 모든 층을 누르고 시작하지 못하고 중간중간 3, 4개씩 층을 눌러줘야 한다.
+
+<br>
+
+이는 꼭 이 아파트 단지가 아니더라도 일반적인 엘레베이터 운행방식이며 따라서 핵심은 각 세대수에 따라 달라지는 엘레베이터 알고리즘이다. 확인해보자.
+
+<br>
+
+* **한 층에 세대수가 2세대인 경우**
+  - **엘레베이터가 한 대다.**
+  - 세대수가 2세대밖에 안 되면 엘레베이터가 한 대여도 주민들이 지나친 스트레스를 겪지 않고 충분히 살아갈 수 있으리라 판단했나보다.
+
+* **한 층에 세대수가 3세대인 경우**
+  - **세대수가 3세대부터는 한 동에 엘레베이터가 2개가 있다.**
+  - 이러면 한 엘레베이터가 다른 주민에 의해 점유되어 있어도 다른 엘레베이터를 타면 되기 때문에 평균 대기시간은 당연히 줄어들 것이다.
+
+* **한 층에 세대수가 4세대인 경우**
+  - **엘레베이터가 동기화되어 있다.(synchronized)**
+  - 3세대에 비해 4세대는 한 동에 거주하는 평균 주민수가 $$\frac{4}{3}$$배가 되리라 무난히 예상할 수 있다. 이때는 단순히 엘레베이터가 두 대인 것으로는 문제상황이 적절히 해결되지 않는지 두 엘레베이터를 연동시키는 알고리즘을 추가했다. 가령 이 동의 최대 층이 32층이고, 현재 두 엘레베이터가 각각 15, 16층에 위치할 때 내가 지하 1층에서 한 엘레베이터를 타서 32층으로 간다고 하자. 이때 3세대 엘레베이터의 다른 한 쪽은 미동도 하지 않는다. 반면 **4세대 엘레베이터는 내가 높은 층으로 갔기 때문에 아래에서 엘레베이터를 잡는 사람들을 위해 다른 엘레베이터를 아래로 자동으로 이동시킨다.**
+
+개인적으로 세대수가 3세대에서 4세대로 넘어갈 때의 알고리즘 변화에 충격을 받았었다. 현대식 고층 빌딩에는 다수의 엘레베이터가 연동되어 있는 경우가 물론 많다. 하지만 이전에는 단순히 '세련됐네 ㅎㅎ'와 같이 생각하고 말았었는데 이제는 세대수에 따라 비교가 가능하니 '왜 그런지'에 대해서 생각할 수 있었다. 확실히 어떤 괴짜가 심심해서 연동시킨 것은 아닐 것이다.
+
+
+<br>
+<br id="4">
+
+## 4. 결론
+
+---
+
+길게도 썼다. 신문 배달 알바를 해본 분들이 많지 않을 것 같아서 어떻게 일하는지, 엘레베이터는 어떻게 동작하는지에 대해 비교적 상세히 썼다. 같은 문맥을 공유해야 하니까. 이건 코드를 작성하든, 글을 쓰든 다 적용되는 이야기다.(근데 많이들 모른다)
+
+결국 내가 이 이야기를 통해 하고 싶었던 말이 뭐냐고 묻는다면 대답해 드리는 게 인지상정. 신문 배달 알바가 편의점 알바 등에 비해 일반적이지 않지만 결국 알바고 알바는 많은 사람들이 하는 경제활동이다. **내 생각에 이런 일상적인 활동, 생활에서 얼마든지 알고리즘이 끼여들 여지는 존재하며, 사실은 이 세상은 알고리즘에 휩싸여 있다.** 단순히 취업하자고 공부하고 생각해야 할 주제가 아니다. 이 세상은 문제상황으로 범람 상태며 이 문제상황에 대한 해결방법이 곧 알고리즘이다. 정렬된 1차원 배열에서 탐색을 빠르게 해야 했고 누군가는 피땀을 흘렸을 것이다. 결국 이진탐색이 발견되었다. 같은 원리로 내가 일하는 아파트 단지 설계자도 문제상황을 겪어야 했고 피땀 어린 노력의 결과가 지금의 동작방식이 아닐까? 결국 또 같다. 생각하자, 문제상황을. 떠올리자, 알고리즘을. 우리 주위에는 아직도 해결이 필요한 문제상황이 산적하며, 그들은 자신을 위한 알고리즘을 기다리고 있다.
+
+$$
+\text{Algorithm actually is all around.}
+$$
+
+
+<br>
+<br>
+<br id="eng">
+
+## English version
+
+## 0. Index
+
+> 1. Intro
+> 2. Heartbreaking love for algorithm in Korea
+> 3. My story of algorithm
+>    - 3.1. Working as a newsboy before sunrise
+>    - 3.2. Problem situation of elevator
+>    - 3.3. Specific algorithms
+> 4. Conclusion
+
+<br>
+
+## 1. Intro
+
+---
+
+Today's post is about algorithm. But it's not like posts about algorithm before. Rather, I'm going to talk about my discovery of algorithm in my daily lives. Recently in Korea, people studying computer science also study algorithms a lot for getting jobs. I'm quite the same but I don't study algorithm just for employment. I think algorithm is "someone's result of hard efforts who is close to us". So this time I talk about how I have got to think in this way.
+
+It's a long time since my last essay-like post. It would be fun it's my first time that I write in both English and Korean. It's to improve my english writing, distributing traffics into my blogs more evenly(now 90% of total traffics are from Korea), and last, I think this topic is worth being published after my death. That's why I'm satisfied now.
+
+Let's start.
+
+
+<br>
+<br id="2">
+
+## 2. Heartbreaking love for algorithm in Korea
+
+---
+
+When I said 'I study business in my college and I study computer science on my own' to my friends or acquaintances, I was considered 'Great' by them. Quoting their words, I was like a talented person studying both business and computer science at once. No matter whether it was true or not, most of them considered favorably for me and people against that opinion were few, only my mother and father. Some peolpe may say "it's just that your family can say objectively to you and others can't be that honest so they say nice to you." It's true but after thinking again and again, I have concluded that people mostly were favorable to what I studied.
+
+**I think my personal experience reflects the trend that literature and humanity majors are considered not bright for future but science and engineering majors are so loved and considered bright for future in Korea.** In Korea, unemployment of youth has been a major social problem now and value of one field is evaluated by its job employment rate of graduates. I can hear people deploring 'what are those studies for? History and Korean Literature don't help you get jobs!' around me a lot. Even more, I've heard my friends feeling sad for their majors cause they thought theirs don't help them get jobs. It is definitely not my personal prejudices. And I think that's why I was considered great that I study computer science, because business can't be evaulated to be an engineering or science field study.
+
+And as the information age has come, computer science studies have been more thought 'majorable' among other science and engineering studies nowadays. I've seen so many people studying computer science even though their majors are not directly connected to it. And to be frank, so do I. As applicants have increased, many IT companies requre algorithm coding tests to them. Coding tests are not to employ applicants, but to filter out applicants before real face-to-face interviews. After passing the tests, companies require additional processes: another coding tests, interviews or etc depending on demands and philosophy of each company. But on my experience, interviews are right next to first coding tests generally. That means, **at least companies that many applicants want to get in have algorithm tests in their employment process so many future-developeres study algorithm to get jobs. If they can't pass the tests, they won't make it to next levels including interviews.** 
+
+And **now many people study algorithm only just for getting jobs.** Of course I think studying algorithm would help someone work as a developer. I agree. But it's not indispensable for it. Objectively speaking, I've heard many senior developers say 'algorithm doesn't help in real world coding' and have seen one developer I repect and he is not that good at algorithm but he works perfectly fine as a developer. Studying algorithm may fit in some people and may not in others. But studying algorithm only for getting jobs is really heartbreaking.
+
+
+<br>
+<br id="3">
+
+## 3. My story of algorithm
+
+---
+
+Anyway I study algorithm like other students. I like it and it fits well. And I don't study algorithm only for jobs. Algorithm actually exists everywhere in our daily lives. If you spend some time looking around you and your lives, you can find algorithm without much effort. And this chapter is about my persnal experience of how I've got to think in this wy. It's based on my real life and I do this job from time to time.
+
+<br id="3a">
+
+### 3.1. Working as a newsboy before sunrise
+
+Occasionally I do part time job as a newsboy at dawn. I wake up at 3 in the morning and deliver newspapers in a rich apartment complex nearby my house. During worktime, I don't need to talk to other people and can work quietly and I like it. Hourly wage is quite satisfactory because of working at night but also it's hard to work because of it. There are various brands of newspapers, and I deliver less than 20 brands including financial, sports papers and newspapers written in English.
+
+How I work is like this: First, there's a spot in the complex that newspapers are arrived by a truck everyday. The spot is right inside the underground parking lot and I sort them to my liking before delivery. I deliver papers to 10 apartment buildings and delivery moving line I take is based on the parking lot. That's because there's no damage onto the papers in snowy and rainy days in underground parking lot and most of all, 10 buildings are connected to each other within it.
+
+Each apartment is usually more-or-less 30-story building and I can't walk to the top floor so I take elevators. The parking lot is connected to each building's first basement-level and I take elevators there to the top floor and deliver the papers. From floor to floor I stop by almost all floors and put the papers right in front of each household that subscribe to any papers. This is quite a hard work more than you can think so at first it was tough for me. It was like doing squart.
+
+The conclusion is that I have to take the elevators to do this job and knowing each elevator's operation procedure is different was the beginning of this post.
+
+<br id="3b">
+
+### 3.2. Problem situation of elevator
+
+**I have got to know that each elevator works slight differently from each building to building.** Each building is not the same to others such as highest floors of it, etc and decisively, **the number of households at each floor is different.** Some buildings has 2 households on each floor and the most heaviest building has 4 households at each floor. And **how elevators work is decided on how many households each floor has.** Before diving into specific working procedure, I have to tell you that I was really curious about this. 'Why are they different? They are all in the same apartment complex?' I hoped to find out rational reasons. And the anwer I've found, namely problem situation that led to that decision can be defined like below:
+
+<p class="function-definition">
+Minimize average waiting time of residants for elevators
+</p>
+
+Everyone must have felt annoyed for elevators arriving too late. I also have felt that emotion everytime people using the same elevator with me tapping floors different from my destinations. Especially, people living in Seoul, the city that has many skyscrappers and buildings because of high population density, can agree more on this.
+
+This aparment complex I work was aimed to be the high class apartment at least it was built or designed. if the construction company or the architects had ever been concerned for this 'Of residents, by residents, for residents' apartment, this elevator problem is worth thinking. In any tall buildings if somebody occupies an elevator, then other people can feel stressed in this situation. That means, there can't be zero waiting time but if possible, it would be good if it can be minimized.
+
+The most easiest way is to increase the number of elevators. Theoretically if an apartment building has many, many elevators(e.g. 5000 elevators in one building), waiting time of residents would converge towards $$0$$.(Operation time of elevators is not important in our discussion.) One building has at most 30 floors so if we apply pigeon hole principle in this situation, there can be any elevators which was at that right floor when I press up or down buttons no matter what floor I am now.
+
+But of course, it's infeasible. The space that households in one floor take would be much less than that of elevators and it's putting the cart before the horse. If I quote the sentence from Jared Diamond, it's like "dog's tail shaking its whole body". Also after considering the electricity for all elevators, we cannot literally increase the number of elevators infinitely. And most of all, people don't want waiting time to be zero, but to be 'moderate'. So, the construction company has to **minimize average waiting time of residents for elevators with moderate costs.** It's like finding approximate answer with low cost and sacrificing the right answer with high cost in algorithm.
+
+
+<br id="3c">
+
+### 3.3. Specific algorithms
+
+Each apartment building is installed with elevators working differently depending on the number of households each floor has. If a building has more households, it means it has more residents in it and a more efficient operation method needs to be conceived. And **let's call this operation method `algorithm`.** Elevators have problem situations mentioned before, and the right operation method for the situations is the elevator operation algorithm. We don't need to confine the terminology only to computer science! Now let's dive into specific algorithms. First we will look through algorithms that apply to all elevators. And then we will check out algorithms working differently depending on the number of households that one floor has.
+
+
+* **Algorithms for all elevators**
+  - **It has algorithms that we can easily imagine in all elevators: When many people take an elevator at the same time and their destinations are totally different, the elevator doesn't move in an order each story was pressed. Rather, floors clicked are sorted in ascending or descending order and it moves in that way.** For example, if people at the first floor clicked '10, 3, 20, 16' in sequence, it doesn't move up and down continously. Instead, it moves in a '3, 10, 16, 20' order. Many people think it's obvious and natural, but it's not true. Never.
+  - **When an elevator has its destination floors more than five, all inputs are nullified and cancelled.** In 24 hours a day, time people take or wait for elevators are very short. So it's hard to see that many people taking the elevator at the same time probabilistically. It's very scarce that more than five floors are clicked at the same time and elevator algorithm designers may expected that this kind of rare incidents would be some stupids' pranks or mischieves. As my direct experiments say, if I tap more than five stories at the same time they are all cancelled right after the door closes. So when I deliver the papers, I cannot tap all the floors I stop by in one building. Instead I have to press 3, 4 buttons several times in one building.
+
+<br>
+
+These algorithms are not just for apartment buildings but for normal buildings and now let's take a look into algorithms changing on the number of floors.
+
+<br>
+
+* **When a floor has 2 households**
+  - **There is one elevator.**
+  - They must have estimated that one elevator can hold people's average waiting time.
+* **When a floor has 3 households**
+  - **From now on, there are two elevators.**
+  - If an elevator is occupied by residents, it's now okay because the other elevator is available.
+* **When a floor has 4 households**
+  - **Elevators are synchronized.**
+  - Comparing to 3-households-building, we can guess that 4-households-building has residents $$\frac{4}{3}$$ times more than those of the former building. In this situation, just two different elevators are not enough for these people and an algorithm synchronizing the elevators is added. Let's assume a building is 32-story tall and two elevators are located on 15, 16 floor each and I want to go up to 32 story from first basement-level. One elevator comes and the other in 3-household-building doesn't move an inch. However, **4-household-building elevator which is available moves downwards because I go upwards to the top and to lower the waiting time of people taking elevator from bottom floors.**
+
+Personally I was shocked by the change in the algorithm from 3-household building to 4-household building. Of course we can see elevators synchronized in many modern buildings. Before then I just thought "wow, it's super classy lol" and passed but now I could compare the algorithms between the buildings in the same complex and think about 'why, why, why'. For sure, it's not that a nerd made this way because he was bored.
+
+
+<br>
+<br id="4">
+
+## 4. Conclusion
+
+---
+
+I know not many people would have done delivering papers so I spent a lot of time describing my job to share the context. It applies to writing codes, essays and doing anything.(But not much pointed out)
+
+Eventually, what I really wanted to share with you is, what I do is part time job, economic activity. Everyone does economic activities everyday. **I think algorithm can intervene into our everyday lives and actually, world is flooded with algorithms.** Algorithm is not just for jobs and anything like that. This world has so many problem situations and a solution for them is algorithm. Someone must had tried his or her best to search for values in 1 dimensional array and binary search was discovered. Likewise, apartment architects had undergone their own problem situations and results of their great deal of effort are maybe the algorithms I described above. Please remember, we have so many problems around and they are await for solutions, algorithms for them.
+
+$$
+\text{Algorithm actually is all around.}
+$$
