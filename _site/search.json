@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "자연수의 자릿수를 구하는 3가지 방법",
+      "category" : "",
+      "tags"     : "digit-length",
+      "url"      : "/programming/algorithm/3-ways-to-get-length-of-natural-number",
+      "date"     : "2019-12-05 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "Algorithm actually",
       "category" : "",
       "tags"     : "Algorithm, Algorithm-actually",

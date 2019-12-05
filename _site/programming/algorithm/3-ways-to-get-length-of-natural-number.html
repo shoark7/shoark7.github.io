@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>자연수의 자릿수를 구하는 3가지 방법 - Parkito's on the way</title>
+
+  <!-- Edit site and author settings in `_config.yml` to make the social details your own -->
+
+    <meta content="Parkito's on the way" property="og:site_name">
+  
+    <meta content="자연수의 자릿수를 구하는 3가지 방법" property="og:title">
+  
+  
+    <meta content="article" property="og:type">
+  
+  
+    <meta content="자연수의 길이, 즉 자릿수를 구하는 3가지 방법을 살펴보겠습니다." property="og:description">
+  
+  
+    <meta content="http://localhost:4000/programming/algorithm/3-ways-to-get-length-of-natural-number" property="og:url">
+	
+  
+    <meta content="2019-12-05T00:00:00+09:00" property="article:published_time">
+    <meta content="http://localhost:4000/about/" property="article:author">
+  
+  
+    <meta content="http://localhost:4000/assets/img/algorithm/digits-length-logo.png" property="og:image">
+  
+  
+    
+    <meta content="Programming" property="article:section">
+    
+  
+  
+    
+    <meta content="digit-length" property="article:tag">
+    
+  
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@">
+    <meta name="twitter:creator" content="@">
+  
+    <meta name="twitter:title" content="자연수의 자릿수를 구하는 3가지 방법">
+  
+  
+    <meta name="twitter:url" content="http://localhost:4000/programming/algorithm/3-ways-to-get-length-of-natural-number">
+  
+  
+    <meta name="twitter:description" content="자연수의 길이, 즉 자릿수를 구하는 3가지 방법을 살펴보겠습니다.">
+  
+  
+    <meta name="twitter:image:src" content="http://localhost:4000/assets/img//algorithm/digits-length-logo.png">
+  
+
+  
+    <meta content="자연수의 길이, 즉 자릿수를 구하는 3가지 방법을 살펴보겠습니다." name="description">
+  
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="shortcut icon" href="/assets/img/favicon/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" href="/assets/img/favicon/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/assets/img/favicon/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/assets/img/favicon/apple-touch-icon-144x144.png">
+	<!-- Chrome, Firefox OS and Opera -->
+	<meta name="theme-color" content="#263959">
+	<!-- Windows Phone -->
+	<meta name="msapplication-navbutton-color" content="#263959">
+	<!-- iOS Safari -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="#263959">
+	<!-- Google Fonts -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="/assets/fonts/font-awesome/css/font-awesome.min.css">
+	<!-- Styles -->
+	<!-- Mathjax Support -->
+<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+	MathJax.Hub.Config({
+  showProcessingMessages: false,
+  jax: ["input/TeX", "output/HTML-CSS"],
+  TeX: {
+    TagSide: "left",
+    Macros: {
+      RR: '{\\bf R}',
+      bold: ['{\\bf #1}',1]
+    }
+  },
+  CommonHTML: {
+    linebreaks: {automatic: true}
+  }
+});
+</script>
+
+	<link rel="stylesheet" href="/assets/css/main.css">
+	<link rel="stylesheet" href="/assets/css/personal.css">
+	<link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Nanum+Gothic:400,700,800&amp;subset=korean" rel="stylesheet">
+
+	<!-- googld ads tag -->
+  <script data-ad-client="ca-pub-2670967175857332" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</head>
+
+<body style="position: relative">
+	<div id="toggler-wrapper">
+		<div id="menu-toggler">
+			<img src="/assets/img/nav-off.png" alt="Menu collapse image">
+		</div>
+	</div>
+
+  <div class="wrapper">
+
+		<nav id="nav">
+			<div id="menus">
+				<p>
+					<a class="navbar-brand text-white" href="/">&nbsp;&nbsp;&nbsp;Parkito's on the way!&nbsp;&nbsp;&nbsp;</a>
+				</p>
+				<ul id="category-list">
+					<li>
+						<a href="/about.me">
+							<div class="menu">
+								<span> About </span>
+							</div>
+						</a>
+					</li>
+				
+					<li>
+						<div class="menu-wrapper">
+							<a href="/category/programming">
+								<div class="menu">
+									<span> Programming </span>
+								</div>
+							</a>
+							<div class="menu-item">
+								<a href="/category/programming/knowledge">Knowledge</a>
+								<a href="/category/programming/algorithm">Algorithm</a>
+								<a href="/category/programming/python">Python</a>
+								<a href="/category/programming/shell-programming">Shell programming</a>
+							</div>
+						</div>
+					</li>
+				
+					<li>
+						<div class="menu-wrapper">
+								<a href="/category/insight">
+									<div class="menu">
+										<span> Insight </span>
+									</div>
+								</a>
+								<div class="menu-item">
+									<a href="/category/insight/sensitivity">&nbsp;&nbsp;Sensitivity&nbsp;&nbsp;</a>
+									<a href="/category/insight/rationality">&nbsp;&nbsp;Rationality&nbsp;&nbsp;</a>
+								</div>
+						</div>
+					</li>
+
+					<li>
+						<div class="menu-wrapper">
+								<a href="/category/projects">
+									<div class="menu">
+										<span> Projects </span>
+									</div>
+								</a>
+							<div class="menu-item">
+								<a href="/category/projects/dev-related">&nbsp;&nbsp;Dev related&nbsp;&nbsp;</a>
+								<a href="/category/projects/etc">&nbsp;&nbsp;ETC&nbsp;&nbsp;</a>
+							</div>
+						</div> </li>
+
+				</ul>
+			</div>
+
+			<div id="menus-right">
+				<div id="search-section">
+					<div class="input-wrapper">
+						<span class="fa fa-search"></span>
+						<input type="text" id="search-input" placeholder="Please input specific keyword :)" size="30">
+					</div>
+					<div id="results-container"></div>
+				</div>
+
+				<!--<div id="toggler-wrapper">-->
+					<!--<div id="menu-toggler">-->
+						<!--<img src="/assets/img/nav-off.png" alt="" width="35px" height="35px">-->
+					<!--</div>-->
+				<!--</div>-->
+				
+			</div>
+			
+		</nav>
+
+
+    <aside class="sidebar">
+  <header>
+    <div class="about">
+      <div class="cover-author-image">
+        <a href="/"><img src="/assets/img/1536558558520.jpg" alt="Sunghwan Park"></a>
+      </div>
+      <div class="author-name">Sunghwan Park</div>
+      <p>I'm Parkito. A Python lover. Interested in Python, Automation, Algorithm. Please give me insights. I'll teach you tambien! :)</p>
+    </div>
+  </header> <!-- End Header -->
+  <footer>
+    <section class="contact">
+      <h3 class="contact-title">Contact me</h3>
+      <ul>
+				<!--
+        
+          <li><a href="https://twitter.com/artemsheludko_" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+        
+        
+          <li><a href="https://facebook.com/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+        
+				-->
+        
+          <li class="github"><a href="http://github.com/shoark7" target="_blank"><i class="fa fa-github"></i></a></li>
+        
+        
+          <li class="linkedin"><a href="https://in.linkedin.com/in/sunghwan-park-3773b8154" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+        
+        
+          <li class="email"><a href="mailto:shoark7@gmail.com"><i class="fa fa-envelope-o"></i></a></li>
+        
+      </ul>
+    </section> <!-- End Section Contact -->
+    <div class="copyright">
+      <p>2019 &copy; Sunghwan Park</p>
+    </div>
+  </footer> <!-- End Footer -->
+</aside> <!-- End Sidebar -->
+
+<div class="content-box clearfix">
+  <article class="article-page">
+  <div class="page-content">
+    
+    <div class="page-cover-image">
+      <figure>
+        <img class="page-image" src=/assets/img//algorithm/digits-length-logo.png alt="자연수의 자릿수를 구하는 3가지 방법">
+        
+      </figure>
+    </div> <!-- End Page Cover Image -->
+    
+    <div class="wrap-content">
+      <header class="header-page">
+        <h1 class="page-title">자연수의 자릿수를 구하는 3가지 방법</h1>
+        <div class="page-date"><span>2019, Dec 05&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+      </header>
+
+		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<!-- 처음과끝에만 -->
+		<ins class="adsbygoogle"
+				 style="display:block"
+				 data-ad-client="ca-pub-2670967175857332"
+				 data-ad-slot="3352812061"
+				 data-ad-format="auto"
+				 data-full-width-responsive="true"></ins>
+		<script>
+				 (adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+		<!-- 처음과끝에만 -->
+
+      <h2 id="0-index">0. Index</h2>
+
+<blockquote>
+  <ol>
+    <li><a href="#1">들어가며</a></li>
+    <li><a href="#2">문제 소개</a></li>
+    <li><a href="#3">알고리즘!</a>
+      <ul>
+        <li>3.1. <a href="#3a">Pythonic way</a></li>
+        <li>3.2. <a href="#3b">로그 사용하기</a></li>
+        <li>3.3. <a href="#3c">가장 무난한 풀이</a></li>
+      </ul>
+    </li>
+    <li><a href="#4">마치며</a></li>
+    <li><a href="#5">자료 출처</a></li>
+  </ol>
+</blockquote>
+
+<p><br />
+<br id="1" /></p>
+
+<h2 id="1-들어가며">1. 들어가며</h2>
+
+<hr />
+
+<p>오늘 문제는 상당히 가벼운 알고리즘 주제로 자연수 숫자의 자릿수를 구하는 알고리즘이다. 문제 서술이 더 필요없을 정도로 자명한 문제인데, 이렇게 쉽지만 내 알고리즘 포스트들의 전통을 따라 서로 다른 알고리즘 세 가지를 준비했다. 하나는 매우 Pythonic한 방법으로 파이썬 유저 사이에서는 가장 대중적이다. 두 번째는 수학 지식을 조금 사용하고, 세 번째는 모든 언어에서 통용될법한 일반적인 방법을 사용한다.</p>
+
+<p>그동안 보다 수준 있는, 어려운 알고리즘을 찾아다녔다. 최근 기준으로 <a href="https://shoark7.github.io/programming/algorithm/3-LIS-algorithms" target="_blank">LIS</a>, <a href="https://shoark7.github.io/programming/algorithm/tower-of-hanoi" target="_blank">하노이의 탑</a> 포스트를 작성했는데 이들이 솔직히 정말 매우 어려운 알고리즘이라고 할 수는 없지만 초심자들에게는 상당한 장벽이 될 수 있는 주제들이다. 그런데 갑자기 이렇게 간단한 주제를 가지고 온 이유는 나름의 이유가 있다. 구글 애널리틱스로 확인한 결과 내 블로그에서는 쉬운 알고리즘 주제에 대한 많은 수요가 있다. 이번주 기준 방문자수 1, 2, 3등 포스트의 주제가 각각 <a href="https://shoark7.github.io/programming/algorithm/several-ways-to-solve-factorial-in-python" target="_blank">팩토리얼</a>, <a href="https://shoark7.github.io/programming/algorithm/3-ways-to-get-natural-number-sum-in-python" target="_blank">배열의 수의 합</a>, <a href="https://shoark7.github.io/programming/algorithm/%ED%94%BC%EB%B3%B4%EB%82%98%EC%B9%98-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%84-%ED%95%B4%EA%B2%B0%ED%95%98%EB%8A%94-5%EA%B0%80%EC%A7%80-%EB%B0%A9%EB%B2%95" target="_blank">피보나치 수열</a>이다. 아마 내 블로그를 방문하는 분들 중 초심자들이 더 많은 것이 아닌가 추측하는 이유다. 냉정히 말해 지금까지 정말정말 어려운 알고리즘을 다룬 적은 없는 것 같고… 그래서 이 분들을 위한 더 많은 포스트를 기획하게 됐고 결과 이 포스트를 작성하게 됐다.</p>
+
+<p>시작합니다.</p>
+
+<p><br />
+<br id="2" /></p>
+
+<h2 id="2-문제-소개">2. 문제 소개</h2>
+
+<hr />
+
+<p>문제 이해가 너무 쉬워서 문제를 소개하는 장을 생략할까 했지만 내 철학상 그럴 수는 없었다. 코딩 테스트를 통과할 알고리즘에 대한 이해에 앞서 선행해야 하는 과정은 언제나 <strong>문제에 대한 이해</strong>다. 이 과정없이 코드에 바로 뛰어드는 사람들이 생각보다 많아서 걱정이다. 그러면 문제에 대한 설명이 긴, 카카오 코딩 테스트 같은 수준 있는 테스트에서는 조건 한 두개씩 생략해서 고생을 하기 십상이다. 우리는 그러지 말고 <strong>문제를 항상 우리의 문장으로 정의하고 코드로 넘어가는 습관을 기르자.</strong></p>
+
+<p><script type="math/tex">10000</script>이라는 수는 수학적으로 <script type="math/tex">10^4</script>와 같은데 우리는 어떤 숫자를 지수(<script type="math/tex">4</script>)와 연관시켜 이해하려는 경향이 있다. 가령 동양에서는 십진수 단위를 사용할 때 밑수 10의 지수가 <script type="math/tex">4</script>씩 더해질 때마다 만, 억, 조 등의 표현을 쓴다. 서양에서는 지수가 <script type="math/tex">3</script>씩 더해질 때마다 thousand, million, billion 등의 표현을 쓴다. 근데 여기에 더해 <a href="https://movie.naver.com/movie/bi/mi/basic.nhn?code=34522" target="_blank">어떤 영화</a>를 보니 영어로는 저 수를 <script type="math/tex">5\text{-digit number}</script>이라고도 표현하더라. <strong>지수로 숫자를 표현하는 것이 아니라 단순히 자연수의 길이를 가지고 수를 표현한 것이다.</strong> 확실히 어떤 값이나 개념을 표현하는 방법은 하나가 아닐 수 있다. 이때 우리가 만드는 기능은 다음과 같다:</p>
+
+<p class="function-definition">
+어떤 자연수 N이 D-digit number일 때, D를 구하라
+</p>
+
+<p>좋다. 단순하다. 조건을 몇 가지만 붙이면 자연수 N은 10진수를 기반으로 하며, 숫자가 0일 때는 D는 0이 된다.</p>
+
+<p>바로 알고리즘으로 넘어가자.</p>
+
+<p><br />
+<br id="3" /></p>
+
+<h2 id="3-알고리즘">3. 알고리즘!</h2>
+
+<hr />
+
+<p><br id="3a" /></p>
+
+<h3 id="31-pythonic-way">3.1. Pythonic way</h3>
+
+<p>이 방법은 데이터 분석, 머신러닝 등을 위해 파이썬으로 프로그래밍을 처음 공부하는 분들이 모두 쓸만한 방법이다. 독자분들 다 아실 것 같으니 바로 코드를 보자.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="mi">10000</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">123</span>
+<span class="n">c</span> <span class="o">=</span> <span class="mi">123456789</span>
+
+<span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">a</span><span class="p">)))</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">b</span><span class="p">)))</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">c</span><span class="p">)))</span>
+
+<span class="mi">5</span>
+<span class="mi">3</span>
+<span class="mi">9</span>
+</code></pre></div></div>
+
+<p><strong>숫자를 <em>str</em> 함수를 통해 문자열로 바꾸고, 여기에 <em>len</em> 내장함수를 통해 그 길이를 반환하면 이 기능을 완벽하게 구현할 수 있다.</strong> 파이썬의 매우 유명한 사용방법이고 Pythonista 모두에게 이 기능 구현을 요구하면 백이면 백 이렇게 숫자의 길이를 구할 것이다.</p>
+
+<p><strong>이 방법은 간단하고 쉽다는 큰 장점이 있다. 단점은 없을까?</strong> 천만에, 좋기만 한 건 이 세상에 없다. 이 방법은 Pythonic하다고 했다. 그 말은 <strong>이 방법만 써본 사람은 다른 언어로는 이렇게 자연수의 길이를 구할 수 없다는 뜻이 된다.</strong> 우리가 지금 파이썬을 써도 앞으로도 평생 파이썬을 쓸 수 있다는 보장이 없기 때문에 이 기능에 대한 다른 구현 방법을 생각해보는 것은 도움이 된다. 그래서 밑의 두 알고리즘을 소개하는 것이다.</p>
+
+<p><br /></p>
+
+<p>너무 쉬워서 할 말이 별로 없는데 이렇게 끝내면 시시하니 <strong>왜 이렇게 하면 길이가 구해지는지 조금만 파이썬 안쪽의 이야기를 해보자.</strong> ‘왜 <em>len(10000)</em> 이렇게 하면 길이가 안 나오고 에러가 뜨는 것일까?’ 같은 위대한 질문을 하는 독자들도 있으리라고 생각한다.</p>
+
+<p>파이썬의 내장 <em>collections.abc</em> 모듈에는 파이썬의 많은 자료구조(<em>list</em>, <em>set</em> 등)들의 원형(archetype)이 되는 추상형 자료구조(Abstract Data Type)들이 있는데 그중 <code class="highlighter-rouge">Sequence</code>라는 자료구조가 있다. <strong>이 자료구조는 한 마디로 원소들의 순서를 매길 수 있는 1차원 배열에 대한 추상형 자료구조이고 이 조건을 만족하는 <em>list</em>, <em>tuple</em> 등은 이 원형 자료구조를 내부적으로 상속하고 있다.</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">collections.abc</span> <span class="kn">import</span> <span class="n">Sequence</span>
+
+<span class="k">print</span><span class="p">(</span><span class="nb">issubclass</span><span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">issubclass</span><span class="p">(</span><span class="nb">tuple</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">))</span>
+
+<span class="bp">True</span>
+<span class="bp">True</span>
+</code></pre></div></div>
+
+<p><strong>Sequence 자료구조의 특징은 Indexing을 지원한다는 것이며</strong> 우리는 배열에서 이 짓을 정말 많이 해봤다. 하지만 <em>set</em> 같은 자료구조는 Sequence를 상속받지 않고 따라서 Indexing이 되지도 않는다. 상식적으로 집합은 원소간의 순서를 상정하지 않는 자료구조다.</p>
+
+<p><strong>그리고 파이썬 문자열 자료구조(<em>str</em>)또한 내부적으로 Sequence를 상속받으며 따라서 Indexing이 가능하다.</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># str은 Sequence를 상속받는다.
+</span><span class="k">print</span><span class="p">(</span><span class="nb">issubclass</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">))</span>
+
+<span class="bp">True</span>
+
+
+<span class="c1"># 따라서 Indexing이 가능하다.
+</span><span class="k">print</span><span class="p">(</span><span class="s">'abcde'</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+
+<span class="n">d</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>그리고 <strong><em>Sequence</em> 는 내부적으로 <em>Sized</em> 라는 원형 ADT 클래스를 상속받고 이 부모 클래스는 <em>len</em> 메소드를 지원한다. 따라서 <em>str</em> 또한 <em>Sized</em> 를 상속받는다고 할 수 있고, 그렇기 때문에 <em>len</em> 내장함수를 써서 그 길이를 구할 수 있는 것이다.</strong> 반면 <em>int</em> 자료구조는 <em>Sized</em> 자료구조를 상속받지 않기 때문에 <em>str</em> 로 변환시켜야지만 그 길이를 구할 수 있다. 그래서 <em>int</em> 를 <em>str</em> 로 변경하는 형 변환(type casting)이 필요했다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">collections.abc</span> <span class="kn">import</span> <span class="n">Sized</span>
+
+<span class="k">print</span><span class="p">(</span><span class="nb">issubclass</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">Sized</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">issubclass</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">Sized</span><span class="p">))</span>
+
+<span class="bp">True</span>
+<span class="bp">False</span>
+</code></pre></div></div>
+
+<p>이 자료구조 상속관계를 그림으로 표현하면 다음과 같다.</p>
+
+<p><img src="/assets/img/algorithm/digits-length-python-abc.png" alt="Python ABC classes inheritance" /></p>
+
+<p>설명에서는 생략했지만  <em>Sequence</em> 와 <em>Sized</em> 사이에는 상속 관계가 더 얽혀있다. 하지만 이번 내용에는 필요없어서 생략했다. 이런 내용이 궁금한 분들은 조금만 기다려주세요.  언젠가 파이썬의 ADT에 대한 내용도 꼭 다루겠다. 그리고 상속관계 화살표에서 화살표가 향하는 방향이 자신의 부모 클래스가 된다. 그 반대가 아니다. 위에서 아래로 Top-down으로 상속관계를 짠다고 화살표의 방향이 자식 클래스가 된다고 생각하기 쉬운데 그게 아니라는 것을 기억하자. 실제로 OOP에서는 클래스들의 상속관계를 이렇게 표현한다.</p>
+
+<p><br />
+<br id="3b" /></p>
+
+<h3 id="32-로그-사용하기">3.2. 로그 사용하기</h3>
+
+<p>다음 방법은 고교 수학의 기본인 <code class="highlighter-rouge">로그</code>를 사용하는 것이다. 내 생각에 프로그래밍을 한다고 하면 로그 정도의 수학까지는 알아야 한다. 당장 알고리즘만 봐도 <script type="math/tex">O(logN)</script>의 시간복잡도와 같은 개념을 논하니까.</p>
+
+<p>여기서 논하는 <strong>로그(log)는 통나무를 말하지 않고, 대신 ‘어떤 수가 어떤 밑수의 몇 승인가’를 논하는 개념이다.</strong> 가령 <script type="math/tex">10000</script>은 10의 4승이다. 그러면 <script type="math/tex">log_{10}10000 = log_{10}10^4</script>이기 때문에 값은 4가 된다. 그대로다. 더 설명이 필요할 것 같지 않다.</p>
+
+<p>다만 기억할 것은 <strong>어떤 자연수에 로그를 씌운 결과는 그 수의 길이와 깊은 관계가 있다는 것이다.</strong></p>
+
+<script type="math/tex; mode=display">\begin{align} \label{x2}
+	log_{10}10 = log_{10}10^1 = 1
+	\\
+	\\
+	log_{10}1000 = log_{10}10^3 = 3
+	\\
+	\\
+	log_{10}1000000 = log_{10}10^6 = 6
+\end{align}</script>
+
+<p><strong>10, 1000, 1000000에 밑수가 10인 로그를 씌워보니 각각 1, 3, 6이 나왔는데 정확한 숫자의 길이를 표현하지는 못하지만 확실히 길이가 길어지면 로그값도 커진다. 정확히는 로그값에 1을 더하면 자연수의 길이가 나온다.</strong> 이 방법을 사용하면 될 것 같다. 또 감안할 것은 로그를 취하는 값이 정확히 밑수의 자연수 지수로 떨어지지 않는 경우인데, 가령 <script type="math/tex">log_{10}20 \simeq 1.3010</script> 같은 경우가 있겠다. 로그값에 소수점이 붙는다. 하지만 걱정하지 마라. <strong>10과 20의 길이가 같은 것처럼, 자연수의 길이가 같으면 로그값의 소수부는 달라질지언정 정수부는 변하지 않는다. 즉, 로그값을 만든 후 그 값을 내림하면 문제없이 처리 가능하다.</strong></p>
+
+<p>로그 함수를 사용해 이 기능을 만들어보자.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="k">def</span> <span class="nf">digit_length</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">n</span><span class="p">))</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">n</span> <span class="k">else</span> <span class="mi">0</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="n">digit_length</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">digit_length</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">digit_length</span><span class="p">(</span><span class="mi">12345</span><span class="p">))</span>
+
+<span class="mi">2</span>
+<span class="mi">3</span>
+<span class="mi">5</span>
+</code></pre></div></div>
+
+<p>내장 <em>math</em> 모듈을 통해 자연수의 길이를 반환하는 <em>digit_length</em> 함수를 만들었다. 먼저 각 언어에는 수학 관련 라이브러리가 있기 마련인데 파이썬도 마찬가지다. <em>math</em> 모듈에는 무한값, 파이값을 비롯해 심각한 불안장애를 유발하는 삼각함수 등 수많은 수학 관련 기능이 내재되어 있으며 그중에는 밑수를 10으로 두고 어떤 수의 로그값을 반환하는 <strong><em>log10</em></strong> 이라는 함수도 있다. 우리의 문제는 10진수를 바탕으로 하기 때문에 이 기능을 사용했다.</p>
+
+<p>그리고 삼항 연산자를 썼는데 수가 0일 때는 밑수가 어떤 값이어도 로그값을 구할 수 없다. 이는 기본적인 로그 상식이며 함수에 0을 넣으면 에러가 발생하기 때문에 입력값이 0일 때를 따로 고려해 길이 0을 반환하도록 처리했다. 2장에서 문제의 제약조건을 설정할 때 입력의 조건에 굳이 0을 포함해서 설명한 것은 다 이유가 있었던 것이다. 문제 정의가 이렇게 중요하다.</p>
+
+<p>또 <em>n</em> 에 따라 소수부가 발생할 수 있기 때문에 <em>int</em> 를 통해 그 소수부를 제거한다. 실수형 자료구조 <em>float</em> 을 <em>int</em> 로 type casting하면 타입 변환뿐 아니라 실질적으로 소수부 내림이 되기 때문에 파이썬에서는 이렇게 내림을 많이 사용한다. 마지막으로 정수로 반환된 로그값에 1을 더해야 그 길이가 온전히 나오기 때문에 1을 더한다.</p>
+
+<p>최소한의 수학적 지식을 통해 우리가 원하는 기능을 이렇게 짧게 구현할 수도 있었다. 실제로 한참 Pythonic한 기능들에 회의를 갖고 있었을 때 나는 숫자의 길이를 이 함수를 구현해서 찾고는 했다.</p>
+
+<p><br id="3c" /></p>
+
+<h3 id="33-가장-무난한-풀이">3.3. 가장 무난한 풀이</h3>
+
+<p>이 방법이 모든 언어에서 가장 무난하고 상식적인 방법이다. 알고리즘 입문자들에게 낼만한 수준이기도 하다. 바로 <strong>입력값을 10으로 나눠가며 나머지를 버리고 길이를 키우는 방법이다.</strong> 바로 코드를 보자.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">digit_length</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">while</span> <span class="n">n</span><span class="p">:</span>
+        <span class="n">n</span> <span class="o">//=</span> <span class="mi">10</span>
+        <span class="n">ans</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">return</span> <span class="n">ans</span>
+
+
+<span class="k">print</span><span class="p">(</span><span class="n">digit_length</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">digit_length</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">digit_length</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">digit_length</span><span class="p">(</span><span class="mi">12345</span><span class="p">))</span>
+
+<span class="mi">0</span>
+<span class="mi">2</span>
+<span class="mi">3</span>
+<span class="mi">5</span>
+</code></pre></div></div>
+
+<p>이 함수에 대한 설명이 필요할 것 같다.</p>
+
+<ul>
+  <li><strong><em>while n</em></strong>:
+    <ul>
+      <li><strong>파이썬은 조건식에 숫자 자체를 사용하는 것을 허락한다. 이때 0(0.0 등 포함)일 때는 <em>False</em>, 그 외에는 정수, 실수, 음수, 복소수 할 것 없이 전부 <em>True</em> 가 된다.</strong> 따라서 조건식이 참일 때는 모두 <em>n</em> 이 0이 아니라는 뜻이 된다. 이때 우리는 10씩 나눠가며 값을 1씩 키울 수 있다.</li>
+    </ul>
+  </li>
+  <li>이후로는 <code class="highlighter-rouge">//</code>를 통해 나머지를 버리고 몫만 남긴다. 그때마다 값을 1 키워 while 문을 나올 때는 <em>n</em> 은 0이 되어 있고 <em>ans</em> 에는 원 숫자의 길이가 담기게 된다.</li>
+</ul>
+
+<p>확실히 모든 프로그래밍 언어는 나누기 등 사칙연산과 반복문을 지원하기 때문에 이 방법은 모든 언어에서 통용될 수 있는 함수다. 자연어로 치면 ‘영어’와 비슷하다고 할 수 있을까? 그런 의미에서 이 방법이 세 방법 중 가장 <code class="highlighter-rouge">범용성</code>이 짙은 방법이라고 평가할 수 있겠다. 특정 언어에 국한되지 않는 방법을 익히는 것은 분명 타 언어를 공부할 때 도움이 될 것이라 믿는다.</p>
+
+<p><br />
+<br id="4" /></p>
+
+<h2 id="4-마치며">4. 마치며</h2>
+
+<hr />
+
+<p>이상 자연수의 길이를 구하는 세 가지 방법에 대해 알아봤다. 역시 주제가 가벼워서 300줄도 안 나왔다. 내가 지금 큰 고민이 있는데 전부터 객체지향에 대해 글을 쓰고 싶었는데 지금 대충 네 편에 걸쳐 시리즈를 쓸 각이 잡혔다. 근데 주제가 쉽지 않아서 매우 많은 시간이 소요될 것 같은데 두렵다. 할 수 있을까? 하… 모르겠다. 언젠간 꼭 해결해야 할 포스트이기는 한데… 좀더 고민해보겠다.</p>
+
+<p>다음 포스트는 일단은 짧은 에세이가 될 것 같다. 개인적으로 커다란 교훈을 얻었던 경험이어서 꼭 표현하고 싶었다.</p>
+
+<p>이상 포스트를 마칩니다.</p>
+
+<p><br />
+<br id="5" /></p>
+
+<h2 id="5-자료-출처">5. 자료 출처</h2>
+
+<hr />
+
+<ul>
+  <li><a href="https://shoark7.github.io/programming/python/how-python-evaluates-conditional-expression" target="_blank">Python의 조건식 평가에 대한 고찰 by Parkito’s on the way</a></li>
+  <li><a href="https://docs.python.org/3/library/abc.html" target="_blank">abc by python.org</a></li>
+</ul>
+
+      <div class="page-footer">
+        <div class="page-share">
+          <a href="https://twitter.com/intent/tweet?text=자연수의 자릿수를 구하는 3가지 방법&url=http://localhost:4000/programming/algorithm/3-ways-to-get-length-of-natural-number" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
+          <a href="https://facebook.com/sharer.php?u=http://localhost:4000/programming/algorithm/3-ways-to-get-length-of-natural-number" title="Share on Facebook" rel="nofollow" target="_blank">Facebook</a>
+          <a href="https://plus.google.com/share?url=http://localhost:4000/programming/algorithm/3-ways-to-get-length-of-natural-number" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>
+        </div>
+        <div class="page-tag">
+          
+            <a href="/tags#digit-length" class="tag">&#35; digit-length</a>
+          
+        </div>
+      </div>
+
+			<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+			<!-- 처음과끝에만 -->
+			<ins class="adsbygoogle"
+					 style="display:block"
+					 data-ad-client="ca-pub-2670967175857332"
+					 data-ad-slot="3352812061"
+					 data-ad-format="auto"
+					 data-full-width-responsive="true"></ins>
+			<script>
+					 (adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+			<!-- 처음과끝에만 -->
+
+		  <!-- Load Facebook SDK for JavaScript -->
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+
+  <!-- Your share button code -->
+  <div class="fb-share-button" 
+    data-href="http://localhost:4000/programming/algorithm/3-ways-to-get-length-of-natural-number" 
+    data-layout="button_count">
+  </div>
+
+		
+    </div> <!-- End Wrap Content -->
+  </div> <!-- End Page Content -->
+</article> <!-- End Article Page -->
+
+</div>
+
+  </div>
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', '', 'auto');
+  ga('send', 'pageview');
+</script> <!-- End Analytics -->
+
+	<script src="https://unpkg.com/simple-jekyll-search@1.5.0/dest/simple-jekyll-search.min.js"></script>
+<script>
+var sjs = SimpleJekyllSearch({
+  searchInput: document.querySelector('#search-input'),
+  resultsContainer: document.getElementById('results-container'),
+  json: '/search.json',
+  searchResultTemplate: '<li class="search-results-item"><a href="http://localhost:4000{url}">{title}</a></li>',
+	limit: 9,
+	noResultsText: '<li class="search-results-item"><a href="#">No results found...</a></li>'
+})
+</script>
+
+	<!-- Main Js -->
+<!--<script src="/assets/js/main.js"></script>-->
+
+<!-- JQuery 3.x min -->
+<script src="/assets/js/jquery.js"></script>
+
+<script>
+	let menus = $("#category-list");
+	let image = $("#menu-toggler img");
+	$("#toggler-wrapper").click(function() {
+		if(menus.css("display") === "none") {
+			image.attr("src", "/assets/img/close-button.png");
+			menus.css("display", "flex");
+		}
+		else {
+			image.attr("src", "/assets/img/nav-off.png");
+			menus.css("display", "none");
+		}
+	});
+
+
+</script>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-127149179-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-127149179-1');
+</script>
+
+</body>
+</html>
