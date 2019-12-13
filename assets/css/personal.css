@@ -15,7 +15,8 @@ blockquote {
 	text-align: center;
 }
 .poem-block > pre {
-  white-space: pre;
+	overflow: scroll;
+  white-space: pre-wrap;
 }
 
 
