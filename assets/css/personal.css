@@ -1,6 +1,6 @@
 /* Personal elements */
 blockquote {
-	color: #442;	
+	color: #442;
 	margin: 3rem 0;
 }
 .function-definition {
@@ -9,6 +9,10 @@ blockquote {
 	text-align: center!important;
 	padding: 3rem!important;
 	font-size: 1.25rem;
+}
+.poem-title {
+	font-size: 2em;
+	text-align: center;
 }
 
 
