@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "내가 생각하는 &#39;좋은 코드&#39;란 바로 이런 것이다",
+      "category" : "",
+      "tags"     : "good_code, clean_code",
+      "url"      : "/programming/knowledge/this-is-what-good-codes-really-are",
+      "date"     : "2019-12-31 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "[시(詩)] 취업행(就業行)",
       "category" : "",
       "tags"     : "clean-code",
