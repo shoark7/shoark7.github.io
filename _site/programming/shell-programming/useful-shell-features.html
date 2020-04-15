@@ -281,7 +281,7 @@
         <li>4.3. <a href="#4c">히스토리 확장을 사용하기</a></li>
       </ul>
     </li>
-    <li><a href="#5">커맨드 커서 이동</a></li>
+    <li><a href="#5">커서 이동</a></li>
     <li><a href="#6">커맨드 편집</a></li>
     <li><a href="#7">마치며</a></li>
   </ol>
@@ -295,7 +295,7 @@
 
 <p>정말 오랜만에 포스팅이다. 동시에 거의 1년 반만의 쉘 관련 포스팅인데, 2개월만의 복귀 포스트를 쉘 관련 포스트로 정한 것은 이유가 있다. 내가 일하는 곳에서는 만든 feature에 대해 배포 전에 무조건 QA를 진행하고, QA 업무만 보시는 QA 분들이 존재한다. 그래서 QA분들을 자주 접하게 되는데 이 분들이 단순히 최종 고객에게 노출되는 앱만 확인하시지 않고, 쉘로 커맨드를 돌려보거나, psql을 통해서 데이터베이스 조회를 하는 것을 알게 됐다.</p>
 
-<p>그런데 작업하시는 것을 보니 쉘을 조금 더 편하게 쓸 수 있는 여지를 발견했고 해당 QA 분께 내용을 공유해드리니 꽤 만족하시는 것을 확인했다. 그렇다. 비단 QA 분들뿐 아니라 쉘을 많이 사용하는 개발자들조차도 쉘의 자잘한 편리성을 위한 기능을 모르는 경우가 많고 이 포스트는 이 분들을 위해 준비됐다. 이 글을 높을 고(高)를 성씨로 쓰시는 그분께 바친다.</p>
+<p>그런데 작업하시는 것을 보니 쉘을 조금 더 편하게 쓸 수 있는 여지를 발견했고 해당 QA 분께 내용을 공유해드리니 꽤 만족하시는 것을 확인했다. 그렇다. 비단 QA 분들뿐 아니라 쉘을 많이 사용하는 개발자들조차도 쉘의 자잘한 편리성을 위한 기능을 모르는 경우가 많고 이 포스트는 이 분들을 위해 준비됐다. 이 글을 ‘높을 고(高)’를 성씨로 쓰시는 그분께 바친다.</p>
 
 <p>오늘 포스트는 이전에 다뤘던 <a href="https://shoark7.github.io/programming/shell-programming/Top-basic-unix-shell-command" target="_blank">핵심적인 쉘 커맨드</a>를 소개하거나 <a href="https://shoark7.github.io/programming/shell-programming/IO-Redirection-in-Shell" target="_blank">pipeline, redirection</a> 등 중요한 쉘 기능을 다루지 않는다. 대신 <strong>몰라도 쉘 사용하는 데는 큰 지장이 없지만 알고 사용할 수 있다면 매우 <code class="highlighter-rouge">건강한</code> 쉘 경험을 할 수 있는 자잘한 쉘 기능에 대해 다룬다.</strong> 확실히 <code class="highlighter-rouge">grep</code> 커맨드를 잘 모르면 정말 필요한 순간에 난감하고 매우 귀찮은 노동을 하게 된다. 하지만 여기서 다룰, 가령 history 확장 같은 경우에는 몰라도 잘 살 수는 있지만 알고 있다면 쉘 활용에 천군만마를 단 느낌이 들 것이라 확신한다.</p>
 
@@ -319,14 +319,14 @@
 
 <ul>
   <li>아래에서 따로 확인할 창 분할(split tab, split window)</li>
-  <li>쉘 출력 내용 상의 내용 검색(단축키: <code class="highlighter-rouge">command + f</code>)
+  <li>쉘 출력 내용 상의 내용 검색(단축키: <code class="highlighter-rouge">&lt;COMMAND&gt; + f</code>)
     <ul>
       <li><img src="/assets/img/shell-programming/shell-we-dance-search.png" alt="shell inner search" /></li>
     </ul>
   </li>
-  <li>검색 내용을 복사해 쉘에 자동 입력(단축키: <code class="highlighter-rouge">option + enter</code>)</li>
+  <li>검색 내용을 복사해 쉘에 자동 입력(단축키: <code class="highlighter-rouge">&lt;OPTION&gt; + &lt;ENTER&gt;</code>)</li>
   <li>커맨드 입력 시 &lt;TAB&gt; 키를 이용한 자동완성</li>
-  <li>profile, theme 등 더 충부한 설정 가능성 등등</li>
+  <li>profile, theme 등 더 풍부한 설정 기능 지원 등등</li>
 </ul>
 
 <p>더 많은 기능은 <a href="https://www.iterm2.com/features.html" target="_blank">iTerm2 기능 소개 페이지</a>를 참고하라. 나도 더 알려주시면 감사하겠다.</p>
@@ -392,7 +392,7 @@ ll is an <span class="nb">alias </span><span class="k">for </span><span class="n
 
 <p>예를 들어 <code class="highlighter-rouge">git add</code> -&gt; <code class="highlighter-rouge">ga</code>, <code class="highlighter-rouge">git commit</code> -&gt; <code class="highlighter-rouge">gc</code>, <code class="highlighter-rouge">git status</code> -&gt; <code class="highlighter-rouge">gst</code>와 같다. git add, commit 등은 정말 많이 쓰는 커맨드인데, <code class="highlighter-rouge">git add --all</code>와 같이 13 바이트나 소모하며 입력해야 한다면 정말 마음이 아플 것이다. 그대신 <code class="highlighter-rouge">gaa</code>와 같이 한 번에 할 수 있다면. 이것이야말로 내가 생각하는 flex다.</p>
 
-<p>zsh에서 지원하는 alias는 정말 무수히 더 많고 자세한 목록은 <a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Cheatsheet" target="_blank">여기</a>서 확인하도록 하자.</p>
+<p>zsh에서 지원하는 alias는 무수히 더 많다. 자세한 목록은 <a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Cheatsheet" target="_blank">여기</a>서 확인하도록 하자.</p>
 
 <p><br /></p>
 
@@ -496,7 +496,7 @@ ll is an <span class="nb">alias </span><span class="k">for </span><span class="n
 
 <p>zsh에서는 다음과 같은 창이 뜬다. 이때 검색법은 키워드 입력과 방향키 사용이 둘 다 가능하다. <strong>키워드 입력을 사용하면 전체 히스토리 중 내가 입력한 키워드만 사용된 히스토리 목록이 출력되며 이때 방향키를 이용해 위아래로 이동하며 커맨드를 선택할 수 있다.</strong></p>
 
-<p>키워드를 입력하지 않으면 전체 히스토리 목록이 나오며 방향키를 사용해 위 아래로 이동할 수 있다.이는 꽤 유용하기 때문에 사실 이 정도까지만 알아도 어지간하면 사람처럼 히스토리 검색을 할 수 있게 된다.</p>
+<p>키워드를 입력하지 않으면 전체 히스토리 목록이 나오며 방향키를 사용해 위아래로 이동할 수 있다.이는 꽤 유용하기 때문에 사실 이 정도까지만 알아도 어지간하면 사람처럼 히스토리 검색을 할 수 있게 된다.</p>
 
 <p>참고로 이 기능은 쉘마다 조금씩 다른 것 같다. 이전 우분투를 사용할 때는 검색 시 히스토리 목록이 가시적으로 출력되지 않고 입력, 방향키 조작만 가능했는데 여기서는 사용하기 더 쉽게 출력된다. 지금 생각해보면 zsh이 아닌 iTerm2에서 사용성이 더 개선되지 않았나 추측해본다. 왜냐하면 우분투에서도 zsh를 사용했기 때문이다.</p>
 
@@ -504,7 +504,7 @@ ll is an <span class="nb">alias </span><span class="k">for </span><span class="n
 
 <h3 id="43-히스토리-확장을-사용하기">4.3. 히스토리 확장을 사용하기</h3>
 
-<p>마지막으로 <code class="highlighter-rouge">히스토리 확장</code>을 사용하는 기능이다. <code class="highlighter-rouge">확장</code>은 이전에 <a href="https://shoark7.github.io/programming/shell-programming/shell-expansions" target="_blank">포스트</a>로 따로 다룬 기억이 있다. 히스토리 확장은 그때 생략했는데 이유는 다른 확장에 비해서 히스토리 확장은 그 중요도가 떨어진다고 판단했기 때문이다. 하지만 히스토리 확장도 쓸 수 있다면 굉장히 유용하기 때문에 이참에 확인하고 가자. 참고로 이 기능도 범용적이다.</p>
+<p>마지막으로 <code class="highlighter-rouge">히스토리 확장</code>을 사용하는 기능이다. <code class="highlighter-rouge">확장</code>은 이전에 <a href="https://shoark7.github.io/programming/shell-programming/shell-expansions" target="_blank">포스트</a>로 따로 다룬 기억이 있다. 히스토리 확장은 그때 생략했는데 이유는 다른 확장에 비해서 그 중요도가 떨어진다고 판단했기 때문이다. 하지만 히스토리 확장도 쓸 수 있다면 굉장히 유용하기 때문에 이참에 확인하고 가자. 참고로 이 기능도 범용적이다.</p>
 
 <p><strong>확장은 쉽게 말해 커맨드를 실행할 때 특정 메타 캐릭터를 쉘에서 자체적으로 다른 인자로 변경해서 커맨드를 실행하는 것을 말한다.</strong> 예를 들어 다음 실행 결과는 확장을 전혀 모르면 이해할 수 없는 희한한 결과를 내게 된다.</p>
 
@@ -534,7 +534,7 @@ Applications Desktop Documents Downloads Library Movies Music Pictures Public lo
 docker logs <span class="nt">-f</span> docker-boy
 </code></pre></div></div>
 
-<p>바로 커맨드가 자동완성 된다.</p>
+<p>바로 커맨드가 자동 완성된다.</p>
 
 <p><br /></p>
 
@@ -566,7 +566,7 @@ bundle <span class="nb">exec </span>jekyll serve
 
 <p><br id="5" /></p>
 
-<h2 id="5-커맨드-커서-이동">5. 커맨드 커서 이동</h2>
+<h2 id="5-커서-이동">5. 커서 이동</h2>
 
 <hr />
 
@@ -577,7 +577,7 @@ bundle <span class="nb">exec </span>jekyll serve
 
 <p><code class="highlighter-rouge">|</code>는 현재 커서 위치를 뜻한다.</p>
 
-<p>‘python’을 ‘pytho’로 오타를 냈기 때문에 커서를 앞으로 옮겨 ‘n’을 추가해줘야 한다. 현재 커서에서 커맨드의 앞으로 커서를 옮길 때 일반적으로 가장 많이 사용하는 방법은 역시 방향키를 이용해 움직이는 것이다. 이는 지금처럼 커맨드가 짦을 때는 괜찮을지 몰라서 커맨드가 길어지면 길어질수록 방향키를 통해 뒤에서 앞으로 커서를 이동하는 것은 비효율적인 방법이 된다. 대신 <strong>한 번에 커서를 맨 앞이나 맨 뒤로 움직일 수 있다면 매우 행복할 것이다.</strong></p>
+<p>‘python’을 ‘pytho’로 오타를 냈기 때문에 커서를 앞으로 옮겨 ‘n’을 추가해줘야 한다. 현재 커서에서 커맨드의 앞으로 커서를 옮길 때 일반적으로 가장 많이 사용하는 방법은 역시 방향키를 이용해 움직이는 것이다. 이는 지금처럼 커맨드가 짧을 때는 괜찮을지 몰라도 커맨드가 길어지면 길어질수록 방향키를 통해 뒤에서 앞으로 커서를 이동하는 것은 비효율적인 방법이 된다. 대신 <strong>한 번에 커서를 맨 앞이나 맨 뒤로 움직일 수 있다면 매우 행복할 것이다.</strong></p>
 
 <ul>
   <li><strong><code class="highlighter-rouge">&lt;CTRL&gt; + a</code>: 커서를 맨 앞으로 이동한다.</strong></li>
@@ -597,7 +597,7 @@ bundle <span class="nb">exec </span>jekyll serve
 
 <p><br /></p>
 
-<p>커맨드 커서 이동은 앞의 장들보다 적은 부분을 차지헀는데 이는 덜 중요해서가 아니고 단순히 직관적이어서 굳이 스크린샷 등이 필요하지 않았기 때문이다. ‘커맨드 커서 이동’ 단축키는 매우매우 유용하기 때문에 한 번 꼭 써보길 바란다.</p>
+<p>커맨드 커서 이동은 앞의 장들보다 적은 부분을 차지했는데 이는 덜 중요해서가 아니고 단순히 직관적이어서 굳이 스크린샷 등이 필요하지 않았기 때문이다. ‘커맨드 커서 이동’ 단축키는 매우매우 유용하기 때문에 한 번 꼭 써보길 바란다.</p>
 
 <p>이제 가슴 아프게 긴 커맨드를 방향키로 이동하는 불상사는 꼭 피하도록 하자. 이 포스트에서 하나만 가져가야 한다면 이 장을 보는 것이 낫다.</p>
 
