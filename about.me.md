@@ -2,7 +2,7 @@
 layout: only-menus
 ---
 
-## About me! & Test
+## About me!
 
 <br>
 
