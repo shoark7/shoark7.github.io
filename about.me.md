@@ -2,7 +2,7 @@
 layout: only-menus
 ---
 
-## About me! asdf
+## About me!
 
 <br>
 
