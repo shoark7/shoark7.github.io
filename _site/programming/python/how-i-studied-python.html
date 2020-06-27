@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>내가 Python을 공부한 방법 - Parkito's on the way</title>
+
+  <!-- Edit site and author settings in `_config.yml` to make the social details your own -->
+
+    <meta content="Parkito's on the way" property="og:site_name">
+  
+    <meta content="내가 Python을 공부한 방법" property="og:title">
+  
+  
+    <meta content="article" property="og:type">
+  
+  
+    <meta content="내가 Python을 입문하고 공부한 방법을 소개합니다." property="og:description">
+  
+  
+    <meta content="http://localhost:4000/programming/python/how-i-studied-python" property="og:url">
+	
+  
+    <meta content="2020-06-27T00:00:00+09:00" property="article:published_time">
+    <meta content="http://localhost:4000/about/" property="article:author">
+  
+  
+    <meta content="http://localhost:4000/assets/img/knowledge/how-i-studied-python.png" property="og:image">
+  
+  
+    
+    <meta content="Programming" property="article:section">
+    
+  
+  
+    
+    <meta content="newbie" property="article:tag">
+    
+    <meta content="python" property="article:tag">
+    
+  
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@">
+    <meta name="twitter:creator" content="@">
+  
+    <meta name="twitter:title" content="내가 Python을 공부한 방법">
+  
+  
+    <meta name="twitter:url" content="http://localhost:4000/programming/python/how-i-studied-python">
+  
+  
+    <meta name="twitter:description" content="내가 Python을 입문하고 공부한 방법을 소개합니다.">
+  
+  
+    <meta name="twitter:image:src" content="http://localhost:4000/assets/img//knowledge/how-i-studied-python.png">
+  
+
+  
+    <meta content="내가 Python을 입문하고 공부한 방법을 소개합니다." name="description">
+  
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="shortcut icon" href="/assets/img/favicon/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" href="/assets/img/favicon/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/assets/img/favicon/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/assets/img/favicon/apple-touch-icon-144x144.png">
+	<!-- Chrome, Firefox OS and Opera -->
+	<meta name="theme-color" content="#263959">
+	<!-- Windows Phone -->
+	<meta name="msapplication-navbutton-color" content="#263959">
+	<!-- iOS Safari -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="#263959">
+	<!-- Google Fonts -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="/assets/fonts/font-awesome/css/font-awesome.min.css">
+	<!-- Styles -->
+	<!-- Mathjax Support -->
+<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+	MathJax.Hub.Config({
+  showProcessingMessages: false,
+  jax: ["input/TeX", "output/HTML-CSS"],
+  TeX: {
+    TagSide: "left",
+    Macros: {
+      RR: '{\\bf R}',
+      bold: ['{\\bf #1}',1]
+    }
+  },
+  CommonHTML: {
+    linebreaks: {automatic: true}
+  }
+});
+</script>
+
+	<link rel="stylesheet" href="/assets/css/main.css">
+	<link rel="stylesheet" href="/assets/css/personal.css">
+	<link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Nanum+Gothic:400,700,800&amp;subset=korean" rel="stylesheet">
+
+	<!-- googld ads tag -->
+  <script data-ad-client="ca-pub-2670967175857332" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</head>
+
+<body style="position: relative">
+	<div id="toggler-wrapper">
+		<div id="menu-toggler">
+			<img src="/assets/img/nav-off.png" alt="Menu collapse image">
+		</div>
+	</div>
+
+  <div class="wrapper">
+
+		<nav id="nav">
+			<div id="menus">
+				<p>
+					<a class="navbar-brand text-white" href="/">&nbsp;&nbsp;&nbsp;Parkito's on the way!&nbsp;&nbsp;&nbsp;</a>
+				</p>
+				<ul id="category-list">
+					<li>
+						<a href="/about.me">
+							<div class="menu">
+								<span> About </span>
+							</div>
+						</a>
+					</li>
+				
+					<li>
+						<div class="menu-wrapper">
+							<a href="/category/programming">
+								<div class="menu">
+									<span> Programming </span>
+								</div>
+							</a>
+							<div class="menu-item">
+								<a href="/category/programming/knowledge">Knowledge</a>
+								<a href="/category/programming/algorithm">Algorithm</a>
+								<a href="/category/programming/python">Python</a>
+								<a href="/category/programming/shell-programming">Shell programming</a>
+							</div>
+						</div>
+					</li>
+				
+					<li>
+						<div class="menu-wrapper">
+								<a href="/category/insight">
+									<div class="menu">
+										<span> Insight </span>
+									</div>
+								</a>
+								<div class="menu-item">
+									<a href="/category/insight/sensitivity">&nbsp;&nbsp;Sensitivity&nbsp;&nbsp;</a>
+									<a href="/category/insight/rationality">&nbsp;&nbsp;Rationality&nbsp;&nbsp;</a>
+								</div>
+						</div>
+					</li>
+
+					<li>
+						<div class="menu-wrapper">
+								<a href="/category/projects">
+									<div class="menu">
+										<span> Projects </span>
+									</div>
+								</a>
+							<div class="menu-item">
+								<a href="/category/projects/dev-related">&nbsp;&nbsp;Dev related&nbsp;&nbsp;</a>
+								<a href="/category/projects/etc">&nbsp;&nbsp;ETC&nbsp;&nbsp;</a>
+							</div>
+						</div> </li>
+
+				</ul>
+			</div>
+
+			<div id="menus-right">
+				<div id="search-section">
+					<div class="input-wrapper">
+						<span class="fa fa-search"></span>
+						<input type="text" id="search-input" placeholder="Please input specific keyword :)" size="30">
+					</div>
+					<div id="results-container"></div>
+				</div>
+
+				<!--<div id="toggler-wrapper">-->
+					<!--<div id="menu-toggler">-->
+						<!--<img src="/assets/img/nav-off.png" alt="" width="35px" height="35px">-->
+					<!--</div>-->
+				<!--</div>-->
+				
+			</div>
+			
+		</nav>
+
+
+    <aside class="sidebar">
+  <header>
+    <div class="about">
+      <div class="cover-author-image">
+        <a href="/"><img src="/assets/img/1536558558520.jpg" alt="Sunghwan Park"></a>
+      </div>
+      <div class="author-name">Sunghwan Park</div>
+      <p>I'm Parkito. A Python lover. Interested in Python, Automation, Algorithm. Please give me insights. I'll teach you tambien! :)</p>
+    </div>
+  </header> <!-- End Header -->
+  <footer>
+    <section class="contact">
+      <h3 class="contact-title">Contact me</h3>
+      <ul>
+				<!--
+        
+          <li><a href="https://twitter.com/artemsheludko_" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+        
+        
+          <li><a href="https://facebook.com/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+        
+				-->
+        
+          <li class="github"><a href="http://github.com/shoark7" target="_blank"><i class="fa fa-github"></i></a></li>
+        
+        
+          <li class="linkedin"><a href="https://in.linkedin.com/in/sunghwan-park-3773b8154" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+        
+        
+          <li class="email"><a href="mailto:shoark7@gmail.com"><i class="fa fa-envelope-o"></i></a></li>
+        
+      </ul>
+    </section> <!-- End Section Contact -->
+    <div class="copyright">
+      <p>2020 &copy; Sunghwan Park</p>
+    </div>
+  </footer> <!-- End Footer -->
+</aside> <!-- End Sidebar -->
+
+<div class="content-box clearfix">
+  <article class="article-page">
+  <div class="page-content">
+    
+    <div class="page-cover-image">
+      <figure>
+        <img class="page-image" src=/assets/img//knowledge/how-i-studied-python.png alt="내가 Python을 공부한 방법">
+        
+      </figure>
+    </div> <!-- End Page Cover Image -->
+    
+    <div class="wrap-content">
+      <header class="header-page">
+        <h1 class="page-title">내가 Python을 공부한 방법</h1>
+        <div class="page-date"><span>2020, Jun 27&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+      </header>
+
+		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<!-- 처음과끝에만 -->
+		<ins class="adsbygoogle"
+				 style="display:block"
+				 data-ad-client="ca-pub-2670967175857332"
+				 data-ad-slot="3352812061"
+				 data-ad-format="auto"
+				 data-full-width-responsive="true"></ins>
+		<script>
+				 (adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+		<!-- 처음과끝에만 -->
+
+      <h2 id="0-index">0. Index</h2>
+
+<blockquote>
+  <ol>
+    <li><a href="#1">들어가며</a></li>
+    <li><a href="#2">20살 이후 공부 연대기</a></li>
+    <li><a href="#3">Python shell 적극 활용하기</a>
+      <ul>
+        <li>3.1. <a href="#3a">help, dir, type</a></li>
+        <li>3.2. <a href="#3b">다양한 실험하기</a></li>
+      </ul>
+    </li>
+    <li><a href="#4">공식 문서</a></li>
+    <li><a href="#5">개인 프로젝트 진행하기</a></li>
+    <li><a href="#6">그 이후에는..?</a></li>
+    <li><a href="#7">마치며</a></li>
+  </ol>
+</blockquote>
+
+<p><br />
+<br id="1" /></p>
+
+<h2 id="1-들어가며">1. 들어가며</h2>
+
+<hr />
+
+<p>오랜만에 글을 쓰누나. 한 달에 한 번은 쓰겠다고 마음 먹었는데, 두 달에 하나 겨우 쓰게 생겼다. 시간 참 빠르다. 입사 후 공부하고 그곳의 Confluence 개인 공간에 글을 쓰고 보니 이 블로그는 거의 돌아보지 못했다. 가끔 이메일에 다른 분들이 댓글 달아주고 메일 보내줘서 기억하고 있었는데. 생각하고 있는 가벼운 주제들은 몇 개 있다. 결국 내가 시간을 내느냐의 문제인데 휴가를 써서라도 정말 써야할 순간에는 쓸 마음이 있다.</p>
+
+<p>오늘 주제는 <strong>내가 비전공자로서 Python(이하 “파이썬”)을 어떻게 공부했는지에 대한 이야기를 조금 해볼까 한다.</strong> 나는 파이썬을 매우 잘하는 것은 아니지만 일단 이것으로 일을 하고 있고, 곧 서술하겠지만 상당한 시간 동안 혼자 공부했기 때문에 비전공자로서 공부하고 싶은 몇몇 분들께 도움이 될 수도 있지 않을까 싶다. 가끔 어떻게 공부했는지나 코드 등에 대한 조언을 구하는 메일이 온다. 그래서 한번 써볼만하다고 생각했는데 결정적 계기는 최근 동생의 파이썬 입문이다.</p>
+
+<p>동생이 학교 교양 과목에서 ‘프로그래밍 입문’ 과목을 수강했는데 언어를 파이썬으로 했나보다. 그래서 과제에 대한 자신의 코드를 들고 왔는데 퇴근 후 피곤했기에 조금 보고 자기 위해 누웠다. 그런데 곧 동생이 따라 들어오더니 <code class="highlighter-rouge">int</code> 함수의 사용법에 대해 물었다. 근데 너무 짜증이 나고 졸려서 ‘아 좀 너가 찾아봐’라고 대꾸하고 누웠는데 나중에 보니 일말의 미안함이 남더라. ‘int’가 단순히 글자를 숫자로 바꾸는 것뿐 아니라, 여러 진법에 대응 가능하고, 심지어는 사실 함수는 아니라고 말해줬어야 했는데. 하지만 프로그래밍은 결국 자신이 공부해야 한다. 그래서 어떻게 내가 파이썬을 공부했는지, 물가에 데려다 주는 것이 이번 포스트의 목표다.</p>
+
+<p>먼저 포스트를 쓰는 김에 내가 20살 이후로 어떤 공부를 해왔는지에 대해 짧게 살펴본다. 이 일대기 아닌 일대기는 그냥 내가 어떤 삶을 살아왔는지 내가 반추하기 위함이기도 하다. 그후 내가 실제로 파이썬을 독학하며 사용한 방법들을 살펴볼텐데 내 방법이 정답은 아니고 조금은 마이너할 수 있기 때문에 ‘이렇게 공부한 사람도 있구나’하고 참고만 해도 좋겠다. 또 내가 파이썬을 정말 진지하게 공부한 것은 몇 년 전이기 때문에 현재의 상황과는 조금 동떨어져 있을지도.</p>
+
+<p>시작해볼까.</p>
+
+<p><br />
+<br id="2" /></p>
+
+<h2 id="2-20살-이후의-공부-연대기">2. 20살 이후의 공부 연대기</h2>
+
+<hr />
+
+<p>꼭 개발뿐 아니라 내가 20살 이후로 어떤 공부를 했는지 짧게 타임라인으로 살펴보자. 정확한 시기나 기간은 틀릴 확률이 높으나 순서는 대략 맞을 것이다.</p>
+
+<p>쓰고 보니 생각보다 길고, 내가 파이썬을 공부한 방법과는 상관없는 내용이기 때문에 원하면 바로 3장으로 ㄱㄱ</p>
+
+<ul>
+  <li>2011년, 경영학과 학생이 되다.
+    <ul>
+      <li>경영학과가 문과 중에서 향후 취업이 유리하다는 엄마의 판단에 경영학과에 입학됨. 지루하기 짝이 없던 경영학원론과 회계학에 진저리를 침.</li>
+    </ul>
+  </li>
+  <li>2012년 - 2014년 6월, 군대.
+    <ul>
+      <li>정보 업무를 하며 단축키의 위대함에 눈을 뜸. 책을 읽고 독후감을 쓰며 글의 재미에 대해 알게 됨.</li>
+    </ul>
+  </li>
+  <li>2014년, <strong>프로그래밍에 관심을 갖게 됨.</strong>
+    <ul>
+      <li>재무 수업에서 신기한 엑셀 기능을 쓰시는 교수님께 기능 사용법을 물어보자 ‘직접 찾아보라’는 말에 엑셀 공부 시작. 한때는 매우 좋아해서 모든 문서를 엑셀로 작성하기도 했음.</li>
+    </ul>
+  </li>
+  <li>2015년 여름방학, C 언어를 공부.
+    <ul>
+      <li>엑셀로는 한계를 느낌. 진짜 프로그래밍을 해봐야겠다는 생각에 C 언어를 도서관에서 한 달 동안 함. 당시 시중에 있는 C 언어 책을 20여 권 모두 살펴보며 책을 고른 것이 기억에 남는다. 무슨 이대 교수님의 책이었는데 꽤 괜찮았던 것으로 기억. 표지까지 대충은 기억이 난다.</li>
+      <li>철저히 독학으로 했는데 포인터 부분에서 도저히 이해가 안 가서 때려침.</li>
+    </ul>
+  </li>
+  <li>2015년 겨울방학, Java 공부.
+    <ul>
+      <li>계기는 기억이 안 나는데 Java를 약 한 달 정도 공부. 책과 함께 네이버 카페에서 어떤 분의 강의를 보면서 공부함. 기억에 남는 건 자동차와 버스, 오토바이를 예로 든 클래스 관련 강의.</li>
+      <li>또 기억나는건 처음에 콘솔에 출력할 때 <code class="highlighter-rouge">System.println...</code> 어쩌고에서 이게 도대체 뭔지 모르겠어서 한 분노. 이는 내가 파이썬을 높게 평가하는 이유이기도 하다.</li>
+    </ul>
+  </li>
+  <li><strong>2016년 초, ‘꿈꾸는 데이터 디자이너’ 교육 수강.</strong>
+    <ul>
+      <li>내 개발 인생의 전환점. 자바스크립트 D3 라이브러리와 R 언어를 공부해보면서 진짜 프로그래밍이 어떤 것인지 맛을 잠깐 봄. 드라마 대본 자료를 분석하던 경험은 향후 데이터 분석이 굉장히 중요하다는 인식을 하게 됨.</li>
+    </ul>
+  </li>
+  <li><strong>2016년 중순, 파이썬 공부 시작.</strong>
+    <ul>
+      <li>바로 위 프로그램에서 같은 팀원이었던 누나의 파이썬을 공부해보라는 조언에 파이썬 공부 시작. 당시에는 Codecademy에서 처음 공부했고, 향후 서술할 방법으로 들이파기 시작.</li>
+    </ul>
+  </li>
+  <li><strong>2017년 초, Fastcampus에서 Django 웹 개발 수강</strong>
+    <ul>
+      <li>혼자 공부하니 한계에 부닥치고 고민하던 때에 우연히 Fastcampus에서 웹 개발 수업을 발견. 아마 내가 2기로 들어갔던 것으로 기억한다. 교육료가 싸지 않기 때문에 엄마에게 돈을 빌리며 죄송했던 마음을 아직도 기억하고 있다.</li>
+      <li>당시 네트워크에 대한 지식이 전무해서 힘들었던 기억이… 마지막 프로젝트 기간에 나는 장고 대신 파이썬 공부에 좀더 매진한 것이 기억에 남는다. 사실 이치에 맞지 않는 것으로 현솔 형한테 고맙다고 말하고 싶다.</li>
+    </ul>
+  </li>
+  <li>2017년 중순, 파이썬 공부 삼매경.
+    <ul>
+      <li>난 파이썬이 정말 좋았고 파이썬 자체를 연구하는 것이 좋았다.</li>
+    </ul>
+  </li>
+  <li>2018년 초, 미적분 과외 받으며 공부.
+    <ul>
+      <li>난 파이썬이 좋아서 공부했지 사실 취업 생각은 없었다. 정확히 말하면 취업 자체에 대한 관심이 없었다. 하지만 생각해야 할 시기가 왔고, 난 공부했던 웹 개발과 데이터 분석 중에서 고민해야 했다. 처음에는 데이터 분석에 관심이 생겨서 통계를 공부했다. 간단한 1차 회기식을 수식적으로 너무 유도하고 싶었는데 이를 위해서는 미적분에 대한 지식이 필요하다고 해서 과외를 구함.</li>
+      <li>과외 선생을 구함. 나보다 한 살 어린 한양대 학생이었는데 나랑 코드가 맞아 미적분을 위대하게 공부하기 시작. 같이 각종 확률분포를 수식으로 풀어보는 데 집중함. 아직도 생각나는 것은 스타벅스에 계량기를 들고 가서 플라스틱 컵의 부피를 미적분으로 구해본 것. 컵의 길이를 직접 재서 예상한 부피와 컵에 담은 물의 부피를 구했을 때 오차 범위 내에서 일치해 굉장한 카타르시스를 느꼈다. 또 이 과외를 계기로 확률에 대한 믿음과 관심이 증대.</li>
+      <li>하지만 데이터 분석 공부는 때려침. 이유는 분석 대신 수학적으로 통계에 지나치게 집중해 한계에 부닥침. 막상 보니 데이터 분석 업무하는 사람들 그런 것 없이도 업무 잘하는 것 같다.</li>
+    </ul>
+  </li>
+  <li>2018년 후반, 네트워크 공부 시작
+    <ul>
+      <li>취업에 대한 길을 잃고 그냥 네트워크 공부 시작함. TCP/IP 등 인터넷 네트워크가 매우 재밌다는 사실을 인지. 난 <a href="https://kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&amp;mallGb=KOR&amp;barcode=9788989975908&amp;orderClick=LEa&amp;Kc=" target="_blank">이 책</a>으로 친구와 스터디했는데 매우매우 재밌게 공부함. 지금도 큰 도움이 되고 있음.</li>
+      <li>단, 책으로 하는 이론 스터디기 때문에 하드웨어 장비를 못 다루고, 저수준 네트워크를 공부해볼 기회가 없어서 안타까움을 많이 느낌.</li>
+    </ul>
+  </li>
+  <li>2019년, 알고리즘 공부
+    <ul>
+      <li>무슨 바람이 불었는지는 기억이 안 나지만 알고리즘을 공부함. 매우 재밌게 했음. Algospot, Codewars, 백준 등등 다양한 곳에서 공부하고 그 유명한 <a href="http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&amp;mallGb=KOR&amp;barcode=9788966260546&amp;orderClick=LEa&amp;Kc=" target="_blank">종만북</a>으로 열심히 했음. 이 책을 공부한 계기는 좀 재밌는데 같이 스터디를 하기 위해 컴퓨터를 공부하는 경영학과 학생 세 명이 모였는데 모여서 책을 같이 보니 생각보다 어려워서 스터디가 첫날에 취소됨. 근데 나는 흥미가 생겨서 혼자 공부함. 그래서 고생도 많이 했지만 큰 도움이 됨. 이 블로그는 이 책에 큰 빚을 지고 있기도 함.</li>
+    </ul>
+  </li>
+  <li>2020년, 취업..
+    <ul>
+      <li>운이 좋아 나같은 사람도 취업함. 알고 보니 면접, 코딩 테스트에서 그동안의 네트워크, 알고리즘 공부가 헛되지 않음을 인지함.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>쓰고 나니 생각보다 기네… <strong>다음 장부터 본격적으로 내가 파이썬을 공부한 방법을 살펴보자.</strong></p>
+
+<p><br />
+<br id="3" /></p>
+
+<h2 id="3-python-shell-적극-활용하기">3. Python shell 적극 활용하기</h2>
+
+<hr />
+
+<ul>
+  <li>먼저 파이썬 쉘은 콘솔(또는 터미널)에 <code class="highlighter-rouge">python</code> 이라고 입력했을 때 나오는 바로 그 파이썬 입력기라는 것을 짚고 넘어간다. 이 쉘은 언어에 대한 순간적인 접근이 가능하게 해서 궁금한 것을 바로 확인할 수 있게 한다.</li>
+</ul>
+
+<p><img src="/assets/img/knowledge/how-i-studied-python-python-shell.png" alt="python shell" /></p>
+
+<p>나는 파이썬을 정말 좋아서 공부했고, 파이썬 쉘의 존재가 내가 파이썬을 더 잘 알고 언어에 친숙해지는 데 매우 큰 역할을 했다는 것을 강조하고 싶다. 다른 언어를 비하하는 것은 아니지만 내가 이전에 배운 언어들에서는 이런 도구를 찾지 못해서 내가 코딩하면서 발견하게 되는 기능의 명세를 몰라 마음 아팠던 적이 한두번이 아니었기 때문이다. 그래서 이 포스트의 핵심은 3장이기도 하다.</p>
+
+<p><br />
+<br id="3a" /></p>
+
+<h3 id="31-help-dir-type">3.1. help, dir, type</h3>
+
+<p>먼저 함수 셋을 소개한다. 파이썬을 공부해본 사람도 이 함수들은 익숙하지 않을 수 있다. 이 함수들은 파이썬 쉘에서는 매우 유용하지만 현실 개발에서는 보통 유용하지 않기 때문이다. <strong>소개하자면 이 셋은 공부하면서 마주칠, 현실 개발에서 자주 사용할 다양한 기능, 함수, 클래스 등에 대한 메타 정보를 제공하는 helper 기능이다.</strong> 개인적으로 나는 마주치는 기능을 그냥 ‘너는 존재하는구나’라는 부처의 마음으로 사용하는 것을 싫어한다. 쓰는 것도 쓰는 것이지만 일단 이것이 무엇인지, 어떤 인자를 받는지, 다른 활용은 없는지 살펴봐야지. 이 셋은 이 ‘탐색’을 도와주는 고마운 기능들이라 하겠다.</p>
+
+<p><br /></p>
+
+<p>먼저 <code class="highlighter-rouge">help</code>. help 함수는 인자로 받는 함수, 기능, 클래스 등에 대한 도움 문서를 출력한다. 생각해보면 파이썬에서 기본으로 제공하는 모든 기능 또한 누가 개발한 것이고 이왕 사용자들에게 제공되는 것, 개발자들은 타인이 잘 쓰기를 바라기 때문에 기능에 대한 설명문서를 만들어 놓는다. 그리고 ‘help’ 함수는 그 설명문서를 출력한다. 바로 사용해보자.</p>
+
+<p>파이썬에서 가장 처음 접하게 되는 <code class="highlighter-rouge">print</code> 함수에 대해 help 해보자.</p>
+
+<p><img src="/assets/img/knowledge/how-i-studied-python-helping.png" alt="python helping" /></p>
+
+<p>함수에 대한 설명서가 나온다. 함수가 파이썬에서 기본으로 제공하는 함수이고(built-in), 함수가 어떤 입력을 받는지, 함수의 기본적인 동작이 어떻게 되는지에 대해 설명하고 있다. 처음 보는 <code class="highlighter-rouge">sep</code>, <code class="highlighter-rouge">end</code>, <code class="highlighter-rouge">file</code> 등 찾아보지 않으면 알 수 없는 입력들을 받는다는 것을 알 수 있다.  이런 메타정보를 찾아 봐야 하는 이유가 여기에 있다. <em>print</em> 는 워낙 기초적인 함수라 이런 부분을 놓칠 수 있는데 실은 다양한 옵션을 가지고 있고, 알고 있지 않으면 우리는 이 함수의 반쪽짜리 기능만 알고 쓰는 꼴이 된다. 그리고 도저히 이해가 안 가는 부분이 나올 수 있다. 가령 나같은 경우에는 <code class="highlighter-rouge">sys.stdout</code>이 정말 뭔지 모르겠더라. 이런 부분들은 내가 또 공부할 여지를 남기게 되고 이렇게 깊이를 더하게 된다.</p>
+
+<p><strong>개인적으로 다른 내용들은 다 무시해도 <code class="highlighter-rouge">help</code>만은 기억하기를 바란다. 마주치는 모든 기능, 클래스, 함수에 도움을 요청하라. 그냥 있으니 쓰지 말고 알고 쓰는 것이 결국에는 시간에서 이긴다. 이건 장담한다. 파이썬 쉘의 강력함은 바로 이런 데 있다.</strong></p>
+
+<p><br /></p>
+
+<p>다음은 <code class="highlighter-rouge">dir</code>. <strong>‘dir’ 내장함수는 어떤 오브젝트가 가지고 있는 모든 attribute를 문자열의 리스트로 반환한다.</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="k">print</span><span class="p">(</span><span class="nb">dir</span><span class="p">(</span><span class="n">math</span><span class="p">))</span>
+
+<span class="p">[</span><span class="s">'__doc__'</span><span class="p">,</span> <span class="s">'__file__'</span><span class="p">,</span> <span class="s">'__loader__'</span><span class="p">,</span> <span class="s">'__name__'</span><span class="p">,</span> <span class="s">'__package__'</span><span class="p">,</span> <span class="s">'__spec__'</span><span class="p">,</span> <span class="s">'acos'</span><span class="p">,</span> <span class="s">'acosh'</span><span class="p">,</span> <span class="s">'asin'</span><span class="p">,</span> <span class="s">'asinh'</span><span class="p">,</span> <span class="s">'atan'</span><span class="p">,</span> <span class="s">'atan2'</span><span class="p">,</span> <span class="s">'atanh'</span><span class="p">,</span> <span class="s">'ceil'</span><span class="p">,</span> <span class="s">'copysign'</span><span class="p">,</span> <span class="s">'cos'</span><span class="p">,</span> <span class="s">'cosh'</span><span class="p">,</span> <span class="s">'degrees'</span><span class="p">,</span> <span class="s">'e'</span><span class="p">,</span> <span class="s">'erf'</span><span class="p">,</span> <span class="s">'erfc'</span><span class="p">,</span> <span class="s">'exp'</span><span class="p">,</span> <span class="s">'expm1'</span><span class="p">,</span> <span class="s">'fabs'</span><span class="p">,</span> <span class="s">'factorial'</span><span class="p">,</span> <span class="s">'floor'</span><span class="p">,</span> <span class="s">'fmod'</span><span class="p">,</span> <span class="s">'frexp'</span><span class="p">,</span> <span class="s">'fsum'</span><span class="p">,</span> <span class="s">'gamma'</span><span class="p">,</span> <span class="s">'gcd'</span><span class="p">,</span> <span class="s">'hypot'</span><span class="p">,</span> <span class="s">'inf'</span><span class="p">,</span> <span class="s">'isclose'</span><span class="p">,</span> <span class="s">'isfinite'</span><span class="p">,</span> <span class="s">'isinf'</span><span class="p">,</span> <span class="s">'isnan'</span><span class="p">,</span> <span class="s">'ldexp'</span><span class="p">,</span> <span class="s">'lgamma'</span><span class="p">,</span> <span class="s">'log'</span><span class="p">,</span> <span class="s">'log10'</span><span class="p">,</span> <span class="s">'log1p'</span><span class="p">,</span> <span class="s">'log2'</span><span class="p">,</span> <span class="s">'modf'</span><span class="p">,</span> <span class="s">'nan'</span><span class="p">,</span> <span class="s">'pi'</span><span class="p">,</span> <span class="s">'pow'</span><span class="p">,</span> <span class="s">'radians'</span><span class="p">,</span> <span class="s">'remainder'</span><span class="p">,</span> <span class="s">'sin'</span><span class="p">,</span> <span class="s">'sinh'</span><span class="p">,</span> <span class="s">'sqrt'</span><span class="p">,</span> <span class="s">'tan'</span><span class="p">,</span> <span class="s">'tanh'</span><span class="p">,</span> <span class="s">'tau'</span><span class="p">,</span> <span class="s">'trunc'</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p>위 예시는 파이썬의 유명한 내장모듈인 <code class="highlighter-rouge">math</code> 모듈이 가지고 있는 모든 attribute를 출력해봤다. 잘 보면 자연상수 <code class="highlighter-rouge">e</code>와 소수부를 올림하는 <code class="highlighter-rouge">ceil</code> 함수 등 다양한 속성의 값을 확인할 수 있다. 내가 언급한 attribute는 이것들을 모두 포괄한 개념으로 언급했고 변수, 상수, 메소드, 클래스 등등 math에 얽혀있는 모든 object를 통칭했다. 즉 ‘dir’을 통해서는 특정 오브젝트에서 참조가능한 모든 값들에 접근가능하기 때문에 유용하다. 처음에 ‘math’ 모듈을 사용하면 ‘inf’와 같은 간단한 값만 쓰게 되는데 실제로는 삼각함수 관련 메소드 등 수많은 기능들이 사용대기 중이다.</p>
+
+<p>나같은 경우는 마주치는 모든 객체들에 한 번씩은 <code class="highlighter-rouge">dir</code>을 입력해보고 기능을 확인한다. 그리고 그중 흥미가 가는 객체는 또다시 탐구해본다. 가령 저 모듈에서 실제로 지금 <code class="highlighter-rouge">degrees</code>가 뭘까 궁금해지는데 <strong>dir(math.degrees)</strong>, <strong>help(math.degrees)</strong> 와 같이 말이다. 찾아보니 radian을 도로 변환하는 함수라고 한다.</p>
+
+<p><br /></p>
+
+<p>마지막으로 <strong><code class="highlighter-rouge">type</code>. 이 함수는 인자의 클래스를 반환한다.</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="bp">None</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="bp">True</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="k">print</span><span class="p">))</span>
+
+<span class="o">&lt;</span><span class="k">class</span> <span class="err">'</span><span class="nc">NoneType</span><span class="s">'&gt;</span><span class="err">
+</span><span class="s">&lt;class '</span><span class="nb">bool</span><span class="s">'&gt;</span><span class="err">
+</span><span class="s">&lt;class '</span><span class="n">builtin_function_or_method</span><span class="s">'&gt;</span><span class="err">
+</span></code></pre></div></div>
+
+<p>type은 다음과 같이 마주치는 모든 오브젝트에 써볼 수 있다. 그러면서 얻을 수 있는 통찰:</p>
+
+<ol>
+  <li>아하, <em>‘파이썬에서 모든 것은 클래스다’</em> 라는 말은 헛소리가 아니었구나. 클래스와 인스턴스가 지배하는 파이썬 세계…</li>
+  <li>아하, 예상치 못한 클래스들이 파이썬에는 존재하는구나…</li>
+</ol>
+
+<p>2번은 이런 것이다. 파이썬을 처음 배울 때 <code class="highlighter-rouge">int</code> 메소드를 써볼 일이 많다. 가령 input으로 받은 값을 정수로 바꾼다든지. 이때 int를 단순히 함수라고 생각하는데 하지만 type을 해보면?!</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="nb">int</span><span class="p">))</span>
+
+<span class="o">&lt;</span><span class="k">class</span> <span class="err">'</span><span class="nc">type</span><span class="s">'&gt;</span><span class="err">
+</span></code></pre></div></div>
+
+<p>아.. ‘int는 단순히 함수가 아니구나. type이라는 클래스의 인스턴스구나’라고 깨달을 수 있다. 여기서 ‘그럼 type은 또 뭐야. 지금까지 계속 써왔잖아?’라고 질문을 던질 수 있지만 일단 넘어가고. 중요한 것은 파이썬에서 접하는 수많은 객체들에 type을 해보면 이것들의 성질을 일차적으로 살필 수 있는 괜찮은 수단이 된다.</p>
+
+<p><br />
+<br id="3b" /></p>
+
+<h3 id="32-다양한-실험하기">3.2. 다양한 실험하기</h3>
+
+<p><strong>쉘을 통해서 다양한 실험을 하는 것, 이것이 내가 파이썬을 공부한 방법의 8할이라고 감히 말하겠다. 앞선 내장함수들과 기타 내장함수들과 함께 파이썬의 세계를 유영하는 것, 그것이 내 방법이다.</strong> 실제로 내가 연구했던 두 가지 주제를 예시로 간략히 들어보겠다.</p>
+
+<p>먼저 <code class="highlighter-rouge">sum</code>과 <code class="highlighter-rouge">min</code>의 미묘한 차이에 대해서. 당시 내가 파이썬을 공부한지 얼마 안 됐을 때였고 반복문과 최소한의 함수만 작성할 수 있던 시기였다. ‘sum’은 다을 알다시피 리스트의 모든 값을 더해 반환하는 함수이고, ‘min’은 리스트의 최소값을 반환하는 함수이다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">parkito</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">parkito</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">parkito</span><span class="p">))</span>
+
+<span class="mi">15</span>
+<span class="mi">1</span>
+</code></pre></div></div>
+
+<p>뭐 예상 가능하다. 그런데 ‘min’은 다른 형태의 입력도 받을 수 있다. 단순히 하나의 리스트를 받고 그 원소 중 최소값만 뽑는 것이 아니라 개별값들을 각각 받고 그중 최소값을 찾는 것이다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="mi">1</span>
+</code></pre></div></div>
+
+<p>이렇게 해도 신기하게 에러가 안난다. 반대로 sum은 이런 식으로 입력하면 에러가 난다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="nb">TypeError</span><span class="p">:</span> <span class="nb">sum</span> <span class="n">expected</span> <span class="n">at</span> <span class="n">most</span> <span class="mi">2</span> <span class="n">arguments</span><span class="p">,</span> <span class="n">got</span> <span class="mi">5</span>
+</code></pre></div></div>
+
+<p>오호.. 난 이것이 신기했고 이해가 안 갔다. 이 둘은 모두 초보적인 수준의 내장함수이고, 구현도 둘 다 반복문 한 번만 실행시키면 될 정도로 비슷한 내용의 함수이니, 같은 형식의 방식으로 돌아가는 것이 일견 자연스럽게 보였다. 이제 둘은 연구대상이 됐다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="nb">sum</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="nb">min</span><span class="p">))</span>
+
+<span class="o">&lt;</span><span class="k">class</span> <span class="err">'</span><span class="nc">builtin_function_or_method</span><span class="s">'&gt;</span><span class="err">
+</span><span class="s">&lt;class '</span><span class="n">builtin_function_or_method</span><span class="s">'&gt;</span><span class="err">
+</span></code></pre></div></div>
+
+<p>흠, 같은 종류의 객체구나 너네?</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="n">help</span><span class="p">(</span><span class="nb">sum</span><span class="p">))</span>
+
+
+<span class="n">Help</span> <span class="n">on</span> <span class="n">built</span><span class="o">-</span><span class="ow">in</span> <span class="n">function</span> <span class="nb">sum</span> <span class="ow">in</span> <span class="n">module</span> <span class="n">builtins</span><span class="p">:</span>
+
+<span class="nb">sum</span><span class="p">(</span><span class="n">iterable</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="o">/</span><span class="p">)</span>
+    <span class="n">Return</span> <span class="n">the</span> <span class="nb">sum</span> <span class="n">of</span> <span class="n">a</span> <span class="s">'start'</span> <span class="n">value</span> <span class="p">(</span><span class="n">default</span><span class="p">:</span> <span class="mi">0</span><span class="p">)</span> <span class="n">plus</span> <span class="n">an</span> <span class="n">iterable</span> <span class="n">of</span> <span class="n">numbers</span>
+    <span class="o">...</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="n">help</span><span class="p">(</span><span class="nb">min</span><span class="p">))</span>
+
+
+<span class="n">Help</span> <span class="n">on</span> <span class="n">built</span><span class="o">-</span><span class="ow">in</span> <span class="n">function</span> <span class="nb">min</span> <span class="ow">in</span> <span class="n">module</span> <span class="n">builtins</span><span class="p">:</span>
+
+<span class="nb">min</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+    <span class="nb">min</span><span class="p">(</span><span class="n">iterable</span><span class="p">,</span> <span class="o">*</span><span class="p">[,</span> <span class="n">default</span><span class="o">=</span><span class="n">obj</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">func</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">value</span>
+    <span class="nb">min</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">*</span><span class="p">[,</span> <span class="n">key</span><span class="o">=</span><span class="n">func</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">value</span>
+    <span class="o">...</span>
+</code></pre></div></div>
+
+<p>음, 이거 뭐야. 확실히 설명이 조금 다르네? ‘sum’은 ‘start’라는 추가 인자를 받을 수 있는데 ‘min’은 그렇지 않고. 그것은 일단 다음 실험 주제로 남기고, 다만 min은 실험에서 확인했던 것처럼 두 가지의 입력 형태를 가질 수 있다.</p>
+
+<p>흠.. 그냥 그런 것이 아니라 설명문서로까지 작성되어 있을만큼 의도적인 것이네. 게다가 <code class="highlighter-rouge">*</code>, <code class="highlighter-rouge">[ ]</code>이런 표시도 의미있을 것 같은데 말이지…</p>
+
+<p><code class="highlighter-rouge">[]</code>는 파이썬뿐만 아니라 쉘 등의 타 언어의 설명문서에서도 많이 발견할 수 있는 것으로 그 안의 인자가 optional한, 그러니까 원하면 추가적으로 넣을 수 있는 값이라는 것을 뜻한다. 가령 <code class="highlighter-rouge">key</code>라는 것은 원하면 넣을 수 있는 값으로 이것 또한 실험주제가 되겠지. <code class="highlighter-rouge">*</code>는 좀 중요한 것으로 여기서 <code class="highlighter-rouge">packing &amp; unpacking</code>이 등장한다. 이건 처음에는 어려운 주제니 나중에 다시 연구할 주제고…</p>
+
+<p>위와 같은 프로세스로 별것 아닌 내장함수에서 굉장한 통찰을 이끌어 낼 수 있다. 물론 당장 이런 공부는 시간이 들겠지만 이건 100% 왕도에 이르는 데는 더 가깝다. 
+또 다른 예를 볼까?</p>
+
+<p><br /></p>
+
+<p>이건 내가 진정으로 열심히 살펴보던 주제로, 내장 모듈 <code class="highlighter-rouge">collections.abc</code>에 있는 추상 클래스들의 상속관계를 살펴보는 것이다. 예를 들어 list, tuple, str 등은 모두 <strong>순서가 있는 자료들의 모음</strong>으로서, 이들은 abc에 있는 Sequence라는 추상 클래스를 상속한다. 이런 것도 연구를 통해 깨달을 수 있다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">collections.abc</span> <span class="kn">import</span> <span class="n">Sequence</span>
+
+<span class="k">print</span><span class="p">(</span><span class="nb">issubclass</span><span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">issubclass</span><span class="p">(</span><span class="nb">tuple</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">issubclass</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">))</span>
+
+<span class="bp">True</span>
+<span class="bp">True</span>
+<span class="bp">True</span>
+</code></pre></div></div>
+
+<p>오호, 여기서 또 연구를 위해 유용한 내장함수가 등장했다. <code class="highlighter-rouge">issubclass</code>는 인자를 두 개 받아 첫 번째 인자의 두 번째 인자에 대한 서브클래스 여부를 반환한다. list, tuple, str은 그래서 실제로 Sequence라고 부르기도 하며, 셋 모두 Sequence의 메소드를 상속, 구현하고 있다. 가령 Sequence는 ‘index’라는 메소드를 갖고 있는데, 따라서 Sequence를 상속받는 내장클래스들은 모두 ‘index’를 구현하고 있다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="s">'index'</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">Sequence</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'index'</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="nb">list</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'index'</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="nb">tuple</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'index'</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="nb">str</span><span class="p">))</span>
+
+<span class="bp">True</span>
+<span class="bp">True</span>
+<span class="bp">True</span>
+<span class="bp">True</span>
+</code></pre></div></div>
+
+<p>놀랍기 그지없다. ‘abc’에는 Sequence뿐 아니라 수많은 추상 클래스가 존재하고 이들끼리의 상속관계도 존재한다. 가령 ‘dict’를 보자. ‘dict’는 Sequence와 달리 포함된 데이터끼리의 순서가 존재하지 않기에 Sequence가 아니며 실험을 통해서도 확인할 수 있다. 하지만 자료를 <strong>담고 있는</strong> 것은 Sequence와 마찬가지며 담고 있다는 것을 표현하는 추상 클래스는 ‘Collection’이 있다. dict는 Collection의 서브클래스이며, Sequence도 마찬가지다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="nb">issubclass</span><span class="p">(</span><span class="n">Sequence</span><span class="p">,</span> <span class="n">Collection</span><span class="p">))</span>
+
+<span class="bp">True</span>
+</code></pre></div></div>
+
+<p>여기서 계속 공부해가며 나중에는 abc안에 있는 추상 클래스 간의 상속관계를 그림으로 그리는 등 실험 주제는 무궁무진하다. 이런 게 실개발에서 도움되나고? 무슨 상관이야 내가 재밌는데. 솔직히 반반이긴 해.</p>
+
+<p><br />
+<br id="4" /></p>
+
+<h2 id="4-공식-문서">4. 공식 문서</h2>
+
+<hr />
+
+<p>다음은 공식 문서를 많이 살피는 것이다. 어느 언어를 공부해도 마찬가지일 것이다. 공식문서를 살피는 것이 도움이 된다. 파이썬에는 PEP(Python Enhancement Proposal)이라고 해서 ‘파이썬 개발은 좀 이랬으면 좋겠다’를 담은 제안문서와 함께 내장 모듈 등에 대한 사용 예제, 설명문서를 담은 공식 페이지 등이 있다. 그중에서 정말 파이썬을 공부하는 사람들이 꼭 봤으면 하는 문서가 있다면</p>
+
+<ul>
+  <li><a href="https://www.python.org/dev/peps/pep-0008/" target="_blank">PEP 008</a>: 파이썬의 코딩 컨벤션을 담은 문서로 일단 이 문서만큼은 달달 외워야 한다. 어느 언어에서나 그 언어의 코딩 컨벤션은 익히려고 노력하는 것으로 안다. 파이썬도 마찬가지일 것이고, 나는 알바 경험상 프로그래밍을 처음 해보는 사람들을 많이 봐왔는데 그러면 당연히 컨벤션은 잘들 모른다. 당신도 마찬가지라면 빨리 지금 열어보기를 추천한다.</li>
+  <li><a href="https://docs.python.org/3/library/functions.html" target="_blank">Python builtin functions</a>: ‘docs.python.org’에는 도움이 되는 파이썬 문서들이 많은데 나는 파이썬을 처음 공부한다면 이 페이지는 꼭 잘 살펴보라고 말하고 싶다. 파이썬에 있는 주요 내장함수 목록과 그 설명을 담고 있는데 이들은 주요 연구대상이 된다. 내가 파이썬 개발을 할 것이라면 이 주요 함수들은 꼭꼭 연구해야 한다. 물론 나도 다 알고 있지는 않은데 그래도 반드시 한 번씩은 눌러보고 실험을 진행해야 한다.</li>
+</ul>
+
+<p><br />
+<br id="5" /></p>
+
+<h2 id="5-개인-프로젝트-진행하기">5. 개인 프로젝트 진행하기</h2>
+
+<hr />
+
+<p>여기서부터는 확신은 없다. 음 내 동생을 통해서도 그렇고 파이썬을 어떻게 더 공부하면 좋겠냐는 문의를 종종 받는다. 많이들 알고리즘을 추천하는 모양인데 나는 처음 하는 사람에게 알고리즘을 권유하는 것을 썩 좋아하지 않는다. <strong>나는 대신 작더라도 개인 프로젝트를 꾸준히 해볼 것을 추천한다.</strong></p>
+
+<p>가령 내가 만드는 알파고: 컴퓨터와 가위바위보 하기, 나의 일진 실험하기: 로또 게임 만들기 등등. 개인적으로 생각나는 프로젝트로는 쉘로만 돌아가는 금전출납부가 생각이 난다. 내가 사용한 금액을 입력하고 나중에 조회가능하고 또 이를 이쁘게 출력하고… 나름 정말 고심하며 만들었는데 지출내역을 어떻게 저장하냐와 지출금액과 내역은 길이가 임의적인데 어떻게 이에 다 대응해 표를 이쁘게 그리느냐가 정말 관건이었다.</p>
+
+<p>첫 번째는 내가 데이터베이스는 문외한이었기 때문에 json에 지출내역을 저장하면서 json 내장 모듈을 깊이 팠던 것이 기억에 난다. 난 <code class="highlighter-rouge">dump</code>, <code class="highlighter-rouge">dumps</code>의 차이와, 이 크고 아름다운 <code class="highlighter-rouge">s</code>는 도대체 뭐의 약자일까를 많이 고민했었다.  두 번째는 파이썬 포매팅! 가령 새로 입력된 지출내역이 ‘가나다라마바사아자차카타파하를 외치는 자에게 적선’와 같이 길게 들어왔는데 기존 내역의 최대 길이를 넘어섰다고 할 때 그래도 표가 깨지지 않고 이쁘게 나올 수 있을까를 고민했는데, <code class="highlighter-rouge">{}</code>를 중첩해서 사용하면서 해결했던 것이 기억에 남는다.</p>
+
+<p>중요한 것은 <code class="highlighter-rouge">흥미를 잃지 않는 것</code>. 난 알고리즘은 처음에 하면 좌절을 많이 느끼고 흥미를 잃기 쉽다고 생각한다. 처음에야 술술 넘어가더라도 조금만 들어가면 최소한의 알고리즘을 알아야 해결할 수 있는 것들이 나올 수 있는데 그때가서 좌절하지 않을까? 그리고 나의 수요에서 비롯된 것이 아닌, 다른 누군가가 원하는 ‘정렬해서 반환해’따위가 처음에 즐거울까?</p>
+
+<p>하지만 취향을 얼마든지 탄다.</p>
+
+<p><br />
+<br id="6" /></p>
+
+<h2 id="6-그-이후에는">6. 그 이후에는..?</h2>
+
+<hr />
+
+<p>너와 나는 프로그래밍을 왜 할까? 그중에서도 왜 파이썬을 공부하는가? 만약 더 해보고 싶다면 그중에서 자신이 관심있는 분야를 더 해보면 좋겠다. 직장인이라서 자동화에 관심있을 수도 있고, 취업을 위해 웹개발이나 데이터분석 등에 관심있을 수도 있지. 그러면 그쪽으로 공부해보자. 그리고 취업을 위해서라면 알고리즘을 더 해볼 수도 있겠지. 네이버 등의 온라인 코딩 테스트에서 지원하는 언어들이 조금씩 다른데 어느 회사든 파이썬은 다 지원했던 것 같다. 그러니 파이썬으로 알고리즘을 공부하는 것도 나쁘지 않다. 알고리즘을 공부할 수 있는 사이트는 정말정말 많은데 내가 해봤던 목록은 <a href="https://gist.github.com/shoark7/38bcff39588b528d37313a669fdfd75d" target="_blank">다음</a>과 같다.</p>
+
+<p>음 그리고 웹개발을 한다면 HTTP만큼은 최소한은 공부할 것을 추천한다. 시간이 허락한다면 TCP 정도까지. TCP까지는 웹 개발에 매우 큰 도움이 되는지는 아직 잘 모르겠는데 회사면접에서 물어보기도 했던 기억이 난다. Slow starter~!</p>
+
+<p><br />
+<br id="7" /></p>
+
+<h2 id="7-마치며">7. 마치며</h2>
+
+<hr />
+
+<p>너무 오랜만에 글 쓴다. 지난 글들을 보면 ‘맨날 쓰려고 했는데 못 썼다 ㅠㅠ’와 같은 내용들만 있어서 이제는 반드시 언제 쓰겠다고 확신은 못하겠다. 머릿속에 써보고 싶은 주제들은 있는데 흠 시간을 낼 수 있을지. 사실 회사 Confluence에도 글을 쓰고 있고,  회사 개술 블로그에도 글을 쓰고 싶은 마음이 있어 이 블로그가 방치되는 것은 아닌지 모르겠다.</p>
+
+<p>하지만 버리지 않았다. 이 블로그는 나중에 책으로 나올 수 있는 진정한 나의 글들이 담기고 있고, 블로그 포맷도 바꿔서 언젠가 다른 플랫폼(AWS 등)으로 이전하는 것도 고려하고 있다. 현 블로그가 이제는 외양이 만족스럽지 않기 때문이다. Endowment effect의 영향일까.</p>
+
+<p>포스트 얘기를 조금만 하자면 이 방법은 왕도인냥 말했지만 꼭 그렇지는 않다고도 느낀다. 자기에게 맞는 방법이 최선이 아닐까. 하지만 연구하는 식의 공부가 맞는 사람들에게는 내 방법도 괜찮을 것이다. 너, 나와 같이 실험하지 않을래?</p>
+
+<p>이상 포스트를 마칩니다.</p>
+
+      <div class="page-footer">
+        <div class="page-share">
+          <a href="https://twitter.com/intent/tweet?text=내가 Python을 공부한 방법&url=http://localhost:4000/programming/python/how-i-studied-python" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
+          <a href="https://facebook.com/sharer.php?u=http://localhost:4000/programming/python/how-i-studied-python" title="Share on Facebook" rel="nofollow" target="_blank">Facebook</a>
+          <a href="https://plus.google.com/share?url=http://localhost:4000/programming/python/how-i-studied-python" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>
+        </div>
+        <div class="page-tag">
+          
+            <a href="/tags#newbie" class="tag">&#35; newbie</a>
+          
+            <a href="/tags#python" class="tag">&#35; python</a>
+          
+        </div>
+      </div>
+
+			<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+			<!-- 처음과끝에만 -->
+			<ins class="adsbygoogle"
+					 style="display:block"
+					 data-ad-client="ca-pub-2670967175857332"
+					 data-ad-slot="3352812061"
+					 data-ad-format="auto"
+					 data-full-width-responsive="true"></ins>
+			<script>
+					 (adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+			<!-- 처음과끝에만 -->
+
+		  <!-- Load Facebook SDK for JavaScript -->
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+
+  <!-- Your share button code -->
+  <div class="fb-share-button" 
+    data-href="http://localhost:4000/programming/python/how-i-studied-python" 
+    data-layout="button_count">
+  </div>
+
+		
+    </div> <!-- End Wrap Content -->
+  </div> <!-- End Page Content -->
+</article> <!-- End Article Page -->
+
+</div>
+
+  </div>
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', '', 'auto');
+  ga('send', 'pageview');
+</script> <!-- End Analytics -->
+
+	<script src="https://unpkg.com/simple-jekyll-search@1.5.0/dest/simple-jekyll-search.min.js"></script>
+<script>
+var sjs = SimpleJekyllSearch({
+  searchInput: document.querySelector('#search-input'),
+  resultsContainer: document.getElementById('results-container'),
+  json: '/search.json',
+  searchResultTemplate: '<li class="search-results-item"><a href="http://localhost:4000{url}">{title}</a></li>',
+	limit: 9,
+	noResultsText: '<li class="search-results-item"><a href="#">No results found...</a></li>'
+})
+</script>
+
+	<!-- Main Js -->
+<!--<script src="/assets/js/main.js"></script>-->
+
+<!-- JQuery 3.x min -->
+<script src="/assets/js/jquery.js"></script>
+
+<script>
+	let menus = $("#category-list");
+	let image = $("#menu-toggler img");
+	$("#toggler-wrapper").click(function() {
+		if(menus.css("display") === "none") {
+			image.attr("src", "/assets/img/close-button.png");
+			menus.css("display", "flex");
+		}
+		else {
+			image.attr("src", "/assets/img/nav-off.png");
+			menus.css("display", "none");
+		}
+	});
+
+
+</script>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-127149179-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-127149179-1');
+</script>
+
+</body>
+</html>
