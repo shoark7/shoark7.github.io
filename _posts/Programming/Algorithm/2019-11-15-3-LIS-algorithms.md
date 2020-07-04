@@ -353,6 +353,9 @@ $$n$$의 크기에 따라 크게 두 가지의 경우의 수가 있는데 첫 �
 
 ```python
 def lis(arr):
+    if not arr:
+        return 0
+
     # C[i] means smallest last number of lis subsequences whose length are i
     INF = float('inf')
     C = [INF] * (len(arr)+1)
