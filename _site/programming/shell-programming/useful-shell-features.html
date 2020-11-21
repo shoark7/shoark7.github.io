@@ -17,14 +17,14 @@
     <meta content="I introduce some awesome shell features that you may not know" property="og:description">
   
   
-    <meta content="https://shoark7.github.io/programming/shell-programming/useful-shell-features" property="og:url">
+    <meta content="http://localhost:4000/programming/shell-programming/useful-shell-features" property="og:url">
 	
   
     <meta content="2020-04-15T00:00:00+09:00" property="article:published_time">
-    <meta content="https://shoark7.github.io/about/" property="article:author">
+    <meta content="http://localhost:4000/about/" property="article:author">
   
   
-    <meta content="https://shoark7.github.io/assets/img/shell-programming/shell-we-dance-logo.png" property="og:image">
+    <meta content="http://localhost:4000/assets/img/shell-programming/shell-we-dance-logo.png" property="og:image">
   
   
     
@@ -46,13 +46,13 @@
     <meta name="twitter:title" content="둘이 코딩하다 하나가 죽어도 모르는 유익한 쉘 기능 소개">
   
   
-    <meta name="twitter:url" content="https://shoark7.github.io/programming/shell-programming/useful-shell-features">
+    <meta name="twitter:url" content="http://localhost:4000/programming/shell-programming/useful-shell-features">
   
   
     <meta name="twitter:description" content="I introduce some awesome shell features that you may not know">
   
   
-    <meta name="twitter:image:src" content="https://shoark7.github.io/assets/img//shell-programming/shell-we-dance-logo.png">
+    <meta name="twitter:image:src" content="http://localhost:4000/assets/img//shell-programming/shell-we-dance-logo.png">
   
 
   
@@ -94,6 +94,13 @@
     linebreaks: {automatic: true}
   }
 });
+
+	MathJax.Hub.Register.StartupHook('TeX Jax Ready', function () {
+		MathJax.InputJax.TeX.prefilterHooks.Add(function (data) {
+			data.math = data.math.replace(/^% <!\[CDATA\[/, '').replace(/%\]\]>$/, '');
+		});
+	});
+
 </script>
 
 	<link rel="stylesheet" href="/assets/css/main.css">
@@ -646,9 +653,9 @@ bundle <span class="nb">exec </span>jekyll serve
 
       <div class="page-footer">
         <div class="page-share">
-          <a href="https://twitter.com/intent/tweet?text=둘이 코딩하다 하나가 죽어도 모르는 유익한 쉘 기능 소개&url=https://shoark7.github.io/programming/shell-programming/useful-shell-features" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
-          <a href="https://facebook.com/sharer.php?u=https://shoark7.github.io/programming/shell-programming/useful-shell-features" title="Share on Facebook" rel="nofollow" target="_blank">Facebook</a>
-          <a href="https://plus.google.com/share?url=https://shoark7.github.io/programming/shell-programming/useful-shell-features" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>
+          <a href="https://twitter.com/intent/tweet?text=둘이 코딩하다 하나가 죽어도 모르는 유익한 쉘 기능 소개&url=http://localhost:4000/programming/shell-programming/useful-shell-features" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
+          <a href="https://facebook.com/sharer.php?u=http://localhost:4000/programming/shell-programming/useful-shell-features" title="Share on Facebook" rel="nofollow" target="_blank">Facebook</a>
+          <a href="https://plus.google.com/share?url=http://localhost:4000/programming/shell-programming/useful-shell-features" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>
         </div>
         <div class="page-tag">
           
@@ -684,7 +691,7 @@ bundle <span class="nb">exec </span>jekyll serve
 
   <!-- Your share button code -->
   <div class="fb-share-button" 
-    data-href="https://shoark7.github.io/programming/shell-programming/useful-shell-features" 
+    data-href="http://localhost:4000/programming/shell-programming/useful-shell-features" 
     data-layout="button_count">
   </div>
 
@@ -712,7 +719,7 @@ var sjs = SimpleJekyllSearch({
   searchInput: document.querySelector('#search-input'),
   resultsContainer: document.getElementById('results-container'),
   json: '/search.json',
-  searchResultTemplate: '<li class="search-results-item"><a href="https://shoark7.github.io{url}">{title}</a></li>',
+  searchResultTemplate: '<li class="search-results-item"><a href="http://localhost:4000{url}">{title}</a></li>',
 	limit: 9,
 	noResultsText: '<li class="search-results-item"><a href="#">No results found...</a></li>'
 })

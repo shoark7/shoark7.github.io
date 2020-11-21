@@ -17,14 +17,14 @@
     <meta content="I introduce result of our final project: DATA 1988" property="og:description">
   
   
-    <meta content="https://shoark7.github.io/projects/dev-related/data-designer-projects" property="og:url">
+    <meta content="http://localhost:4000/projects/dev-related/data-designer-projects" property="og:url">
 	
   
     <meta content="2016-05-01T00:00:00+09:00" property="article:published_time">
-    <meta content="https://shoark7.github.io/about/" property="article:author">
+    <meta content="http://localhost:4000/about/" property="article:author">
   
   
-    <meta content="https://shoark7.github.io/assets/img/dev-related/logo-data-designer1.png" property="og:image">
+    <meta content="http://localhost:4000/assets/img/dev-related/logo-data-designer1.png" property="og:image">
   
   
     
@@ -48,13 +48,13 @@
     <meta name="twitter:title" content="꿈꾸는 데이터 디자이너 프로젝트: DATA 1988">
   
   
-    <meta name="twitter:url" content="https://shoark7.github.io/projects/dev-related/data-designer-projects">
+    <meta name="twitter:url" content="http://localhost:4000/projects/dev-related/data-designer-projects">
   
   
     <meta name="twitter:description" content="I introduce result of our final project: DATA 1988">
   
   
-    <meta name="twitter:image:src" content="https://shoark7.github.io/assets/img//dev-related/logo-data-designer1.png">
+    <meta name="twitter:image:src" content="http://localhost:4000/assets/img//dev-related/logo-data-designer1.png">
   
 
   
@@ -96,6 +96,13 @@
     linebreaks: {automatic: true}
   }
 });
+
+	MathJax.Hub.Register.StartupHook('TeX Jax Ready', function () {
+		MathJax.InputJax.TeX.prefilterHooks.Add(function (data) {
+			data.math = data.math.replace(/^% <!\[CDATA\[/, '').replace(/%\]\]>$/, '');
+		});
+	});
+
 </script>
 
 	<link rel="stylesheet" href="/assets/css/main.css">
@@ -271,9 +278,9 @@
 
       <div class="page-footer">
         <div class="page-share">
-          <a href="https://twitter.com/intent/tweet?text=%EA%BF%88%EA%BE%B8%EB%8A%94%20%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EB%94%94%EC%9E%90%EC%9D%B4%EB%84%88%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8:%20DATA%201988&amp;url=https://shoark7.github.io/projects/dev-related/data-designer-projects" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
-          <a href="https://facebook.com/sharer.php?u=https://shoark7.github.io/projects/dev-related/data-designer-projects" title="Share on Facebook" rel="nofollow" target="_blank">Facebook</a>
-          <a href="https://plus.google.com/share?url=https://shoark7.github.io/projects/dev-related/data-designer-projects" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>
+          <a href="https://twitter.com/intent/tweet?text=%EA%BF%88%EA%BE%B8%EB%8A%94%20%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EB%94%94%EC%9E%90%EC%9D%B4%EB%84%88%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8:%20DATA%201988&amp;url=http://localhost:4000/projects/dev-related/data-designer-projects" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
+          <a href="https://facebook.com/sharer.php?u=http://localhost:4000/projects/dev-related/data-designer-projects" title="Share on Facebook" rel="nofollow" target="_blank">Facebook</a>
+          <a href="https://plus.google.com/share?url=http://localhost:4000/projects/dev-related/data-designer-projects" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>
         </div>
         <div class="page-tag">
           
@@ -305,7 +312,7 @@
   }(document, 'script', 'facebook-jssdk'));</script>
 
   <!-- Your share button code -->
-  <div class="fb-share-button" data-href="https://shoark7.github.io/projects/dev-related/data-designer-projects" data-layout="button_count">
+  <div class="fb-share-button" data-href="http://localhost:4000/projects/dev-related/data-designer-projects" data-layout="button_count">
   </div>
 
 		
@@ -332,7 +339,7 @@ var sjs = SimpleJekyllSearch({
   searchInput: document.querySelector('#search-input'),
   resultsContainer: document.getElementById('results-container'),
   json: '/search.json',
-  searchResultTemplate: '<li class="search-results-item"><a href="https://shoark7.github.io{url}">{title}</a></li>',
+  searchResultTemplate: '<li class="search-results-item"><a href="http://localhost:4000{url}">{title}</a></li>',
 	limit: 9,
 	noResultsText: '<li class="search-results-item"><a href="#">No results found...</a></li>'
 })

@@ -14,4 +14,11 @@
     linebreaks: {automatic: true}
   }
 });
+
+	MathJax.Hub.Register.StartupHook('TeX Jax Ready', function () {
+		MathJax.InputJax.TeX.prefilterHooks.Add(function (data) {
+			data.math = data.math.replace(/^% <!\[CDATA\[/, '').replace(/%\]\]>$/, '');
+		});
+	});
+
 </script>
