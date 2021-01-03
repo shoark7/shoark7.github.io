@@ -316,10 +316,10 @@ $$ \\
 \text{순회하는 다음 수를 }n \text{,} \\
 \text{지금까지 찾은 중간 lis의 길이를 } count \text{,} \\
 \text{C[count]의 원소를 } last \text{라고 하자.} \\
-$$ \\
-
 $$
-\begin{array} \label{}
+
+$$ \\
+\begin{array} \label{} \\
 	n \text{의 크기에 따라 } ->
 	  \begin{cases}
 	    C[count+1] = n & \quad \text{if } last < n \\
