@@ -324,22 +324,26 @@ $$
 \text{C[count]의 원소를 } last \text{라고 하자.} \\
 $$
 
-$$\begin{array} \label{} 
+\$$
+\begin{array} \label{} 
 	n \text{의 크기에 따라 } -> 
 	  \begin{cases}
 	    C[count+1] = n & \quad \text{if } last < n \\
 	    C[i] = n & \quad \text{if } C[i-1] < n <= C[i] \\
 	  \end{cases}
-\end{array}$$
+\end{array}
+\$$
 
 
-$$\begin{array} \label{} \\ 
+\[
+\begin{array} \label{} \\ 
 	n \text{의 크기에 따라 } -> \\
 	  \begin{cases} \\
 	    C[count+1] = n & \quad \text{if } last < n \\
 	    C[i] = n & \quad \text{if } C[i-1] < n <= C[i] \\
 	  \end{cases} \\
-\end{array}$$
+\end{array}
+\]
 
 
 $$n$$의 크기에 따라 크게 두 가지의 경우의 수가 있는데 첫 번째는 쉽게 이해된다. **현재 탐색할 수 $$n$$이 C 배열의 마지막 수보다 크면 새로운 lis의 출현이기에 C에 바로 붙이면 된다.** 가령 $$C = [1, 2, 7, inf, inf]$$인데 숫자가 10이라면 바로 7뒤에 붙여 $$C = [1, 2, 7, 10, inf]$$가 될 것이다. lis의 길이(_count_)도 4로 경신된다.
