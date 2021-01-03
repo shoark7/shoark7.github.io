@@ -110,7 +110,7 @@ MathJax = {
     maxBuffer: 5 * 1024,       // maximum size for the internal TeX string (5K)
     baseURL:                   // URL for use with links to tags (when there is a <base> tag in effect)
        (document.getElementsByTagName('base').length === 0) ?
-        '' : String(document.location).replace(/#.*$/, '')),
+        '' : String(document.location).replace(/#.*$/, ''),
     formatError:               // function called when TeX syntax errors occur
         (jax, err) => jax.formatError(err)
   }
@@ -605,6 +605,8 @@ C[i] = 길이가 i인 증가수열들 중에서 최소의 마지막 값
   \text{지금까지 찾은 중간 lis의 길이를 } count \text{, }<br />
   \text{C[count]의 원소를 } last \text{라고 하자.}
 \]</p>
+
+<p><br /></p>
 
 <p>\[ n \text{의 크기에 따라, }
   \begin{cases}
