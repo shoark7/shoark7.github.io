@@ -324,6 +324,8 @@ C[i] = 길이가 i인 증가수열들 중에서 최소의 마지막 값
 \text{C[count]의 원소를 } last \text{라고 하자.} \\
 \]
 
+<br>
+
 \\[
 \text{순회하는 다음 수를 }n \text{,} \\
 \text{지금까지 찾은 중간 lis의 길이를 } count \text{,} \\
