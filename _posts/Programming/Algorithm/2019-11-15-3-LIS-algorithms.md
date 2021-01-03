@@ -202,7 +202,9 @@ _lis(i)_ 를 수식화해보면 다음과 같겠다.
 
 $$
 \text{수열을 } arr, \text{크기를 } N \text{이라고 하자.} \\
+$$
 
+$$
 \begin{array} \label{}
   lis(start) = MAX \bigg( \forall next \in [start+1, N-1] \hspace{1mm} \& \hspace{1mm} arr[start] < arr[next] \hspace{3mm} | \hspace{3mm} lis(next) + 1 \bigg)
 \end{array}
@@ -316,15 +318,13 @@ $$C = [-inf, 1, 2, 7, inf, inf]$$
 
 자, 이제 다듬는 과정을 조금만 더 살펴보자. $$C[i]$$은 처음에 모두 양의 무한으로 시작할텐데 어떻게 최소값으로 깎아나가는가?(0번째 인덱스는 무시한다.) 앞선 중간 탐색과정의 $$C$$ 배열을 더 활용하자. 현재 원 배열을 순회 중에 있고 다음 원소를 살펴본다. 이때는 다음과 같은 경우의 수가 있겠다.
 
-$
+$$
 \text{순회하는 다음 수를 }n \text{,} \\
 \text{지금까지 찾은 중간 lis의 길이를 } count \text{,} \\
 \text{C[count]의 원소를 } last \text{라고 하자.} \\
-$
+$$
 
-<br>
-
-$ \\
+$$
 \begin{array} \label{} 
 	n \text{의 크기에 따라 } -> 
 	  \begin{cases}
@@ -332,7 +332,7 @@ $ \\
 	    C[i] = n & \quad \text{if } C[i-1] < n <= C[i] \\
 	  \end{cases}
 \end{array}
-$
+$$
 
 $$n$$의 크기에 따라 크게 두 가지의 경우의 수가 있는데 첫 번째는 쉽게 이해된다. **현재 탐색할 수 $$n$$이 C 배열의 마지막 수보다 크면 새로운 lis의 출현이기에 C에 바로 붙이면 된다.** 가령 $$C = [1, 2, 7, inf, inf]$$인데 숫자가 10이라면 바로 7뒤에 붙여 $$C = [1, 2, 7, 10, inf]$$가 될 것이다. lis의 길이(_count_)도 4로 경신된다.
 
