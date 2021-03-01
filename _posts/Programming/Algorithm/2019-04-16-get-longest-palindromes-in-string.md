@@ -185,28 +185,28 @@ Getting a substring and reversing it is really easy in Python. But at worst case
 
 So, let's define a subfunction _is\_palindrome_. It gets _lo_, and _hi_ variables, which are the start and end indices of a target substring.(both are inclusive)
 
+<br>
 
-$$
-\begin{align} \label{}
+\\[
 	\text{is_palindrome}(lo, hi): \text{Return bool value of whether a substring(string[lo, hi]) is a palindrome or not}
-\end{align}
-$$
+\\]
+
+<br>
 
 **With this definition, we can induce a recurrence formula:**
 
+<br>
 
-$$
-\begin{array} \label{}
-	\text{is_palindrome}(lo, hi) =
+\\[
+	is\\_palindrome(lo, hi) =
+	\displaylines{
 	  \begin{cases}
-	    True & \quad \text{1. if lo == hi},\\
-	    string[lo] == string[hi] & \quad \text{2. if lo + 1 == hi},\\
-	    \\
-	    False & \text{3. if string[lo] != string[hi]},\\
-	    \text{is_palindrome}(lo+1, hi-1) & \quad\\
+	    True & \quad \text{1. if lo == hi}, \\\\ string[lo] == string[hi] & \quad \text{2. if lo + 1 == hi}, \\\\ False & \text{3. if string[lo] != string[hi]}, \\\\ \text{is_palindrome}(lo+1, hi-1) & \quad \text{4. else}
 	  \end{cases}
-\end{array}
-$$
+	}
+\\]
+
+<br>
 
 What does this mean? True or not is decided by one case among this conditions.
 
