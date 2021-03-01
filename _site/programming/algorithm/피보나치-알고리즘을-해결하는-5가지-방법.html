@@ -343,15 +343,16 @@ MathJax = {
 <p><strong>우리가 해결하고자 하는 문제는, 0 이상의 정수 <em>n</em> 이 주어질 때 <em>n</em> 번째 피보나치 수를 구하는 것이다.</strong>
 <em>n</em> 번째 피보나치 수를 구하는 <em>fibo</em> 함수는 다음과 같이 정의할 수 있을 것이다.</p>
 
-<script type="math/tex; mode=display">% <![CDATA[
-\begin{align}  \label{x1}
+<p><br /></p>
+
+<p>\[
 	fibo(n) =
 	  \begin{cases}
-	    0  & \quad \text{if } n \text{ is 0,} \\
-	    1  & \quad \text{if } n \text{ is 1,} \\
-	    fibo(n-1) + fibo(n-2) & \quad \text{otherwise.}
+	    0  &amp; \quad \text{if } n \text{ is 0,} \\ 1  &amp; \quad \text{if } n \text{ is 1,} \\ fibo(n-1) + fibo(n-2) &amp; \quad \text{otherwise.}
 	  \end{cases}
-\end{align} %]]></script>
+\]</p>
+
+<p><br /></p>
 
 <p>이 기본 함수를 바탕으로 피보나치 수를 구하는 다양한 알고리즘을 살펴보자.</p>
 
@@ -546,16 +547,19 @@ MathJax = {
 
 <p>이때, 피보나치 수들을 행렬화할 수 있는데, 이런 정리를 이끌어낼 수 있다.</p>
 
-<script type="math/tex; mode=display">% <![CDATA[
-\begin{pmatrix}
-   F_{n+1} & F_{n} \\
-   F_{n} & F_{n-1} 
+<p><br /></p>
+
+<p>\[
+ \begin{pmatrix}
+   F_{n+1} &amp; F_{n} \\ F_{n} &amp; F_{n-1} 
  \end{pmatrix}
  =
  \begin{pmatrix}
-   1 & 1 \\
-   1 & 0
- \end{pmatrix}^n %]]></script>
+   1 &amp; 1 \\ 1 &amp; 0
+ \end{pmatrix}^n
+\]</p>
+
+<p><br /></p>
 
 <p>이를 유도하는 과정은 <a href="http://algorithms.cf/entry/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B3%B5%EB%B6%80-%ED%94%BC%EB%B3%B4%EB%82%98%EC%B9%98-%EC%88%98%EC%97%B4" target="_blank">여기</a>를 참고하자. 이 포스트에서는 이 식이 맞다고 가정하고 계속 진행한다.</p>
 
@@ -649,9 +653,9 @@ MathJax = {
 
 <p>마지막으로 <em>n</em> 번째 피보나치 수를 구하는 일반항이 있다.</p>
 
-<script type="math/tex; mode=display">\begin{align}  \label{x2}
+<p>\[
 	a_{n} = \frac{1}{\sqrt{5}}\left(\left(\frac{1 + \sqrt{5}}{2}\right)^n - \left(\frac{1 - \sqrt{5}}{2}\right)^n\right)
-\end{align}</script>
+\]</p>
 
 <p>피보나치 수열의 일반항이 있다는 것이 신기했는데, 유도 방법은 밑의 2번째 출처에서 확인할 수 있다. 일단 진짜로 값이 나오는지 확인부터 하자.</p>
 
