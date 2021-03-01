@@ -513,40 +513,46 @@ reject non-numeric types.
 
 <p>1부터 <script type="math/tex">n</script>까지 더해나갈 때 <script type="math/tex">n</script>이 100이라고 하자. 그리고 그 합을 <script type="math/tex">S</script>라고 해보면 다음과 같이 쓸 수 있다.</p>
 
-<script type="math/tex; mode=display">% <![CDATA[
-\begin{align} \label{}
-	S &=   1 +  2 +  3 + \cdots + 98 + 99 + 100 \\
-	  &= 100 + 99 + 98 + \cdots +  3 +  2 +   1
-\end{align} %]]></script>
+<p>\[
+\begin{align}
+	S &amp; =   1 +  2 +  3 + \cdots + 98 + 99 + 100 \\ &amp; = 100 + 99 + 98 + \cdots +  3 +  2 +   1
+\end{align}
+\]</p>
 
 <p>두 표현식은 그냥 순서만 뒤집었다. 근데 이를 위아래로 더해보면 다음과 같이 정리된다.</p>
 
-<script type="math/tex; mode=display">% <![CDATA[
-\begin{align} \label{}
-	2S &= 101 + 101 + 101 + \cdots + 101 + 101 + 101
-\end{align} %]]></script>
+<p><br />
+\[
+	2S = 101 + 101 + 101 + \cdots + 101 + 101 + 101
+\]</p>
 
-<p>신기하게도 각 항이 모두 101(<script type="math/tex">n + 1</script>)이 된다. 그리고 항의 총 개수는 <script type="math/tex">n</script>개가 된다.</p>
+<p><br />
+신기하게도 각 항이 모두 101(<script type="math/tex">n + 1</script>)이 된다. 그리고 항의 총 개수는 <script type="math/tex">n</script>개가 된다.</p>
 
-<script type="math/tex; mode=display">% <![CDATA[
-\begin{align} \label{}
-	2S &= 101 * 100
-\end{align} %]]></script>
+<p><br /></p>
+
+<p>\[
+	2S = 101 * 100
+\]</p>
 
 <p>이 값은 원래 값 <script type="math/tex">S</script>의 두 배이기 때문에 절반으로 나누어 주면…</p>
 
-<script type="math/tex; mode=display">% <![CDATA[
-\begin{align} \label{}
-	S &= 101 * 100 / 2\\
-	  &= 5050
-\end{align} %]]></script>
+<p><br />
+\[
+\begin{align}
+	S = 101 * 100 / 2 \\ = 5050
+\end{align}
+\]</p>
 
-<p>이 식을 자연수 <script type="math/tex">n</script>으로 일반화하면 다음 식이 나온다.</p>
+<p><br />
+이 식을 자연수 <script type="math/tex">n</script>으로 일반화하면 다음 식이 나온다.</p>
 
-<script type="math/tex; mode=display">% <![CDATA[
-\begin{align} \label{}
-	1 + 2 + \cdots + (n-1) + n &= \frac{(n + 1) \times n}{2}
-\end{align} %]]></script>
+<p><br />
+\[
+	1 + 2 + \cdots + (n-1) + n = \frac{(n + 1) \times n}{2}
+\]</p>
+
+<p><br /></p>
 
 <p><strong>시간복잡도가 <script type="math/tex">O(1)</script>로</strong> 미쳤다고 밖에 할 수 없다. 실제로 컴퓨터가 아닌 사람이 계산해도 ‘수 초만에’ 답이 나오는 식이고 가우스가 정말로 이 식을 초등학생 때 만들었다면 놀라지 않을 수 없다.</p>
 
