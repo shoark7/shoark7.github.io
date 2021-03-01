@@ -200,14 +200,16 @@ lis(i) := i번째 원소부터 끝까지의 최장 증가수열의 길이
 
 _lis(i)_ 를 수식화해보면 다음과 같겠다.
 
-$$\text{수열을 } arr, \text{크기를 } N \text{이라고 하자.}$$
+\\[
+\text{수열을 } arr, \text{크기를 } N \text{이라고 하자.}
+\\]
 
 
-$$
-\begin{array} \label{}
+\\[
+\begin{array}
   lis(start) = MAX \bigg( \forall next \in [start+1, N-1] \hspace{1mm} \& \hspace{1mm} arr[start] < arr[next] \hspace{3mm} | \hspace{3mm} lis(next) + 1 \bigg)
 \end{array}
-$$
+\\]
 
 내 나름의 수식을 해석해보면 `|`를 기준으로 해서
 
@@ -320,23 +322,18 @@ C[i] = 길이가 i인 증가수열들 중에서 최소의 마지막 값
   
 
 \\[
-  \text{순회하는 다음 수를 }n \text{, }\\
-  \text{지금까지 찾은 중간 lis의 길이를 } count \text{, }\\
+  \text{순회하는 다음 수를 }n \text{, } \\
+  \text{지금까지 찾은 중간 lis의 길이를 } count \text{, } \\
   \text{C[count]의 원소를 } last \text{라고 하자.}
 \\]
 
-<br>
-
 
 \\[ 
-\begin{equation}
   n \text{의 크기에 따라, }
   \begin{cases}
-    C[count+1] = n & \quad \text{if } last < n \\\\
+    C[count+1] = n & \quad \text{if } last < n \\\
     C[i] = n & \quad \text{if } C[i-1] < n <= C[i]
   \end{cases}
-
-\end{equation}
 \\]
 
 
