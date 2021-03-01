@@ -89,12 +89,13 @@ def count_zero(N):
 
 문제가 쉽다고 그냥 직관으로 때려박지 말고, 문제를 우리의 언어로 다시 정의하자.
 
+<br>
 
-$$
-\begin{array} \label{}
+\\[
 	\text{count_trailing_zeros(N):  } N!\text{의 끝 0의 개수를 반환}
-\end{array}
-$$
+\\]
+
+<br>
 
 원 문제이자 인터페이스인 *count\_trailing\_zeros* 함수를 정의했다. **이 함수는 정수 N을 받아 N!의 뒤의 0의 개수를 셀 것이다.** 이때 이름을 잘 지어줘야 한다. 뒤에 붙는 0이라는 의미에서 'trailing'이라는 이름을 추가해줬는데 이게 꼭 필요하다. 이 의미가 없으면 '10100'의 숫자의 답이 3이 나와야하기 때문이다. 그래서 난 백준에 소개된 문제의 이름이 '0의 개수'라는 것이 문제가 있다고 생각한다. 아무리 문제 소개에는 뒷부분의 0이라는 것을 알려주지만 언제나 '이름'이 중요한데.
 
@@ -103,22 +104,22 @@ $$
 
 이 원 문제는 해결할 단위가 크다. 이 문제를 해결하기 위해 부분문제를 하나 정의했다.
 
+<br>
 
-$$
-\begin{array} \label{}
+\\[
 	\text{count_factors(N, f):  } N\text{이 소수 } f\text{를 몇 개 가지고 있는지를 반환}
-\end{array}
-$$
+\\]
+
+<br>
 
 __*count\_factors*는 정수 N과 f를 받아서 정수 N를 소인수 분해했을 때 f를 몇 계승 가지고 있는지를 반환한다.__ 좋다. 이 부분문제를 활용해 원 문제를 해결할 수 있을 것 같은데 아까 생각한 직관을 통해 원 문제와 부분문제의 관계를 다음과 같이 정리할 수 있다.
 
+<br>
 
-$$
-\begin{array} \label{}
-	count\_trailing\_zeros(N) = \\ 
-	MIN( \displaystyle\sum_{i=1}^{N} count\_factor(i, 2), \displaystyle\sum_{i=1}^{N} count\_factor(i, 5) )
-\end{array}
-$$
+\\[
+	\text{count_trailing_zeros(N)} = 
+	MIN( \displaystyle\sum_{i=1}^{N} \text{count_factors(i, 2)}, \displaystyle\sum_{i=1}^{N} \text{count_factors(i, 5)} )
+\\]
 
 <br>
 
@@ -126,16 +127,16 @@ $$
 
 많은 방법이 있겠지만 재귀적인 방법이 있다는 것을 알게 됐다.
 
+<br>
 
-$$
-\begin{array} \label{}
-	count\_factor(N, f) =
-	 \begin{cases}
-		    count\_factor(N / f, f) + 1 & \text{if N % f == 0} \\
-		    0  & \text{otherwise}
-	  \end{cases} 
-\end{array}
-$$
+\\[
+	\text{count_factors(N, f)} =
+		 \begin{cases}
+					\text{count_factors(N / f, f)} + 1 & \text{if N % f == 0} \\\\ 0  & \text{otherwise}
+		\end{cases} 
+\\]
+
+<br>
 
 테스트해보라. 숫자 몇 개만 넣어도 정확히 동작한다는 것을 알게 될 것이다. 단순히 재귀함수로 짜도 되지만 **이를 동적 계획법을 사용해서 1부터 N까지의 수에서 f가 2와 5일 때의 값을 더해 비교하면 되겠다.**
 
@@ -146,13 +147,14 @@ $$
 
 우리는 $$N!$$에서 2와 5의 개수를 셀 것이다. 소인수가 2일 때와 5일 때를 계산해서 더 작은 값을 선택할텐데 사실 두 값을 모두 계산할 필요가 없다. **어떤 팩토리얼 수에서도 5의 개수가 2의 개수보다 더 적거나 같기 때문이다.**
 
+<br>
 
-$$
-\begin{array} \label{}
+\\[
 	\text{a와 b는 소수, a < b 일 때} \\
-	\displaystyle\sum_{i=1}^{N} count\_factor(i, a) >= \displaystyle\sum_{i=1}^{N} count\_factor(i, b)
-\end{array}
-$$
+	\displaystyle\sum_{i=1}^{N} \text{count_factors(i, a)} >= \displaystyle\sum_{i=1}^{N} \text{count_factors(i, b)}
+\\]
+
+<br>
 
 이는 조금만 생각해보면 당연함을 알 수 있는데 a, b가 자연수일 때는 성립하지 않는다.(예: 7, 8) 이제 **우리는 N!에서 5의 개수만 세서 반환하면 되겠다.**
 
@@ -164,24 +166,24 @@ def count_trailing_zeros(N):
     # 1.
     cache = [-1] * (N+1)
 
-    def count_factor(n, f):
+    def count_factors(n, f):
         # 2.
         if cache[n] != -1:
             return cache[n]
 
         # 3.
-        cache[n] = count_factor(n // f, f) + 1 if not n % f else 0
+        cache[n] = count_factors(n // f, f) + 1 if not n % f else 0
         return cache[n]
 
     # 4.
     ans = 0
     for i in range(1, N+1):
-        ans += count_factor(i, 5)
+        ans += count_factors(i, 5)
     return ans
 ```
 
 1. 1부터 N까지의 5의 개수를 저장할 _cache_ 를 선언했다.
-1. *count\_factor* 함수를 정의했다.
+1. *count\_factors* 함수를 정의했다.
   - 이 함수는 앞서 정리한 식을 충실히 재현한다. **단순 재귀대신 동적 계획법을 사용하는 이유는 반복 계산을 하지 않기 위해서이기 때문에 _cache_ 에 미리 저장한 값이 있으면 다시 계산하지 않고 가져다 쓴다.**
 1. 미리 계산되지 않은 경우 직접 계산한다.
   - **_n_ 이 _f_ 로 나눠떨어지지 않으면 0을 반환하고 아닐 경우 그보다 작은 값에 1을 더한다.**
