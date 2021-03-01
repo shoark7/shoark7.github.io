@@ -147,31 +147,28 @@ def sum_generator(N):
 
 **1부터 N까지 더하는 문제에서 일단 N이 짝수라고 가정하자.**
 
-$$
-\begin{array} \label{}
+<br>
 
-	f(n) = 1 + 2 + \cdots + (n - 1) + n \\
-	\text{이 식을 절반을 나눠보자.} \\
-	f(n) = \left(1 + 2 + \cdots + \frac{n}{2}\right) + \left((\frac{n}{2} + 1) + (\frac{n}{2} + 2) + \cdots +  (\frac{n}{2} + \frac{n}{2})\right)
+\\[
+	\displaylines{
+		f(n) = 1 + 2 + \cdots + (n - 1) + n \\\\ \text{이 식을 절반을 나눠보자.} \\\\ f(n) = \left(1 + 2 + \cdots + \frac{n}{2}\right) + \left((\frac{n}{2} + 1) + (\frac{n}{2} + 2) + \cdots +  (\frac{n}{2} + \frac{n}{2})\right)
+	}
+\\]
 
-\end{array}
-$$
+<br>
 
-
-$$
-\begin{array} \label{}
+\\[
 \text{이때 오른쪽 절반에서 } \frac{n}{2} \text{이 } \frac{n}{2} \text{개만큼 있어서 다음과 같이 정리할 수 있다.}
-\end{array}
-$$
+\\]
 
 
-$$
-\begin{align} \label{}
-	f(n) &= \left(1 + 2 + \cdots + \frac{n}{2}\right) + \left((\frac{n}{2} + 1) + (\frac{n}{2} + 2) + \cdots +  (\frac{n}{2} + \frac{n}{2})\right) \\
-	     &= \left(1 + 2 + \cdots + \frac{n}{2}\right) \times 2 +  \frac{n}{2} \times \frac{n}{2}  \\
-	     &= f(n / 2) \times 2 + \frac{n^2}{4}
-\end{align}
-$$
+\\[
+  \begin{align}
+	f(n) & = \left(1 + 2 + \cdots + \frac{n}{2}\right) + \left((\frac{n}{2} + 1) + (\frac{n}{2} + 2) + \cdots +  (\frac{n}{2} + \frac{n}{2})\right) \\\\ & = \left(1 + 2 + \cdots + \frac{n}{2}\right) \times 2 +  \frac{n}{2} \times \frac{n}{2}  \\\\ & = f(n / 2) \times 2 + \frac{n^2}{4}
+  \end{align}	
+\\]
+
+<br>
 
 우리의 원식을 입력이 절반으로 감소한 점화식으로 표현할 수 있게 되었다! 이제 이를 함수로 구현하면 되는데 그전에 고려해야 할 것이 남아있다.
 
