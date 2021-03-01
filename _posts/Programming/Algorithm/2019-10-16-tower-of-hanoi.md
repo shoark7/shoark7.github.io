@@ -190,23 +190,22 @@ tags: [tower-of-hanoi]
 
 원반의 개수($$N$$)가 몇 개가 되든 결국 이 과정을 거친다. 한 번의 재귀, 가장 큰 원반 옮기기 이후 다시 한 번의 재귀. 물론 이때 예외가 있다. $$N$$이 1일 때는 자신의 위에 원반이 없기 때문에 재귀가 필요없고 바로 원반을 옮기고 종료한다. 이것이 곧 재귀함수의 탈출 조건, 또는 기저 사례(base case)가 된다. 이제 이 식을 실제 수식으로 표현해보자.
 
+<br>
 
-$$
+\\[
 move(N, from, to): \text{N번 원반을 from에서 to로 옮긴다.(우리는 print로 출력함)}
-$$
+\\]
 
-$$
-\begin{array} \label{}
-	\text{hanoi}(N, start, to, via) =
-	  \begin{cases}
-	    move(1, start, to) & \quad \text{1. if N == 1},\\
-	    \\
-	    hanoi(N-1, start, via, to) \\
-	     + move(N, start, to) \\
-	     + hanoi(N-1, via, to, start) & \quad \text{2. else},\\
-	  \end{cases}
-\end{array}
-$$
+\\[
+\text{hanoi}(N, start, to, via) =
+  \displaylines{
+		\begin{cases}
+			move(1, start, to) & \quad \text{1. if N == 1}, \\\\ hanoi(N-1, start, via, to) + move(N, start, to) + hanoi(N-1, via, to, start) & \quad \text{2. else}
+		\end{cases}
+	}
+\\]
+
+<br>
 
 각 재귀함수에서 인자의 순서가 헷갈리기 쉽다. 헷갈리지 말자.
 
@@ -291,33 +290,34 @@ hanoi(3, 'A', 'C', 'B')
 
 이때 각 함수는 마찬가지로 재귀식으로 짤 수 있다.
 
-$$
-\begin{array} \label{}
-	\text{hanoi}(N) =
-	  \begin{cases}
-	    1 & \quad \text{1. if N == 1}, \\
-	    \\
-	    2 \times hanoi(N-1) + 1 & \quad \text{2. else}, \\
-	  \end{cases}
-\end{array}
-$$
+<br>
+
+\\[
+\text{hanoi}(N) =
+  \displaylines{
+		\begin{cases}
+			1 & \quad \text{1. if N == 1}, \\\\ 2 \times hanoi(N-1) + 1 & \quad \text{2. else}
+		\end{cases}
+  }
+\\]
+
+</br>
 
 앞선 함수와 핵심 재귀 논리는 동일하다. 원반의 개수가 1개일 때는 눈치보지 않고 바로 옮기면 되고, 아니면 위의 원반을 옮기고 자신을 옮긴 뒤 다시 남은 원반을 목적지로 옮긴다.
 
 이제 문제는 **이 재귀식에서 일반항을 어떻게 도출할 수 있는가**이다. 그 과정이 결코 어렵지 않으니 따라가보자.
 
-$$
-hanoi_n = hanoi_{n-1} \times 2 + 1 \\
-\text{양변에 1을 더하면} \\
-	\\
-hanoi_n + 1 = 2 \times (hanoi_{n-1} + 1) \\
-hanoi_{n-1} + 1 = 2 \times (hanoi_{n-2} + 1) \\
-hanoi_{n-2} + 1 = 2 \times (hanoi_{n-3} + 1) \\
-\vdots \\
-hanoi_2 + 1 = 2 \times (hanoi_1 + 1) \\
-$$
+<br>
 
-$$
+\\[
+  \displaylines{
+hanoi_n = hanoi_{n-1} \times 2 + 1 \\\\ \text{양변에 1을 더하면} \\\\ hanoi_n + 1 = 2 \times (hanoi_{n-1} + 1) \\\\ hanoi_{n-1} + 1 = 2 \times (hanoi_{n-2} + 1) \\\\ hanoi_{n-2} + 1 = 2 \times (hanoi_{n-3} + 1) \\\\ \vdots \\\\ hanoi_2 + 1 = 2 \times (hanoi_1 + 1)
+	}
+\\]
+
+<br>
+
+\\[
 \text{이때 좌변과 우변을 각각 곱하면...} \\
 	\\
 (hanoi_n + 1)(hanoi_{n-1} + 1) \cdots (hanoi_2 + 1) = 2^{n-1}(hanoi_{n-1} + 1) \cdots (hanoi_1 + 1) \\
@@ -330,7 +330,7 @@ hanoi_1 \text{은 1이기 때문에 결국} \\
 (hanoi_n + 1) = 2^n \\
 	\\
 \therefore \mathbf{hanoi_n = 2^n - 1}
-$$
+\\]
 
 이렇게 N개의 원반을 옮기는 하노이의 탑 문제의 이동횟수의 일반항을 구할 수 있었다. 결국 2의 지수식이 나오는데 각 함수가 두 번의 재귀식을 실행시킨다는 것을 알면 감각적인 사람들은 대충이라도 유추할 수도 있었을 것이다. 나는 못했다. ㅋㅋ
 
