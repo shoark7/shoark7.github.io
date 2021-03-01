@@ -494,15 +494,17 @@ lis(i) := i번째 원소부터 끝까지의 최장 증가수열의 길이
 
 <p><em>lis(i)</em> 를 수식화해보면 다음과 같겠다.</p>
 
+<p><br /></p>
+
 <p>\[
 \text{수열을 } arr, \text{크기를 } N \text{이라고 하자.}
 \]</p>
 
 <p>\[
-\begin{array}
   lis(start) = MAX \bigg( \forall next \in [start+1, N-1] \hspace{1mm} \&amp; \hspace{1mm} arr[start] &lt; arr[next] \hspace{3mm} | \hspace{3mm} lis(next) + 1 \bigg)
-\end{array}
 \]</p>
+
+<p><br /></p>
 
 <p>내 나름의 수식을 해석해보면 <code class="highlighter-rouge">|</code>를 기준으로 해서</p>
 

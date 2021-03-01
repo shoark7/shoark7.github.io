@@ -200,16 +200,18 @@ lis(i) := i번째 원소부터 끝까지의 최장 증가수열의 길이
 
 _lis(i)_ 를 수식화해보면 다음과 같겠다.
 
+<br>
+
 \\[
 \text{수열을 } arr, \text{크기를 } N \text{이라고 하자.}
 \\]
 
 
 \\[
-\begin{array}
   lis(start) = MAX \bigg( \forall next \in [start+1, N-1] \hspace{1mm} \& \hspace{1mm} arr[start] < arr[next] \hspace{3mm} | \hspace{3mm} lis(next) + 1 \bigg)
-\end{array}
 \\]
+
+<br>
 
 내 나름의 수식을 해석해보면 `|`를 기준으로 해서
 
