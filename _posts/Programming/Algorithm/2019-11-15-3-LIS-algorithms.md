@@ -332,7 +332,7 @@ C[i] = 길이가 i인 증가수열들 중에서 최소의 마지막 값
   n \text{의 크기에 따라, }
   \displaylines{
 	  \begin{cases}
-	    C[count+1] = n & \quad \text{if } last < n \\\ C[i] = n & \quad \text{if } C[i-1] < n <= C[i]
+	    C[count+1] = n & \quad \text{if } last < n \\\\ C[i] = n & \quad \text{if } C[i-1] < n <= C[i]
 	  \end{cases}
   }
 \\]
