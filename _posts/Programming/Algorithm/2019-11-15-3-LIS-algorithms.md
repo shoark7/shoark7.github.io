@@ -204,6 +204,8 @@ $$
 \text{수열을 } arr, \text{크기를 } N \text{이라고 하자.} \\
 $$
 
+<br>
+
 $$
 \begin{array} \label{}
   lis(start) = MAX \bigg( \forall next \in [start+1, N-1] \hspace{1mm} \& \hspace{1mm} arr[start] < arr[next] \hspace{3mm} | \hspace{3mm} lis(next) + 1 \bigg)
