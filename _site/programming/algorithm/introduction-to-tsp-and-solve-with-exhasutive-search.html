@@ -383,33 +383,28 @@ MathJax = {
 
 <p><em>find_path</em> 함수에 대한 유사코드(pseudo code)를 살펴보자.</p>
 
-<script type="math/tex; mode=display">\begin{array} \label{}
-	\text{전체 도시 수가 N, 각 도시 간 거리를 담은 행렬이 D,} \\
-	\text{최종적으로 반환할 최소 거리가 ans일 때,} \\
-	\\
+<p>\[
+	\text{전체 도시 수가 N, 각 도시 간 거리를 담은 행렬이 D,}
+	\text{최종적으로 반환할 최소 거리가 ans일 때,}
+\]</p>
 
-	\mathbf{[01] \quad ans = infinite} \\
-	\mathbf{[02]} \quad \\
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	[01] ans = infinite
+	[02] 
+	[03] find_path(start, last, V, tmp_dist):
+	[04]    if 모든 도시를 방문했다면:
+	[05]       return_home_dist = D[last][start] or infinite
+	[06]       ans = min(ans, tmp_dist + return_home_dist)
+	[07]       return
+	[08]
+	[09]    for left_city in V의 여집합:
+	[10]      if last와 left_city가 연결되어 있다면:
+	[11]         left_city를 방문 및 V에 추가.
+	[12]         find_path(start, left_city, V, tmp_dist + D[last][left_city])
+	[13]         V에서 left_city를 제거.
 
-	\mathbf{
-		[03] \quad find\_path(start, last, V, tmp\_dist): \\
-		[04] \quad \quad  \text{if 모든 도시를 방문했다면:} \\
-
-		[05] \quad \quad  \quad   return\_home\_dist = D[last][start] \text{ or } infinite \\
-		[06] \quad \quad  \quad   ans = min(ans, tmp\_dist + return\_home\_dist) \\
-		[07] \quad \quad  \quad   return \\
-		[08] \quad \text{ } \\
-
-		[09] \quad \quad  \text{for left_city in } V^\complement: \\
-		[10] \quad \quad  \quad  \text{if last와 left_city가 연결되어 있다면:} \\
-		[11] \quad \quad  \quad  \quad   \text{left_city를 방문 및 V에 추가.} \\
-		[12] \quad \quad \quad  \quad   find\_path(start, left\_city, V, tmp\_dist + D[last][left\_city]) \\
-		[13] \quad \quad  \quad \quad   \text{V에서 left_city를 제거.} \\
-		\text{ } \\
-	} \\
-
-		\text{이제 `ans`가 모든 경로의 최소값}
-\end{array} \label{}</script>
+	...
+	[14] 이제 'ans'가 모든 경로의 최소값
+</code></pre></div></div>
 
 <p>4가지의 상태를 유지하며 최종 정답을 경신해나가는 <em>find_path</em> 함수의 유사코드를 작성했다. 도시 수와 도시 간 거리를 담은 행렬을 각각 N과 D라고 한다.(이는 문제 정의에서 주어진다.) 그리고 1번 줄처럼 반환할 최종값을 무한으로 설정하고 점점 줄여나갈 것이다.</p>
 
