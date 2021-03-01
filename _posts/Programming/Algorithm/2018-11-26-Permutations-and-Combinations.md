@@ -25,12 +25,13 @@ tags: [Algorithm, Combination, Permutation]
 
 **순열(Permutation)은 서로 다른 _n_ 개의 대상에서 _r_ 개를 뽑아 일렬로 배열한 것을 말하고 그 경우의 수는 $$nPr$$로 표현한다.($$n \geq r$$) 그리고 _n_ 과 _r_ 이 같을 때 순열의 경우의 수는 계승(factorial, $$n!$$)이 된다.** 그리고 순열의 가지수를 구하는 다음과 같은 공식이 있다.
 
+<br>
 
-$$
-\begin{align}  \label{x1}
+\\[
 	n P r = \frac{n!}{(n-r)!} (단, 0 \le r \le n)
-\end{align}
-$$
+\\]
+
+<br>
 
 **우리는 코드로 리스트와 같은 어떤 순회할 수 있는 _Sequence_ 자료형과 선택할 개수 _r_ 이 들어왔을 때 각 순열을 출력하는 알고리즘을 구현하자.**
 
@@ -74,18 +75,19 @@ def permutation(arr, r):
 
 
 
-## 2. 조합 만들기
+## 3. 조합 만들기
 
 ---
 
 순열과 달리, **조합(Combination)은 같은 _n_ 개 중에 _r_ 를 뽑되, 순서를 고려하지 않는다.** _n_ 개 중에 _r_ 를 뽑는 조합의 경우의 수는 다음과 같다.
 
+<br>
 
-$$
-\begin{align}  \label{x2}
+\\[
 	\binom{n}{r} = n C r = \frac{n!}{(n-r)!r!} (단, 0 \le r \le n)
-\end{align}
-$$
+\\]
+
+<br>
 
 
 이를 코드로 구현해보자.
@@ -124,7 +126,7 @@ def combination(arr, r):
 
 
 
-## 3. 놓치기 쉬운 중복 문제
+## 4. 놓치기 쉬운 중복 문제
 
 ---
 

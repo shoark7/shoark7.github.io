@@ -309,9 +309,13 @@ MathJax = {
 
 <p><strong>순열(Permutation)은 서로 다른 <em>n</em> 개의 대상에서 <em>r</em> 개를 뽑아 일렬로 배열한 것을 말하고 그 경우의 수는 <script type="math/tex">nPr</script>로 표현한다.(<script type="math/tex">n \geq r</script>) 그리고 <em>n</em> 과 <em>r</em> 이 같을 때 순열의 경우의 수는 계승(factorial, <script type="math/tex">n!</script>)이 된다.</strong> 그리고 순열의 가지수를 구하는 다음과 같은 공식이 있다.</p>
 
-<script type="math/tex; mode=display">\begin{align}  \label{x1}
+<p><br /></p>
+
+<p>\[
 	n P r = \frac{n!}{(n-r)!} (단, 0 \le r \le n)
-\end{align}</script>
+\]</p>
+
+<p><br /></p>
 
 <p><strong>우리는 코드로 리스트와 같은 어떤 순회할 수 있는 <em>Sequence</em> 자료형과 선택할 개수 <em>r</em> 이 들어왔을 때 각 순열을 출력하는 알고리즘을 구현하자.</strong></p>
 
@@ -352,15 +356,19 @@ MathJax = {
 
 <p>두 예제는 모두 잘 작동한다.</p>
 
-<h2 id="2-조합-만들기">2. 조합 만들기</h2>
+<h2 id="3-조합-만들기">3. 조합 만들기</h2>
 
 <hr />
 
 <p>순열과 달리, <strong>조합(Combination)은 같은 <em>n</em> 개 중에 <em>r</em> 를 뽑되, 순서를 고려하지 않는다.</strong> <em>n</em> 개 중에 <em>r</em> 를 뽑는 조합의 경우의 수는 다음과 같다.</p>
 
-<script type="math/tex; mode=display">\begin{align}  \label{x2}
+<p><br /></p>
+
+<p>\[
 	\binom{n}{r} = n C r = \frac{n!}{(n-r)!r!} (단, 0 \le r \le n)
-\end{align}</script>
+\]</p>
+
+<p><br /></p>
 
 <p>이를 코드로 구현해보자.</p>
 
@@ -395,7 +403,7 @@ MathJax = {
 
 <p>이것도 잘 작동한다.</p>
 
-<h2 id="3-놓치기-쉬운-중복-문제">3. 놓치기 쉬운 중복 문제</h2>
+<h2 id="4-놓치기-쉬운-중복-문제">4. 놓치기 쉬운 중복 문제</h2>
 
 <hr />
 
