@@ -81,12 +81,9 @@ tags: [TSP, dynamic_programming]
 특정 start, last, V에 *find\_path* 에는 다음과 같은 수식이 성립한다.
 
 
-$$
-\begin{array} \label{}
-  find\_path(start, last, V)  \\
-  = MIN \bigg( \forall c \in V^\complement | find\_path(start, c, V \cup \{c\}) + D[last][c] \bigg)
-\end{array}
-$$
+\\[
+find\\_path(start, last, V) = MIN \bigg( \forall c \in V^\complement | find\\_path(start, c, V \cup \{c\}) + D[last][c] \bigg)
+\\]
 
 
 이 수식은 다음과 같은 의미를 가진다:
