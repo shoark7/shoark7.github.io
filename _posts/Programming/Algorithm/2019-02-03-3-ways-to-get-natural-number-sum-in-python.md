@@ -180,16 +180,16 @@ def sum_generator(N):
 
 이제 최종적으로 식으로 정리해보자.
 
-$$
-\begin{array} \label{}
+<br>
+
+\\[
 	f(n) =
 	  \begin{cases}
-	    1 & \quad \text{if } n == 1,\\
-	    n + f(n - 1) & \quad \text{elif } n \text{ is odd},\\
-            f(n / 2) \times 2 + \frac{n^2}{4} & \quad \text{elif } n \text{ is even}
+	    1 & \quad \text{if } n == 1, \\\\ n + f(n - 1) & \quad \text{elif } n \text{ is odd}, \\\\ f(n / 2) \times 2 + \frac{n^2}{4} & \quad \text{elif } n \text{ is even}
 	  \end{cases}
-\end{array}
-$$
+\\]
+
+<br>
 
 좋다! 이 최종적인 점화식을 함수로 구현해보자.
 
