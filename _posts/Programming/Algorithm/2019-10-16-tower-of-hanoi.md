@@ -318,19 +318,16 @@ hanoi_n = hanoi_{n-1} \times 2 + 1 \\\\ \text{양변에 1을 더하면} \\\\ han
 <br>
 
 \\[
-\text{이때 좌변과 우변을 각각 곱하면...} \\
-	\\
-(hanoi_n + 1)(hanoi_{n-1} + 1) \cdots (hanoi_2 + 1) = 2^{n-1}(hanoi_{n-1} + 1) \cdots (hanoi_1 + 1) \\
-\text{양변의 공통된 인자들을 나눈다.} \\
-	\\
-(hanoi_n + 1) = 2^{n-1} \times (hanoi_1 + 1) \\
-	\\
-hanoi_1 \text{은 1이기 때문에 결국} \\
-	\\
-(hanoi_n + 1) = 2^n \\
-	\\
+\displaylines{
+	\text{이때 좌변과 우변을 각각 곱하면...} \\\\ (hanoi_n + 1)(hanoi_{n-1} + 1) \cdots (hanoi_2 + 1) = 2^{n-1}(hanoi_{n-1} + 1) \cdots (hanoi_1 + 1) \\\\ \text{양변의 공통된 인자들을 나눈다.} \\\\ (hanoi_n + 1) = 2^{n-1} \times (hanoi_1 + 1) \\\\ hanoi_1 \text{은 1이기 때문에 결국} \\\\ (hanoi_n + 1) = 2^n
+}
+\\]
+
+\\[
 \therefore \mathbf{hanoi_n = 2^n - 1}
 \\]
+
+<Br>
 
 이렇게 N개의 원반을 옮기는 하노이의 탑 문제의 이동횟수의 일반항을 구할 수 있었다. 결국 2의 지수식이 나오는데 각 함수가 두 번의 재귀식을 실행시킨다는 것을 알면 감각적인 사람들은 대충이라도 유추할 수도 있었을 것이다. 나는 못했다. ㅋㅋ
 
