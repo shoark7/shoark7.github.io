@@ -624,3 +624,4 @@ sum_to_N(10)
 * [Programiz: Python closures](https://www.programiz.com/python-programming/closure){:target="_blank"}
 * [Stackoverflow: what exactly is contained within a obj closure](https://stackoverflow.com/questions/14413946/what-exactly-is-contained-within-a-obj-closure){:target="_blank"}
 * [Wikipedia: First-class citizen](https://en.wikipedia.org/wiki/First-class_citizen){:target="_blank"}
+* [Closure in Python](https://www.scaler.com/topics/python/python-closure/){:target="_blank"}
