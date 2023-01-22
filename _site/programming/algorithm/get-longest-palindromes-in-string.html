@@ -231,7 +231,7 @@ MathJax = {
         <a href="/"><img src="/assets/img/1536558558520.jpg" alt="Sunghwan Park"></a>
       </div>
       <div class="author-name">Sunghwan Park</div>
-      <p>I'm Parkito. A Python lover. Interested in Python, Automation, Algorithm. Please give me insights. I'll teach you tambien! :)</p>
+      <p>I'm Parkito. I'm back. Obsessed with esthetics of codes, sentences, modularity and writing</p>
     </div>
   </header> <!-- End Header -->
   <footer>
@@ -258,7 +258,7 @@ MathJax = {
       </ul>
     </section> <!-- End Section Contact -->
     <div class="copyright">
-      <p>2021 &copy; Sunghwan Park</p>
+      <p>2023 &copy; Sunghwan Park</p>
     </div>
   </footer> <!-- End Footer -->
 </aside> <!-- End Sidebar -->
@@ -319,7 +319,7 @@ MathJax = {
 
 <hr />
 
-<p>This is my second post written totally in English. Well, this post was one of my must-do items but I couldn’t make it because I was too lazy. If you’re intested in algorithm, this subject would be attractive, and maybe a piece of cake to you. Today’s post is about <code class="highlighter-rouge">palindrome</code>. Palindrome is the very famous, easy-to-introduce algorithm for newbies in computer science or any computer languages. But often, it just focuses on telling whether the given string is a palindrome or not. It’s worth noting but we want more, right? So, <strong>today’s post is about ‘getting a list of longest palindromes in a string’. A string can be any sizes long and we have to find all longest palindromes.</strong></p>
+<p>This is my second post written totally in English. Well, this post was one of my must-do items but I couldn’t make it because I was too lazy. If you’re intested in algorithm, this subject would be attractive, and maybe a piece of cake to you. Today’s post is about <code class="language-plaintext highlighter-rouge">palindrome</code>. Palindrome is the very famous, easy-to-introduce algorithm for newbies in computer science or any computer languages. But often, it just focuses on telling whether the given string is a palindrome or not. It’s worth noting but we want more, right? So, <strong>today’s post is about ‘getting a list of longest palindromes in a string’. A string can be any sizes long and we have to find all longest palindromes.</strong></p>
 
 <p>I think you wouldn’t know my focus on posts on algorithms because they’re all written in Korean. I try to introduce various solutions on a single problem and to modularize it into several parts. This kind of behavior is really important for other cases and it’s my pride on my algorithm posts.</p>
 
@@ -362,7 +362,7 @@ MathJax = {
         <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="n">l</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>	<span class="c1"># 2.
 </span>            <span class="n">target</span> <span class="o">=</span> <span class="n">strng</span><span class="p">[</span><span class="n">s</span><span class="p">:</span><span class="n">s</span><span class="o">+</span><span class="n">l</span><span class="p">]</span>
 	    <span class="k">if</span> <span class="n">target</span> <span class="o">==</span> <span class="n">target</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>	<span class="c1"># 3.
-</span>                <span class="n">ans</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">strng</span><span class="p">[</span><span class="n">s</span><span class="p">:</span><span class="n">s</span><span class="o">+</span><span class="n">l</span><span class="p">])</span>
+</span>                <span class="n">ans</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">strng</span><span class="p">[</span><span class="n">s</span><span class="p">:</span><span class="n">s</span><span class="o">+</span><span class="n">l</span><span class="p">])</span>
                 <span class="n">found</span> <span class="o">=</span> <span class="bp">True</span>
         <span class="k">if</span> <span class="n">found</span><span class="p">:</span>
             <span class="k">break</span>
@@ -381,7 +381,7 @@ MathJax = {
   </li>
   <li><strong>Check every substring of length <em>l</em> if it is a palindrome</strong>
     <ul>
-      <li>Look at the length of iteration of 2nd loop. It’s <script type="math/tex">N-l+1</script>, not <script type="math/tex">N-l</script>. It may seem confusing but simple. If <script type="math/tex">l == N</script>, we have to iterate only once. But if we don’t add 1 in iteration count, no iteration is executed.(<em>N-N</em> is 0 and <em>range(0)</em> is not executed) So we have to add 1. To be honest, I was really confused at first.</li>
+      <li>Look at the length of iteration of 2nd loop. It’s \(N-l+1\), not \(N-l\). It may seem confusing but simple. If \(l == N\), we have to iterate only once. But if we don’t add 1 in iteration count, no iteration is executed.(<em>N-N</em> is 0 and <em>range(0)</em> is not executed) So we have to add 1. To be honest, I was really confused at first.</li>
     </ul>
   </li>
   <li><strong>Direct codes of checking a substring is a palindrome</strong>
@@ -441,21 +441,21 @@ MathJax = {
 
 <p>Here are the very core part of the previous solution.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">...</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">...</span>
 <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>	<span class="c1"># 1.
 </span>    <span class="n">found</span> <span class="o">=</span> <span class="bp">False</span>
     <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="n">l</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>	<span class="c1"># 2.
 </span>        <span class="n">target</span> <span class="o">=</span> <span class="n">strng</span><span class="p">[</span><span class="n">s</span><span class="p">:</span><span class="n">s</span><span class="o">+</span><span class="n">l</span><span class="p">]</span>
         <span class="k">if</span> <span class="n">target</span> <span class="o">==</span> <span class="n">target</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>	<span class="c1"># 3.
-</span>            <span class="n">ans</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">strng</span><span class="p">[</span><span class="n">s</span><span class="p">:</span><span class="n">s</span><span class="o">+</span><span class="n">l</span><span class="p">])</span>
+</span>            <span class="n">ans</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">strng</span><span class="p">[</span><span class="n">s</span><span class="p">:</span><span class="n">s</span><span class="o">+</span><span class="n">l</span><span class="p">])</span>
             <span class="n">found</span> <span class="o">=</span> <span class="bp">True</span>
     <span class="k">if</span> <span class="n">found</span><span class="p">:</span>
         <span class="k">break</span>
 
-<span class="o">...</span>
+<span class="p">...</span>
 </code></pre></div></div>
 
-<p>How would time complexity of the solution be? There are 2 <em>for</em> loops nested and checking if a string is palindrome(sec. 3) is <script type="math/tex">O(n)</script>. So the total time complexity is <script type="math/tex">O(N^3)</script>. There’re some cases that possible best solutions works <script type="math/tex">O(N^3)</script> but normally, this time complexity is not good. It takes <script type="math/tex">10^9</script> calculations even if the input is only 1000. It would take several seconds at least.</p>
+<p>How would time complexity of the solution be? There are 2 <em>for</em> loops nested and checking if a string is palindrome(sec. 3) is \(O(n)\). So the total time complexity is \(O(N^3)\). There’re some cases that possible best solutions works \(O(N^3)\) but normally, this time complexity is not good. It takes \(10^9\) calculations even if the input is only 1000. It would take several seconds at least.</p>
 
 <p><strong>With the power of modularity, redefining the problem into subproblems, we can specialize each part and replace inefficient parts with new, better codes.</strong> <strong>Now, I think I can improve the subproblem No.1 among three of them in the previous solution.</strong> It’s about checking a substring.</p>
 
@@ -470,10 +470,10 @@ MathJax = {
     <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="n">l</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>	<span class="c1"># 2.
 </span>        <span class="n">target</span> <span class="o">=</span> <span class="n">strng</span><span class="p">[</span><span class="n">s</span><span class="p">:</span><span class="n">s</span><span class="o">+</span><span class="n">l</span><span class="p">]</span>
         <span class="k">if</span> <span class="n">target</span> <span class="o">==</span> <span class="n">target</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>	<span class="c1"># 3.
-</span>            <span class="n">ans</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">strng</span><span class="p">[</span><span class="n">s</span><span class="p">:</span><span class="n">s</span><span class="o">+</span><span class="n">l</span><span class="p">])</span>
+</span>            <span class="n">ans</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">strng</span><span class="p">[</span><span class="n">s</span><span class="p">:</span><span class="n">s</span><span class="o">+</span><span class="n">l</span><span class="p">])</span>
 </code></pre></div></div>
 
-<p>Getting a substring and reversing it is really easy in Python. But at worst cases, we have to check all substrings and this won’t make it.(<script type="math/tex">O(N^3)</script>)</p>
+<p>Getting a substring and reversing it is really easy in Python. But at worst cases, we have to check all substrings and this won’t make it.(\(O(N^3)\))</p>
 
 <p><br /></p>
 
@@ -531,7 +531,7 @@ MathJax = {
 
 <p><br /></p>
 
-<p>OK. Understood. What can we do now? With recursive function, we can know that if we already know the answer of smaller problems(like <em>[lo+1, hi-1]</em>), it’s easy to know the answer of bigger problem(<em>[lo, hi]</em>). And <strong>we have to store the state(answer) of smaller problems and it’s perfect time to use cache.</strong>. <code class="highlighter-rouge">Dynamic programming</code> is a perfect match here.</p>
+<p>OK. Understood. What can we do now? With recursive function, we can know that if we already know the answer of smaller problems(like <em>[lo+1, hi-1]</em>), it’s easy to know the answer of bigger problem(<em>[lo, hi]</em>). And <strong>we have to store the state(answer) of smaller problems and it’s perfect time to use cache.</strong>. <code class="language-plaintext highlighter-rouge">Dynamic programming</code> is a perfect match here.</p>
 
 <hr />
 
@@ -604,7 +604,7 @@ MathJax = {
         <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="n">l</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
             <span class="k">if</span> <span class="n">is_palindrome</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">s</span><span class="o">+</span><span class="n">l</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
                 <span class="n">found</span> <span class="o">=</span> <span class="bp">True</span>
-                <span class="n">ret</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">strng</span><span class="p">[</span><span class="n">s</span><span class="p">:</span><span class="n">s</span><span class="o">+</span><span class="n">l</span><span class="p">])</span>
+                <span class="n">ret</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">strng</span><span class="p">[</span><span class="n">s</span><span class="p">:</span><span class="n">s</span><span class="o">+</span><span class="n">l</span><span class="p">])</span>
         <span class="k">if</span> <span class="n">found</span><span class="p">:</span>
             <span class="k">break</span>
     <span class="k">return</span> <span class="n">ret</span>
@@ -650,7 +650,7 @@ MathJax = {
             <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="n">l</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
                 <span class="k">if</span> <span class="n">is_palindrome</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">s</span><span class="o">+</span><span class="n">l</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
                     <span class="n">found</span> <span class="o">=</span> <span class="bp">True</span>
-                    <span class="n">ret</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">strng</span><span class="p">[</span><span class="n">s</span><span class="p">:</span><span class="n">s</span><span class="o">+</span><span class="n">l</span><span class="p">])</span>
+                    <span class="n">ret</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">strng</span><span class="p">[</span><span class="n">s</span><span class="p">:</span><span class="n">s</span><span class="o">+</span><span class="n">l</span><span class="p">])</span>
             <span class="k">if</span> <span class="n">found</span><span class="p">:</span>
                 <span class="k">break</span>
         <span class="k">return</span> <span class="n">ret</span>
@@ -679,7 +679,7 @@ MathJax = {
   <li><strong>Efficiency: As readability is improved, we can talk about better efficiency. Amongst subfunctions, bottleneck part is ‘checking a string is a palindrome’. We can profile a program better and we changed <em>is_palindrome</em> function in design level. And if we find a better solution than dynamic programming, no need to make a mess. Just improve the codes of a subfunction. Much, much more easy.</strong></li>
 </ul>
 
-<p>By the way, what is time complexity of this solution? <strong>We know that ‘checking a palindrome’ was a bottleneck. And time complexity of <em>is_palindrome</em> function is <script type="math/tex">O(N^2)</script> cause cache size is <script type="math/tex">(N^2)</script>. So the total time complexity is <script type="math/tex">O(N^2)</script>, much better than <script type="math/tex">O(N^3)</script>, complexity of the previous one.</strong></p>
+<p>By the way, what is time complexity of this solution? <strong>We know that ‘checking a palindrome’ was a bottleneck. And time complexity of <em>is_palindrome</em> function is \(O(N^2)\) cause cache size is \((N^2)\). So the total time complexity is \(O(N^2)\), much better than \(O(N^3)\), complexity of the previous one.</strong></p>
 
 <p><br /></p>
 
@@ -693,15 +693,15 @@ MathJax = {
 
 <p>When I first solved the problem, my solution didn’t use ‘checking a palindrome’ part. In our functions, we define <em>is_palindrome</em> function and its specification is like this:</p>
 
-<script type="math/tex; mode=display">\begin{align} \label{}
+<p>[\begin{align} \label{}
 	\text{is_palindrome}(lo, hi): \text{Return bool value of whether a substring(string[lo, hi]) is a palindrome or not}
-\end{align}</script>
+\end{align}]</p>
 
 <p>This is how we defined a subproblem. But I didn’t mention it’s the only or best to way solve the problem. My first solution defined the other function to use dynamic programming:</p>
 
-<script type="math/tex; mode=display">\begin{align} \label{}
+<p>[\begin{align} \label{}
 	\text{length_of_longest}(lo, hi): \text{Return length of longest palindrome in a substring(string[lo, hi])}
-\end{align}</script>
+\end{align}]</p>
 
 <p>While our code stored True or False if the substring in range [<em>lo</em>, <em>hi</em>] is a palindrome or not, <strong>my original function stored length of longest palindromes in range [<em>lo</em>, <em>hi</em>]. So if substring were ‘abac’, stored value would be ‘3’, not ‘False’.</strong></p>
 

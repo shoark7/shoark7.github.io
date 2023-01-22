@@ -229,7 +229,7 @@ MathJax = {
         <a href="/"><img src="/assets/img/1536558558520.jpg" alt="Sunghwan Park"></a>
       </div>
       <div class="author-name">Sunghwan Park</div>
-      <p>I'm Parkito. A Python lover. Interested in Python, Automation, Algorithm. Please give me insights. I'll teach you tambien! :)</p>
+      <p>I'm Parkito. I'm back. Obsessed with esthetics of codes, sentences, modularity and writing</p>
     </div>
   </header> <!-- End Header -->
   <footer>
@@ -256,7 +256,7 @@ MathJax = {
       </ul>
     </section> <!-- End Section Contact -->
     <div class="copyright">
-      <p>2021 &copy; Sunghwan Park</p>
+      <p>2023 &copy; Sunghwan Park</p>
     </div>
   </footer> <!-- End Footer -->
 </aside> <!-- End Sidebar -->
@@ -337,7 +337,7 @@ MathJax = {
 <p>So today,</p>
 <ol>
   <li><strong>I’ll look through basic usage of <em>import</em> statement. It’s a way of reusing code in Python.</strong></li>
-  <li><strong>And I’ll introduce some interesting tricks on <em>import</em>. For example, I’ll answer ‘can we name our modules without <code class="highlighter-rouge">.py</code> suffix’, ‘can we use characters besides english for modules? And how about punctuation characters?’</strong></li>
+  <li><strong>And I’ll introduce some interesting tricks on <em>import</em>. For example, I’ll answer ‘can we name our modules without <code class="language-plaintext highlighter-rouge">.py</code> suffix’, ‘can we use characters besides english for modules? And how about punctuation characters?’</strong></li>
   <li><strong>At last, I’ll cover module import order in Python and how to register our own modules in Python.</strong></li>
 </ol>
 
@@ -393,13 +393,13 @@ MathJax = {
 <span class="mf">3.0</span>
 </code></pre></div></div>
 
-<p>In regular expression, <code class="highlighter-rouge">*</code> means a single character and it covers <strong>all</strong> ranges of unicode characters. In Python module importing, it has a similar meaning. <strong>Importing with <code class="highlighter-rouge">*</code> from a module can import all attributes(functions, constants) of that module.</strong> Above shows that example. <strong>I imported all attributes from <em>math</em> module using <code class="highlighter-rouge">*</code> and I could use <em>pi</em>, <em>log2</em> and <em>log10</em> which are constants and functions of <em>math</em> module without ‘math.’ prefix.</strong></p>
+<p>In regular expression, <code class="language-plaintext highlighter-rouge">*</code> means a single character and it covers <strong>all</strong> ranges of unicode characters. In Python module importing, it has a similar meaning. <strong>Importing with <code class="language-plaintext highlighter-rouge">*</code> from a module can import all attributes(functions, constants) of that module.</strong> Above shows that example. <strong>I imported all attributes from <em>math</em> module using <code class="language-plaintext highlighter-rouge">*</code> and I could use <em>pi</em>, <em>log2</em> and <em>log10</em> which are constants and functions of <em>math</em> module without ‘math.’ prefix.</strong></p>
 
 <p><strong>This can be used but not recommended.</strong> Here are some reasons:</p>
 
 <ol>
   <li><strong>It adds too many attributes to global namespace.</strong> Global namespace should be maintained and controlled carefully. But asterisk importing spoils namespace hierarchy and flattens all names.</li>
-  <li><strong>Code review can be harder with <code class="highlighter-rouge">*</code> import.</strong> In most cases, we import less than 5 attributes from a module even though a module can hold a bunch of functions. <strong>If you specify names of what you use, code reviewers get to know the intention of importing the module.</strong> But the above example literally imports all so you cannot guess what I would do.</li>
+  <li><strong>Code review can be harder with <code class="language-plaintext highlighter-rouge">*</code> import.</strong> In most cases, we import less than 5 attributes from a module even though a module can hold a bunch of functions. <strong>If you specify names of what you use, code reviewers get to know the intention of importing the module.</strong> But the above example literally imports all so you cannot guess what I would do.</li>
 </ol>
 
 <p><br /></p>
@@ -439,7 +439,7 @@ hi
 <span class="k">print</span><span class="p">(</span><span class="n">punctuation</span><span class="p">)</span>
 
 
-<span class="err">!</span><span class="s">"#$</span><span class="si">%</span><span class="s">&amp;'()*+,-./:;&lt;=&gt;?@[</span><span class="err">\</span><span class="s">]^_`{|}~</span><span class="err">
+<span class="err">!</span><span class="s">"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\]^_`{|}~
 </span></code></pre></div></div>
 
 <p>There are over 30 punctuation characters supported in Python. But how about these characters? We use punctuation chars often for file names in daily lives, right? Is it OK in Python modules?</p>
@@ -450,7 +450,7 @@ hi
 hi
 </code></pre></div></div>
 
-<p><strong>We made a greeting module above and named it again using <code class="highlighter-rouge">-</code> punctuation chars.</strong> Well, we could execute the module even though it contains punctuation characters. But the problem happens when we import the module inside other scripts.</p>
+<p><strong>We made a greeting module above and named it again using <code class="language-plaintext highlighter-rouge">-</code> punctuation chars.</strong> Well, we could execute the module even though it contains punctuation characters. But the problem happens when we import the module inside other scripts.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># A new module importing 'greetings-to-you'
 </span>
@@ -468,7 +468,7 @@ hi
 
 <p>Jesus, what’s wrong? A <em>SyntaxError</em> is raised. Why? It’s related to <strong>Python variable naming rules.</strong></p>
 
-<p>While using Python, I think you could have seen many underscore(<code class="highlighter-rouge">_</code>) characters in variable names. But I’m sure you would (almost) never have seen other punctuation characters.</p>
+<p>While using Python, I think you could have seen many underscore(<code class="language-plaintext highlighter-rouge">_</code>) characters in variable names. But I’m sure you would (almost) never have seen other punctuation characters.</p>
 
 <p>In Python, <strong>you can’t use punctuation characters for variable names except for underscores(‘_’).</strong> That’s why you cannot import modules using other punctuation characters in Python script with <em>import</em> statement.</p>
 
@@ -510,12 +510,12 @@ hi
 
 <p>Who knows? Let’s test it right away :)</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">echo</span> <span class="s">"print('hi')"</span> <span class="o">&gt;</span> <span class="n">greetings</span><span class="o">.</span><span class="n">py</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">echo</span> <span class="s">"print('hi')"</span> <span class="o">&gt;</span> <span class="n">greetings</span><span class="p">.</span><span class="n">py</span>
 <span class="n">echo</span> <span class="s">"print('bye')"</span> <span class="o">&gt;</span> <span class="n">farewells</span> 
 <span class="c1"># farewells is a module without '.py' suffix.
 </span>
 
-<span class="n">python</span> <span class="n">greetings</span><span class="o">.</span><span class="n">py</span>
+<span class="n">python</span> <span class="n">greetings</span><span class="p">.</span><span class="n">py</span>
 <span class="n">python</span> <span class="n">farewells</span>
 
 
@@ -574,11 +574,11 @@ hi
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">calc_time</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
     <span class="kn">import</span> <span class="nn">time</span>
     <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="n">s</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="n">time</span><span class="p">.</span><span class="n">time</span><span class="p">()</span>
         <span class="n">v</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-        <span class="n">e</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="n">e</span> <span class="o">=</span> <span class="n">time</span><span class="p">.</span><span class="n">time</span><span class="p">()</span>
 
-        <span class="k">print</span><span class="p">(</span><span class="s">"Total execution time for"</span><span class="p">,</span> <span class="n">func</span><span class="o">.</span><span class="n">__name__</span><span class="p">,</span> <span class="s">"is"</span><span class="p">,</span> <span class="n">e</span><span class="o">-</span><span class="n">s</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Total execution time for"</span><span class="p">,</span> <span class="n">func</span><span class="p">.</span><span class="n">__name__</span><span class="p">,</span> <span class="s">"is"</span><span class="p">,</span> <span class="n">e</span><span class="o">-</span><span class="n">s</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">v</span>
 
     <span class="k">return</span> <span class="n">wrapper</span>
@@ -659,7 +659,7 @@ hi
 
 <p>And inside ‘b’ folder, run in_b.py script. How was it?</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ModuleNotFoundError: No module named 'in_a'
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ModuleNotFoundError: No module named 'in_a'
 </code></pre></div></div>
 
 <p>Yes, this is our problem. <strong>We want in_a and in_c module to be accessible from any directory inside the system.</strong> We’ll solve it in 2 ways.</p>
@@ -678,7 +678,7 @@ hi
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">sys</span>
 
-<span class="k">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">sys</span><span class="p">.</span><span class="n">path</span><span class="p">)</span>
 
 
 <span class="p">[</span><span class="s">''</span><span class="p">,</span>
@@ -702,14 +702,14 @@ hi
 <span class="c1">### new code
 </span><span class="kn">import</span> <span class="nn">sys</span>
 
-<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">'/home/sunghwanpark/deletemesoon/a'</span><span class="p">)</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">'/home/sunghwanpark/deletemesoon/c'</span><span class="p">)</span>
+<span class="n">sys</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="s">'/home/sunghwanpark/deletemesoon/a'</span><span class="p">)</span>
+<span class="n">sys</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="s">'/home/sunghwanpark/deletemesoon/c'</span><span class="p">)</span>
 <span class="c1">###
 </span>
 
 <span class="kn">from</span> <span class="nn">in_a</span> <span class="kn">import</span> <span class="n">calc_time</span>
 <span class="kn">from</span> <span class="nn">in_c</span> <span class="kn">import</span> <span class="n">say_ok</span>
-<span class="o">...</span>
+<span class="p">...</span>
 </code></pre></div></div>
 
 <p>Run it! What does it say?</p>
@@ -734,7 +734,7 @@ Total execution <span class="nb">time </span><span class="k">for </span>say_ok i
 
 <p>Systems including Xnix and Windows have environment variables and they’re used in programs as configuration options. If you have installed Python on Windows, I think you must have set environment variable configurations for Python.</p>
 
-<p>I’m using Linux(Ubuntu) and it’s same too. This way is using environment variable named <code class="highlighter-rouge">PYTHONPATH</code>.</p>
+<p>I’m using Linux(Ubuntu) and it’s same too. This way is using environment variable named <code class="language-plaintext highlighter-rouge">PYTHONPATH</code>.</p>
 
 <p><strong>If you set PYTHONPATH variable with concatenated string of directory paths, python interpreter look for these paths when you import a module.</strong> Hoolay! Is it True? Let’s test it.</p>
 
@@ -756,7 +756,7 @@ Total execution <span class="nb">time </span><span class="k">for </span>say_ok i
 
 <p>And last, <strong>this way only lasts until you quit this shell session. If you want to maintain this configuration, paste and run this code in shell.</strong></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo 'export PYTHONPATH="your:wanted:paths:concatenated' &gt;&gt; ~/.bashrc
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo 'export PYTHONPATH="your:wanted:paths:concatenated' &gt;&gt; ~/.bashrc
 </code></pre></div></div>
 
 <p>I assumed you use bash shell(default in many Xnix systems)</p>
@@ -779,7 +779,7 @@ Total execution <span class="nb">time </span><span class="k">for </span>say_ok i
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">sys</span>
 
-<span class="k">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">sys</span><span class="p">.</span><span class="n">path</span><span class="p">)</span>
 
 
 <span class="p">[</span><span class="s">''</span><span class="p">,</span>

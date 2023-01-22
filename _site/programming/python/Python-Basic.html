@@ -233,7 +233,7 @@ MathJax = {
         <a href="/"><img src="/assets/img/1536558558520.jpg" alt="Sunghwan Park"></a>
       </div>
       <div class="author-name">Sunghwan Park</div>
-      <p>I'm Parkito. A Python lover. Interested in Python, Automation, Algorithm. Please give me insights. I'll teach you tambien! :)</p>
+      <p>I'm Parkito. I'm back. Obsessed with esthetics of codes, sentences, modularity and writing</p>
     </div>
   </header> <!-- End Header -->
   <footer>
@@ -260,7 +260,7 @@ MathJax = {
       </ul>
     </section> <!-- End Section Contact -->
     <div class="copyright">
-      <p>2021 © Sunghwan Park</p>
+      <p>2023 © Sunghwan Park</p>
     </div>
   </footer> <!-- End Footer -->
 </aside> <!-- End Sidebar -->
@@ -300,15 +300,15 @@ MathJax = {
 
 <p><a href="https://www.google.co.kr/webhp?sourceid=chrome-instant&amp;ion=1&amp;espv=2&amp;ie=UTF-8#q=%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8+%EC%96%B8%EC%96%B4">Google</a>.</p>
 
-<p>파이썬 쉘에서 <code class="highlighter-rouge">license()</code>함수를 써보면 더 알 수 있다.<br>
+<p>파이썬 쉘에서 <code class="language-plaintext highlighter-rouge">license()</code>함수를 써보면 더 알 수 있다.<br>
 파이썬은 스크립트 언어로서 컴파일 언어와 달리 언어의 Syntax에 맞는 파일을 <strong>인터프리터가 라인마다 해석을 해서 실행한다.</strong><br>
 그래서 작성 및 디버깅이 상대적으로 간편하다는 장점이 있다.</p>
 
-<p>인터프리터 언어(스크립트 언어)의 쉘을 <code class="highlighter-rouge">REPL</code>이라고도 한다.<br>
-<code class="highlighter-rouge">REPL</code>은 _‘Read-Eval-Print-Loop’_의 약자로서 <strong>interactive하게 사용자의 단일 명령을 받아들이고, 그것을 평가해서 그 값을 사용자게 반환하는 역할을 한다.</strong><br>
-이 <code class="highlighter-rouge">REPL</code>에서는 명령이 줄 단위(piecewise)로 실행된다.</p>
+<p>인터프리터 언어(스크립트 언어)의 쉘을 <code class="language-plaintext highlighter-rouge">REPL</code>이라고도 한다.<br>
+<code class="language-plaintext highlighter-rouge">REPL</code>은 _‘Read-Eval-Print-Loop’_의 약자로서 <strong>interactive하게 사용자의 단일 명령을 받아들이고, 그것을 평가해서 그 값을 사용자게 반환하는 역할을 한다.</strong><br>
+이 <code class="language-plaintext highlighter-rouge">REPL</code>에서는 명령이 줄 단위(piecewise)로 실행된다.</p>
 
-<p><code class="highlighter-rouge">REPL</code>의 마지막에 왜 L(loop)이 들어갈까 고민했는데 사용자가 파이썬 쉘을 종료하기 전까지 이전까지의 과정을 반복하기 때문이라고 생각한다.<br>
+<p><code class="language-plaintext highlighter-rouge">REPL</code>의 마지막에 왜 L(loop)이 들어갈까 고민했는데 사용자가 파이썬 쉘을 종료하기 전까지 이전까지의 과정을 반복하기 때문이라고 생각한다.<br>
 <a href="https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop">Wikipedia</a></p>
 
 <p><br>
@@ -321,20 +321,20 @@ MathJax = {
 그러나 파이썬은 모든 것이 클래스의 인스턴스라고 한다. 정수, 문자열도 마찬가지다. 천천히 살펴본다.</p>
 
 <h3 id="21-int">2.1 int</h3>
-<p>말 그대로 정수이다. <code class="highlighter-rouge">ok = 2</code>라고 하면 정수 2를 ok라는 변수에 대입하는 것이 된다.</p>
+<p>말 그대로 정수이다. <code class="language-plaintext highlighter-rouge">ok = 2</code>라고 하면 정수 2를 ok라는 변수에 대입하는 것이 된다.</p>
 
 <h3 id="22-str">2.2 str</h3>
 <p>문자열이다. 파이썬은 문자와 문자열에 대한 구분이 없다. 모두 문자열이다.<br>
-<code class="highlighter-rouge">'ㅁㄴㅇㄹ'</code>와 같이 <code class="highlighter-rouge">''</code>나 <code class="highlighter-rouge">""</code>안에 적는 것은 문자열이 된다.(둘은 구분하지 않는다. 다만 열고 닫을 때는 통일해야 한다.)</p>
+<code class="language-plaintext highlighter-rouge">'ㅁㄴㅇㄹ'</code>와 같이 <code class="language-plaintext highlighter-rouge">''</code>나 <code class="language-plaintext highlighter-rouge">""</code>안에 적는 것은 문자열이 된다.(둘은 구분하지 않는다. 다만 열고 닫을 때는 통일해야 한다.)</p>
 
 <h3 id="23-bool">2.3 bool</h3>
-<p><code class="highlighter-rouge">True</code>(참), <code class="highlighter-rouge">False</code>(거짓)을 나타내는 부울값이다. 조건식에서 많이 활용한다. <code class="highlighter-rouge">help(bool)</code>을 보면 신기하게도 <strong>정수를 상속받는다.</strong><br>
-<code class="highlighter-rouge">True</code>는 1과 같고 <code class="highlighter-rouge">False</code>는 0과 같다. 따라서 <code class="highlighter-rouge">True * 3</code>이 에러 없이 <code class="highlighter-rouge">3</code>이라고 출력된다.</p>
+<p><code class="language-plaintext highlighter-rouge">True</code>(참), <code class="language-plaintext highlighter-rouge">False</code>(거짓)을 나타내는 부울값이다. 조건식에서 많이 활용한다. <code class="language-plaintext highlighter-rouge">help(bool)</code>을 보면 신기하게도 <strong>정수를 상속받는다.</strong><br>
+<code class="language-plaintext highlighter-rouge">True</code>는 1과 같고 <code class="language-plaintext highlighter-rouge">False</code>는 0과 같다. 따라서 <code class="language-plaintext highlighter-rouge">True * 3</code>이 에러 없이 <code class="language-plaintext highlighter-rouge">3</code>이라고 출력된다.</p>
 
 <h3 id="24-list">2.4 list</h3>
-<p>파이썬에서의 리스트는 배열이라고 번역되지만 정확히는 <code class="highlighter-rouge">linked-list</code>라고 한다.<br>
+<p>파이썬에서의 리스트는 배열이라고 번역되지만 정확히는 <code class="language-plaintext highlighter-rouge">linked-list</code>라고 한다.<br>
 그 안에는 무엇이든 들어갈 수 있고 <strong>순서가 지켜져야 한다. 그리고 중복을 허용한다.</strong><br>
-<code class="highlighter-rouge">[ ]</code>안에 값이 들어간다.</p>
+<code class="language-plaintext highlighter-rouge">[ ]</code>안에 값이 들어간다.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">animals</span> <span class="o">=</span> <span class="p">[</span><span class="s">"dog"</span><span class="p">,</span> <span class="s">"cat"</span><span class="p">,</span> <span class="s">"fish"</span><span class="p">,</span> <span class="s">"monkey"</span><span class="p">,</span> <span class="s">"dog"</span><span class="p">]</span>
 <span class="k">print</span><span class="p">(</span><span class="n">animals</span><span class="p">)</span>
@@ -343,7 +343,7 @@ MathJax = {
 </code></pre></div></div>
 
 <p>위와 같이 정의한다.<br>
-첫 번째 인자(‘dog’)부터 <code class="highlighter-rouge">0</code>번째 인자로 계산되고(indexing) 만약 인수의 개수가 n개이면 마지막 인수는 <code class="highlighter-rouge">n-1</code>번째 인자가 된다.</p>
+첫 번째 인자(‘dog’)부터 <code class="language-plaintext highlighter-rouge">0</code>번째 인자로 계산되고(indexing) 만약 인수의 개수가 n개이면 마지막 인수는 <code class="language-plaintext highlighter-rouge">n-1</code>번째 인자가 된다.</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">animals</span> <span class="o">=</span> <span class="p">[</span><span class="s">"dog"</span><span class="p">,</span> <span class="s">"cat"</span><span class="p">,</span> <span class="s">"fish"</span><span class="p">,</span> <span class="s">"monkey"</span><span class="p">,</span> <span class="s">"dog"</span><span class="p">]</span>
 <span class="k">print</span><span class="p">(</span><span class="n">animals</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 <span class="k">print</span><span class="p">(</span><span class="n">animals</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
@@ -356,11 +356,11 @@ MathJax = {
 
 <p>위와 같이 리스트 안의 원소에 접근할 수 있다.</p>
 
-<p>또한 리스트는 슬라이싱(<code class="highlighter-rouge">list[start:end:stride]</code>처럼 구간 인덱싱)이 가능하다.<br>
-<code class="highlighter-rouge">start</code>는 시작 위치로 안 적으면 0이 기본값이다. <code class="highlighter-rouge">end</code>는 끝 위치로 안 적으면 리스트의 끝이 기본이다.<br>
-<strong>여기서 주의할 것은 list[:4]와 같이 적으면 <code class="highlighter-rouge">4</code>의 인덱스를 갖는 값이 아니라 그 전 값인 <code class="highlighter-rouge">3</code>의 인덱스를 갖는 값을 가진다는 것을 알아야 한다.</strong><br>
-마지막으로 <code class="highlighter-rouge">stride</code>는 건너띄는 정도를 의미한다. 기본값은 <code class="highlighter-rouge">1</code>로 그 다음 값을 찾는다.<br>
-그런데 만약 <code class="highlighter-rouge">2</code>가 된다면 슬라이딩할 때 하나 건너뛰고 값을 찾는다.</p>
+<p>또한 리스트는 슬라이싱(<code class="language-plaintext highlighter-rouge">list[start:end:stride]</code>처럼 구간 인덱싱)이 가능하다.<br>
+<code class="language-plaintext highlighter-rouge">start</code>는 시작 위치로 안 적으면 0이 기본값이다. <code class="language-plaintext highlighter-rouge">end</code>는 끝 위치로 안 적으면 리스트의 끝이 기본이다.<br>
+<strong>여기서 주의할 것은 list[:4]와 같이 적으면 <code class="language-plaintext highlighter-rouge">4</code>의 인덱스를 갖는 값이 아니라 그 전 값인 <code class="language-plaintext highlighter-rouge">3</code>의 인덱스를 갖는 값을 가진다는 것을 알아야 한다.</strong><br>
+마지막으로 <code class="language-plaintext highlighter-rouge">stride</code>는 건너띄는 정도를 의미한다. 기본값은 <code class="language-plaintext highlighter-rouge">1</code>로 그 다음 값을 찾는다.<br>
+그런데 만약 <code class="language-plaintext highlighter-rouge">2</code>가 된다면 슬라이딩할 때 하나 건너뛰고 값을 찾는다.</p>
 
 <p><br></p>
 
@@ -376,14 +376,14 @@ MathJax = {
 
 <p><br></p>
 
-<p>위에서 기억할 건 <strong><code class="highlighter-rouge">end</code>위치의 숫자 전까지 슬라이싱 했다는 것과 <code class="highlighter-rouge">stride</code>에 2를 넣음으로써 하나씩 건너뛰고 슬라이싱</strong>했다는 것이다.<br>
+<p>위에서 기억할 건 <strong><code class="language-plaintext highlighter-rouge">end</code>위치의 숫자 전까지 슬라이싱 했다는 것과 <code class="language-plaintext highlighter-rouge">stride</code>에 2를 넣음으로써 하나씩 건너뛰고 슬라이싱</strong>했다는 것이다.<br>
 중요하다.</p>
 
 <p><br></p>
 
 <h3 id="25-tuple">2.5 tuple</h3>
 <p>튜플은 순서가 있고 중복을 허용한다는 점에서 리스트와 많이 비슷하다.<br>
-그러나 <code class="highlighter-rouge">( )</code> 안에 값이 들어가고 무엇보다 <strong>값이 불변이라는 점이 큰 차이점</strong>이다.<br>
+그러나 <code class="language-plaintext highlighter-rouge">( )</code> 안에 값이 들어가고 무엇보다 <strong>값이 불변이라는 점이 큰 차이점</strong>이다.<br>
 원소를 추가하거나 지우거나, 원소 값을 지울 수 없다.<br>
 하나의 값이 아닌 여러 값을 반환하는 함수들은 그 값을 튜플 안에 넣어 반환한다.</p>
 
@@ -395,13 +395,13 @@ MathJax = {
 
 <p><br></p>
 
-<p>위와 같이 다양한 방법으로 튜플을 정의할 수 있는데 <code class="highlighter-rouge">tuple4</code>의 경우 하나의 원소를 갖는 튜플을 만들 때는 <code class="highlighter-rouge">','</code>를 붙여준다는 것이 특이하다. 그리고 <code class="highlighter-rouge">tuple3</code>처럼 여러 값을 하나의 변수에 담으면 그 값들 역시 튜플이 된다.</p>
+<p>위와 같이 다양한 방법으로 튜플을 정의할 수 있는데 <code class="language-plaintext highlighter-rouge">tuple4</code>의 경우 하나의 원소를 갖는 튜플을 만들 때는 <code class="language-plaintext highlighter-rouge">','</code>를 붙여준다는 것이 특이하다. 그리고 <code class="language-plaintext highlighter-rouge">tuple3</code>처럼 여러 값을 하나의 변수에 담으면 그 값들 역시 튜플이 된다.</p>
 
 <p><br></p>
 
 <h3 id="26-set">2.6 set</h3>
 <p>말 그대로 집합이다. 중고등학교 때 정상적인 수학과정을 이수했다면, 그 집합 개념과 연결시키면 매우 쉽다.<br>
-<code class="highlighter-rouge">{ }</code>안에 그 값이 들어가고 이 값들은 순서가 없고, 중복을 허용하지 않는다.</p>
+<code class="language-plaintext highlighter-rouge">{ }</code>안에 그 값이 들어가고 이 값들은 순서가 없고, 중복을 허용하지 않는다.</p>
 
 <p>중복을 허용하지 않는다는 점에서 리스트 등에서 중복된 값을 없애는 데 사용될 수 있다.</p>
 
@@ -416,7 +416,7 @@ MathJax = {
 
 <p><br></p>
 
-<p>이 방법을 쓰는 데는 조심해야 한다. <strong>이 리스트는 <code class="highlighter-rouge">4, 3, 2, 1</code>이라는 순서를 갖고 있는데 <code class="highlighter-rouge">set</code>이라는 함수를 사용함으로써 순서가 사라졌다는 것이다.</strong> 이런 활용에는 주의를 요한다.</p>
+<p>이 방법을 쓰는 데는 조심해야 한다. <strong>이 리스트는 <code class="language-plaintext highlighter-rouge">4, 3, 2, 1</code>이라는 순서를 갖고 있는데 <code class="language-plaintext highlighter-rouge">set</code>이라는 함수를 사용함으로써 순서가 사라졌다는 것이다.</strong> 이런 활용에는 주의를 요한다.</p>
 
 <p>그리고 집합에서 파생되는 차집합, 합집합, 곱집합 등이 함수로 구현되어 있고 연산자로까지 구현이 된다는 것도 중요한 특징이다. 이건 같이 더 공부하자.</p>
 
@@ -434,8 +434,8 @@ MathJax = {
 
 <p>한국말로 하면 ‘사전’이다. 영한사전을 생각하자. <strong>내가 ‘snow’이라는 단어를 주면 ‘눈’이라는 단어를 내게 알려줄 것이다.</strong><br>
 하나의 사전에서 ‘dream’이라는 단어는 굳이 두 개 이상 존재하지 않을 것이다.(다의어는 하나로 보자)<br>
-하지만 ‘eye’라는 단어도 ‘눈’이라는 같은 값을 가질 수는 있다. 여기서 착안된 것이 <code class="highlighter-rouge">dict</code> 자료구조이다.<br>
-<code class="highlighter-rouge">dict</code>는 하나의 원소를 key(ex ‘snow’):value(ex ‘눈’), 즉 키:값 쌍으로 저장하는 구조이다.<br>
+하지만 ‘eye’라는 단어도 ‘눈’이라는 같은 값을 가질 수는 있다. 여기서 착안된 것이 <code class="language-plaintext highlighter-rouge">dict</code> 자료구조이다.<br>
+<code class="language-plaintext highlighter-rouge">dict</code>는 하나의 원소를 key(ex ‘snow’):value(ex ‘눈’), 즉 키:값 쌍으로 저장하는 구조이다.<br>
 키는 값에 도달하는 방법이 된다.<br>
 <strong>키는 여러 값에 대응하면 안 되기 때문에 중복을 허용하지 않지만 값은 중복될 수는 있다. 그리고 원소간 순서가 없다.</strong></p>
 
@@ -450,8 +450,8 @@ MathJax = {
 <span class="k">print</span><span class="p">(</span><span class="n">english_dict</span><span class="p">[</span><span class="s">'snow'</span><span class="p">])</span>
 <span class="k">print</span><span class="p">(</span><span class="n">english_dict</span><span class="p">[</span><span class="s">'english'</span><span class="p">])</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="err">눈</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="err">영어</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">눈</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">영어</span>
 </code></pre></div></div>
 
 <p><br></p>
@@ -475,29 +475,29 @@ MathJax = {
       <td><strong>list</strong></td>
       <td>O</td>
       <td>O</td>
-      <td><code class="highlighter-rouge">[]</code></td>
-      <td><code class="highlighter-rouge">[1,2,3]</code></td>
+      <td><code class="language-plaintext highlighter-rouge">[]</code></td>
+      <td><code class="language-plaintext highlighter-rouge">[1,2,3]</code></td>
     </tr>
     <tr>
       <td><strong>tuple</strong></td>
       <td>O</td>
       <td>O</td>
-      <td><code class="highlighter-rouge">()</code></td>
-      <td><code class="highlighter-rouge">(1,2,3)</code></td>
+      <td><code class="language-plaintext highlighter-rouge">()</code></td>
+      <td><code class="language-plaintext highlighter-rouge">(1,2,3)</code></td>
     </tr>
     <tr>
       <td><strong>set</strong></td>
       <td>X</td>
       <td>X</td>
-      <td><code class="highlighter-rouge">{}</code></td>
-      <td><code class="highlighter-rouge">{1,2,3}</code></td>
+      <td><code class="language-plaintext highlighter-rouge">{}</code></td>
+      <td><code class="language-plaintext highlighter-rouge">{1,2,3}</code></td>
     </tr>
     <tr>
       <td><strong>dict</strong></td>
       <td>X</td>
       <td>key는 불가능, value는 가능</td>
-      <td><code class="highlighter-rouge">{}</code></td>
-      <td><code class="highlighter-rouge">{'a':1, 'b':2, 'c':3}</code></td>
+      <td><code class="language-plaintext highlighter-rouge">{}</code></td>
+      <td><code class="language-plaintext highlighter-rouge">{'a':1, 'b':2, 'c':3}</code></td>
     </tr>
   </tbody>
 </table>
@@ -514,12 +514,12 @@ MathJax = {
 <p><br></p>
 
 <h4 id="311-if">3.1.1 if</h4>
-<p>기본적으로 <code class="highlighter-rouge">if 조건: 참일 때의 실행문</code>으로 구현할 수 있다.<br>
-조건은 <code class="highlighter-rouge">True</code> 또는 <code class="highlighter-rouge">False</code> 값 중 하나를 반드시 가져야 하며,<br>
-<code class="highlighter-rouge">False</code>일 때는 실행되지 않는다. <code class="highlighter-rouge">else</code>를 넣으면 조건이 거짓일 때 실행되는 실행문을 넣을 수 있다.</p>
+<p>기본적으로 <code class="language-plaintext highlighter-rouge">if 조건: 참일 때의 실행문</code>으로 구현할 수 있다.<br>
+조건은 <code class="language-plaintext highlighter-rouge">True</code> 또는 <code class="language-plaintext highlighter-rouge">False</code> 값 중 하나를 반드시 가져야 하며,<br>
+<code class="language-plaintext highlighter-rouge">False</code>일 때는 실행되지 않는다. <code class="language-plaintext highlighter-rouge">else</code>를 넣으면 조건이 거짓일 때 실행되는 실행문을 넣을 수 있다.</p>
 
-<p>여러 언어에서 유명한 <code class="highlighter-rouge">if else</code>등은 파이썬에서는 줄여서 <code class="highlighter-rouge">elif</code>으로 표현되며,<br>
-하나의 조건문에서 여러 개 들어갈 수도 있다. 다만 조건의 마지막은 언제나 <code class="highlighter-rouge">else</code>가 되어야 한다.</p>
+<p>여러 언어에서 유명한 <code class="language-plaintext highlighter-rouge">if else</code>등은 파이썬에서는 줄여서 <code class="language-plaintext highlighter-rouge">elif</code>으로 표현되며,<br>
+하나의 조건문에서 여러 개 들어갈 수도 있다. 다만 조건의 마지막은 언제나 <code class="language-plaintext highlighter-rouge">else</code>가 되어야 한다.</p>
 
 <p><br></p>
 
@@ -532,7 +532,7 @@ MathJax = {
 	<span class="k">print</span><span class="p">(</span><span class="s">"학점 : C.."</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
 	<span class="k">print</span><span class="p">(</span><span class="s">"장원 낙제요!"</span><span class="p">)</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="err">학점</span> <span class="p">:</span> <span class="n">B</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">학점</span> <span class="p">:</span> <span class="n">B</span>
 </code></pre></div></div>
 
 <p><br></p>
@@ -556,8 +556,8 @@ MathJax = {
 
 <p><br></p>
 
-<p>같은 내용을 위와 같이 <code class="highlighter-rouge">if</code>을 중첩해서 할 수도 있을 것이다.<br>
-그러나 <code class="highlighter-rouge">import this</code>에서 볼 수 있는 유려한 시 ‘Zen of Python’은 중첩(nested)은 지양해야 한다고 말하고 있다. <del>보기에도 안 이쁘다.</del></p>
+<p>같은 내용을 위와 같이 <code class="language-plaintext highlighter-rouge">if</code>을 중첩해서 할 수도 있을 것이다.<br>
+그러나 <code class="language-plaintext highlighter-rouge">import this</code>에서 볼 수 있는 유려한 시 ‘Zen of Python’은 중첩(nested)은 지양해야 한다고 말하고 있다. <del>보기에도 안 이쁘다.</del></p>
 
 <p><br></p>
 
@@ -579,17 +579,17 @@ MathJax = {
 
 <p><br></p>
 
-<p>위와 같이 <code class="highlighter-rouge">for value in list</code> 밑에 실행 블록을 적으면 list 안의 value 하나씩을 반복해서 실행할 수 있다.</p>
+<p>위와 같이 <code class="language-plaintext highlighter-rouge">for value in list</code> 밑에 실행 블록을 적으면 list 안의 value 하나씩을 반복해서 실행할 수 있다.</p>
 
 <p><br></p>
 
 <h4 id="322-while">3.2.2. while</h4>
-<p>경험적으로 <code class="highlighter-rouge">while</code>은 <code class="highlighter-rouge">for</code>보다 적게 쓰이는 것 같기는 하다.<br>
-<code class="highlighter-rouge">for</code>문은 주로 반복을 몇 번 실행할지 알 때 사용하고, while은 몇 번 반복할지 확실하지 않을 때 사용한다.</p>
+<p>경험적으로 <code class="language-plaintext highlighter-rouge">while</code>은 <code class="language-plaintext highlighter-rouge">for</code>보다 적게 쓰이는 것 같기는 하다.<br>
+<code class="language-plaintext highlighter-rouge">for</code>문은 주로 반복을 몇 번 실행할지 알 때 사용하고, while은 몇 번 반복할지 확실하지 않을 때 사용한다.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">random</span>
 <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">n</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="n">random</span><span class="p">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">:</span>
   <span class="k">print</span><span class="p">(</span><span class="s">'Hellow World!'</span><span class="p">)</span>
   <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
@@ -598,7 +598,7 @@ MathJax = {
 
 <p><br></p>
 
-<p>다음과 같이 <code class="highlighter-rouge">while</code>을 사용하면 n의 값이 얼마이든지 간에 문제없이 반복문을 실행할 수 있다.</p>
+<p>다음과 같이 <code class="language-plaintext highlighter-rouge">while</code>을 사용하면 n의 값이 얼마이든지 간에 문제없이 반복문을 실행할 수 있다.</p>
 
 <p><br>
 <br></p>
@@ -609,7 +609,7 @@ MathJax = {
 
 <h3 id="41-palindrome">4.1. Palindrome</h3>
 <p>Palindrome이란 ‘기러기’처럼 원본과 글자들을 거꾸로 배열한 문자열이 같은 문자열을 의미한다.<br>
-<code class="highlighter-rouge">for</code>와 <code class="highlighter-rouge">while</code>을 활용해 입력된 문자열이 palindrome인지 검사하자.</p>
+<code class="language-plaintext highlighter-rouge">for</code>와 <code class="language-plaintext highlighter-rouge">while</code>을 활용해 입력된 문자열이 palindrome인지 검사하자.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">is_palindrome</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
     <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
@@ -630,14 +630,14 @@ MathJax = {
 
 <p>처럼 작성할 수도 있다. 여기서 밑에가 더 짧다고 무조건 좋지 않을 수도 있다.<br>
 문자열이 매우 길 경우, 중간에라도 값이 출력되는 위의 버전이 더 좋을 수 있기 때문이다.<br>
-또한 조금 더 customization한다면 <code class="highlighter-rouge">for</code>의 범위를 문자열의 절반까지만 할 수도 있을 것이다.</p>
+또한 조금 더 customization한다면 <code class="language-plaintext highlighter-rouge">for</code>의 범위를 문자열의 절반까지만 할 수도 있을 것이다.</p>
 
 <p><br>
 <br></p>
 
 <h2 id="5-파이썬의-입출력">5. 파이썬의 입출력</h2>
 
-<p>파이썬에서 텍스트 파일 등을 열고 작업할 수 있다. 이 때 <code class="highlighter-rouge">open</code> 함수를 사용한다.</p>
+<p>파이썬에서 텍스트 파일 등을 열고 작업할 수 있다. 이 때 <code class="language-plaintext highlighter-rouge">open</code> 함수를 사용한다.</p>
 
 <p><br></p>
 
@@ -646,35 +646,35 @@ MathJax = {
 <p><br></p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">fp</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">"hello.txt"</span><span class="p">,</span> <span class="s">"w"</span><span class="p">)</span>    <span class="c1"># 1.
-</span><span class="n">fp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">"hello world"</span><span class="p">)</span>          <span class="c1"># 2. 
-</span><span class="n">fp</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>                            <span class="c1"># 3. 
+</span><span class="n">fp</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="s">"hello world"</span><span class="p">)</span>          <span class="c1"># 2. 
+</span><span class="n">fp</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>                            <span class="c1"># 3. 
 </span></code></pre></div></div>
 
 <p><br></p>
 
 <ol>
   <li>
-<code class="highlighter-rouge">open</code> 함수는 인자를 두 개 받는다.
+<code class="language-plaintext highlighter-rouge">open</code> 함수는 인자를 두 개 받는다.
     <ul>
       <li>하나는 파일이다.
  위에서는 ‘hello.txt’를 받고 있다. 이때 알아야 할 것은 저기에는 경로가 들어간다는 것이다.
- 경로에는 절대경로와 상대경로가 있는데, 위의 경우는 상대경로다. 해당 파이썬 파일이 있는 곳에 같이 있는 <code class="highlighter-rouge">hello.txt</code> 파일을 읽는다는 것이다.
- 절대 경로는 <code class="highlighter-rouge">'C:\Users\darkboy\크큭암흑룡이.txt'</code>와 같이 절대적으로 해당 파일이 존재하는 곳을 명시할 때 사용한다.</li>
+ 경로에는 절대경로와 상대경로가 있는데, 위의 경우는 상대경로다. 해당 파이썬 파일이 있는 곳에 같이 있는 <code class="language-plaintext highlighter-rouge">hello.txt</code> 파일을 읽는다는 것이다.
+ 절대 경로는 <code class="language-plaintext highlighter-rouge">'C:\Users\darkboy\크큭암흑룡이.txt'</code>와 같이 절대적으로 해당 파일이 존재하는 곳을 명시할 때 사용한다.</li>
       <li>두 번째는 여는 모드이다.
- <code class="highlighter-rouge">'w'</code>는 해당 파일에 내가 입력하겠다는 뜻이다. <code class="highlighter-rouge">'a'</code>와 구별해야 하는데, <code class="highlighter-rouge">'w'</code>는 파일에 다른 내용이 있을 때 완전히 지우고 내용을 적는다면,
- ‘a’는 기존 내용 뒤에 추가되는 ‘append’모드다. <code class="highlighter-rouge">'r'</code>는 ‘read’모드로 파일을 읽을 수만 있다. <code class="highlighter-rouge">open</code>함수에는 ‘r’가 디폴트 값이다. ‘r+’와 같이 적으면 읽고 쓰는 것을 동시에 할 수 있다.</li>
+ <code class="language-plaintext highlighter-rouge">'w'</code>는 해당 파일에 내가 입력하겠다는 뜻이다. <code class="language-plaintext highlighter-rouge">'a'</code>와 구별해야 하는데, <code class="language-plaintext highlighter-rouge">'w'</code>는 파일에 다른 내용이 있을 때 완전히 지우고 내용을 적는다면,
+ ‘a’는 기존 내용 뒤에 추가되는 ‘append’모드다. <code class="language-plaintext highlighter-rouge">'r'</code>는 ‘read’모드로 파일을 읽을 수만 있다. <code class="language-plaintext highlighter-rouge">open</code>함수에는 ‘r’가 디폴트 값이다. ‘r+’와 같이 적으면 읽고 쓰는 것을 동시에 할 수 있다.</li>
     </ul>
   </li>
   <li>
-    <p><code class="highlighter-rouge">fp</code>를 ‘w’모드에서 열었으니 <code class="highlighter-rouge">write</code>함수로 파일 안에 내용을 적을 수 있다.</p>
+    <p><code class="language-plaintext highlighter-rouge">fp</code>를 ‘w’모드에서 열었으니 <code class="language-plaintext highlighter-rouge">write</code>함수로 파일 안에 내용을 적을 수 있다.</p>
   </li>
   <li>파일을 열었으면 꼭 닫아야 한다. 텍스트 파일을 파이썬으로 열고, 동시에 윈도우에서 같이 열었다고 하면 혼선이 생긴다.<br>
   재수 없으면 모든 내용이 삭제될 수도 있으니 꼭 사용 후 닫아줘야 한다.</li>
 </ol>
 
-<p>참고로 <code class="highlighter-rouge">fp</code>는 ‘file pointer’의 약자로 어떤 파일을 가리키는지 명시할 때 관습적으로 사용된다.<br>
-<code class="highlighter-rouge">fp</code>를 <code class="highlighter-rouge">print</code>에서도 사용가능하니 <code class="highlighter-rouge">help(print)</code>를 찾아보자.<br>
-<code class="highlighter-rouge">pickle</code>, <code class="highlighter-rouge">json</code> 등 파일 입출력 모듈을 파이썬 공식문서에서 찾을 때 많이 등장한다.</p>
+<p>참고로 <code class="language-plaintext highlighter-rouge">fp</code>는 ‘file pointer’의 약자로 어떤 파일을 가리키는지 명시할 때 관습적으로 사용된다.<br>
+<code class="language-plaintext highlighter-rouge">fp</code>를 <code class="language-plaintext highlighter-rouge">print</code>에서도 사용가능하니 <code class="language-plaintext highlighter-rouge">help(print)</code>를 찾아보자.<br>
+<code class="language-plaintext highlighter-rouge">pickle</code>, <code class="language-plaintext highlighter-rouge">json</code> 등 파일 입출력 모듈을 파이썬 공식문서에서 찾을 때 많이 등장한다.</p>
 
 <p><br></p>
 
@@ -683,26 +683,26 @@ MathJax = {
 <p><br></p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">fp2</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">"./hello.txt"</span><span class="p">)</span> <span class="c1"># 1.
-</span><span class="n">lines</span> <span class="o">=</span> <span class="n">fp2</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>         <span class="c1"># 2. 
-</span><span class="n">fp2</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>                  <span class="c1"># 3. 
+</span><span class="n">lines</span> <span class="o">=</span> <span class="n">fp2</span><span class="p">.</span><span class="n">read</span><span class="p">()</span>         <span class="c1"># 2. 
+</span><span class="n">fp2</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>                  <span class="c1"># 3. 
 </span></code></pre></div></div>
 
 <p><br></p>
 
 <ol>
   <li>
-<code class="highlighter-rouge">open</code>함수의 두 번째 인자에 아무 값도 주지 않았다. 디폴트로 ‘r’모드가 되었고 읽는다는 것이 된다.<br>
+<code class="language-plaintext highlighter-rouge">open</code>함수의 두 번째 인자에 아무 값도 주지 않았다. 디폴트로 ‘r’모드가 되었고 읽는다는 것이 된다.<br>
 </li>
   <li>
-<code class="highlighter-rouge">read</code>함수를 통해 내용을 전부 읽었다. 전체 파일이 하나의 str로 처리된다. 한 줄씩 리스트에 담는 <code class="highlighter-rouge">readline</code> 함수도 존재한다.</li>
+<code class="language-plaintext highlighter-rouge">read</code>함수를 통해 내용을 전부 읽었다. 전체 파일이 하나의 str로 처리된다. 한 줄씩 리스트에 담는 <code class="language-plaintext highlighter-rouge">readline</code> 함수도 존재한다.</li>
   <li>닫아주는 센스..</li>
 </ol>
 
 <p><br></p>
 
-<h3 id="53-with를-사용해서-열자">5.3. <code class="highlighter-rouge">with</code>를 사용해서 열자.</h3>
+<h3 id="53-with를-사용해서-열자">5.3. <code class="language-plaintext highlighter-rouge">with</code>를 사용해서 열자.</h3>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">"hello.txt"</span><span class="p">,</span> <span class="s">"r"</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>     <span class="c1"># 1.
-</span>    <span class="n">data</span> <span class="o">=</span> <span class="n">fp</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</span>    <span class="n">data</span> <span class="o">=</span> <span class="n">fp</span><span class="p">.</span><span class="n">read</span><span class="p">()</span>
     <span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
     <span class="c1"># 현재 Code Block 내에서만 fp 라는 변수가 존재 
 </span>    <span class="c1"># Indent 가 끝나면
@@ -712,8 +712,8 @@ MathJax = {
 
 <p><br></p>
 
-<p><code class="highlighter-rouge">with</code>문을 사용하면 입출력을 더 편하게 사용할 수 있다. 사람은 닫는 것을 까먹는 실수를 할 수도 있는 것이 아닌가.<br>
-이때 <code class="highlighter-rouge">with</code>를 사용하면 쉽게 열고 닫을 수 있다. 파일을 원하는 모드로 열고 <code class="highlighter-rouge">as</code>를 통해 변수를 지정할 수 있다.
+<p><code class="language-plaintext highlighter-rouge">with</code>문을 사용하면 입출력을 더 편하게 사용할 수 있다. 사람은 닫는 것을 까먹는 실수를 할 수도 있는 것이 아닌가.<br>
+이때 <code class="language-plaintext highlighter-rouge">with</code>를 사용하면 쉽게 열고 닫을 수 있다. 파일을 원하는 모드로 열고 <code class="language-plaintext highlighter-rouge">as</code>를 통해 변수를 지정할 수 있다.
 그 안에서 블록을 indent해서 작성하면 블록 내 모든 코드는 파일이 열렸을 때 적용되고 with문을 나오면(indent를 없애면) 자동으로 닫아진다.</p>
 
 <p><br>
@@ -724,66 +724,66 @@ MathJax = {
 
 <p><br></p>
 
-<h3 id="61-str의-메소드">6.1. <code class="highlighter-rouge">str</code>의 메소드</h3>
+<h3 id="61-str의-메소드">6.1. <code class="language-plaintext highlighter-rouge">str</code>의 메소드</h3>
 
 <p><br></p>
 
-<h4 id="611-split">6.1.1 <code class="highlighter-rouge">split</code>
+<h4 id="611-split">6.1.1 <code class="language-plaintext highlighter-rouge">split</code>
 </h4>
 <p>문자열에서 특정 문자열을 기준으로 나눠 리스트로 반환한다.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">k</span> <span class="o">=</span> <span class="s">"나는 밥을 먹었다.</span><span class="se">\n</span><span class="s">메뉴는 후라이드 옥수수.</span><span class="se">\n</span><span class="s">맛있었다.</span><span class="se">\n</span><span class="s">그 맛은 뭐랄까, 강냉이 몇 개 나가는 느낌?"</span>
-<span class="n">k</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
+<span class="n">k</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="p">[</span><span class="s">'나는 밥을 먹었다.'</span><span class="p">,</span> <span class="s">'메뉴는 후라이드 옥수수.'</span><span class="p">,</span> <span class="s">'맛있었다.'</span><span class="p">,</span> <span class="s">'그 맛은 뭐랄까, 강냉이 몇 개 나가는 느낌?'</span><span class="p">]</span>
 </code></pre></div></div>
 
 <p><br></p>
 
-<h4 id="612-isnumeric">6.1.2. <code class="highlighter-rouge">isnumeric</code>
+<h4 id="612-isnumeric">6.1.2. <code class="language-plaintext highlighter-rouge">isnumeric</code>
 </h4>
 <p>문자열이 숫자인지 증명한다. 숫자를 입력 받아서 연산 등을 해야할 때 필요할 것 같다.
-숫자면 <code class="highlighter-rouge">True</code>, 아니면 <code class="highlighter-rouge">False</code>를 반환한다.</p>
+숫자면 <code class="language-plaintext highlighter-rouge">True</code>, 아니면 <code class="language-plaintext highlighter-rouge">False</code>를 반환한다.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">string</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">'숫자를 입력해주시죠 : '</span><span class="p">)</span>
-<span class="k">if</span> <span class="n">string</span><span class="o">.</span><span class="n">isnumeric</span><span class="p">():</span>
+<span class="k">if</span> <span class="n">string</span><span class="p">.</span><span class="n">isnumeric</span><span class="p">():</span>
     <span class="k">print</span><span class="p">(</span> <span class="nb">int</span><span class="p">(</span><span class="n">string</span><span class="p">)</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="k">print</span><span class="p">(</span><span class="s">'숫자가 아니네요..'</span><span class="p">)</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="err">숫자를</span> <span class="err">입력해주시죠</span> <span class="p">:</span> <span class="mi">33</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">숫자를</span> <span class="n">입력해주시죠</span> <span class="p">:</span> <span class="mi">33</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="mi">36</span>
 
-<span class="err">입력</span> <span class="err">받은</span> <span class="err">문자열이</span> <span class="err">숫자가</span> <span class="err">아니면</span> <span class="err">더하기</span> <span class="err">연산이</span> <span class="err">안</span> <span class="err">될</span> <span class="err">것이다</span><span class="o">.</span>
-<span class="err">이런</span> <span class="err">상황처럼</span> <span class="err">인풋이</span> <span class="err">숫자인지</span> <span class="err">검증할</span> <span class="err">때</span> <span class="err">꽤</span> <span class="err">유용하다</span><span class="o">.</span> <span class="sb">`isalpha`</span><span class="p">,</span> <span class="sb">`isupper`</span><span class="p">,</span> <span class="sb">`islower`</span> <span class="err">등</span> <span class="err">유사한</span> <span class="err">버전이</span> <span class="err">많다</span><span class="o">.</span>
-<span class="err">꼭</span> <span class="err">살펴보자</span><span class="o">.</span>
+<span class="n">입력</span> <span class="n">받은</span> <span class="n">문자열이</span> <span class="n">숫자가</span> <span class="n">아니면</span> <span class="n">더하기</span> <span class="n">연산이</span> <span class="n">안</span> <span class="n">될</span> <span class="n">것이다</span><span class="p">.</span>
+<span class="n">이런</span> <span class="n">상황처럼</span> <span class="n">인풋이</span> <span class="n">숫자인지</span> <span class="n">검증할</span> <span class="n">때</span> <span class="n">꽤</span> <span class="n">유용하다</span><span class="p">.</span> <span class="sb">`isalpha`</span><span class="p">,</span> <span class="sb">`isupper`</span><span class="p">,</span> <span class="sb">`islower`</span> <span class="n">등</span> <span class="n">유사한</span> <span class="n">버전이</span> <span class="n">많다</span><span class="p">.</span>
+<span class="n">꼭</span> <span class="n">살펴보자</span><span class="p">.</span>
 </code></pre></div></div>
 
 <p><br></p>
 
-<h4 id="613-join">6.1.3. <code class="highlighter-rouge">join</code>
+<h4 id="613-join">6.1.3. <code class="language-plaintext highlighter-rouge">join</code>
 </h4>
-<p>원소로 받는 리스트 등 <code class="highlighter-rouge">iterable</code>한 객체들을 해당 문자열로 이어붙인다. 문자열을 출력한다.</p>
+<p>원소로 받는 리스트 등 <code class="language-plaintext highlighter-rouge">iterable</code>한 객체들을 해당 문자열로 이어붙인다. 문자열을 출력한다.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">'+'</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s">'1'</span><span class="p">,</span><span class="s">'2'</span><span class="p">,</span><span class="s">'3'</span><span class="p">,</span><span class="s">'4'</span><span class="p">,</span><span class="s">'5'</span><span class="p">])</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">'+'</span><span class="p">.</span><span class="n">join</span><span class="p">([</span><span class="s">'1'</span><span class="p">,</span><span class="s">'2'</span><span class="p">,</span><span class="s">'3'</span><span class="p">,</span><span class="s">'4'</span><span class="p">,</span><span class="s">'5'</span><span class="p">])</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="s">'1+2+3+4+5'</span>
 </code></pre></div></div>
 
 <p><br></p>
 
-<h3 id="62-list">6.2. <code class="highlighter-rouge">list</code>
+<h3 id="62-list">6.2. <code class="language-plaintext highlighter-rouge">list</code>
 </h3>
-<p>파이썬에서 가장 많이 사용하는 기본 자료구조는 아마 <code class="highlighter-rouge">list</code>일 것이다. 그래서 메소드도 정말 많다. 몇 개만 보자.</p>
+<p>파이썬에서 가장 많이 사용하는 기본 자료구조는 아마 <code class="language-plaintext highlighter-rouge">list</code>일 것이다. 그래서 메소드도 정말 많다. 몇 개만 보자.</p>
 
 <p><br></p>
 
-<h4 id="621-append">6.2.1. <code class="highlighter-rouge">append</code>
+<h4 id="621-append">6.2.1. <code class="language-plaintext highlighter-rouge">append</code>
 </h4>
 <p>리스트 끝에 원소를 추가한다.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">k</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,]</span>
-<span class="n">k</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">k</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
@@ -791,12 +791,12 @@ MathJax = {
 
 <p><br></p>
 
-<h4 id="622-sort">6.2.2. <code class="highlighter-rouge">sort</code>
+<h4 id="622-sort">6.2.2. <code class="language-plaintext highlighter-rouge">sort</code>
 </h4>
 <p>리스트를 정렬할 때 사용한다. 디폴트는 오름차순이다. None을 반환한다.(따로 출력되는 값이 없이 변하기만 한다.)</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">k</span>  <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">]</span>
-<span class="n">k</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="n">k</span><span class="p">.</span><span class="n">sort</span><span class="p">()</span>
 <span class="k">print</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="p">]</span>
@@ -807,11 +807,11 @@ MathJax = {
 <p><br></p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">l</span> <span class="o">=</span> <span class="p">[(</span><span class="s">'a'</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="s">'b'</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="p">(</span><span class="s">'c'</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="s">'d'</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">)]</span>
-<span class="n">l</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">l</span><span class="p">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 <span class="k">print</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="p">[(</span><span class="s">'d'</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="s">'c'</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="s">'a'</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="s">'b'</span><span class="p">,</span> <span class="mi">7</span><span class="p">)]</span> <span class="c1"># 각 인자의 숫자 값을 기준으로 정렬되었다.
-</span><span class="err">내림차순하고</span> <span class="err">싶다면</span> <span class="sb">`reverse=True`</span> <span class="n">keyword</span> <span class="n">argument</span><span class="err">를</span> <span class="err">추가로</span> <span class="err">넣어준다</span><span class="o">.</span>
+</span><span class="n">내림차순하고</span> <span class="n">싶다면</span> <span class="sb">`reverse=True`</span> <span class="n">keyword</span> <span class="n">argument를</span> <span class="n">추가로</span> <span class="n">넣어준다</span><span class="p">.</span>
 
 <span class="c1"># help(list.sort)을 찾아보자
 </span></code></pre></div></div>

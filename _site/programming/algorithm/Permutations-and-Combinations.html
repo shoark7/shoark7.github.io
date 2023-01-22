@@ -233,7 +233,7 @@ MathJax = {
         <a href="/"><img src="/assets/img/1536558558520.jpg" alt="Sunghwan Park"></a>
       </div>
       <div class="author-name">Sunghwan Park</div>
-      <p>I'm Parkito. A Python lover. Interested in Python, Automation, Algorithm. Please give me insights. I'll teach you tambien! :)</p>
+      <p>I'm Parkito. I'm back. Obsessed with esthetics of codes, sentences, modularity and writing</p>
     </div>
   </header> <!-- End Header -->
   <footer>
@@ -260,7 +260,7 @@ MathJax = {
       </ul>
     </section> <!-- End Section Contact -->
     <div class="copyright">
-      <p>2021 &copy; Sunghwan Park</p>
+      <p>2023 &copy; Sunghwan Park</p>
     </div>
   </footer> <!-- End Footer -->
 </aside> <!-- End Sidebar -->
@@ -307,7 +307,7 @@ MathJax = {
 
 <hr />
 
-<p><strong>순열(Permutation)은 서로 다른 <em>n</em> 개의 대상에서 <em>r</em> 개를 뽑아 일렬로 배열한 것을 말하고 그 경우의 수는 <script type="math/tex">nPr</script>로 표현한다.(<script type="math/tex">n \geq r</script>) 그리고 <em>n</em> 과 <em>r</em> 이 같을 때 순열의 경우의 수는 계승(factorial, <script type="math/tex">n!</script>)이 된다.</strong> 그리고 순열의 가지수를 구하는 다음과 같은 공식이 있다.</p>
+<p><strong>순열(Permutation)은 서로 다른 <em>n</em> 개의 대상에서 <em>r</em> 개를 뽑아 일렬로 배열한 것을 말하고 그 경우의 수는 \(nPr\)로 표현한다.(\(n \geq r\)) 그리고 <em>n</em> 과 <em>r</em> 이 같을 때 순열의 경우의 수는 계승(factorial, \(n!\))이 된다.</strong> 그리고 순열의 가지수를 구하는 다음과 같은 공식이 있다.</p>
 
 <p><br /></p>
 
@@ -333,11 +333,11 @@ MathJax = {
 	<span class="c1"># 3.
 </span>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)):</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="n">used</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
-                <span class="n">chosen</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="n">chosen</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
                 <span class="n">used</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
                 <span class="n">generate</span><span class="p">(</span><span class="n">chosen</span><span class="p">,</span> <span class="n">used</span><span class="p">)</span>
                 <span class="n">used</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
-                <span class="n">chosen</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+                <span class="n">chosen</span><span class="p">.</span><span class="n">pop</span><span class="p">()</span>
     <span class="n">generate</span><span class="p">([],</span> <span class="n">used</span><span class="p">)</span>
 
 
@@ -383,11 +383,11 @@ MathJax = {
             <span class="k">return</span>
 
     	<span class="c1"># 3.
-</span>        <span class="n">start</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">chosen</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">chosen</span> <span class="k">else</span> <span class="mi">0</span>
+</span>        <span class="n">start</span> <span class="o">=</span> <span class="n">arr</span><span class="p">.</span><span class="n">index</span><span class="p">(</span><span class="n">chosen</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">chosen</span> <span class="k">else</span> <span class="mi">0</span>
         <span class="k">for</span> <span class="n">nxt</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)):</span>
-            <span class="n">chosen</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">nxt</span><span class="p">])</span>
+            <span class="n">chosen</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">nxt</span><span class="p">])</span>
             <span class="n">generate</span><span class="p">(</span><span class="n">chosen</span><span class="p">)</span>
-            <span class="n">chosen</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+            <span class="n">chosen</span><span class="p">.</span><span class="n">pop</span><span class="p">()</span>
     <span class="n">generate</span><span class="p">([])</span>
 
 
@@ -426,7 +426,7 @@ MathJax = {
 <span class="p">[</span><span class="s">'C'</span><span class="p">,</span> <span class="s">'A'</span><span class="p">]</span>
 <span class="p">[</span><span class="s">'C'</span><span class="p">,</span> <span class="s">'A'</span><span class="p">]</span>
 <span class="p">[</span><span class="s">'C'</span><span class="p">,</span> <span class="s">'B'</span><span class="p">]</span>
-<span class="o">...</span>
+<span class="p">...</span>
 </code></pre></div></div>
 
 <p>위에서의 예제들은 입력되는 아이템들이 중복이 없다고 가정했다. 하지만 위와 같이 ‘A’가 2개인, 그러니까 중복되는 입력을 주자 ‘A, B’, ‘A, C’ 등이 중복되는 것을 확인할 수 있다. 이런 입력은 충분히 가정할 수 있다.</p>
@@ -451,11 +451,11 @@ MathJax = {
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)):</span>
 	    <span class="c1"># 3.
 </span>            <span class="k">if</span> <span class="ow">not</span> <span class="n">used</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">and</span> <span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">or</span> <span class="n">used</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]):</span>
-                <span class="n">chosen</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="n">chosen</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
                 <span class="n">used</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
                 <span class="n">generate</span><span class="p">(</span><span class="n">chosen</span><span class="p">,</span> <span class="n">used</span><span class="p">)</span>
                 <span class="n">used</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
-                <span class="n">chosen</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+                <span class="n">chosen</span><span class="p">.</span><span class="n">pop</span><span class="p">()</span>
     <span class="n">generate</span><span class="p">([],</span> <span class="n">used</span><span class="p">)</span>
 
 
@@ -508,13 +508,13 @@ MathJax = {
             <span class="k">return</span>
 
     	<span class="c1"># 3.
-</span>        <span class="n">start</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">chosen</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">chosen</span> <span class="k">else</span> <span class="mi">0</span>
+</span>        <span class="n">start</span> <span class="o">=</span> <span class="n">arr</span><span class="p">.</span><span class="n">index</span><span class="p">(</span><span class="n">chosen</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">chosen</span> <span class="k">else</span> <span class="mi">0</span>
         <span class="k">for</span> <span class="n">nxt</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)):</span>
             <span class="k">if</span> <span class="n">used</span><span class="p">[</span><span class="n">nxt</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="p">(</span><span class="n">nxt</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">arr</span><span class="p">[</span><span class="n">nxt</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="n">arr</span><span class="p">[</span><span class="n">nxt</span><span class="p">]</span> <span class="ow">or</span> <span class="n">used</span><span class="p">[</span><span class="n">nxt</span><span class="o">-</span><span class="mi">1</span><span class="p">]):</span>
-                <span class="n">chosen</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">nxt</span><span class="p">])</span>
+                <span class="n">chosen</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">nxt</span><span class="p">])</span>
                 <span class="n">used</span><span class="p">[</span><span class="n">nxt</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
                 <span class="n">generate</span><span class="p">(</span><span class="n">chosen</span><span class="p">)</span>
-                <span class="n">chosen</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+                <span class="n">chosen</span><span class="p">.</span><span class="n">pop</span><span class="p">()</span>
                 <span class="n">used</span><span class="p">[</span><span class="n">nxt</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">generate</span><span class="p">([])</span>
 

@@ -231,7 +231,7 @@ MathJax = {
         <a href="/"><img src="/assets/img/1536558558520.jpg" alt="Sunghwan Park"></a>
       </div>
       <div class="author-name">Sunghwan Park</div>
-      <p>I'm Parkito. A Python lover. Interested in Python, Automation, Algorithm. Please give me insights. I'll teach you tambien! :)</p>
+      <p>I'm Parkito. I'm back. Obsessed with esthetics of codes, sentences, modularity and writing</p>
     </div>
   </header> <!-- End Header -->
   <footer>
@@ -258,7 +258,7 @@ MathJax = {
       </ul>
     </section> <!-- End Section Contact -->
     <div class="copyright">
-      <p>2021 &copy; Sunghwan Park</p>
+      <p>2023 &copy; Sunghwan Park</p>
     </div>
   </footer> <!-- End Footer -->
 </aside> <!-- End Sidebar -->
@@ -384,9 +384,9 @@ find\_path(start, last, V) = MIN \bigg( \forall c \in V^\complement | find\_path
 
 <p>조금만 생각해보면 당연한 것이다. 그러면 이제 특정 start, last, V에 대한 <em>find_path</em> 가 두 번 이상 호출되는지 확인해보자. 대단한 수식 증명까지 갈 것도 없이(사실 어떻게 하는지 잘 모르겠다) 간단한 예를 들어보면 되겠다.</p>
 
-<p>실제 식을 점화하면 수많은 재귀호출이 일어날 것이다. 도시의 개수(N)이 10개라고 하자. 이때 <strong><script type="math/tex">find\_path(1, 2, \{1, 3, 2\})</script>, <script type="math/tex">find\_path(1, 3, \{1, 2, 3\})</script>가 호출되었을 때 각 함수는 모두 <script type="math/tex">find\_path(1, 4, \{1, 2, 3, 4\})</script>을 호출한다.</strong> 확실히 <code class="highlighter-rouge">중복</code>이 발생했다. <strong>2장 1절에서 <script type="math/tex">V</script>의 구체적인 경로는 중요하지 않다는 것을 확인했다.</strong> <script type="math/tex">\{1, 2, 3\}, \{1, 3, 2\}</script>는 구분할 이유가 없다. 중요한 것은 방문했는지, 안 했는지의 여부뿐이다.</p>
+<p>실제 식을 점화하면 수많은 재귀호출이 일어날 것이다. 도시의 개수(N)이 10개라고 하자. 이때 <strong>\(find\_path(1, 2, \{1, 3, 2\})\), \(find\_path(1, 3, \{1, 2, 3\})\)가 호출되었을 때 각 함수는 모두 \(find\_path(1, 4, \{1, 2, 3, 4\})\)을 호출한다.</strong> 확실히 <code class="language-plaintext highlighter-rouge">중복</code>이 발생했다. <strong>2장 1절에서 \(V\)의 구체적인 경로는 중요하지 않다는 것을 확인했다.</strong> \(\{1, 2, 3\}, \{1, 3, 2\}\)는 구분할 이유가 없다. 중요한 것은 방문했는지, 안 했는지의 여부뿐이다.</p>
 
-<p>좋아, 중복 여부도 확인했으니 동적 계획법을 위한 캐시의 크기를 산정하면 된다. 현재 세 개의 변수를 사용하는데 start, last는 도시의 수 <script type="math/tex">N</script>을 따라가고, 방문 여부 집합은 방문 여부 0과 1을 담기 때문에 <script type="math/tex">2^N</script>개의 상태를 가질 수 있다. 그러면 캐시의 크기는 <script type="math/tex">N*N*2^N = N^{2} 2^N</script>라는 것을 확인할 수 있다. 동적 계획법에서는 알고리즘의 시간복잡도가 캐시의 크기를 따라가기 때문에 <strong>시간복잡도는 곧 <script type="math/tex">O(N^{2} \times 2^N)</script>가 된다.</strong></p>
+<p>좋아, 중복 여부도 확인했으니 동적 계획법을 위한 캐시의 크기를 산정하면 된다. 현재 세 개의 변수를 사용하는데 start, last는 도시의 수 \(N\)을 따라가고, 방문 여부 집합은 방문 여부 0과 1을 담기 때문에 \(2^N\)개의 상태를 가질 수 있다. 그러면 캐시의 크기는 \(N*N*2^N = N^{2} 2^N\)라는 것을 확인할 수 있다. 동적 계획법에서는 알고리즘의 시간복잡도가 캐시의 크기를 따라가기 때문에 <strong>시간복잡도는 곧 \(O(N^{2} \times 2^N)\)가 된다.</strong></p>
 
 <p>하지만, 마지막 통찰을 통해 이를 한 번 더 개선할 수 있다.</p>
 
@@ -394,7 +394,7 @@ find\_path(start, last, V) = MIN \bigg( \forall c \in V^\complement | find\_path
 
 <h3 id="23-시작-도시도-중요하지-않다">2.3. 시작 도시도 중요하지 않다</h3>
 
-<p>이전 절에서 중간 경로의 구체적인 순서는 중요하지 않고, 특정 세 변수값에 대해 중복 호출이 일어난다는 것까지 확인했다. 그리고 이를 통해 우리는 완전탐색의 <script type="math/tex">O(N!)</script>의 시간복잡도를 <script type="math/tex">O(N^{2} \times 2^N)</script>까지 끌어내릴 수 있는 기반을 마련했다. 하지만 마지막 통찰을 통해 시간복잡도를 한 번 더 낮출 수 있다. 이는 원 문제에서 간략하게 설정한 중요한 조건에 기반한다.</p>
+<p>이전 절에서 중간 경로의 구체적인 순서는 중요하지 않고, 특정 세 변수값에 대해 중복 호출이 일어난다는 것까지 확인했다. 그리고 이를 통해 우리는 완전탐색의 \(O(N!)\)의 시간복잡도를 \(O(N^{2} \times 2^N)\)까지 끌어내릴 수 있는 기반을 마련했다. 하지만 마지막 통찰을 통해 시간복잡도를 한 번 더 낮출 수 있다. 이는 원 문제에서 간략하게 설정한 중요한 조건에 기반한다.</p>
 
 <p class="function-definition">
   한 번 방문한 도시는 재방문하지 않는다.
@@ -410,7 +410,7 @@ find\_path(start, last, V) = MIN \bigg( \forall c \in V^\complement | find\_path
 
 <p>모든 정답 후보군을 구성하는 경로가 사이클인 것이 중요한 이유는 <strong>이 경로를 만들 수만 있으면 시작점은 중요하지 않기 때문이다.</strong> 즉, <strong>1번에서 시작하든, 2, 3, 5번에서 시작하든 정답 경로는 반드시 훑게 되어 있고, 결국 시작점을 단일 도시로 고정해도 정답 경로를 지나치게 돼서 시작 도시를 추적하지 않아도 된다.</strong> 이를 통해 우리가 관리해야 할 변수는 3개에서 2개가 된다. <em>start</em> 변수를 생략하자!</p>
 
-<p>이 통찰을 통해서 우리는 여행 시작 도시를 생략할 수 있으므로 시간 복잡도는 한 번 더 개선되어 <script type="math/tex">O(N \times 2^N)</script>가 된다. <script type="math/tex">N</script>만큼이 더 줄어든 것을 확인할 수 있다.</p>
+<p>이 통찰을 통해서 우리는 여행 시작 도시를 생략할 수 있으므로 시간 복잡도는 한 번 더 개선되어 \(O(N \times 2^N)\)가 된다. \(N\)만큼이 더 줄어든 것을 확인할 수 있다.</p>
 
 <p>이 세 가지 통찰을 바탕으로 실제 동적 계획법 코드로 넘어가자.</p>
 
@@ -457,7 +457,7 @@ find\_path(start, last, V) = MIN \bigg( \forall c \in V^\complement | find\_path
     <span class="k">return</span> <span class="n">dists</span><span class="p">[</span><span class="n">last</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="ow">or</span> <span class="n">INF</span>
 </code></pre></div></div>
 
-<p>완전탐색 코드에서 모든 도시를 방문했을 때와 유사하다. 하지만 조금 다른데 이번에는 <code class="highlighter-rouge">or</code> 연산자를 썼다. <strong>이 연산자를 통해 마지막 방문 도시와 0번째(여기서는 시작 도시) 사이의 경로가 존재하면(이 문제에서는 값이 0이 아니라면) 이 경로 값을 반환하고 이어져 있지 않다면(이 문제에서는 값이 0이라면) 무한값을 반환해서 절대 답이 될 수 없게 한다.</strong></p>
+<p>완전탐색 코드에서 모든 도시를 방문했을 때와 유사하다. 하지만 조금 다른데 이번에는 <code class="language-plaintext highlighter-rouge">or</code> 연산자를 썼다. <strong>이 연산자를 통해 마지막 방문 도시와 0번째(여기서는 시작 도시) 사이의 경로가 존재하면(이 문제에서는 값이 0이 아니라면) 이 경로 값을 반환하고 이어져 있지 않다면(이 문제에서는 값이 0이라면) 무한값을 반환해서 절대 답이 될 수 없게 한다.</strong></p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="n">cache</span><span class="p">[</span><span class="n">last</span><span class="p">][</span><span class="n">visited</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
     <span class="k">return</span> <span class="n">cache</span><span class="p">[</span><span class="n">last</span><span class="p">][</span><span class="n">visited</span><span class="p">]</span>
@@ -485,7 +485,7 @@ find\_path(start, last, V) = MIN \bigg( \forall c \in V^\complement | find\_path
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">return</span> <span class="n">find_path</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">0</span><span class="p">)</span>
 </code></pre></div></div>
 
-<p>점화식을 ignite한다. 2장 3절에서 시작 도시는 어디가 되어도 결국 정답 경로를 찾게 된다는 것을 확인했다. 그래서 여기서는 0번 인덱스의 도시를 시작 도시로 고정하고 여행을 시작한다. 하지만 시작 도시는 1, 2, …, <script type="math/tex">N</script>-1번 도시가 되어도 관련 코드만 수정해주면 답이 나올 것이다. 그렇기에 추적하지 않는 것이다!</p>
+<p>점화식을 ignite한다. 2장 3절에서 시작 도시는 어디가 되어도 결국 정답 경로를 찾게 된다는 것을 확인했다. 그래서 여기서는 0번 인덱스의 도시를 시작 도시로 고정하고 여행을 시작한다. 하지만 시작 도시는 1, 2, …, \(N\)-1번 도시가 되어도 관련 코드만 수정해주면 답이 나올 것이다. 그렇기에 추적하지 않는 것이다!</p>
 
 <p><br /></p>
 

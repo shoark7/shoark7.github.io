@@ -229,7 +229,7 @@ MathJax = {
         <a href="/"><img src="/assets/img/1536558558520.jpg" alt="Sunghwan Park"></a>
       </div>
       <div class="author-name">Sunghwan Park</div>
-      <p>I'm Parkito. A Python lover. Interested in Python, Automation, Algorithm. Please give me insights. I'll teach you tambien! :)</p>
+      <p>I'm Parkito. I'm back. Obsessed with esthetics of codes, sentences, modularity and writing</p>
     </div>
   </header> <!-- End Header -->
   <footer>
@@ -256,7 +256,7 @@ MathJax = {
       </ul>
     </section> <!-- End Section Contact -->
     <div class="copyright">
-      <p>2021 &copy; Sunghwan Park</p>
+      <p>2023 &copy; Sunghwan Park</p>
     </div>
   </footer> <!-- End Footer -->
 </aside> <!-- End Sidebar -->
@@ -337,7 +337,7 @@ MathJax = {
 
 <h3 id="21-cryptography-cryptology">2.1. Cryptography, Cryptology</h3>
 
-<p><strong><code class="highlighter-rouge">Cryptography</code>는 ‘암호화 방식’, ‘암호화 기법’을 의미하고, <code class="highlighter-rouge">Cryptology</code>는 Cryptography를 연구하는 학문, 다시 말해 ‘암호학’을 의미한다.</strong></p>
+<p><strong><code class="language-plaintext highlighter-rouge">Cryptography</code>는 ‘암호화 방식’, ‘암호화 기법’을 의미하고, <code class="language-plaintext highlighter-rouge">Cryptology</code>는 Cryptography를 연구하는 학문, 다시 말해 ‘암호학’을 의미한다.</strong></p>
 
 <p>예를 들어, SHA256은 유명한 Cryptography이고, 용규 샘이 수업을 들으셨던 과목은 Cryptology가 된다.</p>
 
@@ -349,9 +349,9 @@ MathJax = {
 
 <h3 id="22-encryption과-decryption">2.2. Encryption과 Decryption</h3>
 
-<p><strong><code class="highlighter-rouge">Encryption</code>은 ‘암호화’라고 하며 암호화의 대상이 되는 평문(plain text)을 추가적인 정보(예를 들어 해독 방법, <em>key</em> 라고도 한다)이 없으면 사람이 이해할 수 없는 ‘암호’로 변환하는 작업을 의미한다.</strong> 생성된 암호는 영어로 ‘<strong>cipher</strong>‘라고 한다.</p>
+<p><strong><code class="language-plaintext highlighter-rouge">Encryption</code>은 ‘암호화’라고 하며 암호화의 대상이 되는 평문(plain text)을 추가적인 정보(예를 들어 해독 방법, <em>key</em> 라고도 한다)이 없으면 사람이 이해할 수 없는 ‘암호’로 변환하는 작업을 의미한다.</strong> 생성된 암호는 영어로 ‘<strong>cipher</strong>‘라고 한다.</p>
 
-<p><strong><code class="highlighter-rouge">Decryption</code>은 그 반대의 작업으로 ‘암호 해독’, ‘복호화’로 해석되며 주어진 암호를 <em>key</em> 를 이용해 원래의 메시지로 변환하는 작업을 의미한다.</strong></p>
+<p><strong><code class="language-plaintext highlighter-rouge">Decryption</code>은 그 반대의 작업으로 ‘암호 해독’, ‘복호화’로 해석되며 주어진 암호를 <em>key</em> 를 이용해 원래의 메시지로 변환하는 작업을 의미한다.</strong></p>
 
 <p><br /></p>
 
@@ -369,7 +369,7 @@ MathJax = {
 
 <p><br /></p>
 
-<p><code class="highlighter-rouge">Message digest</code>, 해석하면 ‘메시지 소화’. 이 용어는 직역하면 이해가 잘 가지 않기 때문에 각 용어를 분리해서 이해하자.</p>
+<p><code class="language-plaintext highlighter-rouge">Message digest</code>, 해석하면 ‘메시지 소화’. 이 용어는 직역하면 이해가 잘 가지 않기 때문에 각 용어를 분리해서 이해하자.</p>
 
 <ul>
   <li>Message: <strong>암호학에서 ‘Message’는 암호화할 원래의 평문을 의미한다.</strong>
@@ -431,7 +431,7 @@ MathJax = {
   <li><strong>같은 암호(digest)를 갖는 서로 다른 메시지를 찾는 것이 전산학적으로 실행불가능해야 한다.(computationally infeasible)</strong>
     <ul>
       <li>만약 두 가지 이상의 서로 다른 메시지가 같은 암호를 갖는다면 이는 암호를 해독했을 때 두 가지 이상의 서로 다른 의미로 해석될 수 있다는 뜻이 된다. 당연히 이는 바람직하지 않다.</li>
-      <li>이때 왜 <code class="highlighter-rouge">전산학적으로 실행불가능</code>이라는 단서가 붙었을까? 뒤집어서, 같은 암호값을 갖는 서로 다른 메시지를 찾는 방법이 뭐가 있을까? 가장 무식하고 확실한 방법은 <strong>가능한 모든 메시지를 해시로 만들어서 이중 해시가 일치하는 메시지들을 찾는 것이다.(Bruce force)</strong> 어떤 암호화 알고리즘이든 이는 시도할 수는 있다. 하지만 전산학적으로 불가능하다. 유명한 암호화 방식은 SHA256은 256 비트의 길이를 갖는 digest를 반환하는데 이때 이 digest가 가질 수 있는 상태의 경우의 수는 <script type="math/tex">2^{256}</script>, 무려 78자리의 수다. 단순히 확률론적으로도 서로 다른 메시지가 같은 digest를 가지기는 매우 어렵고 컴퓨터로 계산하기도 어렵다.</li>
+      <li>이때 왜 <code class="language-plaintext highlighter-rouge">전산학적으로 실행불가능</code>이라는 단서가 붙었을까? 뒤집어서, 같은 암호값을 갖는 서로 다른 메시지를 찾는 방법이 뭐가 있을까? 가장 무식하고 확실한 방법은 <strong>가능한 모든 메시지를 해시로 만들어서 이중 해시가 일치하는 메시지들을 찾는 것이다.(Bruce force)</strong> 어떤 암호화 알고리즘이든 이는 시도할 수는 있다. 하지만 전산학적으로 불가능하다. 유명한 암호화 방식은 SHA256은 256 비트의 길이를 갖는 digest를 반환하는데 이때 이 digest가 가질 수 있는 상태의 경우의 수는 \(2^{256}\), 무려 78자리의 수다. 단순히 확률론적으로도 서로 다른 메시지가 같은 digest를 가지기는 매우 어렵고 컴퓨터로 계산하기도 어렵다.</li>
     </ul>
   </li>
 </ul>
@@ -472,7 +472,7 @@ MathJax = {
 
 <p>개별 Cryptography 위키피디아 문서에서 많이 발견되어 추가했다.</p>
 
-<p><strong><code class="highlighter-rouge">Collision attack</code>은 같은 해시를 갖는 두 개의 입력(메시지)을 찾는 공격이다.</strong></p>
+<p><strong><code class="language-plaintext highlighter-rouge">Collision attack</code>은 같은 해시를 갖는 두 개의 입력(메시지)을 찾는 공격이다.</strong></p>
 
 <p>이는 ‘preimage attack’과는 대조되는 공격으로 이 공격은 특정 타겟 해시에서 메시지를 찾는 공격이라고 한다.</p>
 

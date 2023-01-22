@@ -229,7 +229,7 @@ MathJax = {
         <a href="/"><img src="/assets/img/1536558558520.jpg" alt="Sunghwan Park"></a>
       </div>
       <div class="author-name">Sunghwan Park</div>
-      <p>I'm Parkito. A Python lover. Interested in Python, Automation, Algorithm. Please give me insights. I'll teach you tambien! :)</p>
+      <p>I'm Parkito. I'm back. Obsessed with esthetics of codes, sentences, modularity and writing</p>
     </div>
   </header> <!-- End Header -->
   <footer>
@@ -256,7 +256,7 @@ MathJax = {
       </ul>
     </section> <!-- End Section Contact -->
     <div class="copyright">
-      <p>2021 &copy; Sunghwan Park</p>
+      <p>2023 &copy; Sunghwan Park</p>
     </div>
   </footer> <!-- End Footer -->
 </aside> <!-- End Sidebar -->
@@ -375,7 +375,7 @@ MathJax = {
 
 <p>보통 많은 고급 언어에서 표준 라이브러리를 통해 정렬 기능을 제공하기 때문에 이를 활용하면 된다. 그래서 이 방법이 보통 가장 쉽게 아나그램임을 확인할 수 있는 알고리즘일 것이다. 정렬 기능 자체를 활용해 문제를 해결할 수 있는 경우는 많지 않은데 이 경우가 꽤나 재미있는 사례라 할 수 있다.</p>
 
-<p>시간복잡도는 어떻게 될까? <strong>정렬 알고리즘이 보통 내부적으로 병합정렬, 퀵 정렬 등을 통해 구현되어 있고 파이썬도 예외는 아니다. 따라서 파이썬의 내장 정렬 기능을 사용한 이 알고리즘의 시간복잡도는 <script type="math/tex">O(N log N)</script>이다.</strong> 어지간한 입력에는 충분히 빠르다.</p>
+<p>시간복잡도는 어떻게 될까? <strong>정렬 알고리즘이 보통 내부적으로 병합정렬, 퀵 정렬 등을 통해 구현되어 있고 파이썬도 예외는 아니다. 따라서 파이썬의 내장 정렬 기능을 사용한 이 알고리즘의 시간복잡도는 \(O(N log N)\)이다.</strong> 어지간한 입력에는 충분히 빠르다.</p>
 
 <p><br id="4" /></p>
 
@@ -438,7 +438,7 @@ MathJax = {
 
 <span class="n">a</span> <span class="mi">0</span>
 <span class="n">b</span> <span class="mi">1</span>
-<span class="o">...</span> <span class="err">생략</span>
+<span class="p">...</span> <span class="n">생략</span>
 <span class="n">y</span> <span class="mi">24</span>
 <span class="n">z</span> <span class="mi">25</span>
 </code></pre></div></div>
@@ -475,12 +475,12 @@ MathJax = {
     <span class="n">counter</span> <span class="o">=</span> <span class="p">{}</span>
 
     <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">a</span><span class="p">:</span>
-        <span class="n">counter</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">counter</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="n">counter</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">counter</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
 
     <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">b</span><span class="p">:</span>
-        <span class="n">counter</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">counter</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="n">counter</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">counter</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
 
-    <span class="k">return</span> <span class="nb">all</span><span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">counter</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+    <span class="k">return</span> <span class="nb">all</span><span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">counter</span><span class="p">.</span><span class="n">values</span><span class="p">())</span>
 </code></pre></div></div>
 
 <p>dict를 사용해 빈도수를 세는 가장 무난한 방법을 사용했다. 바로 <strong>dict.get</strong> 메소드를 사용하는 방법으로 이 메소드까지 굳이 설명할 필요는 없어보인다. list를 사용할 때와 마찬가지로 첫 단어의 글자의 빈도는 +1, 두 번째 단어의 글자의 빈도는 -1를 한다. <strong>최종적으로 두 단어가 아나그램이기 위해서는 카운터 dict의 value가 모두 0이어야 할 것이다.(두 단어가 빈 문자열일 경우는 빈 dict.)</strong></p>
@@ -523,7 +523,7 @@ MathJax = {
 
 <p><br /></p>
 
-<p>위의 <strong>세 알고리즘에는 결국 단어의 글자 빈도를 세는 작업이 수반됐으며 각 단어의 글자를 한 번씩만 세면 된다. 따라서 시간복잡도는 <script type="math/tex">O(N)</script>이 된다.</strong></p>
+<p>위의 <strong>세 알고리즘에는 결국 단어의 글자 빈도를 세는 작업이 수반됐으며 각 단어의 글자를 한 번씩만 세면 된다. 따라서 시간복잡도는 \(O(N)\)이 된다.</strong></p>
 
 <p><br id="5" /></p>
 

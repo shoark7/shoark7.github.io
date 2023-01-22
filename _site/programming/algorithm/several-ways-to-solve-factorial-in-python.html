@@ -229,7 +229,7 @@ MathJax = {
         <a href="/"><img src="/assets/img/1536558558520.jpg" alt="Sunghwan Park"></a>
       </div>
       <div class="author-name">Sunghwan Park</div>
-      <p>I'm Parkito. A Python lover. Interested in Python, Automation, Algorithm. Please give me insights. I'll teach you tambien! :)</p>
+      <p>I'm Parkito. I'm back. Obsessed with esthetics of codes, sentences, modularity and writing</p>
     </div>
   </header> <!-- End Header -->
   <footer>
@@ -256,7 +256,7 @@ MathJax = {
       </ul>
     </section> <!-- End Section Contact -->
     <div class="copyright">
-      <p>2021 &copy; Sunghwan Park</p>
+      <p>2023 &copy; Sunghwan Park</p>
     </div>
   </footer> <!-- End Footer -->
 </aside> <!-- End Sidebar -->
@@ -338,7 +338,7 @@ MathJax = {
 
 <p><br /></p>
 
-<p>이때 5 팩토리얼은(5!)은 120이 된다.(5! = 5 * 4 * 3 * 2 * 1 = 120) 팩토리얼은 N이 증가함에 따라 무식하게 커져서 N이 10만 되어도 3,628,800이나 되기 때문에 알고리즘 문제에서 시간복잡도가 <script type="math/tex">O(N!)</script>이 되는 문제들은 보통 N 값이 작다.</p>
+<p>이때 5 팩토리얼은(5!)은 120이 된다.(5! = 5 * 4 * 3 * 2 * 1 = 120) 팩토리얼은 N이 증가함에 따라 무식하게 커져서 N이 10만 되어도 3,628,800이나 되기 때문에 알고리즘 문제에서 시간복잡도가 \(O(N!)\)이 되는 문제들은 보통 N 값이 작다.</p>
 
 <p>팩토리얼은 여러 알고리즘 문제에서 사용되는데 팩토리얼과 직접적으로 연관된 문제들도 있지만(ex: <a href="https://www.acmicpc.net/problem/1676" target="_blank">팩토리얼의 끝 0의 개수</a>), 보통은 팩토리얼을 사용하는 이항계수, 조합론 문제에서 많이 등장한다. 개념 자체가 너무 쉽고 유용하기 때문에 개발이나 수학을 공부하는 사람들에게는 ‘기본’이라고 할 수 있는 알고리즘이다.</p>
 
@@ -364,8 +364,8 @@ MathJax = {
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">math</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">math</span><span class="o">.</span><span class="n">factorial</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">math</span><span class="o">.</span><span class="n">factorial</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">math</span><span class="p">.</span><span class="n">factorial</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">math</span><span class="p">.</span><span class="n">factorial</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
 
 <span class="mi">120</span>
 <span class="mi">2432902008176640000</span>
@@ -418,7 +418,7 @@ MathJax = {
 
 <p><br /></p>
 
-<p><strong>위 함수는 N이 1일 때는 1을 그대로 내놓고(<script type="math/tex">1! = 1</script>이기 때문에.) 아닐 때는 N에 (N - 1)! 재귀함수를 곱해 반환한다.</strong> 처음 이런 재귀함수를 보면 살짝 어리둥절할 수 있는데 N을 한 3, 4만 주고 저 식을 따라가보라. 정확히 값이 나온다.</p>
+<p><strong>위 함수는 N이 1일 때는 1을 그대로 내놓고(\(1! = 1\)이기 때문에.) 아닐 때는 N에 (N - 1)! 재귀함수를 곱해 반환한다.</strong> 처음 이런 재귀함수를 보면 살짝 어리둥절할 수 있는데 N을 한 3, 4만 주고 저 식을 따라가보라. 정확히 값이 나온다.</p>
 
 <p>알고리즘을 포함해 어떤 문제에서 문제의 해결책에 대한 일반식을 도출할 수 있으면 나머지는 그 식을 구현만 하면 되고 매우 쉽다.</p>
 
@@ -441,7 +441,7 @@ MathJax = {
 
 <h3 id="34-reduce-함수-사용">3.4. reduce 함수 사용</h3>
 
-<p>함수형 프로그래밍 언어를 사용한 분들은 친숙하지만 파이썬 등으로 프로그래밍을 시작한 사람들이 잘 모르는 <code class="highlighter-rouge">reduce</code>라는 함수가 있다.</p>
+<p>함수형 프로그래밍 언어를 사용한 분들은 친숙하지만 파이썬 등으로 프로그래밍을 시작한 사람들이 잘 모르는 <code class="language-plaintext highlighter-rouge">reduce</code>라는 함수가 있다.</p>
 
 <p>함수형 프로그래밍에서, <strong>reduce는 fold라고 일컬어지는 함수 집합의 일원으로 재귀적인 자료구조를 분석하고 주어진 결합 동작을 사용해서 원 자료구조의 부분구조를 반복적으로 처리해 재결합해서 하나의 결과값으로 반환하는 고순위(higher-order) 함수이다.</strong></p>
 
@@ -464,7 +464,7 @@ MathJax = {
 
 <p>이 reduce의 개념을 이용해 팩토리얼을 구할 수 있다. 1부터 N까지 1의 간격으로 반복되는 자료구조(이를테면 리스트)가 있고 우리가 원하는 연산을 ‘곱’이라고 정의한다면, 그리고 이를 reduce 연산에 입력으로 주면 1부터 N까지 곱한 값, 즉 N!이 나오지 않겠는가?</p>
 
-<p>바로 구현해보자. 파이썬에서는 <code class="highlighter-rouge">functools</code>라는 내장 모듈에서 <code class="highlighter-rouge">reduce</code>라는 함수를 제공한다. <strong>이 함수는 첫 번째 인자로 원하는 연산, 두 번째 인자로 재귀적인 자료구조를 받는다.</strong></p>
+<p>바로 구현해보자. 파이썬에서는 <code class="language-plaintext highlighter-rouge">functools</code>라는 내장 모듈에서 <code class="language-plaintext highlighter-rouge">reduce</code>라는 함수를 제공한다. <strong>이 함수는 첫 번째 인자로 원하는 연산, 두 번째 인자로 재귀적인 자료구조를 받는다.</strong></p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="nb">reduce</span>
 
@@ -508,7 +508,7 @@ MathJax = {
 <p>간단한 형태의 예시를 보자. <strong>우리가 짜는 간단한 프로그램은 인터프리트에 해석되기 전에는 문자열의 형태다. ~~.py라는 이름의 파일 안에 들어간 내용들은 모두 문자열이다!</strong> 작성할 때 문자를 입력했지, 이미지나 동영상을 집어넣은 게 아니지 않은가. 당연한 사실이지만 처음 들으면 인식하지 못하기도 한다. <strong>‘hi’ 라는 문자열을 출력하는 프로그램을 짜되, 그 프로그램의 이름을 runtime에 결정할 수 있는 메타프로그램을 짜보자.</strong></p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"함수의 이름을 정하시오: "</span><span class="p">)</span>
-<span class="n">program</span> <span class="o">=</span> <span class="n">f</span><span class="s">"""def {name}():
+<span class="n">program</span> <span class="o">=</span> <span class="sa">f</span><span class="s">"""def </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s">():
     print('hi')"""</span>
 
 <span class="k">exec</span><span class="p">(</span><span class="n">program</span><span class="p">)</span>
@@ -518,7 +518,7 @@ MathJax = {
 
 <p>함수의 이름을 ‘hihi’라고 내 맘대로 정한 뒤 이 이름의 함수를 실행해보자.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">함수의</span> <span class="err">이름을</span> <span class="err">정하시오</span><span class="p">:</span> <span class="n">hihi</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">함수의</span> <span class="n">이름을</span> <span class="n">정하시오</span><span class="p">:</span> <span class="n">hihi</span>
 
 <span class="n">hihi</span><span class="p">()</span>
 
@@ -555,7 +555,7 @@ MathJax = {
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">factorial_meta</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">n</span><span class="p">:</span>
         <span class="k">return</span> <span class="mi">1</span>
-    <span class="k">return</span> <span class="nb">eval</span><span class="p">(</span><span class="s">'*'</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)))</span>
+    <span class="k">return</span> <span class="nb">eval</span><span class="p">(</span><span class="s">'*'</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)))</span>
 
 
 
@@ -586,7 +586,7 @@ MathJax = {
 
 <hr />
 
-<p>방금 짠 5가지 코드들의 시간 복잡도는 어떻게 될까? 가령 n이 10이면 재귀함수에서 10번의 재귀가 일어나기 때문에 시간복잡도는 <script type="math/tex">O(N)</script>이 된다. 좋다. 보통 어지간한 알고리즘에서 복잡도가 이 정도에 수렴하면 굉장히 훌륭한 수준의 알고리즘이다.</p>
+<p>방금 짠 5가지 코드들의 시간 복잡도는 어떻게 될까? 가령 n이 10이면 재귀함수에서 10번의 재귀가 일어나기 때문에 시간복잡도는 \(O(N)\)이 된다. 좋다. 보통 어지간한 알고리즘에서 복잡도가 이 정도에 수렴하면 굉장히 훌륭한 수준의 알고리즘이다.</p>
 
 <p>근데 팩토리얼을 한 두번이 아닌, 한 번 만들어놓고 매우 많이 실행해야 하는 경우에는 어떻게 될까?</p>
 
@@ -624,7 +624,7 @@ MathJax = {
   <li><strong>코드가 중복된다.</strong> cache에 값을 요청하는 위 코드는 5가지 팩토리얼에 모두 중복해 쓸 수 있다. 이때 저 코드를 함수 각각에 넣으면 5개의 부분이 중복되는 것이다. 정말 쓸데없는 코드 낭비로 대충 계산해서 대략 100 Byte는 더 낭비될 것 같다. 코드의 중복 작성을 없애자.</li>
 </ol>
 
-<p>이 3가지 문제점을 모두 해결할 수 있는 동적 계획법 구현은 없을까? 답은 있다. 바로 <code class="highlighter-rouge">decorator</code></p>
+<p>이 3가지 문제점을 모두 해결할 수 있는 동적 계획법 구현은 없을까? 답은 있다. 바로 <code class="language-plaintext highlighter-rouge">decorator</code></p>
 
 <h4 id="decorator를-써서-재사용성을-높이자-">decorator를 써서 재사용성을 높이자 :)</h4>
 
@@ -659,23 +659,23 @@ MathJax = {
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">@</span><span class="n">in_cache</span>
 <span class="k">def</span> <span class="nf">factorial_recursive</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="o">...</span>
+    <span class="p">...</span>
 
 <span class="o">@</span><span class="n">in_cache</span>
 <span class="k">def</span> <span class="nf">factorial_for</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="o">...</span>
+    <span class="p">...</span>
 
 <span class="o">@</span><span class="n">in_cache</span>
 <span class="k">def</span> <span class="nf">factorial_meta</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="o">...</span>
+    <span class="p">...</span>
 
 <span class="o">@</span><span class="n">in_cache</span>
 <span class="k">def</span> <span class="nf">factorial_reduce</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="o">...</span>
+    <span class="p">...</span>
 
 <span class="c1">## math.fatorial은 이미 정의되어 있다.
 </span>
-<span class="n">factorial</span> <span class="o">=</span> <span class="n">in_cache</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">factorial</span><span class="p">)</span>
+<span class="n">factorial</span> <span class="o">=</span> <span class="n">in_cache</span><span class="p">(</span><span class="n">math</span><span class="p">.</span><span class="n">factorial</span><span class="p">)</span>
 </code></pre></div></div>
 
 <p>다섯 가지 함수를 모두 구현한다고 했을 때 캐시에 값을 확인하는 함수를 데코레이터로 감싸니 훨씬 이해하기 싶고 코드도 간결하다. 좋다. 동적 계획법을 아름답게 구현했다.</p>

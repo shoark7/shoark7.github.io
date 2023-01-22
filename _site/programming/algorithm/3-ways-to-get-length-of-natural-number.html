@@ -229,7 +229,7 @@ MathJax = {
         <a href="/"><img src="/assets/img/1536558558520.jpg" alt="Sunghwan Park"></a>
       </div>
       <div class="author-name">Sunghwan Park</div>
-      <p>I'm Parkito. A Python lover. Interested in Python, Automation, Algorithm. Please give me insights. I'll teach you tambien! :)</p>
+      <p>I'm Parkito. I'm back. Obsessed with esthetics of codes, sentences, modularity and writing</p>
     </div>
   </header> <!-- End Header -->
   <footer>
@@ -256,7 +256,7 @@ MathJax = {
       </ul>
     </section> <!-- End Section Contact -->
     <div class="copyright">
-      <p>2021 &copy; Sunghwan Park</p>
+      <p>2023 &copy; Sunghwan Park</p>
     </div>
   </footer> <!-- End Footer -->
 </aside> <!-- End Sidebar -->
@@ -331,7 +331,7 @@ MathJax = {
 
 <p>문제 이해가 너무 쉬워서 문제를 소개하는 장을 생략할까 했지만 내 철학상 그럴 수는 없었다. 코딩 테스트를 통과할 알고리즘에 대한 이해에 앞서 선행되어야 하는 과정은 언제나 <strong>문제에 대한 이해</strong>다. 이 과정없이 코드에 바로 뛰어드는 사람들이 생각보다 많아서 걱정이다. 그러면 문제에 대한 설명이 긴, 카카오 코딩 테스트 같은 수준 있는 테스트에서는 조건 한 두개씩 생략해서 고생을 하기 십상이다. 우리는 그러지 말고 <strong>문제를 항상 우리의 문장으로 정의하고 코드로 넘어가는 습관을 기르자.</strong></p>
 
-<p><script type="math/tex">10000</script>이라는 수는 수학적으로 <script type="math/tex">10^4</script>과 같은데 우리는 어떤 숫자를 지수(<script type="math/tex">4</script>)와 연관시켜 이해하려는 경향이 있다. 가령 동양에서는 십진수 단위를 사용할 때 밑수 10의 지수가 <script type="math/tex">4</script>씩 더해질 때마다 만, 억, 조 등의 표현을 쓴다. 서양에서는 지수가 <script type="math/tex">3</script>씩 더해질 때마다 thousand, million, billion 등의 표현을 쓴다. 근데 여기에 더해 <a href="https://movie.naver.com/movie/bi/mi/basic.nhn?code=34522" target="_blank">어떤 영화</a>를 보니 영어로는 저 수를 <script type="math/tex">5\text{-digit number}</script>이라고도 표현하더라. <strong>지수로 숫자를 표현하는 것이 아니라 단순히 자연수의 길이를 가지고 수를 표현한 것이다.</strong> 확실히 어떤 값이나 개념을 표현하는 방법은 하나가 아닐 수 있다. 이때 우리가 만드는 기능은 다음과 같다:</p>
+<p>\(10000\)이라는 수는 수학적으로 \(10^4\)과 같은데 우리는 어떤 숫자를 지수(\(4\))와 연관시켜 이해하려는 경향이 있다. 가령 동양에서는 십진수 단위를 사용할 때 밑수 10의 지수가 \(4\)씩 더해질 때마다 만, 억, 조 등의 표현을 쓴다. 서양에서는 지수가 \(3\)씩 더해질 때마다 thousand, million, billion 등의 표현을 쓴다. 근데 여기에 더해 <a href="https://movie.naver.com/movie/bi/mi/basic.nhn?code=34522" target="_blank">어떤 영화</a>를 보니 영어로는 저 수를 \(5\text{-digit number}\)이라고도 표현하더라. <strong>지수로 숫자를 표현하는 것이 아니라 단순히 자연수의 길이를 가지고 수를 표현한 것이다.</strong> 확실히 어떤 값이나 개념을 표현하는 방법은 하나가 아닐 수 있다. 이때 우리가 만드는 기능은 다음과 같다:</p>
 
 <p class="function-definition">
 어떤 자연수 N이 D-digit number일 때, D를 구하라
@@ -375,7 +375,7 @@ MathJax = {
 
 <p>너무 쉬워서 할 말이 별로 없는데 이렇게 끝내면 시시하니 <strong>왜 이렇게 하면 길이가 구해지는지, 조금만 파이썬 안쪽의 이야기를 해보자.</strong> ‘왜 <em>len(10000)</em> 이렇게 하면 길이가 안 나오고 에러가 뜨는 것일까?’ 같은 위대한 질문을 하는 독자들도 있으리라고 생각한다.</p>
 
-<p>파이썬의 내장 <em>collections.abc</em> 모듈에는 파이썬의 많은 자료구조(<em>list</em>, <em>set</em> 등)들의 원형(archetype)이 되는 추상형 자료구조(Abstract Data Type)들이 있는데 그중 <code class="highlighter-rouge">Sequence</code>라는 자료구조가 있다. <strong>이 자료구조는 한 마디로 원소들의 순서를 매길 수 있는 1차원 배열에 대한 추상형 자료구조이고 이 조건을 만족하는 <em>list</em>, <em>tuple</em> 등은 이 원형 자료구조를 내부적으로 상속하고 있다.</strong></p>
+<p>파이썬의 내장 <em>collections.abc</em> 모듈에는 파이썬의 많은 자료구조(<em>list</em>, <em>set</em> 등)들의 원형(archetype)이 되는 추상형 자료구조(Abstract Data Type)들이 있는데 그중 <code class="language-plaintext highlighter-rouge">Sequence</code>라는 자료구조가 있다. <strong>이 자료구조는 한 마디로 원소들의 순서를 매길 수 있는 1차원 배열에 대한 추상형 자료구조이고 이 조건을 만족하는 <em>list</em>, <em>tuple</em> 등은 이 원형 자료구조를 내부적으로 상속하고 있다.</strong></p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">collections.abc</span> <span class="kn">import</span> <span class="n">Sequence</span>
 
@@ -426,9 +426,9 @@ MathJax = {
 
 <h3 id="32-로그-사용하기">3.2. 로그 사용하기</h3>
 
-<p>다음 방법은 고교 수학의 기본인 <code class="highlighter-rouge">로그</code>를 사용하는 것이다. 내 생각에 프로그래밍을 한다고 하면 로그 정도의 수학까지는 알아야 한다. 당장 알고리즘만 봐도 <script type="math/tex">O(logN)</script>의 시간복잡도와 같은 개념을 논하니까.</p>
+<p>다음 방법은 고교 수학의 기본인 <code class="language-plaintext highlighter-rouge">로그</code>를 사용하는 것이다. 내 생각에 프로그래밍을 한다고 하면 로그 정도의 수학까지는 알아야 한다. 당장 알고리즘만 봐도 \(O(logN)\)의 시간복잡도와 같은 개념을 논하니까.</p>
 
-<p>여기서 논하는 <strong>로그(log)는 통나무를 말하지 않고, 대신 ‘어떤 수가 어떤 밑수의 몇 승인가’를 논하는 개념이다.</strong> 가령 <script type="math/tex">10000</script>은 10의 4승이다. 그러면 <script type="math/tex">log_{10}10000 = log_{10}10^4</script>이기 때문에 값은 4가 된다. 그대로다. 더 설명이 필요할 것 같지 않다.</p>
+<p>여기서 논하는 <strong>로그(log)는 통나무를 말하지 않고, 대신 ‘어떤 수가 어떤 밑수의 몇 승인가’를 논하는 개념이다.</strong> 가령 \(10000\)은 10의 4승이다. 그러면 \(log_{10}10000 = log_{10}10^4\)이기 때문에 값은 4가 된다. 그대로다. 더 설명이 필요할 것 같지 않다.</p>
 
 <p>다만 기억할 것은 <strong>어떤 자연수에 로그를 씌운 결과는 그 수의 길이와 깊은 관계가 있다는 것이다.</strong></p>
 
@@ -442,14 +442,14 @@ MathJax = {
 
 <p><br /></p>
 
-<p><strong>10, 1000, 1000000에 밑수가 10인 로그를 씌워보니 각각 1, 3, 6이 나왔는데 정확한 숫자의 길이를 표현하지는 못하지만 확실히 길이가 길어지면 로그값도 커진다. 정확히는 로그값에 1을 더하면 자연수의 길이가 나온다.</strong> 이 방법을 사용하면 될 것 같다. 또 감안할 것은 로그를 취하는 값이 정확히 밑수의 자연수 지수로 떨어지지 않는 경우인데, 가령 <script type="math/tex">log_{10}20 \simeq 1.3010</script> 같은 경우가 있겠다. 로그값에 소수점이 붙는다. 하지만 걱정하지 마라. <strong>10과 20의 길이가 같은 것처럼, 자연수의 길이가 같으면 로그값의 소수부는 달라질지언정 정수부는 변하지 않는다. 즉, 로그값을 만든 후 그 값을 내림하면 문제없이 처리 가능하다.</strong></p>
+<p><strong>10, 1000, 1000000에 밑수가 10인 로그를 씌워보니 각각 1, 3, 6이 나왔는데 정확한 숫자의 길이를 표현하지는 못하지만 확실히 길이가 길어지면 로그값도 커진다. 정확히는 로그값에 1을 더하면 자연수의 길이가 나온다.</strong> 이 방법을 사용하면 될 것 같다. 또 감안할 것은 로그를 취하는 값이 정확히 밑수의 자연수 지수로 떨어지지 않는 경우인데, 가령 \(log_{10}20 \simeq 1.3010\) 같은 경우가 있겠다. 로그값에 소수점이 붙는다. 하지만 걱정하지 마라. <strong>10과 20의 길이가 같은 것처럼, 자연수의 길이가 같으면 로그값의 소수부는 달라질지언정 정수부는 변하지 않는다. 즉, 로그값을 만든 후 그 값을 내림하면 문제없이 처리 가능하다.</strong></p>
 
 <p>로그 함수를 사용해 이 기능을 만들어보자.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">math</span>
 
 <span class="k">def</span> <span class="nf">digit_length</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">n</span><span class="p">))</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">n</span> <span class="k">else</span> <span class="mi">0</span>
+    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">math</span><span class="p">.</span><span class="n">log10</span><span class="p">(</span><span class="n">n</span><span class="p">))</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">n</span> <span class="k">else</span> <span class="mi">0</span>
 </code></pre></div></div>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="n">digit_length</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
@@ -504,10 +504,10 @@ MathJax = {
       <li><strong>파이썬은 숫자 자체를 조건식으로 사용하는 것을 허락한다. 이때 0(0.0 등 포함)일 때는 <em>False</em>, 그 외에는 정수, 실수, 음수, 복소수 할 것 없이 전부 <em>True</em> 가 된다.</strong> 따라서 조건식이 참일 때는 모두 <em>n</em> 이 0이 아니라는 뜻이 된다. 이때 우리는 10씩 나눠가며 값을 1씩 키울 수 있다.</li>
     </ul>
   </li>
-  <li>이후로는 <code class="highlighter-rouge">//</code>를 통해 나머지를 버리고 몫만 남긴다. 그때마다 값을 1 키워 while 문을 나올 때는 <em>n</em> 은 0이 되어 있고 <em>ans</em> 에는 원 숫자의 길이가 담기게 된다.</li>
+  <li>이후로는 <code class="language-plaintext highlighter-rouge">//</code>를 통해 나머지를 버리고 몫만 남긴다. 그때마다 값을 1 키워 while 문을 나올 때는 <em>n</em> 은 0이 되어 있고 <em>ans</em> 에는 원 숫자의 길이가 담기게 된다.</li>
 </ul>
 
-<p>확실히 모든 프로그래밍 언어는 나누기 등 사칙연산과 반복문을 지원하기 때문에 이 방법은 모든 언어에서 통용될 수 있는 함수다. 자연어로 치면 ‘영어’와 비슷하다고 할 수 있을까? 그런 의미에서 이 방법이 세 방법 중 가장 <code class="highlighter-rouge">범용성</code>이 짙은 방법이라고 평가할 수 있겠다. 특정 언어에 국한되지 않는 방법을 익히는 것은 분명 타 언어를 공부할 때 도움이 될 것이라 믿는다.</p>
+<p>확실히 모든 프로그래밍 언어는 나누기 등 사칙연산과 반복문을 지원하기 때문에 이 방법은 모든 언어에서 통용될 수 있는 함수다. 자연어로 치면 ‘영어’와 비슷하다고 할 수 있을까? 그런 의미에서 이 방법이 세 방법 중 가장 <code class="language-plaintext highlighter-rouge">범용성</code>이 짙은 방법이라고 평가할 수 있겠다. 특정 언어에 국한되지 않는 방법을 익히는 것은 분명 타 언어를 공부할 때 도움이 될 것이라 믿는다.</p>
 
 <p><br />
 <br id="4" /></p>

@@ -231,7 +231,7 @@ MathJax = {
         <a href="/"><img src="/assets/img/1536558558520.jpg" alt="Sunghwan Park"></a>
       </div>
       <div class="author-name">Sunghwan Park</div>
-      <p>I'm Parkito. A Python lover. Interested in Python, Automation, Algorithm. Please give me insights. I'll teach you tambien! :)</p>
+      <p>I'm Parkito. I'm back. Obsessed with esthetics of codes, sentences, modularity and writing</p>
     </div>
   </header> <!-- End Header -->
   <footer>
@@ -258,7 +258,7 @@ MathJax = {
       </ul>
     </section> <!-- End Section Contact -->
     <div class="copyright">
-      <p>2021 &copy; Sunghwan Park</p>
+      <p>2023 &copy; Sunghwan Park</p>
     </div>
   </footer> <!-- End Footer -->
 </aside> <!-- End Sidebar -->
@@ -329,7 +329,7 @@ MathJax = {
 
 <h3 id="1-pwd">1. pwd</h3>
 
-<p><strong><code class="highlighter-rouge">pwd</code>는 ‘print working directory’의 약자로 현재 쉘 상에서 내가 위치한 디렉토리 경로를 보여준다.</strong> 본격적인 작업에 앞서 내가 현재 속한 경로를 확인해야 할 필요가 있을 때 사용한다.</p>
+<p><strong><code class="language-plaintext highlighter-rouge">pwd</code>는 ‘print working directory’의 약자로 현재 쉘 상에서 내가 위치한 디렉토리 경로를 보여준다.</strong> 본격적인 작업에 앞서 내가 현재 속한 경로를 확인해야 할 필요가 있을 때 사용한다.</p>
 
 <p>이후 설명할 다른 기능들과 달리 인자(argument)도 받지 않아서 매우 단순한 기능이다.</p>
 
@@ -344,9 +344,9 @@ MathJax = {
 
 <h3 id="2-ls">2. ls</h3>
 
-<p><code class="highlighter-rouge">ls</code>는 아마 쉘을 쓰면서 가장 많이 쓰는 기능이 될 것이다. <strong>이 기능은 <code class="highlighter-rouge">list</code>의 약자로 디렉토리 안의 파일과 디렉토리의 목록을 화면에 출력한다.</strong></p>
+<p><code class="language-plaintext highlighter-rouge">ls</code>는 아마 쉘을 쓰면서 가장 많이 쓰는 기능이 될 것이다. <strong>이 기능은 <code class="language-plaintext highlighter-rouge">list</code>의 약자로 디렉토리 안의 파일과 디렉토리의 목록을 화면에 출력한다.</strong></p>
 
-<p><strong>활용법은 <code class="highlighter-rouge">ls 경로</code>가 기본인데, 이는 내가 입력한 디렉토리 안의 모든 파일과 디렉토리 목록을 출력한다는 것을 뜻한다. ‘ls’에 인자를 주지 않고 쓰면 현재 위치가 <code class="highlighter-rouge">경로</code>로 쓰이도록 되어 있고 현재 내가 속한 디렉토리 안의 파일 목록을 보여준다.</strong></p>
+<p><strong>활용법은 <code class="language-plaintext highlighter-rouge">ls 경로</code>가 기본인데, 이는 내가 입력한 디렉토리 안의 모든 파일과 디렉토리 목록을 출력한다는 것을 뜻한다. ‘ls’에 인자를 주지 않고 쓰면 현재 위치가 <code class="language-plaintext highlighter-rouge">경로</code>로 쓰이도록 되어 있고 현재 내가 속한 디렉토리 안의 파일 목록을 보여준다.</strong></p>
 
 <p>사용예는 다음과 같다.</p>
 
@@ -358,7 +358,7 @@ MathJax = {
   </span>bin                ipython-dir
 </code></pre></div></div>
 
-<p>현재 내가 속한 디렉토리 안의 파일들을 모두 보여준다. 명시적으로 <code class="highlighter-rouge">경로</code>를 입력해주면 지금 내가 속한 경로가 아닌 입력된 경로의 파일들을 보여준다.</p>
+<p>현재 내가 속한 디렉토리 안의 파일들을 모두 보여준다. 명시적으로 <code class="language-plaintext highlighter-rouge">경로</code>를 입력해주면 지금 내가 속한 경로가 아닌 입력된 경로의 파일들을 보여준다.</p>
 
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">ls</span> /
 
@@ -375,7 +375,7 @@ custom-backup  initrd.img  lost+found      proc   snap  usr
 <p>바로 예를 살펴보자.</p>
 
 <p>가령 이런 경우가 있을 수 있다. ‘ls’를 써서 파일을 확인하되 숨김파일까지 전부 보고 싶다면?<br />
-아, 유닉스에서는 숨김파일은 파일 이름 앞에 <code class="highlighter-rouge">.</code>을 붙여서 지정한다. 그러면 일반 ‘ls’로는 그 파일이 경로에 존재해도 출력되지 않는다.</p>
+아, 유닉스에서는 숨김파일은 파일 이름 앞에 <code class="language-plaintext highlighter-rouge">.</code>을 붙여서 지정한다. 그러면 일반 ‘ls’로는 그 파일이 경로에 존재해도 출력되지 않는다.</p>
 
 <p>숨김파일까지 포함해서 목록을 보고 싶다면 ‘ls’에 ‘-a’ 인자를 주면 된다.</p>
 
@@ -425,7 +425,7 @@ custom-backup  initrd.img  lost+found      proc   snap  usr
 
 <h3 id="3-cd">3. cd</h3>
 
-<p><strong><code class="highlighter-rouge">cd</code>는 원하는 경로로 커서(working directory)를 이동한다.</strong> 이또한 쉘을 활용하면서 무수히 사용하게 될 것이다.</p>
+<p><strong><code class="language-plaintext highlighter-rouge">cd</code>는 원하는 경로로 커서(working directory)를 이동한다.</strong> 이또한 쉘을 활용하면서 무수히 사용하게 될 것이다.</p>
 
 <p>가령 내가 ‘/var’ 경로로 커서를 이동하고 싶다면 이렇게 사용하면 된다.</p>
 
@@ -438,9 +438,9 @@ custom-backup  initrd.img  lost+found      proc   snap  usr
 
 <p>이 명칭들을 활용하면 cd를 비롯한 쉘 커맨드 활용을 좀더 효율적으로 할 수 있는데 구체적인 활용을 하기 전에 명칭들의 예를 몇 가지 살펴보자.</p>
 
-<h4 id="경로-별칭-1-">경로 별칭 1: <code class="highlighter-rouge">~</code></h4>
+<h4 id="경로-별칭-1-">경로 별칭 1: <code class="language-plaintext highlighter-rouge">~</code></h4>
 
-<p><strong><code class="highlighter-rouge">~</code>(tilde)라고 하는데 이것은 사용자의 홈 디렉토리를 의미한다.</strong> 유닉스의 파일시스템에서는 ‘사용자’만을 위해 할당된 공간은 ‘/home’ 디렉토리이고 이곳에 다수의 사용자들의 디렉토리가 각각 존재한다. 각 사용자는 자신의 홈디렉토리에 필요한 작업을 모두 하며 그 바깥은 시스템 관리자의 영역으로 손대지 않는 것이 좋다.</p>
+<p><strong><code class="language-plaintext highlighter-rouge">~</code>(tilde)라고 하는데 이것은 사용자의 홈 디렉토리를 의미한다.</strong> 유닉스의 파일시스템에서는 ‘사용자’만을 위해 할당된 공간은 ‘/home’ 디렉토리이고 이곳에 다수의 사용자들의 디렉토리가 각각 존재한다. 각 사용자는 자신의 홈디렉토리에 필요한 작업을 모두 하며 그 바깥은 시스템 관리자의 영역으로 손대지 않는 것이 좋다.</p>
 
 <p>가령 내 홈 디렉토리는 ‘/home/sunghwanpark’으로 내가 작업하는 모든 내용물들이 이 안에 있다. 이는 당신도 마찬가지다.</p>
 
@@ -454,8 +454,8 @@ custom-backup  initrd.img  lost+found      proc   snap  usr
 
 <p>이와 같이 손쉽게 홈 디렉토리에 접근할 수 있다.</p>
 
-<h4 id="경로-별칭-2-">경로 별칭 2: <code class="highlighter-rouge">.</code></h4>
-<p><strong><code class="highlighter-rouge">.</code>은 내가 위치한 현재 경로를 가리킨다.</strong> 경로에는 절대경로와 상대경로라는 것이 있는데 이 <code class="highlighter-rouge">.</code>은 상대경로의 출발점으로 내가 속한 현재 경로를 가리키게 된다.</p>
+<h4 id="경로-별칭-2-">경로 별칭 2: <code class="language-plaintext highlighter-rouge">.</code></h4>
+<p><strong><code class="language-plaintext highlighter-rouge">.</code>은 내가 위치한 현재 경로를 가리킨다.</strong> 경로에는 절대경로와 상대경로라는 것이 있는데 이 <code class="language-plaintext highlighter-rouge">.</code>은 상대경로의 출발점으로 내가 속한 현재 경로를 가리키게 된다.</p>
 
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd</span> <span class="nb">.</span>
 </code></pre></div></div>
@@ -470,10 +470,10 @@ custom-backup  initrd.img  lost+found      proc   snap  usr
 
 <p>둘 다 현재 경로에 있는 ‘movie’ 라는 디렉토리로 이동한다. <strong>대신 두 번째 식은 확실히 ‘내가 위치한 디렉토리에 있는 movie’를 명시적으로 표현해서 경우에 따라 가독성을 높일 수 있다.</strong></p>
 
-<p>이 현재 경로를 뜻하는 <code class="highlighter-rouge">.</code>은 cd 보다는 다른 커맨드에서 더 빛을 발한다.(그래서 중요하다.)</p>
+<p>이 현재 경로를 뜻하는 <code class="language-plaintext highlighter-rouge">.</code>은 cd 보다는 다른 커맨드에서 더 빛을 발한다.(그래서 중요하다.)</p>
 
-<h4 id="경로-별칭-3-">경로 별칭 3: <code class="highlighter-rouge">..</code></h4>
-<p><strong><code class="highlighter-rouge">..</code>은 현재 디렉토리의 상위 디렉토리(parent directory)를 의미한다.</strong> 가령 내가 현재 속한 경로가 ‘/home/sunghwanpark’라면 <code class="highlighter-rouge">..</code>로 cd를 사용하면 다음과 같이 이동한다.</p>
+<h4 id="경로-별칭-3-">경로 별칭 3: <code class="language-plaintext highlighter-rouge">..</code></h4>
+<p><strong><code class="language-plaintext highlighter-rouge">..</code>은 현재 디렉토리의 상위 디렉토리(parent directory)를 의미한다.</strong> 가령 내가 현재 속한 경로가 ‘/home/sunghwanpark’라면 <code class="language-plaintext highlighter-rouge">..</code>로 cd를 사용하면 다음과 같이 이동한다.</p>
 
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">pwd</span>
 <span class="nv">$ </span><span class="nb">cd</span> ..
@@ -528,7 +528,7 @@ custom-backup  initrd.img  lost+found      proc   snap  usr
 <span class="nb">mkdir</span>: <span class="sb">`</span>./a/b<span class="s1">' 디렉토리를 만들 수 없습니다: 그런 파일이나 디렉터리가 없습니다
 </span></code></pre></div></div>
 
-<p>없으니까 만들려고 하는데 이게 뭔소린가?? 이 오류 메시지의 뜻은 ‘b’라는 디렉토리를 만들려는데 ‘a’가 없어서 못 만들겠다는 뜻이다. 그러면 한 번에 ‘a’도 만들고 ‘b’도 만들면 될 것이고 <code class="highlighter-rouge">-p</code>는 그 일을 한다.</p>
+<p>없으니까 만들려고 하는데 이게 뭔소린가?? 이 오류 메시지의 뜻은 ‘b’라는 디렉토리를 만들려는데 ‘a’가 없어서 못 만들겠다는 뜻이다. 그러면 한 번에 ‘a’도 만들고 ‘b’도 만들면 될 것이고 <code class="language-plaintext highlighter-rouge">-p</code>는 그 일을 한다.</p>
 
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">mkdir</span> <span class="nt">-p</span> ./a/b
 </code></pre></div></div>
@@ -569,9 +569,9 @@ custom-backup  initrd.img  lost+found      proc   snap  usr
 -&gt; 3
 </code></pre></div></div>
 
-<p>유닉스에서는 변수 할당 시 일반적인 대입 연산자(=)를 쓰되, 양 피연산자 사이에 공백이 있으면 안 된다. 그것도 이유가 있는데 일단 넘어가겠다. 그리고 그 값을 확인할 때 a가 문자 리터럴 ‘a’가 아닌 변수명 a를 나타내기 위해서는 유닉스에서는 변수명 앞에 ‘$’를 붙여줘야 한다. <code class="highlighter-rouge">echo $a</code>와 같은 식을 통해 변수 a의 값을 확인할 수 있었다.</p>
+<p>유닉스에서는 변수 할당 시 일반적인 대입 연산자(=)를 쓰되, 양 피연산자 사이에 공백이 있으면 안 된다. 그것도 이유가 있는데 일단 넘어가겠다. 그리고 그 값을 확인할 때 a가 문자 리터럴 ‘a’가 아닌 변수명 a를 나타내기 위해서는 유닉스에서는 변수명 앞에 ‘$’를 붙여줘야 한다. <code class="language-plaintext highlighter-rouge">echo $a</code>와 같은 식을 통해 변수 a의 값을 확인할 수 있었다.</p>
 
-<p>이것말고도 <code class="highlighter-rouge">echo</code>의 활용은 다른 기능과 조합하면 쓸모 있어진다. 이것들은 향후 반드시 다루도록 하겠다.</p>
+<p>이것말고도 <code class="language-plaintext highlighter-rouge">echo</code>의 활용은 다른 기능과 조합하면 쓸모 있어진다. 이것들은 향후 반드시 다루도록 하겠다.</p>
 
 <hr />
 
@@ -606,7 +606,7 @@ custom-backup  initrd.img  lost+found      proc   snap  usr
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cp</span> ~/a/b/c/d/e ~
 </code></pre></div></div>
 
-<p>아까 설명한 <code class="highlighter-rouge">~</code>를 잘 활용했다. 이렇게 입력하면 파일을 복사해 홈 디렉토리에 둠으로써 2개 존재하게 되었다.</p>
+<p>아까 설명한 <code class="language-plaintext highlighter-rouge">~</code>를 잘 활용했다. 이렇게 입력하면 파일을 복사해 홈 디렉토리에 둠으로써 2개 존재하게 되었다.</p>
 
 <p>조심할 것은 ‘cp’는 <em>dest</em> 에서 기존의 파일의 존재 여부를 확인하지 않기 때문에 기존의 파일을 덮어쓸 수 있다. 유의하기 바란다.</p>
 
@@ -619,7 +619,7 @@ custom-backup  initrd.img  lost+found      proc   snap  usr
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">mv</span> <span class="o">[</span>옵션] 복사할대상<span class="o">(</span>src<span class="o">)</span> 복사된대상<span class="o">(</span>dest<span class="o">)</span>
 </code></pre></div></div>
 
-<p><strong>cp와 비슷하지만 결정적인 차이가 있다. cp는 ‘복사’기 때문에 실행 후에 파일이 <em>src</em> 와 <em>dest</em> 두 군데 존재하게 되고, ‘mv’는 ‘이동’이기 때문에 실행 후 파일이 <em>dest</em> 에만 있으며 <em>src</em> 에는 없다.</strong> 아까의 예제에서 <code class="highlighter-rouge">mv ~/a/b/c/d/e/ ~</code>라고 입력하면 ‘e’ 파일은 원 위치인 ‘~/a/b/c/d’에는 없고 ‘~’에만 있게 될 것이다.</p>
+<p><strong>cp와 비슷하지만 결정적인 차이가 있다. cp는 ‘복사’기 때문에 실행 후에 파일이 <em>src</em> 와 <em>dest</em> 두 군데 존재하게 되고, ‘mv’는 ‘이동’이기 때문에 실행 후 파일이 <em>dest</em> 에만 있으며 <em>src</em> 에는 없다.</strong> 아까의 예제에서 <code class="language-plaintext highlighter-rouge">mv ~/a/b/c/d/e/ ~</code>라고 입력하면 ‘e’ 파일은 원 위치인 ‘~/a/b/c/d’에는 없고 ‘~’에만 있게 될 것이다.</p>
 
 <p><br /></p>
 
@@ -644,9 +644,9 @@ custom-backup  initrd.img  lost+found      proc   snap  usr
 <span class="nt">-f</span> : <span class="s1">'force'</span>의 약자. 지우는 것은 신중해야 하기 때문에 사용자가 파일이 많은 디렉토리를 삭제할 때는 실수로 중요한 파일을 지울 수도 있음. 따라서 <span class="s1">'rm'</span>는 디렉토리 안의 파일마다 삭제할 것인지 <span class="nb">yes</span>/no 로 묻는데 이 옵션을 쓰면 묻지 않고 강제로 전부 삭제함.
 </code></pre></div></div>
 
-<p><strong>디렉토리를 삭제할 때는 <code class="highlighter-rouge">-rf</code> 옵션을 꼭 같이 써줘야 한다.</strong> 그렇지 않으면 삭제 실행이 안 된다.</p>
+<p><strong>디렉토리를 삭제할 때는 <code class="language-plaintext highlighter-rouge">-rf</code> 옵션을 꼭 같이 써줘야 한다.</strong> 그렇지 않으면 삭제 실행이 안 된다.</p>
 
-<p>가끔 생활코딩에 정신나간 놈들이 ‘님들 개꿀임 ㅋㅋ 커맨드에 <code class="highlighter-rouge">rm -rf /</code> 해보셈 ㅋㅋㅋ’하는데 이 코드는 절대 실행해서는 안 되는 코드다.</p>
+<p>가끔 생활코딩에 정신나간 놈들이 ‘님들 개꿀임 ㅋㅋ 커맨드에 <code class="language-plaintext highlighter-rouge">rm -rf /</code> 해보셈 ㅋㅋㅋ’하는데 이 코드는 절대 실행해서는 안 되는 코드다.</p>
 
 <p>위 코드는 루트 디렉토리(‘/’)를 삭제하라는 의미로 전통적인 유닉스는 그 중요성을 고려하지 않고 정말로 입력받은 대로 삭제한다. 이는 치명적으로 절대 실행해서는 안 되는 코드이다. 장난으로라도 저런 것을 올렸다가 입문자들이 한 명이라도 실행해보면 어쩌려고 저러는지… 사실 현대적인 리눅스 배포판들에서는 저런 치명적인 경로를 삭제하는 코드는 실행하지 않도록 되어 있기는 하다.</p>
 
@@ -660,7 +660,7 @@ custom-backup  initrd.img  lost+found      proc   snap  usr
 
 <p>또한 난 이 기능들에 대해 다 설명하지도 않았다. 이들은 확인해보면 내가 제시한 것보다 더 많은 옵션과 활용방법을 가지고 있는데 그중 중요한 것과 내가 아는 것의 교집합만 추려서 설명했다. 하지만 가능한 다른 옵션들이나 활용법을 알면 손해볼 것은 없다. 그만큼 자주 쓰기 때문이다.</p>
 
-<p><strong>내가 프로그래밍 언어나 쉘 커맨드를 공부할 때 항상 추천하는 방법은 헬핑(helping)을 생활화하는 것이다. 헬핑은 내가 만든 단어인데 CLI 환경에서 명령어와 함께 <code class="highlighter-rouge">--help</code>를 같이 입력해보는 것이다.</strong> 전부는 아니지만 대다수의 경우 해당 기능의 사용서가 출력된다. 이 기능들은 사실 누가 만든 ‘프로그램’이고 이런 프로그램들은 다른 사람들을 위한 ‘사용설명서’를 가지고 있다. 그래야 사람들이 잘 쓸 것 아닌가? 나도 이 포스트를 적을 때 위 커맨드마다 헬핑 해보고 다시 한 번 확인했다. <strong>내가 처음 보는 함수나 기능을 만난다면 먼저 헬핑을 하자.</strong> 이것이 습관이 되어야 한다. 인터넷 검색은 다음이다.</p>
+<p><strong>내가 프로그래밍 언어나 쉘 커맨드를 공부할 때 항상 추천하는 방법은 헬핑(helping)을 생활화하는 것이다. 헬핑은 내가 만든 단어인데 CLI 환경에서 명령어와 함께 <code class="language-plaintext highlighter-rouge">--help</code>를 같이 입력해보는 것이다.</strong> 전부는 아니지만 대다수의 경우 해당 기능의 사용서가 출력된다. 이 기능들은 사실 누가 만든 ‘프로그램’이고 이런 프로그램들은 다른 사람들을 위한 ‘사용설명서’를 가지고 있다. 그래야 사람들이 잘 쓸 것 아닌가? 나도 이 포스트를 적을 때 위 커맨드마다 헬핑 해보고 다시 한 번 확인했다. <strong>내가 처음 보는 함수나 기능을 만난다면 먼저 헬핑을 하자.</strong> 이것이 습관이 되어야 한다. 인터넷 검색은 다음이다.</p>
 
 <p>쉘의 세계는 정말로 방대한 세계이다. 이 포스트는 그 첫 발걸음을 떼는 시작이라고 할 수 있다. 앞으로 나도 더 공부할건데 더 공부해서 쉘 스크립트로 자동화까지 해보는 경지에 이르러보자. 아마 될 것 같다.</p>
 

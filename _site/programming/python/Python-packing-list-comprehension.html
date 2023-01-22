@@ -235,7 +235,7 @@ MathJax = {
         <a href="/"><img src="/assets/img/1536558558520.jpg" alt="Sunghwan Park"></a>
       </div>
       <div class="author-name">Sunghwan Park</div>
-      <p>I'm Parkito. A Python lover. Interested in Python, Automation, Algorithm. Please give me insights. I'll teach you tambien! :)</p>
+      <p>I'm Parkito. I'm back. Obsessed with esthetics of codes, sentences, modularity and writing</p>
     </div>
   </header> <!-- End Header -->
   <footer>
@@ -262,7 +262,7 @@ MathJax = {
       </ul>
     </section> <!-- End Section Contact -->
     <div class="copyright">
-      <p>2021 &copy; Sunghwan Park</p>
+      <p>2023 &copy; Sunghwan Park</p>
     </div>
   </footer> <!-- End Footer -->
 </aside> <!-- End Sidebar -->
@@ -302,7 +302,7 @@ MathJax = {
 <p><br /></p>
 
 <h2 id="0-파이썬에서의-삼항연산자">0. 파이썬에서의 삼항연산자.</h2>
-<p>자바 등에서 삼항 연산자(ternary operator)을 본 적이 있을 것이다.  <code class="highlighter-rouge">a ? a&gt;b : b</code></p>
+<p>자바 등에서 삼항 연산자(ternary operator)을 본 적이 있을 것이다.  <code class="language-plaintext highlighter-rouge">a ? a&gt;b : b</code></p>
 
 <p>저것의 뜻은 a가 b보다 크면 a를 쓰고, 조건이 충족되지 않으면 b를 쓴다는 것이다.<br />
 if, else를 사용해서 할 수 있는 식인데 워낙 많이 사용되므로 한 줄로 사용가능하도록 만들어 놓은 것이다.</p>
@@ -342,7 +342,7 @@ if, else를 사용해서 할 수 있는 식인데 워낙 많이 사용되므로 
 <span class="n">n</span> <span class="o">=</span> <span class="mi">100</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="n">element</span> <span class="o">=</span> <span class="n">i</span> <span class="o">*</span> <span class="mi">2</span>
-    <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+    <span class="n">result</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
 <span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">)</span> <span class="o">==</span> <span class="n">n</span>
 
 <span class="c1"># --- 이것을 함수로 만들자.
@@ -351,7 +351,7 @@ if, else를 사용해서 할 수 있는 식인데 워낙 많이 사용되므로 
     <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
         <span class="n">element</span> <span class="o">=</span> <span class="n">i</span> <span class="o">*</span> <span class="mi">2</span>
-        <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+        <span class="n">result</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">result</span>
 </code></pre></div></div>
 
@@ -365,7 +365,7 @@ if, else를 사용해서 할 수 있는 식인데 워낙 많이 사용되므로 
 </span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> <span class="c1"># i를 2로 나눈 나머지가 0이라면, 즉 짝수라면!
-</span>        <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</span>        <span class="n">result</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 
 <span class="c1"># --- 이것을 함수를 사용해서도 만들어보자.
 </span>
@@ -376,7 +376,7 @@ if, else를 사용해서 할 수 있는 식인데 워낙 많이 사용되므로 
 </span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">is_even</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
-        <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        <span class="n">result</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 
 <span class="c1"># 사용자가 만든 함수를 사용해 좀 더 간단하게 구했다.
 </span></code></pre></div></div>
@@ -410,7 +410,7 @@ if, else를 사용해서 할 수 있는 식인데 워낙 많이 사용되므로 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="n">element</span> <span class="o">=</span> <span class="p">(</span><span class="s">"fast"</span> <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">3</span><span class="o">==</span><span class="mi">0</span> <span class="k">else</span> <span class="s">""</span><span class="p">)</span>     <span class="c1"># 1.
 </span>               <span class="o">+</span> <span class="p">(</span><span class="s">"campus"</span> <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span><span class="o">%</span> <span class="mi">5</span><span class="o">==</span><span class="mi">0</span> <span class="k">else</span> <span class="s">""</span><span class="p">)</span> <span class="c1"># 2.
-</span>    <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+</span>    <span class="n">result</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
 </code></pre></div></div>
 
 <p><br /></p>
@@ -420,7 +420,7 @@ if, else를 사용해서 할 수 있는 식인데 워낙 많이 사용되므로 
   <li>첫 번째인 숫자가 3의 배수인지 검증하고 맞으면 ‘fast’을 붙인다.</li>
   <li>두 번째는 만약 5의 배수라면 ‘campus’를 붙인다.</li>
   <li>15의 배수라면, 그러니까 3으로 나눠지기도 하고, 5로 나눠지기도 한다면 ‘fastcampus’처럼 두 문자열이 붙을 것이다.<br />
-  그 <code class="highlighter-rouge">element</code>를 <code class="highlighter-rouge">result</code>에 붙인다. 그 짓을 100번 한다. 처음에 하기에 무난한 식이라고 할 수 있을 것이다.</li>
+  그 <code class="language-plaintext highlighter-rouge">element</code>를 <code class="language-plaintext highlighter-rouge">result</code>에 붙인다. 그 짓을 100번 한다. 처음에 하기에 무난한 식이라고 할 수 있을 것이다.</li>
 </ol>
 
 <p><br /></p>
@@ -437,7 +437,7 @@ if, else를 사용해서 할 수 있는 식인데 워낙 많이 사용되므로 
             <span class="n">div</span><span class="p">,</span> <span class="n">text</span> <span class="o">=</span> <span class="n">rule</span>
             <span class="n">element</span> <span class="o">+=</span> <span class="n">text</span> <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">div</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="s">""</span> <span class="c1"># 2.
 # --------------------------------------
-</span>        <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+</span>        <span class="n">result</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">result</span>
 
 <span class="k">print</span><span class="p">(</span><span class="k">def</span> <span class="nf">get_list</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s">'Fizz'</span><span class="p">,</span> <span class="s">'Buzz'</span><span class="p">)))</span>
@@ -447,22 +447,22 @@ if, else를 사용해서 할 수 있는 식인데 워낙 많이 사용되므로 
 <span class="o">&gt;&gt;&gt;</span> <span class="s">'Fizz'</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="s">''</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="s">'Buzz'</span>
-<span class="o">....</span>
+<span class="p">....</span>
 </code></pre></div></div>
 
 <p><br /></p>
 
-<p><code class="highlighter-rouge">get_list</code>라는 함수로 만들어봤다. <code class="highlighter-rouge">n</code>은 몇까지 함수로 적용할 것인지 정할 수 있다.<br />
-<code class="highlighter-rouge">rule1</code>, <code class="highlighter-rouge">rule2</code>는 <code class="highlighter-rouge">(3, 'Fizz')</code>, <code class="highlighter-rouge">(5, 'Buzz')</code>처럼 몇으로 나누고 어떤 text를 붙일지 정할 수 있다.<br />
+<p><code class="language-plaintext highlighter-rouge">get_list</code>라는 함수로 만들어봤다. <code class="language-plaintext highlighter-rouge">n</code>은 몇까지 함수로 적용할 것인지 정할 수 있다.<br />
+<code class="language-plaintext highlighter-rouge">rule1</code>, <code class="language-plaintext highlighter-rouge">rule2</code>는 <code class="language-plaintext highlighter-rouge">(3, 'Fizz')</code>, <code class="language-plaintext highlighter-rouge">(5, 'Buzz')</code>처럼 몇으로 나누고 어떤 text를 붙일지 정할 수 있다.<br />
 이렇게 함으로써 꼭 3, 5로 나누는 것이 아닌 7, 10 등 다양하게 적용해볼 수 있다.</p>
 
-<p>rule들을 <code class="highlighter-rouge">for</code>문 돌리면서 i라는 숫자가 각각 숫자로 나눠떨어지는지 확인한다.<br />
-각 rule들은 <code class="highlighter-rouge">(3, 'Fizz')</code>처럼 인자가 두 개인 튜플로 들어있다.<br />
-여기에 <code class="highlighter-rouge">div, text = rule</code>처럼 적으면 <code class="highlighter-rouge">div=3; text='Fizz'</code>처럼 적용이 된다.<br />
-<code class="highlighter-rouge">rule[0] rule[1]</code> 처럼 사용한다면 가독성이 꽤나 침해당할 것이다.<br />
+<p>rule들을 <code class="language-plaintext highlighter-rouge">for</code>문 돌리면서 i라는 숫자가 각각 숫자로 나눠떨어지는지 확인한다.<br />
+각 rule들은 <code class="language-plaintext highlighter-rouge">(3, 'Fizz')</code>처럼 인자가 두 개인 튜플로 들어있다.<br />
+여기에 <code class="language-plaintext highlighter-rouge">div, text = rule</code>처럼 적으면 <code class="language-plaintext highlighter-rouge">div=3; text='Fizz'</code>처럼 적용이 된다.<br />
+<code class="language-plaintext highlighter-rouge">rule[0] rule[1]</code> 처럼 사용한다면 가독성이 꽤나 침해당할 것이다.<br />
 위처럼 쓰면서 코드의 질을 높일 수 있다.삼항연산자를 사용해 각각을 나눠 text들을 element에 붙인다.</p>
 
-<p>그 결과를 <code class="highlighter-rouge">result</code>에 붙인다. 그리고 <code class="highlighter-rouge">result</code>를 반환한다.</p>
+<p>그 결과를 <code class="language-plaintext highlighter-rouge">result</code>에 붙인다. 그리고 <code class="language-plaintext highlighter-rouge">result</code>를 반환한다.</p>
 
 <p><br /></p>
 
@@ -492,8 +492,8 @@ if, else를 사용해서 할 수 있는 식인데 워낙 많이 사용되므로 
 
 <p>소수의 정의는 1과 자기 자신만을 약수로 갖는 정수이다.<br />
 그렇다면 그 이외의 값으로 나눠떨어지는 경우가 한 번이라고 있다면 그 정수는 소수가 아니라는 것이 된다.<br />
-<code class="highlighter-rouge">for</code>문으로 ‘2’부터 ‘n-1’까지 나눠보면서 나눠떨어진다면 바로 <code class="highlighter-rouge">False</code>를 반환한다.<br />
-만약 그 삼엄한 <code class="highlighter-rouge">for</code>테스트를 모두 통과하면 그 수는 소수라는 것이 증명된 것으로 True를 반환하게 된다.</p>
+<code class="language-plaintext highlighter-rouge">for</code>문으로 ‘2’부터 ‘n-1’까지 나눠보면서 나눠떨어진다면 바로 <code class="language-plaintext highlighter-rouge">False</code>를 반환한다.<br />
+만약 그 삼엄한 <code class="language-plaintext highlighter-rouge">for</code>테스트를 모두 통과하면 그 수는 소수라는 것이 증명된 것으로 True를 반환하게 된다.</p>
 
 <p><br /></p>
 
@@ -502,7 +502,7 @@ if, else를 사용해서 할 수 있는 식인데 워낙 많이 사용되므로 
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">is_prime</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
-        <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        <span class="n">result</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 <span class="n">result</span>
 </code></pre></div></div>
 
@@ -521,8 +521,8 @@ if, else를 사용해서 할 수 있는 식인데 워낙 많이 사용되므로 
     <span class="k">return</span> <span class="n">result</span>
 </code></pre></div></div>
 <p>기본적으로는 위와 같이 만들 수 있을 것이다.<br />
-기본 값을 0으로 두고 리스트 등을 <code class="highlighter-rouge">for</code>문을 돌면서 모두 더한다.<br />
-그 결과 <code class="highlighter-rouge">result</code>를 출력하면 전체 합이 나온다.</p>
+기본 값을 0으로 두고 리스트 등을 <code class="language-plaintext highlighter-rouge">for</code>문을 돌면서 모두 더한다.<br />
+그 결과 <code class="language-plaintext highlighter-rouge">result</code>를 출력하면 전체 합이 나온다.</p>
 
 <p><br /></p>
 
@@ -540,7 +540,7 @@ if, else를 사용해서 할 수 있는 식인데 워낙 많이 사용되므로 
 <p>위와 비슷하지만 조금 다른다. 여기서는 초기값을 ‘0’으로 잡으면 안 될 것이다.<br />
 <strong>모든 원소가 음수일 경우 최대값이 0으로 출력될 것이기 때문이다.</strong><br />
 따라서 첫 번째 원소를 주어진 리스트의 기본값으로 잡는다.<br />
-<code class="highlighter-rouge">for</code>문을 돌면서 <code class="highlighter-rouge">result</code>를 보다 큰 값으로 계속 덧씌운다.<br />
+<code class="language-plaintext highlighter-rouge">for</code>문을 돌면서 <code class="language-plaintext highlighter-rouge">result</code>를 보다 큰 값으로 계속 덧씌운다.<br />
 마지막에 나오는 값을 결국 리스트의 최대값이 된다.</p>
 
 <p><br />
@@ -555,7 +555,7 @@ if, else를 사용해서 할 수 있는 식인데 워낙 많이 사용되므로 
 
 <h3 id="21-lambda">2.1. <em>lambda</em></h3>
 <p>lambda는 익명 함수, 무기명 함수 등으로 불린다.<br />
-매우 간단한 함수를 만들 경우 <code class="highlighter-rouge">def</code> 키워드 대신 <code class="highlighter-rouge">lambda</code> 키워드를 사용한다면 훨씬 더 짧고 간단하게 만들 수 있다.</p>
+매우 간단한 함수를 만들 경우 <code class="language-plaintext highlighter-rouge">def</code> 키워드 대신 <code class="language-plaintext highlighter-rouge">lambda</code> 키워드를 사용한다면 훨씬 더 짧고 간단하게 만들 수 있다.</p>
 
 <p>예를 들어보자.</p>
 
@@ -574,8 +574,8 @@ if, else를 사용해서 할 수 있는 식인데 워낙 많이 사용되므로 
 <p><br /></p>
 
 <h3 id="21-lambda-operator">2.1. lambda operator</h3>
-<p>많은 경우 람다는 스스로만 쓰이지 않는다. 보통 람다는 <code class="highlighter-rouge">map</code>, <code class="highlighter-rouge">filter</code>, <code class="highlighter-rouge">reduce</code>라는 함수들과 많이 사용된다.<br />
-<code class="highlighter-rouge">map</code>, <code class="highlighter-rouge">filter</code>는 빌트인 함수이고, <code class="highlighter-rouge">reduce</code>는 <code class="highlighter-rouge">functools</code>라는 모듈을 <code class="highlighter-rouge">import</code> 한 후 쓸 수 있다.</p>
+<p>많은 경우 람다는 스스로만 쓰이지 않는다. 보통 람다는 <code class="language-plaintext highlighter-rouge">map</code>, <code class="language-plaintext highlighter-rouge">filter</code>, <code class="language-plaintext highlighter-rouge">reduce</code>라는 함수들과 많이 사용된다.<br />
+<code class="language-plaintext highlighter-rouge">map</code>, <code class="language-plaintext highlighter-rouge">filter</code>는 빌트인 함수이고, <code class="language-plaintext highlighter-rouge">reduce</code>는 <code class="language-plaintext highlighter-rouge">functools</code>라는 모듈을 <code class="language-plaintext highlighter-rouge">import</code> 한 후 쓸 수 있다.</p>
 
 <p>하나씩 살펴보자.</p>
 
@@ -584,11 +584,11 @@ if, else를 사용해서 할 수 있는 식인데 워낙 많이 사용되므로 
 <h4 id="211-map">2.1.1. map</h4>
 <p>위 세 함수의 공통점은 받는 인자의 순서가 동일하다는 것이다.</p>
 
-<p><strong><code class="highlighter-rouge">map( function , iterable )</code></strong>
+<p><strong><code class="language-plaintext highlighter-rouge">map( function , iterable )</code></strong>
 첫 번째 인자는 함수다. 어떤 함수를 쓸지 명시한다. <br />
 람다함수는 많은 경우 한 줄로 표현하기 때문에 여기에 람다를 쓰는 것이다.</p>
 
-<p>두 번째 인자는 iterable이다. <code class="highlighter-rouge">for</code>문을 쓰듯이 모든 원소를 한 번씩 반복하면서 함수를 적용할 수 있다.</p>
+<p>두 번째 인자는 iterable이다. <code class="language-plaintext highlighter-rouge">for</code>문을 쓰듯이 모든 원소를 한 번씩 반복하면서 함수를 적용할 수 있다.</p>
 
 <p><strong>map</strong>의 역할은 <strong>리스트 내의 원소 각각에 함수를 적용한 뒤 적용된 iterable를 반환하는 것</strong>이다.</p>
 
@@ -603,26 +603,26 @@ if, else를 사용해서 할 수 있는 식인데 워낙 많이 사용되므로 
 
 <p><br /></p>
 
-<p>위를 잘 해석해보자. 원 리스트 <code class="highlighter-rouge">k</code>는 1부터 10까지 정수를 포함하고 있다.</p>
+<p>위를 잘 해석해보자. 원 리스트 <code class="language-plaintext highlighter-rouge">k</code>는 1부터 10까지 정수를 포함하고 있다.</p>
 
-<p>map의 첫 번째 인자는 람다식을 넣는다 그 내용은 받은 값 <code class="highlighter-rouge">x</code>를 두 배로 만들어 반환한다는 것이다.(‘:’이 <code class="highlighter-rouge">return</code>과 대응된다.)</p>
+<p>map의 첫 번째 인자는 람다식을 넣는다 그 내용은 받은 값 <code class="language-plaintext highlighter-rouge">x</code>를 두 배로 만들어 반환한다는 것이다.(‘:’이 <code class="language-plaintext highlighter-rouge">return</code>과 대응된다.)</p>
 
-<p>두 번째 인자는 리스트 <code class="highlighter-rouge">k</code>이다.</p>
+<p>두 번째 인자는 리스트 <code class="language-plaintext highlighter-rouge">k</code>이다.</p>
 
-<p><strong><code class="highlighter-rouge">map</code>을 통해서 리스트 <code class="highlighter-rouge">k</code>안에 있는 모든 숫자에 람다식이 적용된다. 람다식은 값을 두 배로 만들어 반환하는 함수이고, <code class="highlighter-rouge">map</code>의 결과물은 모든 원소가 두 배로 적용된 _terable이다.</strong><br />
-그 값을 <code class="highlighter-rouge">list</code>로 리스트로 다시 바꿔서 <code class="highlighter-rouge">k</code>에 대입하면 원 리스트에서 모든 원소가 두 배로 된 결과가 나왔다.</p>
+<p><strong><code class="language-plaintext highlighter-rouge">map</code>을 통해서 리스트 <code class="language-plaintext highlighter-rouge">k</code>안에 있는 모든 숫자에 람다식이 적용된다. 람다식은 값을 두 배로 만들어 반환하는 함수이고, <code class="language-plaintext highlighter-rouge">map</code>의 결과물은 모든 원소가 두 배로 적용된 _terable이다.</strong><br />
+그 값을 <code class="language-plaintext highlighter-rouge">list</code>로 리스트로 다시 바꿔서 <code class="language-plaintext highlighter-rouge">k</code>에 대입하면 원 리스트에서 모든 원소가 두 배로 된 결과가 나왔다.</p>
 
-<p><code class="highlighter-rouge">map</code>의 느낌을 조금 알겠는가? 나머지도 알아보자.</p>
+<p><code class="language-plaintext highlighter-rouge">map</code>의 느낌을 조금 알겠는가? 나머지도 알아보자.</p>
 
 <p><br /></p>
 
 <h4 id="212-filter">2.1.2. filter</h4>
-<p><strong><code class="highlighter-rouge">filter( function , iterable )</code></strong></p>
+<p><strong><code class="language-plaintext highlighter-rouge">filter( function , iterable )</code></strong></p>
 
-<p>들어가는 인자는 세 함수 모두 동일하다. <code class="highlighter-rouge">filter</code>는 <code class="highlighter-rouge">map</code>과 큰 차이점을 가지고 있는데,</p>
+<p>들어가는 인자는 세 함수 모두 동일하다. <code class="language-plaintext highlighter-rouge">filter</code>는 <code class="language-plaintext highlighter-rouge">map</code>과 큰 차이점을 가지고 있는데,</p>
 
-<p><code class="highlighter-rouge">map</code>이 두 번째 인자의 모든 원소에 함수를 적용해서 모두 반환한다면(결과와 원 리스트의 개수가 동일하다.),<br />
-<code class="highlighter-rouge">filter</code>는 두 번째 인자의 원소들에 함수를 적용해서 조건을 충족하는 원소들만 추출해서 새로운 <code class="highlighter-rouge">filter</code>객체를 만든다.</p>
+<p><code class="language-plaintext highlighter-rouge">map</code>이 두 번째 인자의 모든 원소에 함수를 적용해서 모두 반환한다면(결과와 원 리스트의 개수가 동일하다.),<br />
+<code class="language-plaintext highlighter-rouge">filter</code>는 두 번째 인자의 원소들에 함수를 적용해서 조건을 충족하는 원소들만 추출해서 새로운 <code class="language-plaintext highlighter-rouge">filter</code>객체를 만든다.</p>
 
 <p>예시로 확인하자.</p>
 
@@ -639,18 +639,18 @@ if, else를 사용해서 할 수 있는 식인데 워낙 많이 사용되므로 
 
 <p><br /></p>
 
-<p>두 식에서 람다는 동일하다. 받은 값이 짝수면 <code class="highlighter-rouge">True</code>, 홀수면 <code class="highlighter-rouge">False</code>를 반환하는 함수이다.<br />
-<code class="highlighter-rouge">map</code>에서는 <code class="highlighter-rouge">k</code>에 람다를 적용해서 각 원소가 <code class="highlighter-rouge">True</code>인지 <code class="highlighter-rouge">False</code>인지를 확인해서 모든 결과를 리스트로 반환한다.</p>
+<p>두 식에서 람다는 동일하다. 받은 값이 짝수면 <code class="language-plaintext highlighter-rouge">True</code>, 홀수면 <code class="language-plaintext highlighter-rouge">False</code>를 반환하는 함수이다.<br />
+<code class="language-plaintext highlighter-rouge">map</code>에서는 <code class="language-plaintext highlighter-rouge">k</code>에 람다를 적용해서 각 원소가 <code class="language-plaintext highlighter-rouge">True</code>인지 <code class="language-plaintext highlighter-rouge">False</code>인지를 확인해서 모든 결과를 리스트로 반환한다.</p>
 
-<p><strong><code class="highlighter-rouge">Filter</code>는 반대로 <code class="highlighter-rouge">k</code>에서 람다 조건을 만족하는(즉 결과가 <code class="highlighter-rouge">True</code>인) 원소들만을 추려서 결과를 반환한다.</strong></p>
+<p><strong><code class="language-plaintext highlighter-rouge">Filter</code>는 반대로 <code class="language-plaintext highlighter-rouge">k</code>에서 람다 조건을 만족하는(즉 결과가 <code class="language-plaintext highlighter-rouge">True</code>인) 원소들만을 추려서 결과를 반환한다.</strong></p>
 
-<p><code class="highlighter-rouge">map</code>, <code class="highlighter-rouge">filter</code>의 차이가 이해되는가? 마지막으로 <code class="highlighter-rouge">reduce</code>를 알아보자.</p>
+<p><code class="language-plaintext highlighter-rouge">map</code>, <code class="language-plaintext highlighter-rouge">filter</code>의 차이가 이해되는가? 마지막으로 <code class="language-plaintext highlighter-rouge">reduce</code>를 알아보자.</p>
 
 <p><br /></p>
 
 <h4 id="213-reduce">2.1.3. reduce</h4>
 <h5 id="2131-reduce">2.1.3.1. reduce</h5>
-<p><code class="highlighter-rouge">reduce</code>는 다른 두 함수와 달리 파이썬에서 기본 지원하는 빌트인 함수가 아니므로, <code class="highlighter-rouge">functools</code>라는 모듈에서 <code class="highlighter-rouge">import</code>해야 한다.</p>
+<p><code class="language-plaintext highlighter-rouge">reduce</code>는 다른 두 함수와 달리 파이썬에서 기본 지원하는 빌트인 함수가 아니므로, <code class="language-plaintext highlighter-rouge">functools</code>라는 모듈에서 <code class="language-plaintext highlighter-rouge">import</code>해야 한다.</p>
 
 <p>바로 예를 보자.</p>
 
@@ -665,16 +665,16 @@ if, else를 사용해서 할 수 있는 식인데 워낙 많이 사용되므로 
 <p><br /></p>
 
 <ol>
-  <li><code class="highlighter-rouge">functools</code> 모듈의 <code class="highlighter-rouge">reduce</code>함수를 <code class="highlighter-rouge">import</code>한다.</li>
-  <li><code class="highlighter-rouge">k</code>는 1부터 10까지 정수를 가지고 있는 리스트다.</li>
+  <li><code class="language-plaintext highlighter-rouge">functools</code> 모듈의 <code class="language-plaintext highlighter-rouge">reduce</code>함수를 <code class="language-plaintext highlighter-rouge">import</code>한다.</li>
+  <li><code class="language-plaintext highlighter-rouge">k</code>는 1부터 10까지 정수를 가지고 있는 리스트다.</li>
   <li>여기가 핵심이다.
     <ul>
-      <li>reduce의 lambda는 무조건 인자 두 개를 가진다. 여기서는 편의상 <code class="highlighter-rouge">x</code>, <code class="highlighter-rouge">y</code>라고 했다.</li>
-      <li>함수로 반환되는 결과물은 다음 <code class="highlighter-rouge">x</code>으로 저장된다. 그리고는 <code class="highlighter-rouge">k</code>의 다음 원소와 람다식을 진행한다. 이것을 끝까지 진행한다.</li>
-      <li>그러니까, 맨 처음 람다가 한 번 돌면, <code class="highlighter-rouge">x</code>에 1, <code class="highlighter-rouge">y</code>에 2가 들어간다. 람다의 내용은 둘을 더하는 것이므로 결과물 3이 x에 다시 적용된다. 그 다음 반복에서는 3의 값인 <code class="highlighter-rouge">x</code>에,  1,2, 다음값인 3이 <code class="highlighter-rouge">y</code>로 된다. 그 둘의 합인 6이 다시 <code class="highlighter-rouge">x</code>에 적용된다. 다음 람다에선 <code class="highlighter-rouge">x</code>에 6이 들어가고, 3 다음 값인 4가 <code class="highlighter-rouge">y</code>에 적용된다.</li>
+      <li>reduce의 lambda는 무조건 인자 두 개를 가진다. 여기서는 편의상 <code class="language-plaintext highlighter-rouge">x</code>, <code class="language-plaintext highlighter-rouge">y</code>라고 했다.</li>
+      <li>함수로 반환되는 결과물은 다음 <code class="language-plaintext highlighter-rouge">x</code>으로 저장된다. 그리고는 <code class="language-plaintext highlighter-rouge">k</code>의 다음 원소와 람다식을 진행한다. 이것을 끝까지 진행한다.</li>
+      <li>그러니까, 맨 처음 람다가 한 번 돌면, <code class="language-plaintext highlighter-rouge">x</code>에 1, <code class="language-plaintext highlighter-rouge">y</code>에 2가 들어간다. 람다의 내용은 둘을 더하는 것이므로 결과물 3이 x에 다시 적용된다. 그 다음 반복에서는 3의 값인 <code class="language-plaintext highlighter-rouge">x</code>에,  1,2, 다음값인 3이 <code class="language-plaintext highlighter-rouge">y</code>로 된다. 그 둘의 합인 6이 다시 <code class="language-plaintext highlighter-rouge">x</code>에 적용된다. 다음 람다에선 <code class="language-plaintext highlighter-rouge">x</code>에 6이 들어가고, 3 다음 값인 4가 <code class="language-plaintext highlighter-rouge">y</code>에 적용된다.</li>
       <li>위를 다음과 같이 적을 수도 있을 것이다.</li>
       <li>reduce(lambda x, y: x+y, [1, 2, 3, 4, 5]) –&gt;  ((((1+2)+3)+4)+5)</li>
-      <li>이 식을 통해 리스트 내의 모든 원소를 더했다. 아까 구한 <code class="highlighter-rouge">get_sum</code> 함수를 한 줄로 만들어낸 것이다.</li>
+      <li>이 식을 통해 리스트 내의 모든 원소를 더했다. 아까 구한 <code class="language-plaintext highlighter-rouge">get_sum</code> 함수를 한 줄로 만들어낸 것이다.</li>
     </ul>
   </li>
 </ol>
@@ -693,9 +693,9 @@ if, else를 사용해서 할 수 있는 식인데 워낙 많이 사용되므로 
 <p><br /></p>
 
 <p>당신은 학교 근처에서 자취를 하려고 한다. 매물을 검색하고 결과를 다음과 같이 딕셔너리의 리스트로 저장했다고 가정하자.<br />
-<code class="highlighter-rouge">rent</code>는 월세이고 <code class="highlighter-rouge">deposit</code>은 보증금이다.</p>
+<code class="language-plaintext highlighter-rouge">rent</code>는 월세이고 <code class="language-plaintext highlighter-rouge">deposit</code>은 보증금이다.</p>
 
-<p>여기서 가지고 있는 <code class="highlighter-rouge">rooms</code>에서 월세의 평균을 <code class="highlighter-rouge">reduce</code>로 구해보자.</p>
+<p>여기서 가지고 있는 <code class="language-plaintext highlighter-rouge">rooms</code>에서 월세의 평균을 <code class="language-plaintext highlighter-rouge">reduce</code>로 구해보자.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="nb">reduce</span>
 <span class="nb">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="p">{</span><span class="s">'rent'</span><span class="p">:</span><span class="n">x</span><span class="p">[</span><span class="s">'rent'</span><span class="p">]</span> <span class="o">+</span> <span class="n">y</span><span class="p">[</span><span class="s">'rent'</span><span class="p">]},</span> <span class="n">rooms</span><span class="p">)</span>
@@ -712,22 +712,22 @@ if, else를 사용해서 할 수 있는 식인데 워낙 많이 사용되므로 
 
 <p><br /></p>
 
-<p><code class="highlighter-rouge">rooms</code>는 <code class="highlighter-rouge">rent</code>, <code class="highlighter-rouge">deposit</code>라는 key와 그에 해당하는 값을 갖는 딕셔너리가 들어 있는 리스트다.<br />
-그래서 <code class="highlighter-rouge">reduce</code>의 두 번째 인자에 <code class="highlighter-rouge">rooms</code>를 넣으면 각각의 반복에서는 <code class="highlighter-rouge">{'rent':200, 'deposit':100}</code>과 같은 딕셔너리가 사용될 것이다.</p>
+<p><code class="language-plaintext highlighter-rouge">rooms</code>는 <code class="language-plaintext highlighter-rouge">rent</code>, <code class="language-plaintext highlighter-rouge">deposit</code>라는 key와 그에 해당하는 값을 갖는 딕셔너리가 들어 있는 리스트다.<br />
+그래서 <code class="language-plaintext highlighter-rouge">reduce</code>의 두 번째 인자에 <code class="language-plaintext highlighter-rouge">rooms</code>를 넣으면 각각의 반복에서는 <code class="language-plaintext highlighter-rouge">{'rent':200, 'deposit':100}</code>과 같은 딕셔너리가 사용될 것이다.</p>
 
-<p><strong>그렇다면 <code class="highlighter-rouge">x</code>, <code class="highlighter-rouge">y</code>는 모두 딕셔너리다.</strong> 한 번의 람다에서 반환되는 값은 당연히 두 딕셔너리의 월세값을 더한 값을 <code class="highlighter-rouge">value</code>로, <code class="highlighter-rouge">key</code>를 <code class="highlighter-rouge">rent</code>로 하는 딕셔너리다.<br />
-이 값이 <code class="highlighter-rouge">x</code>로 들어가고, <code class="highlighter-rouge">y</code>에는 다음 딕셔너리가 온다.<br />
-이렇게 함으로써 <code class="highlighter-rouge">x</code>, <code class="highlighter-rouge">y</code> 모두에서 <code class="highlighter-rouge">rent</code>키의 값을 찾을 수 있는 것이다.(그러니까 _IndexError_없이 말이다.)<br />
-<strong>핵심은 반환값이 단순히  <code class="highlighter-rouge">x['rent'] + y['rent']</code>이 아니라는 것이 중요하다.</strong><br />
-이렇게 하면 반드시 오류가 난다. 그 이유를 아는 것만으로 <code class="highlighter-rouge">reduce</code>의 기본 개념을 이해한 것이다.</p>
+<p><strong>그렇다면 <code class="language-plaintext highlighter-rouge">x</code>, <code class="language-plaintext highlighter-rouge">y</code>는 모두 딕셔너리다.</strong> 한 번의 람다에서 반환되는 값은 당연히 두 딕셔너리의 월세값을 더한 값을 <code class="language-plaintext highlighter-rouge">value</code>로, <code class="language-plaintext highlighter-rouge">key</code>를 <code class="language-plaintext highlighter-rouge">rent</code>로 하는 딕셔너리다.<br />
+이 값이 <code class="language-plaintext highlighter-rouge">x</code>로 들어가고, <code class="language-plaintext highlighter-rouge">y</code>에는 다음 딕셔너리가 온다.<br />
+이렇게 함으로써 <code class="language-plaintext highlighter-rouge">x</code>, <code class="language-plaintext highlighter-rouge">y</code> 모두에서 <code class="language-plaintext highlighter-rouge">rent</code>키의 값을 찾을 수 있는 것이다.(그러니까 _IndexError_없이 말이다.)<br />
+<strong>핵심은 반환값이 단순히  <code class="language-plaintext highlighter-rouge">x['rent'] + y['rent']</code>이 아니라는 것이 중요하다.</strong><br />
+이렇게 하면 반드시 오류가 난다. 그 이유를 아는 것만으로 <code class="language-plaintext highlighter-rouge">reduce</code>의 기본 개념을 이해한 것이다.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="nb">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="p">{</span><span class="s">'rent'</span><span class="p">:</span><span class="n">x</span><span class="p">[</span><span class="s">'rent'</span><span class="p">]</span> <span class="o">+</span> <span class="n">y</span><span class="p">[</span><span class="s">'rent'</span><span class="p">]},</span> <span class="n">rooms</span><span class="p">)[</span><span class="s">'rent'</span><span class="p">]</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">rooms</span><span class="p">))</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="mf">55.0</span>
 </code></pre></div></div>
 
-<p>아까 본 예의 최종 결과물은 <code class="highlighter-rouge">{'rent':165}</code>가 될 것이다.  결과물에 <code class="highlighter-rouge">['rent']</code>로 <code class="highlighter-rouge">value</code> 값을 구하면서 165만 뽑아올 수 있다.<br />
-그리고 그 값을 <code class="highlighter-rouge">len(rooms)</code>으로 나눠서 평균 55.0을 구했다.</p>
+<p>아까 본 예의 최종 결과물은 <code class="language-plaintext highlighter-rouge">{'rent':165}</code>가 될 것이다.  결과물에 <code class="language-plaintext highlighter-rouge">['rent']</code>로 <code class="language-plaintext highlighter-rouge">value</code> 값을 구하면서 165만 뽑아올 수 있다.<br />
+그리고 그 값을 <code class="language-plaintext highlighter-rouge">len(rooms)</code>으로 나눠서 평균 55.0을 구했다.</p>
 
 <p><br />
 <br />
@@ -746,8 +746,8 @@ if, else를 사용해서 할 수 있는 식인데 워낙 많이 사용되므로 
 <span class="o">&gt;&gt;&gt;</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">20</span><span class="p">]</span>
 </code></pre></div></div>
 
-<p>리스트 컴프리헨션은 <code class="highlighter-rouge">[]</code> 안에 작성된다.<br />
-그 안에 <code class="highlighter-rouge">for i in k</code> 처럼 일반적인 <code class="highlighter-rouge">for</code>문을 적고, 그 앞에 각각의 <code class="highlighter-rouge">i</code>로 할 일을 적는다.<br />
+<p>리스트 컴프리헨션은 <code class="language-plaintext highlighter-rouge">[]</code> 안에 작성된다.<br />
+그 안에 <code class="language-plaintext highlighter-rouge">for i in k</code> 처럼 일반적인 <code class="language-plaintext highlighter-rouge">for</code>문을 적고, 그 앞에 각각의 <code class="language-plaintext highlighter-rouge">i</code>로 할 일을 적는다.<br />
 위의 예에선 i를 두 배로 만들게 된다. 리스트 컴프리헨션의 결과물은 무조건 리스트가 된다. 다른 예를 볼까?</p>
 
 <p><br /></p>
@@ -763,17 +763,17 @@ if, else를 사용해서 할 수 있는 식인데 워낙 많이 사용되므로 
 </code></pre></div></div>
 <p><br /></p>
 
-<p>다음 식은 <code class="highlighter-rouge">i</code>가 3으로 나눠떨어지면 그 수를 제곱하고, 아니면 생략하는 식이다.<br />
-<code class="highlighter-rouge">if</code>문을 <code class="highlighter-rouge">for</code>문 뒤에 적었다. 이를 통해 <code class="highlighter-rouge">i</code>가 3으로 나눠떨어질 때만 그 수를 제곱해 리스트를 만드는 식이 가능해졌다.<br />
-신기하게도 저 식의 뒤에는 <code class="highlighter-rouge">else</code>가 적용되지 않는다. <code class="highlighter-rouge">SyntaxErorr</code>가 발생한다.<br />
-그리고 <code class="highlighter-rouge">if</code> 문을 여러 개 적음으로써 조건을 <code class="highlighter-rouge">and</code>으로 검사할 수도 있다.<br />
-<code class="highlighter-rouge">or</code>을 <code class="highlighter-rouge">if</code> 안에 넣어보았으나 불가능해보인다.</p>
+<p>다음 식은 <code class="language-plaintext highlighter-rouge">i</code>가 3으로 나눠떨어지면 그 수를 제곱하고, 아니면 생략하는 식이다.<br />
+<code class="language-plaintext highlighter-rouge">if</code>문을 <code class="language-plaintext highlighter-rouge">for</code>문 뒤에 적었다. 이를 통해 <code class="language-plaintext highlighter-rouge">i</code>가 3으로 나눠떨어질 때만 그 수를 제곱해 리스트를 만드는 식이 가능해졌다.<br />
+신기하게도 저 식의 뒤에는 <code class="language-plaintext highlighter-rouge">else</code>가 적용되지 않는다. <code class="language-plaintext highlighter-rouge">SyntaxErorr</code>가 발생한다.<br />
+그리고 <code class="language-plaintext highlighter-rouge">if</code> 문을 여러 개 적음으로써 조건을 <code class="language-plaintext highlighter-rouge">and</code>으로 검사할 수도 있다.<br />
+<code class="language-plaintext highlighter-rouge">or</code>을 <code class="language-plaintext highlighter-rouge">if</code> 안에 넣어보았으나 불가능해보인다.</p>
 
 <p><br />
 <br />
 <br /></p>
 
-<h2 id="4-args와-kwargs에-대해-알아보자">4. <code class="highlighter-rouge">args</code>와 <code class="highlighter-rouge">kwargs</code>에 대해 알아보자.</h2>
+<h2 id="4-args와-kwargs에-대해-알아보자">4. <code class="language-plaintext highlighter-rouge">args</code>와 <code class="language-plaintext highlighter-rouge">kwargs</code>에 대해 알아보자.</h2>
 <p>박성환이라는 사람을 오랫동안 괴롭힌 문제가 있다. 다음을 보자.
 <br /></p>
 
@@ -785,7 +785,7 @@ if, else를 사용해서 할 수 있는 식인데 워낙 많이 사용되므로 
 </code></pre></div></div>
 <p><br /></p>
 
-<p>받은 값들의 최대값을 구하는 <code class="highlighter-rouge">max</code>함수는 받은 값이 리스트이든, 값 여러 개이든 문제없이 최대값을 구해준다. 
+<p>받은 값들의 최대값을 구하는 <code class="language-plaintext highlighter-rouge">max</code>함수는 받은 값이 리스트이든, 값 여러 개이든 문제없이 최대값을 구해준다. 
 <br /></p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="s">'sum([1, 2, 3]) is'</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="nb">sum</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])))</span>
@@ -793,7 +793,7 @@ if, else를 사용해서 할 수 있는 식인데 워낙 많이 사용되므로 
 
 <span class="o">&gt;&gt;&gt;</span> <span class="nb">TypeError</span><span class="p">:</span> <span class="nb">sum</span> <span class="n">expected</span> <span class="n">at</span> <span class="n">most</span> <span class="mi">2</span> <span class="n">arguments</span><span class="p">,</span> <span class="n">got</span> <span class="mi">3</span>
 </code></pre></div></div>
-<p>이와는 대조적으로 받은 입력의 합을 구해주는 <code class="highlighter-rouge">sum</code> 함수는 <code class="highlighter-rouge">sum(1,2,3)</code>처럼 인자를 여러 개 넣으면 <code class="highlighter-rouge">TypeError</code>를 반환한다.<br />
+<p>이와는 대조적으로 받은 입력의 합을 구해주는 <code class="language-plaintext highlighter-rouge">sum</code> 함수는 <code class="language-plaintext highlighter-rouge">sum(1,2,3)</code>처럼 인자를 여러 개 넣으면 <code class="language-plaintext highlighter-rouge">TypeError</code>를 반환한다.<br />
 같은 빌트인 함수인데 일관성이 결여된 것이 아닐까? 일단 이 문제에 대한 토론은 나중에 하자.<br />
 이런 함수의 인자와 관련된 것이 <strong>args</strong>와 <strong>kwargs</strong>이다. 하나씩 알아보자.</p>
 
@@ -803,8 +803,8 @@ if, else를 사용해서 할 수 있는 식인데 워낙 많이 사용되므로 
 <p>우리는 함수를 호출할 때, 많은 경우 인자를 입력한다.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">k</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="s">'3'</span><span class="p">)</span>
-<span class="n">argl</span> <span class="o">=</span> <span class="k">print</span><span class="p">(</span><span class="s">'a'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">,</span> <span class="s">'c'</span><span class="p">,</span> <span class="s">' </span><span class="err">\</span><span class="s"> '</span><span class="p">,</span> <span class="s">''</span><span class="p">,</span> <span class="n">fp</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span>
-<span class="n">kwargl</span> <span class="o">=</span> <span class="k">print</span><span class="p">(</span><span class="s">'a'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">,</span> <span class="s">'c'</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">' </span><span class="err">\</span><span class="s"> '</span><span class="p">)</span>
+<span class="n">argl</span> <span class="o">=</span> <span class="k">print</span><span class="p">(</span><span class="s">'a'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">,</span> <span class="s">'c'</span><span class="p">,</span> <span class="s">' \ '</span><span class="p">,</span> <span class="s">''</span><span class="p">,</span> <span class="n">fp</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span>
+<span class="n">kwargl</span> <span class="o">=</span> <span class="k">print</span><span class="p">(</span><span class="s">'a'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">,</span> <span class="s">'c'</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">' \ '</span><span class="p">)</span>
 
 <span class="c1"># 여기서 `()`안에 들어가는 모든 것이 인자이다.
 </span></code></pre></div></div>
@@ -812,8 +812,8 @@ if, else를 사용해서 할 수 있는 식인데 워낙 많이 사용되므로 
 <p><br /></p>
 
 <p>arg는 <em>positional argument</em>, 위치 인자이다.<br />
-<code class="highlighter-rouge">help(print)</code>를 통해 확인해보면 <code class="highlighter-rouge">print(value, ..., sep=' ', end='\n', file=sys.stdout, flush=False)</code>
-와 같이 <code class="highlighter-rouge">print</code>는 ‘value’ 외에도 <code class="highlighter-rouge">sep</code>, <code class="highlighter-rouge">end</code>, <code class="highlighter-rouge">file</code> 등 여러 다른 인자도 받을 수 있다.<br />
+<code class="language-plaintext highlighter-rouge">help(print)</code>를 통해 확인해보면 <code class="language-plaintext highlighter-rouge">print(value, ..., sep=' ', end='\n', file=sys.stdout, flush=False)</code>
+와 같이 <code class="language-plaintext highlighter-rouge">print</code>는 ‘value’ 외에도 <code class="language-plaintext highlighter-rouge">sep</code>, <code class="language-plaintext highlighter-rouge">end</code>, <code class="language-plaintext highlighter-rouge">file</code> 등 여러 다른 인자도 받을 수 있다.<br />
 <strong>위의 value처럼, 정해진 값이 없이 함수를 실행할 때 꼭 필요한 인자를 Positional Argument라고 한다.</strong><br />
 이렇게 넣을 때는 순서를 잘 지켜서 넣어야 할 것이다.</p>
 
@@ -821,30 +821,30 @@ if, else를 사용해서 할 수 있는 식인데 워낙 많이 사용되므로 
 
 <h3 id="42-kwargs">4.2. <strong>kwargs</strong></h3>
 <p>kwargs는 키워드 인자이다. 인자를 ‘value’만 넣는 것이 아닌 ‘key=value’ 형태로 넣는 것이다.<br />
-<strong>위의 <code class="highlighter-rouge">kwargs = print('a', 'b', 'c', flush='True')</code>에서는 <code class="highlighter-rouge">flush</code>이라는 인자를 명시해서 그 값을 <code class="highlighter-rouge">True</code>로 정해주는 것이 된다.</strong><br />
+<strong>위의 <code class="language-plaintext highlighter-rouge">kwargs = print('a', 'b', 'c', flush='True')</code>에서는 <code class="language-plaintext highlighter-rouge">flush</code>이라는 인자를 명시해서 그 값을 <code class="language-plaintext highlighter-rouge">True</code>로 정해주는 것이 된다.</strong><br />
 kwargs를 사용할 때의 장점은 함수가 받는 인자의 순서를 무시하고 인자를 명시해줄 수 있다는 것이다.<br />
-<code class="highlighter-rouge">print</code> 함수는 여러 인자를 받는데 <code class="highlighter-rouge">flush</code>인자의 순서는 꽤 뒤에 있다.<br />
-이것을 _positional argument_를 사용해서  넣는다면 <code class="highlighter-rouge">flush</code> 앞의 인자들도 다 정해줘야 <code class="highlighter-rouge">flush</code>인자에 값을 넣을 수 있을 것이다.<br />
-이때 <strong>kwarg를 사용하면 <code class="highlighter-rouge">flush</code> 인자를 명시함으로써 인자를 다 적어줘야 하는 불편함을 해소할 수 있는 것이다.</strong></p>
+<code class="language-plaintext highlighter-rouge">print</code> 함수는 여러 인자를 받는데 <code class="language-plaintext highlighter-rouge">flush</code>인자의 순서는 꽤 뒤에 있다.<br />
+이것을 _positional argument_를 사용해서  넣는다면 <code class="language-plaintext highlighter-rouge">flush</code> 앞의 인자들도 다 정해줘야 <code class="language-plaintext highlighter-rouge">flush</code>인자에 값을 넣을 수 있을 것이다.<br />
+이때 <strong>kwarg를 사용하면 <code class="language-plaintext highlighter-rouge">flush</code> 인자를 명시함으로써 인자를 다 적어줘야 하는 불편함을 해소할 수 있는 것이다.</strong></p>
 
 <p><br /></p>
 
-<h3 id="43--packing과-unpacking">4.3.  <code class="highlighter-rouge">packing</code>과 <code class="highlighter-rouge">Unpacking</code></h3>
+<h3 id="43--packing과-unpacking">4.3.  <code class="language-plaintext highlighter-rouge">packing</code>과 <code class="language-plaintext highlighter-rouge">Unpacking</code></h3>
 <p>4.1과 4.2는 결국 함수의 unpacking와 packing을 이해하기 위해 사용하는 개념이다.<br />
-생각해보자. <code class="highlighter-rouge">print(1,2,3,4,5 ... )</code>처럼 <code class="highlighter-rouge">print</code>는 인자의 개수에 제한을 받지 않는다. 왜 그럴까?</p>
+생각해보자. <code class="language-plaintext highlighter-rouge">print(1,2,3,4,5 ... )</code>처럼 <code class="language-plaintext highlighter-rouge">print</code>는 인자의 개수에 제한을 받지 않는다. 왜 그럴까?</p>
 
 <p><br /></p>
 
 <h4 id="431-packing">4.3.1. <em>Packing</em></h4>
 <p><em>packing</em>(이하 패킹)은 함수를 정의할 때 사용된다. 우리가 함수를 만든다고 생각해보자.<br />
-지금 상황은 <code class="highlighter-rouge">print</code>처럼 인자의 개수에 구애받지 않는 함수를 절박한 심정으로 만들고 싶은 상황이다.<br />
+지금 상황은 <code class="language-plaintext highlighter-rouge">print</code>처럼 인자의 개수에 구애받지 않는 함수를 절박한 심정으로 만들고 싶은 상황이다.<br />
 이때 패킹은 받는 인자를 하나의 튜플과 하나의 딕셔너리로 묶어서 전달해주는 것을 말한다. 다음 예를 보자.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">myprint</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="n">ans</span> <span class="o">=</span> <span class="s">''</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
         <span class="n">ans</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">.</span><span class="n">items</span><span class="p">():</span>
         <span class="n">ans</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">ans</span>
 
@@ -857,8 +857,8 @@ kwargs를 사용할 때의 장점은 함수가 받는 인자의 순서를 무시
 <p>위의 예는 print를 임의로 다시 정의해본 것이다.<br />
 함수를 정의할 때 사용하는 <strong>패킹은 함수가 사용될 때 사용자가 입력하는 모든 positional argument 값들은 args라는 이름의 튜플로, 모든 keyword argument 값들은 kwargs라는 이름의 딕셔너리로 pack하겠다는 의지의 천명이다.</strong></p>
 
-<p><strong>위의 예에서 <code class="highlighter-rouge">args</code>는 <code class="highlighter-rouge">(1,2,3,4)</code>의 튜플이고, <code class="highlighter-rouge">kwargs</code>는 <code class="highlighter-rouge">{'k':'?', 'l':'ok'}</code>의 값을 갖는 딕셔너리다.</strong><br />
-둘은 모두 iterable하기 때문에 <code class="highlighter-rouge">for</code>문을 돌릴 수 있고 그 값들을 <code class="highlighter-rouge">string</code>이라는 값에 저장하고 그것을 출력한다.</p>
+<p><strong>위의 예에서 <code class="language-plaintext highlighter-rouge">args</code>는 <code class="language-plaintext highlighter-rouge">(1,2,3,4)</code>의 튜플이고, <code class="language-plaintext highlighter-rouge">kwargs</code>는 <code class="language-plaintext highlighter-rouge">{'k':'?', 'l':'ok'}</code>의 값을 갖는 딕셔너리다.</strong><br />
+둘은 모두 iterable하기 때문에 <code class="language-plaintext highlighter-rouge">for</code>문을 돌릴 수 있고 그 값들을 <code class="language-plaintext highlighter-rouge">string</code>이라는 값에 저장하고 그것을 출력한다.</p>
 
 <p>아 참고로, args, kwargs는 PEP8에서 제안된 관습적인 표현이다.</p>
 
@@ -874,21 +874,21 @@ kwargs를 사용할 때의 장점은 함수가 받는 인자의 순서를 무시
 <span class="nb">list</span> <span class="o">=</span> <span class="p">[</span><span class="s">'철수'</span><span class="p">,</span> <span class="s">'영희'</span><span class="p">,</span> <span class="s">'불금'</span><span class="p">,</span> <span class="s">'함께 보냈다.'</span><span class="p">]</span>
 <span class="n">myprint</span><span class="p">(</span><span class="o">*</span><span class="nb">list</span><span class="p">)</span> <span class="c1">## !!!!!! 중요!
 </span>
-<span class="err">철수</span>
-<span class="err">영희</span>
-<span class="err">불금</span>
-<span class="err">함께</span> <span class="err">보냈다</span><span class="o">.</span>
+<span class="n">철수</span>
+<span class="n">영희</span>
+<span class="n">불금</span>
+<span class="n">함께</span> <span class="n">보냈다</span><span class="p">.</span>
 </code></pre></div></div>
 
 <p><br /></p>
 
 <p>myprint라는 함수를 보자. 이 함수에는 먼저 패킹이 사용되었다.<br />
- <strong>그러니까 함수 실행 시에 받는 인자들을 모두 하나의 튜플로 만들어서 받은 뒤 그 안에서는 <code class="highlighter-rouge">for</code>문을 돌려 하나씩 출력하고 있다.</strong><br />
+ <strong>그러니까 함수 실행 시에 받는 인자들을 모두 하나의 튜플로 만들어서 받은 뒤 그 안에서는 <code class="language-plaintext highlighter-rouge">for</code>문을 돌려 하나씩 출력하고 있다.</strong><br />
 결과는 철수와 영희가 불금을 함께 보냈다라는 내용을 구 하나씩 출력하고 있다.</p>
 
 <p>언패킹은 함수 사용시에 활용된다고 했다.<br />
-<code class="highlighter-rouge">myprint(*list)</code>에서 <code class="highlighter-rouge">list</code> 앞에 <code class="highlighter-rouge">*</code>가 붙어 있다. 이것이 언패킹이다.<br />
-여기서 <code class="highlighter-rouge">*</code>를 붙이면 iterable한 list가 모두 풀어져(unpacking되어) 인자에 들어간다. 그러니까,</p>
+<code class="language-plaintext highlighter-rouge">myprint(*list)</code>에서 <code class="language-plaintext highlighter-rouge">list</code> 앞에 <code class="language-plaintext highlighter-rouge">*</code>가 붙어 있다. 이것이 언패킹이다.<br />
+여기서 <code class="language-plaintext highlighter-rouge">*</code>를 붙이면 iterable한 list가 모두 풀어져(unpacking되어) 인자에 들어간다. 그러니까,</p>
 <blockquote>
   <p>myprint(*[‘철수’, ‘영희’, ‘불금’, ‘함께 보냈다.’])는 정확히
 myprint(‘철수’, ‘영희’, ‘불금’, ‘함께 보냈다.’) 와 동일하다.</p>
@@ -899,17 +899,17 @@ myprint(‘철수’, ‘영희’, ‘불금’, ‘함께 보냈다.’) 와 �
   <p>myprint(list)</p>
 </blockquote>
 
-<p>‘*‘를 없앴다. 이때는 <code class="highlighter-rouge">list</code>가 문자열을 담은 <strong>리스트 하나로서 함수 안에 들어간다.</strong><br />
-그런데 함수 정의할 때 패킹이 되어 있으므로 <code class="highlighter-rouge">args</code>는 <code class="highlighter-rouge">list</code>를 첫 번째 원소로 하는 튜플이 된다.</p>
+<p>‘*‘를 없앴다. 이때는 <code class="language-plaintext highlighter-rouge">list</code>가 문자열을 담은 <strong>리스트 하나로서 함수 안에 들어간다.</strong><br />
+그런데 함수 정의할 때 패킹이 되어 있으므로 <code class="language-plaintext highlighter-rouge">args</code>는 <code class="language-plaintext highlighter-rouge">list</code>를 첫 번째 원소로 하는 튜플이 된다.</p>
 
 <blockquote>
   <p>args is same with  ([‘철수’, ‘영희’, ‘불금’, ‘함께 보냈다.’], )</p>
 </blockquote>
 
-<p>원 함수에서 <code class="highlighter-rouge">args</code>를 기준으로 <code class="highlighter-rouge">for</code>문을 돌리게 된다. <code class="highlighter-rouge">args</code>는 <code class="highlighter-rouge">list</code>가 아니라 <code class="highlighter-rouge">list</code>를 포함하고 있는 튜플이다.  <br />
-즉 <code class="highlighter-rouge">for</code>문에서 <code class="highlighter-rouge">list</code>의 문자열 개수만큼 반복되는 것이 아니라 튜플이 가지고 있는 인자 개수 1개만큼만 반복되는 것이다.</p>
+<p>원 함수에서 <code class="language-plaintext highlighter-rouge">args</code>를 기준으로 <code class="language-plaintext highlighter-rouge">for</code>문을 돌리게 된다. <code class="language-plaintext highlighter-rouge">args</code>는 <code class="language-plaintext highlighter-rouge">list</code>가 아니라 <code class="language-plaintext highlighter-rouge">list</code>를 포함하고 있는 튜플이다.  <br />
+즉 <code class="language-plaintext highlighter-rouge">for</code>문에서 <code class="language-plaintext highlighter-rouge">list</code>의 문자열 개수만큼 반복되는 것이 아니라 튜플이 가지고 있는 인자 개수 1개만큼만 반복되는 것이다.</p>
 
-<p>결과물은 <code class="highlighter-rouge">['철수', '영희', '불금', '함께 보냈다.']</code> 리스트 자신이 나왔다.<br />
+<p>결과물은 <code class="language-plaintext highlighter-rouge">['철수', '영희', '불금', '함께 보냈다.']</code> 리스트 자신이 나왔다.<br />
 이것은 우리가 의도한 결과가 아니다. 이럴 때 언패킹을 사용하는 것이다.</p>
 
 <p><br /></p>
@@ -958,7 +958,7 @@ myprint(‘철수’, ‘영희’, ‘불금’, ‘함께 보냈다.’) 와 �
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">get_awesome_list</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
     <span class="n">args</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
-    <span class="n">args</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">args</span><span class="p">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 <span class="c1"># ------------------------------------------
 </span>
 <span class="s">"""
@@ -974,12 +974,12 @@ sort식을 사용해서 (3, 5, 7, 9) 오름차순으로 정렬되도록 바꾼 �
 <span class="c1"># --------------------------------------------
 </span>
 <span class="c1"># list comprehension 버전 
-</span>    <span class="k">return</span> <span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s">''</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">arg</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="n">i</span><span class="o">%</span><span class="n">arg</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span> <span class="k">else</span> <span class="s">''</span> <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">args</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)])</span>
+</span>    <span class="k">return</span> <span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">.</span><span class="n">join</span><span class="p">([</span><span class="s">''</span><span class="p">.</span><span class="n">join</span><span class="p">([</span><span class="n">arg</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="n">i</span><span class="o">%</span><span class="n">arg</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span> <span class="k">else</span> <span class="s">''</span> <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">args</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)])</span>
 <span class="c1"># -------------------------------------------
 </span>
 <span class="c1"># --------------------------------------------
 # 람다 버전.
-</span>    <span class="k">return</span> <span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">i</span><span class="p">:</span> <span class="s">''</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">arg</span><span class="p">:</span> <span class="n">arg</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="n">i</span><span class="o">%</span><span class="n">arg</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="s">''</span> <span class="p">,</span><span class="n">args</span><span class="p">))</span>
+</span>    <span class="k">return</span> <span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">i</span><span class="p">:</span> <span class="s">''</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">arg</span><span class="p">:</span> <span class="n">arg</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="n">i</span><span class="o">%</span><span class="n">arg</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="s">''</span> <span class="p">,</span><span class="n">args</span><span class="p">))</span>
     <span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)))</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">get_awesome_list</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s">'Fizz'</span><span class="p">),</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="s">'Buzz'</span><span class="p">),</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="s">'Ok!'</span><span class="p">),</span> <span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="s">'Too long'</span><span class="p">)))</span>

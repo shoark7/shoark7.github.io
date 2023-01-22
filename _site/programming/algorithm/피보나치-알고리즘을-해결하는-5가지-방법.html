@@ -233,7 +233,7 @@ MathJax = {
         <a href="/"><img src="/assets/img/1536558558520.jpg" alt="Sunghwan Park"></a>
       </div>
       <div class="author-name">Sunghwan Park</div>
-      <p>I'm Parkito. A Python lover. Interested in Python, Automation, Algorithm. Please give me insights. I'll teach you tambien! :)</p>
+      <p>I'm Parkito. I'm back. Obsessed with esthetics of codes, sentences, modularity and writing</p>
     </div>
   </header> <!-- End Header -->
   <footer>
@@ -260,7 +260,7 @@ MathJax = {
       </ul>
     </section> <!-- End Section Contact -->
     <div class="copyright">
-      <p>2021 &copy; Sunghwan Park</p>
+      <p>2023 &copy; Sunghwan Park</p>
     </div>
   </footer> <!-- End Footer -->
 </aside> <!-- End Sidebar -->
@@ -377,7 +377,7 @@ MathJax = {
 
 <p>워낙 간단한 로직이라 삼항 연산자 한 줄로 깔끔하게 구현됐다. <em>n</em> 이 0이나 1일 때는 값도 0, 1이기 때문에 그대로 반환하면 되고, 2 이상일 때만 재귀 함수 두개로 분기해 값을 반환한다.</p>
 
-<p>시간 복잡도는 함수가 한 번 호출되면 다시 두 번 호출되기 때문에 지수적으로 증가해 O(<script type="math/tex">2^n</script>)이 된다.</p>
+<p>시간 복잡도는 함수가 한 번 호출되면 다시 두 번 호출되기 때문에 지수적으로 증가해 O(\(2^n\))이 된다.</p>
 
 <hr />
 
@@ -417,7 +417,7 @@ MathJax = {
 
 <p>위 그림은 7번째 피보나치 수를 구할 때의 값을 구하는 과정을 표현하고 있다. 7번째 값을 구하기 위해서는 5, 6번째 값을 구해야 한다. 그 둘을 더해야 하기 때문이다. <strong>알고리즘에서는 이와 같이 원 문제를 해결하기 위해 원 문제보다 작은 5, 6번째 같은 값을 구하는 것을 ‘부분문제(subproblem)를 푼다’</strong>고 한다. 이 부분문제를 풀기 위해 우리는 함수의 재귀 호출을 사용했다.</p>
 
-<p>문제는 이 부분문제들이 <em>fib(0)</em>, <em>fib(1)</em> 를 만나기 전까지 계속 쪼개지며 너무나 많이 등장한다는 것이다. <strong>정확히는 부분문제가 많은 것보다도 부분문제가 중복(overlapping subproblems)된다는 것이 문제다.</strong> 그림에서  7번째 값을 구하기 위해 <em>fib(3)</em> 이 얼마나 많이 등장하는가? 직접 세보니 5번이나 등장한다. 이는 <em>n</em> 이 커질수록 기하급수적으로 커지는데 그래서 아까 100번째 값을 구해야 할 때 프로세스가 멈춘 것이다. 아까 재귀적 풀이의 시간 복잡도가 <script type="math/tex">O(2^n)</script>이라고 말했는데 <em>n</em> 이 100만 되어도 10진수로 대략 30자리 수다. 이는 조에 조를 곱하고 거기에 백만을 곱해야 하는 큰 수이다(12+12+6). 무진장이라는 단어가 부처의 다함 없는 자비로움을 표현하는 불교 용어라고 하는데, 바로 이런 수가 무진장 큰 수가 아니면 무엇이란 말인가?</p>
+<p>문제는 이 부분문제들이 <em>fib(0)</em>, <em>fib(1)</em> 를 만나기 전까지 계속 쪼개지며 너무나 많이 등장한다는 것이다. <strong>정확히는 부분문제가 많은 것보다도 부분문제가 중복(overlapping subproblems)된다는 것이 문제다.</strong> 그림에서  7번째 값을 구하기 위해 <em>fib(3)</em> 이 얼마나 많이 등장하는가? 직접 세보니 5번이나 등장한다. 이는 <em>n</em> 이 커질수록 기하급수적으로 커지는데 그래서 아까 100번째 값을 구해야 할 때 프로세스가 멈춘 것이다. 아까 재귀적 풀이의 시간 복잡도가 \(O(2^n)\)이라고 말했는데 <em>n</em> 이 100만 되어도 10진수로 대략 30자리 수다. 이는 조에 조를 곱하고 거기에 백만을 곱해야 하는 큰 수이다(12+12+6). 무진장이라는 단어가 부처의 다함 없는 자비로움을 표현하는 불교 용어라고 하는데, 바로 이런 수가 무진장 큰 수가 아니면 무엇이란 말인가?</p>
 
 <p><br /></p>
 
@@ -496,7 +496,7 @@ MathJax = {
     <span class="k">print</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">fibo</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
 </code></pre></div></div>
 
-<p><strong>함수를 재귀적으로 풀 때 언제나 염두에 두어야 할 것은 함수가 더 이상 재귀 호출하지 않고 끝날 조건을 설정해줘야 하는 것이다.</strong> 그렇지 않으면 함수 스택이 넘치게 된다. 재귀 함수가 끝나도록 하는 조건을 <code class="highlighter-rouge">기저사례(base case)</code>라고 하는데, 단어가 딱딱해서 나는 그냥 내 마음대로 ‘탈출조건’이라고 부르기도 한다.</p>
+<p><strong>함수를 재귀적으로 풀 때 언제나 염두에 두어야 할 것은 함수가 더 이상 재귀 호출하지 않고 끝날 조건을 설정해줘야 하는 것이다.</strong> 그렇지 않으면 함수 스택이 넘치게 된다. 재귀 함수가 끝나도록 하는 조건을 <code class="language-plaintext highlighter-rouge">기저사례(base case)</code>라고 하는데, 단어가 딱딱해서 나는 그냥 내 마음대로 ‘탈출조건’이라고 부르기도 한다.</p>
 
 <p><strong>피보나치 알고리즘에서 기저사례는 n이 2 미만일 때다.(n은 0 이상의 정수로 이미 한정했다) 그리고 우리의 알고리즘에서는 기저사례가 하나 더 추가되는데, 그것은 원하는 부분문제를 이미 해결했을 때이다.</strong> 5번째 피보나치 수를 구하는 부분문제를 해결했다면, 다시 그 수가 필요할 때 그대로 가져다 쓰면 된다. 위 함수에서는 기저사례 2.에 해당한다.<br />
 난 캐시의 모든 인덱스를 ‘-1’로 초기화했다. 꼭 ‘-1’일 필요는 없는데, 모든 피보나치 수는 0 이상의 정수이기 때문에 캐시 값이 ‘-1’이라는 것은 <em>n</em> 번째 피보나치 수를 아직 계산 안 했다는 것이 된다. 캐시의 <em>n</em> 번째 인덱스의 값이 ‘-1’이 아니면 <em>n</em> 번째 피보나치 수를 구하는 부분문제를 이미 해결다는 뜻이기에 그대로 값을 반환한다.</p>
@@ -505,7 +505,7 @@ MathJax = {
 
 <p><br /></p>
 
-<p>많은 동적 계획법 문제의 경우, 소개한 재귀적, 반복적 동적 계획법을 모두 사용할 수 있다. 무엇을 쓸지는 취향의 문제인데 난 재귀적 동적 계획법을 선호한다. 그 이유는 재귀적인 방법이 현실의 큐에 익숙한 우리에게 상대적으로 반직관적이며 그 동작을 따라가보는 재미가 있기 때문이다. <strong>다만 재귀적인 방법은 함수를 계속 호출하는 데 따르는 오버헤드가 발생하기 때문에 절대적으로는 반복적 동적 계획법 풀이에 비해 시간이 오래 걸린다. 그렇지만 둘 다 시간 복잡도는 <script type="math/tex">O(n)</script>으로 효율에 있어 극적인 차이가 발생할 정도로 비효율적이지는 않으니(우리가 <script type="math/tex">BigO</script> 표기법에서 상수를 무시하는 것과 같은 이치다) 너무 걱정하지 않아도 된다.</strong></p>
+<p>많은 동적 계획법 문제의 경우, 소개한 재귀적, 반복적 동적 계획법을 모두 사용할 수 있다. 무엇을 쓸지는 취향의 문제인데 난 재귀적 동적 계획법을 선호한다. 그 이유는 재귀적인 방법이 현실의 큐에 익숙한 우리에게 상대적으로 반직관적이며 그 동작을 따라가보는 재미가 있기 때문이다. <strong>다만 재귀적인 방법은 함수를 계속 호출하는 데 따르는 오버헤드가 발생하기 때문에 절대적으로는 반복적 동적 계획법 풀이에 비해 시간이 오래 걸린다. 그렇지만 둘 다 시간 복잡도는 \(O(n)\)으로 효율에 있어 극적인 차이가 발생할 정도로 비효율적이지는 않으니(우리가 \(BigO\) 표기법에서 상수를 무시하는 것과 같은 이치다) 너무 걱정하지 않아도 된다.</strong></p>
 
 <p><br /></p>
 
@@ -543,7 +543,7 @@ MathJax = {
 
 <p>행렬의 곱셈을 활용한 알고리즘이다. 사실상 이 포스트를 작성한 이유이기도 하며 백준 온라인 저지의 <a href="https://www.acmicpc.net/problem/2749" target="_blank">피보나치 문제</a>에서 이 방법을 알게 되었다.</p>
 
-<p>이 절에서는 <strong><em>n</em> 번째 피보나치 수를 <script type="math/tex">F{n}</script>라고 하자.</strong></p>
+<p>이 절에서는 <strong><em>n</em> 번째 피보나치 수를 \(F{n}\)라고 하자.</strong></p>
 
 <p>이때, 피보나치 수들을 행렬화할 수 있는데, 이런 정리를 이끌어낼 수 있다.</p>
 
@@ -563,15 +563,15 @@ MathJax = {
 
 <p>이를 유도하는 과정은 <a href="http://algorithms.cf/entry/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B3%B5%EB%B6%80-%ED%94%BC%EB%B3%B4%EB%82%98%EC%B9%98-%EC%88%98%EC%97%B4" target="_blank">여기</a>를 참고하자. 이 포스트에서는 이 식이 맞다고 가정하고 계속 진행한다.</p>
 
-<p>이 식을 통하면 오른쪽 행렬을 <em>n</em> 번 제곱하면 나오는 행렬의 [0, 1] 또는 [1, 0] 값이 <script type="math/tex">F{n}</script>이 된다. 즉 우리는 행렬 곱셈을 통해 피보나치 수를 구할 것이다.</p>
+<p>이 식을 통하면 오른쪽 행렬을 <em>n</em> 번 제곱하면 나오는 행렬의 [0, 1] 또는 [1, 0] 값이 \(F{n}\)이 된다. 즉 우리는 행렬 곱셈을 통해 피보나치 수를 구할 것이다.</p>
 
 <p>그러면 제곱수를 구해야 하는데 논의를 더 진행시키기 전에 생각해보자.</p>
 
 <p><br /></p>
 
-<p>가령 계산을 통해 <script type="math/tex">2^{64}</script>를 구해야 한다면 어떻게 구하는 것이 최선일까? 이 알고리즘을 공부하기 전에는 나는 ‘2를 64번 곱한다’고 실제로 답했는데 이보다 우아한 방법이 있다. 이는 <script type="math/tex">2^1</script>을 제곱하고 그 결과물인 <script type="math/tex">2^2</script>를 제곱, 또 그 결과를 제곱, …, 해서 <script type="math/tex">2^{64}</script>까지 만드는 것이다. 2의 1승부터 계산하면 6번의 계산이 나오는데 이는 <script type="math/tex">log_264</script>과 일치한다. 즉, <strong>이 방법을 통하면 2의 <script type="math/tex">n</script> 승을 구하는데 <script type="math/tex">O(log_2n)</script>의 시간으로 끝낼 수 있을 것이고 우리의 행렬식도 같은 방법으로 제곱해 나가면 이전의 방법들의 <script type="math/tex">O(n)</script>을 획기적으로 개선할 수 있다.</strong></p>
+<p>가령 계산을 통해 \(2^{64}\)를 구해야 한다면 어떻게 구하는 것이 최선일까? 이 알고리즘을 공부하기 전에는 나는 ‘2를 64번 곱한다’고 실제로 답했는데 이보다 우아한 방법이 있다. 이는 \(2^1\)을 제곱하고 그 결과물인 \(2^2\)를 제곱, 또 그 결과를 제곱, …, 해서 \(2^{64}\)까지 만드는 것이다. 2의 1승부터 계산하면 6번의 계산이 나오는데 이는 \(log_264\)과 일치한다. 즉, <strong>이 방법을 통하면 2의 \(n\) 승을 구하는데 \(O(log_2n)\)의 시간으로 끝낼 수 있을 것이고 우리의 행렬식도 같은 방법으로 제곱해 나가면 이전의 방법들의 \(O(n)\)을 획기적으로 개선할 수 있다.</strong></p>
 
-<p>이런 질문을 할 수 있다. ‘<em>n</em> 이 2의 제곱수이라면 참 좋겠지만 100과 같이 2의 제곱수가 아니면 어떻게 해야 하는가??’ 예를 들어 <script type="math/tex">2^{100}</script>을 2의 제곱수를 사용해 어떻게 구하면 될까? 당연한 말이지만 <strong>모든 자연수는 2의 제곱수의 합으로 표현할 수 있다. 100은 4, 32, 64의 합이고 그렇다면 <script type="math/tex">2^{4}</script>, <script type="math/tex">2^{32}</script>, <script type="math/tex">2^{64}</script>를 구해 이 셋을 곱하면 2의 100승을 만들 수 있다.</strong> 복잡도는 여전히 <script type="math/tex">(log_2n)</script>이다. 이 방법을 통해 주어진 행렬의 <em>n</em> 승을 만들어내서 결과 행렬의 [1, 0]을 반환하는 함수를 만들자.</p>
+<p>이런 질문을 할 수 있다. ‘<em>n</em> 이 2의 제곱수이라면 참 좋겠지만 100과 같이 2의 제곱수가 아니면 어떻게 해야 하는가??’ 예를 들어 \(2^{100}\)을 2의 제곱수를 사용해 어떻게 구하면 될까? 당연한 말이지만 <strong>모든 자연수는 2의 제곱수의 합으로 표현할 수 있다. 100은 4, 32, 64의 합이고 그렇다면 \(2^{4}\), \(2^{32}\), \(2^{64}\)를 구해 이 셋을 곱하면 2의 100승을 만들 수 있다.</strong> 복잡도는 여전히 \((log_2n)\)이다. 이 방법을 통해 주어진 행렬의 <em>n</em> 승을 만들어내서 결과 행렬의 [1, 0]을 반환하는 함수를 만들자.</p>
 
 <p><br /></p>
 
@@ -600,9 +600,9 @@ MathJax = {
 
     <span class="c1"># 기본 행렬을 n번 곱한 행렬을 만든다
 </span>    <span class="k">def</span> <span class="nf">get_nth</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-        <span class="n">matrix</span> <span class="o">=</span> <span class="n">ZERO</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">matrix</span> <span class="o">=</span> <span class="n">ZERO</span><span class="p">.</span><span class="n">copy</span><span class="p">()</span>
         <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="n">tmp</span> <span class="o">=</span> <span class="n">BASE</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">tmp</span> <span class="o">=</span> <span class="n">BASE</span><span class="p">.</span><span class="n">copy</span><span class="p">()</span>
 
         <span class="k">while</span> <span class="mi">2</span> <span class="o">**</span> <span class="n">k</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">n</span> <span class="o">&amp;</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">k</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
@@ -633,17 +633,17 @@ MathJax = {
   </li>
   <li>실제로 <em>BASE</em> 행렬의 <em>n</em> 승을 구하는 함수를 구현
     <ul>
-      <li>행렬 피보나치 알고리즘에서는 이 함수만 이해하면 된다. 먼저 최종 결과물인 <em>matrix</em> 행렬을 만든다. <em>n</em> 이 0일 경우를 대비해 <em>ZERO</em> 가 되어야 한다. <em>k</em> 는 2의 <em>k</em> 승을 계산할 때 쓰인다. 0부터 시작해서 값을 키워나가며 <em>n</em> 이 <script type="math/tex">2^k</script> 승을 포함하는지(가령, 100이 16, 32, 64 등을 포함하는지)를 확인할 것이다. <em>tmp</em> 는 <em>k</em> 가 커짐에 따라 <em>BASE</em> 를 <script type="math/tex">2^k</script> 번 곱한 값을 저장해 나간다. <em>n</em> 을 구성하는 <script type="math/tex">2^k</script>마다에서 <em>matrix</em> 변수에 자신을 곱해나가며 <em>matrix</em> 를 키울 것이다.</li>
-      <li><em>while</em> 반복문을 통해 주어진 <em>n</em> 이 1, 2, 4, 8, … 등을 포함하는지 계산한다. 무한루프에 빠지지 않게 조건을 주어야 하는데 <script type="math/tex">2^k</script>가 <em>n</em> 이하일 때까지만 계산한다. 100은 <script type="math/tex">2^6</script> 보다는 크기 때문에 이를 포함할 수 있지만 자신보다 큰 제곱수는(<script type="math/tex">2^7</script> 이상) 상식적으로 포함할 수 없다.</li>
-      <li>0 이상의 정수 <em>k</em> 에 대해 자연수 <em>n</em> 이 <script type="math/tex">2^k</script>를 포함하는지 어떻게 확인할까? 비트 연산이 적절해 보인다. <strong>100은 이진수로 <script type="math/tex">1100100_{(2)}</script>이고, 이때 1이 되는 자리수들이 100을 구성하는 4, 32, 64가 된다. 100에 <em>k</em> 를 0에서 1씩 키워 나가 AND 연산을 하면 100이 <script type="math/tex">2^k</script>를 포함할 때는 1, 아닐 때는 0을 반환할 것이다.</strong></li>
-      <li>이 원리를 바탕으로 <em>matrix</em> 를 곱해 나간다. <em>n</em> 을 2진수로 변환했을 때 <em>k</em> 번째 자리수가 1로 채워져 있다면(‘n &amp; (1 &lt;&lt;k) != 0’) <em>matrix</em> 에 <em>tmp</em> 를 곱하고, 아니면 이번 <em>k</em> 에서는 건너 뛴다. 이번 <em>k</em> 일 때 <em>n</em> 이 <script type="math/tex">2^k</script>를 포함하는 여부와 상관없이 <em>while</em> 문을 벗어나기 전까지는 <em>k</em> 는 1씩 증가시키고, <em>tmp</em> 는 자신을 곱해 <script type="math/tex">2^k</script>번째 행렬을 꾸준히 만든다. 100이 8, 16을 포함하지 않다가 32를 포함한 것과 마찬가지로.</li>
+      <li>행렬 피보나치 알고리즘에서는 이 함수만 이해하면 된다. 먼저 최종 결과물인 <em>matrix</em> 행렬을 만든다. <em>n</em> 이 0일 경우를 대비해 <em>ZERO</em> 가 되어야 한다. <em>k</em> 는 2의 <em>k</em> 승을 계산할 때 쓰인다. 0부터 시작해서 값을 키워나가며 <em>n</em> 이 \(2^k\) 승을 포함하는지(가령, 100이 16, 32, 64 등을 포함하는지)를 확인할 것이다. <em>tmp</em> 는 <em>k</em> 가 커짐에 따라 <em>BASE</em> 를 \(2^k\) 번 곱한 값을 저장해 나간다. <em>n</em> 을 구성하는 \(2^k\)마다에서 <em>matrix</em> 변수에 자신을 곱해나가며 <em>matrix</em> 를 키울 것이다.</li>
+      <li><em>while</em> 반복문을 통해 주어진 <em>n</em> 이 1, 2, 4, 8, … 등을 포함하는지 계산한다. 무한루프에 빠지지 않게 조건을 주어야 하는데 \(2^k\)가 <em>n</em> 이하일 때까지만 계산한다. 100은 \(2^6\) 보다는 크기 때문에 이를 포함할 수 있지만 자신보다 큰 제곱수는(\(2^7\) 이상) 상식적으로 포함할 수 없다.</li>
+      <li>0 이상의 정수 <em>k</em> 에 대해 자연수 <em>n</em> 이 \(2^k\)를 포함하는지 어떻게 확인할까? 비트 연산이 적절해 보인다. <strong>100은 이진수로 \(1100100_{(2)}\)이고, 이때 1이 되는 자리수들이 100을 구성하는 4, 32, 64가 된다. 100에 <em>k</em> 를 0에서 1씩 키워 나가 AND 연산을 하면 100이 \(2^k\)를 포함할 때는 1, 아닐 때는 0을 반환할 것이다.</strong></li>
+      <li>이 원리를 바탕으로 <em>matrix</em> 를 곱해 나간다. <em>n</em> 을 2진수로 변환했을 때 <em>k</em> 번째 자리수가 1로 채워져 있다면(‘n &amp; (1 &lt;&lt;k) != 0’) <em>matrix</em> 에 <em>tmp</em> 를 곱하고, 아니면 이번 <em>k</em> 에서는 건너 뛴다. 이번 <em>k</em> 일 때 <em>n</em> 이 \(2^k\)를 포함하는 여부와 상관없이 <em>while</em> 문을 벗어나기 전까지는 <em>k</em> 는 1씩 증가시키고, <em>tmp</em> 는 자신을 곱해 \(2^k\)번째 행렬을 꾸준히 만든다. 100이 8, 16을 포함하지 않다가 32를 포함한 것과 마찬가지로.</li>
     </ul>
   </li>
 </ol>
 
 <p><br /></p>
 
-<p>코드 자체는 그리 길지 않다. 코드보다 내 설명이 더 길어진 것 같은데 설명이 잘 됐는지는 모르겠다. 어쨌든 행렬을 사용한 방법은 시간 복잡도가 <script type="math/tex">O(log_2n)</script>이기 때문에 위의 방법들보다 효율적이다. <em>n</em> 이 2의 64승쯤되는 압도적으로 큰 수에서는 그 효율을 실감할 수 있을 것이다.</p>
+<p>코드 자체는 그리 길지 않다. 코드보다 내 설명이 더 길어진 것 같은데 설명이 잘 됐는지는 모르겠다. 어쨌든 행렬을 사용한 방법은 시간 복잡도가 \(O(log_2n)\)이기 때문에 위의 방법들보다 효율적이다. <em>n</em> 이 2의 64승쯤되는 압도적으로 큰 수에서는 그 효율을 실감할 수 있을 것이다.</p>
 
 <p>이제 마지막 방법으로 넘어가자.</p>
 
@@ -670,7 +670,7 @@ MathJax = {
 
 <p>답이 나온다. 이게 무슨 알고리즘이냐고 물을 수 있지만, 알고리즘이 ‘문제를 해결하는 일련의 절차나 방법’이라는 것을 감안할 때 이 정의에 딱 부합한다.</p>
 
-<p>시간복잡도는 위 식의 각 부분을 살펴봐야 하는데 제곱을 구하는 부분이 행렬 알고리즘에서 살펴본 것처럼 <script type="math/tex">O(logn)</script>이기 때문에 전체적으로 <script type="math/tex">O(logn)</script>이 된다. 행렬식과 같다.</p>
+<p>시간복잡도는 위 식의 각 부분을 살펴봐야 하는데 제곱을 구하는 부분이 행렬 알고리즘에서 살펴본 것처럼 \(O(logn)\)이기 때문에 전체적으로 \(O(logn)\)이 된다. 행렬식과 같다.</p>
 
 <hr />
 

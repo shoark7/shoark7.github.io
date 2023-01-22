@@ -231,7 +231,7 @@ MathJax = {
         <a href="/"><img src="/assets/img/1536558558520.jpg" alt="Sunghwan Park"></a>
       </div>
       <div class="author-name">Sunghwan Park</div>
-      <p>I'm Parkito. A Python lover. Interested in Python, Automation, Algorithm. Please give me insights. I'll teach you tambien! :)</p>
+      <p>I'm Parkito. I'm back. Obsessed with esthetics of codes, sentences, modularity and writing</p>
     </div>
   </header> <!-- End Header -->
   <footer>
@@ -258,7 +258,7 @@ MathJax = {
       </ul>
     </section> <!-- End Section Contact -->
     <div class="copyright">
-      <p>2021 &copy; Sunghwan Park</p>
+      <p>2023 &copy; Sunghwan Park</p>
     </div>
   </footer> <!-- End Footer -->
 </aside> <!-- End Sidebar -->
@@ -309,11 +309,11 @@ MathJax = {
 
 <p><img src="/assets/img/algorithm/factorial-intro.png" alt="factorial" /></p>
 
-<p>이 문제는 <strong>어떤 자연수 N에서 <script type="math/tex">N!</script>의 뒤에서 0이 아닌 다른 수가 나올 때까지의 0의 개수를 세는 문제이다.</strong> 위의 <script type="math/tex">100!</script>의 뒤에는 24개의 0이 있다. 이렇게 100을 입력으로 받으면 24를 반환하면 된다.</p>
+<p>이 문제는 <strong>어떤 자연수 N에서 \(N!\)의 뒤에서 0이 아닌 다른 수가 나올 때까지의 0의 개수를 세는 문제이다.</strong> 위의 \(100!\)의 뒤에는 24개의 0이 있다. 이렇게 100을 입력으로 받으면 24를 반환하면 된다.</p>
 
 <h3 id="21-문제에-대한-직관">2.1. 문제에 대한 직관</h3>
 
-<p>‘124000’이라는 수를 보자. 이 수는 ‘124’ * 1000’으로 나눌 수 있다. 이때 1000은 <script type="math/tex">10^3</script>이기 때문에 답이 3이 된다.</p>
+<p>‘124000’이라는 수를 보자. 이 수는 ‘124’ * 1000’으로 나눌 수 있다. 이때 1000은 \(10^3\)이기 때문에 답이 3이 된다.</p>
 
 <p>그러면 <strong>이 문제는 어떤 수가 10을 몇 개를 가지고 있냐</strong>로 다시 정의할 수 있고, 우리는 10이 2와 5 하나씩으로 구성되는 것을 안다.</p>
 
@@ -333,9 +333,9 @@ MathJax = {
 
 <h3 id="31-무식하게-풀기">3.1. 무식하게 풀기</h3>
 
-<p>이 방법은 우리의 직관에서 바로 시작한다. <strong><script type="math/tex">N!</script>을 소인수 분해해 2와 5의 계승을 세서 이의 최소값을 반환하자.</strong></p>
+<p>이 방법은 우리의 직관에서 바로 시작한다. <strong>\(N!\)을 소인수 분해해 2와 5의 계승을 세서 이의 최소값을 반환하자.</strong></p>
 
-<p>이때 <strong>N이 100만 되어도 <script type="math/tex">100!</script>은 364자리의 미친 숫자이기 때문에 오버플로우의 위험이 있다. 그러니 팩토리얼을 직접 계산하지 말고 1부터 N까지 순회하면서 각 숫자가 가지고 있는 2와 5의 개수를 더해나가자.</strong></p>
+<p>이때 <strong>N이 100만 되어도 \(100!\)은 364자리의 미친 숫자이기 때문에 오버플로우의 위험이 있다. 그러니 팩토리얼을 직접 계산하지 말고 1부터 N까지 순회하면서 각 숫자가 가지고 있는 2와 5의 개수를 더해나가자.</strong></p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">count_zero</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
     <span class="n">two</span> <span class="o">=</span> <span class="mi">0</span>
@@ -355,7 +355,7 @@ MathJax = {
 
 <p>상당히 단순하고 직관적인 코드다. 1부터 N까지 순회하면서 각 수가 가지고 있는 2와 5의 개수를 전부 더해나간다. 마지막에는 이 둘의 최소값을 반환하면 된다.</p>
 
-<p>이 코드의 시간복잡도는 어떻게 될까? 1부터 N까지 순회하기에 <script type="math/tex">n</script>이 나오고, 각 반복문 안에서 숫자를 2와 5로 나눠나가기 때문에 <script type="math/tex">logn</script>이 된다. 따라서 <strong>최종 시간복잡도는 <script type="math/tex">O(nlogn)</script>.</strong></p>
+<p>이 코드의 시간복잡도는 어떻게 될까? 1부터 N까지 순회하기에 \(n\)이 나오고, 각 반복문 안에서 숫자를 2와 5로 나눠나가기 때문에 \(logn\)이 된다. 따라서 <strong>최종 시간복잡도는 \(O(nlogn)\).</strong></p>
 
 <p>이 문제를 푸는 가장 단순한 방법이지 않나 싶다. 문제 자체가 쉽기 때문에 이 문제는 이렇게 직관으로 바로 코드에 옮기는 것도 나쁘지는 않다. 하지만 내가 푼 방식은 조금 다르며 보다 효율적이기도 하다.</p>
 
@@ -419,7 +419,7 @@ MathJax = {
 
 <p>그리고 한 번 더 통찰이 있다.</p>
 
-<p>우리는 <script type="math/tex">N!</script>에서 2와 5의 개수를 셀 것이다. 소인수가 2일 때와 5일 때를 계산해서 더 작은 값을 선택할텐데 사실 두 값을 모두 계산할 필요가 없다. <strong>어떤 팩토리얼 수에서도 5의 개수가 2의 개수보다 더 적거나 같기 때문이다.</strong></p>
+<p>우리는 \(N!\)에서 2와 5의 개수를 셀 것이다. 소인수가 2일 때와 5일 때를 계산해서 더 작은 값을 선택할텐데 사실 두 값을 모두 계산할 필요가 없다. <strong>어떤 팩토리얼 수에서도 5의 개수가 2의 개수보다 더 적거나 같기 때문이다.</strong></p>
 
 <p><br /></p>
 
@@ -469,7 +469,7 @@ MathJax = {
   <li>1부터 N까지의 5의 개수를 모두 더해 반환한다.</li>
 </ol>
 
-<p><strong>이 함수의 시간 복잡도는 길이 N의 캐시를 채워나가기 때문에 <script type="math/tex">O(n)</script>이 되며 좀 전의 방식보다 효율적이다.</strong></p>
+<p><strong>이 함수의 시간 복잡도는 길이 N의 캐시를 채워나가기 때문에 \(O(n)\)이 되며 좀 전의 방식보다 효율적이다.</strong></p>
 
 <p>솔직히 말해서, 이 문제의 경우에는 동적 계획법보다 맨 처음에 직관만 사용해서 푼 방법이 더 쉬워보인다. 하지만 이것은 이 문제가 너무 쉬워서 그렇게 보이는 것이고 이보다 문제가 조금만 더 어려워지면, 직관만으로 무식하게 덤벼들다가 반드시 막히고 여러 예상 못한 난관에 빠지게 된다.</p>
 
@@ -481,7 +481,7 @@ MathJax = {
 
 <p>팩토리얼 수에서 뒤의 0의 개수를 세는 문제를 풀었다. 문제의 특성상 쉽게 터득할 수 있는 직관만으로 무식하게 문제를 풀고, 다음은 문제 자체를 이해하고 부분문제를 활용해 이 문제를 해결했다. 어느 것이 더 좋은가? 난 하늘이 두쪽나도 아래 방법으로 풀고 싶다. 그럴 능력이 생기면 좋겠다.</p>
 
-<p>아 그리고, 내가 소개한 방법 말고도 이 문제를 푸는 다른 방법도 있다. 이 <a href="http://ksj14.tistory.com/entry/BackJoon1676-%ED%8C%A9%ED%86%A0%EB%A6%AC%EC%96%BC-0%EC%9D%98-%EA%B0%9C%EC%88%98" target="_blank">포스트</a>를 참고하면 되는데 이 분도 문제를 자신만의 방식으로 이해했고 보다 쉽게 푸셨다. 시간 복잡도가 <script type="math/tex">O(logn)</script>으로 더 효율적이다. 이 포스트도 참고하기를 바란다.</p>
+<p>아 그리고, 내가 소개한 방법 말고도 이 문제를 푸는 다른 방법도 있다. 이 <a href="http://ksj14.tistory.com/entry/BackJoon1676-%ED%8C%A9%ED%86%A0%EB%A6%AC%EC%96%BC-0%EC%9D%98-%EA%B0%9C%EC%88%98" target="_blank">포스트</a>를 참고하면 되는데 이 분도 문제를 자신만의 방식으로 이해했고 보다 쉽게 푸셨다. 시간 복잡도가 \(O(logn)\)으로 더 효율적이다. 이 포스트도 참고하기를 바란다.</p>
 
 <p>이상 포스트를 마칩니다.</p>
 

@@ -233,7 +233,7 @@ MathJax = {
         <a href="/"><img src="/assets/img/1536558558520.jpg" alt="Sunghwan Park"></a>
       </div>
       <div class="author-name">Sunghwan Park</div>
-      <p>I'm Parkito. A Python lover. Interested in Python, Automation, Algorithm. Please give me insights. I'll teach you tambien! :)</p>
+      <p>I'm Parkito. I'm back. Obsessed with esthetics of codes, sentences, modularity and writing</p>
     </div>
   </header> <!-- End Header -->
   <footer>
@@ -260,7 +260,7 @@ MathJax = {
       </ul>
     </section> <!-- End Section Contact -->
     <div class="copyright">
-      <p>2021 &copy; Sunghwan Park</p>
+      <p>2023 &copy; Sunghwan Park</p>
     </div>
   </footer> <!-- End Footer -->
 </aside> <!-- End Sidebar -->
@@ -409,11 +409,11 @@ MathJax = {
   <li>이도저도 아니면 정수 그대로 출력.</li>
 </ol>
 
-<p>규칙이 하나 늘었을 뿐인데 8번의 분기가 일어난다. 그러니까 규칙의 개수가 <script type="math/tex">n</script>일 때 <script type="math/tex">2^n</script>의 분기가 일어나는 것. 이것을 어떻게 다 입력하겠는가… 그런 일은 일어나서는 안 된다. 그렇다면 방법은 바로 <strong>재귀</strong>이다.</p>
+<p>규칙이 하나 늘었을 뿐인데 8번의 분기가 일어난다. 그러니까 규칙의 개수가 \(n\)일 때 \(2^n\)의 분기가 일어나는 것. 이것을 어떻게 다 입력하겠는가… 그런 일은 일어나서는 안 된다. 그렇다면 방법은 바로 <strong>재귀</strong>이다.</p>
 
 <p><br /></p>
 
-<p>생각을 조금만 다르게 해보자. <strong>어떤 정수 <script type="math/tex">n</script>이 입력되었을 때, 위처럼 규칙 모두를 사악하게 합치는 것이 아니라 최종적으로 반환할 빈 문자열을 만들고 규칙마다에서 정수 <script type="math/tex">n</script>이 규칙의 정수의 배수일 때 단어를 하나씩 추가해나가는 방법을 쓰는 것이다.</strong></p>
+<p>생각을 조금만 다르게 해보자. <strong>어떤 정수 \(n\)이 입력되었을 때, 위처럼 규칙 모두를 사악하게 합치는 것이 아니라 최종적으로 반환할 빈 문자열을 만들고 규칙마다에서 정수 \(n\)이 규칙의 정수의 배수일 때 단어를 하나씩 추가해나가는 방법을 쓰는 것이다.</strong></p>
 
 <p>우리의 입력 데이터는 <em>Sequence</em> 이기 때문에 규칙마다를 순회하면서 정수가 규칙의 정수의 배수이면 규칙의 단어를 추가한다. 최종적으로 순회가 끝났을 때 결과물이 빈 물자열이면 그 어떤 규칙의 선택도 받지 못했기 때문에 숫자 그대로 출력한다.</p>
 
@@ -461,7 +461,7 @@ MathJax = {
 <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">N</span><span class="p">))</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
     <span class="c1"># Python string formatting: 다수의 출력을 깔끔하게 처리하기 위해 사용함.
-</span>    <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s">'{i:&lt;{length}} : {scalable_fizzbuzz(i, ((3, "Fizz"), (5, "Buzz"), (7, "Sizz"))):&lt;20}'</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">''</span><span class="p">)</span>
+</span>    <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">'</span><span class="si">{</span><span class="n">i</span><span class="si">:</span><span class="o">&lt;</span><span class="si">{</span><span class="n">length</span><span class="si">}}</span><span class="s"> : </span><span class="si">{</span><span class="n">scalable_fizzbuzz</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="s">"Fizz"</span><span class="p">),</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="s">"Buzz"</span><span class="p">),</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="s">"Sizz"</span><span class="p">)))</span><span class="si">:</span><span class="o">&lt;</span><span class="mi">20</span><span class="si">}</span><span class="s">'</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">''</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">print</span><span class="p">()</span>
 
@@ -469,22 +469,22 @@ MathJax = {
 <span class="mi">1</span>   <span class="p">:</span> <span class="mi">1</span>                   <span class="mi">2</span>   <span class="p">:</span> <span class="mi">2</span>                   <span class="mi">3</span>   <span class="p">:</span> <span class="n">Fizz</span>                
 <span class="mi">4</span>   <span class="p">:</span> <span class="mi">4</span>                   <span class="mi">5</span>   <span class="p">:</span> <span class="n">Buzz</span>              <span class="mi">6</span>   <span class="p">:</span> <span class="n">Fizz</span>                
 <span class="mi">7</span>   <span class="p">:</span> <span class="n">Sizz</span>               <span class="mi">8</span>   <span class="p">:</span> <span class="mi">8</span>                   <span class="mi">9</span>   <span class="p">:</span> <span class="n">Fizz</span> 
-<span class="o">...</span>
+<span class="p">...</span>
 </code></pre></div></div>
 
-<p>확장성 있는 새로운 ‘scalable_fizzbuzz’를 만들었다. 이 함수는 정수 <script type="math/tex">n</script>과 규칙의 모음 <script type="math/tex">items</script>를 받는데 <strong>규칙이 튜플의 튜플이라는 것이 의미 있다.</strong> 일단 함수 정의 시에 이렇게 기본값을 입력한 것은 사용자가 사용자 정의 FizzBuzz가 아닌 우리가 아는 일반적인 FizzBuzz를 하고 싶을 수 있기 때문에 초기값을 줬다. 입력을 튜플로 한 것은 튜플이 Immutable한 자료구조이기 때문이다. <a href="http://127.0.0.1:4000/programming/algorithm/%ED%94%BC%EB%B3%B4%EB%82%98%EC%B9%98-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%84-%ED%95%B4%EA%B2%B0%ED%95%98%EB%8A%94-5%EA%B0%80%EC%A7%80-%EB%B0%A9%EB%B2%95.html" target="_blank">피보나치 알고리즘 포스트</a>에서도 소개했었는데, <strong>함수 정의부에 입력한 자료구조는 함수가 존재하는 한 반영구적으로 보존되기 때문에 값이 변하는(Mutable)한 자료구조를 두면 차후에 원인을 찾기 힘든 버그가 발생할 수 있기 때문이다.</strong></p>
+<p>확장성 있는 새로운 ‘scalable_fizzbuzz’를 만들었다. 이 함수는 정수 \(n\)과 규칙의 모음 \(items\)를 받는데 <strong>규칙이 튜플의 튜플이라는 것이 의미 있다.</strong> 일단 함수 정의 시에 이렇게 기본값을 입력한 것은 사용자가 사용자 정의 FizzBuzz가 아닌 우리가 아는 일반적인 FizzBuzz를 하고 싶을 수 있기 때문에 초기값을 줬다. 입력을 튜플로 한 것은 튜플이 Immutable한 자료구조이기 때문이다. <a href="http://127.0.0.1:4000/programming/algorithm/%ED%94%BC%EB%B3%B4%EB%82%98%EC%B9%98-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%84-%ED%95%B4%EA%B2%B0%ED%95%98%EB%8A%94-5%EA%B0%80%EC%A7%80-%EB%B0%A9%EB%B2%95.html" target="_blank">피보나치 알고리즘 포스트</a>에서도 소개했었는데, <strong>함수 정의부에 입력한 자료구조는 함수가 존재하는 한 반영구적으로 보존되기 때문에 값이 변하는(Mutable)한 자료구조를 두면 차후에 원인을 찾기 힘든 버그가 발생할 수 있기 때문이다.</strong></p>
 
-<p>그 다음은 규칙에 따라 문자열을 생성할 <script type="math/tex">generate</script>를 만들었다. <strong>이 함수는 입력을 우리가 처음으로 입력 받는 <script type="math/tex">n</script>과 현재 살펴 볼 규칙 모음 <script type="math/tex">items</script>의 인덱스 <script type="math/tex">i</script>, 중간에 완성 중인 <script type="math/tex">tmp\_str</script>을 받는다.</strong> 이 함수의 동작 과정을 살펴보면 다음과 같다.</p>
+<p>그 다음은 규칙에 따라 문자열을 생성할 \(generate\)를 만들었다. <strong>이 함수는 입력을 우리가 처음으로 입력 받는 \(n\)과 현재 살펴 볼 규칙 모음 \(items\)의 인덱스 \(i\), 중간에 완성 중인 \(tmp\_str\)을 받는다.</strong> 이 함수의 동작 과정을 살펴보면 다음과 같다.</p>
 
 <ol>
   <li><strong>재귀 함수의 탈출조건을 정했다.</strong>
     <ul>
-      <li>인덱스 <script type="math/tex">i</script>가 규칙 모음의 길이 <em>N</em> 과 같아졌다는 것은 모든 규칙을 살펴봤다는 것이니 탈출해야 한다. 이때 <script type="math/tex">tmp\_str</script>이 빈 문자열이라면 주어진 정수에 규칙의 정수에 하나도 나눠지지 않는다는 것이니 숫자 그대로 반환하고 하나라도 나눠졌으면 그 문자열을 반환한다.</li>
+      <li>인덱스 \(i\)가 규칙 모음의 길이 <em>N</em> 과 같아졌다는 것은 모든 규칙을 살펴봤다는 것이니 탈출해야 한다. 이때 \(tmp\_str\)이 빈 문자열이라면 주어진 정수에 규칙의 정수에 하나도 나눠지지 않는다는 것이니 숫자 그대로 반환하고 하나라도 나눠졌으면 그 문자열을 반환한다.</li>
     </ul>
   </li>
   <li><strong>규칙은 첫 원소가 나눌 정수(<em>divisor</em>), 그때의 단어(<em>word</em>)로 되어 있다.</strong>
     <ul>
-      <li><em>i</em> 번째의 현재 규칙에서 정수가 <em>divisor</em> 로 나눠지면 <em>generate</em> 의 <script type="math/tex">tmp\_str</script>에 <em>word</em> 를 추가해 실행한다. 나눠지지 않으면 단어를 추가하지 않고 실행한다. 인덱스에 <em>i+1</em> 이라는 것도 참고하자. 현재 규칙을 살폈으니 당연히 다음 규칙으로 넘어가야 하지 않겠는가. :)</li>
+      <li><em>i</em> 번째의 현재 규칙에서 정수가 <em>divisor</em> 로 나눠지면 <em>generate</em> 의 \(tmp\_str\)에 <em>word</em> 를 추가해 실행한다. 나눠지지 않으면 단어를 추가하지 않고 실행한다. 인덱스에 <em>i+1</em> 이라는 것도 참고하자. 현재 규칙을 살폈으니 당연히 다음 규칙으로 넘어가야 하지 않겠는가. :)</li>
     </ul>
   </li>
   <li><strong>마지막으로 <em>generate</em> 를 구동한다.</strong>

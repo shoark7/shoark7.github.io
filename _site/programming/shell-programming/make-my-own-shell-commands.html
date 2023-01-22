@@ -233,7 +233,7 @@ MathJax = {
         <a href="/"><img src="/assets/img/1536558558520.jpg" alt="Sunghwan Park"></a>
       </div>
       <div class="author-name">Sunghwan Park</div>
-      <p>I'm Parkito. A Python lover. Interested in Python, Automation, Algorithm. Please give me insights. I'll teach you tambien! :)</p>
+      <p>I'm Parkito. I'm back. Obsessed with esthetics of codes, sentences, modularity and writing</p>
     </div>
   </header> <!-- End Header -->
   <footer>
@@ -260,7 +260,7 @@ MathJax = {
       </ul>
     </section> <!-- End Section Contact -->
     <div class="copyright">
-      <p>2021 &copy; Sunghwan Park</p>
+      <p>2023 &copy; Sunghwan Park</p>
     </div>
   </footer> <!-- End Footer -->
 </aside> <!-- End Sidebar -->
@@ -307,7 +307,7 @@ MathJax = {
 
 <h2 id="alias-나만의-명령-만들기">alias: 나만의 명령 만들기</h2>
 
-<p>쉘 커맨드에는 <code class="highlighter-rouge">alias</code>라는 명령이 있다. <strong><code class="highlighter-rouge">alias</code>는 ‘일명’, ‘가명’이라는 뜻으로 다른 명령어(들)의 별칭을 만들 수 있다.</strong> 다시 말해, 다른 다수의 명령어 조각을 하나의 명령어 조각으로 별칭을 만드는 역할을 할 수 있다. 이게 무슨 말이냐. 예를 들어보자.<br />
+<p>쉘 커맨드에는 <code class="language-plaintext highlighter-rouge">alias</code>라는 명령이 있다. <strong><code class="language-plaintext highlighter-rouge">alias</code>는 ‘일명’, ‘가명’이라는 뜻으로 다른 명령어(들)의 별칭을 만들 수 있다.</strong> 다시 말해, 다른 다수의 명령어 조각을 하나의 명령어 조각으로 별칭을 만드는 역할을 할 수 있다. 이게 무슨 말이냐. 예를 들어보자.<br />
 git을 쓴다면 커밋을 만들기 위해 ‘git add’와 ‘git commit’을 기계적으로 쓰고 있을 것이다. 물론 각 명령에는 중요한 의미가 있지만 게으른 개발자라면 <strong>항상 같이 쓰이는 저 두 명령어를 한 명령어로 처리한다든가, ‘git add’는 7바이트나 써야 하기 때문에 ‘ga’와 같이 줄여 쓸 수 있을까를 고민할 수 있다.</strong> 위 두 경우에 모두 <em>alias</em> 를 사용하기 딱 좋은 경우다.</p>
 
 <p><em>alias</em> 의 사용 방법은 다음과 같다.</p>
@@ -355,7 +355,7 @@ git을 쓴다면 커밋을 만들기 위해 ‘git add’와 ‘git commit’을
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">echo</span> <span class="s2">"alias gg='git add; git commit'"</span> <span class="o">&gt;&gt;</span> ~/.bashrc
 </code></pre></div></div>
 
-<p>와 같이 입력하면 된다. <code class="highlighter-rouge">~</code>는 홈 디렉토리를 뜻하는 확장문자로 보통은 ‘/home/유저명’을 뜻하게 되어 있다. 내 홈 디렉토리를 확인하고 싶다면 쉘에 ‘echo ~’을 입력해보자. 그리고 홈 디렉토리 안의 ‘.bashrc’라는 숨김파일에 <em>alias</em> 를 맨 뒤에 붙인다. <strong>이때 ‘&gt;&gt;’ 대신 ‘&gt;’를 쓰지 않도록 조심하자.</strong> 잘못하면 기존의 설정이 모두 지워질 수 있다.</p>
+<p>와 같이 입력하면 된다. <code class="language-plaintext highlighter-rouge">~</code>는 홈 디렉토리를 뜻하는 확장문자로 보통은 ‘/home/유저명’을 뜻하게 되어 있다. 내 홈 디렉토리를 확인하고 싶다면 쉘에 ‘echo ~’을 입력해보자. 그리고 홈 디렉토리 안의 ‘.bashrc’라는 숨김파일에 <em>alias</em> 를 맨 뒤에 붙인다. <strong>이때 ‘&gt;&gt;’ 대신 ‘&gt;’를 쓰지 않도록 조심하자.</strong> 잘못하면 기존의 설정이 모두 지워질 수 있다.</p>
 
 <p>이렇게 입력하면 내 명령어를 쓸 수 있을 것 같지만 바로 써지지 않는데, <strong>그 이유는 쉘은 처음 실행될 때만 ‘.bashrc’ 파일을 읽기 때문에 이미 켜진 쉘에서는 수정 내용이 적용되지 않기 때문이다.</strong> 이때 쉘 스크립트 파일을 실행하는 <em>source</em> 라는 명령어를 사용해서 쉘이 ‘.bashrc’ 파일을 실행하도록 하자.</p>
 
@@ -370,7 +370,7 @@ git을 쓴다면 커밋을 만들기 위해 ‘git add’와 ‘git commit’을
 
 <p>이 포스트는 내가 지금까지 다룬 쉘 관련 포스트 중에서 제일 가벼운 내용인 것 같다. 리디렉션과 같이 엄중한 중요성의 포스트을 작성할 때는 느끼지 못하는 편안함을 느낄 수 있었다.</p>
 
-<p>이제 또다시 고비가 찾아오는데 바로 <code class="highlighter-rouge">확장</code>을 다룰 것이다. 여기는 진짜 ‘공부’가 필요하기 때문에 까다롭다. 하지만 정말정말 재밌다. 기대하자, 곧 광명을 찾을지니 :)</p>
+<p>이제 또다시 고비가 찾아오는데 바로 <code class="language-plaintext highlighter-rouge">확장</code>을 다룰 것이다. 여기는 진짜 ‘공부’가 필요하기 때문에 까다롭다. 하지만 정말정말 재밌다. 기대하자, 곧 광명을 찾을지니 :)</p>
 
       <div class="page-footer">
         <div class="page-share">

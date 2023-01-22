@@ -231,7 +231,7 @@ MathJax = {
         <a href="/"><img src="/assets/img/1536558558520.jpg" alt="Sunghwan Park"></a>
       </div>
       <div class="author-name">Sunghwan Park</div>
-      <p>I'm Parkito. A Python lover. Interested in Python, Automation, Algorithm. Please give me insights. I'll teach you tambien! :)</p>
+      <p>I'm Parkito. I'm back. Obsessed with esthetics of codes, sentences, modularity and writing</p>
     </div>
   </header> <!-- End Header -->
   <footer>
@@ -258,7 +258,7 @@ MathJax = {
       </ul>
     </section> <!-- End Section Contact -->
     <div class="copyright">
-      <p>2021 &copy; Sunghwan Park</p>
+      <p>2023 &copy; Sunghwan Park</p>
     </div>
   </footer> <!-- End Footer -->
 </aside> <!-- End Sidebar -->
@@ -301,7 +301,7 @@ MathJax = {
 
 <p>그런데 조합의 경우  각각을 출력하는 것이 아닌 조합의 경우의 수 자체를 구하는 것은 꽤나 쉬운 일이다. 개념적으로 어렵지 않은 수식을 활용해 팩토리얼로 바로 구할 수 있기 때문이다. 프로그래밍에서도 똑같이 구현할 수 있다. 그러나 문제를 해결하는 방법은 보통 여러 가지일 때가 많고 이들을 모두 살펴보면 배울 것이 많다. 그건 이항계수도 마찬가지이다.</p>
 
-<p><strong>이번 포스트는 이항계수를 구하는 서로 다른 세 가지 알고리즘을 확인해보려고 한다.</strong> 첫 번째는 가장 쉬운 구현, 두 번째는 동적 계획법을 활용한 구현, 세 번째는 동적 계획법을 활용한 또다른 구현이다. <strong>특히 세 번째 구현이 매우 의미가 있는데 <code class="highlighter-rouge">확장성</code>이라는 측면에서 다른 두 알고리즘의 추종을 불허한다.</strong> 첫 두 알고리즘은 알고 있었어도 세 번째는 몰랐을 수 있으니 확인 바란다.</p>
+<p><strong>이번 포스트는 이항계수를 구하는 서로 다른 세 가지 알고리즘을 확인해보려고 한다.</strong> 첫 번째는 가장 쉬운 구현, 두 번째는 동적 계획법을 활용한 구현, 세 번째는 동적 계획법을 활용한 또다른 구현이다. <strong>특히 세 번째 구현이 매우 의미가 있는데 <code class="language-plaintext highlighter-rouge">확장성</code>이라는 측면에서 다른 두 알고리즘의 추종을 불허한다.</strong> 첫 두 알고리즘은 알고 있었어도 세 번째는 몰랐을 수 있으니 확인 바란다.</p>
 
 <h2 id="이항계수란">이항계수란?</h2>
 
@@ -343,7 +343,7 @@ MathJax = {
 
 <hr />
 
-<p>이항계수의 정의를 이용한 방식은 팩토리얼을 사용한다. 팩토리얼은 파이썬에서는 <code class="highlighter-rouge">math</code> 모듈에서 지원하고 있지만 어렵지도 않은 거 그냥 구현하기로 한다.</p>
+<p>이항계수의 정의를 이용한 방식은 팩토리얼을 사용한다. 팩토리얼은 파이썬에서는 <code class="language-plaintext highlighter-rouge">math</code> 모듈에서 지원하고 있지만 어렵지도 않은 거 그냥 구현하기로 한다.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="n">ans</span> <span class="o">=</span> <span class="mi">1</span>
@@ -356,7 +356,7 @@ MathJax = {
     <span class="k">return</span> <span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">//</span> <span class="n">factorial</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="o">//</span> <span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">r</span><span class="p">)</span>
 </code></pre></div></div>
 
-<p>팩토리얼을 사용한 무난한 이항계수 알고리즘이다. 1번 정의를 충분히 활용했다. <strong>주의할 점은 <code class="highlighter-rouge">factorial</code> 함수가 <em>‘0!’</em> 도 1을 문제없이 반환할 수 있도록 하는 것이다.</strong> 그렇지 않으면 밑의 이항계수 함수가 <em>ZeroDivisionError</em> 를 일으킬 수 있다.</p>
+<p>팩토리얼을 사용한 무난한 이항계수 알고리즘이다. 1번 정의를 충분히 활용했다. <strong>주의할 점은 <code class="language-plaintext highlighter-rouge">factorial</code> 함수가 <em>‘0!’</em> 도 1을 문제없이 반환할 수 있도록 하는 것이다.</strong> 그렇지 않으면 밑의 이항계수 함수가 <em>ZeroDivisionError</em> 를 일으킬 수 있다.</p>
 
 <p>이 함수는 잘 작동하지만 잠재적인 위험성이 있다. 기본적으로 팩토리얼은 지수 증가보다도 크게 증가하는데 <em>n</em> 이 15만 되어도 1조를 훌쩍 넘겨버린다. 파이썬에서는 상관없지만, 타 언어에서는 구하는 수가 매우 크지 않더라도 오버플로우가 쉽게 발생할 수 있기 때문에 주의해서 사용해야 한다. 물론 우리의 사랑스러운 파이썬에서는 일반적으로 오버플로우를 걱정하지 않고 이 함수를 이용할 수 있다. :)</p>
 
@@ -395,7 +395,7 @@ MathJax = {
 
 <p><img src="/assets/img/algorithm/fibbonacci-recurisive.png" alt="overlapping-subproblems" /></p>
 
-<p><code class="highlighter-rouge">부분문제의 중복</code>이라는 현상을 설명하기 위해 비슷한 예제인 피보나치 수열에 대한 반복구현의 실행흐름을 가져왔다.</p>
+<p><code class="language-plaintext highlighter-rouge">부분문제의 중복</code>이라는 현상을 설명하기 위해 비슷한 예제인 피보나치 수열에 대한 반복구현의 실행흐름을 가져왔다.</p>
 
 <p>피보나치 수열은 n번째 항을 n-1번째 항과 n-2번째 항의 합으로 표현한 수열로 위의 <em>fib</em> 함수는 실행 시 두 개로 갈라진다. 이항계수 함수도 둘로 갈라지고 인자가 점점 작아져 마침내 기저사례(base case, 또는 탈출지점)에 닿는다는 점에서 같다.</p>
 
@@ -443,7 +443,7 @@ MathJax = {
 
 <hr />
 
-<p>위의 두 방법은 가장 일반적이며 또 실제로 유용하기도 하다. 하지만 <strong>이항계수만을 위한 함수로 확률이나 통계 등의 <code class="highlighter-rouge">확장</code>과는 거리가 있는데 지금 소개하는 방법은 확률 등으로 확장성이 매우 뛰어나다.</strong> 그래서 달달 외우라고 하고 싶은 심정이다.</p>
+<p>위의 두 방법은 가장 일반적이며 또 실제로 유용하기도 하다. 하지만 <strong>이항계수만을 위한 함수로 확률이나 통계 등의 <code class="language-plaintext highlighter-rouge">확장</code>과는 거리가 있는데 지금 소개하는 방법은 확률 등으로 확장성이 매우 뛰어나다.</strong> 그래서 달달 외우라고 하고 싶은 심정이다.</p>
 
 <p><strong>중요한 장이라 몇 개의 절로 나누어 생각한다. 먼저 이항계수를 좀더 ‘문제의 본질’의 측면에서 바라보고, 그 개념을 바탕으로 문제를 동적 계획법으로 다시 푼다. 그리고 이 방법의 장점을 설명한다음, 생각을 뒤집어 다시 한 번 구현해본다.</strong></p>
 
@@ -472,7 +472,7 @@ MathJax = {
 
 <p><br /></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>func(times, got) : 그동안 times만큼 기회가 있었고, 그동안 got만큼 선택했을 때, n번째에 다다랗을 때 k개를 선택하는 경우의 수
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>func(times, got) : 그동안 times만큼 기회가 있었고, 그동안 got만큼 선택했을 때, n번째에 다다랗을 때 k개를 선택하는 경우의 수
 </code></pre></div></div>
 
 <p><br /></p>
@@ -512,7 +512,7 @@ MathJax = {
   <li>이 기회에 선택할지, 안 할지를 결정하는 <em>choose</em> 함수를 만들었다. 인자로는 그 동안의 기회를 나타내는 <em>times</em> 와, 그동안 선택한 품목의 개수인 <em>got</em> 을 받는다. 확실히 하자. <strong>이 함수의 의미는 <em>times</em> 번 동안 <em>got</em> 개를 선택하는 조합의 개수가 아니라, <em>times</em> 번까지 <em>got</em> 개를 선택했을 때, 최종적으로 <em>n</em> 번의 기회를 소진 시에 선택한 개수가 <em>k</em> 가 되는 경우의 수를 반환하는 함수이다.</strong></li>
   <li><em>n</em> 번의 선택을 마쳤다면, 함수를 종료시킨다. 이때, 그동안 선택된 개수가 문제에서 주어진 <em>k</em> 와 일치하면 <em>n</em> 개 중 <em>k</em> 를 선택했으므로 1을 반환하되, 값이 다르면 0을 반환한다.(세지 않는다)</li>
   <li>그 다음으로 캐쉬에 우리의 부분문제의 답이 저장되어 있으면 그 값을 반환한다. <strong>-1은 초기화 값으로 현재 값이 -1이라는 얘기는 이 위치의 값은 건드린 적이 없다는 것, 그러니까 이전에 계산하지 않았기 때문에 계산해야 된다는 뜻이다</strong></li>
-  <li>캐쉬에 값이 없었으므로 값을 실제로 계산한다. <code class="highlighter-rouge">times 번까지 got 개를 선택했을 때, 최종적으로 n 번의 기회를 소진 시에 선택한 개수가 k 가 되는 경우의 수는 times+1 번째에 got 개가 선택되었을 때(이번에 선택하지 않았을 때)와 times+1 번째에 got+1 개가 선택된 경우의 수(이번에 선택했을 때)의 합이다.</code></li>
+  <li>캐쉬에 값이 없었으므로 값을 실제로 계산한다. <code class="language-plaintext highlighter-rouge">times 번까지 got 개를 선택했을 때, 최종적으로 n 번의 기회를 소진 시에 선택한 개수가 k 가 되는 경우의 수는 times+1 번째에 got 개가 선택되었을 때(이번에 선택하지 않았을 때)와 times+1 번째에 got+1 개가 선택된 경우의 수(이번에 선택했을 때)의 합이다.</code></li>
   <li>함수를 시작한다. 이제 시작이고 그동안 선택한 것도 없으므로 당연히 <em>times</em> 와 <em>got</em> 모두 0이 될 수밖에 없다. 함수가 계속 호출되고, 인자가 점점 커지며 결국 <em>n</em> 번째까지 이를 것이고 그때 선택한 개수가 <em>k</em> 인 경우만 합산해서 결과를 내놓는다.</li>
 </ol>
 
@@ -543,12 +543,12 @@ MathJax = {
 </span>    <span class="k">return</span> <span class="n">got</span> <span class="o">&gt;=</span> <span class="n">k</span>
 </code></pre></div></div>
 
-<p><strong>아까는 <code class="highlighter-rouge">got == k</code>로 마지막에 선택한 개수가 <em>k</em> 개인 경우만 1을 반환했다. 이때는 <em>got</em> 이 <em>k</em> 보다 커도 0이 나왔는데 위와 같이 바꾸면서 <em>k</em> 개 이상이면 모두 1을 반환한다.</strong> 이하는 부호만 반대로 바꿔줘면 된다.</p>
+<p><strong>아까는 <code class="language-plaintext highlighter-rouge">got == k</code>로 마지막에 선택한 개수가 <em>k</em> 개인 경우만 1을 반환했다. 이때는 <em>got</em> 이 <em>k</em> 보다 커도 0이 나왔는데 위와 같이 바꾸면서 <em>k</em> 개 이상이면 모두 1을 반환한다.</strong> 이하는 부호만 반대로 바꿔줘면 된다.</p>
 
 <p><br /></p>
 
 <p>또한 다음 확장은 위를 확률을 구하는 함수로도 바꿀 수 있다는 것이다. <br />
-가령 이번에는 동전을 <em>n</em> 번 던질 때 앞면이 <em>k</em> 개가 나오는 <code class="highlighter-rouge">확률</code>을 계산하는 문제를 살펴보자. 이 문제는 단순한 3번식을 ‘2 ^ n’으로 나눠주면 구할 수 있지만 <strong>3번식의 5번 부분을 살짝만 바꿔줘도 구할 수 있다.</strong></p>
+가령 이번에는 동전을 <em>n</em> 번 던질 때 앞면이 <em>k</em> 개가 나오는 <code class="language-plaintext highlighter-rouge">확률</code>을 계산하는 문제를 살펴보자. 이 문제는 단순한 3번식을 ‘2 ^ n’으로 나눠주면 구할 수 있지만 <strong>3번식의 5번 부분을 살짝만 바꿔줘도 구할 수 있다.</strong></p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">cache</span><span class="p">[</span><span class="n">times</span><span class="p">][</span><span class="n">got</span><span class="p">]</span> <span class="o">=</span> <span class="n">choose</span><span class="p">(</span><span class="n">times</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">got</span><span class="p">)</span> <span class="o">+</span> <span class="n">choose</span><span class="p">(</span><span class="n">times</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">got</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>	<span class="c1"># 5.
 </span></code></pre></div></div>

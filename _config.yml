@@ -1,5 +1,5 @@
 title: Parkito's on the way
-description: Parkito's dev blog for programming, Python, Algorithm, Automation and insights.
+description: Parkito's dev blog for programming, Python, Algorithm, Automation and insights. I'm back
 permalink: /:categories/:title
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://shoark7.github.io" # the base hostname & protocol for your site, e.g. http://example.com
@@ -8,7 +8,7 @@ site-twitter: #if your site has a twitter account, enter it here
 # Author Settings
 author: Sunghwan Park
 author-img: 1536558558520.jpg
-about-author: I'm Parkito. A Python lover. Interested in Python, Automation, Algorithm. Please give me insights. I'll teach you tambien! :)
+about-author: I'm Parkito. I'm back. Obsessed with esthetics of codes, sentences, modularity and writing
 social-github: shoark7
 social-linkedin: sunghwan-park-3773b8154
 social-email: shoark7@gmail.com

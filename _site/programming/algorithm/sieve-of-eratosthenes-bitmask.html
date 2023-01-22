@@ -231,7 +231,7 @@ MathJax = {
         <a href="/"><img src="/assets/img/1536558558520.jpg" alt="Sunghwan Park"></a>
       </div>
       <div class="author-name">Sunghwan Park</div>
-      <p>I'm Parkito. A Python lover. Interested in Python, Automation, Algorithm. Please give me insights. I'll teach you tambien! :)</p>
+      <p>I'm Parkito. I'm back. Obsessed with esthetics of codes, sentences, modularity and writing</p>
     </div>
   </header> <!-- End Header -->
   <footer>
@@ -258,7 +258,7 @@ MathJax = {
       </ul>
     </section> <!-- End Section Contact -->
     <div class="copyright">
-      <p>2021 &copy; Sunghwan Park</p>
+      <p>2023 &copy; Sunghwan Park</p>
     </div>
   </footer> <!-- End Footer -->
 </aside> <!-- End Sidebar -->
@@ -297,7 +297,7 @@ MathJax = {
 
 <hr />
 
-<p>에라토스테네스의 체는 정해진 범위 내의 자연수에서 소수를 걸러내는 데 유용하게 사용되는 알고리즘이다. 이를 개발한 에라토스테네스는 기원전 200여년 전 사람인데 참 대단하다는 생각이 든다. 소수론은 워낙 중요한 분야라 소수를 판별하는 것과 관련된 수많은 알고리즘이 있지만, 수학자가 아닌 평범한 개발자 정도라면 에라토스테네스의 체(이하 “체”) 알고리즘 정도는 1부터 <script type="math/tex">\sqrt{n}</script>까지 나눠보는 간단한 소수 판별법과 함께 모두 알 것이라 생각한다. 나도 체는 한참 전에 만들어본 기억이 있다.</p>
+<p>에라토스테네스의 체는 정해진 범위 내의 자연수에서 소수를 걸러내는 데 유용하게 사용되는 알고리즘이다. 이를 개발한 에라토스테네스는 기원전 200여년 전 사람인데 참 대단하다는 생각이 든다. 소수론은 워낙 중요한 분야라 소수를 판별하는 것과 관련된 수많은 알고리즘이 있지만, 수학자가 아닌 평범한 개발자 정도라면 에라토스테네스의 체(이하 “체”) 알고리즘 정도는 1부터 \(\sqrt{n}\)까지 나눠보는 간단한 소수 판별법과 함께 모두 알 것이라 생각한다. 나도 체는 한참 전에 만들어본 기억이 있다.</p>
 
 <p>최근 어렴풋이 알고 있던 비트 알고리즘을 좀더 깊이 공부했는데 <strong>공부하는 책에서 비트마스킹을 활용해 체의 공간 효율을 상당 부분 개선할 수 있는 방법을 알고 충격을 받았다.</strong></p>
 
@@ -331,7 +331,7 @@ MathJax = {
             <span class="n">sieve</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">TEST</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s">"{i:&gt;3} : {'prime' if sieve[i] else 'composite'}"</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="n">i</span><span class="si">:</span><span class="o">&gt;</span><span class="mi">3</span><span class="si">}</span><span class="s"> : </span><span class="si">{</span><span class="s">'prime'</span> <span class="k">if</span> <span class="n">sieve</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">else</span> <span class="s">'composite'</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
 </code></pre></div></div>
 
 <p>평범한 코드다. 체의 크기는 2의 16승으로 잡고(이는 임의의 값을 줬다) 1로 초기화한다. 2부터 <em>for</em> 문을 돌며 값이 1로 되어 있으면 그 수의 배수는 모두 0으로 처리한다. 전혀 어려울 것이 없는데 <strong>배수를 처리하는 <em>j</em> 의 시작값을 <em>i*i</em> 로 한 것만 유의하면 된다.</strong> 가령 3의 배수를 지울 때, 6 같은 경우는 2의 배수로 이미 지워져 있을 것이기 때문에 다시 지울 필요가 없고, 3의 제곱인 9부터 지워나가면 된다.</p>
@@ -372,7 +372,7 @@ MathJax = {
 
 <p>위 그림은 어떤 8비트 이진수다. 이 수를 표현하기 위해 8개의 비트가 사용되었다. <strong>각 비트는 0부터 7까지의 인덱스를 갖는데, 아까 예에서 한 원소에 1비트만 담는 대신, 한 원소에 8비트 수를 담으면 각 비트의 0, 1 상태를 통해 0부터 7까지 8개의 자연수의 소수 여부를 알 수 있다.</strong> <em>SIZE</em> 가 7일 때, 체의 단 하나뿐인 원소에는 다음과 같은 값이 실릴 것이다.</p>
 
-<script type="math/tex; mode=display">10101100_{2}</script>
+<p>[10101100_{2}]</p>
 
 <p>이 8비트 이진수는 오른쪽에서부터 0부터 7까지의 소수 판별 여부를 담고 있으며 2, 3, 5, 7은 소수이기 때문에 비트가 켜져 있는 것을 알 수 있다.</p>
 
@@ -473,25 +473,25 @@ MathJax = {
 
 <span class="k">class</span> <span class="nc">Sieve</span><span class="p">:</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">=</span> <span class="n">size</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_sieve</span> <span class="o">=</span> <span class="p">[</span><span class="mi">255</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">SIZE</span> <span class="o">&gt;&gt;</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">_size</span> <span class="o">=</span> <span class="n">size</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">_sieve</span> <span class="o">=</span> <span class="p">[</span><span class="mi">255</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">SIZE</span> <span class="o">&gt;&gt;</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">_set_composite</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_set_composite</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">_set_composite</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">_set_composite</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">**</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_prime</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
-                <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="n">i</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">_set_composite</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s">"Sieve of size {size} is initialized"</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">_size</span> <span class="o">**</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="p">.</span><span class="n">is_prime</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="n">i</span><span class="p">,</span> <span class="bp">self</span><span class="p">.</span><span class="n">_size</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
+                    <span class="bp">self</span><span class="p">.</span><span class="n">_set_composite</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Sieve of size </span><span class="si">{</span><span class="n">size</span><span class="si">}</span><span class="s"> is initialized"</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">is_prime</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="nb">ValueError</span><span class="p">(</span><span class="n">f</span><span class="s">"This sieve only support integers equal to or less than {self._size}"</span><span class="p">)</span>
-        <span class="k">return</span> <span class="bp">True</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sieve</span><span class="p">[</span><span class="n">n</span> <span class="o">&gt;&gt;</span> <span class="mi">3</span><span class="p">]</span> <span class="o">&amp;</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">n</span> <span class="o">&amp;</span> <span class="mi">7</span><span class="p">))</span> <span class="k">else</span> <span class="bp">False</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="p">.</span><span class="n">_size</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="nb">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s">"This sieve only support integers equal to or less than </span><span class="si">{</span><span class="bp">self</span><span class="p">.</span><span class="n">_size</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">True</span> <span class="k">if</span> <span class="bp">self</span><span class="p">.</span><span class="n">_sieve</span><span class="p">[</span><span class="n">n</span> <span class="o">&gt;&gt;</span> <span class="mi">3</span><span class="p">]</span> <span class="o">&amp;</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">n</span> <span class="o">&amp;</span> <span class="mi">7</span><span class="p">))</span> <span class="k">else</span> <span class="bp">False</span>
 
     <span class="k">def</span> <span class="nf">_set_composite</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_sieve</span><span class="p">[</span><span class="n">n</span> <span class="o">&gt;&gt;</span> <span class="mi">3</span><span class="p">]</span> <span class="o">&amp;=</span> <span class="o">~</span><span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">n</span> <span class="o">&amp;</span> <span class="mi">7</span><span class="p">))</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">_sieve</span><span class="p">[</span><span class="n">n</span> <span class="o">&gt;&gt;</span> <span class="mi">3</span><span class="p">]</span> <span class="o">&amp;=</span> <span class="o">~</span><span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">n</span> <span class="o">&amp;</span> <span class="mi">7</span><span class="p">))</span>
 
 
 <span class="n">sieve</span> <span class="o">=</span> <span class="n">Sieve</span><span class="p">(</span><span class="n">SIZE</span><span class="p">)</span>
@@ -530,31 +530,31 @@ MathJax = {
         :return:
 	None. You can now use the sieve with 'is_prime' method. 
 	"""</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">=</span> <span class="n">size</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_expo</span><span class="o">=</span><span class="n">expo</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_sieve</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_expo</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">((</span><span class="n">SIZE</span> <span class="o">&gt;&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_expo</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">_size</span> <span class="o">=</span> <span class="n">size</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">_expo</span><span class="o">=</span><span class="n">expo</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">_sieve</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="bp">self</span><span class="p">.</span><span class="n">_expo</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">((</span><span class="n">SIZE</span> <span class="o">&gt;&gt;</span> <span class="bp">self</span><span class="p">.</span><span class="n">_expo</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">_set_composite</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_set_composite</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">_set_composite</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">_set_composite</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">**</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_prime</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
-                <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="n">i</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">_set_composite</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s">"Sieve of size {size} is initialized"</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">_size</span> <span class="o">**</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="p">.</span><span class="n">is_prime</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="n">i</span><span class="p">,</span> <span class="bp">self</span><span class="p">.</span><span class="n">_size</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
+                    <span class="bp">self</span><span class="p">.</span><span class="n">_set_composite</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Sieve of size </span><span class="si">{</span><span class="n">size</span><span class="si">}</span><span class="s"> is initialized"</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">is_prime</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
         <span class="s">"""Check if the given n is prime or not
 
 	If n is over than the size of the sieve, raise value error.
 	"""</span>
-        <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="nb">ValueError</span><span class="p">(</span><span class="n">f</span><span class="s">"This sieve only support integers equal to or less than {self._size}"</span><span class="p">)</span>
-        <span class="k">return</span> <span class="bp">True</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sieve</span><span class="p">[</span><span class="n">n</span> <span class="o">&gt;&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_expo</span><span class="p">]</span> <span class="o">&amp;</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">n</span> <span class="o">&amp;</span> <span class="p">((</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_expo</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)))</span> <span class="k">else</span> <span class="bp">False</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="p">.</span><span class="n">_size</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="nb">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s">"This sieve only support integers equal to or less than </span><span class="si">{</span><span class="bp">self</span><span class="p">.</span><span class="n">_size</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">True</span> <span class="k">if</span> <span class="bp">self</span><span class="p">.</span><span class="n">_sieve</span><span class="p">[</span><span class="n">n</span> <span class="o">&gt;&gt;</span> <span class="bp">self</span><span class="p">.</span><span class="n">_expo</span><span class="p">]</span> <span class="o">&amp;</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">n</span> <span class="o">&amp;</span> <span class="p">((</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="bp">self</span><span class="p">.</span><span class="n">_expo</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)))</span> <span class="k">else</span> <span class="bp">False</span>
 
     <span class="k">def</span> <span class="nf">_set_composite</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
         <span class="s">"""Set the given n composite number in the sieve"""</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_sieve</span><span class="p">[</span><span class="n">n</span> <span class="o">&gt;&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_expo</span><span class="p">]</span> <span class="o">&amp;=</span> <span class="o">~</span><span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">n</span> <span class="o">&amp;</span> <span class="p">((</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_expo</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)))</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">_sieve</span><span class="p">[</span><span class="n">n</span> <span class="o">&gt;&gt;</span> <span class="bp">self</span><span class="p">.</span><span class="n">_expo</span><span class="p">]</span> <span class="o">&amp;=</span> <span class="o">~</span><span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">n</span> <span class="o">&amp;</span> <span class="p">((</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="bp">self</span><span class="p">.</span><span class="n">_expo</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)))</span>
 
 
 <span class="n">sieve</span> <span class="o">=</span> <span class="n">Sieve</span><span class="p">(</span><span class="n">SIZE</span><span class="p">)</span>

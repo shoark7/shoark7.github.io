@@ -231,7 +231,7 @@ MathJax = {
         <a href="/"><img src="/assets/img/1536558558520.jpg" alt="Sunghwan Park"></a>
       </div>
       <div class="author-name">Sunghwan Park</div>
-      <p>I'm Parkito. A Python lover. Interested in Python, Automation, Algorithm. Please give me insights. I'll teach you tambien! :)</p>
+      <p>I'm Parkito. I'm back. Obsessed with esthetics of codes, sentences, modularity and writing</p>
     </div>
   </header> <!-- End Header -->
   <footer>
@@ -258,7 +258,7 @@ MathJax = {
       </ul>
     </section> <!-- End Section Contact -->
     <div class="copyright">
-      <p>2021 &copy; Sunghwan Park</p>
+      <p>2023 &copy; Sunghwan Park</p>
     </div>
   </footer> <!-- End Footer -->
 </aside> <!-- End Sidebar -->
@@ -356,23 +356,23 @@ MathJax = {
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Human</span><span class="p">:</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">use_glasses</span> <span class="o">=</span> <span class="bp">False</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">use_glasses</span> <span class="o">=</span> <span class="bp">False</span>
 
     <span class="k">def</span> <span class="nf">introduce_myself</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">f</span><span class="s">"My name is {self.name} and I'm {self.age} years old."</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s">"My name is </span><span class="si">{</span><span class="bp">self</span><span class="p">.</span><span class="n">name</span><span class="si">}</span><span class="s"> and I'm </span><span class="si">{</span><span class="bp">self</span><span class="p">.</span><span class="n">age</span><span class="si">}</span><span class="s"> years old."</span>
 
 
 <span class="n">A</span> <span class="o">=</span> <span class="n">Human</span><span class="p">(</span><span class="s">'성환'</span><span class="p">,</span> <span class="s">'28'</span><span class="p">)</span>
 <span class="n">B</span> <span class="o">=</span> <span class="n">Human</span><span class="p">(</span><span class="s">'Gosari Muchim'</span><span class="p">,</span> <span class="s">'27'</span><span class="p">)</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">introduce_myself</span><span class="p">())</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">B</span><span class="o">.</span><span class="n">introduce_myself</span><span class="p">())</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">A</span><span class="p">.</span><span class="n">introduce_myself</span><span class="p">())</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">B</span><span class="p">.</span><span class="n">introduce_myself</span><span class="p">())</span>
 
 
-<span class="n">My</span> <span class="n">name</span> <span class="ow">is</span> <span class="err">성환</span> <span class="ow">and</span> <span class="n">I</span><span class="s">'m 28 years old.</span><span class="err">
-</span><span class="s">My name is Gosari Muchim and I'</span><span class="n">m</span> <span class="mi">27</span> <span class="n">years</span> <span class="n">old</span><span class="o">.</span>
+<span class="n">My</span> <span class="n">name</span> <span class="ow">is</span> <span class="n">성환</span> <span class="ow">and</span> <span class="n">I</span><span class="s">'m 28 years old.
+My name is Gosari Muchim and I'</span><span class="n">m</span> <span class="mi">27</span> <span class="n">years</span> <span class="n">old</span><span class="p">.</span>
 </code></pre></div></div>
 
 <p>‘Human’ 클래스를 정의하고 생성자 메소드(__init__)와 자기 소개하는 메소드(introduce_myself)를 만들었다. 간단한 OOP이다.</p>
@@ -395,12 +395,12 @@ MathJax = {
 </span>    <span class="n">species</span> <span class="o">=</span> <span class="s">'Homo Sapiens'</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">):</span>
-        <span class="o">...</span>
+        <span class="p">...</span>
 
 <span class="n">C</span> <span class="o">=</span> <span class="n">Human</span><span class="p">(</span><span class="s">'Charles Darwin'</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">Human</span><span class="o">.</span><span class="n">species</span><span class="p">)</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">C</span><span class="o">.</span><span class="n">species</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">Human</span><span class="p">.</span><span class="n">species</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">C</span><span class="p">.</span><span class="n">species</span><span class="p">)</span>
 
 
 <span class="n">Homo</span> <span class="n">Sapiens</span>
@@ -426,24 +426,24 @@ MathJax = {
 
 <span class="nb">classmethod</span><span class="p">(</span><span class="n">function</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">method</span>
 
-<span class="n">Convert</span> <span class="n">a</span> <span class="n">function</span> <span class="n">to</span> <span class="n">be</span> <span class="n">a</span> <span class="k">class</span> <span class="nc">method</span><span class="o">.</span>
+<span class="n">Convert</span> <span class="n">a</span> <span class="n">function</span> <span class="n">to</span> <span class="n">be</span> <span class="n">a</span> <span class="k">class</span> <span class="nc">method</span><span class="p">.</span>
 
 <span class="n">A</span> <span class="k">class</span> <span class="nc">method</span> <span class="n">receives</span> <span class="n">the</span> <span class="k">class</span> <span class="nc">as</span> <span class="n">implicit</span> <span class="n">first</span> <span class="n">argument</span><span class="p">,</span>
-<span class="n">just</span> <span class="n">like</span> <span class="n">an</span> <span class="n">instance</span> <span class="n">method</span> <span class="n">receives</span> <span class="n">the</span> <span class="n">instance</span><span class="o">.</span>
+<span class="n">just</span> <span class="n">like</span> <span class="n">an</span> <span class="n">instance</span> <span class="n">method</span> <span class="n">receives</span> <span class="n">the</span> <span class="n">instance</span><span class="p">.</span>
 <span class="n">To</span> <span class="n">declare</span> <span class="n">a</span> <span class="k">class</span> <span class="nc">method</span><span class="p">,</span> <span class="n">use</span> <span class="n">this</span> <span class="n">idiom</span><span class="p">:</span>
 
   <span class="k">class</span> <span class="nc">C</span><span class="p">:</span>
       <span class="o">@</span><span class="nb">classmethod</span>
-      <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="o">...</span><span class="p">):</span>
-          <span class="o">...</span>
+      <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="p">...):</span>
+          <span class="p">...</span>
 
-<span class="n">It</span> <span class="n">can</span> <span class="n">be</span> <span class="n">called</span> <span class="n">either</span> <span class="n">on</span> <span class="n">the</span> <span class="k">class</span> <span class="err">(</span><span class="nc">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span> <span class="n">C</span><span class="o">.</span><span class="n">f</span><span class="p">())</span> <span class="ow">or</span> <span class="n">on</span> <span class="n">an</span> <span class="n">instance</span>
-<span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span> <span class="n">C</span><span class="p">()</span><span class="o">.</span><span class="n">f</span><span class="p">())</span><span class="o">.</span>  <span class="n">The</span> <span class="n">instance</span> <span class="ow">is</span> <span class="n">ignored</span> <span class="k">except</span> <span class="k">for</span> <span class="n">its</span> <span class="n">class</span><span class="o">.</span>
+<span class="n">It</span> <span class="n">can</span> <span class="n">be</span> <span class="n">called</span> <span class="n">either</span> <span class="n">on</span> <span class="n">the</span> <span class="k">class</span> <span class="err">(</span><span class="nc">e</span><span class="p">.</span><span class="n">g</span><span class="p">.</span> <span class="n">C</span><span class="p">.</span><span class="n">f</span><span class="p">())</span> <span class="ow">or</span> <span class="n">on</span> <span class="n">an</span> <span class="n">instance</span>
+<span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">g</span><span class="p">.</span> <span class="n">C</span><span class="p">().</span><span class="n">f</span><span class="p">()).</span>  <span class="n">The</span> <span class="n">instance</span> <span class="ow">is</span> <span class="n">ignored</span> <span class="k">except</span> <span class="k">for</span> <span class="n">its</span> <span class="n">class</span><span class="p">.</span>
 <span class="n">If</span> <span class="n">a</span> <span class="k">class</span> <span class="nc">method</span> <span class="ow">is</span> <span class="n">called</span> <span class="k">for</span> <span class="n">a</span> <span class="n">derived</span> <span class="n">class</span><span class="p">,</span> <span class="n">the</span> <span class="n">derived</span> <span class="k">class</span>
-<span class="nc">object</span> <span class="ow">is</span> <span class="n">passed</span> <span class="k">as</span> <span class="n">the</span> <span class="n">implied</span> <span class="n">first</span> <span class="n">argument</span><span class="o">.</span>
+<span class="nc">object</span> <span class="ow">is</span> <span class="n">passed</span> <span class="k">as</span> <span class="n">the</span> <span class="n">implied</span> <span class="n">first</span> <span class="n">argument</span><span class="p">.</span>
 
-<span class="n">Class</span> <span class="n">methods</span> <span class="n">are</span> <span class="n">different</span> <span class="n">than</span> <span class="n">C</span><span class="o">++</span> <span class="ow">or</span> <span class="n">Java</span> <span class="n">static</span> <span class="n">methods</span><span class="o">.</span>
-<span class="n">If</span> <span class="n">you</span> <span class="n">want</span> <span class="n">those</span><span class="p">,</span> <span class="n">see</span> <span class="n">the</span> <span class="nb">staticmethod</span> <span class="n">builtin</span><span class="o">.</span>
+<span class="n">Class</span> <span class="n">methods</span> <span class="n">are</span> <span class="n">different</span> <span class="n">than</span> <span class="n">C</span><span class="o">++</span> <span class="ow">or</span> <span class="n">Java</span> <span class="n">static</span> <span class="n">methods</span><span class="p">.</span>
+<span class="n">If</span> <span class="n">you</span> <span class="n">want</span> <span class="n">those</span><span class="p">,</span> <span class="n">see</span> <span class="n">the</span> <span class="nb">staticmethod</span> <span class="n">builtin</span><span class="p">.</span>
 </code></pre></div></div>
 
 <p>헬핑은 파이썬의 기본이고 큰 장점이다! 잊지 말자.</p>
@@ -456,11 +456,11 @@ MathJax = {
     <span class="n">species</span> <span class="o">=</span> <span class="s">'Felis Catus'</span>
 
     <span class="k">def</span> <span class="nf">get_species</span><span class="p">(</span><span class="n">cls</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s">'Scientific name for cat is {cls.species}!'</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">'Scientific name for cat is </span><span class="si">{</span><span class="n">cls</span><span class="p">.</span><span class="n">species</span><span class="si">}</span><span class="s">!'</span><span class="p">)</span>
 
-<span class="n">Cat</span><span class="o">.</span><span class="n">get_species</span> <span class="o">=</span> <span class="nb">classmethod</span><span class="p">(</span><span class="n">Cat</span><span class="o">.</span><span class="n">get_species</span><span class="p">)</span>
+<span class="n">Cat</span><span class="p">.</span><span class="n">get_species</span> <span class="o">=</span> <span class="nb">classmethod</span><span class="p">(</span><span class="n">Cat</span><span class="p">.</span><span class="n">get_species</span><span class="p">)</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">Cat</span><span class="o">.</span><span class="n">get_species</span><span class="p">())</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">Cat</span><span class="p">.</span><span class="n">get_species</span><span class="p">())</span>
 
 
 <span class="n">Scientific</span> <span class="n">name</span> <span class="k">for</span> <span class="n">cat</span> <span class="ow">is</span> <span class="n">Felis</span> <span class="n">Catus</span><span class="err">!</span>
@@ -475,9 +475,9 @@ MathJax = {
 
     <span class="o">@</span><span class="nb">classmethod</span>
     <span class="k">def</span> <span class="nf">get_species</span><span class="p">(</span><span class="n">cls</span><span class="p">):</span>
-        <span class="o">...</span>
+        <span class="p">...</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">Cat</span><span class="o">.</span><span class="n">get_species</span><span class="p">())</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">Cat</span><span class="p">.</span><span class="n">get_species</span><span class="p">())</span>
 
 
 <span class="n">Scientific</span> <span class="n">name</span> <span class="k">for</span> <span class="n">cat</span> <span class="ow">is</span> <span class="n">Felis</span> <span class="n">Catus</span><span class="err">!</span>
@@ -525,19 +525,19 @@ MathJax = {
 
     <span class="o">@</span><span class="nb">classmethod</span>
     <span class="k">def</span> <span class="nf">instance</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">cls</span><span class="o">.</span><span class="n">__instance</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">cls</span><span class="o">.</span><span class="n">__instance</span>
+        <span class="k">if</span> <span class="n">cls</span><span class="p">.</span><span class="n">__instance</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">cls</span><span class="p">.</span><span class="n">__instance</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">cls</span><span class="o">.</span><span class="n">__instance</span> <span class="o">=</span> <span class="n">cls</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-            <span class="k">return</span> <span class="n">cls</span><span class="o">.</span><span class="n">__instance</span>
+            <span class="n">cls</span><span class="p">.</span><span class="n">__instance</span> <span class="o">=</span> <span class="n">cls</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">cls</span><span class="p">.</span><span class="n">__instance</span>
 
 
 <span class="k">class</span> <span class="nc">MyClass</span><span class="p">(</span><span class="n">Singleton</span><span class="p">):</span>
     <span class="k">pass</span>
 
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">MyClass</span><span class="o">.</span><span class="n">instance</span><span class="p">()</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">MyClass</span><span class="o">.</span><span class="n">instance</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">MyClass</span><span class="p">.</span><span class="n">instance</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">MyClass</span><span class="p">.</span><span class="n">instance</span><span class="p">()</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">a</span> <span class="ow">is</span> <span class="n">b</span><span class="p">)</span>
 
 
@@ -561,12 +561,12 @@ MathJax = {
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Human</span><span class="p">:</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">use_glasses</span> <span class="o">=</span> <span class="bp">False</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">use_glasses</span> <span class="o">=</span> <span class="bp">False</span>
 
     <span class="k">def</span> <span class="nf">introduce_myself</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">f</span><span class="s">"My name is {self.name} and I'm {self.age} years old."</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s">"My name is </span><span class="si">{</span><span class="bp">self</span><span class="p">.</span><span class="n">name</span><span class="si">}</span><span class="s"> and I'm </span><span class="si">{</span><span class="bp">self</span><span class="p">.</span><span class="n">age</span><span class="si">}</span><span class="s"> years old."</span>
 </code></pre></div></div>
 
 <p>이 클래스는 이름과 나이를 입력 받아 인스턴스에 할당하는데 인스턴스를 조금 다르게 할당하고 싶을 수도 있다. 예를 들어 나이를 할당할 때 나이가 아니라 그 사람이 출생한 연도를 대신 입력 받아도 문제없이 나이가 결정되도록 만들고 싶을 수 있다.</p>
@@ -577,14 +577,14 @@ MathJax = {
     <span class="n">species</span> <span class="o">=</span> <span class="s">'Homo Sapiens'</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">use_glasses</span> <span class="o">=</span> <span class="bp">False</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">use_glasses</span> <span class="o">=</span> <span class="bp">False</span>
 
     <span class="o">@</span><span class="nb">classmethod</span>
     <span class="k">def</span> <span class="nf">from_year</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">year</span><span class="p">):</span>
         <span class="kn">import</span> <span class="nn">datetime</span>
-        <span class="k">return</span> <span class="n">cls</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">year</span> <span class="o">-</span> <span class="n">year</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">cls</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">datetime</span><span class="p">.</span><span class="n">datetime</span><span class="p">.</span><span class="n">now</span><span class="p">().</span><span class="n">year</span> <span class="o">-</span> <span class="n">year</span><span class="p">)</span>
 </code></pre></div></div>
 
 <p>나이 대신 태어난 연도와 이름을 받아 인간을 창조하는 <em>from_year</em> 클래스메소드를 정의했다. 이 메소드는 올해의 연도에서 태어난 연도를 빼서 나이를 알아낸다. 기존의 나이를 직접 받는 방식도 좋지만, 이와 같이 태어난 연도를 직접 받는 인터페이스도 충분히 의미 있을 수 있다.</p>
@@ -599,7 +599,7 @@ MathJax = {
 
 <p>아까 <em>help(classmethod)</em> 를 한 것을 기억하는지? 그중 한 문장을 가져와보자.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Class methods are different than C++ or Java static methods.
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Class methods are different than C++ or Java static methods.
 If you want those, see the staticmethod builtin.
 </code></pre></div></div>
 
@@ -613,21 +613,21 @@ If you want those, see the staticmethod builtin.
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">help</span><span class="p">(</span><span class="nb">staticmethod</span><span class="p">)</span>
 
-<span class="n">Convert</span> <span class="n">a</span> <span class="n">function</span> <span class="n">to</span> <span class="n">be</span> <span class="n">a</span> <span class="n">static</span> <span class="n">method</span><span class="o">.</span>
+<span class="n">Convert</span> <span class="n">a</span> <span class="n">function</span> <span class="n">to</span> <span class="n">be</span> <span class="n">a</span> <span class="n">static</span> <span class="n">method</span><span class="p">.</span>
 
-<span class="n">A</span> <span class="n">static</span> <span class="n">method</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">receive</span> <span class="n">an</span> <span class="n">implicit</span> <span class="n">first</span> <span class="n">argument</span><span class="o">.</span>
+<span class="n">A</span> <span class="n">static</span> <span class="n">method</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">receive</span> <span class="n">an</span> <span class="n">implicit</span> <span class="n">first</span> <span class="n">argument</span><span class="p">.</span>
 <span class="n">To</span> <span class="n">declare</span> <span class="n">a</span> <span class="n">static</span> <span class="n">method</span><span class="p">,</span> <span class="n">use</span> <span class="n">this</span> <span class="n">idiom</span><span class="p">:</span>
 
      <span class="k">class</span> <span class="nc">C</span><span class="p">:</span>
          <span class="o">@</span><span class="nb">staticmethod</span>
-         <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="o">...</span><span class="p">):</span>
-             <span class="o">...</span>
+         <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="p">...):</span>
+             <span class="p">...</span>
 
-<span class="n">It</span> <span class="n">can</span> <span class="n">be</span> <span class="n">called</span> <span class="n">either</span> <span class="n">on</span> <span class="n">the</span> <span class="k">class</span> <span class="err">(</span><span class="nc">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span> <span class="n">C</span><span class="o">.</span><span class="n">f</span><span class="p">())</span> <span class="ow">or</span> <span class="n">on</span> <span class="n">an</span> <span class="n">instance</span>
-<span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span> <span class="n">C</span><span class="p">()</span><span class="o">.</span><span class="n">f</span><span class="p">())</span><span class="o">.</span>  <span class="n">The</span> <span class="n">instance</span> <span class="ow">is</span> <span class="n">ignored</span> <span class="k">except</span> <span class="k">for</span> <span class="n">its</span> <span class="n">class</span><span class="o">.</span>
+<span class="n">It</span> <span class="n">can</span> <span class="n">be</span> <span class="n">called</span> <span class="n">either</span> <span class="n">on</span> <span class="n">the</span> <span class="k">class</span> <span class="err">(</span><span class="nc">e</span><span class="p">.</span><span class="n">g</span><span class="p">.</span> <span class="n">C</span><span class="p">.</span><span class="n">f</span><span class="p">())</span> <span class="ow">or</span> <span class="n">on</span> <span class="n">an</span> <span class="n">instance</span>
+<span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">g</span><span class="p">.</span> <span class="n">C</span><span class="p">().</span><span class="n">f</span><span class="p">()).</span>  <span class="n">The</span> <span class="n">instance</span> <span class="ow">is</span> <span class="n">ignored</span> <span class="k">except</span> <span class="k">for</span> <span class="n">its</span> <span class="n">class</span><span class="p">.</span>
 
-<span class="n">Static</span> <span class="n">methods</span> <span class="ow">in</span> <span class="n">Python</span> <span class="n">are</span> <span class="n">similar</span> <span class="n">to</span> <span class="n">those</span> <span class="n">found</span> <span class="ow">in</span> <span class="n">Java</span> <span class="ow">or</span> <span class="n">C</span><span class="o">++.</span>
-<span class="n">For</span> <span class="n">a</span> <span class="n">more</span> <span class="n">advanced</span> <span class="n">concept</span><span class="p">,</span> <span class="n">see</span> <span class="n">the</span> <span class="nb">classmethod</span> <span class="n">builtin</span><span class="o">.</span>
+<span class="n">Static</span> <span class="n">methods</span> <span class="ow">in</span> <span class="n">Python</span> <span class="n">are</span> <span class="n">similar</span> <span class="n">to</span> <span class="n">those</span> <span class="n">found</span> <span class="ow">in</span> <span class="n">Java</span> <span class="ow">or</span> <span class="n">C</span><span class="o">++</span><span class="p">.</span>
+<span class="n">For</span> <span class="n">a</span> <span class="n">more</span> <span class="n">advanced</span> <span class="n">concept</span><span class="p">,</span> <span class="n">see</span> <span class="n">the</span> <span class="nb">classmethod</span> <span class="n">builtin</span><span class="p">.</span>
 </code></pre></div></div>
 
 <p><strong>이 함수는 다른 함수를 인자로 받아서 static method로 변환해 반환한다.</strong>(이때 반환된 staticmethod를 ‘스태틱메소드’라고 언급하겠다.)</p>
@@ -656,7 +656,7 @@ If you want those, see the staticmethod builtin.
             <span class="n">ret</span> <span class="o">*=</span> <span class="n">i</span>
         <span class="k">return</span> <span class="n">ret</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">MathCalculation</span><span class="o">.</span><span class="n">factorial</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">MathCalculation</span><span class="p">.</span><span class="n">factorial</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 
 <span class="mi">3628800</span>
 </code></pre></div></div>
@@ -695,7 +695,7 @@ If you want those, see the staticmethod builtin.
 
 <p>스태틱메소드는 클래스메소드와 달리 사용처가 제한된다. <strong>보통은 어떤 클래스의 유틸리티 메소드로 많이 쓰인다.</strong> 다음과 같은 예를 만들어보자.</p>
 
-<p>아까 우리는 Human 클래스를 정의했다. 이 클래스는 당신과 같은 인간을 정의하는데 추가 메소드들을 정의하려고 한다. 그중 임의의 숫자를 입력 받아 인간이 읽기 쉽게 천 단위로 <code class="highlighter-rouge">,</code>를 넣어 반환하는 ‘humanify_number’이라는 메소드를 만들고 싶다고 하자.</p>
+<p>아까 우리는 Human 클래스를 정의했다. 이 클래스는 당신과 같은 인간을 정의하는데 추가 메소드들을 정의하려고 한다. 그중 임의의 숫자를 입력 받아 인간이 읽기 쉽게 천 단위로 <code class="language-plaintext highlighter-rouge">,</code>를 넣어 반환하는 ‘humanify_number’이라는 메소드를 만들고 싶다고 하자.</p>
 
 <p>이 메소드를 일반 메소드로 만들 수는 있지만, 인스턴스의 상태에 종속적일 이유도 없고 또 클래스의 상태에 종속적일 이유도 굳이 없다. 그냥 숫자를 하나 입력 받아 처리하면 되기 때문이다. 따라서 이 메소드를 스태틱메소드로 만들자.</p>
 
@@ -703,16 +703,16 @@ If you want those, see the staticmethod builtin.
     <span class="n">species</span> <span class="o">=</span> <span class="s">'Homo Sapiens'</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">):</span>
-        <span class="o">...</span>
+        <span class="p">...</span>
 
     <span class="o">@</span><span class="nb">staticmethod</span>
     <span class="k">def</span> <span class="nf">humanify_number</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">f</span><span class="s">'{n:,}'</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s">'</span><span class="si">{</span><span class="n">n</span><span class="si">:</span><span class="p">,</span><span class="si">}</span><span class="s">'</span>
 	<span class="c1"># {} 안의 내용이 이해가 안 가면 문의주세요.
 </span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">Human</span><span class="o">.</span><span class="n">humanify_number</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">Human</span><span class="o">.</span><span class="n">humanify_number</span><span class="p">(</span><span class="mi">10</span><span class="o">*</span><span class="mi">9</span><span class="o">*</span><span class="mi">8</span><span class="o">*</span><span class="mi">7</span><span class="o">*</span><span class="mi">6</span><span class="o">*</span><span class="mi">5</span><span class="o">*</span><span class="mi">4</span><span class="o">*</span><span class="mi">3</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="mi">1</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">Human</span><span class="p">.</span><span class="n">humanify_number</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">Human</span><span class="p">.</span><span class="n">humanify_number</span><span class="p">(</span><span class="mi">10</span><span class="o">*</span><span class="mi">9</span><span class="o">*</span><span class="mi">8</span><span class="o">*</span><span class="mi">7</span><span class="o">*</span><span class="mi">6</span><span class="o">*</span><span class="mi">5</span><span class="o">*</span><span class="mi">4</span><span class="o">*</span><span class="mi">3</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="s">'1,000'</span>
 <span class="s">'3,628,800'</span>
@@ -780,12 +780,12 @@ If you want those, see the staticmethod builtin.
 
     <span class="o">@</span><span class="nb">classmethod</span>
     <span class="k">def</span> <span class="nf">get_class_name</span><span class="p">(</span><span class="n">cls</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">cls</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">cls</span><span class="p">.</span><span class="n">name</span><span class="p">)</span>
 
 <span class="k">class</span> <span class="nc">RealClass</span><span class="p">(</span><span class="n">BaseClass</span><span class="p">):</span>
     <span class="n">name</span> <span class="o">=</span> <span class="s">"Succeeding you, father"</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">RealClass</span><span class="o">.</span><span class="n">get_class_name</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">RealClass</span><span class="p">.</span><span class="n">get_class_name</span><span class="p">()</span>
 
 <span class="n">Succeeding</span> <span class="n">you</span><span class="p">,</span> <span class="n">father</span>
 </code></pre></div></div>
@@ -806,14 +806,14 @@ If you want those, see the staticmethod builtin.
 
     <span class="o">@</span><span class="nb">staticmethod</span>
     <span class="k">def</span> <span class="nf">get_class_name</span><span class="p">():</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">BaseClass</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">BaseClass</span><span class="p">.</span><span class="n">name</span><span class="p">)</span>
 
 <span class="k">class</span> <span class="nc">RealClass</span><span class="p">(</span><span class="n">BaseClass</span><span class="p">):</span>
     <span class="n">name</span> <span class="o">=</span> <span class="s">"Succeeding you, father"</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">RealClass</span><span class="o">.</span><span class="n">get_class_name</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">RealClass</span><span class="p">.</span><span class="n">get_class_name</span><span class="p">()</span>
 
-<span class="n">I</span><span class="s">'m BaseClass to be inherited</span><span class="err">
+<span class="n">I</span><span class="s">'m BaseClass to be inherited
 </span></code></pre></div></div>
 
 <p>스태틱메소드에서는 인자를 받지 않았다.</p>

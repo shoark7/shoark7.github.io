@@ -229,7 +229,7 @@ MathJax = {
         <a href="/"><img src="/assets/img/1536558558520.jpg" alt="Sunghwan Park"></a>
       </div>
       <div class="author-name">Sunghwan Park</div>
-      <p>I'm Parkito. A Python lover. Interested in Python, Automation, Algorithm. Please give me insights. I'll teach you tambien! :)</p>
+      <p>I'm Parkito. I'm back. Obsessed with esthetics of codes, sentences, modularity and writing</p>
     </div>
   </header> <!-- End Header -->
   <footer>
@@ -256,7 +256,7 @@ MathJax = {
       </ul>
     </section> <!-- End Section Contact -->
     <div class="copyright">
-      <p>2021 &copy; Sunghwan Park</p>
+      <p>2023 &copy; Sunghwan Park</p>
     </div>
   </footer> <!-- End Footer -->
 </aside> <!-- End Sidebar -->
@@ -323,7 +323,7 @@ MathJax = {
 
 <hr />
 
-<p>오늘 다룰 포스트는 ‘하노이의 탑’ 알고리즘이다. 개인적으로 <code class="highlighter-rouge">재귀</code>를 사용한 프로그래밍을 매우 좋아하는데, ‘하노이의 탑’은 재귀를 연습하기에 매우 좋은 연습문제다. 아마 학교에서도 알고리즘 초급 수업에서 재귀 입문으로 이 문제를 많이 다루는 것으로 아는데 이에 대한 내 이해를 공유하면 좋을 것 같다.</p>
+<p>오늘 다룰 포스트는 ‘하노이의 탑’ 알고리즘이다. 개인적으로 <code class="language-plaintext highlighter-rouge">재귀</code>를 사용한 프로그래밍을 매우 좋아하는데, ‘하노이의 탑’은 재귀를 연습하기에 매우 좋은 연습문제다. 아마 학교에서도 알고리즘 초급 수업에서 재귀 입문으로 이 문제를 많이 다루는 것으로 아는데 이에 대한 내 이해를 공유하면 좋을 것 같다.</p>
 
 <p>언제나 그렇듯 나는 단순히 정답 코드를 찍 적고 휑하니 끝내는 것을 좋아하지 않는다. 코드 자체보다 코드에 이르는 과정이 더 중요한데, 먼저 이 문제를 우리가 원하는 방식으로 정의한다. 그 다음 이 문제를 풀기 위한 핵심 아이디어를 살펴본다. 이후 이 통찰력을 사용해 코드를 곧바로 유도한다.</p>
 
@@ -367,7 +367,7 @@ MathJax = {
 
 <h3 id="22-문제-정의">2.2. 문제 정의</h3>
 
-<p>이제 문제 자체는 알았으니 문제를 보다 체계적으로 정의하자. 내가 말하는 <code class="highlighter-rouge">체계적</code>이라함은 문제의 입력과 출력을 보다 함수에 가깝게 정의하자는 것이다. 앞서 하노이의 탑과 관련된 여러 문제를 만들 수 있다고 했는데 우리는 <strong>원반의 이동횟수를 최소화하고자 할 때, 각 원반을 옮기는 모든 순서를 출력하는 것으로 한다.</strong> 이때 각 이동의 출력은 ‘3번 원반을 A에서 C’와 같이로 정하며, 입력은 원반의 개수로 받는다.</p>
+<p>이제 문제 자체는 알았으니 문제를 보다 체계적으로 정의하자. 내가 말하는 <code class="language-plaintext highlighter-rouge">체계적</code>이라함은 문제의 입력과 출력을 보다 함수에 가깝게 정의하자는 것이다. 앞서 하노이의 탑과 관련된 여러 문제를 만들 수 있다고 했는데 우리는 <strong>원반의 이동횟수를 최소화하고자 할 때, 각 원반을 옮기는 모든 순서를 출력하는 것으로 한다.</strong> 이때 각 이동의 출력은 ‘3번 원반을 A에서 C’와 같이로 정하며, 입력은 원반의 개수로 받는다.</p>
 
 <p>이를 구현하는 함수 <strong><em>hanoi</em></strong> 를 대략적으로 정의하면 다음과 같다.</p>
 
@@ -390,9 +390,9 @@ MathJax = {
 
 <p>와… 이거 그리는 거 힘들었다. 원반의 개수가 3개일 때, 각 움직임을 표현하고 있다. 이동횟수를 최소로 할 때 총 7번을 이동해야 하며 정해진 규칙을 지키면서 최종적으로 ‘C’ 막대에 모든 원반이 위치하게 된다. 각 움직임을 눈으로 쫓기 바란다. 원반이 2개, 4개일 때 직접 그려보는 것도 매우 도움이 된다.</p>
 
-<p>이때 우리는 각 움직임을 한 문장씩 출력한다고 했다. 우리가 원하는 함수(<script type="math/tex">hanoi(3)</script>)의 실행결과는 다음과 같을 것이다.</p>
+<p>이때 우리는 각 움직임을 한 문장씩 출력한다고 했다. 우리가 원하는 함수(\(hanoi(3)\))의 실행결과는 다음과 같을 것이다.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1번 원반을 A에서 C로 이동
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1번 원반을 A에서 C로 이동
 2번 원반을 A에서 B로 이동
 1번 원반을 C에서 B로 이동
 3번 원반을 A에서 C로 이동
@@ -450,7 +450,7 @@ MathJax = {
 
 <p><br /></p>
 
-<p>여기에 더해 <code class="highlighter-rouge">경유점</code>이라는 개념도 사용하자. 만약 ‘A’에서 ‘C’로 3개의 원반을 이동할 때 ‘B’ 막대도 결국 사용해야 한다. 이렇게 세 개의 입력을 같이 입력해줘야 원반을 하나씩 이동할 때 경유점을 지날 때도 문제없이 출력할 수 있다.</p>
+<p>여기에 더해 <code class="language-plaintext highlighter-rouge">경유점</code>이라는 개념도 사용하자. 만약 ‘A’에서 ‘C’로 3개의 원반을 이동할 때 ‘B’ 막대도 결국 사용해야 한다. 이렇게 세 개의 입력을 같이 입력해줘야 원반을 하나씩 이동할 때 경유점을 지날 때도 문제없이 출력할 수 있다.</p>
 
 <p><br id="3c" /></p>
 
@@ -484,7 +484,7 @@ MathJax = {
   </li>
 </ol>
 
-<p>원반의 개수(<script type="math/tex">N</script>)가 몇 개가 되든 결국 이 과정을 거친다. 한 번의 재귀, 가장 큰 원반 옮기기 이후 다시 한 번의 재귀. 물론 이때 예외가 있다. <script type="math/tex">N</script>이 1일 때는 자신의 위에 원반이 없기 때문에 재귀가 필요없고 바로 원반을 옮기고 종료한다. 이것이 곧 재귀함수의 탈출 조건, 또는 기저 사례(base case)가 된다. 이제 이 식을 실제 수식으로 표현해보자.</p>
+<p>원반의 개수(\(N\))가 몇 개가 되든 결국 이 과정을 거친다. 한 번의 재귀, 가장 큰 원반 옮기기 이후 다시 한 번의 재귀. 물론 이때 예외가 있다. \(N\)이 1일 때는 자신의 위에 원반이 없기 때문에 재귀가 필요없고 바로 원반을 옮기고 종료한다. 이것이 곧 재귀함수의 탈출 조건, 또는 기저 사례(base case)가 된다. 이제 이 식을 실제 수식으로 표현해보자.</p>
 
 <p><br /></p>
 
@@ -526,7 +526,7 @@ move(N, from, to): \text{N번 원반을 from에서 to로 옮긴다.(우리는 pr
 
 
 <span class="k">def</span> <span class="nf">move</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">to</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">MSG_FORMAT</span><span class="o">.</span><span class="nb">format</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">to</span><span class="p">))</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">MSG_FORMAT</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">to</span><span class="p">))</span>
 </code></pre></div></div>
 
 <p>먼저 실제로 원반을 옮기는 <em>move</em> 함수를 정의한다. 메시지 형식은 위에서 정의한 그대로 사용한다. 이때 기억하자. <strong>실제 데이터와 데이터를 표현하는 형식은 별개의 것이므로, 이 둘을 분리하면 좋다.</strong> <em>MSG_FORMAT</em> 은 형식에 불과하고, 실제 데이터는 <em>N</em>, <em>start</em>, <em>to</em> 다. 이렇게 역할에 맞게 분리하는 습관은 결국 정답이다.</p>
@@ -549,16 +549,16 @@ move(N, from, to): \text{N번 원반을 from에서 to로 옮긴다.(우리는 pr
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">hanoi</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s">'A'</span><span class="p">,</span> <span class="s">'C'</span><span class="p">,</span> <span class="s">'B'</span><span class="p">)</span>
 
 
-<span class="mi">1</span><span class="err">번</span> <span class="err">원반을</span> <span class="n">A</span><span class="err">에서</span> <span class="n">C</span><span class="err">로</span> <span class="err">이동</span>
-<span class="mi">2</span><span class="err">번</span> <span class="err">원반을</span> <span class="n">A</span><span class="err">에서</span> <span class="n">B</span><span class="err">로</span> <span class="err">이동</span>
-<span class="mi">1</span><span class="err">번</span> <span class="err">원반을</span> <span class="n">C</span><span class="err">에서</span> <span class="n">B</span><span class="err">로</span> <span class="err">이동</span>
-<span class="mi">3</span><span class="err">번</span> <span class="err">원반을</span> <span class="n">A</span><span class="err">에서</span> <span class="n">C</span><span class="err">로</span> <span class="err">이동</span>
-<span class="mi">1</span><span class="err">번</span> <span class="err">원반을</span> <span class="n">B</span><span class="err">에서</span> <span class="n">A</span><span class="err">로</span> <span class="err">이동</span>
-<span class="mi">2</span><span class="err">번</span> <span class="err">원반을</span> <span class="n">B</span><span class="err">에서</span> <span class="n">C</span><span class="err">로</span> <span class="err">이동</span>
-<span class="mi">1</span><span class="err">번</span> <span class="err">원반을</span> <span class="n">A</span><span class="err">에서</span> <span class="n">C</span><span class="err">로</span> <span class="err">이동</span>
+<span class="mi">1</span><span class="n">번</span> <span class="n">원반을</span> <span class="n">A에서</span> <span class="n">C로</span> <span class="n">이동</span>
+<span class="mi">2</span><span class="n">번</span> <span class="n">원반을</span> <span class="n">A에서</span> <span class="n">B로</span> <span class="n">이동</span>
+<span class="mi">1</span><span class="n">번</span> <span class="n">원반을</span> <span class="n">C에서</span> <span class="n">B로</span> <span class="n">이동</span>
+<span class="mi">3</span><span class="n">번</span> <span class="n">원반을</span> <span class="n">A에서</span> <span class="n">C로</span> <span class="n">이동</span>
+<span class="mi">1</span><span class="n">번</span> <span class="n">원반을</span> <span class="n">B에서</span> <span class="n">A로</span> <span class="n">이동</span>
+<span class="mi">2</span><span class="n">번</span> <span class="n">원반을</span> <span class="n">B에서</span> <span class="n">C로</span> <span class="n">이동</span>
+<span class="mi">1</span><span class="n">번</span> <span class="n">원반을</span> <span class="n">A에서</span> <span class="n">C로</span> <span class="n">이동</span>
 </code></pre></div></div>
 
-<p>따라가 보라. 정말 기가 막히게, 다시 말해 이 문제의 조건을 어기지 않으며 원반을 옮긴다. 시간과 용기가 허락한다면 <script type="math/tex">N</script>을 4, 5로 키워서 실행해보라. 문제없이 동작할 것이다.</p>
+<p>따라가 보라. 정말 기가 막히게, 다시 말해 이 문제의 조건을 어기지 않으며 원반을 옮긴다. 시간과 용기가 허락한다면 \(N\)을 4, 5로 키워서 실행해보라. 문제없이 동작할 것이다.</p>
 
 <p><strong>이렇게 원반을 옮기는 각 과정을 추적하는 형태의 하노이의 탑 문제는 해결이 됐다.</strong></p>
 
@@ -629,7 +629,7 @@ hanoi_n = hanoi_{n-1} \times 2 + 1 \\ \text{양변에 1을 더하면} \\ hanoi_n
 
 <hr />
 
-<p>오늘은 그 유명한 하노이의 탑 문제를 풀어봤다. 이 문제는 병합정렬과 마찬가지로 <code class="highlighter-rouge">재귀</code>를 연습하는 데 정말 좋은 문제로 재귀가 익숙하지 않은 분들은 꼭 복기하시면 좋겠다. 우리는 이 문제를 해결하기 위한</p>
+<p>오늘은 그 유명한 하노이의 탑 문제를 풀어봤다. 이 문제는 병합정렬과 마찬가지로 <code class="language-plaintext highlighter-rouge">재귀</code>를 연습하는 데 정말 좋은 문제로 재귀가 익숙하지 않은 분들은 꼭 복기하시면 좋겠다. 우리는 이 문제를 해결하기 위한</p>
 
 <ol>
   <li>재귀</li>

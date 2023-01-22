@@ -235,7 +235,7 @@ MathJax = {
         <a href="/"><img src="/assets/img/1536558558520.jpg" alt="Sunghwan Park"></a>
       </div>
       <div class="author-name">Sunghwan Park</div>
-      <p>I'm Parkito. A Python lover. Interested in Python, Automation, Algorithm. Please give me insights. I'll teach you tambien! :)</p>
+      <p>I'm Parkito. I'm back. Obsessed with esthetics of codes, sentences, modularity and writing</p>
     </div>
   </header> <!-- End Header -->
   <footer>
@@ -262,7 +262,7 @@ MathJax = {
       </ul>
     </section> <!-- End Section Contact -->
     <div class="copyright">
-      <p>2021 &copy; Sunghwan Park</p>
+      <p>2023 &copy; Sunghwan Park</p>
     </div>
   </footer> <!-- End Footer -->
 </aside> <!-- End Sidebar -->
@@ -303,7 +303,7 @@ MathJax = {
 
 <p>쉘 프로그래밍 카테고리의 <a href="https://shoark7.github.io/programming/knowledge/what-is-standard-stream.html" filter="_blank">직전 포스트</a>는 표준 입출력에 관한 포스트였다. 입출력은 프로그램과 프로그램을 사용하는 유저 모두에게 매우 중요하기에 표준 입출력에 대한 개념은 꼭 유닉스 유저가 아니라도 이해할 필요가 있다. 그것이 저 포스트의 의의라고 생각한다.</p>
 
-<p>하지만 동시에 <strong>저 포스트는 유닉스 쉘을 활용하는데 필수적인 I/O Redirection을 이해하기 위한 전 단계</strong>이기도 하다. <strong><code class="highlighter-rouge">I/O Redirection</code>은 쉘의 가장 중요한 기능들 중 하나로, 난 이 기능이 없다면 쉘 리눅스를 도저히 쓸 자신이 없다.</strong> 차라리 윈도우 GUI로 넘어가겠다. 이 개념은 쉘의 활용성을 극대화해서, GUI가 아니기에 러닝커브가 높을 수밖에 없는 쉘의 단점을 덮어버릴 정도로, 그러니까 그 커닝커브를 극복하는 것이 기꺼이 가치 있을 정도로 의미가 있다. 쉘을 제대로 쓰기 위해서는 이 개념을 자세히 훝고, 또 실제로 사용해야 한다.</p>
+<p>하지만 동시에 <strong>저 포스트는 유닉스 쉘을 활용하는데 필수적인 I/O Redirection을 이해하기 위한 전 단계</strong>이기도 하다. <strong><code class="language-plaintext highlighter-rouge">I/O Redirection</code>은 쉘의 가장 중요한 기능들 중 하나로, 난 이 기능이 없다면 쉘 리눅스를 도저히 쓸 자신이 없다.</strong> 차라리 윈도우 GUI로 넘어가겠다. 이 개념은 쉘의 활용성을 극대화해서, GUI가 아니기에 러닝커브가 높을 수밖에 없는 쉘의 단점을 덮어버릴 정도로, 그러니까 그 커닝커브를 극복하는 것이 기꺼이 가치 있을 정도로 의미가 있다. 쉘을 제대로 쓰기 위해서는 이 개념을 자세히 훝고, 또 실제로 사용해야 한다.</p>
 
 <p>이번 포스트에서는 쉘의 I/O Redirection에 대해 자세히 살펴본다. <strong>먼저 그 개념을 훑은 뒤, 프로세스의 입출력을 전환하는 다양한 연산자들을 살펴보고 그 찬란한 활용사례를 살펴보겠다. 또한 여러 프로세스를 연쇄적으로 연결할 수 있는 Pipe 연산자를 알아보고 활용사례를 몇 가지 살펴보도록 하자.</strong></p>
 
@@ -313,11 +313,11 @@ MathJax = {
 
 <p>직전 포스트는 표준 입력과 표준 출력을 다뤘고 그 둘은 프로세스에 따로 값을 주지 않을 경우의 기본 입력과 출력이라고 설명했다. <strong>쉘 프로그램들은 대부분 표준 입력은 키보드로 바로 연결되어 있고, 표준 출력은 화면(콘솔)로 연결되어 있다.</strong> 우리가 쉘에 키보드로 명령을 입력하고 화면으로 결과를 본 것은 ‘그냥 당연한거지;’ 이상의 의미가 있었던 것이다.</p>
 
-<p>‘I/O Redirection’에서 <code class="highlighter-rouge">I/O</code>는 <em>Input</em> / <em>Output</em> 의 약자로 입력과 출력을 뜻한다. <code class="highlighter-rouge">Redirection</code>은 ‘재지정’의 의미로 ‘방향을 돌린다’는 의미를 가지고 있다. 이 둘을 합치면 <strong>프로세스의 표준 입력 또는 표준 출력을 임의의 입력 또는 출력으로 전환하는 것을 <code class="highlighter-rouge">I/O Redirection</code>이라고 한다.</strong></p>
+<p>‘I/O Redirection’에서 <code class="language-plaintext highlighter-rouge">I/O</code>는 <em>Input</em> / <em>Output</em> 의 약자로 입력과 출력을 뜻한다. <code class="language-plaintext highlighter-rouge">Redirection</code>은 ‘재지정’의 의미로 ‘방향을 돌린다’는 의미를 가지고 있다. 이 둘을 합치면 <strong>프로세스의 표준 입력 또는 표준 출력을 임의의 입력 또는 출력으로 전환하는 것을 <code class="language-plaintext highlighter-rouge">I/O Redirection</code>이라고 한다.</strong></p>
 
 <p><br /></p>
 
-<p>그럼 그 의미는 무엇일까? 처음 쉘을 다룰 경우, 우리가 사용하는 대부분의 명령어는 화면에 결과를 출력한다. 따로 지정하지 않았기에(아니면 못했기에) 표준 출력인 화면에 결과를 내놓은 것이다. 하지만 때로는 <strong>그 결과를 쉘 종료 시 사라지는 휘발적인 화면 위가 아닌, 반영구적으로 저장될 수 있는 파일에 남기고 싶을 때가 있다.</strong> 가령, 리눅스 환경에서 서버 접근 로그 파일을 남기고 싶을 경우 화면에 결과를 띄우는 것은 실제 배포 환경에서는 가치가 없을 것이다. 많은 경우, 접근 로그와 어떤 식으로든 발생한 에러 로그를 ‘access.log’, ‘error.log’ 등의 파일에 남긴다. 이런 수북히 쌓인 로그는 향후 트래픽 분석 등의 용도로 사용될 수 있을 것이다. <strong>표준 출력이 아닌 파일로 출력이 전환됐다는 것은 어떤 식으로든 사용자의 조작이 있었다는 것이고, 이것이 곧 <code class="highlighter-rouge">Redirection</code>이다.</strong></p>
+<p>그럼 그 의미는 무엇일까? 처음 쉘을 다룰 경우, 우리가 사용하는 대부분의 명령어는 화면에 결과를 출력한다. 따로 지정하지 않았기에(아니면 못했기에) 표준 출력인 화면에 결과를 내놓은 것이다. 하지만 때로는 <strong>그 결과를 쉘 종료 시 사라지는 휘발적인 화면 위가 아닌, 반영구적으로 저장될 수 있는 파일에 남기고 싶을 때가 있다.</strong> 가령, 리눅스 환경에서 서버 접근 로그 파일을 남기고 싶을 경우 화면에 결과를 띄우는 것은 실제 배포 환경에서는 가치가 없을 것이다. 많은 경우, 접근 로그와 어떤 식으로든 발생한 에러 로그를 ‘access.log’, ‘error.log’ 등의 파일에 남긴다. 이런 수북히 쌓인 로그는 향후 트래픽 분석 등의 용도로 사용될 수 있을 것이다. <strong>표준 출력이 아닌 파일로 출력이 전환됐다는 것은 어떤 식으로든 사용자의 조작이 있었다는 것이고, 이것이 곧 <code class="language-plaintext highlighter-rouge">Redirection</code>이다.</strong></p>
 
 <p>우리는 이제 그 ‘조작’하는 방법을 배우고 활용해볼 것이다.</p>
 
@@ -327,16 +327,16 @@ MathJax = {
 
 <p><strong>입출력을 전환하는 것은 쉘에 명령어를 입력한 뒤 입출력을 전환해주는 Phrase를 입력해주어야 한다. 이때 Phrase는 어떤 전환인지 나타내는 전환 연산자와 전환 대상 파일로 이루어진다.</strong> 이번 장에서는 <strong>전환의 종류가 입력, 출력, 에러일 때의 전환 연산자를 각각 살피고, 이 둘의 중요한 쓰임새들을 추가로 살펴보자.</strong></p>
 
-<h3 id="21--표준-출력-전환-연산자">2.1. <code class="highlighter-rouge">&gt;</code>: 표준 출력 전환 연산자</h3>
+<h3 id="21--표준-출력-전환-연산자">2.1. <code class="language-plaintext highlighter-rouge">&gt;</code>: 표준 출력 전환 연산자</h3>
 
-<p><strong><code class="highlighter-rouge">&gt;</code>는 표준출력 전환 연산자로 표준 출력을 임의의 대상으로 옮긴다.</strong> 명령어의 출력을 화면이 아닌 임의의 다른 파일로 옮기고 싶다면 이 연산자를 사용해 방향을 전환할 수 있다.</p>
+<p><strong><code class="language-plaintext highlighter-rouge">&gt;</code>는 표준출력 전환 연산자로 표준 출력을 임의의 대상으로 옮긴다.</strong> 명령어의 출력을 화면이 아닌 임의의 다른 파일로 옮기고 싶다면 이 연산자를 사용해 방향을 전환할 수 있다.</p>
 
 <p>예제로 파악해보자. ‘test’라는 폴더 안에 있는 파일들의 목록을 확인하되 그 결과를 화면이 아닌 ‘ls-test.txt’라는 이름의 파일에 저장하고 싶다고 하자. 코드는 정말 간단하다.</p>
 
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">ls test</span> <span class="o">&gt;</span> ls-test.txt
 </code></pre></div></div>
 
-<p><code class="highlighter-rouge">&gt;</code> 연산자를 사용해 출력 방향을 파일로 옮겼다. 화면에는 어떤 결과도 출력되지 않는다. 출력의 방향이 화면이 아니기 때문이다. 대신 파일의 내용을 확인해보면 원하던 결과물이 들어있음을 알 수 있다.</p>
+<p><code class="language-plaintext highlighter-rouge">&gt;</code> 연산자를 사용해 출력 방향을 파일로 옮겼다. 화면에는 어떤 결과도 출력되지 않는다. 출력의 방향이 화면이 아니기 때문이다. 대신 파일의 내용을 확인해보면 원하던 결과물이 들어있음을 알 수 있다.</p>
 
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cat </span>ls-test.txt
 
@@ -347,9 +347,9 @@ aws-scripts my_module.py open-tmux ...
 
 <hr />
 
-<h3 id="22--표준-입력-전환-연산자">2.2. <code class="highlighter-rouge">&lt;</code>: 표준 입력 전환 연산자</h3>
+<h3 id="22--표준-입력-전환-연산자">2.2. <code class="language-plaintext highlighter-rouge">&lt;</code>: 표준 입력 전환 연산자</h3>
 
-<p><strong><code class="highlighter-rouge">&gt;</code>가 표준 출력을 전환했다면 그를 뒤집은 <code class="highlighter-rouge">&lt;</code>는 표준 입력을 전환하는 연산자이다.</strong> 쉘과 쉘에서 실행하는 프로그램은 대부분 표준 입력이 키보드로 설정되어 있는데 입력을 키보드가 아닌 임의의 다른 대상으로 지정할 수 있다.</p>
+<p><strong><code class="language-plaintext highlighter-rouge">&gt;</code>가 표준 출력을 전환했다면 그를 뒤집은 <code class="language-plaintext highlighter-rouge">&lt;</code>는 표준 입력을 전환하는 연산자이다.</strong> 쉘과 쉘에서 실행하는 프로그램은 대부분 표준 입력이 키보드로 설정되어 있는데 입력을 키보드가 아닌 임의의 다른 대상으로 지정할 수 있다.</p>
 
 <p>이번에도 예제로 파악하자. 우리는 <em>cat</em> 이라는 프로그램을 이미 배웠다. <a href="https://shoark7.github.io/programming/shell-programming/Top-basic-unix-shell-command.html" filter="_blank">필수 쉘 커맨드를 소개한 포스트</a>에서 <strong><em>cat</em> 은 자연수 개수의 파일을 입력 받아 그 내용을 하나로 묶어서 화면에 출력하는 프로그램이라고 소개했다.</strong></p>
 
@@ -371,7 +371,7 @@ Where am I now, water? non-water? Who cares
 
 <p><strong><em>cat</em> 을 단독으로 입력했기 때문에 입력 방향은 키보드로 설정되어 있고, 출력 방향은 표준 출력인 화면이므로 키보드로 입력한 내용이 화면에 바로 출력됐다.</strong></p>
 
-<p>이를 이용하면 파일에 간단하게 한 줄 입력하고 싶을 때 <code class="highlighter-rouge">vim</code> 등 기타 에디터를 열지 않고도 파일을 쉽게 만들 수 있다.</p>
+<p>이를 이용하면 파일에 간단하게 한 줄 입력하고 싶을 때 <code class="language-plaintext highlighter-rouge">vim</code> 등 기타 에디터를 열지 않고도 파일을 쉽게 만들 수 있다.</p>
 
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cat</span> <span class="o">&gt;</span> test.txt
 
@@ -383,11 +383,11 @@ Go away!!        <span class="c"># 파일의 내용이 아닌 내가 입력하�
 Go away!!
 </code></pre></div></div>
 
-<p><code class="highlighter-rouge">&gt; test.txt</code>는 표준 출력을 전환하는 Phrase이기 때문에 <strong><em>cat</em> 에는 출력 지정은 있지만 입력은 아예 없다.</strong> 그래서 표준 입력으로 입력을 받아 파일에 출력했다.</p>
+<p><code class="language-plaintext highlighter-rouge">&gt; test.txt</code>는 표준 출력을 전환하는 Phrase이기 때문에 <strong><em>cat</em> 에는 출력 지정은 있지만 입력은 아예 없다.</strong> 그래서 표준 입력으로 입력을 받아 파일에 출력했다.</p>
 
 <p><br /></p>
 
-<p>자, 잡설이 길어졌는데 이 특성을 사용해 <code class="highlighter-rouge">&lt;</code>를 활용해보자. 인자가 없을 때 <em>cat</em> 의 입력이 키보드라고 했다. 그렇다면 <strong>입력을 전환해 입력을 키보드에서 임의의 다른 파일로 지정할 수 있다.</strong></p>
+<p>자, 잡설이 길어졌는데 이 특성을 사용해 <code class="language-plaintext highlighter-rouge">&lt;</code>를 활용해보자. 인자가 없을 때 <em>cat</em> 의 입력이 키보드라고 했다. 그렇다면 <strong>입력을 전환해 입력을 키보드에서 임의의 다른 파일로 지정할 수 있다.</strong></p>
 
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cat</span> &lt; test.txt
 
@@ -396,7 +396,7 @@ Go away!!
 
 <p>입력의 방향이 키보드가 아니기 때문에 내가 입력할 필요 없이 파일의 내용이 그대로 출력되었다.</p>
 
-<p>여기서 ‘어? 저거 <code class="highlighter-rouge">cat test.txt</code>랑 똑같잖아 임마!’라고 생각이 들어야 한다. 이건 표준 입력이 이상한 것이 아니라 <em>cat</em> 이 그렇게 작동하도록 설정되었기 때문에 그렇다. <strong><em>cat</em> 명령어에는 파일의 이름을 인자로 주면 입력을 그쪽으로 전환하도록 <em>cat</em> 내부에 설정되어 있기 때문에 결과적으로 두 명령어의 결과가 같은 것이다.</strong> 한 문제를 해결하는 방법은 여러 가지인 것이 좋고, 지금 이 두 가지 경우가 딱 그 사례인 것 같다. 이는 유닉스에서 지향하는 바이기도 하기에 두 가지 다 알아두는 것이 나쁘지 않다.</p>
+<p>여기서 ‘어? 저거 <code class="language-plaintext highlighter-rouge">cat test.txt</code>랑 똑같잖아 임마!’라고 생각이 들어야 한다. 이건 표준 입력이 이상한 것이 아니라 <em>cat</em> 이 그렇게 작동하도록 설정되었기 때문에 그렇다. <strong><em>cat</em> 명령어에는 파일의 이름을 인자로 주면 입력을 그쪽으로 전환하도록 <em>cat</em> 내부에 설정되어 있기 때문에 결과적으로 두 명령어의 결과가 같은 것이다.</strong> 한 문제를 해결하는 방법은 여러 가지인 것이 좋고, 지금 이 두 가지 경우가 딱 그 사례인 것 같다. 이는 유닉스에서 지향하는 바이기도 하기에 두 가지 다 알아두는 것이 나쁘지 않다.</p>
 
 <p><br /></p>
 
@@ -409,10 +409,10 @@ Go away!!
 <span class="n">job</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"너의 직업은? : "</span><span class="p">)</span>
 <span class="k">print</span><span class="p">()</span>
 
-<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s">'{name}이의 이메일은 {email}이고 이 자의 직업은 {job}입니다'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">'</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s">이의 이메일은 </span><span class="si">{</span><span class="n">email</span><span class="si">}</span><span class="s">이고 이 자의 직업은 </span><span class="si">{</span><span class="n">job</span><span class="si">}</span><span class="s">입니다'</span><span class="p">)</span>
 </code></pre></div></div>
 
-<p>이 <code class="highlighter-rouge">test.py</code>를 실행해서 값을 입력해보자.</p>
+<p>이 <code class="language-plaintext highlighter-rouge">test.py</code>를 실행해서 값을 입력해보자.</p>
 
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>python test.py
 
@@ -450,9 +450,9 @@ shoark7@naver.com
 
 <hr />
 
-<h3 id="23-2-표준-에러-전환-연산자">2.3. <code class="highlighter-rouge">2&gt;</code>: 표준 에러 전환 연산자</h3>
+<h3 id="23-2-표준-에러-전환-연산자">2.3. <code class="language-plaintext highlighter-rouge">2&gt;</code>: 표준 에러 전환 연산자</h3>
 
-<p><strong><code class="highlighter-rouge">2&gt;</code>는 표준 에러를 다른 출력으로 전환하는 연산자이다.</strong> 이전 포스트에서 표준 출력은 다시 표준 출력과 표준 에러로 구분된다고 했다. <strong>표준 출력은 프로그램이 정상적으로 종료되었을 때 출력되는 방향이고, 표준 에러는 프로그램이 비정상적으로 종료되었을 때 출력되는 방향이다.</strong> 가령 <em>cat</em> 명령어로 존재하지 않는 파일을 입력으로 주면 다음과 같은 결과가 나온다.</p>
+<p><strong><code class="language-plaintext highlighter-rouge">2&gt;</code>는 표준 에러를 다른 출력으로 전환하는 연산자이다.</strong> 이전 포스트에서 표준 출력은 다시 표준 출력과 표준 에러로 구분된다고 했다. <strong>표준 출력은 프로그램이 정상적으로 종료되었을 때 출력되는 방향이고, 표준 에러는 프로그램이 비정상적으로 종료되었을 때 출력되는 방향이다.</strong> 가령 <em>cat</em> 명령어로 존재하지 않는 파일을 입력으로 주면 다음과 같은 결과가 나온다.</p>
 
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cat </span>no-file.txt
 
@@ -471,9 +471,9 @@ shoark7@naver.com
 <span class="nb">cat</span>: no-file: 그런 파일이나 디렉터리가 없습니다
 </code></pre></div></div>
 
-<p><code class="highlighter-rouge">2&gt;</code> 연산자를 통해 표준 에러를 ‘error.log’라는 파일로 돌렸다. 그래서 없는 파일을 <em>cat</em> 의 인자로 주었는데 오류 메시지가 화면으로 출력되지 않았고 대신 로그 파일에 저장된 것을 확인할 수 있었다.</p>
+<p><code class="language-plaintext highlighter-rouge">2&gt;</code> 연산자를 통해 표준 에러를 ‘error.log’라는 파일로 돌렸다. 그래서 없는 파일을 <em>cat</em> 의 인자로 주었는데 오류 메시지가 화면으로 출력되지 않았고 대신 로그 파일에 저장된 것을 확인할 수 있었다.</p>
 
-<p>그러나 만약 같은 명령어에 존재하는 파일을 주면, <code class="highlighter-rouge">2&gt;</code>는 표준 출력은 건드리지 않고 표준 에러만 건드리기 때문에, 정상적인 출력은 그냥 화면에 나오게 된다.</p>
+<p>그러나 만약 같은 명령어에 존재하는 파일을 주면, <code class="language-plaintext highlighter-rouge">2&gt;</code>는 표준 출력은 건드리지 않고 표준 에러만 건드리기 때문에, 정상적인 출력은 그냥 화면에 나오게 된다.</p>
 
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cat </span>yes-file 2&gt; error.log
 
@@ -486,15 +486,15 @@ I exist!!
 
 <p>그런데 <strong>표준 입출력, 표준 에러는 고정적인 File Descriptor를 부여받는데, 표준 입력은 0번, 표준 출력은 1번, 표준 에러는 2번이다.</strong> 입출력은 어떤 시스템이든 간에 꼭 필요한 기능이기에 고정적인 번호를 부여 받았다.</p>
 
-<p>그래서 표준 에러 전환 연산자에 ‘2’가 붙은 것이다. 표준 출력 연산자가 숫자 없이 <code class="highlighter-rouge">&gt;</code>만 있는 것은 표준 출력 전환은 워낙 빈번히 사용되기 때문에 숫자를 생략한 것이고 <code class="highlighter-rouge">1&gt;</code>과 같이 입력해도 <code class="highlighter-rouge">&gt;</code>과 똑같이 작동한다.</p>
+<p>그래서 표준 에러 전환 연산자에 ‘2’가 붙은 것이다. 표준 출력 연산자가 숫자 없이 <code class="language-plaintext highlighter-rouge">&gt;</code>만 있는 것은 표준 출력 전환은 워낙 빈번히 사용되기 때문에 숫자를 생략한 것이고 <code class="language-plaintext highlighter-rouge">1&gt;</code>과 같이 입력해도 <code class="language-plaintext highlighter-rouge">&gt;</code>과 똑같이 작동한다.</p>
 
 <p>이 개념은 표준 에러와 표준 출력을 동시에 전환하는 2.5 절에서 다시 한 번 살펴보도록 한다.</p>
 
 <hr />
 
-<h3 id="24-의-사용-덮어쓰기가-아닌-이어붙이기">2.4. <code class="highlighter-rouge">&gt;&gt;</code>의 사용: 덮어쓰기가 아닌 이어붙이기</h3>
+<h3 id="24-의-사용-덮어쓰기가-아닌-이어붙이기">2.4. <code class="language-plaintext highlighter-rouge">&gt;&gt;</code>의 사용: 덮어쓰기가 아닌 이어붙이기</h3>
 
-<p>2.1, 2.2, 2.3 절에서 살펴본 표준 입출력, 표준 에러 전환하는 모두 한 개의 <code class="highlighter-rouge">&gt;</code> 또는 <code class="highlighter-rouge">&lt;</code>로 구성되었는데 이들은 파일을 덮어쓴다는 특성이 있었다. 다음 예제를 살펴보자.</p>
+<p>2.1, 2.2, 2.3 절에서 살펴본 표준 입출력, 표준 에러 전환하는 모두 한 개의 <code class="language-plaintext highlighter-rouge">&gt;</code> 또는 <code class="language-plaintext highlighter-rouge">&lt;</code>로 구성되었는데 이들은 파일을 덮어쓴다는 특성이 있었다. 다음 예제를 살펴보자.</p>
 
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">echo</span> <span class="s1">'hi!'</span> <span class="o">&gt;</span> ok.txt
 <span class="nv">$ </span><span class="nb">echo</span> <span class="s1">'hi!'</span> <span class="o">&gt;</span> ok.txt
@@ -506,9 +506,9 @@ I exist!!
 hi!
 </code></pre></div></div>
 
-<p>이전에 <em>echo</em> 명령어는 인자로 받은 텍스트를 표준 출력에 출력하는 명령어로 설명했다. 이 예제에서는 <code class="highlighter-rouge">&gt;</code>를 통해 출력 방향을 파일로 돌렸는데 이때, 같은 명령어를 세 번 실행했음에도, 파일에는 최종적으로 한 줄만 들어있음을 확인할 수 있다. <strong>이것은 <code class="highlighter-rouge">&gt;</code>가 하나만 쓰였을 때는 명령어가 이어붙이기(Append)가 아니라, 덮어쓰기(Write)가 되기 때문이다.</strong></p>
+<p>이전에 <em>echo</em> 명령어는 인자로 받은 텍스트를 표준 출력에 출력하는 명령어로 설명했다. 이 예제에서는 <code class="language-plaintext highlighter-rouge">&gt;</code>를 통해 출력 방향을 파일로 돌렸는데 이때, 같은 명령어를 세 번 실행했음에도, 파일에는 최종적으로 한 줄만 들어있음을 확인할 수 있다. <strong>이것은 <code class="language-plaintext highlighter-rouge">&gt;</code>가 하나만 쓰였을 때는 명령어가 이어붙이기(Append)가 아니라, 덮어쓰기(Write)가 되기 때문이다.</strong></p>
 
-<p>하지만 많은 경우, 가령 로그를 남길 때는 한 줄 입력할 때마다 덮어쓰기가 되는 것보다는 기존 파일의 끝에 이어붙이는 것이 유용할 수 있다. <strong>이때는 덮어쓰는 명령어들에 <code class="highlighter-rouge">&gt;</code>나 <code class="highlighter-rouge">&lt;</code>를 하나씩 더 붙여주면 된다. 표준 출력 전환을 파일에 이어 붙이려면 <code class="highlighter-rouge">&gt;&gt;</code>, 표준 입력 전환을 파일에 이어 붙이려면 <code class="highlighter-rouge">&lt;&lt;</code>, 표준 에러 전환을 파일에 이어붙이려면 <code class="highlighter-rouge">2&gt;&gt;</code>를 입력하면 된다.</strong></p>
+<p>하지만 많은 경우, 가령 로그를 남길 때는 한 줄 입력할 때마다 덮어쓰기가 되는 것보다는 기존 파일의 끝에 이어붙이는 것이 유용할 수 있다. <strong>이때는 덮어쓰는 명령어들에 <code class="language-plaintext highlighter-rouge">&gt;</code>나 <code class="language-plaintext highlighter-rouge">&lt;</code>를 하나씩 더 붙여주면 된다. 표준 출력 전환을 파일에 이어 붙이려면 <code class="language-plaintext highlighter-rouge">&gt;&gt;</code>, 표준 입력 전환을 파일에 이어 붙이려면 <code class="language-plaintext highlighter-rouge">&lt;&lt;</code>, 표준 에러 전환을 파일에 이어붙이려면 <code class="language-plaintext highlighter-rouge">2&gt;&gt;</code>를 입력하면 된다.</strong></p>
 
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 빈 파일 nofile을 만든다.</span>
 <span class="nv">$ </span><span class="nb">echo</span> <span class="s1">''</span> <span class="o">&gt;</span> nofile
@@ -525,19 +525,19 @@ hi!
 hi!
 </code></pre></div></div>
 
-<p><code class="highlighter-rouge">&gt;&gt;</code> 전환자를 통해 파일에 덮어쓰는 것이 아닌 파일의 끝에 ‘hi!’라는 문자열을 3번 이어붙였다. 그 결과 3번의 ‘hi!’가 출력되었다.</p>
+<p><code class="language-plaintext highlighter-rouge">&gt;&gt;</code> 전환자를 통해 파일에 덮어쓰는 것이 아닌 파일의 끝에 ‘hi!’라는 문자열을 3번 이어붙였다. 그 결과 3번의 ‘hi!’가 출력되었다.</p>
 
 <hr />
 
 <h3 id="25-표준-에러--표준-출력을-동시에-전환하기">2.5. 표준 에러 &amp; 표준 출력을 동시에 전환하기</h3>
 
-<p>앞서 2.1절과 2.3절을 통해서 표준 에러와 표준 출력을 전환하는 방법에 대해 살펴봤다. 표준 출력은 <code class="highlighter-rouge">&gt;</code> 전환자, 표준 에러는 <code class="highlighter-rouge">2&gt;</code> 연산자를 사용했다. 그런데 <strong>이 연산자 자체로는 서로 상대방의 출력 전환에는 영향을 주지 못한다는 문제가 있다.</strong> 가령 <code class="highlighter-rouge">&gt;</code>는 표준 출력만 전환하기 때문에 표준 에러 전환에 영향을 미칠 수 없고, <code class="highlighter-rouge">2&gt;</code>는 반대로 표준 출력 전환에 영향을 줄 수 없다.</p>
+<p>앞서 2.1절과 2.3절을 통해서 표준 에러와 표준 출력을 전환하는 방법에 대해 살펴봤다. 표준 출력은 <code class="language-plaintext highlighter-rouge">&gt;</code> 전환자, 표준 에러는 <code class="language-plaintext highlighter-rouge">2&gt;</code> 연산자를 사용했다. 그런데 <strong>이 연산자 자체로는 서로 상대방의 출력 전환에는 영향을 주지 못한다는 문제가 있다.</strong> 가령 <code class="language-plaintext highlighter-rouge">&gt;</code>는 표준 출력만 전환하기 때문에 표준 에러 전환에 영향을 미칠 수 없고, <code class="language-plaintext highlighter-rouge">2&gt;</code>는 반대로 표준 출력 전환에 영향을 줄 수 없다.</p>
 
 <p>하지만 <strong>이 둘을 동시에 어떤 파일로 전환하거나, 한 번에 서로 다른 파일에 전환해야 하는 경우가 충분히 발생할 수 있다.</strong> 그래서 이번 절에서는 둘을 동시에 같은 파일로 전환할 때와, 서로 다른 방향으로 전환할 때를 구분해서 살펴보도록 하겠다.</p>
 
 <h4 id="251-동시에-한-파일로-전환하기">2.5.1. 동시에 한 파일로 전환하기</h4>
 
-<p>표준 출력과 표준 에러를 동시에 한 파일로 전환하고 싶을 수 있다. 이때는 <code class="highlighter-rouge">&amp;&gt;</code> 연산자를 사용하면 된다.</p>
+<p>표준 출력과 표준 에러를 동시에 한 파일로 전환하고 싶을 수 있다. 이때는 <code class="language-plaintext highlighter-rouge">&amp;&gt;</code> 연산자를 사용하면 된다.</p>
 
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># no-file &lt;- 존재하지 않는 파일</span>
 <span class="c"># yes-file &lt;- 존재하는 파일</span>
@@ -549,7 +549,7 @@ hi!
 I exist!!
 </code></pre></div></div>
 
-<p><code class="highlighter-rouge">&amp;&gt;</code> 또한 이어붙이기로 기능을 전환하고 싶다면 <code class="highlighter-rouge">&amp;&gt;&gt;</code>를 사용하면 된다. <strong>‘no-file’은 존재하지 않는 파일이기 때문에 <em>cat</em> 은 표준 에러로 결과를 출력하는데 <code class="highlighter-rouge">&amp;&gt;</code>는 표준 에러를 전환하기 때문에 결과 파일로 출력이 전환됐다. 동시에, 표준 출력도 같이 전환하기 때문에 존재하는 파일 ‘yes-file’을 <em>cat</em> 처리했을 때도 결과 파일로 출력이 전환됐다.</strong></p>
+<p><code class="language-plaintext highlighter-rouge">&amp;&gt;</code> 또한 이어붙이기로 기능을 전환하고 싶다면 <code class="language-plaintext highlighter-rouge">&amp;&gt;&gt;</code>를 사용하면 된다. <strong>‘no-file’은 존재하지 않는 파일이기 때문에 <em>cat</em> 은 표준 에러로 결과를 출력하는데 <code class="language-plaintext highlighter-rouge">&amp;&gt;</code>는 표준 에러를 전환하기 때문에 결과 파일로 출력이 전환됐다. 동시에, 표준 출력도 같이 전환하기 때문에 존재하는 파일 ‘yes-file’을 <em>cat</em> 처리했을 때도 결과 파일로 출력이 전환됐다.</strong></p>
 
 <p>연산자 앞이 왜 ‘&amp;’일까 조금만 생각하면 충분히 납득할 수 있다. <strong>‘&amp;’는 프로그래밍과 논리식에서 AND(그리고)를 의미한다.</strong> 파이썬에서 ‘&amp;’는 Bitwise AND 연산을 처리한다. 그러니까 표준 출력(‘&gt;’) <strong>그리고</strong> 표준 에러(‘2&gt;’)를 동시에 전환하는 연산자에 ‘&amp;’ symbol을 사용한 것은 꽤나 재치 있는 것 같다.</p>
 

@@ -231,7 +231,7 @@ MathJax = {
         <a href="/"><img src="/assets/img/1536558558520.jpg" alt="Sunghwan Park"></a>
       </div>
       <div class="author-name">Sunghwan Park</div>
-      <p>I'm Parkito. A Python lover. Interested in Python, Automation, Algorithm. Please give me insights. I'll teach you tambien! :)</p>
+      <p>I'm Parkito. I'm back. Obsessed with esthetics of codes, sentences, modularity and writing</p>
     </div>
   </header> <!-- End Header -->
   <footer>
@@ -258,7 +258,7 @@ MathJax = {
       </ul>
     </section> <!-- End Section Contact -->
     <div class="copyright">
-      <p>2021 &copy; Sunghwan Park</p>
+      <p>2023 &copy; Sunghwan Park</p>
     </div>
   </footer> <!-- End Footer -->
 </aside> <!-- End Sidebar -->
@@ -494,7 +494,7 @@ MathJax = {
 
 <p><strong>목록이 길어서 겁먹지 말자. 이중 이해하기 어려운 테스트는 전혀 없고, 외울 이유도 없다.</strong></p>
 
-<p>테스트에서 시간이나 일수, 파일의 크기를 나타내는 <script type="math/tex">n</script>을 사용하는 테스트들은 <strong>정확히</strong> <script type="math/tex">n</script>분 전, 또는 <script type="math/tex">n</script>일 전을 나타내는데 이는 별로 쓸모가 없다. <strong>그보다는 ‘<script type="math/tex">n</script>분 이내’, ‘<script type="math/tex">n</script>일 이후’라는 테스트가 더 적절하기 때문에 ‘+’, ‘-‘ 을 써서 ‘이후’, ‘이전’을 표현한다.</strong> 가령 3분 이내에 변경됐는지 테스트할 때는 ‘-cmin -<script type="math/tex">n</script>’ 같이 입력하면 된다.</p>
+<p>테스트에서 시간이나 일수, 파일의 크기를 나타내는 \(n\)을 사용하는 테스트들은 <strong>정확히</strong> \(n\)분 전, 또는 \(n\)일 전을 나타내는데 이는 별로 쓸모가 없다. <strong>그보다는 ‘\(n\)분 이내’, ‘\(n\)일 이후’라는 테스트가 더 적절하기 때문에 ‘+’, ‘-‘ 을 써서 ‘이후’, ‘이전’을 표현한다.</strong> 가령 3분 이내에 변경됐는지 테스트할 때는 ‘-cmin -\(n\)’ 같이 입력하면 된다.</p>
 
 <p>‘-mtime’과 -ctime’, ‘-cnewer’, ‘-newer’과 같이 비슷한데 애매하게 다른 테스트들이 있다. <strong>‘c’는 파일의 내용 또는 속성이 변경된 경우를 대상으로 하고 그 외는 파일의 내용만이 변경된 것을 대상으로 한다.</strong> 속성이 바뀐다는 것은 파일의 유효 사용자, 유효 그룹 등이 바뀌는 것을 말하는데 이는 ‘Permission’과 관련된 부분으로 이후에 다루도록 한다.</p>
 
@@ -568,9 +568,9 @@ MathJax = {
 
 <p>여러 테스트들을 살펴보면서 테스트들이 중첩될 때는 AND 연산이 기본이라고 했다. 하지만 AND 이외의 조건이 필요할 수도 있다. 가령 ‘이름이 z로 시작하거나(OR) 파일 크기가 1MB 이하인 파일’, ‘파일의 소유자가 내가 (NOT)아닌 파일’을 찾고 싶을 수도 있을테니까. <em>find</em> 는 이렇게 테스트들의 연산 순서나 방법을 지정해주는 연산자들이 있다. 실제 부울 논리와 매우 비슷하기 때문에 이해하기 쉽다.</p>
 
-<p>먼저 테스트들 사이에 <code class="highlighter-rouge">-and</code>를 넣으면 두 테스트를 AND 연산한다. 이는 기본값이기 때문에 생략 가능하다.</p>
+<p>먼저 테스트들 사이에 <code class="language-plaintext highlighter-rouge">-and</code>를 넣으면 두 테스트를 AND 연산한다. 이는 기본값이기 때문에 생략 가능하다.</p>
 
-<p><strong>테스트들 사이에 <code class="highlighter-rouge">-or</code>를 주면 두 테스트를 OR 연산한다.</strong></p>
+<p><strong>테스트들 사이에 <code class="language-plaintext highlighter-rouge">-or</code>를 주면 두 테스트를 OR 연산한다.</strong></p>
 
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>find ~ <span class="nt">-name</span> <span class="s1">'*xyz'</span> <span class="nt">-or</span> <span class="nt">-name</span> <span class="s1">'abcd*'</span>
 
@@ -583,7 +583,7 @@ MathJax = {
 
 <p><br /></p>
 
-<p>또 <strong>부정 연산도 원하는 조건식 앞에 <code class="highlighter-rouge">-not</code> 을 붙이면 할 수 있다.</strong></p>
+<p>또 <strong>부정 연산도 원하는 조건식 앞에 <code class="language-plaintext highlighter-rouge">-not</code> 을 붙이면 할 수 있다.</strong></p>
 
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>find ~ <span class="nt">-not</span> <span class="nt">-name</span> <span class="s1">'Z*'</span>
 
