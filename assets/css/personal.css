@@ -18,6 +18,13 @@ blockquote {
 	overflow-x: scroll;
   white-space: pre-wrap;
 }
+.insight-as-sentence {
+	font-style: italic;
+	color: #505050!important;
+	text-align: center!important;
+	padding: 3rem!important;
+	font-size: 1.25rem;
+}
 
 
 

@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>바다가 들린다 - Parkito's on the way</title>
+	<!-- Mathjax Support -->
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+
+<!--
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+</script>
+-->
+
+<!--
+<script>
+MathJax = {
+  tex: {
+    packages: ['base', 'autoload'],        // extensions to use
+    inlineMath: [              // start/end delimiter pairs for in-line math
+      ['\\(', '\\)']
+    ],
+    displayMath: [             // start/end delimiter pairs for display math
+      ['$$', '$$'],
+      ['\\[', '\\]']
+    ],
+    processEscapes: true,      // use \$ to produce a literal dollar sign
+    processEnvironments: true, // process \begin{xxx}...\end{xxx} outside math mode
+    processRefs: true,         // process \ref{...} outside of math mode
+    digits: /^(?:[0-9]+(?:\{,\}[0-9]{3})*(?:\.[0-9]*)?|\.[0-9]+)/,
+                               // pattern for recognizing numbers
+    tags: 'none',              // or 'ams' or 'all'
+    tagSide: 'right',          // side for \tag macros
+    tagIndent: '0.8em',        // amount to indent tags
+    useLabelIds: true,         // use label name rather than tag for ids
+    multlineWidth: '85%',      // width of multline environment
+    maxMacros: 1000,           // maximum number of macro substitutions per expression
+    maxBuffer: 5 * 1024,       // maximum size for the internal TeX string (5K)
+    baseURL:                   // URL for use with links to tags (when there is a <base> tag in effect)
+       (document.getElementsByTagName('base').length === 0) ?
+        '' : String(document.location).replace(/#.*$/, ''),
+    formatError:               // function called when TeX syntax errors occur
+        (jax, err) => jax.formatError(err)
+  }
+};
+</script>
+-->
+
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+
+
+  <!-- Edit site and author settings in `_config.yml` to make the social details your own -->
+
+    <meta content="Parkito's on the way" property="og:site_name">
+  
+    <meta content="바다가 들린다" property="og:title">
+  
+  
+    <meta content="article" property="og:type">
+  
+  
+    <meta content="우리는 바다를 오감으로 느낄 수 있습니다. 그중 청각 이야기" property="og:description">
+  
+  
+    <meta content="http://localhost:4000/insight/rationality/ocean-waves" property="og:url">
+	
+  
+    <meta content="2023-01-24T00:00:00+09:00" property="article:published_time">
+    <meta content="http://localhost:4000/about/" property="article:author">
+  
+  
+    <meta content="http://localhost:4000/assets/img/insight/ocean-waves-thumbnail.png" property="og:image">
+  
+  
+    
+    <meta content="Insight" property="article:section">
+    
+  
+  
+    
+  
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@">
+    <meta name="twitter:creator" content="@">
+  
+    <meta name="twitter:title" content="바다가 들린다">
+  
+  
+    <meta name="twitter:url" content="http://localhost:4000/insight/rationality/ocean-waves">
+  
+  
+    <meta name="twitter:description" content="우리는 바다를 오감으로 느낄 수 있습니다. 그중 청각 이야기">
+  
+  
+    <meta name="twitter:image:src" content="http://localhost:4000/assets/img//insight/ocean-waves-thumbnail.png">
+  
+
+  
+    <meta content="우리는 바다를 오감으로 느낄 수 있습니다. 그중 청각 이야기" name="description">
+  
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="shortcut icon" href="/assets/img/favicon/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" href="/assets/img/favicon/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/assets/img/favicon/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/assets/img/favicon/apple-touch-icon-144x144.png">
+	<!-- Chrome, Firefox OS and Opera -->
+	<meta name="theme-color" content="#263959">
+	<!-- Windows Phone -->
+	<meta name="msapplication-navbutton-color" content="#263959">
+	<!-- iOS Safari -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="#263959">
+	<!-- Google Fonts -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="/assets/fonts/font-awesome/css/font-awesome.min.css">
+	<!-- Styles -->
+	<link rel="stylesheet" href="/assets/css/main.css">
+	<link rel="stylesheet" href="/assets/css/personal.css">
+	<link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Nanum+Gothic:400,700,800&amp;subset=korean" rel="stylesheet">
+
+	<!-- googld ads tag -->
+  <script data-ad-client="ca-pub-2670967175857332" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</head>
+
+<body style="position: relative">
+	<div id="toggler-wrapper">
+		<div id="menu-toggler">
+			<img src="/assets/img/nav-off.png" alt="Menu collapse image">
+		</div>
+	</div>
+
+  <div class="wrapper">
+
+		<nav id="nav">
+			<div id="menus">
+				<p>
+					<a class="navbar-brand text-white" href="/">&nbsp;&nbsp;&nbsp;Parkito's on the way!&nbsp;&nbsp;&nbsp;</a>
+				</p>
+				<ul id="category-list">
+					<li>
+						<a href="/about.me">
+							<div class="menu">
+								<span> About </span>
+							</div>
+						</a>
+					</li>
+				
+					<li>
+						<div class="menu-wrapper">
+							<a href="/category/programming">
+								<div class="menu">
+									<span> Programming </span>
+								</div>
+							</a>
+							<div class="menu-item">
+								<a href="/category/programming/knowledge">Knowledge</a>
+								<a href="/category/programming/algorithm">Algorithm</a>
+								<a href="/category/programming/python">Python</a>
+								<a href="/category/programming/shell-programming">Shell programming</a>
+							</div>
+						</div>
+					</li>
+				
+					<li>
+						<div class="menu-wrapper">
+								<a href="/category/insight">
+									<div class="menu">
+										<span> Insight </span>
+									</div>
+								</a>
+								<div class="menu-item">
+									<a href="/category/insight/sensitivity">&nbsp;&nbsp;Sensitivity&nbsp;&nbsp;</a>
+									<a href="/category/insight/rationality">&nbsp;&nbsp;Rationality&nbsp;&nbsp;</a>
+								</div>
+						</div>
+					</li>
+
+					<li>
+						<div class="menu-wrapper">
+								<a href="/category/projects">
+									<div class="menu">
+										<span> Projects </span>
+									</div>
+								</a>
+							<div class="menu-item">
+								<a href="/category/projects/dev-related">&nbsp;&nbsp;Dev related&nbsp;&nbsp;</a>
+								<a href="/category/projects/etc">&nbsp;&nbsp;ETC&nbsp;&nbsp;</a>
+							</div>
+						</div> </li>
+
+				</ul>
+			</div>
+
+			<div id="menus-right">
+				<div id="search-section">
+					<div class="input-wrapper">
+						<span class="fa fa-search"></span>
+						<input type="text" id="search-input" placeholder="Please input specific keyword :)" size="30">
+					</div>
+					<div id="results-container"></div>
+				</div>
+
+				<!--<div id="toggler-wrapper">-->
+					<!--<div id="menu-toggler">-->
+						<!--<img src="/assets/img/nav-off.png" alt="" width="35px" height="35px">-->
+					<!--</div>-->
+				<!--</div>-->
+				
+			</div>
+			
+		</nav>
+
+
+    <aside class="sidebar">
+  <header>
+    <div class="about">
+      <div class="cover-author-image">
+        <a href="/"><img src="/assets/img/1536558558520.jpg" alt="Sunghwan Park"></a>
+      </div>
+      <div class="author-name">Sunghwan Park</div>
+      <p>I'm Parkito. I'm back. Obsessed with esthetics of codes, sentences, modularity and writing</p>
+    </div>
+  </header> <!-- End Header -->
+  <footer>
+    <section class="contact">
+      <h3 class="contact-title">Contact me</h3>
+      <ul>
+				<!--
+        
+          <li><a href="https://twitter.com/artemsheludko_" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+        
+        
+          <li><a href="https://facebook.com/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+        
+				-->
+        
+          <li class="github"><a href="http://github.com/shoark7" target="_blank"><i class="fa fa-github"></i></a></li>
+        
+        
+          <li class="linkedin"><a href="https://in.linkedin.com/in/sunghwan-park-3773b8154" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+        
+        
+          <li class="email"><a href="mailto:shoark7@gmail.com"><i class="fa fa-envelope-o"></i></a></li>
+        
+      </ul>
+    </section> <!-- End Section Contact -->
+    <div class="copyright">
+      <p>2023 &copy; Sunghwan Park</p>
+    </div>
+  </footer> <!-- End Footer -->
+</aside> <!-- End Sidebar -->
+
+<div class="content-box clearfix">
+  <article class="article-page">
+  <div class="page-content">
+    
+    <div class="page-cover-image">
+      <figure>
+        <img class="page-image" src=/assets/img//insight/ocean-waves-thumbnail.png alt="바다가 들린다">
+        
+      </figure>
+    </div> <!-- End Page Cover Image -->
+    
+    <div class="wrap-content">
+      <header class="header-page">
+        <h1 class="page-title">바다가 들린다</h1>
+        <div class="page-date"><span>2023, Jan 24&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+      </header>
+
+		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<!-- 처음과끝에만 -->
+		<ins class="adsbygoogle"
+				 style="display:block"
+				 data-ad-client="ca-pub-2670967175857332"
+				 data-ad-slot="3352812061"
+				 data-ad-format="auto"
+				 data-full-width-responsive="true"></ins>
+		<script>
+				 (adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+		<!-- 처음과끝에만 -->
+
+      <p><br /></p>
+
+<ul>
+  <li>약 1년 반 전 작성한 내용입니다.</li>
+</ul>
+
+<p><br id="1" /></p>
+
+<h1 id="바다가-들린다">바다가 들린다</h1>
+
+<hr />
+
+<p>2021년 8월 27일부터 28일까지 1박 2일간 동생과 여수를 다녀왔다. 3일간 휴가를 쓰고 주말을 끼고 다녀올 수 있었다. 전남권에 비가 온다는 불길한 예보가 있었고 출발 전날까지도 찜찜했다. 사실 여수가 아닌 통영에서 소매물도라고 하는 섬을 갈까도 했는데 배가 취소될 가능성이 있어 결국 여수를 선택했다. ‘비가 오면 여행이 가능할까’, ‘그냥 술 마시고 다음날 아침에 와야할 수도 있겠다..’라는 생각을 하고 집을 나섰다. 실제로 여수를 향하는 KTX 기차 창가에는 빗방울이 맺히기도 했지만 여수에 내리고 나니 예보와는 정반대로 햇볕이 쨍쨍했다. 다녀온 지금 어머니가 피부가 탔다고 하시는 것을 보면 우리나라 기상청은 실제로 믿을 게 못되는가보다.</p>
+
+<p>많은 여행지 중 왜 나는 하필 여수를 선택했는가? 일단 여수는 가본 적이 없었다. 내일로 여행을 세 번을 갔지만 여수를 들르지 않았다. 항상 정동진으로 시작해서 일출을 본 뒤 부산 등을 거쳐 한 바퀴를 돌고는 했는데, 순천까지는 갔지만 여수는 가보지 못했다. 또 나는 바다를 보고 싶었다. 그동안 회사에서는 등산만 했던 것 같다. 등산은 결국 오르는 과정의 연속이다. 등산을 정상을 목표로 고개를 위로 향하며 위치에너지를 높여나가는 과정이라고 딱딱하게 표현해보자. 에너지 총합은 같기 때문에 위치에너지를 높여나가면 반대로 다른 에너지의 감소는 필연적이다. 소모되는 에너지의 종류와 양은 사람마다 다르겠지만… 좀 지쳤던 것 같다. 그래서 바다를 가고 싶었다. 바다에서는 위치에너지를 높이지 않아도 된다. 내 시야를 위로 향하지 않고 고개를 앞을 향하여 들고 수평선 너머를 바라보기만 하면 된다. 이 넓은 바다 수평선 너머에는 무엇이 있을까? 질문을 던지고 싶었다. 그리고 나만의 원피스를 찾고 싶었다. 나는 무엇인가, 내가 정말 원하는 것은 무엇일까? 하지만 아직 만화 원피스의 결말이 나지 않은 것처럼 나도 아직 나의 원피스를 찾지 못했다.</p>
+
+<p><br /></p>
+
+<p>넷플릭스에서 언젠가 ‘바다가 들린다’라는 장편 일본 애니메이션을 본 적이 있다. 소년소녀의 풋풋한 첫사랑 이야기로, 작품이 그렇게까지 재밌지는 않았는데 OST는 정말 좋았던 기억이 있어 지금도 매일 조금씩 듣는다. 이 영화의 제목은 내게 여러 질문을 던진다. 하나는 이 영화의 제목은 ‘바다가 들린다’인데, 바다가 많이 나오지도 않았고 그렇게까지 중요 소재도 아니다. 그래서 ‘바다가 잠깐 나오는데 제목에 표현할 정도인가?’ 묻지 않을 수 없었다. 그리고 더 중요한 것은 왜 ‘바다가 <code class="language-plaintext highlighter-rouge">들린다</code>‘인가? 바다가 <code class="language-plaintext highlighter-rouge">보인다</code>도 아니고 바다가 들린단다. 아 뭐 바다에서 파도 소리, 갈매기 소리 들리기는 하지만… 일반적인 사람들은 끝없는 푸른빛 바다를 바라보며, 수평선 너머 지는 태양을 바라보며 시각적 감각이 더 자극받지 않나? 그렇기 때문에 이 제목은 대관절 어떤 의미를 담고 지었을까. <code class="language-plaintext highlighter-rouge">이름</code>에 집착하는 나로서는 작품을 두세번을 봤지만 답을 찾지 못한 질문이었다.</p>
+
+<p>1박 2일 동안 많은 곳을 갔다. ‘여수 여행’ 검색하면 무조건 나오는 여수 아쿠아리움, 돌산도 공원, 여수 해상케이블카, 여수 하멜 등대, 여수 포차거리… 조금만 검색하면 나오는 여행지다. 물론 다 즐거웠지만 내게 인상깊은 추억을 남긴 곳은 앞서 말한 곳들 보다는 덜 유명한 ‘오동도’다.</p>
+
+<p>오동도는 여수 여행의 첫 목적지였는데 숙소에서 가까워서 그냥 선택했다. 오동도가 어떤 곳인지 굳이 검색까지 해서 적지는 않겠다. 내가 아는 수준에서는 오동도는 섬이고, 다리를 이어 연결해서 걸어 들어갈 수 있다. 섬까지 걸어들어갔는데, 정오 즈음이었고 뙤약볕이 창창해서 다리를 걷는 것이 쉽지 않았다. 하지만 얇은 다리 양옆으로 해풍을 쐬며 걸으니 그렇게 스트레스 받으면서 걷지는 않았던 것 같다.</p>
+
+<p>오동도에 도착하자마자 자그마한 산 진입로가 있었다. 산은 그리 높지는 않아보였으며 위에 전망대가 있는 것 같아 별 생각없이 걸어들어갔다. 이 산을 걷는 느낌은 처음에는 단순히 동네 뒷산을 오르는 느낌이었다. 오르는 것이 그리 힘들지 않았고 나무도 워낙 많아 그늘이 충분히 있어 더위가 느껴지지는 않았다. 하나 유독 다른 것은 해풍이 워낙 세게 불어서 나무들이 세차게 흔들린다는 것. 조금만 걷자마자 나뭇잎들이 쉴 새 없이 흔들리며 내는 ‘싸아’ 소리가 청각을 점유했다. 사방에서, 위아래에서 나뭇잎이 부딪히고 흔들리며 내는 이 커다란 마찰음 덩어리는 서울에서 느껴보지 못한 경험이라 신기했다. 산속에서 내가 볼 수 있는 것이라고는 서울 어느 동네 산에서나 볼 수 있는 뻔한 등산로였기 때문에 이 소리 자극이 더 크게 느껴졌는지도 모르겠다. 이 자연의 소리에 압도당한 나는 그저 미소를 쏟아낼 수밖에 없었다. 옆에 있는 동생에게 말했다.</p>
+
+<p class="insight-as-sentence">
+  지브리 애니메이션 속에 온 것 같아.
+</p>
+
+<p>순간적으로 ‘이웃집 토토로’, ‘하울의 움직이는 성’ 등이 생각났던 것이다. 그 작품들에서 배경이 되는 나무들이 다양한 초록색의 솜뭉치처럼 표현되어 이리저리 흔들리며 바람소리를 내는데, 그 속에서 인물이 모자를 붙잡고 누군가에게 다급히 소리를 치는 장면이 떠오른다.</p>
+
+<p>오동도는 작은 섬이고 산의 어떤 방향은 바로 바다를 접하는 곳도 있었다. 몇몇 뷰포인트가 있고 바다를 배경으로 동생과 사진을 찍고 바다를 바라보았다. 지금 생각하면 이쪽 바다 배경이 여수의 다른 곳들과 비교해 특별하지는 않았지만 첫 여행지였기 때문에 더 감상에 젖었던 것 같다.</p>
+
+<p>좀더 걷다보니 바다가 정면으로 보이는 또다른 곳이 있었다. 오동도에서 바다가 보이는 여느 곳과 큰 차이가 없었고 특별히 눈에 띄는 지형지물이 있지도 않았다. 그래서인지 실제로 바다의 시각적인 모양은 지금 하나로 기억나지 않는다. 하지만 뭔가 조금 달랐다. 내 양옆의 나무들은 곧게 서서 가지를 드리웠는데 그 가지들이 바다를 시야에서 일부 감춰 일종의 프레임, 틀이 되었다. 그 틀 안에서 바다의 조각이 제한적으로 보였고, 그래서 다른 곳과 달리 시각을 통해 바다에 흠뻑 빠지지 못했다. 그래서 순간 거리를 두고 바다를 마주할 수 있었다. 그리고 바다에 대해 시각이 마저 채우지 못한 감각의 빈틈에 청각이 스며들었다. 그래서 바로 지나치지 못했다.</p>
+
+<p>무언가 들렸다. 해풍에 동조해 나무들이 내는 합창과 함께 바다에서는 ‘철썩’하는 화음을 만들어내고 있었던 것이다. 특히 이 <code class="language-plaintext highlighter-rouge">화음</code>은 바다의 여러 곳에서 들렸다. 심지어 내 시야에 잡히지 않는, 틀 바깥에서도 들리는 것 같았다. 헛, 순간 지브리 작품인 ‘바다가 들린다’가 생각났다. 그래서 눈을 감았다. 차단한 시각의 자리에 청각이 완전히 자리잡았다. 흔들리는 나무, 나뭇잎 소리. 철썩하는 바다의 소리. 이 ‘철썩’하는 소리는 바다의 여러 곳에서 생겨났다. 동쪽, 서쪽, 북서쪽… 이 소리들은 거의 동시다발적으로 생겨나 화음을 만들어냈다. 눈을 감았기에 더 잘 느낄 수 있었다. 이 바다 소리와 나무들의 소리. 이 둘이 잘 어울릴 것 같지 않았지만 생각보다 어색하지 않았다. 아니 조화를 이루었을지도 모르겠다. 이것은 하나의 곡이다. 그리고 이 곡의 지휘자는 단연 바다일 것이다. 바다는 나무와 파도를 지휘해 몰아치는 이 곡을 연주했고 난 압도 당했다.</p>
+
+<p>난 눈을 뜨고 느꼈다.</p>
+
+<p class="insight-as-sentence">
+  ‘바다가 들린다’란 이런 뜻이었구나.
+</p>
+
+<p>우리집 해피를 산책 시키면서 이 친구는 냄새로 세상을 본다고 생각했고(개는 색맹이다), 이 친구는 구체적으로 세상을 어떻게 느낄까 라고 질문을 던진 적이 있다. 인간에게는 시각이 지배적인 감각이지만 모든 생명체에 해당하는 이야기는 아닌 것이다. 이와 비슷하게 난 지배적 감각인 시각을 차단해 청각을 내 중심 감각에 올려놓았고 바다를 들으며 바다를 느꼈다. 그리고 분명 눈으로만 보는 것과는 차이가 있었다. <code class="language-plaintext highlighter-rouge">바다가 들린다</code>가 단순한 ‘현학적인’, ‘운치 있는’ 제목이 아니었던 것이다.</p>
+
+<p>그리고 글을 쓰는 지금 ‘바다가 들린다’를 다시 봐야겠다고 생각했다. 영화에서 ‘바다’를 너무 화면에서만 찾은 것 같다. 이제는 알 것 같다. 바다를 꼭 화면에 노출해야만 바다를 표현한 것이 아니구나. 다시 영화를 본다면 영화의 순간순간마다 나오는 OST에서 바다를 찾아봐야지. 영화는 종합예술이라는 것을 다시금 새삼 깨달을 수 있었다.</p>
+
+      <div class="page-footer">
+        <div class="page-share">
+          <a href="https://twitter.com/intent/tweet?text=바다가 들린다&url=http://localhost:4000/insight/rationality/ocean-waves" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
+          <a href="https://facebook.com/sharer.php?u=http://localhost:4000/insight/rationality/ocean-waves" title="Share on Facebook" rel="nofollow" target="_blank">Facebook</a>
+          <a href="https://plus.google.com/share?url=http://localhost:4000/insight/rationality/ocean-waves" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>
+        </div>
+        <div class="page-tag">
+          
+        </div>
+      </div>
+
+			<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+			<!-- 처음과끝에만 -->
+			<ins class="adsbygoogle"
+					 style="display:block"
+					 data-ad-client="ca-pub-2670967175857332"
+					 data-ad-slot="3352812061"
+					 data-ad-format="auto"
+					 data-full-width-responsive="true"></ins>
+			<script>
+					 (adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+			<!-- 처음과끝에만 -->
+
+		  <!-- Load Facebook SDK for JavaScript -->
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+
+  <!-- Your share button code -->
+  <div class="fb-share-button" 
+    data-href="http://localhost:4000/insight/rationality/ocean-waves" 
+    data-layout="button_count">
+  </div>
+
+		
+    </div> <!-- End Wrap Content -->
+  </div> <!-- End Page Content -->
+</article> <!-- End Article Page -->
+
+</div>
+
+  </div>
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', '', 'auto');
+  ga('send', 'pageview');
+</script> <!-- End Analytics -->
+
+	<script src="https://unpkg.com/simple-jekyll-search@1.5.0/dest/simple-jekyll-search.min.js"></script>
+<script>
+var sjs = SimpleJekyllSearch({
+  searchInput: document.querySelector('#search-input'),
+  resultsContainer: document.getElementById('results-container'),
+  json: '/search.json',
+  searchResultTemplate: '<li class="search-results-item"><a href="http://localhost:4000{url}">{title}</a></li>',
+	limit: 9,
+	noResultsText: '<li class="search-results-item"><a href="#">No results found...</a></li>'
+})
+</script>
+
+	<!-- Main Js -->
+<!--<script src="/assets/js/main.js"></script>-->
+
+<!-- JQuery 3.x min -->
+<script src="/assets/js/jquery.js"></script>
+
+<script>
+	let menus = $("#category-list");
+	let image = $("#menu-toggler img");
+	$("#toggler-wrapper").click(function() {
+		if(menus.css("display") === "none") {
+			image.attr("src", "/assets/img/close-button.png");
+			menus.css("display", "flex");
+		}
+		else {
+			image.attr("src", "/assets/img/nav-off.png");
+			menus.css("display", "none");
+		}
+	});
+
+
+</script>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-127149179-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-127149179-1');
+</script>
+
+</body>
+</html>
