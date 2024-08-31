@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>바래지 않는 가치 - Parkito's on the way</title>
+	<!-- Mathjax Support -->
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+
+<!--
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+</script>
+-->
+
+<!--
+<script>
+MathJax = {
+  tex: {
+    packages: ['base', 'autoload'],        // extensions to use
+    inlineMath: [              // start/end delimiter pairs for in-line math
+      ['\\(', '\\)']
+    ],
+    displayMath: [             // start/end delimiter pairs for display math
+      ['$$', '$$'],
+      ['\\[', '\\]']
+    ],
+    processEscapes: true,      // use \$ to produce a literal dollar sign
+    processEnvironments: true, // process \begin{xxx}...\end{xxx} outside math mode
+    processRefs: true,         // process \ref{...} outside of math mode
+    digits: /^(?:[0-9]+(?:\{,\}[0-9]{3})*(?:\.[0-9]*)?|\.[0-9]+)/,
+                               // pattern for recognizing numbers
+    tags: 'none',              // or 'ams' or 'all'
+    tagSide: 'right',          // side for \tag macros
+    tagIndent: '0.8em',        // amount to indent tags
+    useLabelIds: true,         // use label name rather than tag for ids
+    multlineWidth: '85%',      // width of multline environment
+    maxMacros: 1000,           // maximum number of macro substitutions per expression
+    maxBuffer: 5 * 1024,       // maximum size for the internal TeX string (5K)
+    baseURL:                   // URL for use with links to tags (when there is a <base> tag in effect)
+       (document.getElementsByTagName('base').length === 0) ?
+        '' : String(document.location).replace(/#.*$/, ''),
+    formatError:               // function called when TeX syntax errors occur
+        (jax, err) => jax.formatError(err)
+  }
+};
+</script>
+-->
+
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+
+
+  <!-- Edit site and author settings in `_config.yml` to make the social details your own -->
+
+    <meta content="Parkito's on the way" property="og:site_name">
+  
+    <meta content="바래지 않는 가치" property="og:title">
+  
+  
+    <meta content="article" property="og:type">
+  
+  
+    <meta content="수학 과외 이야기" property="og:description">
+  
+  
+    <meta content="http://localhost:4000/insight/sensitivity/need-to-be-set" property="og:url">
+	
+  
+    <meta content="2024-08-31T00:00:00+09:00" property="article:published_time">
+    <meta content="http://localhost:4000/about/" property="article:author">
+  
+  
+    <meta content="http://localhost:4000/assets/img/insight/everlasting-value-equation.jpeg" property="og:image">
+  
+  
+    
+    <meta content="Insight" property="article:section">
+    
+  
+  
+    
+    <meta content="math" property="article:tag">
+    
+    <meta content="statistics" property="article:tag">
+    
+    <meta content="calculus" property="article:tag">
+    
+    <meta content="integration" property="article:tag">
+    
+  
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@">
+    <meta name="twitter:creator" content="@">
+  
+    <meta name="twitter:title" content="바래지 않는 가치">
+  
+  
+    <meta name="twitter:url" content="http://localhost:4000/insight/sensitivity/need-to-be-set">
+  
+  
+    <meta name="twitter:description" content="수학 과외 이야기">
+  
+  
+    <meta name="twitter:image:src" content="http://localhost:4000/assets/img//insight/everlasting-value-equation.jpeg">
+  
+
+  
+    <meta content="수학 과외 이야기" name="description">
+  
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="shortcut icon" href="/assets/img/favicon/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" href="/assets/img/favicon/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/assets/img/favicon/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/assets/img/favicon/apple-touch-icon-144x144.png">
+	<!-- Chrome, Firefox OS and Opera -->
+	<meta name="theme-color" content="#263959">
+	<!-- Windows Phone -->
+	<meta name="msapplication-navbutton-color" content="#263959">
+	<!-- iOS Safari -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="#263959">
+	<!-- Google Fonts -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="/assets/fonts/font-awesome/css/font-awesome.min.css">
+	<!-- Styles -->
+	<link rel="stylesheet" href="/assets/css/main.css">
+	<link rel="stylesheet" href="/assets/css/personal.css">
+	<link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Nanum+Gothic:400,700,800&amp;subset=korean" rel="stylesheet">
+
+</head>
+
+<body style="position: relative">
+	<div id="toggler-wrapper">
+		<div id="menu-toggler">
+			<img src="/assets/img/nav-off.png" alt="Menu collapse image">
+		</div>
+	</div>
+
+  <div class="wrapper">
+
+		<nav id="nav">
+			<div id="menus">
+				<p>
+					<a class="navbar-brand text-white" href="/">&nbsp;&nbsp;&nbsp;Parkito's on the way!&nbsp;&nbsp;&nbsp;</a>
+				</p>
+				<ul id="category-list">
+					<li>
+						<a href="/about.me">
+							<div class="menu">
+								<span> About </span>
+							</div>
+						</a>
+					</li>
+				
+					<li>
+						<div class="menu-wrapper">
+							<a href="/category/programming">
+								<div class="menu">
+									<span> Programming </span>
+								</div>
+							</a>
+							<div class="menu-item">
+								<a href="/category/programming/knowledge">Knowledge</a>
+								<a href="/category/programming/algorithm">Algorithm</a>
+								<a href="/category/programming/python">Python</a>
+								<a href="/category/programming/shell-programming">Shell programming</a>
+							</div>
+						</div>
+					</li>
+				
+					<li>
+						<div class="menu-wrapper">
+								<a href="/category/insight">
+									<div class="menu">
+										<span> Insight </span>
+									</div>
+								</a>
+								<div class="menu-item">
+									<a href="/category/insight/sensitivity">&nbsp;&nbsp;Sensitivity&nbsp;&nbsp;</a>
+									<a href="/category/insight/rationality">&nbsp;&nbsp;Rationality&nbsp;&nbsp;</a>
+								</div>
+						</div>
+					</li>
+
+					<li>
+						<div class="menu-wrapper">
+								<a href="/category/projects">
+									<div class="menu">
+										<span> Projects </span>
+									</div>
+								</a>
+							<div class="menu-item">
+								<a href="/category/projects/dev-related">&nbsp;&nbsp;Dev related&nbsp;&nbsp;</a>
+								<a href="/category/projects/etc">&nbsp;&nbsp;ETC&nbsp;&nbsp;</a>
+							</div>
+						</div> </li>
+
+				</ul>
+			</div>
+
+			<div id="menus-right">
+				<div id="search-section">
+					<div class="input-wrapper">
+						<span class="fa fa-search"></span>
+						<input type="text" id="search-input" placeholder="Please input specific keyword :)" size="30">
+					</div>
+					<div id="results-container"></div>
+				</div>
+
+				<!--<div id="toggler-wrapper">-->
+					<!--<div id="menu-toggler">-->
+						<!--<img src="/assets/img/nav-off.png" alt="" width="35px" height="35px">-->
+					<!--</div>-->
+				<!--</div>-->
+				
+			</div>
+			
+		</nav>
+
+
+    <aside class="sidebar">
+  <header>
+    <div class="about">
+      <div class="cover-author-image">
+        <a href="/"><img src="/assets/img/1536558558520.jpg" alt="Sunghwan Park"></a>
+      </div>
+      <div class="author-name">Sunghwan Park</div>
+      <p>I'm Parkito. I'm back. Obsessed with esthetics of codes, sentences, modularity and writing</p>
+    </div>
+  </header> <!-- End Header -->
+  <footer>
+    <section class="contact">
+      <h3 class="contact-title">Contact me</h3>
+      <ul>
+				<!--
+        
+          <li><a href="https://twitter.com/artemsheludko_" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+        
+        
+          <li><a href="https://facebook.com/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+        
+				-->
+        
+          <li class="github"><a href="http://github.com/shoark7" target="_blank"><i class="fa fa-github"></i></a></li>
+        
+        
+          <li class="linkedin"><a href="https://in.linkedin.com/in/sunghwan-park-3773b8154" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+        
+        
+          <li class="email"><a href="mailto:shoark7@gmail.com"><i class="fa fa-envelope-o"></i></a></li>
+        
+      </ul>
+    </section> <!-- End Section Contact -->
+    <div class="copyright">
+      <p>2024 &copy; Sunghwan Park</p>
+    </div>
+  </footer> <!-- End Footer -->
+</aside> <!-- End Sidebar -->
+
+<div class="content-box clearfix">
+  <article class="article-page">
+  <div class="page-content">
+    
+    <div class="page-cover-image">
+      <figure>
+        <img class="page-image" src=/assets/img//insight/everlasting-value-equation.jpeg alt="바래지 않는 가치">
+        
+      </figure>
+    </div> <!-- End Page Cover Image -->
+    
+    <div class="wrap-content">
+      <header class="header-page">
+        <h1 class="page-title">바래지 않는 가치</h1>
+        <div class="page-date"><span>2024, Aug 31&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+      </header>
+
+      <ul>
+  <li>이 글을 소중한 내 친구에게 바칩니다.</li>
+</ul>
+
+<h2 id="바래지-않는-가치">바래지 않는 가치</h2>
+
+<p>내 책상 오른쪽 책장에는 여러 책이 있다. 컴퓨터 과학책, 전공이었던 경영전공 서적, 기타 노트 및 문구 잡동사니. 한쪽 구석에는 웬 A4 종이 뭉치가 있다. 시간과 비를 머금어 종이의 풀이 다 죽었고, 약간 누르스름해진 이 종이 뭉치를 나는 쉽사리 버리지 못한다.</p>
+
+<p>난 웹 서버 개발로 커리어를 시작했지만 개발 공부는 데이터 분석으로 입문했다. 그래서 진지하게 데이터 분석가가 되기 위해 혼자 통계 공부를 열심히 하던 때가 있다. 어떤 통계 교과서를 열심히 탐독했는데, 처음 몇 장까지는 독학이 가능했으나 일차 회귀식부터는 지지부진해졌다. 문과 학생으로서 미적분을 배우지 못한 나는(나이가 드러나고 말았다) 회귀식 유도 증명을 전혀 이해하지 못했고, 인터넷을 아무리 뒤져도 다른 증명 방법을 찾지 못해 좌절하고 있었다. 난 공부를 포기 못하겠기에 어떻게든 회귀식을 이해해야했다. 회귀(regression)는 통계 또는 머신러닝의 기본 중의 기본이기 때문이다. 그래서 난 미적분을 공부하고 회귀식을 이해하기 위해 과외 선생을 찾았다. 나보다 한 살 어린, 당시 전자공학과 재학 중인 학생이었다. 이 학생에게 가르침 받기 위해 마찬가지로 학생이었던 나는 반 년 동안 랍스타 해체 아르바이트를 해야 했다.</p>
+
+<p>첫 수업날이 생각난다. 과외비를 벌기 위해 알바를 했지만 과외비는 학생인 나에게 부담되는 큰 돈이었다. 돈 주고 과외했는데 막상 만족하지 못함이 염려됐고, 그에 대한 보험이 필요했다. 선생에게 첫 수업을 듣고 만족하면 과외를 하겠다고 했다. 수업날, 그 친구는 수학 이야기는 하지 않고 뜬금없이 메이플스토리 이야기를 했다. 자신이 메이플스토리 하드코어 유저인데, 메이플스토리는 레벨당 필요 경험치가 크게 다르다고 하면서 레벨별 레벨업 필요 경험치 그래프를 보여주었다. X축이 레벨이었고, Y축이 해당 레벨의 레벨업 필요 경험치였다. 메이플스토리를 해보면 알겠지만 메이플스토리는 200 레벨 중반 때까지는 레벨업이 매우 쉽고, 어느 사건의 지평선을 넘어가면서부터 레벨업이 어려워진다. 그래프는 지수 증가하고 있었으며, 미적분은 그 순간순간에 대한 변화를 알아볼 수 있게 해준다고 했다. 뻥. 도파민이 터졌고, 수업 끝나고 그 자리에서 과외를 하겠다고 말하고 송금했다. 몇 년 뒤 들은 이야기지만 그런 조건을 건 사람은 처음이라 그렇게 빡세게 수업을 준비한 적은 처음이었다고 한다. 그 말을 듣고 난 빙그레 웃기만 했다.</p>
+
+<p><img src="/assets/img/insight/everlasting-value-experience-scores.png" alt="목차" /></p>
+<ul>
+  <li>메이플스토리 레벨업 경험치 그래프. 왜 다양한 형태 중 이 곡선 형태인지는 다 알겠지. <a href="https://info-akh.tistory.com/m/252">출처</a></li>
+</ul>
+
+<p><br />
+<br /></p>
+
+<p>나를 가르치는 것이 아마 쉽지 않았을 것이다. 과외 경험이 여럿 있었겠지만 대개 입시를 준비하는 중고등학생이 대상이었을텐데, 이런 학생들은 단순히 유명한 수학책을 구해서 진도를 나가면 됐겠지만 내 목적은 특수했다. ‘미적분을 배우고 이를 활용해 회귀식을 유도해야 한다.’ 서점에 이런 과정을 거치는 책은 없었다. 그래서 그 친구는 나를 위해 매일매일 교재를 직접 만들어왔다. A4에 자신이 가르칠 내용을 개략적으로 써와서 이를 매일매일 풀어나가는 형식이었다.</p>
+
+<p><img src="/assets/img/insight/everlasting-value-index.jpeg" alt="목차" /></p>
+
+<p>우리는 꽤 죽이 잘 맞았다. 나도 열심히 했고 이 학생도 미쳐서 나를 가르쳤다는 생각이 든다. 우리의 원 목적, 즉 ‘미적분을 통해 회귀식을 유도한다’는 진작에 마치고 우리는 통계 공부를 시작했다. 이항정리, 중심극한정리, 정규분포, 초기하분포, 라플라스분포 등등을 만들고 유도하며 지적 유희를 즐겼다. 다시금 말하지만 나야 단순히 즐거웠지만 이 사람은 많이 힘들었으리라 생각한다. 수학과 학생도 아닌 사람이 웬 또라이 학생 한 명을 위해 증명식을 찾고 <a href="https://www.wolframalpha.com/">울프람알파</a>를 뒤져가며 공부해 와야 했을테니까. 난 호기심이 많아서 매 수업마다 많은 질문을 하고 많은 것을 요구하는 학생이었는데, 이 선생은 한 번도 ‘이런 것 알아서 뭐해요?’, ‘그건 저도 모릅니다. 수업과 관계없으니까 넘어가시죠.’라고 대응하지 않았고, 찾아보고 다음 수업 때 알려주겠다고 말해주던 사람이었다. 놀랍게도 정말 그렇게 했고, 이 점은 지금도 존경스럽기까지 하다.</p>
+
+<p>그러다가 이 학생도 카이제곱분포만큼은 증명 못하겠다고, 미안하다고 말해왔다. 하지만 난 전혀 개의치 않았고, 그동안의 헌신에 감사하다고 마음을 전했다. 과외가 꿀아르바이트라고 알려져 있으나, 이 친구가 수업을 준비하는데 투자한 시간을 감안하면 시급이 최저임금을 넘기지 않을 수 있다고 생각했기 때문이다. 마지막 날, 우리는 수업을 마치고 그가 재학 중인 학교 근처 왕십리에서 술을 한잔 했다. 그렇게 우리는 과외를 끝냈고, 나도 아르바이트를 그만뒀다.</p>
+
+<hr />
+
+<p><br />
+<br /></p>
+
+<p>난 이 시간을 통해 수학적 통찰력과 함께 그보다 훨씬 중요한 나 자신을 더 알게 되었다. 수학을 배우기 싫어 문과에 갔고 경영학과에 들어왔지만 알고 보니 난 수학을 대단히 좋아하는 사람이고, 또 내가 학문적인 공부를 꽤나 좋아하는 사람이라는 것. 그때 익힌 수학적 취미는 나를 떠나가지 않고 있다. 가령 차 표지판을 보고 4자리를 2자리씩 끊어 이 둘을 곱해나가는 등의 취미에 지금도 난 천착하고 있다. 나보고 대학원을 가라는 사람들이 꽤 있었는데 간다면 수학 대학원을 가고 싶었다. 나에게 이런 적성과 흥미가 있다는 것을 알게 된 계기가 이 수학 과외였다.</p>
+
+<p>내 책장에 있는 A4 뭉치는 내가 미적분과 통계를 잊었을 때 수학을 다시 접할 수 있는 reference다. 그뿐 아니라 이 종이들은 순수하게 미쳐 공부할 수 있었던 그 시간에 대한 증명이자 육체노동에 재능없는 내가 랍스터 집에서 핀잔을 들으며 일했던 이유이며, 수학이라는 즐거운 학문을 접하고 이후에도 진지하게 임할 수 있게 해준 발판이다. 또 내가 평생 사랑할 친구를 얻을 수 있게 해준 가교이며 내 20대를 돌아보건대 가장 행복했던 순간이다. 스타벅스에서 미적분을 통해 컵 길이를 적분해 컵의 부피를 예상하고 계량기로 적중시켰던 그때의 제정신 아닌 짜릿함이 지금도 나를 미소짓게 한다. 그런 내가 어떻게 오래됐다는 이유만으로 이 종이 뭉치를 버리겠는가?</p>
+
+<p>시간과 비를 머금어 종이의 풀이 다 죽었고, 약간 누르스름해진 이 종이 뭉치를 나는 결코 버리지 못한다.</p>
+
+      <div class="page-footer">
+        <div class="page-share">
+          <a href="https://twitter.com/intent/tweet?text=바래지 않는 가치&url=http://localhost:4000/insight/sensitivity/need-to-be-set" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
+          <a href="https://facebook.com/sharer.php?u=http://localhost:4000/insight/sensitivity/need-to-be-set" title="Share on Facebook" rel="nofollow" target="_blank">Facebook</a>
+          <a href="https://plus.google.com/share?url=http://localhost:4000/insight/sensitivity/need-to-be-set" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>
+        </div>
+        <div class="page-tag">
+          
+            <a href="/tags#math" class="tag">&#35; math</a>
+          
+            <a href="/tags#statistics" class="tag">&#35; statistics</a>
+          
+            <a href="/tags#calculus" class="tag">&#35; calculus</a>
+          
+            <a href="/tags#integration" class="tag">&#35; integration</a>
+          
+        </div>
+      </div>
+
+		  <!-- Load Facebook SDK for JavaScript -->
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+
+  <!-- Your share button code -->
+  <div class="fb-share-button" 
+    data-href="http://localhost:4000/insight/sensitivity/need-to-be-set" 
+    data-layout="button_count">
+  </div>
+
+		
+    </div> <!-- End Wrap Content -->
+  </div> <!-- End Page Content -->
+</article> <!-- End Article Page -->
+
+</div>
+
+  </div>
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', '', 'auto');
+  ga('send', 'pageview');
+</script> <!-- End Analytics -->
+
+	<script src="https://unpkg.com/simple-jekyll-search@1.5.0/dest/simple-jekyll-search.min.js"></script>
+<script>
+var sjs = SimpleJekyllSearch({
+  searchInput: document.querySelector('#search-input'),
+  resultsContainer: document.getElementById('results-container'),
+  json: '/search.json',
+  searchResultTemplate: '<li class="search-results-item"><a href="http://localhost:4000{url}">{title}</a></li>',
+	limit: 9,
+	noResultsText: '<li class="search-results-item"><a href="#">No results found...</a></li>'
+})
+</script>
+
+	<!-- Main Js -->
+<!--<script src="/assets/js/main.js"></script>-->
+
+<!-- JQuery 3.x min -->
+<script src="/assets/js/jquery.js"></script>
+
+<script>
+	let menus = $("#category-list");
+	let image = $("#menu-toggler img");
+	$("#toggler-wrapper").click(function() {
+		if(menus.css("display") === "none") {
+			image.attr("src", "/assets/img/close-button.png");
+			menus.css("display", "flex");
+		}
+		else {
+			image.attr("src", "/assets/img/nav-off.png");
+			menus.css("display", "none");
+		}
+	});
+
+
+</script>
+
+</body>
+</html>
